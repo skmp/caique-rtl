@@ -3,7 +3,7 @@
 // band << BS (BS = container scaling).  Other parameters: state fraction bits FB (1/2^FB sample units), product
 // rounding per term (0 floor, 1 toward zero, 2 half away, 3 half up), update order.
 // Score: total mismatches over the given datasets (lower is better) and first mismatch.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search5 tools/filt_search5.cpp ; run: filt_search5 F Q [F Q ...]
+// Build: make -C tools filt_search5 (-> build/tools/filt_search5) ; run: filt_search5 F Q [F Q ...]
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

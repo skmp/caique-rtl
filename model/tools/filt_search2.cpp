@@ -5,7 +5,7 @@
 // f = exact (512+m)<<e / 2^25, fq = f*q exact (q from the float fit); products rounded with mode 0 floor,
 // 1 toward zero, 2 round-half-up, 3 ceil.  Orders: 0 band first, 1 low first, 2 simultaneous.
 // Initial state: low from the first output, band = 0.  Score: first mismatching sample (higher is better).
-// Build: g++ -O2 -o work/filt/filt_search2 tools/filt_search2.cpp ; run from caique-rtl/model: filt_search2 F Q [F Q..]
+// Build: make -C tools filt_search2 (-> build/tools/filt_search2) ; run from caique-rtl/model: filt_search2 F Q [F Q..]
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

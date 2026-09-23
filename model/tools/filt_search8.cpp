@@ -9,7 +9,7 @@
 // (x, low converted to band units exactly before the products; f band' converted to low units by the product shift.)
 // Initial state: low = L0 << HL + hidden part, band chosen so that (low, band) is a fixed point under the DC input
 // (only such states are tried).  A hypothesis passes a dataset if a fixed-point start + switch point reproduces it.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search8 tools/filt_search8.cpp ; run from caique-rtl/model
+// Build: make -C tools filt_search8 (-> build/tools/filt_search8) ; run from caique-rtl/model
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

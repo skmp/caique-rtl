@@ -1,5 +1,6 @@
 // Independent validation of the coarse damping SVF, using full captures and known inputs.
-// Build (also checks actual production output with -DVERIFY_MODEL and src/aica_model.cpp): g++ -O2 -std=c++17 -o work/filt/filt_validate tools/filt_validate.cpp
+// Build: make -C tools filt_validate filt_validate_model (-> build/tools/; the _model variant is compiled with
+// -DVERIFY_MODEL and src/aica_model.cpp and also checks the real AicaModel output)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>
@@ -117,6 +118,33 @@ int main(int argc,char**argv){
   }
  }
 
+ {
+  // filt_low: low exponents from a known small state (unity-cutoff prelude); stream 3 = unfiltered reference
+  const int lf[6][3]={{0x0000,0x0200,0x0400},{0x0600,0x0800,0x0a00},{0x0c00,0x0e00,0x1000},
+                      {0x1200,0x1400,0x1600},{0x01fe,0x0955,0x13fe},{0x0a00,0x0a00,0x0400}};
+  const int lq[6][3]={{4,4,4},{4,4,4},{4,4,4},{4,4,4},{4,4,4},{0,31,31}};
+  for(int batch=0;batch<6;batch++){
+   std::string p="tests/filt_low/hw/fl_"+std::to_string(batch);
+   FILE*t=fopen((p+".hdr").c_str(),"rb");if(!t)break;fclose(t);
+   auto c=cap(p);std::vector<int16_t> xi(c.n);int on=1;
+   for(unsigned n=0;n<c.n;n++)xi[n]=c.v[n*4+3]/16;
+   while(on<(int)c.n&&!xi[on])on++;
+   for(int k=0;k<3;k++)report("low",batch,k,lf[batch][k],lq[batch][k],check(c,k,lf[batch][k],lq[batch][k],xi,on,on));
+  }
+ }
+ {
+  // filt_wide: resonant Q31 square-wave drive, states to ~2^21.7 (integrator width); stream 3 = reference
+  const int wf[4]={0x1800,0x1a00,0x1600,0x1400};
+  const int wq[4][3]={{31,28,24},{31,30,20},{31,29,16},{31,31,31}};
+  for(int batch=0;batch<4;batch++){
+   std::string p="tests/filt_wide/hw/fw_"+std::to_string(batch);
+   FILE*t=fopen((p+".hdr").c_str(),"rb");if(!t)break;fclose(t);
+   auto c=cap(p);std::vector<int16_t> xi(c.n);int on=1;
+   for(unsigned n=0;n<c.n;n++)xi[n]=c.v[n*4+3]/16;
+   while(on<(int)c.n&&!xi[on])on++;
+   for(int k=0;k<3;k++)report("wide",batch,k,wf[batch],wq[batch][k],check(c,k,wf[batch],wq[batch][k],xi,on,on));
+  }
+ }
  printf("TOTAL qbias=%d full=%d/%d consecutive samples=%lld/%lld\n",qbias,full,total,(long long)matched,(long long)samples);
  return full!=total;
 }

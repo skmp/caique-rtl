@@ -1,0 +1,13 @@
+ff_0: onset 422, 6426 samples, reference odd s16 2849 (negative 1425)
+  stream 0 F 1ffe Q  4: floor 6426 ceil 2 toward0 3 half-up 2 half-even 2 away 2
+  stream 1 F 1e00 Q  4: floor 6426 ceil 2 toward0 13 half-up 2 half-even 2 away 2
+  stream 2 F 1c00 Q 31: floor 6426 ceil 5 toward0 5 half-up 5 half-even 5 away 5
+ff_1: onset 905, 6007 samples, reference odd s16 2691 (negative 1408)
+  stream 0 F 1ffe Q  4: floor 6007 ceil 2 toward0 4 half-up 2 half-even 2 away 2
+  stream 1 F 1e00 Q  4: floor 6007 ceil 4 toward0 4 half-up 4 half-even 4 away 4
+  stream 2 F 1c00 Q 31: floor 6007 ceil 18 toward0 18 half-up 18 half-even 18 away 18
+ff_2: onset 576, 6272 samples, reference odd s16 2796 (negative 1418)
+  stream 0 F 1ffe Q  4: floor 6272 ceil 5 toward0 7 half-up 5 half-even 10 away 5
+  stream 1 F 1e00 Q  4: floor 6272 ceil 7 toward0 7 half-up 7 half-even 12 away 15
+  stream 2 F 1c00 Q 31: floor 6272 ceil 10 toward0 10 half-up 10 half-even 14 away 15
+full streams per conversion (of 9): floor 9 ceil 0 toward0 0 half-up 0 half-even 0 away 0

@@ -12,7 +12,7 @@
 // T(V, s): V >> s with mode tm (0 floor, 1 toward zero).  Rounding modes: 0 floor, 1 toward zero, 2 half away,
 // 3 half up, 6 half even.  REST (env, default 3): rest samples simulated before the input.
 // usage: [REST=n] [TOP=n] filt_search12 stream...
-// Build: g++ -O2 -fopenmp -std=c++17 -o work/filt/filt_search12 tools/filt_search12.cpp
+// Build: make -C tools filt_search12 (-> build/tools/filt_search12)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

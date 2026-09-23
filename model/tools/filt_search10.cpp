@@ -10,7 +10,7 @@
 //   order 0: B first (uses old L), then L;  order 1: L first (uses old B), then B (uses new L)
 // Rounding modes: 0 floor, 1 toward zero, 2 half away, 3 half up, 4 ceil, 5 away from zero, 6 half even.
 // Output y = L.  Start: L0 = y[on-REST-1] + a (a = 0 only: L has no hidden bits here), B0 searched.
-// usage: [TOP=n] filt_search10 stream...      Build: g++ -O2 -fopenmp -std=c++17 -o work/filt/filt_search10 tools/filt_search10.cpp
+// usage: [TOP=n] filt_search10 stream...      Build: make -C tools filt_search10 (-> build/tools/filt_search10)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

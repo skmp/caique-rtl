@@ -2,7 +2,7 @@
 // For each +A / -A stream pair (same F, Q) and each sample from `on`, classify y(-A) against y(+A):
 //   N: y(-A) == ~y(+A) (= -y - 1)      Z: y(-A) == -y(+A)      other: neither
 // Window: from `on` (the step) to the end of the capture; also the rest samples before `on`.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_sym tools/filt_sym.cpp ; run from caique-rtl/model
+// Build: make -C tools filt_sym (-> build/tools/filt_sym) ; run from caique-rtl/model
 #include <cstdio>
 #include <cstdint>
 #include <vector>

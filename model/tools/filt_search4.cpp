@@ -5,7 +5,7 @@
 // output 1/8 sample = R(low >> (FL-3)); MIXS = -2 * output.  q = qn/8 (Q 0: 12, 4: 8, 8: 6, 16: 3).
 // fq either one product (f*qn/8 as a coefficient) or two steps (R(q*R(f*band))).
 // Rounding modes: 0 floor, 1 toward zero, 2 half away from zero, 3 half up.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search4 tools/filt_search4.cpp; run: filt_search4 F Q [F Q ...]
+// Build: make -C tools filt_search4 (-> build/tools/filt_search4); run: filt_search4 F Q [F Q ...]
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

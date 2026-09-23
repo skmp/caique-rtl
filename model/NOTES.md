@@ -2,7 +2,7 @@
 
 Everything measured on the console lives under `tests/<case>/hw/`, the model's run of the same case under
 `tests/<case>/model/`. A test case (`cases/<case>.c`) is written once against `cases/aica_io.h` and built for both
-(`hw/` KOS back-end, `host/` model back-end). Run: `./run_hw.sh CASE...` (console, through shrike4 `hwrun.sh`) and
+(`hw/` KOS back-end, `host/` model back-end; every executable is built under `build/`, git-ignored). Run: `./run_hw.sh CASE...` (console, through shrike4 `hwrun.sh`) and
 `./run_model.sh CASE...` (model), then diff the two output directories.
 
 Model: `src/aica_model.{h,cpp}`. Baseline = minicast `libswirl/hw/aica` (SGC port, DSP interpreter). Deviations from
@@ -10,7 +10,7 @@ minicast are listed below with the test that forced them.
 
 ## Access / register map (tests/probe)
 
-- VER = 1 (0x2800 reads 0x0010). MVOL/DAC18B/MEM8MB/MONO are write-only. RBP/RBL (0x2804) read 0. TIMA/B/C read 0
+- VER = 1 (0x2800 reads 0x0010). MVOL/DAC18B/MEM8MB/MONO are write-only. RBP/RBL (0x2804) read 0. TIMA/B/C read 0 (tests/timer_probe: at every prescale, whatever was written -- write-only, so no sample-rate timestamps from them; claim D3)
   (the counters are not readable); their overflow bits do show up in SCIPD/MCIPD (0x5C0 at boot).
 - G2 access cost from the SH4: ~2.4 us per 32-bit read (register or wave RAM).
 - Channel register stored bits (write FFFF, read back): +00 47FF (KYONEX is an action; bits 13:11 not stored),
@@ -20,9 +20,10 @@ minicast are listed below with the test that forced them.
   - COEF bits 15:3; MADRS, MPRO 16 bits.
   - TEMP: full 24 bits R/W (+0: bits 7:0, +4: bits 23:8).
   - MEMS: +4 (bits 23:8) R/W; +0 (bits 7:0) is **not CPU-writable** but reads back what the DSP wrote.
-  - MIXS: R/W 20 bits (+0: 3:0, +4: 19:4) but a CPU write is replaced by the next sample's accumulation. On hardware
-    the DSP still saw a CPU-written MIXS value on alternate samples for a while (tests/dsp_basic F; the model does
-    not do this — double buffering, not modelled).
+  - MIXS: R/W 20 bits (+0: 3:0, +4: 19:4); the CPU reads a written value back as 0 after 2 ms.  But the console's
+    DSP keeps seeing a CPU-written MIXS value: on all 128 TEMP slots over a 4 ms run (tests/dsp_temp T2), on
+    alternate samples in tests/dsp_basic F.  Not modelled (the model clears MIXS every sample); probably a
+    double-buffered input latch; no real software writes MIXS.  [claim D2]
   - EFREG 16 bits R/W. EXTS reads 0, not writable (no CD playing).
 - Monitors: MSLC (0x280C bits 13:8) selects the slot. 0x2810 = LP(15) SGC state(14:13) EG(12:0). EG is **13 bits**:
   0x1FFF when the slot is off/released, 0 at full volume; otherwise the 10-bit attenuation (see Amplitude envelope).
@@ -42,7 +43,7 @@ minicast are listed below with the test that forced them.
   (tests/sgc_mix, model identical).  minicast clamped.
 - minicast used float-derived 2^(-x/16) tables and a 16-bit MIXS scale; both replaced.
 
-## Amplitude envelope (tests/sgc_aeg, tools/aeg*.py)
+## Amplitude envelope (tests/sgc_aeg, aeg_dl0; tools/aeg*.py are legacy)
 
 Captured with a constant 0x7FFF sample; the attenuation of every sample follows from the level law, and the EG
 monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), state in bits 14:13.
@@ -52,8 +53,14 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   - R < 48: a tick every 2^(11 - R/4) EG clocks, increment from row R&3 of the OPN eg_inc table (AR 1: spacings
     4096, 4096, 8192 samples).  R >= 48: every clock, rows 4.. (R 60-63 all 8).
   - Attack: `a += (~a * inc) >> 4` (= a - (a >> s) - 1 with inc 8/4/2/1 ↔ s 1/2/3/4); at 0 → decay 1.
-  - Decay 1 / decay 2 / release: `a += inc`.  Decay 1 → decay 2 when a >= DL << 5 (the new rate applies on the same
-    clock, no skipped tick).
+  - Decay 1 / decay 2 / release: `a += inc`.  Decay 1 → decay 2 when a >= DL << 5, **checked after that clock's
+    decay 1 step** (every clock that starts in decay 1, also without a step; not on the clock that enters decay 1):
+    decay 2's rate applies from the next clock, no skipped tick.  tests/aeg_dl0: with **DL = 0** the first decay 1
+    clock still takes its step (D1R 31: attenuation 0 → 8, level 32767·119/128) and then holds in decay 2; D1R 20
+    and 10 have no step on that clock and never move.  The EG monitor shows the new state within the crossing
+    clock (tests/sgc_aeg dec_a).  The model switched one clock later and skipped the DL = 0 step; fixed (levels
+    unchanged for DL > 0: the sgc_aeg model captures are identical to the previous ones after onset alignment).
+    [claims A1-A3]
   - Reaching the top (past 0x3FF) the slot goes "off": the monitor reads 0x1FFF and the output is silent.  The
     state is kept: decay 2 stays decay 2 (monitor 0x5FFF); **minicast** switches decay 2 → release instead.
 - **Key-on loads a = 0x280 (-60 dB)**, not 0x3FF, and the key event takes effect on an envelope clock: the key-on
@@ -115,16 +122,35 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   disables scaling.  rate 0 = no change.  (**minicast** adds KRS unscaled and never clamps.)
 - **R = 63 attack is instant** (EG = 0 at the key-on clock); R = 62 still ramps (s = 1 steps).
 
-## Filter envelope (FEG) (tests/feg_probe)
+## Filter envelope (FEG) (tests/feg_probe, feg_track)
 
 - The monitor with AFSEL = 1 reads the 13-bit FEG value, state in bits 14:13 (the FEG's own state, not the AEG's).
 - Key-on loads FLV0.  The value then moves **linearly** (±inc per tick, same clock and increment tables as the
   AEG at the rate's R) toward FLV1 (FAR), FLV2 (FD1R), FLV3 (FD2R, then holds); key-off heads for FLV4 (FRR).  It
   moves up or down as needed.  Rate 0 holds.  FLV changes take effect only through the envelope (no key-on → no
   new FLV0).
-- Unmeasured: exact transition timing, KRS on FEG rates, overshoot handling.
+- **Sample-exact behaviour** (tests/feg_track; tools/feg_track.cpp recovers v >> 1 at every sample through the
+  bit-exact filter with a full-scale random input -- v bit 0 is unused by the filter; tools/feg_fit.cpp fits the
+  envelope clock; tools/feg_validate.cpp runs the production model: 9/9 streams, 77,862/77,862 samples)
+  [claims E1-E4]:
+  - the envelope clock ticks every 2 samples; key-on loads FLV0 at a clock, the first step comes on the next clock;
+    key-off switches to release and steps on the same clock.
+  - **KRS applies to FEG rates** exactly as to the AEG (R = 2 rate + KRS scaling; KRS 0 and 5 at OCT +3 fit only
+    with it).
+  - **One comparator C = (v >= target).**  A segment moves down if C holds when it starts, else up (a segment that
+    starts exactly on its target moves one step down).  Attack and decay 1 step until C flips -- upward they end
+    at or past the target, downward strictly below it (overshoot by up to one step: 0x1C04 +4 -> 0x1C08 with
+    FLV1 0x1C05) -- and the next segment steps on the very next clock (no idle clock).  Decay 2 and release skip
+    any step that would flip C and hold short of the target (0x1AFA with FLV3 0x1B00 at +8; 0x1BFF, 0x1FF8).
+  - The R < 48 increment rows see the clock counter one step behind the R >= 48 rows (streams mixing both need
+    an offset = 3 mod 4).  Applied to the FEG only; the AEG tests are phase-independent, so it is unmeasured there.
+  - Open: in one batch slot 2 took the shared key-off one clock earlier than slots 0/1, and its counter phase
+    differs from theirs by 2 (mod 4): the envelope work is probably spread over the slots within the 2-sample
+    period, so a register write can land between slots.  A slot-number sweep with one FEG program would pin it.
+  - The model had clamping at the target and an idle clock at each transition; both are fixed (src/aica_model.cpp
+    feg_clock).
 
-## Slot filter (integer arithmetic solved on 235 captured streams, 2026-09-23)
+## Slot filter (integer arithmetic solved; 265 captured streams, 2026-09-23)
 
 The production model now uses the following deterministic recurrence. Input `x`, band `B` and low `L` are
 in **1/8-sample units**. Define `ceildiv(n,s) = -((-n) >> s)` with arithmetic right shifts:
@@ -192,8 +218,11 @@ those initial states into **the real AicaModel**, supplies each input via its sl
 | filt_imp | 16 | Full-range signed impulses, 511 impulses per stream, four batches |
 | filt_edges | 12 | Fresh console captures, endpoint exponents, ±1000/±7/±1 impulses |
 | filt_top | 4 | Unity cutoff, inherited states, DC, looped full-range random input |
+| filt_low | 18 | e = 0..11 from a KNOWN start state (unity-cutoff prelude), full-scale step, 1-4 s each; Q 0/4/31, k 256/426/511 |
+| filt_wide | 12 | Resonant Q 16..31 driven by a full-scale square wave at the resonance: states to 2^21.7, 20-36 % railed |
 
-**235/235 streams; 2,050,454/2,050,454 consecutive samples match**, including raw positive saturation rail.
+**265/265 streams; 4,286,180/4,286,180 consecutive samples match** (production model included), including the
+raw positive saturation rail.  (235 / 2,050,454 before filt_low and filt_wide were added.)
 Commands and build flags are in HANDOVER.md. Results: `work/filt/validate_model.txt`.
 The impulse fixture has 65536 sample addresses and the capture repeats at the 16-bit address wrap; the validator
 models that observed wrap rather than assuming silence after the supplied buffer.
@@ -209,11 +238,38 @@ programs. `tools/filt_compare.cpp` compares aligned impulse-to-capture-end windo
 
 All 16 existing non-filter model cases were re-run without Python. Their saved outputs are byte-identical to
 pre-change outputs except `sgc_level.txt`'s already-excluded L5 filter line. Baseline hashes:
-`work/filt/nonfilter_before.sha256`. The known AEG phase differences remain.
+`work/filt/nonfilter_before.sha256`. The known AEG phase differences remain.  After the AEG decay-1 fix (session
+2) the sgc_aeg / sgc_keys model outputs differ from that baseline only in monitor timing (levels identical after
+alignment); the current baseline is `work/model_outputs_2026-09-23.sha256`.
 
-Still unverified: e=0..10 with clean captures, filter input from fractional interpolation, VOFF=0 precision and
-attenuation order, ultimate internal overflow limits. The old `filt_probe/fp_2` capture has 228 counter errors;
-it must not be used as arithmetic evidence. FEG transition/KRS issues are separate. Minicast had no filter.
+Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
+
+- **Low cutoffs e = 0..11** (tests/filt_low) [F1]: each slot first plays zeros at 0x1FFE, which leaves it in the
+  (0,-1,-1) cycle or at (0,0); at a low cutoff those states freeze, so the start of the step is known.  All 18
+  streams match end to end.  At e = 0 the low output climbs by exactly 1 per sample from the first sample (the
+  low update ceil of a tiny positive product), and overshoot reaches the output rail (-MIXS/2 = 262144).
+- **Fractional input** (tests/filt_frac, tools/filt_frac.cpp) [F2]: the filter takes the interpolated 1/16-sample
+  value as **floor(s16 / 2)**.  Three fractional pitches x three filters, with an LPOFF reference slot giving s16
+  exactly (about 1400 negative odd s16 per batch): floor reproduces all 9 streams, ceil / toward zero / nearest
+  fail within about 20 samples.  The model already did this.
+- **VOFF = 0 with the filter on** (tests/filt_voff, tools/filt_voff.cpp) [F3]: the level multiply comes AFTER the
+  filter, on its clamped 1/16 output, and the result is truncated to whole samples:
+  `MIXS = (floor(clamp(-2 low) * M / 2^(7 + (a >> 6))) >> 4) * 16` (a = 4 TL + AEG + ALFO, M = 127 - (a & 63)).
+  8/8 streams (TL 0..0xA3, Q 4/16/31); level before the filter, filter cut to whole samples before the level,
+  and a 1/16-precision result all fail.  The model already did this.  (sgc_level L5 is not evidence either way:
+  its console value needs a settled low of exactly x, the model settles one LSB below, both inside the DC deadband
+  and the console state is inherited.)
+
+- **Integrator width** (tests/filt_wide, tools/filt_wide.cpp) [F4]: no FLV/Q setting is unstable, so the largest states
+  come from resonance.  Q 31 driven by a full-scale square wave at the resonant period reaches |low| and |band| of
+  about 3.28M (2^21.65), with 20-36 % of output samples on the rails.  The unbounded recurrence matches all 12
+  streams; clamping or wrapping both integrators at 22 bits or fewer fails, at 23 bits or more matches.  That drive
+  is essentially the largest any input can produce (resonance gain ~1/q x 4/pi), so the integrators hold at least
+  23 signed bits (1/8 units) and any wider register behaves identically; the model's int32 states are exact.
+- The validator (tools/filt_validate.cpp) gained the filt_low and filt_wide sets: 265 streams, 4,286,180 samples;
+  other damping roundings fail (qbias 0: 4/265, 128: 117/265, 223: 154/265) [F5].
+- The old `filt_probe/fp_2` capture has 228 counter errors; it must not be used as arithmetic evidence.  minicast
+  had no filter.
 
 ## DSP (tests/dsp_basic — model matches hardware on every vector)
 
@@ -251,15 +307,19 @@ it must not be used as arithmetic evidence. FEG transition/KRS issues are separa
 - NOFL for the IWT conversion is exactly the NOFL of step s-2 (only that bit matters; tests/dsp_mem2 E).
 - Float format verified exhaustively: UNPACK for all 65536 words (tests/dsp_unpack), PACK for all 2^24 values
   (tests/dsp_pack, on-console comparison, CRC ef84ca79 on both platforms).  Shared code: src/dsp_float.h.
+- TEMP ring (tests/dsp_temp, all 128 slots dumped): the TWT writer moves down one slot per sample (MDEC_CT) and
+  rewrites every slot within 128 samples, as in the model.  The one stale slot seen once in dsp_basic
+  "A ffff -4096 1" did not reproduce (a program-load transient of that run).  [claim D1]
 
 ## Open items
 
-- AEG: key rate scaling (KRS/OCT/FNS), LPSLNK, key-on while not released, decay 2 "off" + key-on, DL = 0 with D1R.
-- Filter: arithmetic solved on 235 streams; remaining low exponents, fractional input, VOFF=0 precision, and
-  ultimate internal overflow. See Slot filter and HANDOVER.md.
-- FEG: transition timing, KRS, compare the model with tests/feg_probe.
-- One stale TEMP slot (1 of 4 sampled) after a 4 ms wait in dsp_basic `A ffff -4096 1` — recheck whether TEMP
-  indexing really covers all 128 slots in 128 samples (not reproduced elsewhere).
+- AEG: the counter phase between the R < 48 and R >= 48 rows (measured on the FEG, see Filter envelope) is not
+  applied to the AEG, whose captures are compared phase-independently.  (KRS, LPSLNK, key-on while not released,
+  decay 2 "off" + key-on and DL = 0 are measured: see the sections above.)
+- Filter: nothing open in the arithmetic (see Slot filter).  sgc_level L5 stays an inherited-state difference.
+- FEG: per-slot envelope timing within the 2-sample period (see Filter envelope, claim E4); the rest is measured.
+- DSP: SH4-written MIXS persists as a DSP input on the console, not modelled (see Access / register map, claim D2);
+  dsp_basic keeps its "F ira 25" line excluded.
 
 ## Test-writing notes
 

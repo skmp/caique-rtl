@@ -1,0 +1,8 @@
+T1 after A shift 0 (4 ms) t 4002..4637 us: -> 0 slots
+T1 A shift 1 dump 1 t 48..667 us: -> 16 slots
+T1 A shift 1 dump 2 t 1622..2241 us: -> 84 slots
+T1 A shift 1 dump 3 t 5197..5818 us: -> 128 slots
+T1 A shift 1 dump 4 t 10778..11399 us: -> 128 slots
+T2 F ira 25 (4 ms) t 4047..4668 us: -> 128 slots
+T2 MIXS5 readback right after write 1234/5 -> 0 slots
+T2 F ira 25 after a second write (no reload) t 2..622 us: -> 128 slots

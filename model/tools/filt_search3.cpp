@@ -7,7 +7,7 @@
 // y has FB fraction bits (sample units), output (1/8 sample) = RO(y >> (FB - 3)); MIXS = -2 * output.
 // Coefficients exact (scale 2^50) or truncated to CB fraction bits.  Rounding modes: 0 floor 1 toward-zero
 // 2 round-half-up 3 ceil.  Score: first mismatch over all given datasets (min).
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search3 tools/filt_search3.cpp ; run: filt_search3 F Q [F Q ...]
+// Build: make -C tools filt_search3 (-> build/tools/filt_search3) ; run: filt_search3 F Q [F Q ...]
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

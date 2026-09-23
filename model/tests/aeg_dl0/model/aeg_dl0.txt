@@ -1,0 +1,2 @@
+cap_start: counter word fde8 at 0ba0 (n 535), next fde9 fdea fdeb, c0 0db7, head n 539
+dl0: 20416 samples, counter errors 0, 85331 EG monitor reads, 1192 changes

@@ -11,7 +11,7 @@
 //         at column s with mode r (floor or half up via a constant)
 //   mm 2: as 1 but Booth on C (the coefficient), rows d_j V 4^j
 // usage: [HLS=..] [TOP=n] filt_search11 stream...
-// Build: g++ -O2 -fopenmp -std=c++17 -o work/filt/filt_search11 tools/filt_search11.cpp
+// Build: make -C tools filt_search11 (-> build/tools/filt_search11)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

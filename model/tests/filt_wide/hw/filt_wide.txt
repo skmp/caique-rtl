@@ -1,0 +1,24 @@
+fw_0 stream 0: F 1800 Q 31 lpoff 0 half-period 50
+fw_0 stream 1: F 1800 Q 28 lpoff 0 half-period 50
+fw_0 stream 2: F 1800 Q 24 lpoff 0 half-period 50
+fw_0 stream 3: F 1800 Q 4 lpoff 1 half-period 50
+cap_start: counter word fd94 at 8160 (n 619), next fd95 fd96 fd97, c0 83cb, head n 648
+fw_0: 11264 samples, errors 0
+fw_1 stream 0: F 1a00 Q 31 lpoff 0 half-period 25
+fw_1 stream 1: F 1a00 Q 30 lpoff 0 half-period 25
+fw_1 stream 2: F 1a00 Q 20 lpoff 0 half-period 25
+fw_1 stream 3: F 1a00 Q 4 lpoff 1 half-period 25
+cap_start: counter word fdbf at 3ec0 (n 576), next fdc0 fdc1 fdc2, c0 4100, head n 586
+fw_1: 11072 samples, errors 0
+fw_2 stream 0: F 1600 Q 31 lpoff 0 half-period 100
+fw_2 stream 1: F 1600 Q 29 lpoff 0 half-period 100
+fw_2 stream 2: F 1600 Q 16 lpoff 0 half-period 100
+fw_2 stream 3: F 1600 Q 4 lpoff 1 half-period 100
+cap_start: counter word fd13 at fc00 (n 748), next fd14 fd15 fd16, c0 feec, head n 765
+fw_2: 11264 samples, errors 0
+fw_3 stream 0: F 1400 Q 31 lpoff 0 half-period 201
+fw_3 stream 1: F 1400 Q 31 lpoff 0 half-period 201
+fw_3 stream 2: F 1400 Q 31 lpoff 0 half-period 201
+fw_3 stream 3: F 1400 Q 4 lpoff 1 half-period 201
+cap_start: counter word fd62 at b880 (n 669), next fd63 fd64 fd65, c0 bb1d, head n 700
+fw_3: 11264 samples, errors 0

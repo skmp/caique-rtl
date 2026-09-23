@@ -13,7 +13,7 @@
 // The unknown start state (low hidden bits, band) is searched; the simulation starts REST samples before `on` and the
 // input switches on at on + d (d = -1..1, order 1 also -2) and off 256 samples later.
 // usage: filt_search9 [stream list, default all]   (run from caique-rtl/model)
-// Build: g++ -O2 -fopenmp -std=c++17 -o work/filt/filt_search9 tools/filt_search9.cpp
+// Build: make -C tools filt_search9 (-> build/tools/filt_search9)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

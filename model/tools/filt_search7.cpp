@@ -14,7 +14,7 @@
 //     (X = 8x, L in 1/8 units; the output has no hidden bits in this family)
 // All state in 1/2^(3+H) sample units (SVF band in the same units).  Coefficients exact (f = (256 + FLV[8:1]) /
 // 2^(24-e), q = q128/128).  Rounding modes 0 floor, 1 toward zero, 2 half away, 3 half up, 4 ceil; output mode ro.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search7 tools/filt_search7.cpp ; run from caique-rtl/model
+// Build: make -C tools filt_search7 (-> build/tools/filt_search7) ; run from caique-rtl/model
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

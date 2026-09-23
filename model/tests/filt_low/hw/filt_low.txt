@@ -1,0 +1,36 @@
+fl_0 stream 0: F 0000 Q 4 lpoff 0
+fl_0 stream 1: F 0200 Q 4 lpoff 0
+fl_0 stream 2: F 0400 Q 4 lpoff 0
+fl_0 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fd72 at a980 (n 653), next fd73 fd74 fd75, c0 ac0d, head n 682
+fl_0: 176640 samples, errors 0
+fl_1 stream 0: F 0600 Q 4 lpoff 0
+fl_1 stream 1: F 0800 Q 4 lpoff 0
+fl_1 stream 2: F 0a00 Q 4 lpoff 0
+fl_1 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fd50 at b440 (n 687), next fd51 fd52 fd53, c0 b6ef, head n 698
+fl_1: 88256 samples, errors 0
+fl_2 stream 0: F 0c00 Q 4 lpoff 0
+fl_2 stream 1: F 0e00 Q 4 lpoff 0
+fl_2 stream 2: F 1000 Q 4 lpoff 0
+fl_2 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fddd at 3000 (n 546), next fdde fddf fde0, c0 3222, head n 573
+fl_2: 44352 samples, errors 0
+fl_3 stream 0: F 1200 Q 4 lpoff 0
+fl_3 stream 1: F 1400 Q 4 lpoff 0
+fl_3 stream 2: F 1600 Q 4 lpoff 0
+fl_3 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fda4 at 6200 (n 603), next fda5 fda6 fda7, c0 645b, head n 616
+fl_3: 44352 samples, errors 0
+fl_4 stream 0: F 01fe Q 4 lpoff 0
+fl_4 stream 1: F 0955 Q 4 lpoff 0
+fl_4 stream 2: F 13fe Q 4 lpoff 0
+fl_4 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fd89 at 8e60 (n 630), next fd8a fd8b fd8c, c0 90d6, head n 660
+fl_4: 176640 samples, errors 0
+fl_5 stream 0: F 0a00 Q 0 lpoff 0
+fl_5 stream 1: F 0a00 Q 31 lpoff 0
+fl_5 stream 2: F 0400 Q 31 lpoff 0
+fl_5 stream 3: F 0000 Q 0 lpoff 1
+cap_start: counter word fd7b at 98c0 (n 644), next fd7c fd7d fd7e, c0 9b44, head n 672
+fl_5: 176640 samples, errors 0

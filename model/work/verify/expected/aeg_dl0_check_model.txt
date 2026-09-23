@@ -1,0 +1,4 @@
+stream 0: onset 450, full level 520176 first reached at +18, first sample below it at +20 (487408), end 0
+stream 1: onset 450, full level 520176 first reached at +18, first sample below it at +17664 (487408), end 0
+stream 2: onset 450, full level 520176 first reached at +18, first sample below it at +17664 (487408), end 0
+stream 3: onset 450, full level 520176 first reached at +522, first sample below it at +524 (487408), end 0

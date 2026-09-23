@@ -34,6 +34,8 @@ struct Slot {
     struct {
         EgState state;
         uint16_t v;        /* 13-bit filter envelope value (cutoff, FLV scale) */
+        int8_t dir;        /* direction of the current segment, latched when it starts (tests/feg_track) */
+        bool passed;       /* attack / decay 1: the value has crossed the target (advance on the next clock) */
     } FEG;
     int32_t lpf_low, lpf_band; /* filter state, 1/8 sample units; never cleared (tests/filt_reset) */
     struct {

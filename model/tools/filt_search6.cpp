@@ -6,7 +6,7 @@
 // Products rounded separately: r1 f*x, r2 f*low, r3 the q term, r4 f*band (modes: 0 floor, 1 toward zero,
 // 2 half away from zero, 3 half up, 4 ceil).  q term: 0 one coefficient f*q, 1 f then q, 2 q then f.
 // A hypothesis passes a dataset if some (band0, n0) reproduces all of it.  Output: hypotheses by datasets passed.
-// Build: g++ -O2 -std=c++17 -o work/filt/filt_search6 tools/filt_search6.cpp
+// Build: make -C tools filt_search6 (-> build/tools/filt_search6)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

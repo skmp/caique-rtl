@@ -98,6 +98,8 @@ void AicaModel::key_on(int ch) {
     }
     c.FEG.state = EG_ATTACK;
     c.FEG.v = chr(ch, 0x2C) & 0x1FFF; /* FLV0 (tests/feg_probe) */
+    c.FEG.dir = c.FEG.v >= (chr(ch, 0x30) & 0x1FFF) ? -1 : 1;
+    c.FEG.passed = false;
     c.CA = 0;
     c.step = 0;
     c.looped = false;
@@ -110,6 +112,8 @@ void AicaModel::key_on(int ch) {
 void AicaModel::key_off(int ch) {
     if (slot[ch].AEG.state != EG_RELEASE) set_aeg_state(ch, EG_RELEASE);
     slot[ch].FEG.state = EG_RELEASE;
+    slot[ch].FEG.dir = slot[ch].FEG.v >= (chr(ch, 0x3C) & 0x1FFF) ? -1 : 1;
+    slot[ch].FEG.passed = false;
 }
 
 /* effective EG rate R (0..63) from a 5-bit rate register (tests/sgc_krs, all 320 KRS x OCT x FNS combinations):
@@ -296,8 +300,8 @@ void AicaModel::stream_step(int ch) {
 
 /* Envelope (tests/sgc_aeg): the OPN envelope generator clocked every 2 samples.  Rate R < 48: every
  * 2^(11 - R/4) clocks, increment from row R&3; R >= 48: every clock, rows 4.. (R 60-63 all +8).
- * Attack: a += (~a * inc) >> 4, to 0 -> decay 1 (unless LPSLNK).  Decay 1 -> decay 2 once a >= DL << 5 (checked
- * before the increment, the new state's increment applies at once).  Decay 2 / release: a += inc; past 0x3FF the
+ * Attack: a += (~a * inc) >> 4, to 0 -> decay 1 (unless LPSLNK).  Decay 1 -> decay 2 once a >= DL << 5, checked after
+ * that clock's decay 1 step (see aeg_clock; tests/aeg_dl0), so decay 2's increment applies from the next clock.  Decay 2 / release: a += inc; past 0x3FF the
  * slot is "off" (monitor 0x1FFF), the state is kept. */
 static const uint8_t eg_inc[17][8] = {
     {0, 1, 0, 1, 0, 1, 0, 1}, {0, 1, 0, 1, 1, 1, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1, 1},
@@ -305,9 +309,13 @@ static const uint8_t eg_inc[17][8] = {
     {2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 4, 2, 2, 2, 4}, {2, 4, 2, 4, 2, 4, 2, 4}, {2, 4, 4, 4, 2, 4, 4, 4},
     {4, 4, 4, 4, 4, 4, 4, 4}, {4, 4, 4, 8, 4, 4, 4, 8}, {4, 8, 4, 8, 4, 8, 4, 8}, {4, 8, 8, 8, 4, 8, 8, 8},
     {8, 8, 8, 8, 8, 8, 8, 8}};
-static inline uint32_t eg_increment(uint32_t R, uint32_t cnt) {
+/* slow_off: for the FEG, the R < 48 rows see the clock counter one step behind the R >= 48 rows (tests/feg_track:
+ * slots mixing both kinds of rate need an offset = 3 mod 4, i.e. -1).  The AEG keeps 0: its tests are
+ * phase-independent, so the offset is unmeasured there (the hardware likely shares it). */
+static inline uint32_t eg_increment(uint32_t R, uint32_t cnt, uint32_t slow_off = 0) {
     if (R == 0) return 0;
     if (R < 48) {
+        cnt += slow_off;
         uint32_t shift = 11 - (R >> 2);
         if (cnt & ((1u << shift) - 1)) return 0;
         return eg_inc[R & 3][(cnt >> shift) & 7];
@@ -319,11 +327,19 @@ void AicaModel::aeg_clock(int ch) {
     Slot &c = slot[ch];
     if (c.AEG.off) return;
     uint16_t r10 = chr(ch, 0x10), r14 = chr(ch, 0x14);
-    if (c.AEG.state == EG_DECAY1 && c.AEG.a >= (((r14 >> 5) & 0x1F) << 5)) set_aeg_state(ch, EG_DECAY2);
+    /* decay 1 -> decay 2: on a clock that starts in decay 1, the decay 1 step is applied first, then a >= DL << 5
+     * switches (every such clock, also without a step; not on the clock that enters decay 1).  tests/aeg_dl0: with
+     * DL 0 the first decay 1 clock still takes its step (D1R 31: +8) before decay 2; tests/sgc_aeg dec_a: the
+     * monitor shows decay 2 within the crossing clock.  For DL > 0 the levels are the same as switching at the
+     * start of the next clock. */
+    bool was_d1 = c.AEG.state == EG_DECAY1;
     uint32_t rate = c.AEG.state == EG_ATTACK ? (r10 & 0x1F) : c.AEG.state == EG_DECAY1 ? ((r10 >> 6) & 0x1F)
                   : c.AEG.state == EG_DECAY2 ? ((r10 >> 11) & 0x1F) : (r14 & 0x1F);
     uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt);
-    if (!inc) return;
+    if (!inc) {
+        if (was_d1 && c.AEG.a >= (((r14 >> 5) & 0x1F) << 5)) set_aeg_state(ch, EG_DECAY2);
+        return;
+    }
     int32_t a = c.AEG.a;
     if (c.AEG.state == EG_ATTACK) {
         a += ((~a) * (int32_t)inc) >> 4;
@@ -341,35 +357,49 @@ void AicaModel::aeg_clock(int ch) {
         }
     }
     c.AEG.a = (uint16_t)a;
+    if (was_d1 && !c.AEG.off && a >= (((r14 >> 5) & 0x1F) << 5)) set_aeg_state(ch, EG_DECAY2);
 }
 
-/* Filter envelope (tests/feg_probe): a 13-bit value loaded with FLV0 at key-on that moves linearly toward FLV1
- * (attack, FAR), then FLV2 (decay 1, FD1R), then FLV3 (decay 2, FD2R, then holds); key-off heads for FLV4 (FRR).
- * Steps come from the amplitude envelope's clock and increment tables at the rate's effective R (KRS applied as
- * for the AEG -- unmeasured).  Moving up or down; the target is never overshot; reaching it advances the state
- * (transition timing unmeasured). */
+/* Filter envelope (tests/feg_probe, feg_track): a 13-bit value loaded with FLV0 at key-on that moves linearly
+ * toward FLV1 (attack, FAR), then FLV2 (decay 1, FD1R), then FLV3 (decay 2, FD2R); key-off heads for FLV4 (FRR).
+ * Steps come from the amplitude envelope's clock and increment tables at the rate's effective R (KRS applies,
+ * as for the AEG).  Measured sample-exactly through the filter (tools/feg_track.cpp, feg_fit.cpp):
+ *   - one comparator C = (v >= target).  A segment moves down if C holds when it starts, else up (so a segment
+ *     that starts exactly on its target moves down);
+ *   - attack / decay 1 step until C flips (up: ends at or past the target; down: strictly below it -- overshoot by
+ *     up to one step), and the next segment moves on the very next clock (no idle clock);
+ *   - decay 2 / release skip any step that would flip C: they hold short of the target.
+ * Key-on loads FLV0 at an envelope clock and the value first moves on the next clock; key-off switches to release
+ * and moves on the same clock. */
 void AicaModel::feg_clock(int ch) {
     Slot &c = slot[ch];
     if (!c.enabled) return;
     uint16_t r40 = chr(ch, 0x40), r44 = chr(ch, 0x44);
+    static const uint8_t tgt_reg[4] = {0x30, 0x34, 0x38, 0x3C};
+    if (c.FEG.passed && c.FEG.state < EG_DECAY2) {
+        c.FEG.state = (EgState)(c.FEG.state + 1);
+        c.FEG.dir = c.FEG.v >= (chr(ch, tgt_reg[c.FEG.state]) & 0x1FFF) ? -1 : 1;
+        c.FEG.passed = false;
+    }
     uint32_t rate;
-    uint16_t target;
     switch (c.FEG.state) {
-    case EG_ATTACK: rate = (r40 >> 8) & 0x1F; target = chr(ch, 0x30); break;
-    case EG_DECAY1: rate = r40 & 0x1F; target = chr(ch, 0x34); break;
-    case EG_DECAY2: rate = (r44 >> 8) & 0x1F; target = chr(ch, 0x38); break;
-    default: rate = r44 & 0x1F; target = chr(ch, 0x3C); break;
+    case EG_ATTACK: rate = (r40 >> 8) & 0x1F; break;
+    case EG_DECAY1: rate = r40 & 0x1F; break;
+    case EG_DECAY2: rate = (r44 >> 8) & 0x1F; break;
+    default: rate = r44 & 0x1F; break;
     }
-    target &= 0x1FFF;
-    if (c.FEG.v == target) {
-        if (c.FEG.state == EG_ATTACK) c.FEG.state = EG_DECAY1;
-        else if (c.FEG.state == EG_DECAY1) c.FEG.state = EG_DECAY2;
-        return;
+    int32_t target = chr(ch, tgt_reg[c.FEG.state]) & 0x1FFF;
+    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt, (uint32_t)-1);
+    if (!inc || c.FEG.passed) return;
+    bool C = c.FEG.v >= target;
+    int32_t nv = (int32_t)c.FEG.v + c.FEG.dir * (int32_t)inc;
+    nv = nv < 0 ? 0 : nv > 0x1FFF ? 0x1FFF : nv;
+    if (c.FEG.state >= EG_DECAY2) {
+        if ((nv >= target) == C) c.FEG.v = (uint16_t)nv;   /* hold short of the target */
+    } else {
+        c.FEG.v = (uint16_t)nv;
+        if ((nv >= target) != C) c.FEG.passed = true;
     }
-    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt);
-    if (!inc) return;
-    if (c.FEG.v < target) c.FEG.v = (uint16_t)(c.FEG.v + inc > target ? target : c.FEG.v + inc);
-    else c.FEG.v = (uint16_t)(c.FEG.v < target + inc ? target : c.FEG.v - inc);
 }
 
 /* Slot filter: two integrators in 1/8-sample units, but the damping product
@@ -432,7 +462,8 @@ void AicaModel::slot_output(int ch, int32_t &l, int32_t &r, int32_t &d) {
     int32_t sample = s16 >> 4;
     uint16_t r24 = chr(ch, 0x24), r28 = chr(ch, 0x28), r20 = chr(ch, 0x20);
     uint32_t TL = (r28 >> 8) & 0xFF;
-    /* the filter works in 1/8 units (tests/filt_id); its input from a fractional sample: s16 >> 1 (unmeasured) */
+    /* the filter works in 1/8 units (tests/filt_id); a fractional (interpolated) sample enters as floor(s16 / 2)
+     * (tests/filt_frac: floor reproduces every sample at three fractional pitches, ceil/toward zero/nearest fail) */
     if (!((r28 >> 5) & 1)) s16 = clampi(lpf_step(ch, s16 >> 1) * 2, -524288, 524287);
     /* the volume stage outputs whole samples (tests/sgc_level); VOFF passes the fractional signal through
      * (tests/filt_id, sgc_pitch).  Filter on with VOFF=0: precision unmeasured. */

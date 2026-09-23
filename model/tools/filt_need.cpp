@@ -6,7 +6,7 @@
 // Output per pinned sample: n, x - L, b, b', dy and each product's exact value (numerator, shift) with the result
 // forced by the data (R3 always; R1 - R2 as a pair).  Summary: R3 result - floor(v) tabulated by the fraction of v
 // (in 1/2^s3 units) and sign; the same for the R1 - R2 combination.
-// usage: filt_need [-u 3|4|scaled] [-form 1|2] [-v] stream   (form 2: band increment floor(f ((x - L) - q b)), one product)     Build: g++ -O2 -std=c++17 -o work/filt/filt_need tools/filt_need.cpp
+// usage: filt_need [-u 3|4|scaled] [-form 1|2] [-v] stream   (form 2: band increment floor(f ((x - L) - q b)), one product)     Build: make -C tools filt_need (-> build/tools/filt_need)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

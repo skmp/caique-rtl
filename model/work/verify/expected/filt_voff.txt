@@ -1,0 +1,17 @@
+fv_0 F 1c00 Q 4: onset 651, 6197 samples; VOFF=0 MIXS multiples of 16: 12394/12394
+  stream 0 TL 0: A 6197 F 5 C 35 E 0
+  stream 1 TL 19: A 6197 F 6 C 13 E 2
+  stream 2 VOFF=1: - 6197
+fv_1 F 1e00 Q 4: onset 650, 6198 samples; VOFF=0 MIXS multiples of 16: 12396/12396
+  stream 0 TL 42: A 6198 F 51 C 7 E 2
+  stream 1 TL 85: A 6198 F 17 C 9 E 0
+  stream 2 VOFF=1: - 6198
+fv_2 F 1c00 Q 31: onset 650, 6198 samples; VOFF=0 MIXS multiples of 16: 12396/12396
+  stream 0 TL 7: A 6198 F 13 C 14 E 2
+  stream 1 TL 64: A 6198 F 37 C 9 E 1
+  stream 2 VOFF=1: - 6198
+fv_3 F 1a00 Q 16: onset 650, 6198 samples; VOFF=0 MIXS multiples of 16: 12396/12396
+  stream 0 TL 1: A 6198 F 16 C 19 E 0
+  stream 1 TL 163: A 6198 F 2811 C 18 E 1
+  stream 2 VOFF=1: - 6198
+full VOFF=0 streams (of 8): A 8 F 0 C 0 E 0

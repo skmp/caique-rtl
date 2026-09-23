@@ -20,7 +20,7 @@
 // Options: -span n initial band range +-n (default 64); -k255 n mantissa for FLV[8:1] = 0xFF (default 511); -hl n hidden low bits (output floor, or -ro 1 sign-magnitude read as one's complement); -lop 1: the
 // f (x - L) product sees low cut to 1/8.
 // usage: filt_rule [-u 3|4|scaled] [-form 0|1|2|4|5] [-qshift n] [-hl n] [-ro r] [-lop 1] [-top n] -set r,r,.. | -rules r1,r2,r3  stream...
-// Build: g++ -O2 -fopenmp -std=c++17 -o work/filt/filt_rule tools/filt_rule.cpp   (run from caique-rtl/model)
+// Build: make -C tools filt_rule (-> build/tools/filt_rule)   (run from caique-rtl/model)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

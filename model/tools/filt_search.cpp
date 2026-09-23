@@ -3,7 +3,7 @@
 // exported from the console captures of tests/filt_id by tools/filt.py.
 // Hypotheses: Chamberlin SVF with integer state in 2^-FB sample units, coefficient f with FBITS fraction bits,
 // q exact (per Q, from the float fit), several rounding modes / update orders / output quantizations.
-// Build: g++ -O2 -o work/filt/filt_search tools/filt_search.cpp ; run from caique-rtl/model.
+// Build: make -C tools filt_search (-> build/tools/filt_search) ; run from caique-rtl/model.
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>

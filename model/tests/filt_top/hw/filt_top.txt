@@ -1,0 +1,2 @@
+cap_start: counter word fd17 at f7a0 (n 744), next fd18 fd19 fd1a, c0 fa88, head n 763
+ft: 2880 samples, errors 0; FEG monitor values: ffff 7ffe 1ffe 9ffe 1ffe 9ffe 1ffe

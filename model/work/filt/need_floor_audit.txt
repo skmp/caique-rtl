@@ -1,0 +1,769 @@
+stream 0 F 1ffe Q 4 A 1000 u 3: s1 9 s2 16 s3 9; samples 6709, band pinned at 6708, pinned transitions 6708
+OPERAND CONFLICT b'=1: dy=0 at n=140 dy=1 at n=141
+distinct pinned low operands 3, conflicting operands 1
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 4472/6708: 0[2236/0] 1[2236/2236]
+  L mod 2                  purity 4472/6708: 0[2236/0] 1[2236/2236]
+  L mod 8                  purity 4472/6708: 0[2236/0] 7[2236/2236]
+  Tn mod 128               purity 4472/6708: 0[4472/2236]
+  b mod 8                  purity 4472/6708: 0[2236/0] 1[2236/2236]
+  b' mod 16                purity 4472/6708: 0[2236/0] 1[2236/2236]
+  b'-b sign                purity 4472/6708: 0[2236/2236] 1[2236/0]
+  dy==0                    purity 4472/6708: 0[2236/2236] 1[2236/0]
+  inc exact                purity 4472/6708: 1[4472/2236]
+  inc frac>=1/2            purity 4472/6708: 0[4472/2236]
+  qm b mod 128 (q b frac)  purity 4472/6708: 0[4472/2236]
+  sign L                   purity 4472/6708: 0[2321/85] 1[2151/2151]
+  sign b                   purity 4472/6708: 0[4471/2236] 1[1/0]
+  sign b'                  purity 4472/6708: 0[4471/2236] 1[1/0]
+  sign dy                  purity 4472/6708: 0[2236/2236] 1[2236/0]
+  sign inc                 purity 4472/6708: 0[2236/2236] 1[2236/0]
+  sign x-L                 purity 4472/6708: 0[4471/2236] 1[1/0]
+  x on                     purity 4472/6708: 0[4302/2151] 1[170/85]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: -1:4471 +0:2236
+  frac     0 neg: -1:1
+stream 1 F 1ffe Q 4 A -1000 u 3: s1 9 s2 16 s3 9; samples 6709, band pinned at 6708, pinned transitions 6708
+OPERAND CONFLICT b'=1: dy=0 at n=140 dy=1 at n=141
+distinct pinned low operands 3, conflicting operands 1
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 4472/6708: 0[2236/0] 1[2236/2236]
+  L mod 2                  purity 4472/6708: 0[2236/0] 1[2236/2236]
+  L mod 8                  purity 4472/6708: 0[2236/0] 7[2236/2236]
+  Tn mod 128               purity 4472/6708: 0[4472/2236]
+  b mod 8                  purity 4472/6708: 0[2236/0] 1[2236/2236]
+  b' mod 16                purity 4472/6708: 0[2236/0] 1[2236/2236]
+  b'-b sign                purity 4472/6708: 0[2237/2236] 1[2235/0]
+  dy==0                    purity 4472/6708: 0[2236/2236] 1[2236/0]
+  inc exact                purity 4472/6708: 1[4472/2236]
+  inc frac>=1/2            purity 4472/6708: 0[4472/2236]
+  qm b mod 128 (q b frac)  purity 4472/6708: 0[4472/2236]
+  sign L                   purity 4472/6708: 0[2150/0] 1[2322/2236]
+  sign b                   purity 4472/6708: 0[4471/2236] 1[1/0]
+  sign b'                  purity 4472/6708: 0[4472/2236]
+  sign dy                  purity 4472/6708: 0[2237/2236] 1[2235/0]
+  sign inc                 purity 4472/6708: 0[2237/2236] 1[2235/0]
+  sign x-L                 purity 4472/6708: 0[4472/2236]
+  x on                     purity 4472/6708: 0[4302/2151] 1[170/85]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: -1:4472 +0:2236
+stream 2 F 1ffe Q 4 A 7 u 3: s1 9 s2 16 s3 9; samples 6709, band pinned at 6708, pinned transitions 6708
+distinct pinned low operands 2, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6708/6708: 0[0/6708]
+  L mod 2                  purity 6708/6708: 0[0/6708]
+  L mod 8                  purity 6708/6708: 0[0/6708]
+  Tn mod 128               purity 6708/6708: 0[0/6708]
+  b mod 8                  purity 6708/6708: 0[0/6708]
+  b' mod 16                purity 6708/6708: 0[0/6707] 8[0/1]
+  b'-b sign                purity 6708/6708: 0[0/6706] 1[0/2]
+  dy==0                    purity 6708/6708: 0[0/1] 1[0/6707]
+  inc exact                purity 6708/6708: 1[0/6708]
+  inc frac>=1/2            purity 6708/6708: 0[0/6708]
+  qm b mod 128 (q b frac)  purity 6708/6708: 0[0/6708]
+  sign L                   purity 6708/6708: 0[0/6708]
+  sign b                   purity 6708/6708: 0[0/6707] 1[0/1]
+  sign b'                  purity 6708/6708: 0[0/6707] 1[0/1]
+  sign dy                  purity 6708/6708: 0[0/6707] 1[0/1]
+  sign inc                 purity 6708/6708: 0[0/6706] 1[0/2]
+  sign x-L                 purity 6708/6708: 0[0/6707] 1[0/1]
+  x on                     purity 6708/6708: 0[0/6453] 1[0/255]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6707
+  frac     0 neg: +0:1
+stream 4 F 1ff0 Q 4 A 1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6708, pinned transitions 6708
+OPERAND CONFLICT b'=-1: dy=-1 at n=397 dy=0 at n=398
+OPERAND CONFLICT b'=1: dy=0 at n=142 dy=1 at n=141
+distinct pinned low operands 8, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     8 neg: +0:1 +1:6449
+  frac    16 neg: +0:1
+  frac    88 neg: +0:1
+  frac   168 pos: +0:1
+  frac   344 neg: +1:1
+  frac   384 neg: +0:1
+  frac   424 pos: +1:1
+  frac   504 pos: +0:251 +1:1
+stream 5 F 1ff0 Q 4 A -1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6708, pinned transitions 6708
+OPERAND CONFLICT b'=-1: dy=-1 at n=142 dy=0 at n=141
+OPERAND CONFLICT b'=1: dy=0 at n=398 dy=1 at n=397
+distinct pinned low operands 8, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     8 neg: +0:1 +1:251
+  frac    88 neg: +0:1
+  frac   128 pos: +1:1
+  frac   176 pos: +1:1
+  frac   344 neg: +1:1
+  frac   432 pos: +1:1
+  frac   496 pos: +1:1
+  frac   504 pos: +0:6449 +1:1
+stream 7 F 1ffc Q 4 A 1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6709, pinned transitions 6709
+distinct pinned low operands 9, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6450/6450: 0[0/6450]
+  L mod 2                  purity 6450/6450: 0[0/6450]
+  L mod 8                  purity 6450/6450: 0[0/6450]
+  Tn mod 128               purity 6450/6450: 0[0/6450]
+  b mod 8                  purity 6450/6450: 0[0/6449] 2[0/1]
+  b' mod 16                purity 6450/6450: 0[0/6450]
+  b'-b sign                purity 6450/6450: 0[0/6449] 1[0/1]
+  dy==0                    purity 6450/6450: 1[0/6450]
+  inc exact                purity 6450/6450: 0[0/1] 1[0/6449]
+  inc frac>=1/2            purity 6450/6450: 0[0/6450]
+  qm b mod 128 (q b frac)  purity 6450/6450: 0[0/6450]
+  sign L                   purity 6450/6450: 0[0/6450]
+  sign b                   purity 6450/6450: 0[0/6450]
+  sign b'                  purity 6450/6450: 0[0/6450]
+  sign dy                  purity 6450/6450: 0[0/6450]
+  sign inc                 purity 6450/6450: 0[0/6449] 1[0/1]
+  sign x-L                 purity 6450/6450: 0[0/6450]
+  x on                     purity 6450/6450: 0[0/6450]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6450
+  frac     2 neg: +1:252
+  frac     4 neg: +1:1
+  frac    60 neg: +1:1
+  frac    66 neg: +0:1
+  frac   186 neg: +1:1
+  frac   324 pos: +1:1
+  frac   454 pos: +0:1
+  frac   508 pos: +1:1
+stream 8 F 1e00 Q 4 A 1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6706, pinned transitions 6706
+distinct pinned low operands 41, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6692/6692: 0[0/6433] 1[0/237] 2[0/5] 3[0/5] 4[0/1] 5[0/4] 6[0/4] 7[0/3]
+  L mod 2                  purity 6692/6692: 0[0/6443] 1[0/249]
+  L mod 8                  purity 6692/6692: 0[0/6433] 1[0/3] 2[0/4] 3[0/4] 4[0/1] 5[0/5] 6[0/5] 7[0/237]
+  Tn mod 128               purity 6692/6692: 0[0/6692]
+  b mod 8                  purity 6692/6692: 0[0/6663] 1[0/4] 2[0/4] 3[0/2] 4[0/8] 5[0/1] 6[0/6] 7[0/4]
+  b' mod 16                purity 6692/6692: 0[0/6662] 2[0/5] 4[0/5] 6[0/5] 8[0/4] 10[0/3] 12[0/4] 14[0/4]
+  b'-b sign                purity 6692/6692: 0[0/6676] 1[0/16]
+  dy==0                    purity 6692/6692: 0[0/32] 1[0/6660]
+  inc exact                purity 6692/6692: 0[0/246] 1[0/6446]
+  inc frac>=1/2            purity 6692/6692: 0[0/6446] 1[0/246]
+  qm b mod 128 (q b frac)  purity 6692/6692: 0[0/6692]
+  sign L                   purity 6692/6692: 0[0/6681] 1[0/11]
+  sign b                   purity 6692/6692: 0[0/6674] 1[0/18]
+  sign b'                  purity 6692/6692: 0[0/6675] 1[0/17]
+  sign dy                  purity 6692/6692: 0[0/6675] 1[0/17]
+  sign inc                 purity 6692/6692: 0[0/6676] 1[0/16]
+  sign x-L                 purity 6692/6692: 0[0/6675] 1[0/17]
+  x on                     purity 6692/6692: 0[0/6447] 1[0/245]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6675
+  frac     0 neg: +0:17
+  frac   256 pos: +0:4 +1:2
+  frac   256 neg: +0:6 +1:2
+stream 9 F 1e00 Q 4 A -1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6706, pinned transitions 6706
+distinct pinned low operands 41, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6692/6692: 0[0/237] 1[0/6433] 2[0/3] 3[0/4] 4[0/4] 5[0/1] 6[0/5] 7[0/5]
+  L mod 2                  purity 6692/6692: 0[0/249] 1[0/6443]
+  L mod 8                  purity 6692/6692: 0[0/237] 1[0/5] 2[0/5] 3[0/1] 4[0/4] 5[0/4] 6[0/3] 7[0/6433]
+  Tn mod 128               purity 6692/6692: 0[0/6692]
+  b mod 8                  purity 6692/6692: 0[0/6663] 1[0/4] 2[0/6] 3[0/1] 4[0/8] 5[0/2] 6[0/4] 7[0/4]
+  b' mod 16                purity 6692/6692: 0[0/6662] 2[0/4] 4[0/4] 6[0/3] 8[0/4] 10[0/5] 12[0/5] 14[0/5]
+  b'-b sign                purity 6692/6692: 0[0/6676] 1[0/16]
+  dy==0                    purity 6692/6692: 0[0/32] 1[0/6660]
+  inc exact                purity 6692/6692: 0[0/6446] 1[0/246]
+  inc frac>=1/2            purity 6692/6692: 0[0/246] 1[0/6446]
+  qm b mod 128 (q b frac)  purity 6692/6692: 0[0/6692]
+  sign L                   purity 6692/6692: 0[0/11] 1[0/6681]
+  sign b                   purity 6692/6692: 0[0/6677] 1[0/15]
+  sign b'                  purity 6692/6692: 0[0/6677] 1[0/15]
+  sign dy                  purity 6692/6692: 0[0/6677] 1[0/15]
+  sign inc                 purity 6692/6692: 0[0/6676] 1[0/16]
+  sign x-L                 purity 6692/6692: 0[0/6679] 1[0/13]
+  x on                     purity 6692/6692: 0[0/6447] 1[0/245]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6677
+  frac     0 neg: +0:15
+  frac   256 pos: +0:2 +1:6
+  frac   256 neg: +0:2 +1:4
+stream 10 F 1e00 Q 0 A 1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6703, pinned transitions 6703
+distinct pinned low operands 26, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 255/255: 0[0/1] 1[0/243] 3[0/1] 4[0/1] 5[0/4] 6[0/3] 7[0/2]
+  L mod 2                  purity 255/255: 0[0/5] 1[0/250]
+  L mod 8                  purity 255/255: 0[0/1] 1[0/2] 2[0/3] 3[0/4] 4[0/1] 5[0/1] 7[0/243]
+  Tn mod 128               purity 255/255: 0[0/249] 64[0/6]
+  b mod 8                  purity 255/255: 0[0/244] 1[0/3] 3[0/1] 4[0/3] 5[0/1] 6[0/2] 7[0/1]
+  b' mod 16                purity 255/255: 0[0/243] 2[0/2] 4[0/1] 6[0/1] 8[0/2] 12[0/3] 14[0/3]
+  b'-b sign                purity 255/255: 0[0/250] 1[0/5]
+  dy==0                    purity 255/255: 0[0/15] 1[0/240]
+  inc exact                purity 255/255: 0[0/253] 1[0/2]
+  inc frac>=1/2            purity 255/255: 0[0/3] 1[0/252]
+  qm b mod 128 (q b frac)  purity 255/255: 0[0/249] 64[0/6]
+  sign L                   purity 255/255: 0[0/255]
+  sign b                   purity 255/255: 0[0/244] 1[0/11]
+  sign b'                  purity 255/255: 0[0/243] 1[0/12]
+  sign dy                  purity 255/255: 0[0/243] 1[0/12]
+  sign inc                 purity 255/255: 0[0/250] 1[0/5]
+  sign x-L                 purity 255/255: 0[0/243] 1[0/12]
+  x on                     purity 255/255: 0[0/12] 1[0/243]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:243
+  frac     0 neg: +0:12
+  frac   256 pos: +0:1 +1:5
+  frac   256 neg: +0:2 +1:6440
+stream 11 F 1e00 Q 0 A -1000 u 3: s1 9 s2 16 s3 9; samples 6710, band pinned at 6703, pinned transitions 6703
+distinct pinned low operands 26, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6446/6446: 1[0/6439] 4[0/1] 5[0/1] 6[0/2] 7[0/3]
+  L mod 2                  purity 6446/6446: 0[0/3] 1[0/6443]
+  L mod 8                  purity 6446/6446: 1[0/3] 2[0/2] 3[0/1] 4[0/1] 7[0/6439]
+  Tn mod 128               purity 6446/6446: 0[0/6441] 64[0/5]
+  b mod 8                  purity 6446/6446: 0[0/6437] 1[0/4] 2[0/1] 4[0/3] 7[0/1]
+  b' mod 16                purity 6446/6446: 0[0/6438] 4[0/1] 6[0/1] 8[0/1] 12[0/3] 14[0/2]
+  b'-b sign                purity 6446/6446: 0[0/6442] 1[0/4]
+  dy==0                    purity 6446/6446: 0[0/8] 1[0/6438]
+  inc exact                purity 6446/6446: 0[0/6444] 1[0/2]
+  inc frac>=1/2            purity 6446/6446: 0[0/3] 1[0/6443]
+  qm b mod 128 (q b frac)  purity 6446/6446: 0[0/6441] 64[0/5]
+  sign L                   purity 6446/6446: 1[0/6446]
+  sign b                   purity 6446/6446: 0[0/6441] 1[0/5]
+  sign b'                  purity 6446/6446: 0[0/6441] 1[0/5]
+  sign dy                  purity 6446/6446: 0[0/6441] 1[0/5]
+  sign inc                 purity 6446/6446: 0[0/6442] 1[0/4]
+  sign x-L                 purity 6446/6446: 0[0/6441] 1[0/5]
+  x on                     purity 6446/6446: 0[0/6441] 1[0/5]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6441
+  frac     0 neg: +0:5
+  frac   256 pos: +0:1 +1:12
+  frac   256 neg: +0:1 +1:243
+stream 12 F 1c00 Q 4 A 1000 u 3: s1 10 s2 17 s3 10; samples 6710, band pinned at 6699, pinned transitions 6699
+OPERAND CONFLICT b'=-3: dy=-1 at n=433 dy=0 at n=190
+OPERAND CONFLICT b'=1: dy=0 at n=445 dy=1 at n=177
+distinct pinned low operands 86, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 221/221: 0[0/2] 1[0/2] 2[0/1] 3[0/203] 4[0/3] 5[0/5] 6[0/4] 7[0/1]
+  L mod 2                  purity 221/221: 0[0/10] 1[0/211]
+  L mod 8                  purity 221/221: 0[0/2] 1[0/1] 2[0/4] 3[0/5] 4[0/3] 5[0/203] 6[0/1] 7[0/2]
+  Tn mod 128               purity 221/221: 0[0/221]
+  b mod 8                  purity 221/221: 0[0/200] 1[0/3] 2[0/2] 3[0/3] 4[0/2] 5[0/1] 6[0/6] 7[0/4]
+  b' mod 16                purity 221/221: 0[0/207] 4[0/3] 8[0/5] 12[0/6]
+  b'-b sign                purity 221/221: 0[0/211] 1[0/10]
+  dy==0                    purity 221/221: 0[0/20] 1[0/201]
+  inc exact                purity 221/221: 0[0/213] 1[0/8]
+  inc frac>=1/2            purity 221/221: 0[0/13] 1[0/208]
+  qm b mod 128 (q b frac)  purity 221/221: 0[0/221]
+  sign L                   purity 221/221: 0[0/217] 1[0/4]
+  sign b                   purity 221/221: 0[0/209] 1[0/12]
+  sign b'                  purity 221/221: 0[0/208] 1[0/13]
+  sign dy                  purity 221/221: 0[0/208] 1[0/13]
+  sign inc                 purity 221/221: 0[0/211] 1[0/10]
+  sign x-L                 purity 221/221: 0[0/208] 1[0/13]
+  x on                     purity 221/221: 0[0/11] 1[0/210]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:208
+  frac     0 neg: +0:13
+  frac   256 pos: +0:3 +1:6
+  frac   256 neg: +0:9 +1:9
+  frac   512 pos: +1:17
+  frac   512 neg: +1:6405
+  frac   768 pos: +1:9
+  frac   768 neg: +1:20
+stream 13 F 1c00 Q 4 A -1000 u 3: s1 10 s2 17 s3 10; samples 6710, band pinned at 6699, pinned transitions 6699
+OPERAND CONFLICT b'=-3: dy=-1 at n=177 dy=0 at n=445
+OPERAND CONFLICT b'=1: dy=0 at n=190 dy=1 at n=433
+distinct pinned low operands 86, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6422/6422: 0[0/3] 1[0/4] 2[0/2] 3[0/6401] 4[0/2] 5[0/2] 6[0/5] 7[0/3]
+  L mod 2                  purity 6422/6422: 0[0/12] 1[0/6410]
+  L mod 8                  purity 6422/6422: 0[0/3] 1[0/3] 2[0/5] 3[0/2] 4[0/2] 5[0/6401] 6[0/2] 7[0/4]
+  Tn mod 128               purity 6422/6422: 0[0/6422]
+  b mod 8                  purity 6422/6422: 0[0/6401] 1[0/2] 2[0/2] 3[0/2] 4[0/4] 5[0/1] 6[0/8] 7[0/2]
+  b' mod 16                purity 6422/6422: 0[0/6406] 4[0/6] 8[0/6] 12[0/4]
+  b'-b sign                purity 6422/6422: 0[0/6411] 1[0/11]
+  dy==0                    purity 6422/6422: 0[0/22] 1[0/6400]
+  inc exact                purity 6422/6422: 0[0/6419] 1[0/3]
+  inc frac>=1/2            purity 6422/6422: 0[0/5] 1[0/6417]
+  qm b mod 128 (q b frac)  purity 6422/6422: 0[0/6422]
+  sign L                   purity 6422/6422: 0[0/8] 1[0/6414]
+  sign b                   purity 6422/6422: 0[0/6406] 1[0/16]
+  sign b'                  purity 6422/6422: 0[0/6405] 1[0/17]
+  sign dy                  purity 6422/6422: 0[0/6405] 1[0/17]
+  sign inc                 purity 6422/6422: 0[0/6411] 1[0/11]
+  sign x-L                 purity 6422/6422: 0[0/6408] 1[0/14]
+  x on                     purity 6422/6422: 0[0/6413] 1[0/9]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6405
+  frac     0 neg: +0:17
+  frac   256 pos: +0:9 +1:9
+  frac   256 neg: +0:6 +1:3
+  frac   512 pos: +1:13
+  frac   512 neg: +1:208
+  frac   768 pos: +1:18
+  frac   768 neg: +1:11
+stream 14 F 1c00 Q 0 A 1000 u 3: s1 10 s2 17 s3 10; samples 6710, band pinned at 6703, pinned transitions 6703
+distinct pinned low operands 66, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6430/6430: 0[0/6417] 1[0/1] 2[0/3] 3[0/3] 4[0/1] 5[0/2] 6[0/1] 7[0/2]
+  L mod 2                  purity 6430/6430: 0[0/6422] 1[0/8]
+  L mod 8                  purity 6430/6430: 0[0/6417] 1[0/2] 2[0/1] 3[0/2] 4[0/1] 5[0/3] 6[0/3] 7[0/1]
+  Tn mod 128               purity 6430/6430: 0[0/6422] 64[0/8]
+  b mod 8                  purity 6430/6430: 0[0/6416] 1[0/4] 2[0/2] 3[0/2] 4[0/1] 5[0/1] 6[0/3] 7[0/1]
+  b' mod 16                purity 6430/6430: 0[0/6420] 4[0/2] 8[0/5] 12[0/3]
+  b'-b sign                purity 6430/6430: 0[0/6422] 1[0/8]
+  dy==0                    purity 6430/6430: 0[0/13] 1[0/6417]
+  inc exact                purity 6430/6430: 0[0/12] 1[0/6418]
+  inc frac>=1/2            purity 6430/6430: 0[0/6423] 1[0/7]
+  qm b mod 128 (q b frac)  purity 6430/6430: 0[0/6422] 64[0/8]
+  sign L                   purity 6430/6430: 0[0/6426] 1[0/4]
+  sign b                   purity 6430/6430: 0[0/6423] 1[0/7]
+  sign b'                  purity 6430/6430: 0[0/6423] 1[0/7]
+  sign dy                  purity 6430/6430: 0[0/6423] 1[0/7]
+  sign inc                 purity 6430/6430: 0[0/6422] 1[0/8]
+  sign x-L                 purity 6430/6430: 0[0/6423] 1[0/7]
+  x on                     purity 6430/6430: 0[0/6423] 1[0/7]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6423
+  frac     0 neg: +0:7
+  frac   256 pos: +0:5 +1:5
+  frac   256 neg: +0:3 +1:9
+  frac   512 pos: +1:6
+  frac   512 neg: +1:227
+  frac   768 pos: +1:8
+  frac   768 neg: +1:10
+stream 15 F 1c00 Q 0 A -1000 u 3: s1 10 s2 17 s3 10; samples 6710, band pinned at 6703, pinned transitions 6703
+distinct pinned low operands 66, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 233/233: 0[0/220] 1[0/1] 2[0/2] 3[0/2] 4[0/2] 5[0/2] 6[0/2] 7[0/2]
+  L mod 2                  purity 233/233: 0[0/226] 1[0/7]
+  L mod 8                  purity 233/233: 0[0/220] 1[0/2] 2[0/2] 3[0/2] 4[0/2] 5[0/2] 6[0/2] 7[0/1]
+  Tn mod 128               purity 233/233: 0[0/225] 64[0/8]
+  b mod 8                  purity 233/233: 0[0/219] 1[0/4] 2[0/2] 3[0/2] 4[0/1] 5[0/2] 6[0/3]
+  b' mod 16                purity 233/233: 0[0/224] 4[0/2] 8[0/4] 12[0/3]
+  b'-b sign                purity 233/233: 0[0/225] 1[0/8]
+  dy==0                    purity 233/233: 0[0/14] 1[0/219]
+  inc exact                purity 233/233: 0[0/12] 1[0/221]
+  inc frac>=1/2            purity 233/233: 0[0/224] 1[0/9]
+  qm b mod 128 (q b frac)  purity 233/233: 0[0/225] 64[0/8]
+  sign L                   purity 233/233: 0[0/5] 1[0/228]
+  sign b                   purity 233/233: 0[0/227] 1[0/6]
+  sign b'                  purity 233/233: 0[0/227] 1[0/6]
+  sign dy                  purity 233/233: 0[0/227] 1[0/6]
+  sign inc                 purity 233/233: 0[0/225] 1[0/8]
+  sign x-L                 purity 233/233: 0[0/227] 1[0/6]
+  x on                     purity 233/233: 0[0/9] 1[0/224]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:227
+  frac     0 neg: +0:6
+  frac   256 pos: +0:5 +1:7
+  frac   256 neg: +0:3 +1:7
+  frac   512 pos: +1:10
+  frac   512 neg: +1:6424
+  frac   768 pos: +1:7
+  frac   768 neg: +1:7
+stream 16 F 1a00 Q 4 A 1000 u 3: s1 11 s2 18 s3 11; samples 6710, band pinned at 6690, pinned transitions 6690
+distinct pinned low operands 165, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 29/29: 0[0/2] 1[0/2] 2[0/4] 3[0/5] 4[0/5] 5[0/2] 6[0/6] 7[0/3]
+  L mod 2                  purity 29/29: 0[0/17] 1[0/12]
+  L mod 8                  purity 29/29: 0[0/2] 1[0/3] 2[0/6] 3[0/2] 4[0/5] 5[0/5] 6[0/4] 7[0/2]
+  Tn mod 128               purity 29/29: 0[0/29]
+  b mod 8                  purity 29/29: 0[0/1] 1[0/5] 2[0/5] 3[0/3] 4[0/6] 5[0/2] 6[0/4] 7[0/3]
+  b' mod 16                purity 29/29: 0[0/11] 8[0/18]
+  b'-b sign                purity 29/29: 0[0/12] 1[0/17]
+  dy==0                    purity 29/29: 0[0/27] 1[0/2]
+  inc exact                purity 29/29: 0[0/24] 1[0/5]
+  inc frac>=1/2            purity 29/29: 0[0/18] 1[0/11]
+  qm b mod 128 (q b frac)  purity 29/29: 0[0/29]
+  sign L                   purity 29/29: 0[0/22] 1[0/7]
+  sign b                   purity 29/29: 0[0/13] 1[0/16]
+  sign b'                  purity 29/29: 0[0/13] 1[0/16]
+  sign dy                  purity 29/29: 0[0/13] 1[0/16]
+  sign inc                 purity 29/29: 0[0/12] 1[0/17]
+  sign x-L                 purity 29/29: 0[0/13] 1[0/16]
+  x on                     purity 29/29: 0[0/14] 1[0/15]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:13
+  frac     0 neg: +0:16
+  frac   256 pos: +0:7 +1:3
+  frac   256 neg: +0:5 +1:6
+  frac   512 pos: +1:12
+  frac   512 neg: +1:17
+  frac   768 pos: +1:14
+  frac   768 neg: +1:159
+  frac  1024 pos: +1:10
+  frac  1024 neg: +1:14
+  frac  1280 pos: +1:9
+  frac  1280 neg: +1:6
+  frac  1536 pos: +1:9
+  frac  1536 neg: +1:21
+  frac  1792 pos: +1:10
+  frac  1792 neg: +1:6359
+stream 17 F 1a00 Q 4 A -1000 u 3: s1 11 s2 18 s3 11; samples 6710, band pinned at 6690, pinned transitions 6690
+distinct pinned low operands 165, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 31/31: 0[0/4] 1[0/5] 2[0/1] 3[0/6] 4[0/5] 5[0/3] 6[0/3] 7[0/4]
+  L mod 2                  purity 31/31: 0[0/13] 1[0/18]
+  L mod 8                  purity 31/31: 0[0/4] 1[0/4] 2[0/3] 3[0/3] 4[0/5] 5[0/6] 6[0/1] 7[0/5]
+  Tn mod 128               purity 31/31: 0[0/31]
+  b mod 8                  purity 31/31: 0[0/1] 1[0/5] 2[0/6] 3[0/3] 4[0/9] 5[0/1] 6[0/3] 7[0/3]
+  b' mod 16                purity 31/31: 0[0/16] 8[0/15]
+  b'-b sign                purity 31/31: 0[0/12] 1[0/19]
+  dy==0                    purity 31/31: 0[0/29] 1[0/2]
+  inc exact                purity 31/31: 0[0/29] 1[0/2]
+  inc frac>=1/2            purity 31/31: 0[0/14] 1[0/17]
+  qm b mod 128 (q b frac)  purity 31/31: 0[0/31]
+  sign L                   purity 31/31: 0[0/10] 1[0/21]
+  sign b                   purity 31/31: 0[0/17] 1[0/14]
+  sign b'                  purity 31/31: 0[0/17] 1[0/14]
+  sign dy                  purity 31/31: 0[0/17] 1[0/14]
+  sign inc                 purity 31/31: 0[0/12] 1[0/19]
+  sign x-L                 purity 31/31: 0[0/17] 1[0/14]
+  x on                     purity 31/31: 0[0/18] 1[0/13]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:17
+  frac     0 neg: +0:14
+  frac   256 pos: +0:6 +1:5
+  frac   256 neg: +0:3 +1:6
+  frac   512 pos: +1:15
+  frac   512 neg: +1:13
+  frac   768 pos: +1:16
+  frac   768 neg: +1:6355
+  frac  1024 pos: +1:15
+  frac  1024 neg: +1:10
+  frac  1280 pos: +1:10
+  frac  1280 neg: +1:10
+  frac  1536 pos: +1:10
+  frac  1536 neg: +1:11
+  frac  1792 pos: +1:13
+  frac  1792 neg: +1:161
+stream 18 F 1800 Q 4 A 1000 u 3: s1 12 s2 19 s3 12; samples 6710, band pinned at 6641, pinned transitions 6641
+OPERAND CONFLICT b'=-15: dy=-1 at n=343 dy=0 at n=313
+OPERAND CONFLICT b'=1: dy=0 at n=569 dy=1 at n=599
+distinct pinned low operands 250, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6267/6267: 0[0/6248] 1[0/2] 2[0/1] 3[0/4] 4[0/1] 5[0/5] 6[0/4] 7[0/2]
+  L mod 2                  purity 6267/6267: 0[0/6254] 1[0/13]
+  L mod 8                  purity 6267/6267: 0[0/6248] 1[0/2] 2[0/4] 3[0/5] 4[0/1] 5[0/4] 6[0/1] 7[0/2]
+  Tn mod 128               purity 6267/6267: 0[0/6267]
+  b mod 8                  purity 6267/6267: 0[0/6248] 1[0/4] 2[0/3] 3[0/4] 4[0/2] 5[0/2] 6[0/2] 7[0/2]
+  b' mod 16                purity 6267/6267: 0[0/6267]
+  b'-b sign                purity 6267/6267: 0[0/6256] 1[0/11]
+  dy==0                    purity 6267/6267: 0[0/18] 1[0/6249]
+  inc exact                purity 6267/6267: 0[0/16] 1[0/6251]
+  inc frac>=1/2            purity 6267/6267: 0[0/6261] 1[0/6]
+  qm b mod 128 (q b frac)  purity 6267/6267: 0[0/6267]
+  sign L                   purity 6267/6267: 0[0/6265] 1[0/2]
+  sign b                   purity 6267/6267: 0[0/6255] 1[0/12]
+  sign b'                  purity 6267/6267: 0[0/6256] 1[0/11]
+  sign dy                  purity 6267/6267: 0[0/6256] 1[0/11]
+  sign inc                 purity 6267/6267: 0[0/6256] 1[0/11]
+  sign x-L                 purity 6267/6267: 0[0/6253] 1[0/14]
+  x on                     purity 6267/6267: 0[0/6258] 1[0/9]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6256
+  frac     0 neg: +0:11
+  frac   256 pos: +0:6 +1:1
+  frac   256 neg: +0:3 +1:11
+  frac   512 pos: +1:9
+  frac   512 neg: +1:62
+  frac   768 pos: +1:9
+  frac   768 neg: +1:9
+  frac  1024 pos: +1:10
+  frac  1024 neg: +1:13
+  frac  1280 pos: +1:11
+  frac  1280 neg: +1:6
+  frac  1536 pos: +1:14
+  frac  1536 neg: +1:13
+  frac  1792 pos: +1:5
+  frac  1792 neg: +1:10
+  frac  2048 pos: +1:23
+  frac  2048 neg: +1:12
+  frac  2304 pos: +1:6
+  frac  2304 neg: +1:6
+  frac  2560 pos: +1:8
+  frac  2560 neg: +1:26
+  frac  2816 pos: +1:5
+  frac  2816 neg: +1:11
+  frac  3072 pos: +1:6
+  frac  3072 neg: +1:20
+  frac  3328 pos: +1:6
+  frac  3328 neg: +1:11
+  frac  3584 pos: +1:8
+  frac  3584 neg: +1:18
+  frac  3840 pos: +1:7
+  frac  3840 neg: +1:9
+stream 19 F 1800 Q 4 A -1000 u 3: s1 12 s2 19 s3 12; samples 6710, band pinned at 6662, pinned transitions 6662
+OPERAND CONFLICT b'=-95: dy=-6 at n=261 dy=-5 at n=501
+OPERAND CONFLICT b'=-15: dy=-1 at n=599 dy=0 at n=304
+OPERAND CONFLICT b'=17: dy=1 at n=555 dy=2 at n=249
+distinct pinned low operands 274, conflicting operands 3
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 74/74: 0[0/51] 1[0/4] 3[0/4] 4[0/5] 5[0/3] 6[0/2] 7[0/5]
+  L mod 2                  purity 74/74: 0[0/58] 1[0/16]
+  L mod 8                  purity 74/74: 0[0/51] 1[0/5] 2[0/2] 3[0/3] 4[0/5] 5[0/4] 7[0/4]
+  Tn mod 128               purity 74/74: 0[0/74]
+  b mod 8                  purity 74/74: 0[0/49] 1[0/4] 2[0/4] 3[0/3] 4[0/6] 5[0/1] 6[0/2] 7[0/5]
+  b' mod 16                purity 74/74: 0[0/74]
+  b'-b sign                purity 74/74: 0[0/62] 1[0/12]
+  dy==0                    purity 74/74: 0[0/22] 1[0/52]
+  inc exact                purity 74/74: 0[0/20] 1[0/54]
+  inc frac>=1/2            purity 74/74: 0[0/66] 1[0/8]
+  qm b mod 128 (q b frac)  purity 74/74: 0[0/74]
+  sign L                   purity 74/74: 0[0/5] 1[0/69]
+  sign b                   purity 74/74: 0[0/64] 1[0/10]
+  sign b'                  purity 74/74: 0[0/65] 1[0/9]
+  sign dy                  purity 74/74: 0[0/65] 1[0/9]
+  sign inc                 purity 74/74: 0[0/62] 1[0/12]
+  sign x-L                 purity 74/74: 0[0/62] 1[0/12]
+  x on                     purity 74/74: 0[0/13] 1[0/61]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:65
+  frac     0 neg: +0:9
+  frac   256 pos: +0:7 +1:6
+  frac   256 neg: +0:3 +1:5
+  frac   512 pos: +1:11
+  frac   512 neg: +1:6256
+  frac   768 pos: +1:12
+  frac   768 neg: +1:10
+  frac  1024 pos: +1:14
+  frac  1024 neg: +1:9
+  frac  1280 pos: +1:13
+  frac  1280 neg: +1:10
+  frac  1536 pos: +1:14
+  frac  1536 neg: +1:8
+  frac  1792 pos: +1:19
+  frac  1792 neg: +1:4
+  frac  2048 pos: +1:20
+  frac  2048 neg: +1:11
+  frac  2304 pos: +1:8
+  frac  2304 neg: +1:7
+  frac  2560 pos: +1:12
+  frac  2560 neg: +1:25
+  frac  2816 pos: +1:9
+  frac  2816 neg: +1:6
+  frac  3072 pos: +1:12
+  frac  3072 neg: +1:20
+  frac  3328 pos: +1:6
+  frac  3328 neg: +1:8
+  frac  3584 pos: +1:9
+  frac  3584 neg: +1:13
+  frac  3840 pos: +1:12
+  frac  3840 neg: +1:9
+stream 20 F 1f55 Q 4 A 1000 u 3: s1 9 s2 16 s3 9; samples 6648, band pinned at 6646, pinned transitions 6646
+OPERAND CONFLICT b'=-1: dy=-1 at n=209 dy=0 at n=210
+OPERAND CONFLICT b'=1: dy=0 at n=465 dy=1 at n=466
+distinct pinned low operands 18, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 2/2: 2[0/1] 7[0/1]
+  L mod 2                  purity 2/2: 0[0/1] 1[0/1]
+  L mod 8                  purity 2/2: 1[0/1] 6[0/1]
+  Tn mod 128               purity 2/2: 0[0/2]
+  b mod 8                  purity 2/2: 3[0/1] 6[0/1]
+  b' mod 16                purity 2/2: 0[0/2]
+  b'-b sign                purity 2/2: 0[0/1] 1[0/1]
+  dy==0                    purity 2/2: 1[0/2]
+  inc exact                purity 2/2: 0[0/2]
+  inc frac>=1/2            purity 2/2: 0[0/1] 1[0/1]
+  qm b mod 128 (q b frac)  purity 2/2: 0[0/2]
+  sign L                   purity 2/2: 0[0/1] 1[0/1]
+  sign b                   purity 2/2: 0[0/1] 1[0/1]
+  sign b'                  purity 2/2: 0[0/2]
+  sign dy                  purity 2/2: 0[0/2]
+  sign inc                 purity 2/2: 0[0/1] 1[0/1]
+  sign x-L                 purity 2/2: 0[0/1] 1[0/1]
+  x on                     purity 2/2: 0[0/1] 1[0/1]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:2
+  frac    86 neg: +0:2 +1:245
+  frac    88 neg: +1:1
+  frac   146 neg: +1:1
+  frac   160 pos: +0:1
+  frac   188 pos: +1:1
+  frac   222 pos: +1:1
+  frac   266 neg: +0:2
+  frac   290 neg: +1:1
+  frac   332 pos: +0:1
+  frac   404 neg: +1:1
+  frac   410 neg: +0:1
+  frac   424 pos: +1:1
+  frac   426 pos: +0:6381 +1:1
+  frac   430 neg: +1:1
+  frac   452 pos: +1:1
+  frac   508 pos: +1:1
+stream 21 F 1f55 Q 4 A -1000 u 3: s1 9 s2 16 s3 9; samples 6648, band pinned at 6646, pinned transitions 6646
+OPERAND CONFLICT b'=-1: dy=-1 at n=465 dy=0 at n=466
+OPERAND CONFLICT b'=1: dy=0 at n=209 dy=1 at n=210
+distinct pinned low operands 18, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 2/2: 2[0/1] 7[0/1]
+  L mod 2                  purity 2/2: 0[0/1] 1[0/1]
+  L mod 8                  purity 2/2: 1[0/1] 6[0/1]
+  Tn mod 128               purity 2/2: 0[0/2]
+  b mod 8                  purity 2/2: 3[0/1] 5[0/1]
+  b' mod 16                purity 2/2: 0[0/2]
+  b'-b sign                purity 2/2: 0[0/1] 1[0/1]
+  dy==0                    purity 2/2: 1[0/2]
+  inc exact                purity 2/2: 0[0/2]
+  inc frac>=1/2            purity 2/2: 0[0/1] 1[0/1]
+  qm b mod 128 (q b frac)  purity 2/2: 0[0/2]
+  sign L                   purity 2/2: 0[0/1] 1[0/1]
+  sign b                   purity 2/2: 0[0/1] 1[0/1]
+  sign b'                  purity 2/2: 0[0/2]
+  sign dy                  purity 2/2: 0[0/2]
+  sign inc                 purity 2/2: 0[0/1] 1[0/1]
+  sign x-L                 purity 2/2: 0[0/1] 1[0/1]
+  x on                     purity 2/2: 0[0/1] 1[0/1]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:2
+  frac    60 neg: +0:1
+  frac    82 pos: +0:1
+  frac    86 neg: +0:1 +1:6381
+  frac    88 neg: +0:1
+  frac   102 pos: +1:1
+  frac   108 pos: +0:1
+  frac   180 neg: +0:1
+  frac   222 pos: +0:1
+  frac   246 pos: +1:2
+  frac   266 neg: +0:1
+  frac   290 neg: +0:1
+  frac   324 neg: +0:1
+  frac   366 pos: +0:1
+  frac   424 pos: +0:1
+  frac   426 pos: +0:245 +1:2
+  frac   430 neg: +1:1
+stream 22 F 1d55 Q 4 A 1000 u 3: s1 10 s2 17 s3 10; samples 6648, band pinned at 6641, pinned transitions 6641
+distinct pinned low operands 46, conflicting operands 0
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 226/226: 2[0/225] 7[0/1]
+  L mod 2                  purity 226/226: 0[0/225] 1[0/1]
+  L mod 8                  purity 226/226: 1[0/1] 6[0/225]
+  Tn mod 128               purity 226/226: 0[0/226]
+  b mod 8                  purity 226/226: 0[0/224] 2[0/1] 7[0/1]
+  b' mod 16                purity 226/226: 0[0/226]
+  b'-b sign                purity 226/226: 0[0/225] 1[0/1]
+  dy==0                    purity 226/226: 1[0/226]
+  inc exact                purity 226/226: 0[0/226]
+  inc frac>=1/2            purity 226/226: 0[0/1] 1[0/225]
+  qm b mod 128 (q b frac)  purity 226/226: 0[0/226]
+  sign L                   purity 226/226: 0[0/226]
+  sign b                   purity 226/226: 0[0/225] 1[0/1]
+  sign b'                  purity 226/226: 0[0/226]
+  sign dy                  purity 226/226: 0[0/226]
+  sign inc                 purity 226/226: 0[0/225] 1[0/1]
+  sign x-L                 purity 226/226: 0[0/225] 1[0/1]
+  x on                     purity 226/226: 0[0/1] 1[0/225]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:226
+  frac    24 neg: +0:1
+  frac    42 pos: +0:1
+  frac    48 neg: +0:1
+  frac    90 neg: +0:1
+  frac   104 neg: +0:1
+  frac   114 neg: +1:1
+  frac   214 neg: +0:1
+  frac   220 neg: +0:1
+  frac   270 neg: +0:2
+  frac   328 pos: +0:2
+  frac   336 pos: +0:2
+  frac   368 neg: +0:1
+  frac   380 neg: +1:1
+  frac   400 neg: +0:1
+  frac   426 pos: +0:1
+  frac   484 pos: +1:1
+  frac   508 pos: +1:2
+  frac   512 neg: +1:1
+  frac   516 neg: +1:1
+  frac   550 pos: +1:1
+  frac   556 neg: +1:1
+  frac   596 neg: +1:1
+  frac   598 neg: +1:6363
+  frac   622 neg: +1:1
+  frac   630 neg: +1:1
+  frac   640 pos: +1:1
+  frac   644 pos: +1:1
+  frac   648 pos: +1:1
+  frac   680 pos: +1:2
+  frac   688 neg: +1:3
+  frac   718 neg: +1:1
+  frac   770 neg: +1:1
+  frac   780 neg: +1:1
+  frac   810 pos: +1:1
+  frac   842 pos: +1:1
+  frac   852 pos: +1:1
+  frac   904 pos: +1:1
+  frac   934 pos: +1:1
+  frac   942 neg: +1:2
+  frac   954 neg: +1:1
+  frac   974 neg: +1:1
+  frac   982 neg: +1:1
+  frac   992 pos: +1:1
+  frac  1000 pos: +1:2
+stream 23 F 1d55 Q 4 A -1000 u 3: s1 10 s2 17 s3 10; samples 6648, band pinned at 6642, pinned transitions 6642
+OPERAND CONFLICT b'=-21: dy=-9 at n=220 dy=-8 at n=462
+OPERAND CONFLICT b'=20: dy=8 at n=476 dy=9 at n=206
+distinct pinned low operands 47, conflicting operands 2
+exact low products: feature -> value [v-1 count / v count]
+  (x-L) mod 8              purity 6362/6362: 2[0/6361] 7[0/1]
+  L mod 2                  purity 6362/6362: 0[0/6361] 1[0/1]
+  L mod 8                  purity 6362/6362: 1[0/1] 6[0/6361]
+  Tn mod 128               purity 6362/6362: 0[0/6362]
+  b mod 8                  purity 6362/6362: 0[0/6360] 2[0/1] 7[0/1]
+  b' mod 16                purity 6362/6362: 0[0/6362]
+  b'-b sign                purity 6362/6362: 0[0/6361] 1[0/1]
+  dy==0                    purity 6362/6362: 1[0/6362]
+  inc exact                purity 6362/6362: 0[0/6362]
+  inc frac>=1/2            purity 6362/6362: 0[0/1] 1[0/6361]
+  qm b mod 128 (q b frac)  purity 6362/6362: 0[0/6362]
+  sign L                   purity 6362/6362: 1[0/6362]
+  sign b                   purity 6362/6362: 0[0/6361] 1[0/1]
+  sign b'                  purity 6362/6362: 0[0/6362]
+  sign dy                  purity 6362/6362: 0[0/6362]
+  sign inc                 purity 6362/6362: 0[0/6361] 1[0/1]
+  sign x-L                 purity 6362/6362: 0[0/6361] 1[0/1]
+  x on                     purity 6362/6362: 0[0/6361] 1[0/1]
+R3 (f b' -> low): fraction/sign -> {result - floor: count}
+  frac     0 pos: +0:6362
+  frac    24 neg: +0:1
+  frac    42 pos: +0:1
+  frac    48 neg: +0:1
+  frac    86 pos: +0:1
+  frac    90 neg: +0:1
+  frac   114 neg: +0:1
+  frac   214 neg: +0:1
+  frac   218 pos: +0:1
+  frac   270 neg: +0:1 +1:1
+  frac   328 pos: +0:1 +1:1
+  frac   336 pos: +0:2
+  frac   380 neg: +1:1
+  frac   384 pos: +0:1
+  frac   426 pos: +0:1
+  frac   428 pos: +1:1
+  frac   484 pos: +1:1
+  frac   508 pos: +1:2
+  frac   516 neg: +1:1
+  frac   550 pos: +1:1
+  frac   556 neg: +1:1
+  frac   574 pos: +1:1
+  frac   596 neg: +1:1
+  frac   598 neg: +1:227
+  frac   622 neg: +1:1
+  frac   630 neg: +1:1
+  frac   640 pos: +1:1
+  frac   648 pos: +1:1
+  frac   656 pos: +1:1
+  frac   668 pos: +1:1
+  frac   680 pos: +1:2
+  frac   688 neg: +1:3
+  frac   718 neg: +1:1
+  frac   770 neg: +1:1
+  frac   780 neg: +1:1
+  frac   796 pos: +1:1
+  frac   842 pos: +1:1
+  frac   852 pos: +1:1
+  frac   904 pos: +1:1
+  frac   920 pos: +1:1
+  frac   934 pos: +1:1
+  frac   942 neg: +1:2
+  frac   974 neg: +1:1
+  frac   976 pos: +1:1
+  frac   982 neg: +1:1
+  frac   992 pos: +1:1
+  frac  1000 pos: +1:1

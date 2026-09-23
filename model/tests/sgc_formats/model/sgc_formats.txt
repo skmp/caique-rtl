@@ -1,0 +1,12 @@
+fm_0 stream 0: PCMS 1 SSCTL 0 FNS 000
+fm_0 stream 1: PCMS 1 SSCTL 0 FNS 17b
+fm_0 stream 2: PCMS 2 SSCTL 0 FNS 000
+fm_0 stream 3: PCMS 2 SSCTL 0 FNS 17b
+cap_start: counter word fdff at 0ae0 (n 512), next fe00 fe01 fe02, c0 0ce0, head n 539
+fm_0: 13568 samples, errors 0
+fm_1 stream 0: PCMS 3 SSCTL 0 FNS 000
+fm_1 stream 1: PCMS 3 SSCTL 0 FNS 17b
+fm_1 stream 2: PCMS 0 SSCTL 1 FNS 000
+fm_1 stream 3: PCMS 0 SSCTL 1 FNS 17b
+cap_start: counter word fd64 at bf80 (n 667), next fd65 fd66 fd67, c0 c21b, head n 692
+fm_1: 13568 samples, errors 0

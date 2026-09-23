@@ -1,0 +1,21 @@
+# Model vs console, updated after C++ filter validation (2026-09-23).
+# Non-filter baseline reconfirmed by reruns and saved-output hashes; legacy verify.py was not run.
+dsp_basic      OK     309 lines, 0 differ (+2 known)
+dsp_mem        OK     26 lines, 0 differ
+dsp_mem2       OK     24 lines, 0 differ
+dsp_mem3       OK     12 lines, 0 differ
+dsp_unpack     OK     65536 words identical
+dsp_pack       OK     hw mismatches vs model PACK 0, crc hw ef84ca79 model ef84ca79
+sgc_level      OK     210 lines, 0 differ (+1 known)
+cap_selftest   OK     4/4 streams identical up to key-off (enveloped streams after the attack)
+sgc_aeg        PHASE  39/44 streams agree (path + tick spacing); rest: envelope clock phase / capture end
+sgc_krs        OK     effective-rate table (320 combos) identical
+sgc_pitch      OK     16/16 streams identical
+sgc_formats    OK     PCM8/ADPCM: 4/4 streams identical; ADPCM long stream identical; noise LFSR structure matches
+sgc_loop       OK     10/10 streams identical (+2 slow-attack streams: envelope phase)
+sgc_keys       OK     10/10 key-event end states agree (EG state, off, KYONB)
+sgc_mix        OK     43 lines, 0 differ
+sgc_lfo        OK     23/23 LFO streams agree (ALFO steps/ranges exact, PLFO mean increment within 20/16384)
+filt_id2       STATE  55/60 streams identical; 619/254980 samples differ, all startup transients (<300 samples)
+filt_coef      STATE  117/119 streams identical; 17/503438 samples differ, all startup transients (<17 samples)
+filter_math    OK     Production model: 235/235 streams, 2050454/2050454 samples identical with inferred initial state

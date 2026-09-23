@@ -1,0 +1,36 @@
+lf_0 stream 0: ALFO WS 0 S 7 LFOF 20
+lf_0 stream 1: ALFO WS 1 S 7 LFOF 20
+lf_0 stream 2: ALFO WS 2 S 7 LFOF 20
+lf_0 stream 3: ALFO WS 3 S 7 LFOF 20
+cap_start: counter word fd6d at 9260 (n 658), next fd6e fd6f fd70, c0 94f2, head n 659
+lf_0: 66496 samples, errors 0
+lf_1 stream 0: ALFO WS 2 S 1 LFOF 20
+lf_1 stream 1: ALFO WS 2 S 3 LFOF 20
+lf_1 stream 2: ALFO WS 2 S 5 LFOF 20
+lf_1 stream 3: ALFO WS 2 S 6 LFOF 20
+cap_start: counter word fd91 at 6980 (n 622), next fd92 fd93 fd94, c0 6bee, head n 623
+lf_1: 66496 samples, errors 0
+lf_2 stream 0: ALFO WS 0 S 7 LFOF 31
+lf_2 stream 1: ALFO WS 0 S 7 LFOF 29
+lf_2 stream 2: ALFO WS 0 S 7 LFOF 26
+lf_2 stream 3: ALFO WS 0 S 7 LFOF 23
+cap_start: counter word fe38 at 40e0 (n 455), next fe39 fe3a fe3b, c0 42a7, head n 478
+lf_2: 26816 samples, errors 0
+lf_3 stream 0: ALFO WS 0 S 7 LFOF 16
+lf_3 stream 1: ALFO WS 0 S 7 LFOF 12
+lf_3 stream 2: ALFO WS 0 S 7 LFOF 8
+lf_3 stream 3: ALFO WS 0 S 7 LFOF 4
+cap_start: counter word fd55 at bca0 (n 682), next fd56 fd57 fd58, c0 bf4a, head n 700
+lf_3: 264960 samples, errors 0
+lf_4 stream 0: PLFO WS 0 S 7 LFOF 20
+lf_4 stream 1: PLFO WS 1 S 7 LFOF 20
+lf_4 stream 2: PLFO WS 2 S 7 LFOF 20
+lf_4 stream 3: PLFO WS 3 S 7 LFOF 20
+cap_start: counter word fdb7 at 5800 (n 584), next fdb8 fdb9 fdba, c0 5a48, head n 608
+lf_4: 66496 samples, errors 0
+lf_5 stream 0: PLFO WS 2 S 1 LFOF 20
+lf_5 stream 1: PLFO WS 2 S 3 LFOF 20
+lf_5 stream 2: PLFO WS 2 S 5 LFOF 20
+lf_5 stream 3: PLFO WS 2 S 6 LFOF 20
+cap_start: counter word fdd5 at 2f00 (n 554), next fdd6 fdd7 fdd8, c0 312a, head n 572
+lf_5: 66496 samples, errors 0

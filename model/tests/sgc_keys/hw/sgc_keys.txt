@@ -1,0 +1,39 @@
+K1 lpslnk t      1 us: EG 7fff CA 0000 reg0 4202
+K1 lpslnk t     36 us: EG 0280 CA 0000 reg0 4202
+K1 lpslnk t  22679 us: EG 2231 CA 03e9 reg0 4202
+K1 lpslnk end: EG 2300 CA 0a5b reg0 4202
+K1b nolink t      1 us: EG 7fff CA 0000 reg0 4202
+K1b nolink t     33 us: EG 0280 CA 0000 reg0 4202
+K1b nolink end: EG 01cd CA 0a5b reg0 4202
+K2 sustain t      1 us: EG 7fff CA 0000 reg0 4202
+K2 sustain t     43 us: EG 0280 CA 0000 reg0 4202
+K2 sustain t    443 us: EG 2000 CA 0012 reg0 4202
+K2 sustain t   1170 us: EG 4080 CA 0032 reg0 4202
+K2 sustain end: EG 4080 CA 0372 reg0 4202
+K2 keyon-again t      1 us: EG 4080 CA 0374 reg0 4202
+K2 keyon-again end: EG 4080 CA 06e8 reg0 4202
+K3 on t      1 us: EG 7fff CA 0000 reg0 4202
+K3 on t     35 us: EG 0280 CA 0000 reg0 4202
+K3 on t    464 us: EG 2000 CA 0013 reg0 4202
+K3 on t   1184 us: EG 4080 CA 0033 reg0 4202
+K3 on end: EG 4080 CA 0373 reg0 4202
+K3 off t      1 us: EG 4080 CA 0375 reg0 0202
+K3 off t     31 us: EG 6080 CA 0376 reg0 0202
+K3 off end: EG 6081 CA 03cd reg0 0202
+K3 on-again t      0 us: EG 6081 CA 03cf reg0 4202
+K3 on-again t     37 us: EG 6081 CA 0000 reg0 4202
+K3 on-again t     69 us: EG 013f CA 0001 reg0 4202
+K3 on-again t    473 us: EG 2008 CA 0013 reg0 4202
+K3 on-again t   1175 us: EG 4080 CA 0032 reg0 4202
+K3 on-again end: EG 4080 CA 0372 reg0 4202
+K4 d2off t      1 us: EG 7fff CA 0000 reg0 4202
+K4 d2off t     43 us: EG 0280 CA 0000 reg0 4202
+K4 d2off t    473 us: EG 2000 CA 0013 reg0 4202
+K4 d2off t    832 us: EG 4040 CA 0023 reg0 4202
+K4 d2off t   5916 us: EG 5fff CA 0000 reg0 4202
+K4 d2off end: EG 5fff CA 0000 reg0 4202
+K4 keyon-after-off t      1 us: EG 5fff CA 0000 reg0 4202
+K4 keyon-after-off end: EG 5fff CA 0000 reg0 4202
+K5 release t      1 us: EG 5fff CA 0000 reg0 0202
+K5 release t     29 us: EG 7fff CA 0000 reg0 0202
+K5 release end: EG 7fff CA 0000 reg0 0202

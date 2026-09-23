@@ -1,0 +1,30 @@
+stream 0 of fp_0: F 1ff8 Q 0 VOFF 1 A 4096
+stream 1 of fp_0: F 1ff8 Q 0 VOFF 0 A 4096
+stream 2 of fp_0: F 1ff8 Q 16 VOFF 1 A 4096
+stream 3 of fp_0: F 1ff8 Q 31 VOFF 1 A 4096
+cap_start: counter word fdce at 44a0 (n 561), next fdcf fdd0 fdd1, c0 46d1, head n 594
+fp_0: 2880 samples, errors 0
+stream 0 of fp_1: F 1000 Q 0 VOFF 1 A 4096
+stream 1 of fp_1: F 1000 Q 8 VOFF 1 A 4096
+stream 2 of fp_1: F 1000 Q 16 VOFF 1 A 4096
+stream 3 of fp_1: F 1000 Q 31 VOFF 1 A 4096
+cap_start: counter word fdd6 at 21e0 (n 553), next fdd7 fdd8 fdd9, c0 2409, head n 561
+fp_1: 2880 samples, errors 0
+stream 0 of fp_2: F 0800 Q 0 VOFF 1 A 4096
+stream 1 of fp_2: F 0800 Q 16 VOFF 1 A 4096
+stream 2 of fp_2: F 0400 Q 0 VOFF 1 A 4096
+stream 3 of fp_2: F 0400 Q 16 VOFF 1 A 4096
+cap_start: counter word fded at 0080 (n 530), next fdee fdef fdf0, c0 0292, head n 532
+fp_2: 2880 samples, errors 228
+stream 0 of fp_3: F 0100 Q 0 VOFF 1 A 4096
+stream 1 of fp_3: F 0100 Q 16 VOFF 1 A 4096
+stream 2 of fp_3: F 0010 Q 0 VOFF 1 A 4096
+stream 3 of fp_3: F 0000 Q 0 VOFF 1 A 4096
+cap_start: counter word fd32 at db20 (n 717), next fd33 fd34 fd35, c0 dded, head n 738
+fp_3: 2880 samples, errors 0
+stream 0 of fp_4: F 1ff8 Q 0 VOFF 1 A 32767
+stream 1 of fp_4: F 1000 Q 0 VOFF 1 A 32767
+stream 2 of fp_4: F 1c00 Q 4 VOFF 1 A 16384
+stream 3 of fp_4: F 1fff Q 0 VOFF 1 A 4096
+cap_start: counter word fd40 at b8e0 (n 703), next fd41 fd42 fd43, c0 bb9f, head n 705
+fp_4: 2880 samples, errors 0

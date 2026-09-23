@@ -1,0 +1,2 @@
+cap_start: counter word fdef at 0fe0 (n 528), next fdf0 fdf1 fdf2, c0 11f0, head n 543
+ft: 2880 samples, errors 0; FEG monitor values: 6000 1ffe 3ffe 5ffe dffe 5ffe dffe 5ffe

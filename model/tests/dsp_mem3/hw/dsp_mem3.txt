@@ -1,0 +1,12 @@
+MRD@5 alone              madrs 0320: read 032000  words 031e..0323: 031e 031f 0320 0321 0322 0323
+MWT@5 alone              madrs 0320: read bad000  words 031e..0323: 031e 031f 3800 0321 0322 0323
+MRD+MWT@5                madrs 0320: read 032300  words 031e..0323: 031e 031f 3800 0321 0322 0323
+MRD+MWT@5 odd madrs      madrs 0325: read 032300  words 0323..0328: 0323 0324 3800 0326 0327 0328
+MRD+MWT@5 NXADR          madrs 0330: read 032900  words 032e..0333: 032e 032f 0330 3800 0332 0333
+MRD+MWT@5 float write    madrs 0340: read 033300  words 033e..0343: 033e 033f 3800 0341 0342 0343
+MRD+MWT@4 (even)         madrs 0350: read 034300  words 034e..0353: 034e 034f 3800 0351 0352 0353
+MWT@4 MRD@5              madrs 0360: read 380000  words 035e..0363: 035e 035f 3800 0361 0362 0363
+MRD@4 MWT@5              madrs 0370: read 380000  words 036e..0373: 036e 036f 3800 0371 0372 0373
+MRD@5 MWT@6              madrs 0380: read 380000  words 037e..0383: 037e 037f 3800 0381 0382 0383
+MRD@5 MWT@7              madrs 0390: read 380000  words 038e..0393: 038e 038f 3800 0391 0392 0393
+MWT@5 MRD@7              madrs 03a0: read 380000  words 039e..03a3: 039e 039f 3800 03a1 03a2 03a3

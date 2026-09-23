@@ -1,0 +1,22 @@
+cap_start: counter word fde8 at 0ba0 (n 535), next fde9 fdea fdeb, c0 0db7, head n 539
+att_31_28: 20416 samples, counter errors 0, 85331 EG monitor reads, 1192 changes
+cap_start: counter word fd78 at a680 (n 647), next fd79 fd7a fd7b, c0 a907, head n 670
+att_27_24: 38080 samples, counter errors 0, 158238 EG monitor reads, 2305 changes
+cap_start: counter word fd2a at fc00 (n 725), next fd2b fd2c fd2d, c0 fed5, head n 743
+att_22_16: 91008 samples, counter errors 0, 379447 EG monitor reads, 5637 changes
+cap_start: counter word fd84 at 8320 (n 635), next fd85 fd86 fd87, c0 859b, head n 641
+att_14_08: 267392 samples, counter errors 0, 1114954 EG monitor reads, 16622 changes
+cap_start: counter word fdb8 at 5980 (n 583), next fdb9 fdba fdbb, c0 5bc7, head n 605
+att_06_01: 487872 samples, counter errors 0, 2034579 EG monitor reads, 30400 changes
+cap_start: counter word fd4a at d220 (n 693), next fd4b fd4c fd4d, c0 d4d5, head n 707
+dec_a: 68928 samples, counter errors 0, 287622 EG monitor reads, 4220 changes
+cap_start: counter word fd62 at af60 (n 669), next fd63 fd64 fd65, c0 b1fd, head n 678
+dec_b: 267392 samples, counter errors 0, 1111368 EG monitor reads, 16745 changes
+cap_start: counter word fd9b at 85a0 (n 612), next fd9c fd9d fd9e, c0 8804, head n 643
+dec_dl: 113024 samples, counter errors 0, 469986 EG monitor reads, 7002 changes
+cap_start: counter word fd73 at b6a0 (n 652), next fd74 fd75 fd76, c0 b92c, head n 683
+dec2: 135104 samples, counter errors 0, 562105 EG monitor reads, 172 changes
+cap_start: counter word fd92 at 9180 (n 621), next fd93 fd94 fd95, c0 93ed, head n 652
+rel_a: 71168 samples, counter errors 0, 296055 EG monitor reads, 368 changes
+cap_start: counter word fdb2 at 6640 (n 589), next fdb3 fdb4 fdb5, c0 688d, head n 616
+rel_b: 357824 samples, counter errors 0, 1488647 EG monitor reads, 2847 changes

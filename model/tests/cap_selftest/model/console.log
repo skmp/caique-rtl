@@ -1,0 +1,3 @@
+captured 91456 samples x 4 streams, counter errors 0 (first at 0), events: 1@895 2@89097
+stream 0: first non-zero at 897, phase 0, 88456 samples checked to 89352, 0 mismatches
+stream 1: first non-zero at 897, phase 0, 88456 samples checked to 89352, 0 mismatches

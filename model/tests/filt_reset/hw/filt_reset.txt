@@ -1,0 +1,2 @@
+cap_start: counter word fd19 at fca0 (n 742), next fd1a fd1b fd1c, c0 ff86, head n 759
+fr: 13632 samples, errors 0

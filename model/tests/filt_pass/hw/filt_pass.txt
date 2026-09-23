@@ -1,0 +1,2 @@
+cap_start: counter word fdb1 at 4d20 (n 590), next fdb2 fdb3 fdb4, c0 4f6e, head n 603
+fp: 3776 samples, errors 0

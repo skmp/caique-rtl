@@ -1,0 +1,17 @@
+dsp_basic      OK     309 lines, 0 differ (+2 known)
+dsp_mem        OK     26 lines, 0 differ
+dsp_mem2       OK     24 lines, 0 differ
+dsp_mem3       OK     12 lines, 0 differ
+dsp_unpack     OK     65536 words identical
+dsp_pack       OK     hw mismatches vs model PACK 0, crc hw ef84ca79 model ef84ca79
+sgc_level      OK     210 lines, 0 differ (+1 known)
+cap_selftest   OK     4/4 streams identical up to key-off (enveloped streams after the attack)
+sgc_aeg        PHASE  39/44 streams agree (path + tick spacing); rest: envelope clock phase / capture end
+sgc_krs        OK     effective-rate table (320 combos) identical
+sgc_pitch      OK     16/16 streams identical
+sgc_formats    OK     PCM8/ADPCM: 4/4 streams identical; ADPCM long stream identical; noise LFSR structure matches
+sgc_loop       OK     10/10 streams identical (+2 slow-attack streams: envelope phase)
+sgc_keys       OK     10/10 key-event end states agree (EG state, off, KYONB)
+sgc_mix        OK     43 lines, 0 differ
+sgc_lfo        OK     23/23 LFO streams agree (ALFO steps/ranges exact, PLFO mean increment within 20/16384)
+filt_id2       APPROX total: 138685/192480 samples differ (72.1%), worst 1046121

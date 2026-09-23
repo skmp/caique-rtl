@@ -1,0 +1,11 @@
+att_31_28: 20480 samples, counter errors 0, 35707 EG monitor reads, 1034 changes
+att_27_24: 38080 samples, counter errors 0, 66655 EG monitor reads, 2044 changes
+att_22_16: 91008 samples, counter errors 0, 159105 EG monitor reads, 5056 changes
+att_14_08: 267392 samples, counter errors 0, 469454 EG monitor reads, 14691 changes
+att_06_01: 487936 samples, counter errors 0, 852266 EG monitor reads, 26913 changes
+dec_a: 68992 samples, counter errors 0, 120922 EG monitor reads, 3636 changes
+dec_b: 267392 samples, counter errors 0, 467255 EG monitor reads, 14928 changes
+dec_dl: 113088 samples, counter errors 0, 198405 EG monitor reads, 6294 changes
+dec2: 135104 samples, counter errors 0, 240354 EG monitor reads, 132 changes
+rel_a: 71168 samples, counter errors 0, 126190 EG monitor reads, 283 changes
+rel_b: 357824 samples, counter errors 0, 605026 EG monitor reads, 2305 changes

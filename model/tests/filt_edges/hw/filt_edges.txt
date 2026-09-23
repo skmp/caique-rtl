@@ -1,0 +1,24 @@
+edge_0 stream 0 F=1ffe Q=4 bypass=0
+edge_0 stream 1 F=1ffc Q=4 bypass=0
+edge_0 stream 2 F=1e00 Q=4 bypass=0
+edge_0 stream 3 F=1e00 Q=4 bypass=1
+cap_start: counter word fd7a at a0e0 (n 645), next fd7b fd7c fd7d, c0 a365, head n 674
+edge_0 samples=5120 errors=0
+edge_1 stream 0 F=1dfe Q=4 bypass=0
+edge_1 stream 1 F=1dfc Q=4 bypass=0
+edge_1 stream 2 F=1c00 Q=4 bypass=0
+edge_1 stream 3 F=1e00 Q=4 bypass=1
+cap_start: counter word fd87 at 7900 (n 632), next fd88 fd89 fd8a, c0 7b78, head n 637
+edge_1 samples=5120 errors=0
+edge_2 stream 0 F=1bfe Q=4 bypass=0
+edge_2 stream 1 F=1bfc Q=4 bypass=0
+edge_2 stream 2 F=1a00 Q=4 bypass=0
+edge_2 stream 3 F=1e00 Q=4 bypass=1
+cap_start: counter word fdc3 at 50e0 (n 572), next fdc4 fdc5 fdc6, c0 531c, head n 602
+edge_2 samples=5120 errors=0
+edge_3 stream 0 F=19fe Q=4 bypass=0
+edge_3 stream 1 F=19fc Q=4 bypass=0
+edge_3 stream 2 F=1800 Q=4 bypass=0
+edge_3 stream 3 F=1e00 Q=4 bypass=1
+cap_start: counter word fde5 at 28c0 (n 538), next fde6 fde7 fde8, c0 2ada, head n 567
+edge_3 samples=5120 errors=0

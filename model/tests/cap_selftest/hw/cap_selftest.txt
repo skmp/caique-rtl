@@ -1,0 +1,4 @@
+cap_start: counter word fda3 at 74c0 (n 604), next fda4 fda5 fda6, c0 771c, head n 634
+captured 91456 samples x 4 streams, counter errors 0 (first at 0), events: 1@900 2@89102
+stream 0: first non-zero at 906, phase 0, 88446 samples checked to 89351, 0 mismatches
+stream 1: first non-zero at 906, phase 0, 88446 samples checked to 89351, 0 mismatches

@@ -1,0 +1,37 @@
+hwrun: 12:00:00 lock taken by pid 452595 for /home/skmp/projects/dreamster/caique-rtl/model/hw/filt_cyc.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at ac772ba0
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+fc_0: 6848 samples, errors 0
+fc_1: 6848 samples, errors 0
+fc_2: 6848 samples, errors 0
+fc_3: 6848 samples, errors 0
+fc_4: 6848 samples, errors 0
+fc_5: 6848 samples, errors 0
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 109, dma_cntr = 109
+vid_set_mode: 640x480 VGA with 1 framebuffers.

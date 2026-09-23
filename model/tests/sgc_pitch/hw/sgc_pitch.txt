@@ -1,0 +1,24 @@
+pi_0 stream 0: OCT 0 FNS 000
+pi_0 stream 1: OCT 0 FNS 200
+pi_0 stream 2: OCT 0 FNS 001
+pi_0 stream 3: OCT 0 FNS 3ff
+cap_start: counter word fde4 at 2500 (n 539), next fde5 fde6 fde7, c0 271b, head n 564
+pi_0: 6976 samples, errors 0
+pi_1 stream 0: OCT 0 FNS 155
+pi_1 stream 1: OCT 1 FNS 000
+pi_1 stream 2: OCT 1 FNS 2ab
+pi_1 stream 3: OCT 2 FNS 0ff
+cap_start: counter word fd28 at f480 (n 727), next fd29 fd2a fd2b, c0 f757, head n 749
+pi_1: 6976 samples, errors 0
+pi_2 stream 0: OCT 7 FNS 3ff
+pi_2 stream 1: OCT 15 FNS 000
+pi_2 stream 2: OCT 15 FNS 200
+pi_2 stream 3: OCT 14 FNS 3ff
+cap_start: counter word fd51 at c420 (n 686), next fd52 fd53 fd54, c0 c6ce, head n 706
+pi_2: 6976 samples, errors 0
+pi_3 stream 0: OCT 12 FNS 123
+pi_3 stream 1: OCT 8 FNS 3ff
+pi_3 stream 2: OCT 9 FNS 001
+pi_3 stream 3: OCT 3 FNS 1ff
+cap_start: counter word fd76 at 9340 (n 649), next fd77 fd78 fd79, c0 95c9, head n 663
+pi_3: 6976 samples, errors 0

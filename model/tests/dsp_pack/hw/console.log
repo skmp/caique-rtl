@@ -1,0 +1,40 @@
+hwrun: 10:22:46 lock taken by pid 317362 for /home/skmp/projects/dreamster/caique-rtl/model/hw/dsp_pack.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at ac36fba0
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+L 31 done, 0 mismatches so far
+L 63 done, 0 mismatches so far
+L 95 done, 0 mismatches so far
+L 127 done, 0 mismatches so far
+L 159 done, 0 mismatches so far
+L 191 done, 0 mismatches so far
+L 223 done, 0 mismatches so far
+L 255 done, 0 mismatches so far
+dsp_pack: 0 of 16777216 values differ from dsp_pack(); results crc32 ef84ca79; 102268 ms
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 6140, dma_cntr = 6139
+vid_set_mode: 640x480 VGA with 1 framebuffers.

@@ -1,0 +1,309 @@
+# A m c shift : T(TEMP) E(EFREG0) N(RAM NOFL @3) F(RAM float @5)
+A 0001 -4096 0 : T=ffff00 E=ffff N=ffff F=e700
+A 0001 -4096 1 : T=fffe00 E=fffe N=fffe F=e600
+A 0001 -4096 2 : T=fffe00 E=fffe N=fffe F=e600
+A 0001 -4096 3 : T=ffff00 E=ffff N=ffff F=e700
+A 0001    -1 0 : T=ffffff E=ffff N=ffff F=e7ff
+A 0001    -1 1 : T=fffffe E=ffff N=ffff F=e7fe
+A 0001    -1 2 : T=fffffe E=ffff N=ffff F=e7fe
+A 0001    -1 3 : T=ffffff E=ffff N=ffff F=e7ff
+A 0001     1 0 : T=000000 E=0000 N=0000 F=6000
+A 0001     1 1 : T=000000 E=0000 N=0000 F=6000
+A 0001     1 2 : T=000000 E=0000 N=0000 F=6000
+A 0001     1 3 : T=000000 E=0000 N=0000 F=6000
+A 0001  4095 0 : T=0000ff E=0000 N=0000 F=60ff
+A 0001  4095 1 : T=0001fe E=0001 N=0001 F=61fe
+A 0001  4095 2 : T=0001fe E=0001 N=0001 F=61fe
+A 0001  4095 3 : T=0000ff E=0000 N=0000 F=60ff
+A 0001  2048 0 : T=000080 E=0000 N=0000 F=6080
+A 0001  2048 1 : T=000100 E=0001 N=0001 F=6100
+A 0001  2048 2 : T=000100 E=0001 N=0001 F=6100
+A 0001  2048 3 : T=000080 E=0000 N=0000 F=6080
+A 0001 -2048 0 : T=ffff80 E=ffff N=ffff F=e780
+A 0001 -2048 1 : T=ffff00 E=ffff N=ffff F=e700
+A 0001 -2048 2 : T=ffff00 E=ffff N=ffff F=e700
+A 0001 -2048 3 : T=ffff80 E=ffff N=ffff F=e780
+A 0001  1024 0 : T=000040 E=0000 N=0000 F=6040
+A 0001  1024 1 : T=000080 E=0000 N=0000 F=6080
+A 0001  1024 2 : T=000080 E=0000 N=0000 F=6080
+A 0001  1024 3 : T=000040 E=0000 N=0000 F=6040
+A 0080 -4096 0 : T=ff8000 E=ff80 N=ff80 F=c000
+A 0080 -4096 1 : T=ff0000 E=ff00 N=ff00 F=b800
+A 0080 -4096 2 : T=ff0000 E=ff00 N=ff00 F=b800
+A 0080 -4096 3 : T=ff8000 E=ff80 N=ff80 F=c000
+A 0080    -1 0 : T=fffff8 E=ffff N=ffff F=e7f8
+A 0080    -1 1 : T=fffff0 E=ffff N=ffff F=e7f0
+A 0080    -1 2 : T=fffff0 E=ffff N=ffff F=e7f0
+A 0080    -1 3 : T=fffff8 E=ffff N=ffff F=e7f8
+A 0080     1 0 : T=000008 E=0000 N=0000 F=6008
+A 0080     1 1 : T=000010 E=0000 N=0000 F=6010
+A 0080     1 2 : T=000010 E=0000 N=0000 F=6010
+A 0080     1 3 : T=000008 E=0000 N=0000 F=6008
+A 0080  4095 0 : T=007ff8 E=007f N=007f F=47ff
+A 0080  4095 1 : T=00fff0 E=00ff N=00ff F=3fff
+A 0080  4095 2 : T=00fff0 E=00ff N=00ff F=3fff
+A 0080  4095 3 : T=007ff8 E=007f N=007f F=47ff
+A 0080  2048 0 : T=004000 E=0040 N=0040 F=4000
+A 0080  2048 1 : T=008000 E=0080 N=0080 F=3800
+A 0080  2048 2 : T=008000 E=0080 N=0080 F=3800
+A 0080  2048 3 : T=004000 E=0040 N=0040 F=4000
+A 0080 -2048 0 : T=ffc000 E=ffc0 N=ffc0 F=c800
+A 0080 -2048 1 : T=ff8000 E=ff80 N=ff80 F=c000
+A 0080 -2048 2 : T=ff8000 E=ff80 N=ff80 F=c000
+A 0080 -2048 3 : T=ffc000 E=ffc0 N=ffc0 F=c800
+A 0080  1024 0 : T=002000 E=0020 N=0020 F=4800
+A 0080  1024 1 : T=004000 E=0040 N=0040 F=4000
+A 0080  1024 2 : T=004000 E=0040 N=0040 F=4000
+A 0080  1024 3 : T=002000 E=0020 N=0020 F=4800
+A 7fff -4096 0 : T=800100 E=8001 N=8001 F=8000
+A 7fff -4096 1 : T=800000 E=8000 N=8000 F=8000
+A 7fff -4096 2 : T=000200 E=0002 N=0002 F=6200
+A 7fff -4096 3 : T=800100 E=8001 N=8001 F=8000
+A 7fff    -1 0 : T=fff800 E=fff8 N=fff8 F=e000
+A 7fff    -1 1 : T=fff000 E=fff0 N=fff0 F=d800
+A 7fff    -1 2 : T=fff000 E=fff0 N=fff0 F=d800
+A 7fff    -1 3 : T=fff800 E=fff8 N=fff8 F=e000
+A 7fff     1 0 : T=0007ff E=0007 N=0007 F=67ff
+A 7fff     1 1 : T=000ffe E=000f N=000f F=5ffe
+A 7fff     1 2 : T=000ffe E=000f N=000f F=5ffe
+A 7fff     1 3 : T=0007ff E=0007 N=0007 F=67ff
+A 7fff  4095 0 : T=7ff700 E=7ff7 N=7ff7 F=07fe
+A 7fff  4095 1 : T=7fffff E=7fff N=7fff F=07ff
+A 7fff  4095 2 : T=ffee00 E=ffee N=ffee F=d700
+A 7fff  4095 3 : T=7ff700 E=7ff7 N=7ff7 F=07fe
+A 7fff  2048 0 : T=3fff80 E=3fff N=3fff F=0fff
+A 7fff  2048 1 : T=7fff00 E=7fff N=7fff F=07ff
+A 7fff  2048 2 : T=7fff00 E=7fff N=7fff F=07ff
+A 7fff  2048 3 : T=3fff80 E=3fff N=3fff F=0fff
+A 7fff -2048 0 : T=c00080 E=c000 N=c000 F=8800
+A 7fff -2048 1 : T=800100 E=8001 N=8001 F=8000
+A 7fff -2048 2 : T=800100 E=8001 N=8001 F=8000
+A 7fff -2048 3 : T=c00080 E=c000 N=c000 F=8800
+A 7fff  1024 0 : T=1fffc0 E=1fff N=1fff F=17ff
+A 7fff  1024 1 : T=3fff80 E=3fff N=3fff F=0fff
+A 7fff  1024 2 : T=3fff80 E=3fff N=3fff F=0fff
+A 7fff  1024 3 : T=1fffc0 E=1fff N=1fff F=17ff
+A 8000 -4096 0 : T=7fffff E=7fff N=7fff F=07ff
+A 8000 -4096 1 : T=7fffff E=7fff N=7fff F=07ff
+A 8000 -4096 2 : T=000000 E=0000 N=0000 F=6000
+A 8000 -4096 3 : T=800000 E=8000 N=8000 F=8000
+A 8000    -1 0 : T=000800 E=0008 N=0008 F=5800
+A 8000    -1 1 : T=001000 E=0010 N=0010 F=5000
+A 8000    -1 2 : T=001000 E=0010 N=0010 F=5000
+A 8000    -1 3 : T=000800 E=0008 N=0008 F=5800
+A 8000     1 0 : T=fff800 E=fff8 N=fff8 F=e000
+A 8000     1 1 : T=fff000 E=fff0 N=fff0 F=d800
+A 8000     1 2 : T=fff000 E=fff0 N=fff0 F=d800
+A 8000     1 3 : T=fff800 E=fff8 N=fff8 F=e000
+A 8000  4095 0 : T=800800 E=8008 N=8008 F=8001
+A 8000  4095 1 : T=800000 E=8000 N=8000 F=8000
+A 8000  4095 2 : T=001000 E=0010 N=0010 F=5000
+A 8000  4095 3 : T=800800 E=8008 N=8008 F=8001
+A 8000  2048 0 : T=c00000 E=c000 N=c000 F=8800
+A 8000  2048 1 : T=800000 E=8000 N=8000 F=8000
+A 8000  2048 2 : T=800000 E=8000 N=8000 F=8000
+A 8000  2048 3 : T=c00000 E=c000 N=c000 F=8800
+A 8000 -2048 0 : T=400000 E=4000 N=4000 F=0000
+A 8000 -2048 1 : T=7fffff E=7fff N=7fff F=07ff
+A 8000 -2048 2 : T=800000 E=8000 N=8000 F=8000
+A 8000 -2048 3 : T=400000 E=4000 N=4000 F=0000
+A 8000  1024 0 : T=e00000 E=e000 N=e000 F=9000
+A 8000  1024 1 : T=c00000 E=c000 N=c000 F=8800
+A 8000  1024 2 : T=c00000 E=c000 N=c000 F=8800
+A 8000  1024 3 : T=e00000 E=e000 N=e000 F=9000
+A ffff -4096 0 : T=000100 E=0001 N=0001 F=6100
+A ffff -4096 1 : T=000200/000100/000200/000200 E=0002 N=0002 F=6200
+A ffff -4096 2 : T=000200 E=0002 N=0002 F=6200
+A ffff -4096 3 : T=000100 E=0001 N=0001 F=6100
+A ffff    -1 0 : T=000000 E=0000 N=0000 F=6000
+A ffff    -1 1 : T=000000 E=0000 N=0000 F=6000
+A ffff    -1 2 : T=000000 E=0000 N=0000 F=6000
+A ffff    -1 3 : T=000000 E=0000 N=0000 F=6000
+A ffff     1 0 : T=ffffff E=ffff N=ffff F=e7ff
+A ffff     1 1 : T=fffffe E=ffff N=ffff F=e7fe
+A ffff     1 2 : T=fffffe E=ffff N=ffff F=e7fe
+A ffff     1 3 : T=ffffff E=ffff N=ffff F=e7ff
+A ffff  4095 0 : T=ffff00 E=ffff N=ffff F=e700
+A ffff  4095 1 : T=fffe00 E=fffe N=fffe F=e600
+A ffff  4095 2 : T=fffe00 E=fffe N=fffe F=e600
+A ffff  4095 3 : T=ffff00 E=ffff N=ffff F=e700
+A ffff  2048 0 : T=ffff80 E=ffff N=ffff F=e780
+A ffff  2048 1 : T=ffff00 E=ffff N=ffff F=e700
+A ffff  2048 2 : T=ffff00 E=ffff N=ffff F=e700
+A ffff  2048 3 : T=ffff80 E=ffff N=ffff F=e780
+A ffff -2048 0 : T=000080 E=0000 N=0000 F=6080
+A ffff -2048 1 : T=000100 E=0001 N=0001 F=6100
+A ffff -2048 2 : T=000100 E=0001 N=0001 F=6100
+A ffff -2048 3 : T=000080 E=0000 N=0000 F=6080
+A ffff  1024 0 : T=ffffc0 E=ffff N=ffff F=e7c0
+A ffff  1024 1 : T=ffff80 E=ffff N=ffff F=e780
+A ffff  1024 2 : T=ffff80 E=ffff N=ffff F=e780
+A ffff  1024 3 : T=ffffc0 E=ffff N=ffff F=e7c0
+A 4000 -4096 0 : T=c00000 E=c000 N=c000 F=8800
+A 4000 -4096 1 : T=800000 E=8000 N=8000 F=8000
+A 4000 -4096 2 : T=800000 E=8000 N=8000 F=8000
+A 4000 -4096 3 : T=c00000 E=c000 N=c000 F=8800
+A 4000    -1 0 : T=fffc00 E=fffc N=fffc F=e400
+A 4000    -1 1 : T=fff800 E=fff8 N=fff8 F=e000
+A 4000    -1 2 : T=fff800 E=fff8 N=fff8 F=e000
+A 4000    -1 3 : T=fffc00 E=fffc N=fffc F=e400
+A 4000     1 0 : T=000400 E=0004 N=0004 F=6400
+A 4000     1 1 : T=000800 E=0008 N=0008 F=5800
+A 4000     1 2 : T=000800 E=0008 N=0008 F=5800
+A 4000     1 3 : T=000400 E=0004 N=0004 F=6400
+A 4000  4095 0 : T=3ffc00 E=3ffc N=3ffc F=0fff
+A 4000  4095 1 : T=7ff800 E=7ff8 N=7ff8 F=07ff
+A 4000  4095 2 : T=7ff800 E=7ff8 N=7ff8 F=07ff
+A 4000  4095 3 : T=3ffc00 E=3ffc N=3ffc F=0fff
+A 4000  2048 0 : T=200000 E=2000 N=2000 F=0800
+A 4000  2048 1 : T=400000 E=4000 N=4000 F=0000
+A 4000  2048 2 : T=400000 E=4000 N=4000 F=0000
+A 4000  2048 3 : T=200000 E=2000 N=2000 F=0800
+A 4000 -2048 0 : T=e00000 E=e000 N=e000 F=9000
+A 4000 -2048 1 : T=c00000 E=c000 N=c000 F=8800
+A 4000 -2048 2 : T=c00000 E=c000 N=c000 F=8800
+A 4000 -2048 3 : T=e00000 E=e000 N=e000 F=9000
+A 4000  1024 0 : T=100000 E=1000 N=1000 F=1000
+A 4000  1024 1 : T=200000 E=2000 N=2000 F=0800
+A 4000  1024 2 : T=200000 E=2000 N=2000 F=0800
+A 4000  1024 3 : T=100000 E=1000 N=1000 F=1000
+A c000 -4096 0 : T=400000 E=4000 N=4000 F=0000
+A c000 -4096 1 : T=7fffff E=7fff N=7fff F=07ff
+A c000 -4096 2 : T=800000 E=8000 N=8000 F=8000
+A c000 -4096 3 : T=400000 E=4000 N=4000 F=0000
+A c000    -1 0 : T=000400 E=0004 N=0004 F=6400
+A c000    -1 1 : T=000800 E=0008 N=0008 F=5800
+A c000    -1 2 : T=000800 E=0008 N=0008 F=5800
+A c000    -1 3 : T=000400 E=0004 N=0004 F=6400
+A c000     1 0 : T=fffc00 E=fffc N=fffc F=e400
+A c000     1 1 : T=fff800 E=fff8 N=fff8 F=e000
+A c000     1 2 : T=fff800 E=fff8 N=fff8 F=e000
+A c000     1 3 : T=fffc00 E=fffc N=fffc F=e400
+A c000  4095 0 : T=c00400 E=c004 N=c004 F=8801
+A c000  4095 1 : T=800800 E=8008 N=8008 F=8001
+A c000  4095 2 : T=800800 E=8008 N=8008 F=8001
+A c000  4095 3 : T=c00400 E=c004 N=c004 F=8801
+A c000  2048 0 : T=e00000 E=e000 N=e000 F=9000
+A c000  2048 1 : T=c00000 E=c000 N=c000 F=8800
+A c000  2048 2 : T=c00000 E=c000 N=c000 F=8800
+A c000  2048 3 : T=e00000 E=e000 N=e000 F=9000
+A c000 -2048 0 : T=200000 E=2000 N=2000 F=0800
+A c000 -2048 1 : T=400000 E=4000 N=4000 F=0000
+A c000 -2048 2 : T=400000 E=4000 N=4000 F=0000
+A c000 -2048 3 : T=200000 E=2000 N=2000 F=0800
+A c000  1024 0 : T=f00000 E=f000 N=f000 F=9800
+A c000  1024 1 : T=e00000 E=e000 N=e000 F=9000
+A c000  1024 2 : T=e00000 E=e000 N=e000 F=9000
+A c000  1024 3 : T=f00000 E=f000 N=f000 F=9800
+A 1234 -4096 0 : T=edcc00 E=edcc N=edcc F=96e6
+A 1234 -4096 1 : T=db9800 E=db98 N=db98 F=8ee6
+A 1234 -4096 2 : T=db9800 E=db98 N=db98 F=8ee6
+A 1234 -4096 3 : T=edcc00 E=edcc N=edcc F=96e6
+A 1234    -1 0 : T=fffedc E=fffe N=fffe F=e6dc
+A 1234    -1 1 : T=fffdb8 E=fffd N=fffd F=e5b8
+A 1234    -1 2 : T=fffdb8 E=fffd N=fffd F=e5b8
+A 1234    -1 3 : T=fffedc E=fffe N=fffe F=e6dc
+A 1234     1 0 : T=000123 E=0001 N=0001 F=6123
+A 1234     1 1 : T=000246 E=0002 N=0002 F=6246
+A 1234     1 2 : T=000246 E=0002 N=0002 F=6246
+A 1234     1 3 : T=000123 E=0001 N=0001 F=6123
+A 1234  4095 0 : T=1232dc E=1232 N=1232 F=1119
+A 1234  4095 1 : T=2465b8 E=2465 N=2465 F=0919
+A 1234  4095 2 : T=2465b8 E=2465 N=2465 F=0919
+A 1234  4095 3 : T=1232dc E=1232 N=1232 F=1119
+A 1234  2048 0 : T=091a00 E=091a N=091a F=191a
+A 1234  2048 1 : T=123400 E=1234 N=1234 F=111a
+A 1234  2048 2 : T=123400 E=1234 N=1234 F=111a
+A 1234  2048 3 : T=091a00 E=091a N=091a F=191a
+A 1234 -2048 0 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A 1234 -2048 1 : T=edcc00 E=edcc N=edcc F=96e6
+A 1234 -2048 2 : T=edcc00 E=edcc N=edcc F=96e6
+A 1234 -2048 3 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A 1234  1024 0 : T=048d00 E=048d N=048d F=211a
+A 1234  1024 1 : T=091a00 E=091a N=091a F=191a
+A 1234  1024 2 : T=091a00 E=091a N=091a F=191a
+A 1234  1024 3 : T=048d00 E=048d N=048d F=211a
+A edcc -4096 0 : T=123400 E=1234 N=1234 F=111a
+A edcc -4096 1 : T=246800 E=2468 N=2468 F=091a
+A edcc -4096 2 : T=246800 E=2468 N=2468 F=091a
+A edcc -4096 3 : T=123400 E=1234 N=1234 F=111a
+A edcc    -1 0 : T=000123 E=0001 N=0001 F=6123
+A edcc    -1 1 : T=000246 E=0002 N=0002 F=6246
+A edcc    -1 2 : T=000246 E=0002 N=0002 F=6246
+A edcc    -1 3 : T=000123 E=0001 N=0001 F=6123
+A edcc     1 0 : T=fffedc E=fffe N=fffe F=e6dc
+A edcc     1 1 : T=fffdb8 E=fffd N=fffd F=e5b8
+A edcc     1 2 : T=fffdb8 E=fffd N=fffd F=e5b8
+A edcc     1 3 : T=fffedc E=fffe N=fffe F=e6dc
+A edcc  4095 0 : T=edcd23 E=edcd N=edcd F=96e6
+A edcc  4095 1 : T=db9a46 E=db9a N=db9a F=8ee6
+A edcc  4095 2 : T=db9a46 E=db9a N=db9a F=8ee6
+A edcc  4095 3 : T=edcd23 E=edcd N=edcd F=96e6
+A edcc  2048 0 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A edcc  2048 1 : T=edcc00 E=edcc N=edcc F=96e6
+A edcc  2048 2 : T=edcc00 E=edcc N=edcc F=96e6
+A edcc  2048 3 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A edcc -2048 0 : T=091a00 E=091a N=091a F=191a
+A edcc -2048 1 : T=123400 E=1234 N=1234 F=111a
+A edcc -2048 2 : T=123400 E=1234 N=1234 F=111a
+A edcc -2048 3 : T=091a00 E=091a N=091a F=191a
+A edcc  1024 0 : T=fb7300 E=fb73 N=fb73 F=a6e6
+A edcc  1024 1 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A edcc  1024 2 : T=f6e600 E=f6e6 N=f6e6 F=9ee6
+A edcc  1024 3 : T=fb7300 E=fb73 N=fb73 F=a6e6
+B twt@3: T=00c000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=00c0 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B twt@4: T=010000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=0100 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B twt@5: T=014000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=0140 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B twt@6: T=018000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=0180 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B twt@7: T=01c000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=01c0 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B twt@8: T=020000 RAM(odd s): 1=0040 3=00c0 5=0140 7=01c0 9=0240 11=02c0 13=0340 15=03c0 17=0440 EFREG(even s): 0=0200 2=0080 4=0100 6=0180 8=0200 10=0280 12=0300 14=0380
+B2 negb@6=0 RAM(odd s): 1=0040 3=00c0 5=0100 7=0100 9=0100 11=0100 13=0100 15=0100
+B2 negb@6=1 RAM(odd s): 1=0040 3=00c0 5=0100 7=ff00 9=ff00 11=ff00 13=ff00 15=ff00
+C MEMS[2..19].h/l: 2=0007/77 3=1111/00 4=1222/00 5=2222/00 6=0511/00 7=3333/00 8=0166/60 9=4444/00 10=0062/20 11=5555/00 12=001a/aa 13=6666/00 14=0006/66 15=0006/66 16=6666/00 17=0007/77 18=0007/77 19=0007/77
+C2 float MRD -> MEMS[20..27] h/l: 0001->4008/00 07ff->7ff8/00 0800->2000/00 7fff->0007/ff 8000->8000/00 ffff->ffff/ff 5a5a->000a/5a 3fff->00ff/f0
+D yreg 1234 ysel 2: T=091800
+D yreg 1234 ysel 3: T=0d0000
+D frc src -1234 shift 0: T=f6e400
+D frc src -1234 shift 1: T=edcc00
+D frc src -1234 shift 2: T=edcc00
+D frc src -1234 shift 3: T=300000
+D yreg 9876 ysel 2: T=cc3800
+D yreg 9876 ysel 3: T=1d8000
+D frc src -9876 shift 0: T=33c400
+D frc src -9876 shift 1: T=3ffc00
+D frc src -9876 shift 2: T=e78800
+D frc src -9876 shift 3: T=280000
+D yreg 98f6 ysel 2: T=cc7800
+D yreg 98f6 ysel 3: T=3d8000
+D frc src -98f6 shift 0: T=338400
+D frc src -98f6 shift 1: T=3ffc00
+D frc src -98f6 shift 2: T=e70800
+D frc src -98f6 shift 3: T=280000
+D yreg 7fff ysel 2: T=3ffc00
+D yreg 7fff ysel 3: T=3fc000
+D frc src -7fff shift 0: T=c00000
+D frc src -7fff shift 1: T=c00000
+D frc src -7fff shift 2: T=000000
+D frc src -7fff shift 3: T=040000
+D yreg 8000 ysel 2: T=c00000
+D yreg 8000 ysel 3: T=000000
+D frc src -8000 shift 0: T=3ffc00
+D frc src -8000 shift 1: T=3ffc00
+D frc src -8000 shift 2: T=000000
+D frc src -8000 shift 3: T=000000
+D yreg ffff ysel 2: T=fffc00
+D yreg ffff ysel 3: T=3fc000
+D frc src -ffff shift 0: T=000000
+D frc src -ffff shift 1: T=000000
+D frc src -ffff shift 2: T=000000
+D frc src -ffff shift 3: T=040000
+D yreg 0ff0 ysel 2: T=07f800
+D yreg 0ff0 ysel 3: T=3c0000
+D frc src -0ff0 shift 0: T=f80800
+D frc src -0ff0 shift 1: T=f01000
+D frc src -0ff0 shift 2: T=f01000
+D frc src -0ff0 shift 3: T=000000
+F MIXS5 right after write 1234/5, after 2ms 0000/0
+F ira 25 * -4096 shift3: T=edcbb0/000000/edcbb0/000000
+F ira 30 * -4096 shift3: T=000000
+F ira 31 * -4096 shift3: T=000000

@@ -23,11 +23,18 @@ minicast are listed below with the test that forced them.
   - MIXS: R/W 20 bits (+0: 3:0, +4: 19:4).  Every slot writes its ISEL bus every sample (IMXL 0 writes 0), so a
     bus keeps its last value only when NO slot points at it; a CPU-written value is seen by the DSP on alternate
     samples (two banks): see "MIXS retention" below (tests/eg_lock mixs, tests/mixs_write; resolves the dsp_temp T2 /
-    dsp_basic F observations; modelled).  [claims D2, T9]
+    dsp_basic F observations; modelled).  [claims D2, T9]  **CPU readback** (tests/mixs_rd, session 6): a read
+    returns the bank of the CURRENT sample parity -- the bank the CPU's own writes go to -- so a written value reads
+    back until the next sample boundary; from there a bus with writers shows the SGC value (0 / the sender's) and a
+    bus NO slot points at alternates every sample between the written bank and the untouched one (period 2 samples).
+    The low nibble's bank switch is seen ~5 us before the high word's inside the sample (not modelled).  Model:
+    `read()` returns `MIXS_bank[samples & 1]`.  [claim U3]
   - EFREG 16 bits R/W. EXTS reads 0, not writable (no CD playing).
 - Monitors: MSLC (0x280C bits 13:8) selects the slot. 0x2810 = LP(15) SGC state(14:13) EG(12:0). EG is **13 bits**:
   0x1FFF when the slot is off/released, 0 at full volume; otherwise the 10-bit attenuation (see Amplitude envelope).
-  0x2814 = CA (reads 0 from "off" on, not from the earlier fetch stop: tests/sgc_keys K4, see Amplitude envelope).
+  0x2814 = CA (reads 0 from the slot stop on -- the sample after the clock that brought a to 0x3C0, the same event
+  that makes the EG monitor read 0x1FFF: tests/ca_stop, session 6; session 5 had read tests/sgc_keys K4 as "reset at
+  off past 0x3FF", see Amplitude envelope).
   LP (bit 15) is cleared by the read.
 
 ## Slot levels (tests/sgc_level — model matches every value)
@@ -45,7 +52,7 @@ minicast are listed below with the test that forced them.
   (tests/sgc_mix, model identical).  minicast clamped.
 - minicast used float-derived 2^(-x/16) tables and a 16-bit MIXS scale; both replaced.
 
-## Amplitude envelope (tests/sgc_aeg, aeg_dl0, aeg_koff, slot_tail, eg_kprobe; tools/aeg*.py are legacy)
+## Amplitude envelope (tests/sgc_aeg, aeg_dl0, aeg_koff, slot_tail, eg_kprobe, ca_stop; tools/aeg*.py are legacy)
 
 Captured with a constant 0x7FFF sample; the attenuation of every sample follows from the level law, and the EG
 monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), state in bits 14:13.
@@ -65,18 +72,32 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
     clock (tests/sgc_aeg dec_a).  The model switched one clock later and skipped the DL = 0 step; fixed (levels
     unchanged for DL > 0: the sgc_aeg model captures are identical to the previous ones after onset alignment).
     [claims A1-A3]
-  - **Slot stop and "off"** (tests/slot_tail, 12/12 streams sample-exact through tools/tail_cmp; session 5): the
-    sample fetch stops when a reaches **0x3C0** (a[9:6] == 15) on a clock, visible on the sample AFTER that clock
-    (tail_a: the 120th +8 clock, the 960th +1 clock; tail_c: 768 clocks of row 5, and 120 clocks after an RR
-    rewrite); the slot is **"off"** -- monitor 0x1FFF, CA reads 0, the envelope stops with a saturated at 0x3FF --
-    when a passes 0x3FF (the 128th +8 clock), also one sample after its clock.  **The output is NOT muted at off**:
-    with VOFF 0 the level law with a = 0x3FF keeps applying to the zero-input filter tail (tail_b stream 0: -16 on
-    every negative half-wave for 100 samples past off, 0 on the positive ones); with VOFF 1 the filter tail runs to
-    its rest value (see "Slot filter").  The FEG keeps stepping after the stop and after off (tail_c).  The state
-    is kept: decay 2 stays decay 2 (monitor 0x5FFF); **minicast** switches decay 2 → release instead.  Controls
-    that each break streams: thresholds 0x3BF / 0x3C1 / 0x400, lag 0 / 2 samples, a mute at off or at the stop
-    (work/verify/s5/model_fixes.md 2.3).  The old model stopped at 0x400 and muted; both fixed (`Slot::stop_in` /
-    `off_in`).  Whether CA holds or advances between the stop and off is not visible.  [claim T8]
+  - **Slot stop = "off"** (tests/slot_tail, 12/12 streams sample-exact through tools/tail_cmp, session 5; tests/ca_stop,
+    session 6): when a reaches **0x3C0** (a[9:6] == 15) on a clock, the sample fetch stops, the EG monitor reads
+    0x1FFF and CA reads 0, all on the sample AFTER that clock (tail_a: the fetch stop after the 120th +8 clock, the
+    960th +1 clock; tail_c: 768 clocks of row 5, and 120 clocks after an RR rewrite).  The AEG value keeps stepping
+    to 0x3FF and saturates there (tail_b); nothing else is observable at 0x3FF / 0x400.  **The output is NOT
+    muted**: with VOFF 0 the level law with a = 0x3FF keeps applying to the zero-input filter tail (tail_b stream 0:
+    -16 on every negative half-wave for 100 samples past the saturation, 0 on the positive ones); with VOFF 1 the
+    filter tail runs to its rest value (see "Slot filter").  The FEG keeps stepping after the stop (tail_c).  The
+    state is kept: decay 2 stays decay 2 (monitor 0x5FFF), and the decay 1 -> decay 2 compare still runs on the stop
+    clock (ca_stop: DL 30 lands decay 1 exactly on 0x3C0, the monitor then reads state 2 with 0x1FFF); **minicast**
+    switches decay 2 → release instead.  History: session 5 stated "fetch stop at 0x3C0; off (monitor 0x1FFF, CA 0)
+    when a passes 0x3FF, the 128th +8 clock; each one sample after its clock" -- the captures only see the fetch
+    stop, and the sgc_keys K4 poll (CA 0 logged in the same poll as EG 0x5FFF, 5916 us) was read as a reset at off.
+    tests/ca_stop (session 6; decay 1 at +8 through DL 30 onto a = 0x3C0, then decay 2 at D2R 10 = +1 per 64 clocks,
+    so 0x3C0 → 0x400 would take 186 ms; EG + CA monitors polled every ~31 us; runs S1 pitch 1.0 loop, S2 pitch 0.5,
+    S3 one-shot) never shows a in 0x3C1..0x3FF: the poll after the 0x3C0 reading reads EG 0x5FFF (state 2, 0x1FFF)
+    with the OLD CA, and the poll after that reads CA 0 (S1: a 0x3C0 at 5873 us, 0x5FFF + CA 0x0103 at 5905, CA 0 at
+    5937; S3: 5864 / 5895 / 5927; S2: 0x3B8 at 5859, 0x5FFF + CA 0x0081 at 5891, CA 0 at 5936).  So the flag and
+    the CA reset both belong to the 0x3C0 stop, within ~1-2 samples of its clock (the CA reset trails the flag by
+    between one G2 read and one poll, below the poll's resolution; not modelled), and the session-5 question "does
+    CA hold or advance between the stop and off" is moot.  Controls that each break streams: thresholds 0x3BF /
+    0x3C1 / 0x400, lag 0 / 2 samples, a mute at the stop or at 0x3FF (work/verify/s5/model_fixes.md 2.3).  Model:
+    `slot_stop()` sets `enabled = false`, `AEG.off` (monitor 0x1FFF) and `CA = 0` together, committed by `step()` one
+    sample after the 0x3C0 clock (`Slot::stop_in`; session 5's separate `off_in` pipeline and `slot_off()` are gone);
+    the sgc_keys K4 and sgc_aeg monitor logs reproduce (the model's K4 "EG 5fff CA 0000" line moved from 6231 to
+    5868 us, console 5916 us).  [claims T8, U2]
 - **Key-on loads a = 0x280 (-60 dB)**, not 0x3FF.  The key event takes effect on the sample after the KYONEX write,
   whatever its parity; that sample takes no envelope step, so the key-on level lasts 2 samples when it is a clock and
   1 when it is not (tests/eg_lock keys; the earlier "always one clock" came from key-ons that happened to land on
@@ -131,9 +152,10 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   key-on sample, that sample takes no step, and CA restarts on that sample** (tests/aeg_koff kon_rel, witness-pinned:
   48/48 stream-cycles; "step on the key-on sample" 27/48 and "load on the next clock" 21/48 each fit only the parity
   where they coincide with the rule; CA restart on the next clock 0/18; the old monitor-based "EG loads 0x280 on the
-  next envelope clock" is superseded).  [claim T6]  **Decay 2 reaching the top stops the slot**: the fetch stops at
-  a = 0x3C0 and the slot is "off" (CA reads 0) once a passes 0x3FF, each one sample after its clock (see Amplitude
-  envelope); the state stays decay 2, and a key-on is then ignored until a key-off.  **KYONB is never cleared by the
+  next envelope clock" is superseded).  [claim T6]  **Decay 2 reaching the top stops the slot**: at a = 0x3C0 the
+  fetch stops, the monitor reads 0x1FFF and CA reads 0, one sample after that clock (tests/ca_stop, session 6; session
+  5 had put the monitor / CA part at "past 0x3FF"; see Amplitude envelope); the state stays decay 2, and a key-on is
+  then ignored until a key-off.  **KYONB is never cleared by the
   hardware** (minicast cleared it on release).
 
 ## LFOs (tests/sgc_lfo)
@@ -157,7 +179,7 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
 - **R = 63 attack is instant** (EG = 0 from the key-on sample, and the attack is left on that sample when it is a
   clock, see Amplitude envelope); R = 62 still ramps (s = 1 steps).
 
-## Filter envelope (FEG) (tests/feg_probe, feg_track, feg_krs, feg_koffdir, feg_koffatt, slot_tail)
+## Filter envelope (FEG) (tests/feg_probe, feg_track, feg_krs, feg_koffdir, feg_koffatt, feg_koffpass, slot_tail)
 
 - The monitor with AFSEL = 1 reads the 13-bit FEG value, state in bits 14:13 (the FEG's own state, not the AEG's).
 - Key-on loads FLV0.  The value then moves **linearly** (±inc per tick, same clock and increment tables as the
@@ -170,8 +192,10 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   [claims E1-E4]:
   - the envelope clock ticks every 2 samples (the even-MDEC_CT samples, "Envelope clock"); key-on loads FLV0 on the
     key-on sample and the first step comes on the next clock; key-off switches to release on the key-off sample, and
-    if that sample is a clock it takes one more step of the OLD segment -- its increment AND its direction, hold
-    check against FLV4 (next bullet); a key-off on an odd sample does nothing on that sample.
+    if that sample is a clock it takes the step it would have taken without the key-off: one more step of the OLD
+    segment -- its increment AND its direction, hold check against FLV4 -- or, when the old segment had passed its
+    target on the previous clock, the NEXT segment's step (bullet "Key-off clock"); a key-off on an odd sample does
+    nothing on that sample.
   - **KRS applies to FEG rates** exactly as to the AEG (R = 2 rate + KRS scaling; KRS 0 and 5 at OCT +3 fit only
     with it).
   - **One comparator C = (v >= target).**  A segment moves down if C holds when it starts, else up (a segment that
@@ -194,6 +218,25 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
     KYONB without a KYONEX leaves the FEG holding (feg_koffdir batches 6 / 7): the target follows the state, not
     the register.  The FEG keeps stepping after the slot's fetch stop and after off (tests/slot_tail tail_c).
     Model: `feg_clock`, rate from `feg_prev`, direction from `feg_prev_dir`.  [claim T4]
+    **Passed flag set at the key-off** (session 6, tests/feg_koffpass, tools/koffpass_check; 2 runs x 64 witness-pinned
+    cycles, 0 errors; all three slots cross on the same clock N -- s0 attack UP 0x1800 → 0x1810 at +2, s1 attack DOWN
+    0x1C00 → 0x1BF0 at -2 with FLV1 0x1BF2, s2 decay 1 UP 0x1808 → 0x1816 at +2 after a one-clock R 60 attack; kp_b
+    4 higher / lower -- and the key-off spacing sweeps E - key-on over 15..20 / 22..29 samples): an attack / decay 1
+    that crossed its target on clock N sets `passed`, and a normal clock N+1 advances the segment first and then steps
+    with the NEW segment's rate and direction.  A key-off landing on clock N+1 does exactly that too: **the next
+    segment's step** ("nextSeg" 10/10 kp_a + 13/13 kp_b informative N+1 cycles, all 3 streams FULL to the cycle end);
+    session 5's model rule "one more step of the passed segment" 0/23, "no step" 0/23, "the release step" 0/23, no
+    N+1 cycle with zero or two readings fitting.  The other phases (E = N 18/18, pre 2/2, post 20/20 -- decay 1's and
+    decay 2's plain old step, new evidence for decay 1 --, odd 41/41, odd* 24/24 = passed flag pending on an odd
+    key-off sample: nothing on the sample, release from the next clock) are FULL under the established rule for every
+    reading.  Hence the general statement: **on the key-off clock the FEG (and the AEG's linear segments) take exactly
+    the step they would have taken had the key-off not happened, a segment advance due on that clock included; the
+    AEG's exponential attack takes none.**  Model: `Slot::feg_prev_passed` saved by `key_off()`, `feg_clock` takes
+    seg / dir from the passed segment's successor (its target decides the direction), the hold rule stays the
+    release's.  Gates after the change: eg_model 89/89, tail_cmp 12/12, feg_validate 9/9, eg_replay 5 x 4/4;
+    koffpass_check on tests/feg_koffpass/model nextSeg 11/11 + 8/8 (before the change oldStep 19/19 there,
+    work/koffpass/check_model.txt).  Report: work/verify/s6/case_feg_koffpass.md; console output
+    work/koffpass/check_hw.txt.  [claim U1]
   - The batch-1 slot-2 anomaly (its key-off one clock early, its counter phase 2 mod 4 off) is resolved: the rows
     for R = 49/57 differ from the OPN table, and a key-off sample that is a clock takes one more step of the previous
     segment (see "Envelope clock"; tests/eg_lock, feg_krs).
@@ -377,10 +420,36 @@ The envelope clock is **observable**: it is locked to the DSP's ring counter.
   DSP program load and a 64-slot register sweep with KYONEX all leave K at 6491 (dK +0; MDEC_CT continuity within
   ~90 samples of the SH4-clock prediction).  The offset between the two counters is set before any program runs
   (power-on / BIOS boot); a controlled reboot is the next probe.  [claim T1]
-- **The envelope generators read their rate registers one sample late** (tests/slot_tail tail_c: RR 0 → 31 rewritten
-  together with SA on a clock sample; the fetch switched to the new SA on that sample, the first +8 release step came
-  on the next clock).  Model: `Slot::egreg`, refreshed by `eg_latch` at the end of every sample; DL / KRS (in the
-  same register) and the FEG rates are latched with it, only RR is measured.  [claim T8]
+- **Every envelope register is read LIVE -- there is no one-sample register latch** (session 6, tests/eg_latch,
+  eg_latch2, eg_latch3 through tools/latch_check; every capture 0 errors).  Session 5 had stated "the EG reads its rate
+  registers one sample late" from tests/slot_tail tail_c (RR 0 → 31 rewritten together with reg 0x00 on clock sample
+  11300: the fetch switched to the new SA at 11300, the first +8 release step came at 11302) and the model latched
+  r10 / r14 / r18 / r40 / r44 (`Slot::egreg`, `eg_latch`) -- REFUTED.  Method: each rewrite is paired with a witness
+  slot's KYONEX (write order alternating per cycle), the witness onset E pins the sample the pair takes effect on; a
+  live register acts at clock E, a latched one at clock E + 2 (informative = even E).  eg_latch (6 runs x 16 cycles
+  x 3 rewrites): DL 6 + 8, KRS 11 + 12, AR 8 + 10, D2R 11 + 10, FD1R / FD2R 14 + 15, FLV3 target 1 + 4 informative
+  events (order 0 + order 1) ALL live, 0 latched, LATE straddles 0 everywhere (work/latch/check_hw.txt).  eg_latch2
+  (work/latch/check2_hw.txt): RR 0 → 30 on a held release 12 + 14 live, RR 24 → 30 10 + 12, RR 0 → 30 with the slot's
+  own reg 0x00 (KYONB 0) rewritten + KYONEX = tail_c's group without the SA change 10 + 10, RR 24 → 30 with a redundant
+  key-off 11 + 11, D2R 0 → 28 on a held decay 2 6 + 16 -- all live: no latch, no "rate 0 → nonzero arming", a
+  redundant key-off on a released slot changes nothing.  eg_latch3 (work/latch/check3_hw.txt): the same RR 0 → 30
+  probe with reg 0x00 SA[22:16] changed 14 + 15, reg 0x04 SA low 13 + 11, LPCTL 1 → 0 12 + 11, LEA 14 + 11, control
+  none 16 + 18 -- all live, and `CA restarted 0/48` in every run: an SA / LPCTL / LEA rewrite does not restart the
+  stream, CA runs on.  Model: `egreg` / `eg_latch` removed, `aeg_clock` / `feg_clock` / `eff_rate` read r10, r14
+  (DL, KRS, RR), r18, r40, r44 and the FLV targets from the registers.  [claims T8 (latch clause refuted), U4]
+- **In-sample ordering: the envelope update precedes the sample fetch / output within a sample period** (session 6;
+  the explanation of tail_c's "delayed" RR).  Key events (KYONEX) always take effect from the next sample.  A register
+  write landing BEFORE a sample's envelope phase acts on that sample's clock; one landing AFTER it is seen by that
+  sample's fetch but only by the next sample's envelope clock.  tail_c's write group (RR 0 → 31, reg 0x00 := 0 = SA 0 /
+  LPCTL 0, then KYONEX) landed between the two phases of sample 11300: the SA switch shows at 11300, the first +8
+  release step at 11302.  Statistic (eg_latch; the checker's "EARLY" straddles = the register acting one sample BEFORE
+  the same group's key event, in both write orders): krs 5 of 25 odd-E events, ar 5 of 28, d2r 1 of 27, feg_rate 1 of
+  19, eg_latch2 / eg_latch3 1-3 per run -- writes that landed before the envelope phase of their sample and were seen by
+  that sample's clock while the KYONEX next to them acted a sample later.  **Not modelled** (a known sub-sample
+  limitation): the model steps whole samples and applies writes between steps, so it cannot place a write inside a
+  sample; tools/tail_cmp therefore lets the RR write be applied one sample after the SA write (d = w00 - w14 in {1, 0,
+  -1}) and tail_c fits with w00 11300 / w14 11301 (12/12 streams).  RTL rule: EG update first, then fetch / output;
+  register writes take effect at the next phase boundary, key events at the next sample.  [claim U4]
 - **Key events take effect on the sample after the KYONEX write, whatever its parity.**  The key-on sample takes no
   envelope step: the key-on level lasts 2 samples when that sample is a clock, 1 when it is not (eg_lock keys: 32
   cycles, both cases).  The old model applied key events at the next clock (level always 2 samples).
@@ -396,7 +465,10 @@ The envelope clock is **observable**: it is locked to the DSP's ring counter.
   same way; tests/feg_koffdir separates them, see "Filter envelope"), and on the AEG the decays take the old step
   while the exponential attack takes none (tests/aeg_koff, see "Amplitude envelope" and the section below).
   Odd key-off samples: nothing on the sample, release from the next clock (work/verify/s5/S3alt.md lists the refuted
-  alternatives).  [claims T3, T4, T5]
+  alternatives).  [claims T3, T4, T5]  **Session 6 generalised it** (tests/feg_koffpass, "Filter envelope"): the
+  key-off clock takes exactly the step the envelope would have taken without the key-off -- when the old segment had
+  passed its target on the previous clock, that is the segment advance and the NEXT segment's step (23/23), not one
+  more step of the passed segment; only the AEG's exponential attack takes nothing.  [claim U1]
 - **The R < 48 counter offset (-1) applies to the AEG too**: the AEG captures and the FEG captures agree on the same
   K only with the same offset (eg_phase / eg_model).
 - **Increment rows for R = 1 mod 4 at R >= 48 (rows 5, 9, 13) are {b, 2b, b, b, b, 2b, b, b}**, the double step at
@@ -460,7 +532,9 @@ in HANDOVER.md.
   target" 0/4; feg_koffatt 6 even batches 6/6 old step, the three alternatives 0/6; KYONB cleared without KYONEX:
   the FEG holds).  So the AEG's exponential attack is the only segment that takes no step; every linear segment
   takes one more of its own.  Through the production model: eg_model kd_0..7 x 3 = 24/24 and ka_0..7 x 3 = 24/24 (u files
-  work/eg/kd_*.u, ka_*.u from koffdir_check / koffatt_check -u).
+  work/eg/kd_*.u, ka_*.u from koffdir_check / koffatt_check -u).  Session 6 closed the T4 INCONCLUSIVE (the key-off
+  clock with the old segment's `passed` flag set): it takes the NEXT segment's step, not one more of the passed one
+  (tests/feg_koffpass 23/23; "Filter envelope", claim U1).
 - **Odd key-off samples** (T5): nothing on the sample, release from the next clock -- every surviving reading agrees.
   Refuted alternatives (S3alt.md, 24 FEG streams re-derived with a standalone law, one shared key-off sample per
   batch): a release increment or no step on the key-off clock (fk_1 / fk_3: the +4 out of the 0x19FE hold has no
@@ -479,7 +553,14 @@ in HANDOVER.md.
 - **Slot stop / off** (T8; cases/slot_tail.c, tools/tail_cmp, 12/12 streams FULL): the fetch stops at a = 0x3C0 and
   the slot is off past 0x3FF, each visible one sample after its clock; no mute; the FEG runs on; the rate registers
   reach the EG one sample late -- details in "Amplitude envelope" and "Envelope clock".  Controls (model_fixes.md
-  2.3): thresholds 0x3BF / 0x3C1 / 0x400, lag 0 / 2, a mute at off or at the stop each break streams.
+  2.3): thresholds 0x3BF / 0x3C1 / 0x400, lag 0 / 2, a mute at off or at the stop each break streams.  **Session 6
+  superseded the "off past 0x3FF" half** (tests/ca_stop, claim U2): the monitor's 0x1FFF and the CA reset belong to
+  the 0x3C0 stop (within ~1-2 samples, the poll cannot split them); the AEG value still steps to 0x3FF but nothing
+  observable happens there; "CA between the stop and off" is moot (CA reads 0 from the stop).  The tail_cmp streams
+  are unchanged by this (12/12).  **The "rate registers one sample late" clause is REFUTED** (tests/eg_latch /
+  eg_latch2 / eg_latch3, claim U4, "Envelope clock"): every envelope register is live; tail_c's RR write landed after
+  the envelope phase of sample 11300 (in-sample ordering, not a latch); tail_cmp now places it at w14 11301 and stays
+  12/12.
 - **MIXS writers** (T9; cases/mixs_write.c, tools/mixsw_check, 21 probe rows): every slot writes its ISEL bus every
   sample, IMXL is a gain, a bus retains only when no slot points at it (H_G 21/21; the session-4 rule 4/21; every
   conditioned variant refuted) -- see "MIXS retention".  The checker's verdict tables are identical for
@@ -491,9 +572,12 @@ in HANDOVER.md.
   hold short), no limit cycles below 0x1C00; the model lands on -8 in ~4 % of the possible trajectories (0 in ~14 %,
   the phase of the input stop decides) and reproduces the console's tail_c retained values 0 2 2 exactly.  A held last
   sample or a frozen filter output would be of order 10^5; a muted slot would leave 0.
-- **Model** (src/aica_model.{cpp,h}, model_fixes.md): `stop_in` / `off_in` one-sample pipeline, no mute, the FEG runs
-  on, `egreg` one-sample rate latch (`eff_rate` is static now), key-off clock rules for the AEG (attack: none; decays:
-  old increment) and the FEG (old increment + old direction via `feg_prev_dir`), the R 63 transition on the key-on
+- **Model** (src/aica_model.{cpp,h}, model_fixes.md): `stop_in` / `off_in` one-sample pipeline (session 6: `off_in`
+  removed, `slot_stop()` does fetch stop + monitor 0x1FFF + CA 0), no mute, the FEG runs
+  on, `egreg` one-sample rate latch (`eff_rate` is static now; session 6: `egreg` / `eg_latch` REMOVED, every register
+  read live, U4), key-off clock rules for the AEG (attack: none; decays:
+  old increment) and the FEG (old increment + old direction via `feg_prev_dir`; session 6: `feg_prev_passed`, the
+  next segment's step when the old one had passed), the R 63 transition on the key-on
   clock, every slot writes its bus.  Macros `CAIQUE_STOP_A` / `CAIQUE_STOP_LAG` / `CAIQUE_MUTE` exist only for the
   controls.  Validation after the last change: eg_model 89/89 (session4 33/33, eg_kprobe 8/8, feg_koffdir 24/24, feg_koffatt 24/24),
   eg_replay 5 x 4/4, tail_cmp 12/12, tools/validate_s5.sh PASS, feg_validate 9/9, filt_validate_model 265/265,
@@ -504,7 +588,32 @@ in HANDOVER.md.
   production model: tools/eg_replay.cpp, tools/tail_cmp.cpp (+ tail_cmp_all.sh), tools/eg_model.cpp (extended),
   tools/validate_s5.sh (the one-shot gate).
 
-## MIXS retention and CPU writes (tests/eg_lock mixs, tests/mixs_write; claim D2 resolved, T9)
+## Session 6 (2026-09-23 night, same boot, K 6491): passed-flag key-off, stop = off, MIXS readback, registers live
+
+Six new cases (feg_koffpass, ca_stop, mixs_rd, eg_latch, eg_latch2, eg_latch3; every capture 0 counter errors), two
+standalone checkers (tools/koffpass_check, tools/latch_check); reports in `work/verify/s6/` (case_feg_koffpass.md,
+case_eg_latch.md, docs_s6a.md, docs_s6b.md, bitcheck.txt); claims U1-U4 in HANDOVER.md "Session 6 addendum".  All four
+session-5 open envelope items closed, details in the sections above / below:
+- **U1** the FEG key-off clock with the old segment's `passed` flag set takes the NEXT segment's step (feg_koffpass
+  23/23; "Filter envelope").  General rule: the key-off clock takes exactly the step the envelope would have taken
+  without the key-off, segment advance included; only the AEG's exponential attack takes none.
+- **U2** the slot stop at a = 0x3C0 IS "off": monitor 0x1FFF and CA 0 one sample after that clock, no second stage at
+  0x400 (ca_stop, three runs; "Amplitude envelope").
+- **U3** the CPU reads the MIXS bank of the current sample parity (mixs_rd, 7 runs; "MIXS retention").
+- **U4** every envelope register is read live -- session 5's "one sample late" latch is refuted (eg_latch: DL, KRS,
+  AR, D2R, FD1R / FD2R, FLV3; eg_latch2: RR from 0 and from 24, with and without a redundant key-off, D2R from 0;
+  eg_latch3: RR with SA / LPCTL / LEA rewrites, CA never restarted; 110 + 112 + 137 = 359 informative even-E events, 0 latched).  tail_c's
+  delayed RR is in-sample ordering: the envelope update runs before the fetch within a sample, so a write landing
+  between the two phases is seen by that sample's fetch and by the next sample's clock ("Envelope clock").  Model:
+  `egreg` / `eg_latch` removed; the sub-sample position of a write is not modelled (tail_cmp searches d = w00 - w14 in
+  {1, 0, -1}; tail_c: w00 11300 / w14 11301).
+- Model after session 6: eg_model 89/89, eg_replay 5 runs 4/4 (16/16 clean cycles), tail_cmp 12/12 (tail_c w14
+  11301), feg_validate 9/9, validate_s5 PASS (transcript work/verify/s6/bitcheck.txt); koffpass_check on
+  tests/feg_koffpass/model nextSeg 11/11 + 8/8; whole-program diffs against session 5: tests/probe MIXS0.l/.h readback
+  lines (now match the console except one nibble where a model sample boundary fell between the write and the read),
+  tests/sgc_keys K4 (CA 0 logged with the 0x1FFF, 5868 us).
+
+## MIXS retention and CPU writes (tests/eg_lock mixs, tests/mixs_write, tests/mixs_rd; claim D2 resolved, T9, U3)
 
 - **Every slot writes its ISEL bus every sample; IMXL is a pure gain (IMXL 0 sends 0); a bus keeps its last value
   only when NO slot points at it** (tests/mixs_write, 21 probe rows -- single IMXL-0 slots on a bus, 63 zeroed slots,
@@ -523,6 +632,25 @@ in HANDOVER.md.
   nibble as written.  dsp_basic "F ira 25" (alternating) and dsp_temp T2 (all 128 slots) differ by whether the
   write landed... both are consistent with two banks and a sender-free bus; the sub-sample order of the SH4 write
   against the slot's read-modify-write is not modelled.  Model: CPU writes go to the bank the DSP reads next.
+- **The CPU reads the bank of the CURRENT sample parity -- the one its own writes go to** (tests/mixs_rd, session 6:
+  write hi 0x1234 / lo 0x5, then 96 back-to-back hi/lo read pairs ~5.5 us apart = 4 pairs per sample, plus one read
+  30 ms later; 7 runs).  On a bus rewritten every sample the written value reads back until the next sample boundary,
+  then the SGC value: bus 0 with 64 zeroed slots pointing at it (R1: `1234/0` once, then `0000/0`; R5 lo written
+  first: `1234/5` once), bus 5 with a playing writer (R3: `1234/5` for 3 pairs, then `0100/0` = 0x0100 x 16 at IMXL
+  15) or a silent writer (R4: `1234/5` x 3, `1234/0`, then `0000/0`).  On a bus NO slot points at, the readback
+  alternates every sample between the written bank and the untouched bank -- period 2 samples = 4 pairs each way:
+  R6 (hi only) `1234/0` x 4 / `0000/0` x 4 ..., R7 (lo only, hi 0x1234 left in one bank by R6) `1234/5 1234/5 1234/0
+  0000/0 0000/0 0000/0 0000/5` repeating; after 30 ms R6 reads `1234/0`, R7 `0000/0` (parity luck).  The low nibble's
+  switch is seen one read (~5 us) before the high word's inside the sample (R4 `1234/5 -> 1234/0 -> 0000/0`, R7) --
+  sub-sample, not modelled (the model switches both at the boundary).  Session 5's remark "the SH4 read the high word
+  back as 0 immediately, the low nibble as written" (eg_lock, a bus every zeroed slot pointed at) was such a
+  boundary-straddling read pair.  **Retention across programs**: bus 5 still held dsp_basic's 0x1234/5 write from a
+  much earlier session before R2 (`R2 bus 5 before: 1234/5`, unchanged through 96 reads and 30 ms) -- a bus keeps its
+  value across programs and hours as long as nothing points at it (see "Test-writing notes").  Model: `read()` of
+  0x4500.. returns `MIXS_bank[samples & 1]` (was the DSP-side `MIXS[]` of the last step); tests/probe's MIXS0.l/.h
+  readback lines now match the console except one nibble where a model sample boundary fell between the write and
+  the read (`w55555555->r00000000`, console `r00000005`); tests/mixs_rd/model reproduces every run's pattern up to
+  that sub-sample phase.  [claim U3]
 
 ## DSP (tests/dsp_basic — model matches hardware on every vector)
 
@@ -564,28 +692,33 @@ in HANDOVER.md.
   rewrites every slot within 128 samples, as in the model.  The one stale slot seen once in dsp_basic
   "A ffff -4096 1" did not reproduce (a program-load transient of that run).  [claim D1]
 
-## Open items (after session 5)
+## Open items (after session 6)
 
 - What sets K at boot: every register-level candidate tested (RBP/RBL, timers, MVOL, ARM7 release, DSP program load,
   64-slot sweep with KYONEX) leaves it; needs a controlled reboot with an eg_kprobe run right after.
-- Envelope: the FEG key-off clock when the old segment's `passed` flag is set (an attack / decay 1 that crossed its
-  target on the previous clock; the model takes the old increment and direction against FLV4, unmeasured); whether
-  CA holds or advances between the fetch stop (0x3C0) and off (past 0x3FF) -- only the CA reset at off is visible;
-  whether DL / KRS and the FEG rate registers share the one-sample rate latch (only RR measured: rewrite them on a
-  running slot without a KYONEX).
-- MIXS: the sub-sample order of a CPU MIXS write against the SGC write of the same sample (not modelled; dsp_basic
-  "F ira 25" stays excluded).
+- Envelope: the sub-sample position of register writes vs the envelope phase (not modelled; RTL: EG update precedes
+  the fetch within a sample, a write landing after the EG phase acts on the next sample's clock -- "Envelope clock",
+  U4; tools/tail_cmp absorbs it with the d = w00 - w14 search).
+- MIXS: the sub-sample order of a CPU MIXS write / read against the SGC write of the same sample (not modelled: the
+  low nibble switches ~5 us before the high word, mixs_rd; dsp_basic "F ira 25" stays excluded; the one tests/probe
+  nibble).
 - Filter: nothing open in the arithmetic (see Slot filter).  sgc_level L5 stays an inherited-state difference.
 - Harness: whole-program model runs of capture cases start their capture at a head estimate that depends on the ring
   words left by the previous run (cap_start's sync scan costs one G2 read per zero word, up to five per non-zero one),
   so a model change that alters a silent slot's filter rest shifts `cap_start`/n_first by one sample (feg_krs /
   feg_track / feg_probe model outputs after session 5); the envelopes themselves are unchanged (eg_model).
+- Closed in session 6 (kept for the record): the FEG key-off clock with `passed` set (U1), CA between the stop and
+  off (U2: moot, CA reads 0 from the stop), the CPU MIXS readback path (U3), the one-sample register latch (U4:
+  refuted, every register live; tail_c = in-sample ordering).
 
 ## Test-writing notes
 
 - Load/unload DSP programs from the last step down (cases/aica_io.h prog_load): the DSP keeps running while the
   CPU rewrites MPRO, and a later step (IWT) must never outlive the earlier one it depends on (MRD, NOFL).
 - Every sub-test must start from a known DSP state; a previous program's IWTs/in-flight reads contaminate MEMS.
+- A MIXS bus that no slot points at keeps its value across programs -- for hours, across console runs of unrelated
+  cases (tests/mixs_rd R2 found dsp_basic's 0x1234/5 still on bus 5).  A test that reads or captures a bus must
+  point a slot at it (any IMXL) or write it first; `aica_quiet` alone (ISEL 0 everywhere) only clears bus 0.
 - 32-bit wave RAM accesses must be 4-byte aligned (address error on the console; the model aborts too).
 - Console output path: hw/io_kos.c writes to /pc + MODEL_ROOT (the tree the case was built in, set by hw/Makefile),
   so a copy of the tree captures into itself; a failed open/write/close makes the case exit non-zero (before

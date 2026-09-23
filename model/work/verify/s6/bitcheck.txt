@@ -1,0 +1,54 @@
+tools built
+== validate_s5
+eg_model  GROUPS session4=33/33 eg_kprobe=8/8 feg_koffdir=24/24 feg_koffatt=24/24
+eg_model  TOTAL full=89/89
+eg_replay TOTAL koff_d2: streams FULL 4/4, samples matched 174080/174080, clean cycles 16/16
+eg_replay TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16
+eg_replay TOTAL koff_d1: streams FULL 4/4, samples matched 174592/174592, clean cycles 16/16
+eg_replay TOTAL koff_att: streams FULL 4/4, samples matched 163328/163328, clean cycles 16/16
+eg_replay TOTAL kon_rel: streams FULL 4/4, samples matched 215808/215808, clean cycles 16/16
+tail_cmp  TOTAL tests/slot_tail/hw: streams FULL 12/12
+mixs_write hw:    H_G  every slot writes its ISEL bus every sample (IMXL is a gain, 0 -> 0); a bus retains iff nobody points at it
+mixs_write model: H_G  every slot writes its ISEL bus every sample (IMXL is a gain, 0 -> 0); a bus retains iff nobody points at it
+mixs_write TOTAL: 21 probe/bus verdict rows, hw and model identical, H_G consistent on both
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)
+== filters/FEG
+TOTAL full=9/9 samples=77862/77862
+TOTAL qbias=255 full=265/265 consecutive samples=4286180/4286180
+TOTAL full=15/15 matched_full_samples=150558
+TOTAL full=12/12 matched_full_samples=45384
+== standalone fitters on the console captures
+      8   K = 6491 (mod 8192: 6491, bit 13 = 0)
+      1 expect K = 6491: all probes match
+SUMMARY koff_d2 (16 cycles): key-off on a clock, reproduced / informative stream-cycles:  H0 0/30  H1 30/30  H2 30/30  H3 0/30  |  stream-cycles no H fits: 0
+SUMMARY koff_d2b (16 cycles): key-off on a clock, reproduced / informative stream-cycles:  H0 0/18  H1 18/18  H2 18/18  H3 6/18  |  stream-cycles no H fits: 0
+SUMMARY koff_d1 (16 cycles): key-off on a clock, reproduced / informative stream-cycles:  H0 0/18  H1 18/18  H2 18/18  H3 0/18  |  stream-cycles no H fits: 0
+SUMMARY koff_att (16 cycles): key-off on a clock, reproduced / informative stream-cycles:  H0 0/27  H1 3/27  H2 3/27  H3 27/27  |  stream-cycles no H fits: 0
+SUMMARY kon_rel (16 cycles): key-on during release, reproduced / informative stream-cycles:  L0 48/48  L1 27/48  L2 21/48  |  CA restart (ramp streams, odd E_C):  C0 18/18  C1 0/18  |  stream-cycles no L fits: 0
+17
+  batches with an EVEN E fitted on all 3 streams:  oldStep 6/6  noStep 0/6  S3(oldInc->rel) 0/6  relInc 0/6
+     N+1    A oldStep 0/10  B nextSeg 10/10  C noStep 0/10  D relStep 0/10   |  s0: 0 10 0 0/10  s1: 0 10 0 0/10  s2: 0 10 0 0/10
+     N+1    A oldStep 0/13  B nextSeg 13/13  C noStep 0/13  D relStep 0/13   |  s0: 0 13 0 0/13  s1: 0 13 0 0/13  s2: 0 13 0 0/13
+dl  latched 0 latched 0 krs  latched 0 latched 0 ar  latched 0 latched 0 d2r  latched 0 latched 0 feg_rate  latched 0 latched 0 flv  latched 0 latched 0
+rr0  latched 0 latched 0 rr24  latched 0 latched 0 rr0_koff  latched 0 latched 0 rekoff24  latched 0 latched 0 d2r0  latched 0 latched 0
+none  latched 0 latched 0 sa_hi  latched 0 latched 0 sa_lo  latched 0 latched 0 lpctl  latched 0 latched 0 lea  latched 0 latched 0
+== whole-program run of every case
+0
+(non-zero exits above)
+== console-vs-model text diffs (lines)
+dsp_basic  4
+dsp_mem    0
+dsp_mem2   0
+dsp_mem3   0
+sgc_level  2
+sgc_mix    0
+probe      42
+sgc_keys   63
+ca_stop    65
+S1 t    5845 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   10845 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   15845 us: EG 5fff (st 2 a 1fff) CA 0000
+== baseline
+524 work/model_outputs_2026-09-23d.sha256
+480
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)

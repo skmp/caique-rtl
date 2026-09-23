@@ -29,7 +29,7 @@ K4 d2off t      0 us: EG 7fff CA 0000 reg0 4202
 K4 d2off t     15 us: EG 0280 CA 0001 reg0 4202
 K4 d2off t    422 us: EG 2000 CA 0013 reg0 4202
 K4 d2off t    792 us: EG 4040 CA 0023 reg0 4202
-K4 d2off t   6231 us: EG 5fff CA 0000 reg0 4202
+K4 d2off t   5868 us: EG 5fff CA 0000 reg0 4202
 K4 d2off end: EG 5fff CA 0000 reg0 4202
 K4 keyon-after-off t      1 us: EG 5fff CA 0000 reg0 4202
 K4 keyon-after-off end: EG 5fff CA 0000 reg0 4202

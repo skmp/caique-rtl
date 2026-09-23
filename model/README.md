@@ -5,7 +5,9 @@ Slot-filter arithmetic matches 4,286,180 captured samples across 265 streams; th
 DSP ring counter (K exact per boot), so the amplitude and filter envelopes replay sample-exactly: 89/89 envelope
 streams (eg_model), 5 multi-cycle key-off / key-on runs of 16 cycles each (eg_replay, 4/4 streams each), 12/12 slot
 stop / off tails (tail_cmp) and 21/21 MIXS writer probes (mixsw_check); the key-off clock, the slot stop sequence
-and the MIXS writer rule are measured (session 5).
+and the MIXS writer rule are measured (session 5); the key-off clock with a passed segment (23/23 cycles, the next
+segment's step), the stop = off + CA 0 at a = 0x3C0, the CPU's MIXS readback bank and the live (unlatched) envelope
+registers (359 informative witness-pinned rewrites, 0 latched) are measured (session 6).
 Findings, with the test behind each one: **[NOTES.md](NOTES.md)**. Handover / how to verify the current claims:
 **[HANDOVER.md](HANDOVER.md)**. Current model-vs-console status:
 **[tests/SUMMARY.txt](tests/SUMMARY.txt)**. Current C++ reproduction commands are in HANDOVER.md.
@@ -17,7 +19,7 @@ Findings, with the test behind each one: **[NOTES.md](NOTES.md)**. Handover / ho
 | `src/aica_model.{h,cpp}` | the model: register interface (`write`/`read`), wave RAM, `step()` = one 44.1 kHz sample. Integer only. |
 | `src/dsp_asm.h` | DSP instruction encode/decode (shared by model and console tests) |
 | `src/dsp_float.h` | DSP 16-bit memory float PACK/UNPACK (verified exhaustively) |
-| `cases/*.c` | test cases (47), written once against `cases/aica_io.h`; each builds for the console and for the model |
+| `cases/*.c` | test cases (53), written once against `cases/aica_io.h`; each builds for the console and for the model |
 | `cases/aica_io.h` | portable AICA access API + helpers (slot config, DSP program buffer, text/binary output) |
 | `cases/cap.h` | sample-exact capture of up to 4 MIXS buses through a DSP program + wave RAM ring |
 | `hw/` | console back-end (`io_kos.c`, KOS build; `make -C hw CASE` -> `build/hw/CASE.elf`) |
@@ -32,6 +34,13 @@ Session-5 cases: `aeg_koff` (AEG key-off from decay 2 / decay 1 / attack and key
 pinned by a witness slot), `eg_kprobe` (K probe: bit 13 and candidate resetters), `slot_tail` (what a slot sends after
 its envelope stops), `feg_koffdir` / `feg_koffatt` (FEG key-off clock with opposite directions, decay 2 and attack),
 `mixs_write` (which slots rewrite a MIXS bus).
+Session-6 cases: `feg_koffpass` (FEG key-off on the clock after the old segment passed its target: 2 runs x 64
+witness-pinned cycles), `ca_stop` (EG / CA monitors polled through a slow decay 2 entered exactly at a = 0x3C0: the
+stop is "off"), `mixs_rd` (CPU readback of a MIXS bus right after a write, with / without writers, one half only),
+`eg_latch` (DL / KRS / AR / D2R / FD1R / FD2R / FLV3 rewritten on running slots, witness-pinned: all live),
+`eg_latch2` (RR from 0 and from 24, with and without a redundant key-off, D2R from 0: all live -- no latch, no rate-0
+arming), `eg_latch3` (RR with an SA / LPCTL / LEA rewrite in the same group: all live, CA never restarted; tail_c's
+delayed RR was the in-sample write position, see NOTES "Envelope clock").
 
 ## Running
 
@@ -67,7 +76,11 @@ Console runs take a few seconds each (dcload-ip); only one program can use the c
   controls `-oldr63` / `-noslow`), `tools/koff_fit.cpp` (AEG key-off / key-on-in-release hypotheses on aeg_koff,
   witness-pinned, `-synth` self-tests), `tools/koffdir_check.cpp` + `tools/feg_law.h` (FEG key-off readings on
   feg_koffdir, `-u` writes the tracked u files), `tools/koffatt_check.cpp` (FEG attack key-off on feg_koffatt),
-  `tools/mixsw_check.cpp` (MIXS writer rules on mixs_write, verdict + rule table).
+  `tools/mixsw_check.cpp` (MIXS writer rules on mixs_write, verdict + rule table), `tools/koffpass_check.cpp` (the four
+  readings of a passed-flag key-off clock on feg_koffpass, per-cycle windows + FULL counts per phase, `-q`, `-K`),
+  `tools/latch_check.cpp` (live vs latched register rewrites on eg_latch / eg_latch2 / eg_latch3, per-order verdicts,
+  odd-E straddles and the eg_latch3 CA-restart count, `-run`, `-v`, `-K`).  ca_stop and mixs_rd are read by eye (text
+  logs).  `tools/tail_cmp.cpp` stage 2 searches the tail_c RR write at d = w00 - w14 in {1, 0, -1} (in-sample write order).
 - `tools/filt_negform.cpp` (the sign-flipped all-floor filter form), `tools/filt_reach2.cpp` (state maxima with a
   mid-drive setting switch).
 - The other Python comparison tools and `filt_search*.cpp` are historical; current work uses C++ integer math only.

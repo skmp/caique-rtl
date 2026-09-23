@@ -1,0 +1,41 @@
+S1: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT 0 LPCTL 1 LEA 4096
+S1 t       1 us: EG 7fff (st 3 a 1fff) CA 0000
+S1 t      32 us: EG 0280 (st 0 a 280) CA 0000
+S1 t     461 us: EG 2000 (st 1 a 000) CA 0013
+S1 t    5463 us: EG 2378 (st 1 a 378) CA 00f0
+S1 t    5842 us: EG 23b8 (st 1 a 3b8) CA 0101
+S1 t    5873 us: EG 23c0 (st 1 a 3c0) CA 0102
+S1 t    5905 us: EG 5fff (st 2 a 1fff) CA 0103
+S1 t    5937 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   10942 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   15944 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   20948 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   25953 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 end: EG 5fff CA 0000
+S2: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT -1 LPCTL 1 LEA 4096
+S2 t       1 us: EG 7fff (st 3 a 1fff) CA 0000
+S2 t      31 us: EG 0280 (st 0 a 280) CA 0000
+S2 t     455 us: EG 2000 (st 1 a 000) CA 0009
+S2 t    5455 us: EG 2378 (st 1 a 378) CA 0078
+S2 t    5859 us: EG 23b8 (st 1 a 3b8) CA 0081
+S2 t    5891 us: EG 5fff (st 2 a 1fff) CA 0081
+S2 t    5936 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   10940 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   15941 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   20941 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   25941 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 end: EG 5fff CA 0000
+S3: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT 0 LPCTL 0 LEA 4096
+S3 t       1 us: EG 7fff (st 3 a 1fff) CA 0000
+S3 t      31 us: EG 0280 (st 0 a 280) CA 0000
+S3 t     455 us: EG 2000 (st 1 a 000) CA 0013
+S3 t    5456 us: EG 2378 (st 1 a 378) CA 00f0
+S3 t    5833 us: EG 23b8 (st 1 a 3b8) CA 0101
+S3 t    5864 us: EG 23c0 (st 1 a 3c0) CA 0102
+S3 t    5895 us: EG 5fff (st 2 a 1fff) CA 0103
+S3 t    5927 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   10929 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   15929 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   20929 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   25931 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 end: EG 5fff CA 0000

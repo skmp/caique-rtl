@@ -59,6 +59,6 @@ feg_odd stream 3: slot 3 OCT 0 FNS 200 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0
 cap_start: counter word fd93 at 7de0 (n 620), next fd94 fd95 fd96, c0 804c, head n 636
 feg_odd: 11264 samples, errors 0
 cap_start: counter word fdbc at 3cc0 (n 579), next fdbd fdbe fdbf, c0 3f03, head n 581
-mixs: MIXS3 readback right after the write 0000/0
+mixs: MIXS3 readback right after the write 0000/5
 mixs: MIXS3 readback after 30 ms 0000/0
 mixs: 8640 samples, errors 0

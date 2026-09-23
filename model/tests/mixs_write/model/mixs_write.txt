@@ -2,17 +2,17 @@ P0: all 64 slots zeroed (reg 0x20 = 0: ISEL 0, IMXL 0)
 P0: slot 0 regs 00 0000 04 0000 20 0000 28 0000
 cap_start: counter word fd2f at e660 (n 720), next fd30 fd31 fd32, c0 e930, head n 725
 P0: MIXS readback before the writes: [0]=0 [1]=0 [2]=0 [3]=0
-P0: wrote 10025 to MIXS0 (hi 1002 lo 5); readback right after: hi 0000 lo 0
-P0: wrote 10125 to MIXS1 (hi 1012 lo 5); readback right after: hi 0000 lo 0
-P0: MIXS readback at the end: [0]=0 [1]=0 [2]=0 [3]=0
+P0: wrote 10025 to MIXS0 (hi 1002 lo 5); readback right after: hi 1002 lo 5
+P0: wrote 10125 to MIXS1 (hi 1012 lo 5); readback right after: hi 1012 lo 5
+P0: MIXS readback at the end: [0]=0 [1]=65829 [2]=0 [3]=0
 P0: 2368 samples, errors 0, 4 marks
 P1: slot 0 reg 0x20 = 0x01 (ISEL 1, IMXL 0), slots 1..63 zeroed (ISEL 0)
 P1: slot 0 regs 00 0000 04 0000 20 0001 28 0000
 P1: slot 1 regs 00 0000 04 0000 20 0000 28 0000
 cap_start: counter word fd4e at c7a0 (n 689), next fd4f fd50 fd51, c0 ca51, head n 699
 P1: MIXS readback before the writes: [1]=0 [0]=0 [2]=0 [3]=0
-P1: wrote 11125 to MIXS1 (hi 1112 lo 5); readback right after: hi 0000 lo 0
-P1: wrote 11025 to MIXS0 (hi 1102 lo 5); readback right after: hi 0000 lo 0
+P1: wrote 11125 to MIXS1 (hi 1112 lo 5); readback right after: hi 1112 lo 5
+P1: wrote 11025 to MIXS0 (hi 1102 lo 5); readback right after: hi 1102 lo 5
 P1: MIXS readback at the end: [1]=0 [0]=0 [2]=0 [3]=0
 P1: 2368 samples, errors 0, 4 marks
 P1b: slot 0 reg 0x20 = 0x01 (ISEL 1), slots 1..63 reg 0x20 = 0x0F (ISEL 15), all IMXL 0
@@ -21,10 +21,10 @@ P1b: slot 1 regs 00 0000 04 0000 20 000f 28 0000
 P1b: slot 63 regs 00 0000 04 0000 20 000f 28 0000
 cap_start: counter word fd7a at a900 (n 645), next fd7b fd7c fd7d, c0 ab85, head n 673
 P1b: MIXS readback before the writes: [0]=0 [1]=0 [15]=0 [2]=0
-P1b: wrote 12025 to MIXS0 (hi 1202 lo 5); readback right after: hi 0000 lo 0
-P1b: wrote 12125 to MIXS1 (hi 1212 lo 5); readback right after: hi 0000 lo 0
-P1b: wrote 12f25 to MIXS15 (hi 12f2 lo 5); readback right after: hi 0000 lo 0
-P1b: MIXS readback at the end: [0]=73765 [1]=0 [15]=0 [2]=0
+P1b: wrote 12025 to MIXS0 (hi 1202 lo 5); readback right after: hi 1202 lo 5
+P1b: wrote 12125 to MIXS1 (hi 1212 lo 5); readback right after: hi 1212 lo 0
+P1b: wrote 12f25 to MIXS15 (hi 12f2 lo 5); readback right after: hi 12f2 lo 0
+P1b: MIXS readback at the end: [0]=0 [1]=0 [15]=0 [2]=0
 P1b: 2816 samples, errors 0, 6 marks
 P2: slot 7 reg 0x20 = 0x02 (ISEL 2, IMXL 0); slot 8 = 0xF3 (ISEL 3, IMXL 15); slot 9 = 0x04 (ISEL 4) with SA 0x10000; all off
 P2: slot 7 regs 00 0000 04 0000 20 0002 28 0000
@@ -32,9 +32,9 @@ P2: slot 8 regs 00 0000 04 0000 20 00f3 28 0000
 P2: slot 9 regs 00 0001 04 0000 20 0004 28 0000
 cap_start: counter word fd86 at 88a0 (n 633), next fd87 fd88 fd89, c0 8b19, head n 645
 P2: MIXS readback before the writes: [2]=0 [3]=0 [4]=0 [0]=0
-P2: wrote 13225 to MIXS2 (hi 1322 lo 5); readback right after: hi 0000 lo 0
-P2: wrote 13325 to MIXS3 (hi 1332 lo 5); readback right after: hi 0000 lo 0
-P2: wrote 13425 to MIXS4 (hi 1342 lo 5); readback right after: hi 0000 lo 0
+P2: wrote 13225 to MIXS2 (hi 1322 lo 5); readback right after: hi 0000 lo 5
+P2: wrote 13325 to MIXS3 (hi 1332 lo 5); readback right after: hi 1332 lo 5
+P2: wrote 13425 to MIXS4 (hi 1342 lo 5); readback right after: hi 1342 lo 5
 P2: MIXS readback at the end: [2]=0 [3]=0 [4]=0 [0]=0
 P2: 2816 samples, errors 0, 6 marks
 P3: slot 7 -> 2 VOFF 1 (0x28 = 0x40); slot 8 -> 3 LPOFF 1 (0x20); slot 9 -> 4 VOFF 1 LPOFF 1 (0x60); IMXL 0, off
@@ -43,9 +43,9 @@ P3: slot 8 regs 00 0000 04 0000 20 0003 28 0020
 P3: slot 9 regs 00 0000 04 0000 20 0004 28 0060
 cap_start: counter word fd97 at 6860 (n 616), next fd98 fd99 fd9a, c0 6ac8, head n 618
 P3: MIXS readback before the writes: [2]=0 [3]=0 [4]=0 [0]=0
-P3: wrote 14225 to MIXS2 (hi 1422 lo 5); readback right after: hi 0000 lo 0
-P3: wrote 14325 to MIXS3 (hi 1432 lo 5); readback right after: hi 0000 lo 0
-P3: wrote 14425 to MIXS4 (hi 1442 lo 5); readback right after: hi 0000 lo 0
+P3: wrote 14225 to MIXS2 (hi 1422 lo 5); readback right after: hi 1422 lo 5
+P3: wrote 14325 to MIXS3 (hi 1432 lo 5); readback right after: hi 1432 lo 5
+P3: wrote 14425 to MIXS4 (hi 1442 lo 5); readback right after: hi 1442 lo 5
 P3: MIXS readback at the end: [2]=0 [3]=0 [4]=0 [0]=0
 P3: 2816 samples, errors 0, 6 marks
 P5: slot 7 SA 10000 loop [0,32) AR 31 D1R 0 RR 31 KRS 15 ISEL 2 IMXL 0 TL 0 VOFF 0 LPOFF 1 Q 0 FLV 1ff8
@@ -59,9 +59,9 @@ P5: slot 9 regs 00 4201 04 0000 20 0004 28 0000
 P5: slot 9 before the capture: EGMON c000 CA 31
 cap_start: counter word fdd0 at 4780 (n 559), next fdd1 fdd2 fdd3, c0 49af, head n 590
 P5: MIXS readback before the writes: [2]=0 [3]=0 [4]=0 [0]=0
-P5: wrote 15225 to MIXS2 (hi 1522 lo 5); readback right after: hi 0000 lo 0
-P5: wrote 15325 to MIXS3 (hi 1532 lo 5); readback right after: hi 0000 lo 0
-P5: wrote 15425 to MIXS4 (hi 1542 lo 5); readback right after: hi 0000 lo 0
+P5: wrote 15225 to MIXS2 (hi 1522 lo 5); readback right after: hi 1522 lo 5
+P5: wrote 15325 to MIXS3 (hi 1532 lo 5); readback right after: hi 1532 lo 5
+P5: wrote 15425 to MIXS4 (hi 1542 lo 5); readback right after: hi 1542 lo 5
 P5: MIXS readback at the end: [2]=0 [3]=0 [4]=0 [0]=0
 P5: 2816 samples, errors 0, 6 marks
 P5: slot 7 after the capture: EGMON c000 CA 8
@@ -72,16 +72,16 @@ P7: slot 0 regs 00 0000 04 0000 20 0003 28 0040
 P7: slot 1 regs 00 0000 04 0000 20 000f 28 0000
 cap_start: counter word fdd0 at 2760 (n 559), next fdd1 fdd2 fdd3, c0 298f, head n 563
 P7: MIXS readback before the writes: [3]=0 [15]=0 [0]=0 [1]=0
-P7: wrote 16325 to MIXS3 (hi 1632 lo 5); readback right after: hi 0000 lo 0
-P7: wrote 16f25 to MIXS15 (hi 16f2 lo 5); readback right after: hi 0000 lo 0
-P7: wrote 16025 to MIXS0 (hi 1602 lo 5); readback right after: hi 0000 lo 5
-P7: MIXS readback at the end: [3]=0 [15]=0 [0]=90149 [1]=0
+P7: wrote 16325 to MIXS3 (hi 1632 lo 5); readback right after: hi 1632 lo 5
+P7: wrote 16f25 to MIXS15 (hi 16f2 lo 5); readback right after: hi 16f2 lo 5
+P7: wrote 16025 to MIXS0 (hi 1602 lo 5); readback right after: hi 1602 lo 0
+P7: MIXS readback at the end: [3]=0 [15]=0 [0]=0 [1]=0
 P7: 2816 samples, errors 0, 6 marks
 P8: slot 63 reg 0x20 = 0x04 (ISEL 4, IMXL 0), slots 0..62 zeroed (ISEL 0)
 P8: slot 63 regs 00 0000 04 0000 20 0004 28 0000
 cap_start: counter word fded at 0780 (n 530), next fdee fdef fdf0, c0 0992, head n 536
 P8: MIXS readback before the writes: [4]=0 [0]=0 [1]=0 [2]=0
-P8: wrote 17425 to MIXS4 (hi 1742 lo 5); readback right after: hi 0000 lo 0
-P8: wrote 17025 to MIXS0 (hi 1702 lo 5); readback right after: hi 0000 lo 0
+P8: wrote 17425 to MIXS4 (hi 1742 lo 5); readback right after: hi 1742 lo 5
+P8: wrote 17025 to MIXS0 (hi 1702 lo 5); readback right after: hi 1702 lo 5
 P8: MIXS readback at the end: [4]=0 [0]=0 [1]=0 [2]=0
 P8: 2368 samples, errors 0, 4 marks

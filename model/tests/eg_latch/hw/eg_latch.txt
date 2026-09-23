@@ -1,0 +1,330 @@
+dl stream 0: slot 0 role test AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+dl stream 1: slot 1 role test AR 31 D1R 26 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+dl stream 2: slot 2 role test AR 31 D1R 28 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+dl stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+dl run: mode aeg cycles 16 koff_us 24000 cycle_us 34000 | ev0 slot 2 DL trig aegmon 5100+200 val 13 | ev1 slot 1 DL trig aegmon 12700+450 val 17 | ev2 slot 0 DL trig aegmon 19300+1000 val 13
+cap_start: counter word fd70 at 97c0 (n 655), next fd71 fd72 fd73, c0 9a4f, head n 664
+dl cyc 0 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 32498 spin 98 t_us 5258 witness 3
+dl cyc 0 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 55845 spin 45 t_us 12805 witness 4
+dl cyc 0 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 0224 field DL 31->13 rnd 57741 spin 741 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 1 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 37698 spin 98 t_us 5258 witness 3
+dl cyc 1 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 23629 spin 229 t_us 12989 witness 4
+dl cyc 1 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 022c field DL 31->13 rnd 26784 spin 784 t_us 17807 witness 5 MISSED (no burst)
+dl cyc 2 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 33114 spin 114 t_us 5281 witness 3
+dl cyc 2 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 25856 spin 206 t_us 12971 witness 4
+dl cyc 2 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 022a field DL 31->13 rnd 60017 spin 17 t_us 17809 witness 5 MISSED (no burst)
+dl cyc 3 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 44979 spin 179 t_us 5303 witness 3
+dl cyc 3 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 27159 spin 159 t_us 12882 witness 4
+dl cyc 3 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 0228 field DL 31->13 rnd 1493 spin 493 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 4 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 10895 spin 95 t_us 5220 witness 3
+dl cyc 4 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 19695 spin 345 t_us 13068 witness 4
+dl cyc 4 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 29468 spin 468 t_us 19701 witness 5
+dl cyc 5 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 23073 spin 73 t_us 5201 witness 3
+dl cyc 5 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 60595 spin 295 t_us 13019 witness 4
+dl cyc 5 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 022e field DL 31->13 rnd 31409 spin 409 t_us 17809 witness 5 MISSED (no burst)
+dl cyc 6 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 11818 spin 18 t_us 5144 witness 3
+dl cyc 6 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 29316 spin 66 t_us 12790 witness 4
+dl cyc 6 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 0224 field DL 31->13 rnd 50316 spin 316 t_us 17809 witness 5 MISSED (no burst)
+dl cyc 7 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 29434 spin 34 t_us 5165 witness 3
+dl cyc 7 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 1812 spin 12 t_us 12742 witness 4
+dl cyc 7 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 0222 field DL 31->13 rnd 28698 spin 698 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 8 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 32507 spin 107 t_us 5238 witness 3
+dl cyc 8 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 9230 spin 230 t_us 12959 witness 4
+dl cyc 8 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 022c field DL 31->13 rnd 45609 spin 609 t_us 17809 witness 5 MISSED (no burst)
+dl cyc 9 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 28788 spin 188 t_us 5324 witness 3
+dl cyc 9 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 25694 spin 44 t_us 12776 witness 4
+dl cyc 9 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 0224 field DL 31->13 rnd 37584 spin 584 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 10 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 5480 spin 80 t_us 5215 witness 3
+dl cyc 10 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 15705 spin 405 t_us 13135 witness 4
+dl cyc 10 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 0234 field DL 31->13 rnd 21401 spin 401 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 11 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 1752 spin 152 t_us 5290 witness 3
+dl cyc 11 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 39011 spin 311 t_us 13049 witness 4
+dl cyc 11 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 0230 field DL 31->13 rnd 15425 spin 425 t_us 20222 witness 5 MISSED (no burst)
+dl cyc 12 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 33257 spin 57 t_us 5213 witness 3
+dl cyc 12 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 56410 spin 160 t_us 12915 witness 4
+dl cyc 12 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 0228 field DL 31->13 rnd 34543 spin 543 t_us 17835 witness 5 MISSED (no burst)
+dl cyc 13 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 55693 spin 93 t_us 5229 witness 3
+dl cyc 13 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 27496 spin 46 t_us 12780 witness 4
+dl cyc 13 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 0224 field DL 31->13 rnd 38838 spin 838 t_us 17809 witness 5 MISSED (no burst)
+dl cyc 14 ev 0: slot 2 reg 14 old 3fff new 3dbf order 0 mon 01a0 field DL 31->13 rnd 62097 spin 97 t_us 5238 witness 3
+dl cyc 14 ev 1: slot 1 reg 14 old 3fff new 3e3f order 0 mon 0220 field DL 31->17 rnd 27527 spin 77 t_us 12813 witness 4
+dl cyc 14 ev 2: slot 0 reg 14 old 3fff new 3dbf order 0 mon 0224 field DL 31->13 rnd 16479 spin 479 t_us 17808 witness 5 MISSED (no burst)
+dl cyc 15 ev 0: slot 2 reg 14 old 3fff new 3dbf order 1 mon 01a0 field DL 31->13 rnd 38622 spin 22 t_us 5183 witness 3
+dl cyc 15 ev 1: slot 1 reg 14 old 3fff new 3e3f order 1 mon 0220 field DL 31->17 rnd 16040 spin 290 t_us 13049 witness 4
+dl cyc 15 ev 2: slot 0 reg 14 old 3fff new 3dbf order 1 mon 022e field DL 31->13 rnd 18718 spin 718 t_us 17809 witness 5 MISSED (no burst)
+dl: 25152 samples, errors 0, 64 marks
+krs stream 0: slot 0 role test AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+krs stream 1: slot 1 role test AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+krs stream 2: slot 2 role test AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+krs stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+krs run: mode aeg cycles 16 koff_us 22000 cycle_us 32000 | ev0 slot 2 KRS trig time 4000+2000 val 2 | ev1 slot 0 KRS trig time 10000+2000 val 4 | ev2 slot 1 KRS trig time 16000+2000 val 6
+cap_start: counter word fded at 1cc0 (n 530), next fdee fdef fdf0, c0 1ed2, head n 556
+krs cyc 0 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 49336 spin 24 t_us 5821 witness 3
+krs cyc 0 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 25099 spin 22 t_us 11619 witness 4
+krs cyc 0 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 18415 spin 29 t_us 16447 witness 5
+krs cyc 1 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 7311 spin 9 t_us 5719 witness 3
+krs cyc 1 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 64107 spin 37 t_us 10149 witness 4
+krs cyc 1 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 50415 spin 28 t_us 16447 witness 5
+krs cyc 2 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 47088 spin 25 t_us 5646 witness 3
+krs cyc 2 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 40606 spin 38 t_us 11462 witness 4
+krs cyc 2 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 20549 spin 1 t_us 17234 witness 5
+krs cyc 3 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 21743 spin 37 t_us 5786 witness 3
+krs cyc 3 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 56787 spin 1 t_us 11338 witness 4
+krs cyc 3 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 64778 spin 36 t_us 17179 witness 5
+krs cyc 4 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 11778 spin 0 t_us 5783 witness 3
+krs cyc 4 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 15276 spin 44 t_us 11323 witness 4
+krs cyc 4 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 21331 spin 20 t_us 17354 witness 5
+krs cyc 5 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 2722 spin 45 t_us 5399 witness 3
+krs cyc 5 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 15677 spin 16 t_us 11697 witness 4
+krs cyc 5 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 23043 spin 36 t_us 17082 witness 5
+krs cyc 6 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 61897 spin 24 t_us 6742 witness 3
+krs cyc 6 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 35120 spin 29 t_us 11214 witness 4
+krs cyc 6 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 50412 spin 13 t_us 16890 witness 5
+krs cyc 7 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 29581 spin 17 t_us 5602 witness 3
+krs cyc 7 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 43432 spin 41 t_us 11475 witness 4
+krs cyc 7 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 36092 spin 17 t_us 16810 witness 5
+krs cyc 8 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 30945 spin 19 t_us 4969 witness 3
+krs cyc 8 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 18974 spin 34 t_us 11637 witness 4
+krs cyc 8 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 51712 spin 40 t_us 17756 witness 5
+krs cyc 9 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 53320 spin 20 t_us 5728 witness 3
+krs cyc 9 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 47433 spin 43 t_us 11555 witness 4
+krs cyc 9 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 43335 spin 8 t_us 17346 witness 5
+krs cyc 10 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 47101 spin 26 t_us 5650 witness 3
+krs cyc 10 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 63188 spin 5 t_us 11436 witness 4
+krs cyc 10 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 16943 spin 31 t_us 17281 witness 5
+krs cyc 11 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 25046 spin 19 t_us 5555 witness 3
+krs cyc 11 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 5734 spin 21 t_us 11757 witness 4
+krs cyc 11 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 49498 spin 41 t_us 17542 witness 5
+krs cyc 12 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 19192 spin 18 t_us 5466 witness 3
+krs cyc 12 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 13650 spin 22 t_us 11675 witness 4
+krs cyc 12 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 23841 spin 6 t_us 18586 witness 5
+krs cyc 13 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 12561 spin 12 t_us 5381 witness 3
+krs cyc 13 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 5606 spin 42 t_us 11651 witness 4
+krs cyc 13 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 45442 spin 44 t_us 17490 witness 5
+krs cyc 14 ev 0: slot 2 reg 14 old 3fff new 0bff order 0 mon 0000 field KRS 15->2 rnd 57516 spin 14 t_us 5534 witness 3
+krs cyc 14 ev 1: slot 0 reg 14 old 3fff new 13ff order 0 mon 0000 field KRS 15->4 rnd 39724 spin 17 t_us 12564 witness 4
+krs cyc 14 ev 2: slot 1 reg 14 old 3fff new 1bff order 0 mon 0000 field KRS 15->6 rnd 61335 spin 10 t_us 17348 witness 5
+krs cyc 15 ev 0: slot 2 reg 14 old 3fff new 0bff order 1 mon 0000 field KRS 15->2 rnd 64486 spin 41 t_us 5288 witness 3
+krs cyc 15 ev 1: slot 0 reg 14 old 3fff new 13ff order 1 mon 0000 field KRS 15->4 rnd 18852 spin 26 t_us 11025 witness 4
+krs cyc 15 ev 2: slot 1 reg 14 old 3fff new 1bff order 1 mon 0000 field KRS 15->6 rnd 44121 spin 33 t_us 16828 witness 5
+krs: 23232 samples, errors 0, 64 marks
+ar stream 0: slot 0 role test AR 24 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+ar stream 1: slot 1 role test AR 20 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+ar stream 2: slot 2 role test AR 18 D1R 24 DL 31 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+ar stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+ar run: mode aeg cycles 16 koff_us 22000 cycle_us 32000 | ev0 slot 0 AR trig time 600+900 val 28 | ev1 slot 1 AR trig time 6000+3000 val 30 | ev2 slot 2 AR trig time 13000+4000 val 31
+cap_start: counter word fd65 at a8e0 (n 666), next fd66 fd67 fd68, c0 ab7a, head n 679
+ar cyc 0 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 638 spin 0 t_us 1436 witness 3
+ar cyc 0 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 57992 spin 21 t_us 7261 witness 4
+ar cyc 0 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 13200 spin 45 t_us 14536 witness 5
+ar cyc 1 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 47045 spin 15 t_us 1442 witness 3
+ar cyc 1 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 2661 spin 37 t_us 8722 witness 4
+ar cyc 1 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 8135 spin 3 t_us 13140 witness 5
+ar cyc 2 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 17744 spin 11 t_us 1351 witness 3
+ar cyc 2 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 51744 spin 16 t_us 7162 witness 4
+ar cyc 2 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 46038 spin 12 t_us 15865 witness 5
+ar cyc 3 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 31668 spin 0 t_us 1255 witness 3
+ar cyc 3 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 63257 spin 7 t_us 7066 witness 4
+ar cyc 3 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 62209 spin 32 t_us 15813 witness 5
+ar cyc 4 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 56584 spin 30 t_us 1419 witness 3
+ar cyc 4 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 50479 spin 4 t_us 8487 witness 4
+ar cyc 4 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 16969 spin 7 t_us 14233 witness 5
+ar cyc 5 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 65499 spin 39 t_us 1341 witness 3
+ar cyc 5 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 9953 spin 42 t_us 7000 witness 4
+ar cyc 5 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 7075 spin 26 t_us 16105 witness 5
+ar cyc 6 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 25001 spin 33 t_us 1338 witness 3
+ar cyc 6 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 35697 spin 39 t_us 8750 witness 4
+ar cyc 6 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 7793 spin 11 t_us 16967 witness 5
+ar cyc 7 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 62600 spin 14 t_us 1118 witness 3
+ar cyc 7 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 4849 spin 41 t_us 8201 witness 4
+ar cyc 7 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 56144 spin 37 t_us 14001 witness 5
+ar cyc 8 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 5748 spin 4 t_us 957 witness 3
+ar cyc 8 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 20706 spin 2 t_us 9522 witness 4
+ar cyc 8 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 34882 spin 7 t_us 15892 witness 5
+ar cyc 9 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 60754 spin 42 t_us 1481 witness 3
+ar cyc 9 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 45266 spin 24 t_us 6293 witness 4
+ar cyc 9 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 8894 spin 2 t_us 14504 witness 5
+ar cyc 10 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 2476 spin 44 t_us 1396 witness 3
+ar cyc 10 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 46362 spin 6 t_us 7371 witness 4
+ar cyc 10 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 6176 spin 1 t_us 15866 witness 5
+ar cyc 11 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 58042 spin 32 t_us 1297 witness 3
+ar cyc 11 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 18089 spin 35 t_us 6129 witness 4
+ar cyc 11 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 35228 spin 19 t_us 16250 witness 5
+ar cyc 12 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 59678 spin 2 t_us 1181 witness 3
+ar cyc 12 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 21883 spin 40 t_us 7024 witness 4
+ar cyc 12 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 22430 spin 15 t_us 15755 witness 5
+ar cyc 13 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 49812 spin 5 t_us 1096 witness 3
+ar cyc 13 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 52281 spin 0 t_us 7286 witness 4
+ar cyc 13 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 33078 spin 19 t_us 14194 witness 5
+ar cyc 14 ev 0: slot 0 reg 10 old 0618 new 061c order 0 mon 0000 field AR 24->28 rnd 28511 spin 0 t_us 1216 witness 3
+ar cyc 14 ev 1: slot 1 reg 10 old 0614 new 061e order 0 mon 0000 field AR 20->30 rnd 34316 spin 3 t_us 7323 witness 4
+ar cyc 14 ev 2: slot 2 reg 10 old 0612 new 061f order 0 mon 0000 field AR 18->31 rnd 48905 spin 12 t_us 14083 witness 5
+ar cyc 15 ev 0: slot 0 reg 10 old 0618 new 061c order 1 mon 0000 field AR 24->28 rnd 54059 spin 17 t_us 934 witness 3
+ar cyc 15 ev 1: slot 1 reg 10 old 0614 new 061e order 1 mon 0000 field AR 20->30 rnd 15529 spin 35 t_us 6758 witness 4
+ar cyc 15 ev 2: slot 2 reg 10 old 0612 new 061f order 1 mon 0000 field AR 18->31 rnd 50650 spin 40 t_us 15694 witness 5
+ar: 22976 samples, errors 0, 64 marks
+d2r stream 0: slot 0 role test AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+d2r stream 1: slot 1 role test AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+d2r stream 2: slot 2 role test AR 31 D1R 31 DL 2 D2R 26 RR 31 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+d2r stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+d2r run: mode aeg cycles 16 koff_us 22000 cycle_us 32000 | ev0 slot 2 D2R trig time 4000+2000 val 30 | ev1 slot 0 D2R trig time 10000+2000 val 28 | ev2 slot 1 D2R trig time 16000+2000 val 30
+cap_start: counter word fdc4 at 3620 (n 571), next fdc5 fdc6 fdc7, c0 385b, head n 578
+d2r cyc 0 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 17477 spin 23 t_us 5753 witness 3
+d2r cyc 0 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 25350 spin 19 t_us 11570 witness 4
+d2r cyc 0 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 7985 spin 1 t_us 18797 witness 5
+d2r cyc 1 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 21242 spin 7 t_us 5651 witness 3
+d2r cyc 1 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 6751 spin 38 t_us 11487 witness 4
+d2r cyc 1 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 31391 spin 24 t_us 17418 witness 5
+d2r cyc 2 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 53937 spin 29 t_us 5971 witness 3
+d2r cyc 2 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 62882 spin 27 t_us 11390 witness 4
+d2r cyc 2 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 5991 spin 22 t_us 18638 witness 5
+d2r cyc 3 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 41593 spin 23 t_us 5621 witness 3
+d2r cyc 3 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 4191 spin 14 t_us 10208 witness 4
+d2r cyc 3 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 59639 spin 15 t_us 17657 witness 5
+d2r cyc 4 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 35855 spin 13 t_us 5871 witness 3
+d2r cyc 4 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 20146 spin 42 t_us 10192 witness 4
+d2r cyc 4 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 12606 spin 25 t_us 17017 witness 5
+d2r cyc 5 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 62741 spin 19 t_us 5315 witness 3
+d2r cyc 5 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 4229 spin 8 t_us 10240 witness 4
+d2r cyc 5 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 56644 spin 1 t_us 16905 witness 5
+d2r cyc 6 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 53641 spin 43 t_us 5688 witness 3
+d2r cyc 6 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 36275 spin 35 t_us 11058 witness 4
+d2r cyc 6 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 30709 spin 9 t_us 16826 witness 5
+d2r cyc 7 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 30084 spin 11 t_us 4355 witness 3
+d2r cyc 7 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 31802 spin 8 t_us 11814 witness 4
+d2r cyc 7 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 10661 spin 44 t_us 17451 witness 5
+d2r cyc 8 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 46086 spin 3 t_us 4276 witness 3
+d2r cyc 8 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 22438 spin 16 t_us 10457 witness 4
+d2r cyc 8 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 18053 spin 7 t_us 16063 witness 5
+d2r cyc 9 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 2651 spin 5 t_us 4660 witness 3
+d2r cyc 9 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 43098 spin 5 t_us 11430 witness 4
+d2r cyc 9 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 39989 spin 10 t_us 18691 witness 5
+d2r cyc 10 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 23388 spin 31 t_us 5566 witness 3
+d2r cyc 10 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 29537 spin 38 t_us 11579 witness 4
+d2r cyc 10 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 60945 spin 2 t_us 17145 witness 5
+d2r cyc 11 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 25502 spin 30 t_us 5536 witness 3
+d2r cyc 11 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 30443 spin 2 t_us 10880 witness 4
+d2r cyc 11 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 20959 spin 44 t_us 17006 witness 5
+d2r cyc 12 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 34629 spin 19 t_us 4653 witness 3
+d2r cyc 12 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 30116 spin 25 t_us 10143 witness 4
+d2r cyc 12 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 21019 spin 37 t_us 17415 witness 5
+d2r cyc 13 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 21528 spin 44 t_us 5701 witness 3
+d2r cyc 13 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 33420 spin 4 t_us 11453 witness 4
+d2r cyc 13 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 20715 spin 40 t_us 17366 witness 5
+d2r cyc 14 ev 0: slot 2 reg 10 old d7df new f7df order 0 mon 0000 field D2R 26->30 rnd 65041 spin 0 t_us 5558 witness 3
+d2r cyc 14 ev 1: slot 0 reg 10 old c7df new e7df order 0 mon 0000 field D2R 24->28 rnd 28909 spin 20 t_us 11383 witness 4
+d2r cyc 14 ev 2: slot 1 reg 10 old c7df new f7df order 0 mon 0000 field D2R 24->30 rnd 36475 spin 28 t_us 17195 witness 5
+d2r cyc 15 ev 0: slot 2 reg 10 old d7df new f7df order 1 mon 0000 field D2R 26->30 rnd 43631 spin 26 t_us 5661 witness 3
+d2r cyc 15 ev 1: slot 0 reg 10 old c7df new e7df order 1 mon 0000 field D2R 24->28 rnd 12206 spin 44 t_us 10254 witness 4
+d2r cyc 15 ev 2: slot 1 reg 10 old c7df new f7df order 1 mon 0000 field D2R 24->30 rnd 57178 spin 1 t_us 17182 witness 5
+d2r: 23232 samples, errors 0, 64 marks
+feg_rate stream 0: slot 0 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31
+feg_rate stream 1: slot 1 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31
+feg_rate stream 2: slot 2 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1a00 1a00 0800 0800 1ff8 FAR 31 FD1R 24 FD2R 31 FRR 31
+feg_rate stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+feg_rate run: mode feg cycles 16 koff_us 25000 cycle_us 40000 | ev0 slot 0 FD2R trig time 4000+2500 val 28 | ev1 slot 1 FD2R trig time 11000+2500 val 30 | ev2 slot 2 FD1R trig time 18000+2500 val 28
+cap_start: counter word fd56 at c2a0 (n 681), next fd57 fd58 fd59, c0 c549, head n 702
+feg_rate cyc 0 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 34315 spin 31 t_us 5852 witness 3
+feg_rate cyc 0 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 58244 spin 18 t_us 11764 witness 4
+feg_rate cyc 0 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 2770 spin 18 t_us 18893 witness 5
+feg_rate cyc 1 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 60975 spin 13 t_us 5863 witness 3
+feg_rate cyc 1 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 10841 spin 38 t_us 11882 witness 4
+feg_rate cyc 1 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 54647 spin 0 t_us 20300 witness 5
+feg_rate cyc 2 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 24593 spin 16 t_us 6113 witness 3
+feg_rate cyc 2 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 8484 spin 37 t_us 12023 witness 4
+feg_rate cyc 2 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 31480 spin 33 t_us 20332 witness 5
+feg_rate cyc 3 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 51518 spin 32 t_us 5827 witness 3
+feg_rate cyc 3 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 10662 spin 21 t_us 11685 witness 4
+feg_rate cyc 3 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 57070 spin 11 t_us 20318 witness 5
+feg_rate cyc 4 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 15125 spin 43 t_us 4392 witness 3
+feg_rate cyc 4 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 55348 spin 2 t_us 11602 witness 4
+feg_rate cyc 4 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 8243 spin 43 t_us 18919 witness 5
+feg_rate cyc 5 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 59982 spin 13 t_us 7256 witness 3
+feg_rate cyc 5 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 64041 spin 34 t_us 13079 witness 4
+feg_rate cyc 5 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 40676 spin 36 t_us 18884 witness 5
+feg_rate cyc 6 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 16745 spin 7 t_us 5810 witness 3
+feg_rate cyc 6 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 36852 spin 31 t_us 13082 witness 4
+feg_rate cyc 6 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 53626 spin 8 t_us 19139 witness 5
+feg_rate cyc 7 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 63104 spin 22 t_us 4630 witness 3
+feg_rate cyc 7 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 58755 spin 21 t_us 13085 witness 4
+feg_rate cyc 7 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 30713 spin 19 t_us 18874 witness 5
+feg_rate cyc 8 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 20889 spin 34 t_us 4926 witness 3
+feg_rate cyc 8 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 24169 spin 16 t_us 13086 witness 4
+feg_rate cyc 8 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 1224 spin 20 t_us 19247 witness 5
+feg_rate cyc 9 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 10084 spin 28 t_us 4361 witness 3
+feg_rate cyc 9 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 40931 spin 17 t_us 11951 witness 4
+feg_rate cyc 9 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 5549 spin 4 t_us 18850 witness 5
+feg_rate cyc 10 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 44300 spin 4 t_us 5808 witness 3
+feg_rate cyc 10 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 12711 spin 38 t_us 11654 witness 4
+feg_rate cyc 10 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 50178 spin 18 t_us 18878 witness 5
+feg_rate cyc 11 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 58498 spin 43 t_us 5840 witness 3
+feg_rate cyc 11 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 42797 spin 16 t_us 11636 witness 4
+feg_rate cyc 11 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 6689 spin 22 t_us 20329 witness 5
+feg_rate cyc 12 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 9579 spin 3 t_us 6086 witness 3
+feg_rate cyc 12 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 38349 spin 42 t_us 11895 witness 4
+feg_rate cyc 12 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 19608 spin 0 t_us 20322 witness 5
+feg_rate cyc 13 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 58780 spin 37 t_us 5813 witness 3
+feg_rate cyc 13 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 14559 spin 40 t_us 13102 witness 4
+feg_rate cyc 13 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 8351 spin 15 t_us 18870 witness 5
+feg_rate cyc 14 ev 0: slot 0 reg 44 old 181f new 1c1f order 0 mon 0000 field FD2R 24->28 rnd 36036 spin 32 t_us 5838 witness 3
+feg_rate cyc 14 ev 1: slot 1 reg 44 old 181f new 1e1f order 0 mon 0000 field FD2R 24->30 rnd 23502 spin 37 t_us 12042 witness 4
+feg_rate cyc 14 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 0 mon 0000 field FD1R 24->28 rnd 24045 spin 30 t_us 20342 witness 5
+feg_rate cyc 15 ev 0: slot 0 reg 44 old 181f new 1c1f order 1 mon 0000 field FD2R 24->28 rnd 33204 spin 2 t_us 4709 witness 3
+feg_rate cyc 15 ev 1: slot 1 reg 44 old 181f new 1e1f order 1 mon 0000 field FD2R 24->30 rnd 8883 spin 7 t_us 13058 witness 4
+feg_rate cyc 15 ev 2: slot 2 reg 40 old 1f18 new 1f1c order 1 mon 0000 field FD1R 24->28 rnd 63706 spin 8 t_us 19217 witness 5
+feg_rate: 29248 samples, errors 0, 64 marks
+flv stream 0: slot 0 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 30 FRR 31
+flv stream 1: slot 1 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 26 FRR 31
+flv stream 2: slot 2 role test AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000 VOFF 1 LPOFF 0 Q 4 FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 28 FRR 31
+flv stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+flv run: mode feg cycles 16 koff_us 26000 cycle_us 40000 | ev0 slot 0 FLV3 trig fegmon 6272+768 val 5 | ev1 slot 2 FLV3 trig fegmon 6784+256 val 3 | ev2 slot 1 FLV3 trig fegmon 6912+192 val 2
+cap_start: counter word fdd4 at 3620 (n 555), next fdd5 fdd6 fdd7, c0 384b, head n 578
+flv cyc 0 ev 0: slot 0 reg 38 old 1c00 new 1a5d order 0 mon 1a58 field FLV3 7168->6749 rnd 51153 spin 8 t_us 3529 witness 3
+flv cyc 0 ev 1: slot 2 reg 38 old 1c00 new 1a87 order 0 mon 1a84 field FLV3 7168->6791 rnd 25602 spin 16 t_us 7426 witness 4
+flv cyc 0 ev 2: slot 1 reg 38 old 1c00 new 1b76 order 0 mon 1b74 field FLV3 7168->7030 rnd 63092 spin 34 t_us 20157 witness 5
+flv cyc 1 ev 0: slot 0 reg 38 old 1c00 new 1aed order 1 mon 1ae8 field FLV3 7168->6893 rnd 35173 spin 19 t_us 4351 witness 3
+flv cyc 1 ev 1: slot 2 reg 38 old 1c00 new 1983 order 1 mon 1980 field FLV3 7168->6531 rnd 14931 spin 39 t_us 4486 witness 4
+flv cyc 1 ev 2: slot 1 reg 38 old 1c00 new 1b52 order 1 mon 1b50 field FLV3 7168->6994 rnd 12367 spin 7 t_us 19314 witness 5
+flv cyc 2 ev 0: slot 0 reg 38 old 1c00 new 18fd order 0 mon 18f8 field FLV3 7168->6397 rnd 60786 spin 34 t_us 1547 witness 3
+flv cyc 2 ev 1: slot 2 reg 38 old 1c00 new 1b2b order 0 mon 1b28 field FLV3 7168->6955 rnd 19623 spin 16 t_us 9266 witness 4
+flv cyc 2 ev 2: slot 1 reg 38 old 1c00 new 1b8e order 0 mon 1b8c field FLV3 7168->7054 rnd 56970 spin 43 t_us 20647 witness 5
+flv cyc 3 ev 0: slot 0 reg 38 old 1c00 new 188d order 1 mon 1888 field FLV3 7168->6285 rnd 61442 spin 9 t_us 884 witness 3
+flv cyc 3 ev 1: slot 2 reg 38 old 1c00 new 1b6f order 1 mon 1b6c field FLV3 7168->7023 rnd 17132 spin 28 t_us 10044 witness 4
+flv cyc 3 ev 2: slot 1 reg 38 old 1c00 new 1ba8 order 1 mon 1ba6 field FLV3 7168->7080 rnd 54501 spin 8 t_us 21243 witness 5
+flv cyc 4 ev 0: slot 0 reg 38 old 1c00 new 18a5 order 0 mon 18a0 field FLV3 7168->6309 rnd 59932 spin 26 t_us 1069 witness 3
+flv cyc 4 ev 1: slot 2 reg 38 old 1c00 new 1b3b order 0 mon 1b38 field FLV3 7168->6971 rnd 25015 spin 8 t_us 9467 witness 4
+flv cyc 4 ev 2: slot 1 reg 38 old 1c00 new 19a2 order 0 mon 19a0 field FLV3 7168->6562 rnd 3881 spin 30 t_us 9585 witness 5
+flv cyc 5 ev 0: slot 0 reg 38 old 1c00 new 1a15 order 1 mon 1a10 field FLV3 7168->6677 rnd 57224 spin 40 t_us 3099 witness 3
+flv cyc 5 ev 1: slot 2 reg 38 old 1c00 new 1b53 order 1 mon 1b50 field FLV3 7168->6995 rnd 58317 spin 0 t_us 9711 witness 4
+flv cyc 5 ev 2: slot 1 reg 38 old 1c00 new 1b86 order 1 mon 1b84 field FLV3 7168->7046 rnd 24708 spin 12 t_us 20487 witness 5
+flv cyc 6 ev 0: slot 0 reg 38 old 1c00 new 18d5 order 0 mon 18d0 field FLV3 7168->6357 rnd 45385 spin 17 t_us 1308 witness 3
+flv cyc 6 ev 1: slot 2 reg 38 old 1c00 new 1abb order 0 mon 1ab8 field FLV3 7168->6843 rnd 37429 spin 27 t_us 8014 witness 4
+flv cyc 6 ev 2: slot 1 reg 38 old 1c00 new 1b42 order 0 mon 1b40 field FLV3 7168->6978 rnd 11007 spin 6 t_us 18940 witness 5
+flv cyc 7 ev 0: slot 0 reg 38 old 1c00 new 1b05 order 1 mon 1b00 field FLV3 7168->6917 rnd 30588 spin 19 t_us 4508 witness 3
+flv cyc 7 ev 1: slot 2 reg 38 old 1c00 new 1b4f order 1 mon 1b4c field FLV3 7168->6991 rnd 20172 spin 20 t_us 9712 witness 4
+flv cyc 7 ev 2: slot 1 reg 38 old 1c00 new 19ae order 1 mon 19ac field FLV3 7168->6574 rnd 50765 spin 40 t_us 9841 witness 5
+flv cyc 8 ev 0: slot 0 reg 38 old 1c00 new 1ab5 order 0 mon 1ab0 field FLV3 7168->6837 rnd 61227 spin 33 t_us 4053 witness 3
+flv cyc 8 ev 1: slot 2 reg 38 old 1c00 new 1967 order 0 mon 1964 field FLV3 7168->6503 rnd 25901 spin 29 t_us 4178 witness 4
+flv cyc 8 ev 2: slot 1 reg 38 old 1c00 new 1b0e order 0 mon 1b0c field FLV3 7168->6926 rnd 49931 spin 33 t_us 17806 witness 5
+flv cyc 9 ev 0: slot 0 reg 38 old 1c00 new 1af5 order 1 mon 1af0 field FLV3 7168->6901 rnd 17517 spin 36 t_us 4401 witness 3
+flv cyc 9 ev 1: slot 2 reg 38 old 1c00 new 198b order 1 mon 1988 field FLV3 7168->6539 rnd 38764 spin 44 t_us 4539 witness 4
+flv cyc 9 ev 2: slot 1 reg 38 old 1c00 new 1ba6 order 1 mon 1ba4 field FLV3 7168->7078 rnd 36644 spin 12 t_us 21202 witness 5
+flv cyc 10 ev 0: slot 0 reg 38 old 1c00 new 1b45 order 0 mon 1b40 field FLV3 7168->6981 rnd 65211 spin 22 t_us 4840 witness 3
+flv cyc 10 ev 1: slot 2 reg 38 old 1c00 new 1b73 order 0 mon 1b70 field FLV3 7168->7027 rnd 61421 spin 25 t_us 10087 witness 4
+flv cyc 10 ev 2: slot 1 reg 38 old 1c00 new 19c0 order 0 mon 19be field FLV3 7168->6592 rnd 39411 spin 34 t_us 10212 witness 5
+flv cyc 11 ev 0: slot 0 reg 38 old 1c00 new 1af5 order 1 mon 1af0 field FLV3 7168->6901 rnd 25958 spin 41 t_us 4393 witness 3
+flv cyc 11 ev 1: slot 2 reg 38 old 1c00 new 1983 order 1 mon 1980 field FLV3 7168->6531 rnd 55152 spin 29 t_us 4520 witness 4
+flv cyc 11 ev 2: slot 1 reg 38 old 1c00 new 1ba6 order 1 mon 1ba4 field FLV3 7168->7078 rnd 57955 spin 0 t_us 21223 witness 5
+flv cyc 12 ev 0: slot 0 reg 38 old 1c00 new 191d order 0 mon 1918 field FLV3 7168->6429 rnd 50065 spin 34 t_us 1748 witness 3
+flv cyc 12 ev 1: slot 2 reg 38 old 1c00 new 1b7b order 0 mon 1b78 field FLV3 7168->7035 rnd 46582 spin 13 t_us 10185 witness 4
+flv cyc 12 ev 2: slot 1 reg 38 old 1c00 new 1b98 order 0 mon 1b96 field FLV3 7168->7064 rnd 18197 spin 22 t_us 20916 witness 5
+flv cyc 13 ev 0: slot 0 reg 38 old 1c00 new 1aa5 order 1 mon 1aa0 field FLV3 7168->6821 rnd 30496 spin 30 t_us 3943 witness 3
+flv cyc 13 ev 1: slot 2 reg 38 old 1c00 new 1abb order 1 mon 1ab8 field FLV3 7168->6843 rnd 61235 spin 43 t_us 7974 witness 4
+flv cyc 13 ev 2: slot 1 reg 38 old 1c00 new 1b56 order 1 mon 1b54 field FLV3 7168->6998 rnd 61523 spin 4 t_us 19382 witness 5
+flv cyc 14 ev 0: slot 0 reg 38 old 1c00 new 18fd order 0 mon 18f8 field FLV3 7168->6397 rnd 7030 spin 19 t_us 1526 witness 3
+flv cyc 14 ev 1: slot 2 reg 38 old 1c00 new 1b33 order 0 mon 1b30 field FLV3 7168->6963 rnd 18095 spin 8 t_us 9339 witness 4
+flv cyc 14 ev 2: slot 1 reg 38 old 1c00 new 1b62 order 0 mon 1b60 field FLV3 7168->7010 rnd 11615 spin 0 t_us 19644 witness 5
+flv cyc 15 ev 0: slot 0 reg 38 old 1c00 new 1a85 order 1 mon 1a80 field FLV3 7168->6789 rnd 22777 spin 11 t_us 3768 witness 3
+flv cyc 15 ev 1: slot 2 reg 38 old 1c00 new 1b3f order 1 mon 1b3c field FLV3 7168->6975 rnd 5561 spin 16 t_us 9518 witness 4
+flv cyc 15 ev 2: slot 1 reg 38 old 1c00 new 1b5e order 1 mon 1b5c field FLV3 7168->7006 rnd 4699 spin 15 t_us 19602 witness 5
+flv: 29248 samples, errors 0, 64 marks

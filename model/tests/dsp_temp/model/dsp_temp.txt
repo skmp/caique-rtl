@@ -52,7 +52,7 @@ T2 F ira 25 (4 ms) t 4058..4672 us:
   000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0
   000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0
   000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0
-T2 MIXS5 readback right after write 0000/0
+T2 MIXS5 readback right after write 1234/5
 T2 F ira 25 after a second write (no reload) t 0..615 us:
   000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0
   000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0 000000 edcbb0

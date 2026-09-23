@@ -1,0 +1,741 @@
+latch_check tests/eg_latch/model: 6 runs, clock constant K 6491
+readings of a rewrite whose write pair's key event takes effect on sample E: live = the EG sees the new register at clock E;
+latched = at clock E + 2 (the model's egreg).  Only an EVEN E is informative.  Order 0 = register write then KYONEX, order 1 = KYONEX first.
+
+== dl (AEG): 24640 samples x 4 streams, n_first 724, c0 e771 (MDEC_CT of sample i = (e49d - i) & 0xFFFF), 16 cycles, key-off at +24000 us (1058 samples)
+   stream 0: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 1: AR 31 D1R 26 DL 31 D2R 0 RR 31 KRS 15 (R 62/52/0/62)
+   stream 2: AR 31 D1R 28 DL 31 D2R 0 RR 31 KRS 15 (R 62/56/0/62)
+cycle  0: key-on E_A 449 (EVEN, mark 447)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 680 (odd, E_A+231, mark 679; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 1014 (odd, E_A+565, mark 1012; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+488); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 1333 (EVEN, E_A+884, mark 1331; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+169); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+cycle  1: key-on E_A 1949 (EVEN, mark 1947)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 2181 (EVEN, E_A+232, mark 2179; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 2522 (odd, E_A+573, mark 2521; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+480); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 2834 (odd, E_A+885, mark 2833; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+168); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle  2: key-on E_A 3457 (EVEN, mark 3455)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 3689 (EVEN, E_A+232, mark 3687; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 4029 (EVEN, E_A+572, mark 4028; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+481); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 4308 (odd, E_A+851, mark 4307; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+202); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle  3: key-on E_A 4957 (EVEN, mark 4955)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 5192 (odd, E_A+235, mark 5191; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 5527 (EVEN, E_A+570, mark 5525; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+483); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 5829 (EVEN, E_A+872, mark 5828; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+181); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  4: key-on E_A 6465 (EVEN, mark 6463)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 6696 (odd, E_A+231, mark 6695; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 7043 (EVEN, E_A+578, mark 7042; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+475); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 7336 (odd, E_A+871, mark 7335; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+182); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle  5: key-on E_A 7965 (EVEN, mark 7963)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 8196 (odd, E_A+231, mark 8194; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 8541 (EVEN, E_A+576, mark 8539; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+477); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 8834 (odd, E_A+869, mark 8832; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+184); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 9473 (EVEN, mark 9471)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 9701 (EVEN, E_A+228, mark 9699; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 10039 (EVEN, E_A+566, mark 10037; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+487); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 10338 (odd, E_A+865, mark 10336; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+188); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 10973 (EVEN, mark 10971)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 11202 (odd, E_A+229, mark 11201; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 11536 (odd, E_A+563, mark 11535; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+490); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 11855 (EVEN, E_A+882, mark 11853; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+171); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  8: key-on E_A 12481 (EVEN, mark 12479)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 12713 (EVEN, E_A+232, mark 12711; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 13054 (odd, E_A+573, mark 13053; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+480); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 13359 (EVEN, E_A+878, mark 13357; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+175); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+cycle  9: key-on E_A 13981 (EVEN, mark 13979)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 14217 (EVEN, E_A+236, mark 14215; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 14546 (odd, E_A+565, mark 14544; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+488); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 14858 (odd, E_A+877, mark 14856; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+176); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle 10: key-on E_A 15489 (EVEN, mark 15487)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 15719 (EVEN, E_A+230, mark 15718; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 16070 (odd, E_A+581, mark 16068; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+472); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 16358 (odd, E_A+869, mark 16356; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+184); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 16989 (EVEN, mark 16987)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 17223 (EVEN, E_A+234, mark 17222; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 17566 (odd, E_A+577, mark 17564; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+476); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 17858 (odd, E_A+869, mark 17857; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+184); old law fail@E+5, observed change at E+5;  Vc=E-1 fail@E+1  E fail@E+3  E+1 fail@E+3  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+cycle 12: key-on E_A 18497 (EVEN, mark 18495)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 18726 (odd, E_A+229, mark 18725; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 19067 (EVEN, E_A+570, mark 19065; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+483); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 19372 (odd, E_A+875, mark 19370; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+178); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 19997 (EVEN, mark 19995)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 20228 (odd, E_A+231, mark 20227; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+5, observed change at E+5;  Vc=E-1 fail@E+1  E fail@E+3  E+1 fail@E+3  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 20562 (odd, E_A+565, mark 20560; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+488); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 20885 (EVEN, E_A+888, mark 20883; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+165); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 14: key-on E_A 21505 (EVEN, mark 21503)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 21736 (odd, E_A+231, mark 21735; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E+1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 22071 (EVEN, E_A+566, mark 22070; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+487); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 22377 (EVEN, E_A+872, mark 22375; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+181); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 15: key-on E_A 23005 (EVEN, mark 23003)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 23233 (EVEN, E_A+228, mark 23232; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 23580 (odd, E_A+575, mark 23579; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+478); old law fail@E+5, observed change at E+5;  Vc=E-1 fail@E+1  E fail@E+3  E+1 fail@E+3  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 23887 (EVEN, E_A+882, mark 23886; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+171); old law fail@E+4, observed change at E+4;  Vc=E-1 fail@E+2  E fail@E+2  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+SUMMARY dl        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 12: live 2 latched 10 neither 0 | order1 10: live 0 latched 10 neither 0 | odd E straddles: EARLY 0/0 LATE 0/3 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 3 live 2 latched 1 neither 0 | order1 inf 4 live 0 latched 4 neither 0 | early 0/0 late 0/1
+   stream 1: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 5 live 0 latched 5 neither 0 | order1 inf 2 live 0 latched 2 neither 0 | early 0/0 late 0/1
+   stream 2: events 16 pre-fail 0 odd-plain 7 identical 0 | order0 inf 4 live 0 latched 4 neither 0 | order1 inf 4 live 0 latched 4 neither 0 | early 0/0 late 0/1
+
+== krs (AEG): 23168 samples x 4 streams, n_first 624, c0 7188 (MDEC_CT of sample i = (6f18 - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 1: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 2: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+cycle  0: key-on E_A 450 (EVEN, mark 447)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 706 (EVEN, E_A+256, mark 704; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 962 (EVEN, E_A+512, mark 960; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+453); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 1175 (odd, E_A+725, mark 1173; witness 48 520224 520224 520224 487440)
+        level: compared [E_A, E+240); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  1: key-on E_A 1862 (EVEN, mark 1859)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 2113 (odd, E_A+251, mark 2111; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 2309 (odd, E_A+447, mark 2307; witness 112 520288 520272 520272 487504)
+        level: compared [E_A, E+518); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 2587 (odd, E_A+725, mark 2585; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+240); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  2: key-on E_A 3274 (EVEN, mark 3271)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 3522 (EVEN, E_A+248, mark 3520; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 3743 (odd, E_A+469, mark 3741; witness 32 520208 520208 520208 487424)
+        level: compared [E_A, E+496); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 4033 (odd, E_A+759, mark 4031; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+206); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  3: key-on E_A 4686 (EVEN, mark 4683)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 4941 (odd, E_A+255, mark 4938; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 5185 (odd, E_A+499, mark 5183; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+466); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 5443 (odd, E_A+757, mark 5440; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+208); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  4: key-on E_A 6097 (odd, mark 6095)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 6353 (odd, E_A+256, mark 6350; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 6597 (odd, E_A+500, mark 6595; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+465); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 6863 (odd, E_A+766, mark 6861; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+199); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  5: key-on E_A 7509 (odd, mark 7507)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 7747 (odd, E_A+238, mark 7745; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 8025 (odd, E_A+516, mark 8023; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+449); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 8263 (odd, E_A+754, mark 8261; witness 16 520192 520192 520192 487408)
+        level: compared [E_A, E+211); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 8921 (odd, mark 8919)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 9183 (odd, E_A+262, mark 9180; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 9413 (odd, E_A+492, mark 9411; witness 16 520192 520192 520192 487424)
+        level: compared [E_A, E+473); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 9666 (EVEN, E_A+745, mark 9663; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+220); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  7: key-on E_A 10333 (odd, mark 10331)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 10580 (EVEN, E_A+247, mark 10578; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 10839 (odd, E_A+506, mark 10837; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+459); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 11074 (EVEN, E_A+741, mark 11072; witness 16 520192 520192 487424 487424)
+        level: compared [E_A, E+224); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  8: key-on E_A 11745 (odd, mark 11743)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 11970 (EVEN, E_A+225, mark 11968; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 12231 (odd, E_A+486, mark 12229; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+479); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 12547 (odd, E_A+802, mark 12545; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+163); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  9: key-on E_A 13186 (EVEN, mark 13183)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 13442 (EVEN, E_A+256, mark 13440; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 13699 (odd, E_A+513, mark 13697; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+452); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 13953 (odd, E_A+767, mark 13951; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+198); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 10: key-on E_A 14598 (EVEN, mark 14595)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 14850 (EVEN, E_A+252, mark 14848; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 15105 (odd, E_A+507, mark 15103; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+458); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 15363 (odd, E_A+765, mark 15360; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+200); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 16010 (EVEN, mark 16007)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 16258 (EVEN, E_A+248, mark 16256; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 16528 (EVEN, E_A+518, mark 16526; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+447); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 16783 (odd, E_A+773, mark 16781; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+192); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 17421 (odd, mark 17419)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 17666 (EVEN, E_A+245, mark 17664; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 17936 (EVEN, E_A+515, mark 17934; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+450); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 18209 (odd, E_A+788, mark 18206; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+177); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 18833 (odd, mark 18831)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 19035 (odd, E_A+202, mark 19033; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 19347 (odd, E_A+514, mark 19345; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+451); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 19605 (odd, E_A+772, mark 19602; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+193); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 14: key-on E_A 20245 (odd, mark 20243)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 20489 (odd, E_A+244, mark 20487; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 20763 (odd, E_A+518, mark 20761; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+447); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 21011 (odd, E_A+766, mark 21008; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+199); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 15: key-on E_A 21657 (odd, mark 21655)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 21857 (odd, E_A+200, mark 21855; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 22146 (EVEN, E_A+489, mark 22144; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+476); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 22370 (EVEN, E_A+713, mark 22368; witness 32 520192 520192 487424 487424)
+        level: compared [E_A, E+252); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+SUMMARY krs       events 48 found 48 missed 0 pre-fail 0 odd-E plain 31 identical 0 | even E, order0 8: live 0 latched 8 neither 0 | order1 7: live 0 latched 7 neither 0 | odd E straddles: EARLY 0/0 LATE 0/2 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 11 identical 0 | order0 inf 2 live 0 latched 2 neither 0 | order1 inf 2 live 0 latched 2 neither 0 | early 0/0 late 0/1
+   stream 1: events 16 pre-fail 0 odd-plain 13 identical 0 | order0 inf 1 live 0 latched 1 neither 0 | order1 inf 2 live 0 latched 2 neither 0 | early 0/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 7 identical 0 | order0 inf 5 live 0 latched 5 neither 0 | order1 inf 3 live 0 latched 3 neither 0 | early 0/0 late 0/1
+
+== ar (AEG): 23168 samples x 4 streams, n_first 530, c0 01c2 (MDEC_CT of sample i = (ffb0 - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 24 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 48/48/0/62)
+   stream 1: AR 20 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 40/48/0/62)
+   stream 2: AR 18 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 36/48/0/62)
+cycle  0: key-on E_A 450 (EVEN, mark 447)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 513 (odd, E_A+63, mark 511; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 770 (EVEN, E_A+320, mark 768; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 1091 (odd, E_A+641, mark 1089; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+324); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  1: key-on E_A 1862 (EVEN, mark 1859)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 1922 (EVEN, E_A+60, mark 1920; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 2245 (odd, E_A+383, mark 2243; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+582); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 2441 (odd, E_A+579, mark 2439; witness 112 520288 520272 520272 487504)
+        level: compared [E_A, E+386); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  2: key-on E_A 3274 (EVEN, mark 3271)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 3330 (EVEN, E_A+56, mark 3327; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 3586 (EVEN, E_A+312, mark 3584; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 3938 (EVEN, E_A+664, mark 3935; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+301); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  3: key-on E_A 4686 (EVEN, mark 4683)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 4737 (odd, E_A+51, mark 4735; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 4962 (EVEN, E_A+276, mark 4960; witness 32 520192 520192 487424 487424)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 5378 (EVEN, E_A+692, mark 5376; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+273); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  4: key-on E_A 6098 (EVEN, mark 6095)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 6160 (EVEN, E_A+62, mark 6158; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 6472 (EVEN, E_A+374, mark 6470; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+591); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 6722 (EVEN, E_A+624, mark 6719; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+341); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  5: key-on E_A 7509 (odd, mark 7507)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 7569 (odd, E_A+60, mark 7566; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 7818 (EVEN, E_A+309, mark 7816; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 8220 (EVEN, E_A+711, mark 8217; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+254); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  6: key-on E_A 8921 (odd, mark 8919)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 8980 (EVEN, E_A+59, mark 8978; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 9307 (odd, E_A+386, mark 9305; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+579); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 9666 (EVEN, E_A+745, mark 9663; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+220); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  7: key-on E_A 10333 (odd, mark 10331)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 10383 (odd, E_A+50, mark 10380; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 10691 (odd, E_A+358, mark 10689; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 10915 (odd, E_A+582, mark 10913; witness 32 520208 520192 520192 487424)
+        level: compared [E_A, E+383); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  8: key-on E_A 11745 (odd, mark 11743)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 11788 (EVEN, E_A+43, mark 11785; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 12130 (EVEN, E_A+385, mark 12127; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+580); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 12446 (EVEN, E_A+701, mark 12444; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+264); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  9: key-on E_A 13186 (EVEN, mark 13183)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 13251 (odd, E_A+65, mark 13249; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 13463 (odd, E_A+277, mark 13461; witness 48 520224 520224 520224 487456)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 13825 (odd, E_A+639, mark 13823; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+326); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 10: key-on E_A 14598 (EVEN, mark 14595)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 14659 (odd, E_A+61, mark 14657; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 14923 (odd, E_A+325, mark 14920; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 15297 (odd, E_A+699, mark 15295; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+266); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 16010 (EVEN, mark 16007)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 16067 (odd, E_A+57, mark 16064; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 16280 (EVEN, E_A+270, mark 16278; witness 48 520224 520224 487456 487456)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 16726 (EVEN, E_A+716, mark 16724; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+249); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 12: key-on E_A 17422 (EVEN, mark 17419)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 17473 (odd, E_A+51, mark 17471; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 17731 (odd, E_A+309, mark 17729; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 18114 (EVEN, E_A+692, mark 18112; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+273); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 13: key-on E_A 18834 (EVEN, mark 18831)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 18881 (odd, E_A+47, mark 18879; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 19155 (odd, E_A+321, mark 19152; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 19458 (EVEN, E_A+624, mark 19456; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+341); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 14: key-on E_A 20245 (odd, mark 20243)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 20299 (odd, E_A+54, mark 20297; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 20568 (EVEN, E_A+323, mark 20566; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 20866 (EVEN, E_A+621, mark 20863; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+344); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 15: key-on E_A 21657 (odd, mark 21655)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 21698 (EVEN, E_A+41, mark 21696; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 21955 (odd, E_A+298, mark 21952; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 22349 (odd, E_A+692, mark 22347; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+273); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+SUMMARY ar        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 15: live 4 latched 11 neither 0 | order1 9: live 0 latched 9 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 10 identical 0 | order0 inf 4 live 1 latched 3 neither 0 | order1 inf 2 live 0 latched 2 neither 0 | early 0/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 5 live 1 latched 4 neither 0 | order1 inf 3 live 0 latched 3 neither 0 | early 0/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 5 identical 0 | order0 inf 6 live 2 latched 4 neither 0 | order1 inf 4 live 0 latched 4 neither 0 | early 0/0 late 0/1
+
+== d2r (AEG): 23168 samples x 4 streams, n_first 652, c0 925a (MDEC_CT of sample i = (8fce - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 (R 62/62/48/62)
+   stream 1: AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 (R 62/62/48/62)
+   stream 2: AR 31 D1R 31 DL 2 D2R 26 RR 31 KRS 15 (R 62/62/52/62)
+cycle  0: key-on E_A 449 (odd, mark 447)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 706 (EVEN, E_A+257, mark 704; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 962 (EVEN, E_A+513, mark 960; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+452); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 1243 (odd, E_A+794, mark 1241; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+171); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  1: key-on E_A 1861 (odd, mark 1859)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 2113 (odd, E_A+252, mark 2111; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 2337 (odd, E_A+476, mark 2335; witness 32 520208 520192 520192 487424)
+        level: compared [E_A, E+489); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 2629 (odd, E_A+768, mark 2628; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+197); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+cycle  2: key-on E_A 3273 (odd, mark 3271)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 3537 (odd, E_A+264, mark 3535; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 3778 (EVEN, E_A+505, mark 3776; witness 16 520176 520176 487408 487408)
+        level: compared [E_A, E+460); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 4098 (EVEN, E_A+825, mark 4096; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+140); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  3: key-on E_A 4685 (odd, mark 4683)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 4933 (odd, E_A+248, mark 4931; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 5135 (odd, E_A+450, mark 5133; witness 80 520256 520256 520256 487472)
+        level: compared [E_A, E+515); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 5464 (EVEN, E_A+779, mark 5462; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+186); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  4: key-on E_A 6097 (odd, mark 6095)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 6356 (EVEN, E_A+259, mark 6354; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 6547 (odd, E_A+450, mark 6545; witness 128 520304 520288 520288 487520)
+        level: compared [E_A, E+515); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 6850 (EVEN, E_A+753, mark 6848; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+212); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  5: key-on E_A 7509 (odd, mark 7507)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 7746 (EVEN, E_A+237, mark 7744; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 7961 (odd, E_A+452, mark 7959; witness 48 520224 520208 520208 487440)
+        level: compared [E_A, E+513); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 8257 (odd, E_A+748, mark 8255; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+217); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 8921 (odd, mark 8919)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 9172 (EVEN, E_A+251, mark 9170; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 9376 (EVEN, E_A+455, mark 9374; witness 80 520240 520240 487472 487472)
+        level: compared [E_A, E+510); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 9665 (odd, E_A+744, mark 9663; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+221); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 10333 (odd, mark 10331)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 10514 (EVEN, E_A+181, mark 10512; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 10881 (odd, E_A+548, mark 10879; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+417); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 11075 (odd, E_A+742, mark 11073; witness 112 520288 520288 520288 487504)
+        level: compared [E_A, E+223); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  8: key-on E_A 11745 (odd, mark 11743)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 11925 (odd, E_A+180, mark 11923; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 12226 (EVEN, E_A+481, mark 12224; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+484); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 12481 (odd, E_A+736, mark 12479; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+229); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  9: key-on E_A 13185 (odd, mark 13183)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 13391 (odd, E_A+206, mark 13389; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 13697 (odd, E_A+512, mark 13695; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+453); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 13979 (odd, E_A+794, mark 13977; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+171); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 10: key-on E_A 14597 (odd, mark 14595)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 14850 (EVEN, E_A+253, mark 14848; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 15108 (EVEN, E_A+511, mark 15106; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+454); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 15361 (odd, E_A+764, mark 15359; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+201); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 16009 (odd, mark 16007)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 16258 (EVEN, E_A+249, mark 16256; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 16470 (EVEN, E_A+461, mark 16468; witness 48 520224 520224 487456 487456)
+        level: compared [E_A, E+504); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 16771 (odd, E_A+762, mark 16769; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+203); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 17421 (odd, mark 17419)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 17626 (EVEN, E_A+205, mark 17624; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 17869 (odd, E_A+448, mark 17867; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+517); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 18179 (odd, E_A+758, mark 18177; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+207); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 18833 (odd, mark 18831)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 19079 (odd, E_A+246, mark 19077; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 19337 (odd, E_A+504, mark 19335; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+461); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 19587 (odd, E_A+754, mark 19585; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+211); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 14: key-on E_A 20245 (odd, mark 20243)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 20481 (odd, E_A+236, mark 20479; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 20738 (EVEN, E_A+493, mark 20736; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+472); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 20994 (EVEN, E_A+749, mark 20992; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+216); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 15: key-on E_A 21657 (odd, mark 21655)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 21907 (odd, E_A+250, mark 21905; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 22109 (odd, E_A+452, mark 22107; witness 80 520256 520256 520256 487472)
+        level: compared [E_A, E+513); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 22415 (odd, E_A+758, mark 22413; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+207); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+SUMMARY d2r       events 48 found 48 missed 0 pre-fail 0 odd-E plain 28 identical 0 | even E, order0 14: live 1 latched 13 neither 0 | order1 5: live 0 latched 5 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 9 identical 0 | order0 inf 6 live 1 latched 5 neither 0 | order1 inf 1 live 0 latched 1 neither 0 | early 0/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 11 identical 0 | order0 inf 3 live 0 latched 3 neither 0 | order1 inf 1 live 0 latched 1 neither 0 | early 0/0 late 0/1
+   stream 2: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 5 live 0 latched 5 neither 0 | order1 inf 3 live 0 latched 3 neither 0 | early 0/0 late 0/0
+
+== feg_rate (FEG): 29248 samples x 4 streams, n_first 558, c0 2278 (MDEC_CT of sample i = (204a - i) & 0xFFFF), 16 cycles, key-off at +25000 us (1102 samples)
+   stream 0: FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31 (R 62/62/48/62) Q 4
+   stream 1: FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31 (R 62/62/48/62) Q 4
+   stream 2: FLV 1a00 1a00 0800 0800 1ff8 FAR 31 FD1R 24 FD2R 31 FRR 31 (R 62/48/62/62) Q 4
+cycle  0: key-on E_A 449 (odd, mark 447), tracked s0 1344 (639 ambiguous) s1 1344 (657 ambiguous) s2 1344 (128 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 707 (odd, E_A+258, mark 705; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 968 (EVEN, E_A+519, mark 966; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+578); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 1281 (odd, E_A+832, mark 1280; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+265); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  1: key-on E_A 2241 (odd, mark 2239), tracked s0 1344 (665 ambiguous) s1 1344 (645 ambiguous) s2 1344 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 2461 (odd, E_A+220, mark 2460; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 2765 (odd, E_A+524, mark 2763; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+573); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 3136 (EVEN, E_A+895, mark 3135; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+202); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  2: key-on E_A 4033 (odd, mark 4031), tracked s0 1344 (625 ambiguous) s1 1344 (644 ambiguous) s2 1344 (112 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 4302 (EVEN, E_A+269, mark 4301; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 4563 (odd, E_A+530, mark 4562; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+567); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 4893 (odd, E_A+860, mark 4892; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+237); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  3: key-on E_A 5825 (odd, mark 5823), tracked s0 1344 (639 ambiguous) s1 1344 (653 ambiguous) s2 1344 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 6081 (odd, E_A+256, mark 6080; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 FULL  -> odd E, LATE: took effect at clock E+3 (write one sample after the key event: LATCHED register)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 6340 (EVEN, E_A+515, mark 6339; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+582); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 6721 (odd, E_A+896, mark 6719; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+201); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  4: key-on E_A 7617 (odd, mark 7615), tracked s0 1344 (694 ambiguous) s1 1344 (655 ambiguous) s2 1344 (126 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 7810 (EVEN, E_A+193, mark 7809; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 8128 (EVEN, E_A+511, mark 8127; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+586); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 8450 (EVEN, E_A+833, mark 8449; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+264); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  5: key-on E_A 9409 (odd, mark 9407), tracked s0 1344 (587 ambiguous) s1 1344 (573 ambiguous) s2 1344 (126 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 9695 (odd, E_A+286, mark 9694; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 9986 (EVEN, E_A+577, mark 9984; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+520); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 10242 (EVEN, E_A+833, mark 10240; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+264); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle  6: key-on E_A 11201 (odd, mark 11199), tracked s0 1344 (632 ambiguous) s1 1344 (571 ambiguous) s2 1344 (105 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 11456 (EVEN, E_A+255, mark 11455; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 11777 (odd, E_A+576, mark 11776; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+521); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 12045 (odd, E_A+844, mark 12043; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+253); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 12993 (odd, mark 12991), tracked s0 1344 (674 ambiguous) s1 1344 (635 ambiguous) s2 1344 (128 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 13197 (odd, E_A+204, mark 13196; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 13534 (EVEN, E_A+541, mark 13533; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+556); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 13825 (odd, E_A+832, mark 13824; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+265); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  8: key-on E_A 14785 (odd, mark 14783), tracked s0 1344 (666 ambiguous) s1 1344 (571 ambiguous) s2 1344 (115 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 15002 (EVEN, E_A+217, mark 15001; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 15361 (odd, E_A+576, mark 15360; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+521); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 15634 (EVEN, E_A+849, mark 15632; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+248); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  9: key-on E_A 16577 (odd, mark 16575), tracked s0 1344 (691 ambiguous) s1 1344 (650 ambiguous) s2 1344 (128 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 16769 (odd, E_A+192, mark 16768; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 17104 (EVEN, E_A+527, mark 17103; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+570); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 17408 (EVEN, E_A+831, mark 17407; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+266); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 10: key-on E_A 18369 (odd, mark 18367), tracked s0 1344 (632 ambiguous) s1 1344 (655 ambiguous) s2 1344 (128 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 18625 (odd, E_A+256, mark 18624; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 18882 (EVEN, E_A+513, mark 18881; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+584); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 19201 (odd, E_A+832, mark 19200; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+265); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 20161 (odd, mark 20159), tracked s0 1344 (662 ambiguous) s1 1344 (655 ambiguous) s2 1344 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 20383 (odd, E_A+222, mark 20382; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 20673 (odd, E_A+512, mark 20672; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+585); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 21057 (odd, E_A+896, mark 21056; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+201); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 21953 (odd, mark 21951), tracked s0 1344 (637 ambiguous) s1 1344 (645 ambiguous) s2 1344 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 22221 (odd, E_A+268, mark 22220; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 22477 (odd, E_A+524, mark 22476; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+573); old law fail@E+3, observed change at E+3;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+3  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 22848 (EVEN, E_A+895, mark 22847; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+202); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 13: key-on E_A 23745 (odd, mark 23743), tracked s0 1344 (639 ambiguous) s1 1344 (573 ambiguous) s2 1344 (128 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 24002 (EVEN, E_A+257, mark 24000; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 24322 (EVEN, E_A+577, mark 24321; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+520); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 24577 (odd, E_A+832, mark 24576; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+265); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 14: key-on E_A 25537 (odd, mark 25535), tracked s0 1344 (657 ambiguous) s1 1344 (639 ambiguous) s2 1344 (99 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 25760 (EVEN, E_A+223, mark 25759; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 26068 (EVEN, E_A+531, mark 26066; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+566); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 26400 (EVEN, E_A+863, mark 26399; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+234); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+cycle 15: key-on E_A 27329 (odd, mark 27327), tracked s0 1344 (676 ambiguous) s1 1344 (571 ambiguous) s2 1344 (115 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 27536 (EVEN, E_A+207, mark 27535; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 27904 (EVEN, E_A+575, mark 27903; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+522); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 28176 (EVEN, E_A+847, mark 28175; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+250); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+0  E fail@E+0  E+1 FULL  E+2 FULL  -> LATCHED (clock E+2)
+SUMMARY feg_rate  events 48 found 48 missed 0 pre-fail 0 odd-E plain 22 identical 0 | even E, order0 13: live 2 latched 11 neither 0 | order1 12: live 0 latched 12 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 5 live 0 latched 5 neither 0 | order1 inf 2 live 0 latched 2 neither 0 | early 0/0 late 0/1
+   stream 1: events 16 pre-fail 0 odd-plain 6 identical 0 | order0 inf 4 live 1 latched 3 neither 0 | order1 inf 6 live 0 latched 6 neither 0 | early 0/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 4 live 1 latched 3 neither 0 | order1 inf 4 live 0 latched 4 neither 0 | early 0/0 late 0/0
+
+== flv (FEG): 29248 samples x 4 streams, n_first 663, c0 9b35 (MDEC_CT of sample i = (989e - i) & 0xFFFF), 16 cycles, key-off at +26000 us (1146 samples)
+   stream 0: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 30 FRR 31 (R 62/62/60/62) Q 4
+   stream 1: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 26 FRR 31 (R 62/62/52/62) Q 4
+   stream 2: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 28 FRR 31 (R 62/62/56/62) Q 4
+cycle  0: key-on E_A 449 (odd, mark 447), tracked s0 1392 (30 ambiguous) s1 1392 (61 ambiguous) s2 1392 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a5d (FLV3 7168 -> 6749, order 0, mon 1a58)  E 603 (odd, E_A+154, mark 602; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1a58, +8: target 1a5d is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1a87 (FLV3 7168 -> 6791, order 0, mon 1a84)  E 776 (EVEN, E_A+327, mark 774; witness 336 520480 520480 487680 487680)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1a84, +4: target 1a87 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b76 (FLV3 7168 -> 7030, order 0, mon 1b74)  E 1339 (odd, E_A+890, mark 1337; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+251); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1b76, +2: target 1b76 is at/below v_E (both run away)
+cycle  1: key-on E_A 2241 (odd, mark 2239), tracked s0 1392 (38 ambiguous) s1 1392 (61 ambiguous) s2 1392 (36 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1aed (FLV3 7168 -> 6893, order 1, mon 1ae8)  E 2432 (EVEN, E_A+191, mark 2430; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1ae8, +8: target 1aed is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1adb (FLV3 7168 -> 6875, order 1, mon 1ad8)  E 2609 (odd, E_A+368, mark 2607; witness 240 520416 520400 520400 487616)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1ad8, +4: target 1adb is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b52 (FLV3 7168 -> 6994, order 1, mon 1b50)  E 3093 (odd, E_A+852, mark 3092; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+289); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b50, +2: target 1b52 is IN (v_E, v_E+inc]: hold vs runaway
+cycle  2: key-on E_A 4033 (odd, mark 4031), tracked s0 1402 (90 ambiguous) s1 1402 (58 ambiguous) s2 1402 (35 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18fd (FLV3 7168 -> 6397, order 0, mon 18f8)  E 4101 (odd, E_A+68, mark 4099; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1900, +8: target 18fd is at/below v_E (both run away)
+    ev 1: slot 2 reg 38 1c00 -> 1b2b (FLV3 7168 -> 6955, order 0, mon 1b28)  E 4442 (EVEN, E_A+409, mark 4440; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b28, +4: target 1b2b is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b8e (FLV3 7168 -> 7054, order 0, mon 1b8c)  E 4945 (odd, E_A+912, mark 4943; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+229); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b8c, +2: target 1b8e is IN (v_E, v_E+inc]: hold vs runaway
+cycle  3: key-on E_A 5825 (odd, mark 5823), tracked s0 1398 (100 ambiguous) s1 1398 (56 ambiguous) s2 1398 (31 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 188d (FLV3 7168 -> 6285, order 1, mon 1888)  E 5863 (odd, E_A+38, mark 5862; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1888, +8: target 188d is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b6f (FLV3 7168 -> 7023, order 1, mon 1b6c)  E 6268 (EVEN, E_A+443, mark 6267; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b6c, +4: target 1b6f is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1ba8 (FLV3 7168 -> 7080, order 1, mon 1ba6)  E 6763 (odd, E_A+938, mark 6762; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+203); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1ba6, +2: target 1ba8 is IN (v_E, v_E+inc]: hold vs runaway
+cycle  4: key-on E_A 7617 (odd, mark 7615), tracked s0 1392 (98 ambiguous) s1 1392 (60 ambiguous) s2 1392 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18a5 (FLV3 7168 -> 6309, order 0, mon 18a0)  E 7662 (EVEN, E_A+45, mark 7661; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 18a0, +8: target 18a5 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b3b (FLV3 7168 -> 6971, order 0, mon 1b38)  E 8033 (odd, E_A+416, mark 8032; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b38, +4: target 1b3b is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b2c (FLV3 7168 -> 6956, order 0, mon 1b2a)  E 8432 (EVEN, E_A+815, mark 8431; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+326); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b2a, +2: target 1b2c is IN (v_E, v_E+inc]: hold vs runaway
+cycle  5: key-on E_A 9409 (odd, mark 9407), tracked s0 1394 (33 ambiguous) s1 1394 (56 ambiguous) s2 1394 (38 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a15 (FLV3 7168 -> 6677, order 1, mon 1a10)  E 9545 (odd, E_A+136, mark 9543; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1a10, +8: target 1a15 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b53 (FLV3 7168 -> 6995, order 1, mon 1b50)  E 9837 (odd, E_A+428, mark 9836; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b50, +4: target 1b53 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b86 (FLV3 7168 -> 7046, order 1, mon 1b84)  E 10313 (odd, E_A+904, mark 10312; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+237); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b84, +2: target 1b86 is IN (v_E, v_E+inc]: hold vs runaway
+cycle  6: key-on E_A 11201 (odd, mark 11199), tracked s0 1392 (81 ambiguous) s1 1392 (63 ambiguous) s2 1392 (35 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18d5 (FLV3 7168 -> 6357, order 0, mon 18d0)  E 11258 (EVEN, E_A+57, mark 11256; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 18d0, +8: target 18d5 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1abb (FLV3 7168 -> 6843, order 0, mon 1ab8)  E 11554 (EVEN, E_A+353, mark 11553; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1ab8, +4: target 1abb is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b42 (FLV3 7168 -> 6978, order 0, mon 1b40)  E 12037 (odd, E_A+836, mark 12036; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+305); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b40, +2: target 1b42 is IN (v_E, v_E+inc]: hold vs runaway
+cycle  7: key-on E_A 12993 (odd, mark 12991), tracked s0 1392 (36 ambiguous) s1 1392 (61 ambiguous) s2 1392 (36 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1b05 (FLV3 7168 -> 6917, order 1, mon 1b00)  E 13190 (EVEN, E_A+197, mark 13188; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b00, +8: target 1b05 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b4f (FLV3 7168 -> 6991, order 1, mon 1b4c)  E 13420 (EVEN, E_A+427, mark 13418; witness 16 520192 520192 487424 487424)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b4c, +4: target 1b4f is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b52 (FLV3 7168 -> 6994, order 1, mon 1b50)  E 13845 (odd, E_A+852, mark 13843; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+289); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b50, +2: target 1b52 is IN (v_E, v_E+inc]: hold vs runaway
+cycle  8: key-on E_A 14785 (odd, mark 14783), tracked s0 1392 (34 ambiguous) s1 1392 (58 ambiguous) s2 1392 (37 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1ab5 (FLV3 7168 -> 6837, order 0, mon 1ab0)  E 14963 (odd, E_A+178, mark 14961; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1ab8, +8: target 1ab5 is at/below v_E (both run away)
+    ev 1: slot 2 reg 38 1c00 -> 1ab3 (FLV3 7168 -> 6835, order 0, mon 1ab0)  E 15134 (EVEN, E_A+349, mark 15133; witness 368 520512 520512 487712 487712)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1ab0, +4: target 1ab3 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b0e (FLV3 7168 -> 6926, order 0, mon 1b0c)  E 15570 (EVEN, E_A+785, mark 15569; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+356); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b0c, +2: target 1b0e is IN (v_E, v_E+inc]: hold vs runaway
+cycle  9: key-on E_A 16577 (odd, mark 16575), tracked s0 1396 (36 ambiguous) s1 1396 (55 ambiguous) s2 1396 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1afd (FLV3 7168 -> 6909, order 1, mon 1af8)  E 16771 (odd, E_A+194, mark 16769; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1af8, +8: target 1afd is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1af3 (FLV3 7168 -> 6899, order 1, mon 1af0)  E 16957 (odd, E_A+380, mark 16956; witness 176 520352 520336 520336 487552)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1af0, +4: target 1af3 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1ba6 (FLV3 7168 -> 7078, order 1, mon 1ba4)  E 17513 (odd, E_A+936, mark 17512; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+205); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1ba4, +2: target 1ba6 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 10: key-on E_A 18369 (odd, mark 18367), tracked s0 1392 (39 ambiguous) s1 1392 (62 ambiguous) s2 1392 (36 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1b45 (FLV3 7168 -> 6981, order 0, mon 1b40)  E 18582 (EVEN, E_A+213, mark 18581; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b40, +8: target 1b45 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b73 (FLV3 7168 -> 7027, order 0, mon 1b70)  E 18814 (EVEN, E_A+445, mark 18813; witness 16 520192 520192 487424 487424)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b70, +4: target 1b73 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b36 (FLV3 7168 -> 6966, order 0, mon 1b34)  E 19195 (odd, E_A+826, mark 19193; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+315); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1b36, +2: target 1b36 is at/below v_E (both run away)
+cycle 11: key-on E_A 20161 (odd, mark 20159), tracked s0 1396 (39 ambiguous) s1 1396 (56 ambiguous) s2 1396 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1af5 (FLV3 7168 -> 6901, order 1, mon 1af0)  E 20353 (odd, E_A+192, mark 20351; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1af0, +8: target 1af5 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1af3 (FLV3 7168 -> 6899, order 1, mon 1af0)  E 20542 (EVEN, E_A+381, mark 20541; witness 160 520320 520320 487536 487536)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1af0, +4: target 1af3 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1ba6 (FLV3 7168 -> 7078, order 1, mon 1ba4)  E 21097 (odd, E_A+936, mark 21095; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+205); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1ba4, +2: target 1ba6 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 12: key-on E_A 21953 (odd, mark 21951), tracked s0 1414 (84 ambiguous) s1 1414 (56 ambiguous) s2 1414 (31 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 191d (FLV3 7168 -> 6429, order 0, mon 1918)  E 22028 (EVEN, E_A+75, mark 22027; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1918, +8: target 191d is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b7b (FLV3 7168 -> 7035, order 0, mon 1b78)  E 22402 (EVEN, E_A+449, mark 22400; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b78, +4: target 1b7b is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b98 (FLV3 7168 -> 7064, order 0, mon 1b96)  E 22876 (EVEN, E_A+923, mark 22875; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+218); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b96, +2: target 1b98 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 13: key-on E_A 23745 (odd, mark 23743), tracked s0 1392 (34 ambiguous) s1 1392 (59 ambiguous) s2 1392 (35 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1aa5 (FLV3 7168 -> 6821, order 1, mon 1aa0)  E 23918 (EVEN, E_A+173, mark 23917; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1aa0, +8: target 1aa5 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1abb (FLV3 7168 -> 6843, order 1, mon 1ab8)  E 24097 (odd, E_A+352, mark 24095; witness 224 520400 520384 520384 487600)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1ab8, +4: target 1abb is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b56 (FLV3 7168 -> 6998, order 1, mon 1b54)  E 24601 (odd, E_A+856, mark 24600; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+285); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b54, +2: target 1b56 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 14: key-on E_A 25537 (odd, mark 25535), tracked s0 1392 (92 ambiguous) s1 1392 (58 ambiguous) s2 1392 (39 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18fd (FLV3 7168 -> 6397, order 0, mon 18f8)  E 25604 (EVEN, E_A+67, mark 25602; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 18f8, +8: target 18fd is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b33 (FLV3 7168 -> 6963, order 0, mon 1b30)  E 25949 (odd, E_A+412, mark 25948; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b30, +4: target 1b33 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b62 (FLV3 7168 -> 7010, order 0, mon 1b60)  E 26405 (odd, E_A+868, mark 26404; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+273); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1b60, +2: target 1b62 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 15: key-on E_A 27329 (odd, mark 27327), tracked s0 1392 (37 ambiguous) s1 1392 (60 ambiguous) s2 1392 (39 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a85 (FLV3 7168 -> 6789, order 1, mon 1a80)  E 27493 (odd, E_A+164, mark 27492; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle  v before E 1a80, +8: target 1a85 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b3f (FLV3 7168 -> 6975, order 1, mon 1b3c)  E 27748 (EVEN, E_A+419, mark 27746; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b3c, +4: target 1b3f is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b5e (FLV3 7168 -> 7006, order 1, mon 1b5c)  E 28194 (EVEN, E_A+865, mark 28192; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+276); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b5c, +2: target 1b5e is IN (v_E, v_E+inc]: hold vs runaway
+SUMMARY flv       events 48 found 48 missed 0 pre-fail 0 odd-E plain 22 identical 0 | even E, order0 14: live 14 latched 0 neither 0 | order1 8: live 8 latched 0 neither 0 | odd E straddles: EARLY 4/0 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 6 identical 0 | order0 inf 5 live 5 latched 0 neither 0 | order1 inf 3 live 3 latched 0 neither 0 | early 2/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 10 identical 0 | order0 inf 3 live 3 latched 0 neither 0 | order1 inf 1 live 1 latched 0 neither 0 | early 2/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 6 identical 0 | order0 inf 6 live 6 latched 0 neither 0 | order1 inf 4 live 4 latched 0 neither 0 | early 0/0 late 0/0
+
+SUMMARY (even E: live = the new register acts at clock E, latched = at clock E+2; a reading is refuted where it reproduces < informative.
+ A sample boundary inside the write pair (~10 %) turns a LATCHED register into a 'live' verdict in order 0 (register first) and a LIVE one into
+ 'latched' in order 1 (KYONEX first); on an odd E the same straddles show up as EARLY (effect at clock E-1: only a LIVE register, order 0)
+ or LATE (effect at clock E+3: only a LATCHED register, order 1).  Expected: LIVE register -> order0 100 % live, order1 ~90 % live + ~10 %
+ latched, some EARLY, no LATE;  LATCHED register -> order1 100 % latched, order0 ~90 % latched + ~10 % live, some LATE, no EARLY.)
+  dl        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 12: live 2 latched 10 neither 0 | order1 10: live 0 latched 10 neither 0 | odd E straddles: EARLY 0/0 LATE 0/3 (order0/order1)
+  krs       events 48 found 48 missed 0 pre-fail 0 odd-E plain 31 identical 0 | even E, order0 8: live 0 latched 8 neither 0 | order1 7: live 0 latched 7 neither 0 | odd E straddles: EARLY 0/0 LATE 0/2 (order0/order1)
+  ar        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 15: live 4 latched 11 neither 0 | order1 9: live 0 latched 9 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+  d2r       events 48 found 48 missed 0 pre-fail 0 odd-E plain 28 identical 0 | even E, order0 14: live 1 latched 13 neither 0 | order1 5: live 0 latched 5 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+  feg_rate  events 48 found 48 missed 0 pre-fail 0 odd-E plain 22 identical 0 | even E, order0 13: live 2 latched 11 neither 0 | order1 12: live 0 latched 12 neither 0 | odd E straddles: EARLY 0/0 LATE 0/1 (order0/order1)
+  flv       events 48 found 48 missed 0 pre-fail 0 odd-E plain 22 identical 0 | even E, order0 14: live 14 latched 0 neither 0 | order1 8: live 8 latched 0 neither 0 | odd E straddles: EARLY 4/0 LATE 0/0 (order0/order1)

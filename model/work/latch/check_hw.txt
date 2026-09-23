@@ -1,0 +1,1208 @@
+latch_check tests/eg_latch/hw: 6 runs, clock constant K 6491
+readings of a rewrite whose write pair's key event takes effect on sample E: live = the EG sees the new register at clock E;
+latched = at clock E + 2 (the model's egreg).  Only an EVEN E is informative.  Order 0 = register write then KYONEX, order 1 = KYONEX first.
+
+== dl (AEG): 25152 samples x 4 streams, n_first 665, c0 9a4f (MDEC_CT of sample i = (97b6 - i) & 0xFFFF), 16 cycles, key-off at +24000 us (1058 samples)
+   stream 0: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 1: AR 31 D1R 26 DL 31 D2R 0 RR 31 KRS 15 (R 62/52/0/62)
+   stream 2: AR 31 D1R 28 DL 31 D2R 0 RR 31 KRS 15 (R 62/56/0/62)
+cycle  0: key-on E_A 458 (EVEN, mark 453)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 690 (EVEN, E_A+232, mark 685; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 1024 (EVEN, E_A+566, mark 1017; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+487); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle  1: key-on E_A 1998 (EVEN, mark 1989)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 2230 (EVEN, E_A+232, mark 2221; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 2572 (EVEN, E_A+574, mark 2562; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+479); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle  2: key-on E_A 3538 (EVEN, mark 3525)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 3771 (odd, E_A+233, mark 3758; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 4111 (odd, E_A+573, mark 4097; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+480); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle  3: key-on E_A 5077 (odd, mark 5061)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 5312 (EVEN, E_A+235, mark 5295; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 5647 (odd, E_A+570, mark 5629; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+483); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle  4: key-on E_A 6617 (odd, mark 6597)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 6848 (EVEN, E_A+231, mark 6827; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 7195 (odd, E_A+578, mark 7173; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+475); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 7489 (odd, E_A+872, mark 7466; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+181); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle  5: key-on E_A 8157 (odd, mark 8133)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 8387 (odd, E_A+230, mark 8362; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 8733 (odd, E_A+576, mark 8707; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+477); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle  6: key-on E_A 9697 (odd, mark 9669)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 9925 (odd, E_A+228, mark 9896; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 10263 (odd, E_A+566, mark 10233; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+487); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle  7: key-on E_A 11237 (odd, mark 11205)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 11466 (EVEN, E_A+229, mark 11432; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 11801 (odd, E_A+564, mark 11767; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+489); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle  8: key-on E_A 12777 (odd, mark 12741)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 13009 (odd, E_A+232, mark 12972; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 13350 (EVEN, E_A+573, mark 13312; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+480); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle  9: key-on E_A 14317 (odd, mark 14276)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 14552 (EVEN, E_A+235, mark 14511; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 14882 (EVEN, E_A+565, mark 14840; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+488); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle 10: key-on E_A 15857 (odd, mark 15813)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 16088 (EVEN, E_A+231, mark 16043; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> NEITHER
+        window E-3..E+8 (i, MDEC_CT, captured level(a), then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           16085 58e1      5808(a 1a4)      5808 /    5808    5808    5808    5808
+           16086 58e0*     5552(a 1a8)      5552 /    5552    5552    5552    5552
+           16087 58df      5552(a 1a8)      5552 /    5552    5552    5552    5552
+           16088 58de*     5552(a 1a8)      5296 /    5296    5296    5296    5296
+           16089 58dd      5552(a 1a8)      5296 /    5296    5296    5296    5296
+           16090 58dc*     5552(a 1a8)      5040 /    5296    5296    5040    5040
+           16091 58db      5552(a 1a8)      5040 /    5296    5296    5040    5040
+           16092 58da*     5552(a 1a8)      4784 /    5296    5296    5040    5040
+           16093 58d9      5552(a 1a8)      4784 /    5296    5296    5040    5040
+           16094 58d8*     5552(a 1a8)      4528 /    5296    5296    5040    5040
+           16095 58d7      5552(a 1a8)      4528 /    5296    5296    5040    5040
+           16096 58d6*     5552(a 1a8)      4272 /    5296    5296    5040    5040
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 16438 (EVEN, E_A+581, mark 16392; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+472); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle 11: key-on E_A 17397 (odd, mark 17349)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 17631 (odd, E_A+234, mark 17582; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 17974 (EVEN, E_A+577, mark 17924; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+476); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E+404  E fail@E+404  E+1 fail@E+2  E+2 fail@E+2  -> NEITHER
+        window E-3..E+8 (i, MDEC_CT, captured level(a), then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           17971 5183      1312(a 22c)      1312 /    1312    1312    1312    1312
+           17972 5182*     1280(a 22e)      1280 /    1280    1280    1280    1280
+           17973 5181      1280(a 22e)      1280 /    1280    1280    1280    1280
+           17974 5180*     1248(a 230)      1248 /    1248    1248    1248    1248
+           17975 517f      1248(a 230)      1248 /    1248    1248    1248    1248
+           17976 517e*     1248(a 230)      1216 /    1248    1248    1216    1216
+           17977 517d      1248(a 230)      1216 /    1248    1248    1216    1216
+           17978 517c*     1248(a 230)      1184 /    1248    1248    1216    1216
+           17979 517b      1248(a 230)      1184 /    1248    1248    1216    1216
+           17980 517a*     1248(a 230)      1152 /    1248    1248    1216    1216
+           17981 5179      1248(a 230)      1152 /    1248    1248    1216    1216
+           17982 5178*     1248(a 230)      1120 /    1248    1248    1216    1216
+    ev 2: slot 0 MISSED (no burst)
+cycle 12: key-on E_A 18826 (EVEN, mark 18885)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 19057 (odd, E_A+231, mark 19115; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 19397 (odd, E_A+571, mark 19454; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+482); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle 13: key-on E_A 20369 (odd, mark 20423)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 20600 (EVEN, E_A+231, mark 20654; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 20934 (EVEN, E_A+565, mark 20987; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+488); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 2: slot 0 MISSED (no burst)
+cycle 14: key-on E_A 21907 (odd, mark 21957)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 0, mon 01a0)  E 22138 (EVEN, E_A+231, mark 22189; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 FULL  E FULL  E+1 fail@E+2  E+2 fail@E+2  -> LIVE (clock E)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 0, mon 0220)  E 22473 (odd, E_A+566, mark 22523; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+487); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+cycle 15: key-on E_A 23446 (EVEN, mark 23493)
+    ev 0: slot 2 reg 14 3fff -> 3dbf (DL 31 -> 13, order 1, mon 01a0)  E 23675 (odd, E_A+229, mark 23721; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 14 3fff -> 3e3f (DL 31 -> 17, order 1, mon 0220)  E 24023 (odd, E_A+577, mark 24068; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+476); old law fail@E+1, observed change at E+1;  Vc=E-1 FULL  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 0 MISSED (no burst)
+SUMMARY dl        events 48 found 33 missed 15 pre-fail 0 odd-E plain 0 identical 0 | even E, order0 7: live 6 latched 0 neither 1 | order1 9: live 8 latched 0 neither 1 | odd E straddles: EARLY 10/7 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 0 identical 0 | order0 inf 0 live 0 latched 0 neither 0 | order1 inf 0 live 0 latched 0 neither 0 | early 1/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 0 identical 0 | order0 inf 3 live 3 latched 0 neither 0 | order1 inf 4 live 3 latched 0 neither 1 | early 5/4 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 0 identical 0 | order0 inf 4 live 3 latched 0 neither 1 | order1 inf 5 live 5 latched 0 neither 0 | early 4/3 late 0/0
+
+== krs (AEG): 23232 samples x 4 streams, n_first 557, c0 1ed2 (MDEC_CT of sample i = (1ca5 - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 1: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+   stream 2: AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 62/48/0/62)
+cycle  0: key-on E_A 458 (odd, mark 453)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 715 (EVEN, E_A+257, mark 709; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 972 (odd, E_A+514, mark 965; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+451); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 1185 (EVEN, E_A+727, mark 1178; witness 48 520224 520224 487456 487456)
+        level: compared [E_A, E+238); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  1: key-on E_A 1873 (EVEN, mark 1864)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 2126 (odd, E_A+253, mark 2117; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 2322 (odd, E_A+449, mark 2312; witness 112 520288 520272 520272 487504)
+        level: compared [E_A, E+516); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 2600 (odd, E_A+727, mark 2590; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+238); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  2: key-on E_A 3289 (EVEN, mark 3276)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 3538 (odd, E_A+249, mark 3525; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 3796 (odd, E_A+507, mark 3782; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+458); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 4051 (EVEN, E_A+762, mark 4036; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+203); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  3: key-on E_A 4704 (odd, mark 4688)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 4960 (odd, E_A+256, mark 4943; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 5206 (odd, E_A+502, mark 5188; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+463); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 5464 (odd, E_A+760, mark 5446; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+205); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  4: key-on E_A 6120 (odd, mark 6100)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 6376 (odd, E_A+256, mark 6355; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 6620 (odd, E_A+500, mark 6600; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+465); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 6887 (EVEN, E_A+767, mark 6866; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+198); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  5: key-on E_A 7535 (EVEN, mark 7512)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 7774 (odd, E_A+239, mark 7750; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 8052 (odd, E_A+517, mark 8028; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+448); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 8291 (EVEN, E_A+756, mark 8265; witness 16 520192 520192 487408 487408)
+        level: compared [E_A, E+209); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  6: key-on E_A 8951 (EVEN, mark 8924)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 9249 (EVEN, E_A+298, mark 9221; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 9447 (EVEN, E_A+496, mark 9419; witness 96 520272 520272 487488 487488)
+        level: compared [E_A, E+469); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 9698 (odd, E_A+747, mark 9669; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+218); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle  7: key-on E_A 10366 (odd, mark 10336)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 10614 (odd, E_A+248, mark 10583; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 10874 (odd, E_A+508, mark 10842; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+457); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 11109 (EVEN, E_A+743, mark 11077; witness 16 520192 520192 487424 487424)
+        level: compared [E_A, E+222); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  8: key-on E_A 11814 (odd, mark 11780)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 12034 (odd, E_A+220, mark 12000; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 12329 (EVEN, E_A+515, mark 12294; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+450); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 12600 (odd, E_A+786, mark 12564; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+179); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  9: key-on E_A 13230 (odd, mark 13192)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 13483 (EVEN, E_A+253, mark 13445; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 13741 (EVEN, E_A+511, mark 13702; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+454); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 13997 (EVEN, E_A+767, mark 13957; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+198); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 10: key-on E_A 14645 (EVEN, mark 14604)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 14895 (EVEN, E_A+250, mark 14853; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 15151 (EVEN, E_A+506, mark 15109; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+459); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 15410 (odd, E_A+765, mark 15366; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+200); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle 11: key-on E_A 16061 (EVEN, mark 16016)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 16307 (EVEN, E_A+246, mark 16261; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 16581 (EVEN, E_A+520, mark 16535; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+445); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 16837 (EVEN, E_A+776, mark 16790; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+189); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 12: key-on E_A 17476 (odd, mark 17428)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 17718 (odd, E_A+242, mark 17669; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 17993 (EVEN, E_A+517, mark 17943; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+448); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 18298 (odd, E_A+822, mark 18248; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+143); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 18892 (odd, mark 18840)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 19130 (odd, E_A+238, mark 19077; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 19407 (EVEN, E_A+515, mark 19354; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+450); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 19665 (EVEN, E_A+773, mark 19611; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+192); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 14: key-on E_A 20307 (EVEN, mark 20251)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 0, mon 0000)  E 20552 (odd, E_A+245, mark 20496; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 0, mon 0000)  E 20863 (EVEN, E_A+556, mark 20806; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+409); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 0, mon 0000)  E 21074 (odd, E_A+767, mark 21017; witness 48 520224 520224 520224 487456)
+        level: compared [E_A, E+198); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 15: key-on E_A 21723 (EVEN, mark 21663)
+    ev 0: slot 2 reg 14 3fff -> 0bff (KRS 15 -> 2, order 1, mon 0000)  E 21957 (EVEN, E_A+234, mark 21897; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 14 3fff -> 13ff (KRS 15 -> 4, order 1, mon 0000)  E 22210 (odd, E_A+487, mark 22150; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+478); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 14 3fff -> 1bff (KRS 15 -> 6, order 1, mon 0000)  E 22467 (EVEN, E_A+744, mark 22406; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+221); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+SUMMARY krs       events 48 found 48 missed 0 pre-fail 0 odd-E plain 20 identical 0 | even E, order0 11: live 11 latched 0 neither 0 | order1 12: live 12 latched 0 neither 0 | odd E straddles: EARLY 5/0 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 6 identical 0 | order0 inf 5 live 5 latched 0 neither 0 | order1 inf 3 live 3 latched 0 neither 0 | early 2/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 5 identical 0 | order0 inf 3 live 3 latched 0 neither 0 | order1 inf 6 live 6 latched 0 neither 0 | early 2/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 9 identical 0 | order0 inf 3 live 3 latched 0 neither 0 | order1 inf 3 live 3 latched 0 neither 0 | early 1/0 late 0/0
+
+== ar (AEG): 22976 samples x 4 streams, n_first 680, c0 ab7a (MDEC_CT of sample i = (a8d2 - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 24 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 48/48/0/62)
+   stream 1: AR 20 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 40/48/0/62)
+   stream 2: AR 18 D1R 24 DL 31 D2R 0 RR 31 KRS 15 (R 36/48/0/62)
+cycle  0: key-on E_A 458 (EVEN, mark 453)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 522 (EVEN, E_A+64, mark 516; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 779 (odd, E_A+321, mark 773; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+543  E+1 fail@E+543  E+2 fail@E+1  -> odd E: NEITHER
+        window E-3..E+8 (i, MDEC_CT, captured level(a), then the predictions none / Vc=E-1 / E / E+1 / E+2):
+             776 a5ca*   339952(a 02c)    339952 /  339952  339952  339952  339952
+             777 a5c9    339952(a 02c)    339952 /  339952  339952  339952  339952
+             778 a5c8*   352240(a 029)    352240 /  434160  352240  352240  352240
+             779 a5c7    352240(a 029)    352240 /  434160  352240  352240  352240
+             780 a5c6*   438256(a 014)    352240 /  479216  438256  438256  352240
+             781 a5c5    438256(a 014)    352240 /  479216  438256  438256  352240
+             782 a5c4*   483312(a 009)    352240 /  503792  483312  483312  438256
+             783 a5c3    483312(a 009)    352240 /  503792  483312  483312  438256
+             784 a5c2*   503792(a 004)    352240 /  516080  503792  503792  483312
+             785 a5c1    503792(a 004)    352240 /  516080  503792  503792  483312
+             786 a5c0*   516080(a 001)    364528 /  520176  516080  516080  503792
+             787 a5bf    516080(a 001)    364528 /  520176  516080  516080  503792
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 1101 (odd, E_A+643, mark 1094; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+322); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+221  E+1 fail@E+221  E+2 fail@E+1  -> odd E: NEITHER
+        window E-3..E+8 (i, MDEC_CT, captured level(a), then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            1098 a488*   352240(a 029)    352240 /  352240  352240  352240  352240
+            1099 a487    352240(a 029)    352240 /  352240  352240  352240  352240
+            1100 a486*   352240(a 029)    352240 /  438256  352240  352240  352240
+            1101 a485    352240(a 029)    352240 /  438256  352240  352240  352240
+            1102 a484*   438256(a 014)    352240 /  483312  438256  438256  352240
+            1103 a483    438256(a 014)    352240 /  483312  438256  438256  352240
+            1104 a482*   483312(a 009)    352240 /  503792  483312  483312  438256
+            1105 a481    483312(a 009)    352240 /  503792  483312  483312  438256
+            1106 a480*   503792(a 004)    352240 /  516080  503792  503792  483312
+            1107 a47f    503792(a 004)    352240 /  516080  503792  503792  483312
+            1108 a47e*   516080(a 001)    352240 /  520176  516080  516080  503792
+            1109 a47d    516080(a 001)    352240 /  520176  516080  516080  503792
+cycle  1: key-on E_A 1763 (odd, mark 1669)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 1827 (odd, E_A+64, mark 1733; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 2149 (odd, E_A+386, mark 2054; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+579); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 2344 (EVEN, E_A+581, mark 2249; witness 112 520288 520288 487504 487504)
+        level: compared [E_A, E+384); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  2: key-on E_A 3179 (odd, mark 3081)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 3239 (odd, E_A+60, mark 3141; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 3495 (odd, E_A+316, mark 3397; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 3880 (EVEN, E_A+701, mark 3781; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+264); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  3: key-on E_A 4594 (EVEN, mark 4493)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 4650 (EVEN, E_A+56, mark 4548; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 4907 (odd, E_A+313, mark 4805; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 5293 (odd, E_A+699, mark 5190; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+266); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  4: key-on E_A 6010 (EVEN, mark 5905)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 6072 (EVEN, E_A+62, mark 5967; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 6385 (odd, E_A+375, mark 6279; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+590); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 6639 (odd, E_A+629, mark 6533; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+336); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  5: key-on E_A 7425 (odd, mark 7317)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 7484 (EVEN, E_A+59, mark 7376; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 7735 (odd, E_A+310, mark 7625; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 8137 (odd, E_A+712, mark 8027; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+253); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 8840 (EVEN, mark 8728)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 8900 (EVEN, E_A+60, mark 8788; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 9227 (odd, E_A+387, mark 9114; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+578); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 9591 (odd, E_A+751, mark 9477; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+214); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 10256 (EVEN, mark 10140)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 10305 (odd, E_A+49, mark 10190; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 10619 (odd, E_A+363, mark 10502; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 10875 (odd, E_A+619, mark 10758; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+346); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  8: key-on E_A 11671 (odd, mark 11552)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 11714 (EVEN, E_A+43, mark 11595; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 12093 (odd, E_A+422, mark 11972; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+543); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 12374 (EVEN, E_A+703, mark 12253; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+262); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  9: key-on E_A 13119 (odd, mark 12997)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 13185 (odd, E_A+66, mark 13062; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 13398 (EVEN, E_A+279, mark 13274; witness 48 520224 520224 487456 487456)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 13761 (odd, E_A+642, mark 13636; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+323); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 10: key-on E_A 14535 (odd, mark 14408)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 14597 (odd, E_A+62, mark 14470; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 14861 (odd, E_A+326, mark 14734; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 15237 (odd, E_A+702, mark 15108; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+263); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle 11: key-on E_A 15950 (EVEN, mark 15820)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 16008 (EVEN, E_A+58, mark 15878; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 16222 (EVEN, E_A+272, mark 16091; witness 48 520224 520224 487440 487440)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 16669 (odd, E_A+719, mark 16537; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+246); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 17366 (EVEN, mark 17232)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 17418 (EVEN, E_A+52, mark 17284; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 17677 (odd, E_A+311, mark 17542; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 18063 (odd, E_A+697, mark 17927; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+268); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle 13: key-on E_A 18781 (odd, mark 18644)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 18830 (EVEN, E_A+49, mark 18693; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 19104 (EVEN, E_A+323, mark 18966; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 19409 (odd, E_A+628, mark 19270; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+337); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 14: key-on E_A 20197 (odd, mark 20056)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 0, mon 0000)  E 20251 (odd, E_A+54, mark 20110; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 0, mon 0000)  E 20521 (odd, E_A+324, mark 20379; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 0, mon 0000)  E 20820 (EVEN, E_A+623, mark 20677; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+342); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 15: key-on E_A 21612 (EVEN, mark 21468)
+    ev 0: slot 0 reg 10 0618 -> 061c (AR 24 -> 28, order 1, mon 0000)  E 21654 (EVEN, E_A+42, mark 21509; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 10 0614 -> 061e (AR 20 -> 30, order 1, mon 0000)  E 21911 (odd, E_A+299, mark 21766; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 10 0612 -> 061f (AR 18 -> 31, order 1, mon 0000)  E 22306 (EVEN, E_A+694, mark 22160; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+271); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+SUMMARY ar        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 8: live 8 latched 0 neither 2 | order1 10: live 10 latched 0 neither 0 | odd E straddles: EARLY 5/0 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 5 identical 0 | order0 inf 5 live 5 latched 0 neither 0 | order1 inf 5 live 5 latched 0 neither 0 | early 1/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 10 identical 0 | order0 inf 0 live 0 latched 0 neither 1 | order1 inf 3 live 3 latched 0 neither 0 | early 2/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 8 identical 0 | order0 inf 3 live 3 latched 0 neither 1 | order1 inf 2 live 2 latched 0 neither 0 | early 2/0 late 0/0
+
+== d2r (AEG): 23232 samples x 4 streams, n_first 579, c0 385b (MDEC_CT of sample i = (3618 - i) & 0xFFFF), 16 cycles, key-off at +22000 us (970 samples)
+   stream 0: AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 (R 62/62/48/62)
+   stream 1: AR 31 D1R 31 DL 2 D2R 24 RR 31 KRS 15 (R 62/62/48/62)
+   stream 2: AR 31 D1R 31 DL 2 D2R 26 RR 31 KRS 15 (R 62/62/52/62)
+cycle  0: key-on E_A 460 (EVEN, mark 455)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 715 (odd, E_A+255, mark 709; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 972 (EVEN, E_A+512, mark 966; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+453); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 1292 (EVEN, E_A+832, mark 1284; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+133); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  1: key-on E_A 1876 (EVEN, mark 1867)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 2126 (EVEN, E_A+250, mark 2117; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 2384 (EVEN, E_A+508, mark 2374; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+457); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 2646 (EVEN, E_A+770, mark 2636; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+195); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  2: key-on E_A 3291 (odd, mark 3279)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 3556 (EVEN, E_A+265, mark 3543; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 3795 (odd, E_A+504, mark 3782; witness 16 520192 520176 520176 487408)
+        level: compared [E_A, E+461); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 4116 (EVEN, E_A+825, mark 4101; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+140); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  3: key-on E_A 4707 (odd, mark 4691)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 4955 (odd, E_A+248, mark 4939; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 5158 (EVEN, E_A+451, mark 5141; witness 80 520256 520256 487472 487472)
+        level: compared [E_A, E+514); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 5488 (EVEN, E_A+781, mark 5470; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+184); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  4: key-on E_A 6122 (EVEN, mark 6103)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 6382 (EVEN, E_A+260, mark 6362; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 6573 (odd, E_A+451, mark 6552; witness 128 520304 520288 520288 487520)
+        level: compared [E_A, E+514); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 6875 (odd, E_A+753, mark 6853; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+212); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  5: key-on E_A 7538 (EVEN, mark 7515)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 7773 (odd, E_A+235, mark 7749; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 7991 (odd, E_A+453, mark 7966; witness 32 520208 520208 520208 487440)
+        level: compared [E_A, E+512); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 8285 (odd, E_A+747, mark 8260; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+218); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 8953 (odd, mark 8927)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 9205 (odd, E_A+252, mark 9177; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 9442 (EVEN, E_A+489, mark 9414; witness 16 520192 520192 487424 487424)
+        level: compared [E_A, E+476); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 9697 (odd, E_A+744, mark 9669; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+221); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 10403 (odd, mark 10373)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 10596 (EVEN, E_A+193, mark 10565; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 10925 (odd, E_A+522, mark 10894; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+443); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 11175 (odd, E_A+772, mark 11142; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+193); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  8: key-on E_A 11818 (EVEN, mark 11784)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 12008 (EVEN, E_A+190, mark 11973; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 12281 (odd, E_A+463, mark 12246; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+502); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 12529 (odd, E_A+711, mark 12493; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+254); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  9: key-on E_A 13234 (EVEN, mark 13196)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 13440 (EVEN, E_A+206, mark 13402; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 13739 (odd, E_A+505, mark 13701; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+460); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 14060 (EVEN, E_A+826, mark 14021; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+139); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 10: key-on E_A 14649 (odd, mark 14608)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 14896 (EVEN, E_A+247, mark 14854; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 15161 (odd, E_A+512, mark 15119; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+453); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 15407 (odd, E_A+758, mark 15364; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+207); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 11: key-on E_A 15971 (odd, mark 16036)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 16215 (odd, E_A+244, mark 16281; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 16452 (EVEN, E_A+481, mark 16516; witness 16 520192 520192 487424 487424)
+        level: compared [E_A, E+484); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 16723 (odd, E_A+752, mark 16787; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+213); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 17417 (odd, mark 17479)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 17623 (odd, E_A+206, mark 17685; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 17866 (EVEN, E_A+449, mark 17927; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+516); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 18187 (odd, E_A+770, mark 18248; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+195); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 18833 (odd, mark 18891)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 19085 (odd, E_A+252, mark 19143; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 19339 (odd, E_A+506, mark 19397; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+459); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 19601 (odd, E_A+768, mark 19657; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+197); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 14: key-on E_A 20248 (EVEN, mark 20303)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 0, mon 0000)  E 20494 (EVEN, E_A+246, mark 20548; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 0, mon 0000)  E 20752 (EVEN, E_A+504, mark 20805; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+461); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 0, mon 0000)  E 21009 (odd, E_A+761, mark 21062; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+204); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+cycle 15: key-on E_A 21664 (EVEN, mark 21715)
+    ev 0: slot 2 reg 10 d7df -> f7df (D2R 26 -> 30, order 1, mon 0000)  E 21914 (EVEN, E_A+250, mark 21965; witness 0 520176 520176 487408 487408)
+        level: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 0 reg 10 c7df -> e7df (D2R 24 -> 28, order 1, mon 0000)  E 22117 (odd, E_A+453, mark 22167; witness 80 520256 520240 520240 487472)
+        level: compared [E_A, E+512); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 1 reg 10 c7df -> f7df (D2R 24 -> 30, order 1, mon 0000)  E 22423 (odd, E_A+759, mark 22473; witness 0 520176 520176 520176 487408)
+        level: compared [E_A, E+206); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+SUMMARY d2r       events 48 found 48 missed 0 pre-fail 0 odd-E plain 26 identical 0 | even E, order0 11: live 11 latched 0 neither 0 | order1 10: live 10 latched 0 neither 0 | odd E straddles: EARLY 1/0 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 9 identical 0 | order0 inf 4 live 4 latched 0 neither 0 | order1 inf 3 live 3 latched 0 neither 0 | early 0/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 10 identical 0 | order0 inf 2 live 2 latched 0 neither 0 | order1 inf 3 live 3 latched 0 neither 0 | early 1/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 7 identical 0 | order0 inf 5 live 5 latched 0 neither 0 | order1 inf 4 live 4 latched 0 neither 0 | early 0/0 late 0/0
+
+== feg_rate (FEG): 29248 samples x 4 streams, n_first 703, c0 c549 (MDEC_CT of sample i = (c28a - i) & 0xFFFF), 16 cycles, key-off at +25000 us (1102 samples)
+   stream 0: FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31 (R 62/62/48/62) Q 4
+   stream 1: FLV 1a00 1a00 1a00 0800 1ff8 FAR 31 FD1R 31 FD2R 24 FRR 31 (R 62/62/48/62) Q 4
+   stream 2: FLV 1a00 1a00 0800 0800 1ff8 FAR 31 FD1R 24 FD2R 31 FRR 31 (R 62/48/62/62) Q 4
+cycle  0: key-on E_A 457 (odd, mark 452), tracked s0 1346 (639 ambiguous) s1 1346 (660 ambiguous) s2 1346 (116 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 716 (EVEN, E_A+259, mark 711; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 978 (EVEN, E_A+521, mark 971; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+576); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 1293 (odd, E_A+836, mark 1286; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+261); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  1: key-on E_A 2254 (EVEN, mark 2245), tracked s0 1347 (643 ambiguous) s1 1347 (643 ambiguous) s2 1347 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 2514 (EVEN, E_A+260, mark 2504; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 2780 (EVEN, E_A+526, mark 2769; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+571); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 3152 (EVEN, E_A+898, mark 3140; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+199); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  2: key-on E_A 4051 (odd, mark 4037), tracked s0 1346 (634 ambiguous) s1 1346 (641 ambiguous) s2 1346 (106 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 4322 (EVEN, E_A+271, mark 4307; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 4583 (odd, E_A+532, mark 4568; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+565); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 4950 (EVEN, E_A+899, mark 4934; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+198); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  3: key-on E_A 5847 (odd, mark 5829), tracked s0 1346 (639 ambiguous) s1 1346 (655 ambiguous) s2 1346 (106 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 6105 (odd, E_A+258, mark 6086; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 6364 (EVEN, E_A+517, mark 6344; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+580); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 6746 (EVEN, E_A+899, mark 6725; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+198); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  4: key-on E_A 7644 (EVEN, mark 7621), tracked s0 1347 (686 ambiguous) s1 1347 (661 ambiguous) s2 1347 (131 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 7838 (EVEN, E_A+194, mark 7814; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 8157 (odd, E_A+513, mark 8132; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+584); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 8480 (EVEN, E_A+836, mark 8455; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+261); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  5: key-on E_A 9440 (EVEN, mark 9413), tracked s0 1347 (551 ambiguous) s1 1347 (574 ambiguous) s2 1347 (126 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 9761 (odd, E_A+321, mark 9733; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+2, observed change at E+2;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+2  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 10019 (odd, E_A+579, mark 9990; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+518); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 10275 (odd, E_A+835, mark 10246; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+262); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  6: key-on E_A 11237 (odd, mark 11204), tracked s0 1346 (640 ambiguous) s1 1346 (576 ambiguous) s2 1346 (122 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 11494 (EVEN, E_A+257, mark 11461; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 11815 (odd, E_A+578, mark 11782; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+519); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 12083 (odd, E_A+846, mark 12049; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+251); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  7: key-on E_A 13033 (odd, mark 12997), tracked s0 1346 (680 ambiguous) s1 1346 (576 ambiguous) s2 1346 (130 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 13238 (EVEN, E_A+205, mark 13201; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 13612 (EVEN, E_A+579, mark 13574; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+518); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 13868 (EVEN, E_A+835, mark 13829; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+262); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle  8: key-on E_A 14830 (EVEN, mark 14788), tracked s0 1347 (666 ambiguous) s1 1347 (572 ambiguous) s2 1347 (119 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 15048 (EVEN, E_A+218, mark 15006; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 15409 (odd, E_A+579, mark 15366; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+518); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 15681 (odd, E_A+851, mark 15637; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+246); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle  9: key-on E_A 16627 (odd, mark 16581), tracked s0 1346 (698 ambiguous) s1 1346 (652 ambiguous) s2 1346 (121 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 16820 (EVEN, E_A+193, mark 16773; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 17155 (odd, E_A+528, mark 17108; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+569); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 17460 (EVEN, E_A+833, mark 17412; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+264); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 10: key-on E_A 18423 (odd, mark 18373), tracked s0 1346 (640 ambiguous) s1 1346 (657 ambiguous) s2 1346 (130 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 18680 (EVEN, E_A+257, mark 18629; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 18938 (EVEN, E_A+515, mark 18887; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+582); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 19258 (EVEN, E_A+835, mark 19205; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+262); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 11: key-on E_A 20220 (EVEN, mark 20165), tracked s0 1347 (642 ambiguous) s1 1347 (661 ambiguous) s2 1347 (120 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 20478 (EVEN, E_A+258, mark 20422; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 20734 (EVEN, E_A+514, mark 20678; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+583); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 21119 (odd, E_A+899, mark 21061; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+198); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 12: key-on E_A 22016 (EVEN, mark 21957), tracked s0 1347 (623 ambiguous) s1 1347 (643 ambiguous) s2 1347 (120 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 22285 (odd, E_A+269, mark 22225; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 22542 (EVEN, E_A+526, mark 22481; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+571); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 22915 (odd, E_A+899, mark 22853; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+198); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 13: key-on E_A 23814 (EVEN, mark 23750), tracked s0 1347 (642 ambiguous) s1 1347 (574 ambiguous) s2 1347 (124 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 24071 (odd, E_A+257, mark 24006; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 24393 (odd, E_A+579, mark 24327; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+518); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 24648 (EVEN, E_A+834, mark 24582; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+263); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+cycle 14: key-on E_A 25609 (odd, mark 25541), tracked s0 1346 (639 ambiguous) s1 1346 (641 ambiguous) s2 1346 (113 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 0, mon 0000)  E 25868 (EVEN, E_A+259, mark 25798; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 0, mon 0000)  E 26142 (EVEN, E_A+533, mark 26072; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+564); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 0, mon 0000)  E 26509 (odd, E_A+900, mark 26438; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+197); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+cycle 15: key-on E_A 27406 (EVEN, mark 27333), tracked s0 1347 (679 ambiguous) s1 1347 (572 ambiguous) s2 1347 (110 ambiguous)
+    ev 0: slot 0 reg 44 181f -> 1c1f (FD2R 24 -> 28, order 1, mon 0000)  E 27614 (EVEN, E_A+208, mark 27540; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+    ev 1: slot 1 reg 44 181f -> 1e1f (FD2R 24 -> 30, order 1, mon 0000)  E 27983 (odd, E_A+577, mark 27909; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+520); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E FULL  E+1 FULL  E+2 fail@E+1  -> odd E: live = latched (clock E+1), no straddle
+    ev 2: slot 2 reg 40 1f18 -> 1f1c (FD1R 24 -> 28, order 1, mon 0000)  E 28256 (EVEN, E_A+850, mark 28180; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+247); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)
+SUMMARY feg_rate  events 48 found 48 missed 0 pre-fail 0 odd-E plain 18 identical 0 | even E, order0 14: live 14 latched 0 neither 0 | order1 15: live 15 latched 0 neither 0 | odd E straddles: EARLY 1/0 LATE 0/0 (order0/order1)
+   stream 0: events 16 pre-fail 0 odd-plain 4 identical 0 | order0 inf 7 live 7 latched 0 neither 0 | order1 inf 5 live 5 latched 0 neither 0 | early 0/0 late 0/0
+   stream 1: events 16 pre-fail 0 odd-plain 7 identical 0 | order0 inf 4 live 4 latched 0 neither 0 | order1 inf 4 live 4 latched 0 neither 0 | early 1/0 late 0/0
+   stream 2: events 16 pre-fail 0 odd-plain 7 identical 0 | order0 inf 3 live 3 latched 0 neither 0 | order1 inf 6 live 6 latched 0 neither 0 | early 0/0 late 0/0
+
+== flv (FEG): 29248 samples x 4 streams, n_first 579, c0 384b (MDEC_CT of sample i = (3608 - i) & 0xFFFF), 16 cycles, key-off at +26000 us (1146 samples)
+   stream 0: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 30 FRR 31 (R 62/62/60/62) Q 4
+   stream 1: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 26 FRR 31 (R 62/62/52/62) Q 4
+   stream 2: FLV 1800 1800 1800 1c00 1ff8 FAR 31 FD1R 31 FD2R 28 FRR 31 (R 62/62/56/62) Q 4
+cycle  0: key-on E_A 458 (EVEN, mark 453), tracked s0 1393 (27 ambiguous) s1 1393 (56 ambiguous) s2 1393 (36 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a5d (FLV3 7168 -> 6749, order 0, mon 1a58)  E 615 (odd, E_A+157, mark 609; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1a60, +8: target 1a5d is at/below v_E (both run away)
+    ev 1: slot 2 reg 38 1c00 -> 1a87 (FLV3 7168 -> 6791, order 0, mon 1a84)  E 787 (odd, E_A+329, mark 781; witness 336 520512 520480 520480 487680)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1a88, +4: target 1a87 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+             784 32f8*  u d42   v 1a84 / 1a84 1a84 1a84 1a84
+             785 32f7   u d42   v 1a84 / 1a84 1a84 1a84 1a84
+             786 32f6*  u d44   v 1a88 / 1a84 1a88 1a88 1a88
+             787 32f5   u d44   v 1a88 / 1a84 1a88 1a88 1a88
+             788 32f4*  u d44   v 1a8c / 1a84 1a8c 1a8c 1a8c
+             789 32f3   u d44   v 1a8c / 1a84 1a8c 1a8c 1a8c
+             790 32f2*  u d44   v 1a90 / 1a84 1a90 1a90 1a90
+             791 32f1   u d44   v 1a90 / 1a84 1a90 1a90 1a90
+             792 32f0*  u d44   v 1a94 / 1a84 1a94 1a94 1a94
+             793 32ef   u d44   v 1a94 / 1a84 1a94 1a94 1a94
+             794 32ee*  u d44   v 1a98 / 1a84 1a98 1a98 1a98
+             795 32ed   u d44   v 1a98 / 1a84 1a98 1a98 1a98
+    ev 2: slot 1 reg 38 1c00 -> 1b76 (FLV3 7168 -> 7030, order 0, mon 1b74)  E 1350 (EVEN, E_A+892, mark 1342; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+249); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1b76, +2: target 1b76 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            1347 30c5   u dba   v 1b74 / 1b74 1b74 1b74 1b74
+            1348 30c4*  u dbb   v 1b76 / 1b76 1b76 1b76 1b76
+            1349 30c3   u dbb   v 1b76 / 1b76 1b76 1b76 1b76
+            1350 30c2*  u dbb   v 1b78 / 1b78 1b78 1b78 1b78
+            1351 30c1   u dbb   v 1b78 / 1b78 1b78 1b78 1b78
+            1352 30c0*  u dbb   v 1b7a / 1b7a 1b7a 1b7a 1b7a
+            1353 30bf   u dbb   v 1b7a / 1b7a 1b7a 1b7a 1b7a
+            1354 30be*  u dbb   v 1b7c / 1b7c 1b7c 1b7c 1b7c
+            1355 30bd   u dbb   v 1b7c / 1b7c 1b7c 1b7c 1b7c
+            1356 30bc*  u dbb   v 1b7e / 1b7e 1b7e 1b7e 1b7e
+            1357 30bb   u dbb   v 1b7e / 1b7e 1b7e 1b7e 1b7e
+            1358 30ba*  u dbb   v 1b80 / 1b80 1b80 1b80 1b80
+cycle  1: key-on E_A 2254 (EVEN, mark 2245), tracked s0 1395 (40 ambiguous) s1 1395 (58 ambiguous) s2 1395 (74 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1aed (FLV3 7168 -> 6893, order 1, mon 1ae8)  E 2447 (odd, E_A+193, mark 2437; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1af0, +8: target 1aed is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            2444 2c7c*  u d74   v 1ae8 / 1ae8 1ae8 1ae8 1ae8
+            2445 2c7b   u d74   v 1ae8 / 1ae8 1ae8 1ae8 1ae8
+            2446 2c7a*  u d78   v 1af0 / 1ae8 1af0 1af0 1af0
+            2447 2c79   u d78   v 1af0 / 1ae8 1af0 1af0 1af0
+            2448 2c78*  u d78   v 1af8 / 1ae8 1af8 1af8 1af8
+            2449 2c77   u d78   v 1af8 / 1ae8 1af8 1af8 1af8
+            2450 2c76*  u d78   v 1b00 / 1ae8 1b00 1b00 1b00
+            2451 2c75   u d78   v 1b00 / 1ae8 1b00 1b00 1b00
+            2452 2c74*  u d78   v 1b08 / 1ae8 1b08 1b08 1b08
+            2453 2c73   u d78   v 1b08 / 1ae8 1b08 1b08 1b08
+            2454 2c72*  u d78   v 1b10 / 1ae8 1b10 1b10 1b10
+            2455 2c71   u d78   v 1b10 / 1ae8 1b10 1b10 1b10
+    ev 1: slot 2 reg 38 1c00 -> 1983 (FLV3 7168 -> 6531, order 1, mon 1980)  E 2468 (EVEN, E_A+214, mark 2443; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19a0, +4: target 1983 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            2465 2c67   u cc2   v 199c / 199c 199c 199c 199c
+            2466 2c66*  u cc2   v 19a0 / 19a0 19a0 19a0 19a0
+            2467 2c65   u cc2   v 19a0 / 19a0 19a0 19a0 19a0
+            2468 2c64*  u cc2   v 19a4 / 19a4 19a4 19a4 19a4
+            2469 2c63   u cc2   v 19a4 / 19a4 19a4 19a4 19a4
+            2470 2c62*  u cc2   v 19a8 / 19a8 19a8 19a8 19a8
+            2471 2c61   u cc2   v 19a8 / 19a8 19a8 19a8 19a8
+            2472 2c60*  u cc2   v 19ac / 19ac 19ac 19ac 19ac
+            2473 2c5f   u cc2   v 19ac / 19ac 19ac 19ac 19ac
+            2474 2c5e*  u cc2   v 19b0 / 19b0 19b0 19b0 19b0
+            2475 2c5d   u cc2   v 19b0 / 19b0 19b0 19b0 19b0
+            2476 2c5c*  u cc2   v 19b4 / 19b4 19b4 19b4 19b4
+    ev 2: slot 1 reg 38 1c00 -> 1b52 (FLV3 7168 -> 6994, order 1, mon 1b50)  E 3109 (odd, E_A+855, mark 3097; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+286); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b52, +2: target 1b52 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            3106 29e6*  u da8   v 1b50 / 1b50 1b50 1b50 1b50
+            3107 29e5   u da8   v 1b50 / 1b50 1b50 1b50 1b50
+            3108 29e4*  u da9   v 1b52 / 1b50 1b52 1b52 1b52
+            3109 29e3   u da9   v 1b52 / 1b50 1b52 1b52 1b52
+            3110 29e2*  u da9   v 1b54 / 1b50 1b54 1b54 1b54
+            3111 29e1   u da9   v 1b54 / 1b50 1b54 1b54 1b54
+            3112 29e0*  u da9   v 1b56 / 1b50 1b56 1b56 1b56
+            3113 29df   u da9   v 1b56 / 1b50 1b56 1b56 1b56
+            3114 29de*  u da9   v 1b58 / 1b50 1b58 1b58 1b58
+            3115 29dd   u da9   v 1b58 / 1b50 1b58 1b58 1b58
+            3116 29dc*  u da9   v 1b5a / 1b50 1b5a 1b5a 1b5a
+            3117 29db   u da9   v 1b5a / 1b50 1b5a 1b5a 1b5a
+cycle  2: key-on E_A 4051 (odd, mark 4037), tracked s0 1414 (86 ambiguous) s1 1414 (58 ambiguous) s2 1414 (37 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18fd (FLV3 7168 -> 6397, order 0, mon 18f8)  E 4120 (EVEN, E_A+69, mark 4105; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1900, +8: target 18fd is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            4117 25f3   u c7c   v 18f8 / 18f8 18f8 18f8 18f8
+            4118 25f2*  u c80   v 1900 / 1900 1900 1900 1900
+            4119 25f1   u c80   v 1900 / 1900 1900 1900 1900
+            4120 25f0*  u c80   v 1908 / 1908 1908 1908 1908
+            4121 25ef   u c80   v 1908 / 1908 1908 1908 1908
+            4122 25ee*  u c80   v 1910 / 1910 1910 1910 1910
+            4123 25ed   u c80   v 1910 / 1910 1910 1910 1910
+            4124 25ec*  u c80   v 1918 / 1918 1918 1918 1918
+            4125 25eb   u c80   v 1918 / 1918 1918 1918 1918
+            4126 25ea*  u c80   v 1920 / 1920 1920 1920 1920
+            4127 25e9   u c80   v 1920 / 1920 1920 1920 1920
+            4128 25e8*  u c80   v 1928 / 1928 1928 1928 1928
+    ev 1: slot 2 reg 38 1c00 -> 1b2b (FLV3 7168 -> 6955, order 0, mon 1b28)  E 4461 (odd, E_A+410, mark 4446; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b2c, +4: target 1b2b is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            4458 249e*  u d94   v 1b28 / 1b28 1b28 1b28 1b28
+            4459 249d   u d94   v 1b28 / 1b28 1b28 1b28 1b28
+            4460 249c*  u d96   v 1b2c / 1b28 1b2c 1b2c 1b2c
+            4461 249b   u d96   v 1b2c / 1b28 1b2c 1b2c 1b2c
+            4462 249a*  u d96   v 1b30 / 1b28 1b30 1b30 1b30
+            4463 2499   u d96   v 1b30 / 1b28 1b30 1b30 1b30
+            4464 2498*  u d96   v 1b34 / 1b28 1b34 1b34 1b34
+            4465 2497   u d96   v 1b34 / 1b28 1b34 1b34 1b34
+            4466 2496*  u d96   v 1b38 / 1b28 1b38 1b38 1b38
+            4467 2495   u d96   v 1b38 / 1b28 1b38 1b38 1b38
+            4468 2494*  u d96   v 1b3c / 1b28 1b3c 1b3c 1b3c
+            4469 2493   u d96   v 1b3c / 1b28 1b3c 1b3c 1b3c
+    ev 2: slot 1 reg 38 1c00 -> 1b8e (FLV3 7168 -> 7054, order 0, mon 1b8c)  E 4964 (EVEN, E_A+913, mark 4948; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+228); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b8c, +2: target 1b8e is IN (v_E, v_E+inc]: hold vs runaway
+cycle  3: key-on E_A 5847 (odd, mark 5829), tracked s0 1406 (104 ambiguous) s1 1406 (58 ambiguous) s2 1406 (36 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 188d (FLV3 7168 -> 6285, order 1, mon 1888)  E 5887 (odd, E_A+40, mark 5868; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1890, +8: target 188d is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            5884 1f0c*  u c44   v 1888 / 1888 1888 1888 1888
+            5885 1f0b   u c44   v 1888 / 1888 1888 1888 1888
+            5886 1f0a*  u c48   v 1890 / 1888 1890 1890 1890
+            5887 1f09   u c48   v 1890 / 1888 1890 1890 1890
+            5888 1f08*  u c48   v 1898 / 1888 1898 1898 1898
+            5889 1f07   u c48   v 1898 / 1888 1898 1898 1898
+            5890 1f06*  u c48   v 18a0 / 1888 18a0 18a0 18a0
+            5891 1f05   u ?000   v 18a0 / 1888 18a0 18a0 18a0
+            5892 1f04*  u c48   v 18a8 / 1888 18a8 18a8 18a8
+            5893 1f03   u c48   v 18a8 / 1888 18a8 18a8 18a8
+            5894 1f02*  u c48   v 18b0 / 1888 18b0 18b0 18b0
+            5895 1f01   u c48   v 18b0 / 1888 18b0 18b0 18b0
+    ev 1: slot 2 reg 38 1c00 -> 1b6f (FLV3 7168 -> 7023, order 1, mon 1b6c)  E 6291 (odd, E_A+444, mark 6272; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b70, +4: target 1b6f is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            6288 1d78*  u db6   v 1b6c / 1b6c 1b6c 1b6c 1b6c
+            6289 1d77   u db6   v 1b6c / 1b6c 1b6c 1b6c 1b6c
+            6290 1d76*  u db8   v 1b70 / 1b6c 1b70 1b70 1b70
+            6291 1d75   u db8   v 1b70 / 1b6c 1b70 1b70 1b70
+            6292 1d74*  u db8   v 1b74 / 1b6c 1b74 1b74 1b74
+            6293 1d73   u db8   v 1b74 / 1b6c 1b74 1b74 1b74
+            6294 1d72*  u db8   v 1b78 / 1b6c 1b78 1b78 1b78
+            6295 1d71   u db8   v 1b78 / 1b6c 1b78 1b78 1b78
+            6296 1d70*  u db8   v 1b7c / 1b6c 1b7c 1b7c 1b7c
+            6297 1d6f   u db8   v 1b7c / 1b6c 1b7c 1b7c 1b7c
+            6298 1d6e*  u db8   v 1b80 / 1b6c 1b80 1b80 1b80
+            6299 1d6d   u db8   v 1b80 / 1b6c 1b80 1b80 1b80
+    ev 2: slot 1 reg 38 1c00 -> 1ba8 (FLV3 7168 -> 7080, order 1, mon 1ba6)  E 6787 (odd, E_A+940, mark 6766; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+201); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1ba8, +2: target 1ba8 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            6784 1b88*  u dd3   v 1ba6 / 1ba6 1ba6 1ba6 1ba6
+            6785 1b87   u dd3   v 1ba6 / 1ba6 1ba6 1ba6 1ba6
+            6786 1b86*  u dd4   v 1ba8 / 1ba6 1ba8 1ba8 1ba8
+            6787 1b85   u dd4   v 1ba8 / 1ba6 1ba8 1ba8 1ba8
+            6788 1b84*  u dd4   v 1baa / 1ba6 1baa 1baa 1baa
+            6789 1b83   u dd4   v 1baa / 1ba6 1baa 1baa 1baa
+            6790 1b82*  u dd4   v 1bac / 1ba6 1bac 1bac 1bac
+            6791 1b81   u dd4   v 1bac / 1ba6 1bac 1bac 1bac
+            6792 1b80*  u dd4   v 1bae / 1ba6 1bae 1bae 1bae
+            6793 1b7f   u dd4   v 1bae / 1ba6 1bae 1bae 1bae
+            6794 1b7e*  u dd4   v 1bb0 / 1ba6 1bb0 1bb0 1bb0
+            6795 1b7d   u dd4   v 1bb0 / 1ba6 1bb0 1bb0 1bb0
+cycle  4: key-on E_A 7644 (EVEN, mark 7621), tracked s0 1395 (92 ambiguous) s1 1395 (77 ambiguous) s2 1395 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18a5 (FLV3 7168 -> 6309, order 0, mon 18a0)  E 7691 (odd, E_A+47, mark 7668; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 18a8, +8: target 18a5 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            7688 1800*  u c50   v 18a0 / 18a0 18a0 18a0 18a0
+            7689 17ff   u c50   v 18a0 / 18a0 18a0 18a0 18a0
+            7690 17fe*  u c54   v 18a8 / 18a0 18a8 18a8 18a8
+            7691 17fd   u ?000   v 18a8 / 18a0 18a8 18a8 18a8
+            7692 17fc*  u c54   v 18b0 / 18a0 18b0 18b0 18b0
+            7693 17fb   u c54   v 18b0 / 18a0 18b0 18b0 18b0
+            7694 17fa*  u c54   v 18b8 / 18a0 18b8 18b8 18b8
+            7695 17f9   u c54   v 18b8 / 18a0 18b8 18b8 18b8
+            7696 17f8*  u c54   v 18c0 / 18a0 18c0 18c0 18c0
+            7697 17f7   u c54   v 18c0 / 18a0 18c0 18c0 18c0
+            7698 17f6*  u c54   v 18c8 / 18a0 18c8 18c8 18c8
+            7699 17f5   u c54   v 18c8 / 18a0 18c8 18c8 18c8
+    ev 1: slot 2 reg 38 1c00 -> 1b3b (FLV3 7168 -> 6971, order 0, mon 1b38)  E 8063 (odd, E_A+419, mark 8038; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1b3c, +4: target 1b3b is at/below v_E (both run away)
+    ev 2: slot 1 reg 38 1c00 -> 19a2 (FLV3 7168 -> 6562, order 0, mon 19a0)  E 8084 (EVEN, E_A+440, mark 8043; witness -514080 487392 487392 454624 454624)
+        u: compared [E_A, E+600); old law fail@E-16, observed change at E-16;  Vc=E-1 fail@E-16  E fail@E-16  E+1 fail@E-16  E+2 fail@E-16  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19b2, +2: target 19a2 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+            8081 1677   u ?000   v 19b0 / 19b0 19b0 19b0 19b0
+            8082 1676*  u ?000   v 19b2 / 19b2 19b2 19b2 19b2
+            8083 1675   u ?000   v 19b2 / 19b2 19b2 19b2 19b2
+            8084 1674*  u cd1   v 19b4 / 19b4 19b4 19b4 19b4
+            8085 1673   u cd1   v 19b4 / 19b4 19b4 19b4 19b4
+            8086 1672*  u cd1   v 19b6 / 19b6 19b6 19b6 19b6
+            8087 1671   u cd1   v 19b6 / 19b6 19b6 19b6 19b6
+            8088 1670*  u cd1   v 19b8 / 19b8 19b8 19b8 19b8
+            8089 166f   u cd1   v 19b8 / 19b8 19b8 19b8 19b8
+            8090 166e*  u cd1   v 19ba / 19ba 19ba 19ba 19ba
+            8091 166d   u cd1   v 19ba / 19ba 19ba 19ba 19ba
+            8092 166c*  u cd1   v 19bc / 19bc 19bc 19bc 19bc
+cycle  5: key-on E_A 9441 (odd, mark 9413), tracked s0 1406 (32 ambiguous) s1 1406 (57 ambiguous) s2 1406 (41 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a15 (FLV3 7168 -> 6677, order 1, mon 1a10)  E 9578 (EVEN, E_A+137, mark 9550; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1a10, +8: target 1a15 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1b53 (FLV3 7168 -> 6995, order 1, mon 1b50)  E 9870 (EVEN, E_A+429, mark 9841; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1b50, +4: target 1b53 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 2: slot 1 reg 38 1c00 -> 1b86 (FLV3 7168 -> 7046, order 1, mon 1b84)  E 10347 (odd, E_A+906, mark 10317; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+235); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b86, +2: target 1b86 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           10344 0da0*  u dc2   v 1b84 / 1b84 1b84 1b84 1b84
+           10345 0d9f   u dc2   v 1b84 / 1b84 1b84 1b84 1b84
+           10346 0d9e*  u dc3   v 1b86 / 1b84 1b86 1b86 1b86
+           10347 0d9d   u dc3   v 1b86 / 1b84 1b86 1b86 1b86
+           10348 0d9c*  u dc3   v 1b88 / 1b84 1b88 1b88 1b88
+           10349 0d9b   u dc3   v 1b88 / 1b84 1b88 1b88 1b88
+           10350 0d9a*  u dc3   v 1b8a / 1b84 1b8a 1b8a 1b8a
+           10351 0d99   u dc3   v 1b8a / 1b84 1b8a 1b8a 1b8a
+           10352 0d98*  u dc3   v 1b8c / 1b84 1b8c 1b8c 1b8c
+           10353 0d97   u dc3   v 1b8c / 1b84 1b8c 1b8c 1b8c
+           10354 0d96*  u dc3   v 1b8e / 1b84 1b8e 1b8e 1b8e
+           10355 0d95   u dc3   v 1b8e / 1b84 1b8e 1b8e 1b8e
+cycle  6: key-on E_A 11237 (odd, mark 11205), tracked s0 1414 (88 ambiguous) s1 1414 (64 ambiguous) s2 1414 (33 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 18d5 (FLV3 7168 -> 6357, order 0, mon 18d0)  E 11295 (odd, E_A+58, mark 11262; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 18d8, +8: target 18d5 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           11292 09ec*  u c68   v 18d0 / 18d0 18d0 18d0 18d0
+           11293 09eb   u c68   v 18d0 / 18d0 18d0 18d0 18d0
+           11294 09ea*  u c6c   v 18d8 / 18d0 18d8 18d8 18d8
+           11295 09e9   u c6c   v 18d8 / 18d0 18d8 18d8 18d8
+           11296 09e8*  u c6c   v 18e0 / 18d0 18e0 18e0 18e0
+           11297 09e7   u c6c   v 18e0 / 18d0 18e0 18e0 18e0
+           11298 09e6*  u c6c   v 18e8 / 18d0 18e8 18e8 18e8
+           11299 09e5   u c6c   v 18e8 / 18d0 18e8 18e8 18e8
+           11300 09e4*  u c6c   v 18f0 / 18d0 18f0 18f0 18f0
+           11301 09e3   u c6c   v 18f0 / 18d0 18f0 18f0 18f0
+           11302 09e2*  u c6c   v 18f8 / 18d0 18f8 18f8 18f8
+           11303 09e1   u c6c   v 18f8 / 18d0 18f8 18f8 18f8
+    ev 1: slot 2 reg 38 1c00 -> 1abb (FLV3 7168 -> 6843, order 0, mon 1ab8)  E 11591 (odd, E_A+354, mark 11558; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1abc, +4: target 1abb is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           11588 08c4*  u d5c   v 1ab8 / 1ab8 1ab8 1ab8 1ab8
+           11589 08c3   u d5c   v 1ab8 / 1ab8 1ab8 1ab8 1ab8
+           11590 08c2*  u d5e   v 1abc / 1ab8 1abc 1abc 1abc
+           11591 08c1   u d5e   v 1abc / 1ab8 1abc 1abc 1abc
+           11592 08c0*  u d5e   v 1ac0 / 1ab8 1ac0 1ac0 1ac0
+           11593 08bf   u d5e   v 1ac0 / 1ab8 1ac0 1ac0 1ac0
+           11594 08be*  u d5e   v 1ac4 / 1ab8 1ac4 1ac4 1ac4
+           11595 08bd   u d5e   v 1ac4 / 1ab8 1ac4 1ac4 1ac4
+           11596 08bc*  u d5e   v 1ac8 / 1ab8 1ac8 1ac8 1ac8
+           11597 08bb   u d5e   v 1ac8 / 1ab8 1ac8 1ac8 1ac8
+           11598 08ba*  u d5e   v 1acc / 1ab8 1acc 1acc 1acc
+           11599 08b9   u d5e   v 1acc / 1ab8 1acc 1acc 1acc
+    ev 2: slot 1 reg 38 1c00 -> 1b42 (FLV3 7168 -> 6978, order 0, mon 1b40)  E 12075 (odd, E_A+838, mark 12040; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+303); old law fail@E-1, observed change at E-1;  Vc=E-1 FULL  E fail@E-1  E+1 fail@E-1  E+2 fail@E-1  -> odd E, EARLY: took effect at clock E-1 (write one sample before the key event: LIVE register)  v before E 1b42, +2: target 1b42 is at/below v_E (both run away)
+cycle  7: key-on E_A 13034 (EVEN, mark 12997), tracked s0 1395 (37 ambiguous) s1 1395 (75 ambiguous) s2 1395 (38 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1b05 (FLV3 7168 -> 6917, order 1, mon 1b00)  E 13233 (odd, E_A+199, mark 13196; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b08, +8: target 1b05 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           13230 025a*  u d80   v 1b00 / 1b00 1b00 1b00 1b00
+           13231 0259   u d80   v 1b00 / 1b00 1b00 1b00 1b00
+           13232 0258*  u d84   v 1b08 / 1b00 1b08 1b08 1b08
+           13233 0257   u d84   v 1b08 / 1b00 1b08 1b08 1b08
+           13234 0256*  u d84   v 1b10 / 1b00 1b10 1b10 1b10
+           13235 0255   u d84   v 1b10 / 1b00 1b10 1b10 1b10
+           13236 0254*  u d84   v 1b18 / 1b00 1b18 1b18 1b18
+           13237 0253   u d84   v 1b18 / 1b00 1b18 1b18 1b18
+           13238 0252*  u d84   v 1b20 / 1b00 1b20 1b20 1b20
+           13239 0251   u d84   v 1b20 / 1b00 1b20 1b20 1b20
+           13240 0250*  u d84   v 1b28 / 1b00 1b28 1b28 1b28
+           13241 024f   u d84   v 1b28 / 1b00 1b28 1b28 1b28
+    ev 1: slot 2 reg 38 1c00 -> 1b4f (FLV3 7168 -> 6991, order 1, mon 1b4c)  E 13463 (odd, E_A+429, mark 13425; witness 16 520192 520192 520192 487424)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b50, +4: target 1b4f is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           13460 0174*  u da6   v 1b4c / 1b4c 1b4c 1b4c 1b4c
+           13461 0173   u da6   v 1b4c / 1b4c 1b4c 1b4c 1b4c
+           13462 0172*  u da8   v 1b50 / 1b4c 1b50 1b50 1b50
+           13463 0171   u da8   v 1b50 / 1b4c 1b50 1b50 1b50
+           13464 0170*  u da8   v 1b54 / 1b4c 1b54 1b54 1b54
+           13465 016f   u da8   v 1b54 / 1b4c 1b54 1b54 1b54
+           13466 016e*  u da8   v 1b58 / 1b4c 1b58 1b58 1b58
+           13467 016d   u da8   v 1b58 / 1b4c 1b58 1b58 1b58
+           13468 016c*  u da8   v 1b5c / 1b4c 1b5c 1b5c 1b5c
+           13469 016b   u da8   v 1b5c / 1b4c 1b5c 1b5c 1b5c
+           13470 016a*  u da8   v 1b60 / 1b4c 1b60 1b60 1b60
+           13471 0169   u da8   v 1b60 / 1b4c 1b60 1b60 1b60
+    ev 2: slot 1 reg 38 1c00 -> 19ae (FLV3 7168 -> 6574, order 1, mon 19ac)  E 13484 (EVEN, E_A+450, mark 13431; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19bc, +2: target 19ae is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           13481 015f   u cd7   v 19ba / 19ba 19ba 19ba 19ba
+           13482 015e*  u cd7   v 19bc / 19bc 19bc 19bc 19bc
+           13483 015d   u cd7   v 19bc / 19bc 19bc 19bc 19bc
+           13484 015c*  u cd7   v 19be / 19be 19be 19be 19be
+           13485 015b   u cd7   v 19be / 19be 19be 19be 19be
+           13486 015a*  u cd7   v 19c0 / 19c0 19c0 19c0 19c0
+           13487 0159   u cd7   v 19c0 / 19c0 19c0 19c0 19c0
+           13488 0158*  u cd7   v 19c2 / 19c2 19c2 19c2 19c2
+           13489 0157   u cd7   v 19c2 / 19c2 19c2 19c2 19c2
+           13490 0156*  u cd7   v 19c4 / 19c4 19c4 19c4 19c4
+           13491 0155   u cd7   v 19c4 / 19c4 19c4 19c4 19c4
+           13492 0154*  u cd7   v 19c6 / 19c6 19c6 19c6 19c6
+cycle  8: key-on E_A 14830 (EVEN, mark 14789), tracked s0 1403 (34 ambiguous) s1 1403 (61 ambiguous) s2 1403 (73 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1ab5 (FLV3 7168 -> 6837, order 0, mon 1ab0)  E 15010 (EVEN, E_A+180, mark 14968; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1ab8, +8: target 1ab5 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           15007 fb69   u d58   v 1ab0 / 1ab0 1ab0 1ab0 1ab0
+           15008 fb68*  u d5c   v 1ab8 / 1ab8 1ab8 1ab8 1ab8
+           15009 fb67   u d5c   v 1ab8 / 1ab8 1ab8 1ab8 1ab8
+           15010 fb66*  u d5c   v 1ac0 / 1ac0 1ac0 1ac0 1ac0
+           15011 fb65   u ?000   v 1ac0 / 1ac0 1ac0 1ac0 1ac0
+           15012 fb64*  u d5c   v 1ac8 / 1ac8 1ac8 1ac8 1ac8
+           15013 fb63   u d5c   v 1ac8 / 1ac8 1ac8 1ac8 1ac8
+           15014 fb62*  u d5c   v 1ad0 / 1ad0 1ad0 1ad0 1ad0
+           15015 fb61   u d5c   v 1ad0 / 1ad0 1ad0 1ad0 1ad0
+           15016 fb60*  u d5c   v 1ad8 / 1ad8 1ad8 1ad8 1ad8
+           15017 fb5f   u d5c   v 1ad8 / 1ad8 1ad8 1ad8 1ad8
+           15018 fb5e*  u d5c   v 1ae0 / 1ae0 1ae0 1ae0 1ae0
+    ev 1: slot 2 reg 38 1c00 -> 1967 (FLV3 7168 -> 6503, order 0, mon 1964)  E 15030 (EVEN, E_A+200, mark 14973; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 1984, +4: target 1967 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           15027 fb55   u ?000   v 1980 / 1980 1980 1980 1980
+           15028 fb54*  u cb4   v 1984 / 1984 1984 1984 1984
+           15029 fb53   u cb4   v 1984 / 1984 1984 1984 1984
+           15030 fb52*  u cb4   v 1988 / 1988 1988 1988 1988
+           15031 fb51   u cb4   v 1988 / 1988 1988 1988 1988
+           15032 fb50*  u cb4   v 198c / 198c 198c 198c 198c
+           15033 fb4f   u cb4   v 198c / 198c 198c 198c 198c
+           15034 fb4e*  u cb4   v 1990 / 1990 1990 1990 1990
+           15035 fb4d   u cb4   v 1990 / 1990 1990 1990 1990
+           15036 fb4c*  u cb4   v 1994 / 1994 1994 1994 1994
+           15037 fb4b   u cb4   v 1994 / 1994 1994 1994 1994
+           15038 fb4a*  u cb4   v 1998 / 1998 1998 1998 1998
+    ev 2: slot 1 reg 38 1c00 -> 1b0e (FLV3 7168 -> 6926, order 0, mon 1b0c)  E 15618 (EVEN, E_A+788, mark 15574; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+353); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1b0e, +2: target 1b0e is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           15615 f909   u d86   v 1b0c / 1b0c 1b0c 1b0c 1b0c
+           15616 f908*  u d87   v 1b0e / 1b0e 1b0e 1b0e 1b0e
+           15617 f907   u d87   v 1b0e / 1b0e 1b0e 1b0e 1b0e
+           15618 f906*  u d87   v 1b10 / 1b10 1b10 1b10 1b10
+           15619 f905   u d87   v 1b10 / 1b10 1b10 1b10 1b10
+           15620 f904*  u d87   v 1b12 / 1b12 1b12 1b12 1b12
+           15621 f903   u d87   v 1b12 / 1b12 1b12 1b12 1b12
+           15622 f902*  u d87   v 1b14 / 1b14 1b14 1b14 1b14
+           15623 f901   u d87   v 1b14 / 1b14 1b14 1b14 1b14
+           15624 f900*  u d87   v 1b16 / 1b16 1b16 1b16 1b16
+           15625 f8ff   u d87   v 1b16 / 1b16 1b16 1b16 1b16
+           15626 f8fe*  u d87   v 1b18 / 1b18 1b18 1b18 1b18
+cycle  9: key-on E_A 16627 (odd, mark 16581), tracked s0 1402 (37 ambiguous) s1 1402 (56 ambiguous) s2 1402 (82 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1af5 (FLV3 7168 -> 6901, order 1, mon 1af0)  E 16822 (EVEN, E_A+195, mark 16775; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1af8, +8: target 1af5 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           16819 f455   u d78   v 1af0 / 1af0 1af0 1af0 1af0
+           16820 f454*  u d7c   v 1af8 / 1af8 1af8 1af8 1af8
+           16821 f453   u d7c   v 1af8 / 1af8 1af8 1af8 1af8
+           16822 f452*  u d7c   v 1b00 / 1b00 1b00 1b00 1b00
+           16823 f451   u d7c   v 1b00 / 1b00 1b00 1b00 1b00
+           16824 f450*  u d7c   v 1b08 / 1b08 1b08 1b08 1b08
+           16825 f44f   u d7c   v 1b08 / 1b08 1b08 1b08 1b08
+           16826 f44e*  u d7c   v 1b10 / 1b10 1b10 1b10 1b10
+           16827 f44d   u d7c   v 1b10 / 1b10 1b10 1b10 1b10
+           16828 f44c*  u d7c   v 1b18 / 1b18 1b18 1b18 1b18
+           16829 f44b   u d7c   v 1b18 / 1b18 1b18 1b18 1b18
+           16830 f44a*  u d7c   v 1b20 / 1b20 1b20 1b20 1b20
+    ev 1: slot 2 reg 38 1c00 -> 198b (FLV3 7168 -> 6539, order 1, mon 1988)  E 16842 (EVEN, E_A+215, mark 16781; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19a4, +4: target 198b is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           16839 f441   u cc4   v 19a0 / 19a0 19a0 19a0 19a0
+           16840 f440*  u cc4   v 19a4 / 19a4 19a4 19a4 19a4
+           16841 f43f   u cc4   v 19a4 / 19a4 19a4 19a4 19a4
+           16842 f43e*  u cc4   v 19a8 / 19a8 19a8 19a8 19a8
+           16843 f43d   u cc4   v 19a8 / 19a8 19a8 19a8 19a8
+           16844 f43c*  u cc4   v 19ac / 19ac 19ac 19ac 19ac
+           16845 f43b   u cc4   v 19ac / 19ac 19ac 19ac 19ac
+           16846 f43a*  u cc4   v 19b0 / 19b0 19b0 19b0 19b0
+           16847 f439   u cc4   v 19b0 / 19b0 19b0 19b0 19b0
+           16848 f438*  u cc4   v 19b4 / 19b4 19b4 19b4 19b4
+           16849 f437   u cc4   v 19b4 / 19b4 19b4 19b4 19b4
+           16850 f436*  u cc4   v 19b8 / 19b8 19b8 19b8 19b8
+    ev 2: slot 1 reg 38 1c00 -> 1ba6 (FLV3 7168 -> 7078, order 1, mon 1ba4)  E 17565 (odd, E_A+938, mark 17516; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+203); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1ba6, +2: target 1ba6 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           17562 f16e*  u dd2   v 1ba4 / 1ba4 1ba4 1ba4 1ba4
+           17563 f16d   u dd2   v 1ba4 / 1ba4 1ba4 1ba4 1ba4
+           17564 f16c*  u dd3   v 1ba6 / 1ba4 1ba6 1ba6 1ba6
+           17565 f16b   u dd3   v 1ba6 / 1ba4 1ba6 1ba6 1ba6
+           17566 f16a*  u dd3   v 1ba8 / 1ba4 1ba8 1ba8 1ba8
+           17567 f169   u dd3   v 1ba8 / 1ba4 1ba8 1ba8 1ba8
+           17568 f168*  u dd3   v 1baa / 1ba4 1baa 1baa 1baa
+           17569 f167   u dd3   v 1baa / 1ba4 1baa 1baa 1baa
+           17570 f166*  u dd3   v 1bac / 1ba4 1bac 1bac 1bac
+           17571 f165   u dd3   v 1bac / 1ba4 1bac 1bac 1bac
+           17572 f164*  u dd3   v 1bae / 1ba4 1bae 1bae 1bae
+           17573 f163   u dd3   v 1bae / 1ba4 1bae 1bae 1bae
+cycle 10: key-on E_A 18423 (odd, mark 18372), tracked s0 1396 (35 ambiguous) s1 1396 (89 ambiguous) s2 1396 (35 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1b45 (FLV3 7168 -> 6981, order 0, mon 1b40)  E 18637 (odd, E_A+214, mark 18586; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b48, +8: target 1b45 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           18634 ed3e*  u da0   v 1b40 / 1b40 1b40 1b40 1b40
+           18635 ed3d   u da0   v 1b40 / 1b40 1b40 1b40 1b40
+           18636 ed3c*  u da4   v 1b48 / 1b40 1b48 1b48 1b48
+           18637 ed3b   u da4   v 1b48 / 1b40 1b48 1b48 1b48
+           18638 ed3a*  u da4   v 1b50 / 1b40 1b50 1b50 1b50
+           18639 ed39   u da4   v 1b50 / 1b40 1b50 1b50 1b50
+           18640 ed38*  u da4   v 1b58 / 1b40 1b58 1b58 1b58
+           18641 ed37   u da4   v 1b58 / 1b40 1b58 1b58 1b58
+           18642 ed36*  u da4   v 1b60 / 1b40 1b60 1b60 1b60
+           18643 ed35   u da4   v 1b60 / 1b40 1b60 1b60 1b60
+           18644 ed34*  u da4   v 1b68 / 1b40 1b68 1b68 1b68
+           18645 ed33   u da4   v 1b68 / 1b40 1b68 1b68 1b68
+    ev 1: slot 2 reg 38 1c00 -> 1b73 (FLV3 7168 -> 7027, order 0, mon 1b70)  E 18869 (odd, E_A+446, mark 18817; witness 16 520192 520192 520192 487424)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b74, +4: target 1b73 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           18866 ec56*  u db8   v 1b70 / 1b70 1b70 1b70 1b70
+           18867 ec55   u db8   v 1b70 / 1b70 1b70 1b70 1b70
+           18868 ec54*  u dba   v 1b74 / 1b70 1b74 1b74 1b74
+           18869 ec53   u dba   v 1b74 / 1b70 1b74 1b74 1b74
+           18870 ec52*  u dba   v 1b78 / 1b70 1b78 1b78 1b78
+           18871 ec51   u dba   v 1b78 / 1b70 1b78 1b78 1b78
+           18872 ec50*  u dba   v 1b7c / 1b70 1b7c 1b7c 1b7c
+           18873 ec4f   u dba   v 1b7c / 1b70 1b7c 1b7c 1b7c
+           18874 ec4e*  u dba   v 1b80 / 1b70 1b80 1b80 1b80
+           18875 ec4d   u dba   v 1b80 / 1b70 1b80 1b80 1b80
+           18876 ec4c*  u dba   v 1b84 / 1b70 1b84 1b84 1b84
+           18877 ec4b   u dba   v 1b84 / 1b70 1b84 1b84 1b84
+    ev 2: slot 1 reg 38 1c00 -> 19c0 (FLV3 7168 -> 6592, order 0, mon 19be)  E 18890 (EVEN, E_A+467, mark 18823; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19ce, +2: target 19c0 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           18887 ec41   u ce0   v 19cc / 19cc 19cc 19cc 19cc
+           18888 ec40*  u ce0   v 19ce / 19ce 19ce 19ce 19ce
+           18889 ec3f   u ce0   v 19ce / 19ce 19ce 19ce 19ce
+           18890 ec3e*  u ce0   v 19d0 / 19d0 19d0 19d0 19d0
+           18891 ec3d   u ce0   v 19d0 / 19d0 19d0 19d0 19d0
+           18892 ec3c*  u ce0   v 19d2 / 19d2 19d2 19d2 19d2
+           18893 ec3b   u ce0   v 19d2 / 19d2 19d2 19d2 19d2
+           18894 ec3a*  u ce0   v 19d4 / 19d4 19d4 19d4 19d4
+           18895 ec39   u ce0   v 19d4 / 19d4 19d4 19d4 19d4
+           18896 ec38*  u ce0   v 19d6 / 19d6 19d6 19d6 19d6
+           18897 ec37   u ce0   v 19d6 / 19d6 19d6 19d6 19d6
+           18898 ec36*  u ce0   v 19d8 / 19d8 19d8 19d8 19d8
+cycle 11: key-on E_A 20220 (EVEN, mark 20165), tracked s0 1403 (40 ambiguous) s1 1403 (51 ambiguous) s2 1403 (74 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1af5 (FLV3 7168 -> 6901, order 1, mon 1af0)  E 20414 (EVEN, E_A+194, mark 20358; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1af0, +8: target 1af5 is IN (v_E, v_E+inc]: hold vs runaway
+    ev 1: slot 2 reg 38 1c00 -> 1983 (FLV3 7168 -> 6531, order 1, mon 1980)  E 20434 (EVEN, E_A+214, mark 20364; witness -481312 518112 518112 471008 471008)
+        u: compared [E_A, E+600); old law fail@E-14, observed change at E-14;  Vc=E-1 fail@E-14  E fail@E-14  E+1 fail@E-14  E+2 fail@E-14  -> PRE-EVENT MISMATCH (law / onset?)  v before E 19a0, +4: target 1983 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           20431 e639   u cc2   v 199c / 199c 199c 199c 199c
+           20432 e638*  u cc2   v 19a0 / 19a0 19a0 19a0 19a0
+           20433 e637   u cc2   v 19a0 / 19a0 19a0 19a0 19a0
+           20434 e636*  u cc2   v 19a4 / 19a4 19a4 19a4 19a4
+           20435 e635   u cc2   v 19a4 / 19a4 19a4 19a4 19a4
+           20436 e634*  u cc2   v 19a8 / 19a8 19a8 19a8 19a8
+           20437 e633   u cc2   v 19a8 / 19a8 19a8 19a8 19a8
+           20438 e632*  u cc2   v 19ac / 19ac 19ac 19ac 19ac
+           20439 e631   u cc2   v 19ac / 19ac 19ac 19ac 19ac
+           20440 e630*  u cc2   v 19b0 / 19b0 19b0 19b0 19b0
+           20441 e62f   u cc2   v 19b0 / 19b0 19b0 19b0 19b0
+           20442 e62e*  u cc2   v 19b4 / 19b4 19b4 19b4 19b4
+    ev 2: slot 1 reg 38 1c00 -> 1ba6 (FLV3 7168 -> 7078, order 1, mon 1ba4)  E 21158 (EVEN, E_A+938, mark 21101; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+203); old law fail@E+0, observed change at E+0;  Vc=E-1 FULL  E FULL  E+1 fail@E+0  E+2 fail@E+0  -> LIVE (clock E)  v before E 1ba4, +2: target 1ba6 is IN (v_E, v_E+inc]: hold vs runaway
+cycle 12: key-on E_A 22016 (EVEN, mark 21956), tracked s0 1429 (80 ambiguous) s1 1429 (54 ambiguous) s2 1429 (34 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 191d (FLV3 7168 -> 6429, order 0, mon 1918)  E 22094 (EVEN, E_A+78, mark 22034; witness 0 520176 520176 487408 487408)
+        u: compared [E_A, E+600); old law fail@E+0, observed change at E+0;  Vc=E-1 fail@E+0  E fail@E+0  E+1 fail@E+0  E+2 fail@E+0  -> identical predictions: uninformative  v before E 1920, +8: target 191d is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           22091 dfbd   u c8c   v 1918 / 1918 1918 1918 1918
+           22092 dfbc*  u c90   v 1920 / 1920 1920 1920 1920
+           22093 dfbb   u c90   v 1920 / 1920 1920 1920 1920
+           22094 dfba*  u c90   v 1928 / 1928 1928 1928 1928
+           22095 dfb9   u c90   v 1928 / 1928 1928 1928 1928
+           22096 dfb8*  u c90   v 1930 / 1930 1930 1930 1930
+           22097 dfb7   u c90   v 1930 / 1930 1930 1930 1930
+           22098 dfb6*  u c90   v 1938 / 1938 1938 1938 1938
+           22099 dfb5   u c90   v 1938 / 1938 1938 1938 1938
+           22100 dfb4*  u c90   v 1940 / 1940 1940 1940 1940
+           22101 dfb3   u c90   v 1940 / 1940 1940 1940 1940
+           22102 dfb2*  u c90   v 1948 / 1948 1948 1948 1948
+    ev 1: slot 2 reg 38 1c00 -> 1b7b (FLV3 7168 -> 7035, order 0, mon 1b78)  E 22467 (odd, E_A+451, mark 22406; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b7c, +4: target 1b7b is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           22464 de48*  u dbc   v 1b78 / 1b78 1b78 1b78 1b78
+           22465 de47   u dbc   v 1b78 / 1b78 1b78 1b78 1b78
+           22466 de46*  u dbe   v 1b7c / 1b78 1b7c 1b7c 1b7c
+           22467 de45   u dbe   v 1b7c / 1b78 1b7c 1b7c 1b7c
+           22468 de44*  u dbe   v 1b80 / 1b78 1b80 1b80 1b80
+           22469 de43   u dbe   v 1b80 / 1b78 1b80 1b80 1b80
+           22470 de42*  u dbe   v 1b84 / 1b78 1b84 1b84 1b84
+           22471 de41   u dbe   v 1b84 / 1b78 1b84 1b84 1b84
+           22472 de40*  u dbe   v 1b88 / 1b78 1b88 1b88 1b88
+           22473 de3f   u dbe   v 1b88 / 1b78 1b88 1b88 1b88
+           22474 de3e*  u dbe   v 1b8c / 1b78 1b8c 1b8c 1b8c
+           22475 de3d   u dbe   v 1b8c / 1b78 1b8c 1b8c 1b8c
+    ev 2: slot 1 reg 38 1c00 -> 1b98 (FLV3 7168 -> 7064, order 0, mon 1b96)  E 22941 (odd, E_A+925, mark 22879; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+216); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b98, +2: target 1b98 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           22938 dc6e*  u dcb   v 1b96 / 1b96 1b96 1b96 1b96
+           22939 dc6d   u dcb   v 1b96 / 1b96 1b96 1b96 1b96
+           22940 dc6c*  u dcc   v 1b98 / 1b96 1b98 1b98 1b98
+           22941 dc6b   u dcc   v 1b98 / 1b96 1b98 1b98 1b98
+           22942 dc6a*  u dcc   v 1b9a / 1b96 1b9a 1b9a 1b9a
+           22943 dc69   u dcc   v 1b9a / 1b96 1b9a 1b9a 1b9a
+           22944 dc68*  u dcc   v 1b9c / 1b96 1b9c 1b9c 1b9c
+           22945 dc67   u dcc   v 1b9c / 1b96 1b9c 1b9c 1b9c
+           22946 dc66*  u ?000   v 1b9e / 1b96 1b9e 1b9e 1b9e
+           22947 dc65   u dcc   v 1b9e / 1b96 1b9e 1b9e 1b9e
+           22948 dc64*  u dcc   v 1ba0 / 1b96 1ba0 1ba0 1ba0
+           22949 dc63   u dcc   v 1ba0 / 1b96 1ba0 1ba0 1ba0
+cycle 13: FEG onset NOT FOUND (stream 0 changes at 23449 but no candidate in [23443, 23450] tracks 300 samples)
+cycle 14: FEG onset NOT FOUND (stream 0 changes at 25241 but no candidate in [25235, 25242] tracks 300 samples)
+cycle 15: key-on E_A 27406 (EVEN, mark 27332), tracked s0 1409 (34 ambiguous) s1 1409 (57 ambiguous) s2 1409 (39 ambiguous)
+    ev 0: slot 0 reg 38 1c00 -> 1a85 (FLV3 7168 -> 6789, order 1, mon 1a80)  E 27573 (odd, E_A+167, mark 27499; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1a88, +8: target 1a85 is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           27570 ca56*  u d40   v 1a80 / 1a80 1a80 1a80 1a80
+           27571 ca55   u d40   v 1a80 / 1a80 1a80 1a80 1a80
+           27572 ca54*  u d44   v 1a88 / 1a80 1a88 1a88 1a88
+           27573 ca53   u d44   v 1a88 / 1a80 1a88 1a88 1a88
+           27574 ca52*  u d44   v 1a90 / 1a80 1a90 1a90 1a90
+           27575 ca51   u d44   v 1a90 / 1a80 1a90 1a90 1a90
+           27576 ca50*  u d44   v 1a98 / 1a80 1a98 1a98 1a98
+           27577 ca4f   u d44   v 1a98 / 1a80 1a98 1a98 1a98
+           27578 ca4e*  u d44   v 1aa0 / 1a80 1aa0 1aa0 1aa0
+           27579 ca4d   u d44   v 1aa0 / 1a80 1aa0 1aa0 1aa0
+           27580 ca4c*  u d44   v 1aa8 / 1a80 1aa8 1aa8 1aa8
+           27581 ca4b   u d44   v 1aa8 / 1a80 1aa8 1aa8 1aa8
+    ev 1: slot 2 reg 38 1c00 -> 1b3f (FLV3 7168 -> 6975, order 1, mon 1b3c)  E 27827 (odd, E_A+421, mark 27752; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+600); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b40, +4: target 1b3f is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           27824 c958*  u d9e   v 1b3c / 1b3c 1b3c 1b3c 1b3c
+           27825 c957   u d9e   v 1b3c / 1b3c 1b3c 1b3c 1b3c
+           27826 c956*  u da0   v 1b40 / 1b3c 1b40 1b40 1b40
+           27827 c955   u da0   v 1b40 / 1b3c 1b40 1b40 1b40
+           27828 c954*  u da0   v 1b44 / 1b3c 1b44 1b44 1b44
+           27829 c953   u da0   v 1b44 / 1b3c 1b44 1b44 1b44
+           27830 c952*  u da0   v 1b48 / 1b3c 1b48 1b48 1b48
+           27831 c951   u da0   v 1b48 / 1b3c 1b48 1b48 1b48
+           27832 c950*  u da0   v 1b4c / 1b3c 1b4c 1b4c 1b4c
+           27833 c94f   u da0   v 1b4c / 1b3c 1b4c 1b4c 1b4c
+           27834 c94e*  u da0   v 1b50 / 1b3c 1b50 1b50 1b50
+           27835 c94d   u da0   v 1b50 / 1b3c 1b50 1b50 1b50
+    ev 2: slot 1 reg 38 1c00 -> 1b5e (FLV3 7168 -> 7006, order 1, mon 1b5c)  E 28273 (odd, E_A+867, mark 28197; witness 0 520176 520176 520176 487408)
+        u: compared [E_A, E+274); old law fail@E+1, observed change at E+1;  Vc=E-1 fail@E-1  E fail@E+1  E+1 fail@E+1  E+2 fail@E+1  -> odd E: NEITHER  v before E 1b5e, +2: target 1b5e is at/below v_E (both run away)
+        window E-3..E+8 (i, MDEC_CT, captured u, then the predictions none / Vc=E-1 / E / E+1 / E+2):
+           28270 c79a*  u dae   v 1b5c / 1b5c 1b5c 1b5c 1b5c
+           28271 c799   u dae   v 1b5c / 1b5c 1b5c 1b5c 1b5c
+           28272 c798*  u daf   v 1b5e / 1b5c 1b5e 1b5e 1b5e
+           28273 c797   u daf   v 1b5e / 1b5c 1b5e 1b5e 1b5e
+           28274 c796*  u daf   v 1b60 / 1b5c 1b60 1b60 1b60
+           28275 c795   u daf   v 1b60 / 1b5c 1b60 1b60 1b60
+           28276 c794*  u daf   v 1b62 / 1b5c 1b62 1b62 1b62
+           28277 c793   u daf   v 1b62 / 1b5c 1b62 1b62 1b62
+           28278 c792*  u daf   v 1b64 / 1b5c 1b64 1b64 1b64
+           28279 c791   u daf   v 1b64 / 1b5c 1b64 1b64 1b64
+           28280 c790*  u daf   v 1b66 / 1b5c 1b66 1b66 1b66
+           28281 c78f   u daf   v 1b66 / 1b5c 1b66 1b66 1b66
+SUMMARY flv       events 42 found 42 missed 0 pre-fail 7 odd-E plain 0 identical 6 | even E, order0 1: live 1 latched 0 neither 9 | order1 4: live 4 latched 0 neither 12 | odd E straddles: EARLY 3/0 LATE 0/0 (order0/order1)
+   stream 0: events 14 pre-fail 0 odd-plain 0 identical 4 | order0 inf 0 live 0 latched 0 neither 3 | order1 inf 2 live 2 latched 0 neither 4 | early 1/0 late 0/0
+   stream 1: events 14 pre-fail 3 odd-plain 0 identical 2 | order0 inf 1 live 1 latched 0 neither 1 | order1 inf 1 live 1 latched 0 neither 5 | early 1/0 late 0/0
+   stream 2: events 14 pre-fail 4 odd-plain 0 identical 0 | order0 inf 0 live 0 latched 0 neither 5 | order1 inf 1 live 1 latched 0 neither 3 | early 1/0 late 0/0
+
+SUMMARY (even E: live = the new register acts at clock E, latched = at clock E+2; a reading is refuted where it reproduces < informative.
+ A sample boundary inside the write pair (~10 %) turns a LATCHED register into a 'live' verdict in order 0 (register first) and a LIVE one into
+ 'latched' in order 1 (KYONEX first); on an odd E the same straddles show up as EARLY (effect at clock E-1: only a LIVE register, order 0)
+ or LATE (effect at clock E+3: only a LATCHED register, order 1).  Expected: LIVE register -> order0 100 % live, order1 ~90 % live + ~10 %
+ latched, some EARLY, no LATE;  LATCHED register -> order1 100 % latched, order0 ~90 % latched + ~10 % live, some LATE, no EARLY.)
+  dl        events 48 found 33 missed 15 pre-fail 0 odd-E plain 0 identical 0 | even E, order0 7: live 6 latched 0 neither 1 | order1 9: live 8 latched 0 neither 1 | odd E straddles: EARLY 10/7 LATE 0/0 (order0/order1)
+  krs       events 48 found 48 missed 0 pre-fail 0 odd-E plain 20 identical 0 | even E, order0 11: live 11 latched 0 neither 0 | order1 12: live 12 latched 0 neither 0 | odd E straddles: EARLY 5/0 LATE 0/0 (order0/order1)
+  ar        events 48 found 48 missed 0 pre-fail 0 odd-E plain 23 identical 0 | even E, order0 8: live 8 latched 0 neither 2 | order1 10: live 10 latched 0 neither 0 | odd E straddles: EARLY 5/0 LATE 0/0 (order0/order1)
+  d2r       events 48 found 48 missed 0 pre-fail 0 odd-E plain 26 identical 0 | even E, order0 11: live 11 latched 0 neither 0 | order1 10: live 10 latched 0 neither 0 | odd E straddles: EARLY 1/0 LATE 0/0 (order0/order1)
+  feg_rate  events 48 found 48 missed 0 pre-fail 0 odd-E plain 18 identical 0 | even E, order0 14: live 14 latched 0 neither 0 | order1 15: live 15 latched 0 neither 0 | odd E straddles: EARLY 1/0 LATE 0/0 (order0/order1)
+  flv       events 42 found 42 missed 0 pre-fail 7 odd-E plain 0 identical 6 | even E, order0 1: live 1 latched 0 neither 9 | order1 4: live 4 latched 0 neither 12 | odd E straddles: EARLY 3/0 LATE 0/0 (order0/order1)

@@ -1,0 +1,142 @@
+kp_a stream 0: slot 0 role feg KRS 15 FLV 1800 1810 1000 1000 1c00 FAR 26 FD1R 28 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_a stream 1: slot 1 role feg KRS 15 FLV 1c00 1bf2 1ff0 1ff0 1400 FAR 26 FD1R 28 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_a stream 2: slot 2 role feg KRS 15 FLV 1800 1808 1816 1000 1c00 FAR 30 FD1R 26 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_a stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+kp_a: crossing clock N 8, on_base 310 us, 64 cycles
+cap_start: counter word fde1 at 13c0 (n 542), next fde2 fde3 fde4, c0 15de, head n 549
+kp_a cycle 0: on_us 310, mark 3 at head estimate 699
+kp_a cycle 1: on_us 318, mark 3 at head estimate 1218
+kp_a cycle 2: on_us 326, mark 3 at head estimate 1728
+kp_a cycle 3: on_us 334, mark 3 at head estimate 2240
+kp_a cycle 4: on_us 342, mark 3 at head estimate 2752
+kp_a cycle 5: on_us 350, mark 3 at head estimate 3265
+kp_a cycle 6: on_us 358, mark 3 at head estimate 3777
+kp_a cycle 7: on_us 366, mark 3 at head estimate 4290
+kp_a cycle 8: on_us 374, mark 3 at head estimate 4802
+kp_a cycle 9: on_us 382, mark 3 at head estimate 5314
+kp_a cycle 10: on_us 390, mark 3 at head estimate 5826
+kp_a cycle 11: on_us 398, mark 3 at head estimate 6342
+kp_a cycle 12: on_us 406, mark 3 at head estimate 6851
+kp_a cycle 13: on_us 414, mark 3 at head estimate 7364
+kp_a cycle 14: on_us 422, mark 3 at head estimate 7877
+kp_a cycle 15: on_us 430, mark 3 at head estimate 8391
+kp_a cycle 16: on_us 312, mark 3 at head estimate 8895
+kp_a cycle 17: on_us 320, mark 3 at head estimate 9407
+kp_a cycle 18: on_us 328, mark 3 at head estimate 9920
+kp_a cycle 19: on_us 336, mark 3 at head estimate 10432
+kp_a cycle 20: on_us 344, mark 3 at head estimate 10944
+kp_a cycle 21: on_us 352, mark 3 at head estimate 11457
+kp_a cycle 22: on_us 360, mark 3 at head estimate 11969
+kp_a cycle 23: on_us 368, mark 3 at head estimate 12481
+kp_a cycle 24: on_us 376, mark 3 at head estimate 12994
+kp_a cycle 25: on_us 384, mark 3 at head estimate 13506
+kp_a cycle 26: on_us 392, mark 3 at head estimate 14019
+kp_a cycle 27: on_us 400, mark 3 at head estimate 14531
+kp_a cycle 28: on_us 408, mark 3 at head estimate 15043
+kp_a cycle 29: on_us 416, mark 3 at head estimate 15680
+kp_a cycle 30: on_us 424, mark 3 at head estimate 16196
+kp_a cycle 31: on_us 432, mark 3 at head estimate 16708
+kp_a cycle 32: on_us 314, mark 3 at head estimate 17215
+kp_a cycle 33: on_us 322, mark 3 at head estimate 17728
+kp_a cycle 34: on_us 330, mark 3 at head estimate 18240
+kp_a cycle 35: on_us 338, mark 3 at head estimate 18752
+kp_a cycle 36: on_us 346, mark 3 at head estimate 19264
+kp_a cycle 37: on_us 354, mark 3 at head estimate 19777
+kp_a cycle 38: on_us 362, mark 3 at head estimate 20289
+kp_a cycle 39: on_us 370, mark 3 at head estimate 20802
+kp_a cycle 40: on_us 378, mark 3 at head estimate 21314
+kp_a cycle 41: on_us 386, mark 3 at head estimate 21827
+kp_a cycle 42: on_us 394, mark 3 at head estimate 22339
+kp_a cycle 43: on_us 402, mark 3 at head estimate 22851
+kp_a cycle 44: on_us 410, mark 3 at head estimate 23366
+kp_a cycle 45: on_us 418, mark 3 at head estimate 23876
+kp_a cycle 46: on_us 426, mark 3 at head estimate 24388
+kp_a cycle 47: on_us 434, mark 3 at head estimate 24901
+kp_a cycle 48: on_us 316, mark 3 at head estimate 25407
+kp_a cycle 49: on_us 324, mark 3 at head estimate 25920
+kp_a cycle 50: on_us 332, mark 3 at head estimate 26432
+kp_a cycle 51: on_us 340, mark 3 at head estimate 26945
+kp_a cycle 52: on_us 348, mark 3 at head estimate 27457
+kp_a cycle 53: on_us 356, mark 3 at head estimate 27969
+kp_a cycle 54: on_us 364, mark 3 at head estimate 28484
+kp_a cycle 55: on_us 372, mark 3 at head estimate 28994
+kp_a cycle 56: on_us 380, mark 3 at head estimate 29506
+kp_a cycle 57: on_us 388, mark 3 at head estimate 30019
+kp_a cycle 58: on_us 396, mark 3 at head estimate 30531
+kp_a cycle 59: on_us 404, mark 3 at head estimate 31043
+kp_a cycle 60: on_us 412, mark 3 at head estimate 31556
+kp_a cycle 61: on_us 420, mark 3 at head estimate 32068
+kp_a cycle 62: on_us 428, mark 3 at head estimate 32580
+kp_a cycle 63: on_us 436, mark 3 at head estimate 33093
+kp_a: 33152 samples, errors 0, 64 marks
+kp_b stream 0: slot 0 role feg KRS 15 FLV 1800 1818 1000 1000 1c00 FAR 26 FD1R 28 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_b stream 1: slot 1 role feg KRS 15 FLV 1c00 1bea 1ff0 1ff0 1400 FAR 26 FD1R 28 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_b stream 2: slot 2 role feg KRS 15 FLV 1800 1808 181e 1000 1c00 FAR 30 FD1R 26 FD2R 28 FRR 24 Q 4 lpoff 0 voff 1
+kp_b stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+kp_b: crossing clock N 12, on_base 490 us, 64 cycles
+cap_start: counter word fda6 at 74e0 (n 601), next fda7 fda8 fda9, c0 7739, head n 634
+kp_b cycle 0: on_us 490, mark 3 at head estimate 792
+kp_b cycle 1: on_us 498, mark 3 at head estimate 1308
+kp_b cycle 2: on_us 506, mark 3 at head estimate 1823
+kp_b cycle 3: on_us 514, mark 3 at head estimate 2335
+kp_b cycle 4: on_us 522, mark 3 at head estimate 2848
+kp_b cycle 5: on_us 530, mark 3 at head estimate 3361
+kp_b cycle 6: on_us 538, mark 3 at head estimate 3874
+kp_b cycle 7: on_us 546, mark 3 at head estimate 4387
+kp_b cycle 8: on_us 554, mark 3 at head estimate 4901
+kp_b cycle 9: on_us 562, mark 3 at head estimate 5416
+kp_b cycle 10: on_us 570, mark 3 at head estimate 5930
+kp_b cycle 11: on_us 578, mark 3 at head estimate 6445
+kp_b cycle 12: on_us 586, mark 3 at head estimate 6960
+kp_b cycle 13: on_us 594, mark 3 at head estimate 7476
+kp_b cycle 14: on_us 602, mark 3 at head estimate 8028
+kp_b cycle 15: on_us 610, mark 3 at head estimate 8545
+kp_b cycle 16: on_us 492, mark 3 at head estimate 9057
+kp_b cycle 17: on_us 500, mark 3 at head estimate 9569
+kp_b cycle 18: on_us 508, mark 3 at head estimate 10081
+kp_b cycle 19: on_us 516, mark 3 at head estimate 10593
+kp_b cycle 20: on_us 524, mark 3 at head estimate 11105
+kp_b cycle 21: on_us 532, mark 3 at head estimate 11618
+kp_b cycle 22: on_us 540, mark 3 at head estimate 12132
+kp_b cycle 23: on_us 548, mark 3 at head estimate 12646
+kp_b cycle 24: on_us 556, mark 3 at head estimate 13162
+kp_b cycle 25: on_us 564, mark 3 at head estimate 13677
+kp_b cycle 26: on_us 572, mark 3 at head estimate 14192
+kp_b cycle 27: on_us 580, mark 3 at head estimate 14707
+kp_b cycle 28: on_us 588, mark 3 at head estimate 15222
+kp_b cycle 29: on_us 596, mark 3 at head estimate 15771
+kp_b cycle 30: on_us 604, mark 3 at head estimate 16289
+kp_b cycle 31: on_us 612, mark 3 at head estimate 16806
+kp_b cycle 32: on_us 494, mark 3 at head estimate 17317
+kp_b cycle 33: on_us 502, mark 3 at head estimate 17829
+kp_b cycle 34: on_us 510, mark 3 at head estimate 18341
+kp_b cycle 35: on_us 518, mark 3 at head estimate 18853
+kp_b cycle 36: on_us 526, mark 3 at head estimate 19366
+kp_b cycle 37: on_us 534, mark 3 at head estimate 19879
+kp_b cycle 38: on_us 542, mark 3 at head estimate 20393
+kp_b cycle 39: on_us 550, mark 3 at head estimate 20907
+kp_b cycle 40: on_us 558, mark 3 at head estimate 21421
+kp_b cycle 41: on_us 566, mark 3 at head estimate 21935
+kp_b cycle 42: on_us 574, mark 3 at head estimate 22450
+kp_b cycle 43: on_us 582, mark 3 at head estimate 22965
+kp_b cycle 44: on_us 590, mark 3 at head estimate 23515
+kp_b cycle 45: on_us 598, mark 3 at head estimate 24033
+kp_b cycle 46: on_us 606, mark 3 at head estimate 24549
+kp_b cycle 47: on_us 614, mark 3 at head estimate 25066
+kp_b cycle 48: on_us 496, mark 3 at head estimate 25577
+kp_b cycle 49: on_us 504, mark 3 at head estimate 26089
+kp_b cycle 50: on_us 512, mark 3 at head estimate 26601
+kp_b cycle 51: on_us 520, mark 3 at head estimate 27113
+kp_b cycle 52: on_us 528, mark 3 at head estimate 27626
+kp_b cycle 53: on_us 536, mark 3 at head estimate 28139
+kp_b cycle 54: on_us 544, mark 3 at head estimate 28654
+kp_b cycle 55: on_us 552, mark 3 at head estimate 29168
+kp_b cycle 56: on_us 560, mark 3 at head estimate 29682
+kp_b cycle 57: on_us 568, mark 3 at head estimate 30197
+kp_b cycle 58: on_us 576, mark 3 at head estimate 30747
+kp_b cycle 59: on_us 584, mark 3 at head estimate 31264
+kp_b cycle 60: on_us 592, mark 3 at head estimate 31780
+kp_b cycle 61: on_us 600, mark 3 at head estimate 32295
+kp_b cycle 62: on_us 608, mark 3 at head estimate 32812
+kp_b cycle 63: on_us 616, mark 3 at head estimate 33329
+kp_b: 33280 samples, errors 0, 64 marks

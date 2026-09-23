@@ -1,7 +1,9 @@
-# caique AICA model — session 5 handover (2026-09-23, night)
+# caique AICA model — session 5 handover (2026-09-23, night) + session 6 addendum
 
-**Scope: verify the session-5 results.**  Session 4 is commit `ba720b9` (its handover: `git show ba720b9:model/HANDOVER.md`);
-session 5 is uncommitted (`git diff HEAD` plus the untracked files).  Session 5 ran on the **same console boot as
+**Scope: verify the session-5 results, then the session-6 addendum (claims U1-U3 at the end).**  Session 4 is commit
+`ba720b9` (its handover: `git show ba720b9:model/HANDOVER.md`); session 5 is commit `5207a9f`; session 6 is uncommitted
+(`git diff HEAD` plus the untracked files: cases ca_stop / eg_latch / eg_latch2 / eg_latch3 / feg_koffpass / mixs_rd,
+tools koffpass_check / latch_check, tests/<case>/, work/koffpass, work/latch, work/verify/s6).  Session 5 ran on the **same console boot as
 session 4 (K 6491)**, added six console cases (every capture with 0 counter errors), pinned the key-off sample with a
 witness slot, measured the key-off clock on every envelope segment, the slot stop / off sequence, the K counter's
 bit 13 and its non-resetters, and the MIXS writer rule, and folded eight model changes in.  Findings are in
@@ -17,17 +19,20 @@ S1, S3alt, model_fixes, validators, docs).  **The filter arithmetic, DSP, levels
 |---|---|---|
 | Envelope counter | K = 6491 exactly (bit 13 = 0) from an R 3 decay row; RBP/RBL, timers, MVOL, ARM7 release, DSP program load, 64-slot sweep do not change it | T1, T2 |
 | AEG key-off clock | decay 1 / decay 2: one more step with the old increment, then the release; attack: NO step; odd samples: nothing | T3, T5 |
-| FEG key-off clock | one more step of the old segment with its increment AND direction (attack included), hold check vs FLV4; KYONB alone holds | T4, T5 |
+| FEG key-off clock | one more step of the old segment with its increment AND direction (attack included), hold check vs FLV4; KYONB alone holds.  Session 6: with the old segment's `passed` flag set it is the NEXT segment's step | T4, T5, U1 |
 | Key-on in release | a = 0x280 on the key-on sample, no step, CA restarts on that sample (supersedes "on the next clock") | T6 |
 | R 63 attack | leaves the attack on the first clock at or after the key-on sample (the key-on sample itself when it is a clock) | T7 |
-| Slot stop / off | fetch stops at a = 0x3C0, off past 0x3FF, each one sample after its clock; NO mute; the FEG runs on; the EG reads its rate registers one sample late | T8 |
-| MIXS | every slot writes its ISEL bus every sample, IMXL a pure gain; a bus retains only when no slot points at it; the eg_lock -8 = filter deadband rest at 0x1BFF Q 4 | T9 |
+| Slot stop / off | fetch stops at a = 0x3C0, off past 0x3FF, each one sample after its clock; NO mute; the FEG runs on; the EG reads its rate registers one sample late.  Session 6: the stop IS off (monitor 0x1FFF + CA 0 at 0x3C0 + 1 sample, nothing at 0x400); the rate latch is REFUTED -- every register live, tail_c's RR = in-sample ordering | T8, U2, U4 |
+| MIXS | every slot writes its ISEL bus every sample, IMXL a pure gain; a bus retains only when no slot points at it; the eg_lock -8 = filter deadband rest at 0x1BFF Q 4.  Session 6: the CPU reads the bank of the current sample parity | T9, U3 |
 | Cases | `aeg_koff` (5 runs x 16 cycles), `eg_kprobe` (8 probes), `slot_tail` (3 runs), `feg_koffdir` (8 batches), `feg_koffatt` (8 batches), `mixs_write` (8 probes); console captures under `tests/<case>/hw/` (aeg_koff's first run in `tests/aeg_koff/hw_run1/`) | — |
 | Tools | standalone fitters `kfit`, `koff_fit`, `koffdir_check` + `feg_law.h`, `koffatt_check`, `mixsw_check`; model replays `eg_replay`, `tail_cmp` + `tail_cmp_all.sh`; `eg_model` extended to 89 runs (GROUPS line: session4 33, eg_kprobe 8, feg_koffdir 24, feg_koffatt 24); `validate_s5.sh` one-shot gate | — |
-| Model | `stop_in` / `off_in`, no mute, FEG gate removed, `egreg` + `eg_latch`, `feg_prev_dir`, attack key-off rule, R 63 on the key-on clock, `sent[]` for every slot; macros `CAIQUE_STOP_A` / `CAIQUE_STOP_LAG` / `CAIQUE_MUTE` for the controls only | T8, T9, T10 |
+| Model | `stop_in` / `off_in`, no mute, FEG gate removed, `egreg` + `eg_latch` (removed again in session 6, U4), `feg_prev_dir`, attack key-off rule, R 63 on the key-on clock, `sent[]` for every slot; macros `CAIQUE_STOP_A` / `CAIQUE_STOP_LAG` / `CAIQUE_MUTE` for the controls only | T8, T9, T10 |
 | Scratch | `work/koff/`, `work/kprobe/`, `work/tail/`, `work/koffatt/`, `work/mixsw/`, `work/minus8/`, `work/model5/` (controls, baselines), `work/eg/kd_*.u`, `ka_*.u` (tracked FEG u of feg_koffdir / feg_koffatt) | — |
+| Session 6 cases | `feg_koffpass` (2 runs x 64 witness-pinned cycles), `ca_stop` (3 monitor-polled runs), `mixs_rd` (7 readback runs), `eg_latch` / `eg_latch2` / `eg_latch3` (6 + 5 + 5 runs x 16 cycles x 3 witness-pinned rewrites: every envelope register live, CA never restarted by SA / LPCTL / LEA); captures under `tests/<case>/hw/`, model runs under `tests/<case>/model/` | U1-U4 |
+| Session 6 tools | standalone checkers `koffpass_check` (feg_koffpass), `latch_check` (eg_latch, eg_latch2, eg_latch3); `tail_cmp` stage 2 searches d = w00 - w14 in {1, 0, -1}; no gate change (`validate_s5.sh` still PASS) | U1, U4 |
+| Session 6 model | `Slot::feg_prev_passed` + `feg_clock` next-segment step on the key-off clock; `slot_stop()` = fetch stop + `AEG.off` + `CA = 0` in one (`off_in` / `slot_off` removed), the DL compare also on the stop clock; `read()` of MIXS returns `MIXS_bank[samples & 1]`; `Slot::egreg` / `eg_latch` removed -- r10 / r14 / r18 / r40 / r44 and the FLV targets read live | U1-U4 |
 
-Model diff: `git diff HEAD -- src/ tools/`.  New expected outputs (`work/verify/expected/`): `eg_model_all.txt` (updated
+Model diff (session 5): `git show 5207a9f -- model/src model/tools`; session 6: `git diff HEAD -- src/`.  New expected outputs (`work/verify/expected/`): `eg_model_all.txt` (updated
 to 89 runs; the session-4 version kept as `eg_model_all_s4.txt`, likewise `feg_validate_s4.txt`), `eg_replay_<run>.txt` (koff_d2,
 koff_d2b, koff_d1, koff_att, kon_rel), `tail_cmp_hw.txt`, `validate_s5.txt` (the gate's PASS output), `kfit_hw.txt`,
 `koff_fit_hw_<run>.txt`, `koffdir_check_hw.txt`, `koffatt_check_hw.txt`, `mixsw_check_hw.txt`, `mixsw_check_model.txt`.
@@ -56,7 +61,7 @@ re-running our tools.
 
 ```sh
 make -C tools -j8        # every tools/*.cpp -> build/tools/ (eg_model, eg_replay, tail_cmp, feg_validate, filt_*_model link src/aica_model.cpp)
-make -C host -j8         # 47 case binaries -> build/host/
+make -C host -j8         # 53 case binaries -> build/host/ (47 + the session-6 six)
 mkdir -p build/work      # scratch programs (work/**/*.cpp) build here, e.g.:
 g++ -O2 -std=c++17 -fopenmp -o build/work/s1_indep work/verify/s5/s1_indep.cpp
 build/tools/eg_model | tail -n 1            # sanity: TOTAL full=89/89  (about half a minute)
@@ -157,8 +162,9 @@ more step by the old segment's own formula (= H1 for a decay), H3 no step.
 - Controls: the readings differ pairwise by at least one u at E on slots 0 / 1 (the `window` blocks print observed u
   and each reading's prediction at E / E+2 / E+4); the model built from the pre-change source ("old increment toward
   the release target") makes the S3 row FULL and oldStep 1/3 (cases_ext.md).
-- INCONCLUSIVE: the key-off clock when the old segment's `passed` flag is set (an attack / decay 1 that crossed its
-  target on the previous clock) -- the model takes the old increment and direction against FLV4, unmeasured.
+- INCONCLUSIVE in session 5, CLOSED in session 6 (U1): the key-off clock when the old segment's `passed` flag is set
+  (an attack / decay 1 that crossed its target on the previous clock) takes the NEXT segment's step; the session-5
+  model's "old increment and direction against FLV4" is refuted 0/23 (tests/feg_koffpass).
 
 ### T5 — odd key-off samples: nothing on the sample, release from the next clock (work/verify/s5/S3alt.md)
 
@@ -191,7 +197,7 @@ more step by the old segment's own formula (= H1 for a decay), H3 no step.
   under the rule (T3's eg_replay).  eg_lock odd_dec is consistent with both (still FULL).
 - Model: `aeg_clock`, the `keyed` branch moves ATTACK → DECAY1 when a == 0 without a step.
 
-### T8 — slot stop at 0x3C0, off past 0x3FF, each one sample after its clock; no mute; the FEG runs on; rate registers one sample late (tests/slot_tail)
+### T8 — slot stop at 0x3C0, off past 0x3FF, each one sample after its clock; no mute; the FEG runs on; ~~rate registers one sample late~~ (REFUTED, see U4) (tests/slot_tail)
 
 Three runs (tail_a / tail_b: 13568 samples, tail_c: 14528; 0 errors), random full-scale input, VOFF 1 or 0, filter on
 or off, releases at R 62 / 48 / 63 / 49, tail_c re-enacting the eg_lock quiet sequence (RR + SA rewrite, IMXL 0) with a
@@ -217,6 +223,13 @@ known second signal at RAM 0.
   the measured fetch-stop lag); whether CA holds or advances between the stop and off; whether DL / KRS (same register
   as RR) and the FEG rates share the one-sample latch; the sub-sample alternative to the latch (the write landing between
   slot 0's EG update and its fetch) is indistinguishable at the model's resolution.
+- Session 6 (see the addendum): "off past 0x3FF" is SUPERSEDED -- the monitor's 0x1FFF and the CA reset both come with
+  the 0x3C0 stop (U2, tests/ca_stop), so the two open CA / off items are moot; the "rate registers one sample late"
+  clause is REFUTED (U4: tests/eg_latch / eg_latch2 / eg_latch3, every register live, 0 latched) -- tail_c's RR is the
+  in-sample ordering (its write landed after sample 11300's envelope phase), so the "Live rate registers: tail_c s0
+  fails 11539" control above only holds with the RR write forced onto the SA write's sample; `tail_cmp` now searches
+  d = w00 - w14 in {1, 0, -1} and tail_c fits with `w00 11300 / w14 11301`, 12/12 unchanged (`expected/tail_cmp_hw.txt`
+  regenerated by the bit check, `work/verify/s6/bitcheck.txt`).
 
 ### T9 — every slot writes its ISEL bus every sample; IMXL is a gain; a bus retains only when no slot points at it (tests/mixs_write)
 
@@ -260,29 +273,185 @@ or `eg_phase` on an eg_lock att_slow capture, then pass `-K` / the K argument to
 koffdir_check; eg_model's run table carries its own K).  Worth doing, from NOTES "Open items":
 - **What sets K at boot**: power-cycle / reset the console and run `./run_hw.sh eg_kprobe` first thing; compare K with
   6491 and with MDEC_CT at the head (kfit prints both); a second reboot tells whether it is constant or random.
-- **FEG key-off clock with the old segment's `passed` flag set**: an attack or decay 1 that crossed its target on the
-  previous clock, keyed off on the following clock (witness-pinned as in feg_koffatt).
-- **CA between the fetch stop and off**: a slow release (R 48: 64 clocks between 0x3C0 and 0x400) with the CA monitor
-  polled through it.
-- **DL / KRS and the FEG rate registers through the one-sample latch**: rewrite them on a running slot WITHOUT a
-  KYONEX on a clock sample and see whether the first step at the new rate is on that clock or the next (only RR is
-  measured, tail_c).
+- **FEG key-off clock with the old segment's `passed` flag set** -- DONE in session 6 (U1, tests/feg_koffpass).
+- **CA between the fetch stop and off** -- DONE in session 6 (U2, tests/ca_stop: moot, CA reads 0 from the stop).
 - **The sub-sample order of a CPU MIXS write against the SGC write** (dsp_basic F ira 25).
 - Not a console item: the cap_start head-estimate shift of whole-program model runs (harness; see T10).
 
+## Session 6 addendum (2026-09-23 night, same console boot, K 6491; uncommitted)
+
+Six console cases (feg_koffpass, ca_stop, mixs_rd, eg_latch, eg_latch2, eg_latch3 -- every capture 0 counter errors, 64
+marks), two standalone checkers (`tools/koffpass_check.cpp`, `tools/latch_check.cpp`; both build with `make -C tools`),
+four model changes (`git diff HEAD -- src/`): `Slot::feg_prev_passed` and the next-segment key-off step in `feg_clock`;
+`slot_stop()` = fetch stop + `AEG.off` + `CA = 0` in one, `off_in` / `slot_off()` removed, the decay 1 -> 2 compare also on
+the stop clock; `read()` of 0x4500.. returns `MIXS_bank[samples & 1]`; `Slot::egreg` / `eg_latch()` removed (every
+envelope register read live).  `tools/tail_cmp.cpp` stage 2 searches the RR write at d = w00 - w14 in {1, 0, -1}.
+Reports: `work/verify/s6/case_feg_koffpass.md`, `case_eg_latch.md`, `docs_s6a.md`, `docs_s6b.md`; the full bit-check
+transcript `work/verify/s6/bitcheck.txt`.  Final gates: `eg_model` 89/89, `eg_replay` 5 runs 4/4 (16/16 clean cycles),
+`tail_cmp_all.sh` 12/12 (tail_c `w14 11301`), `feg_validate` 9/9, `validate_s5.sh` PASS, `koffpass_check
+tests/feg_koffpass/model` nextSeg 11/11 + 8/8.  Whole-program model outputs that changed against session 5:
+`tests/probe/model/probe.txt` (the MIXS0.l/.h readback lines, now the console's except one nibble) and
+`tests/sgc_keys/model/sgc_keys.txt` (K4's "EG 5fff CA 0000" at 5868 us, was 6231).  T1-T7, T9, T10 stand; T8's "off past
+0x3FF" is superseded by U2 and its "rate registers one sample late" is refuted by U4.  Setup as above; the checkers take
+`-K` after a reboot.
+
+### U1 — FEG key-off on the clock after the old segment passed its target: the NEXT segment's step (tests/feg_koffpass)
+
+Two runs (kp_a 33152 samples, kp_b 33280; 0 errors; 64 cycles each) of the feg_koffatt harness: FEG slots 0..2 (random
+input, Q 4, VOFF 1) with the AEG witness slot 3 (R 63) keyed ON by the KYONEX that keys them OFF.  All three slots cross a
+target on the same clock N (kp_a N = 8, kp_b N = 12): s0 attack UP 0x1800 → FLV1 0x1810 at +2 (R 52), s1 attack DOWN
+0x1C00 → FLV1 0x1BF2 at -2 (ends strictly below, 0x1BF0), s2 decay 1 UP 0x1808 → FLV2 0x1816 at +2 after a one-clock
+R 60 attack (kp_b: 0x1818 / 0x1BEA / 0x181E); releases at R 48 (+1 / -1 / +1).  The key-on → key-off spacing sweeps
+d = E - key-on over 15..20 (kp_a) / 22..29 (kp_b) samples so the even key-offs fall on N, N+1 and the following segment.
+Readings at an N+1 key-off: A oldStep (one more step of the passed segment: the session-5 model), B nextSeg (the segment
+advance, then the new segment's rate and direction: what clock N+1 does without a key-off), C noStep, D relStep (the
+release increment on E); they differ pairwise by >= 1 u at E or E+2 (v offsets +2 / -4 / 0 / +1).
+- `build/tools/koffpass_check tests/feg_koffpass/hw` → `work/koffpass/check_hw.txt`.  Check first: both runs `errors 0`,
+  `64 witness onsets`, every key-on found under hyp 0, `untracked stream-cycles: 0 0 0`, d histograms kp_a `14:2 15:8 16:12
+  17:11 18:12 19:11 20:8`, kp_b `22:1 23:9 24:10 25:14 26:10 27:12 28:7 29:1`.  Verdict: the TOTAL block `N+1  A oldStep
+  0/23  B nextSeg 23/23  C noStep 0/23  D relStep 0/23 | s0: 0 23 0 0/23 s1: 0 23 0 0/23 s2: 0 23 0 0/23` (kp_a 10/10,
+  kp_b 13/13), `N 18/18`, `pre 2/2`, `post 20/20`, `odd* 24/24`, `odd 41/41` FULL for every reading, `N+1 cycles ... where
+  NO reading is FULL: 0; where MORE THAN ONE reading is FULL: 0`.  Every N+1 cycle block ends `A oldStep refuted  B nextSeg
+  FULL  C noStep refuted  D relStep refuted`; e.g. kp_b cycle 5 (E 2736 even, d 25): s0 observed u at E `c0a`, A predicts
+  `c0d`, B `c0a`, C `c0c`, D `c0c`; s1 observed `df6` vs `df3 / df6 / df4 / df3`.
+- Through the model: `./run_model.sh feg_koffpass && build/tools/koffpass_check tests/feg_koffpass/model` →
+  `work/koffpass/check_model_after.txt`: `N+1 A 0/19 B 19/19 C 0/19 D 0/19` (kp_a 11, kp_b 8; the model's d histogram
+  differs from the console's, so the phase counts do), the other phases FULL.  The pre-change model (`git show
+  5207a9f:model/src/aica_model.cpp`) gives `A 19/19 B 0/19` on its own captures (`work/koffpass/check_model.txt`): the
+  checker picks each mechanism out in both directions.  `eg_model | tail -1`
+  still `TOTAL full=89/89` (the session-4/5 events never had `passed` set at the key-off).
+- Controls / what would refute: the N cycles must read the plain attack / decay-1 step (feg_koffatt's rule) and the post
+  cycles decay 1's (s0 / s1: -4 / +4) and decay 2's (s2: -4) plain old step -- decay 1's key-off clock is new FEG
+  evidence; odd* cycles (passed flag pending on an odd key-off sample) must show nothing at E+1 and the release from the
+  next clock (all 24 do; a pending flag acting on an odd sample would fail every reading at E+1).  Any N+1 cycle where B
+  fails while N / post / odd stay FULL, or where two readings fit, refutes the reading (none).  The witness-pin caveat of
+  T3 applies unchanged.
+- Independent: from the NOTES FEG law simulate the key-on → E trajectory with no key-off through clock E and compare the
+  observed u at E (koffpass_check prints the `s<k> observed` rows E-4..E+10): kp_a s0 must read 0x180C >> 1 = `c06` at E.
+
+### U2 — the slot stop at a = 0x3C0 IS "off": monitor 0x1FFF and CA 0 one sample after that clock; nothing at 0x400 (tests/ca_stop)
+
+Slot 0 constant 0x7FFF, loop [0, 4096), AR 31, D1R 31 (+8) to DL 30 -- decay 1 lands exactly on a = 0x3C0 after 120
+clocks -- then decay 2 at D2R 10 (R 20: +1 per 64 clocks, 0x3C0 → 0x400 would take 8192 samples = 186 ms), RR 31; the
+EG and CA monitors polled back to back every ~31 us; every EG state change and every CA change while a >= 0x3B8 is
+logged, then a 5 ms heartbeat.  S1 pitch 1.0 loop, S2 pitch 0.5 (OCT -1, CA advances every other sample), S3 one-shot
+(LPCTL 0, LEA 4096).
+- No tool: `./run_hw.sh ca_stop` → `tests/ca_stop/hw/ca_stop.txt`, read the lines.  S1: `t 5873 us: EG 23c0 (st 1 a 3c0)
+  CA 0102`, `t 5905 us: EG 5fff (st 2 a 1fff) CA 0103`, `t 5937 us: EG 5fff (st 2 a 1fff) CA 0000`; S3: the same at 5864 /
+  5895 / 5927 (CA 0102 / 0103 / 0000); S2: `5859 EG 23b8 CA 0081`, `5891 EG 5fff CA 0081`, `5936 EG 5fff CA 0000`.  No
+  run has a line with `a 3c1`..`a 3ff`; every heartbeat afterwards and the `end:` line read `EG 5fff CA 0000`.  So the
+  monitor flag (with state 2: the decay 1 -> 2 compare ran on the stop clock) appears one poll after the 0x3C0 reading and
+  CA reads 0 one poll after that (the CA read of the poll that first saw 0x1FFF, ~2.4 us after its EG read, still had the
+  old CA): flag and CA reset within ~1-2 samples of the 0x3C0 clock, the CA reset trailing the flag by between one G2 read
+  and one poll (sub-poll, not modelled).
+- What would refute: any `a 3c1..3ff` line (a decay-2 step visible after the stop -- the session-5 rule predicts 0x3C1..0x3FF
+  for 186 ms with CA counting on), the 0x1FFF reading arriving two or more polls after the 0x3C0 one, or CA still nonzero
+  two polls after the 0x1FFF.  The pitch-0.5 and one-shot runs control for a held vs wrapped CA (a held CA would differ
+  from 0 in S3).
+- Model: `./run_model.sh ca_stop` → `tests/ca_stop/model/ca_stop.txt`: S1 `5820 EG 23b8 CA 0101`, `5845 EG 5fff CA 0000`
+  (the model's polls are ~20-25 us apart and it resets CA with the flag in the same sample -- the console's one-poll trail is
+  below that).  tests/sgc_keys K4 (`EG 5fff CA 0000` at 5868 us, console 5916) and the sgc_aeg monitor logs reproduce;
+  `tail_cmp_all.sh tests/slot_tail/hw 6491` still 12/12 (the captures only ever saw the fetch stop; the T8 controls
+  `-DCAIQUE_STOP_A` / `-DCAIQUE_STOP_LAG` still apply to the stop, `CAIQUE_MUTE` to the output).
+- Superseded: T8's "off past 0x3FF, the 128th +8 clock" and the sgc_keys K4 reading "CA reset at off, not at the stop"
+  (K4's poll spacing could not separate the two; ca_stop's slow decay 2 does).  The AEG value still steps to 0x3FF
+  (tail_b's -16 half-waves need the saturated level) but nothing else is observable there.
+
+### U3 — the CPU reads the MIXS bank of the current sample parity, the one its own writes go to (tests/mixs_rd)
+
+Every run: `aica_quiet` (64 slots ISEL 0 IMXL 0 = 64 writers of 0 on bus 0), the configuration, the write of hi 0x1234 /
+lo 0x5 to bus B, then 96 back-to-back hi/lo read pairs ~5.5 us apart (4 pairs per sample) and one read 30 ms later.
+- No tool: `./run_hw.sh mixs_rd` → `tests/mixs_rd/hw/mixs_rd.txt`.  R1 (bus 0): `1 1234/0` then `0000/0` x 95, after 30 ms
+  `0000/0`.  R2 (bus 5, no writer): `before: 1234/5` (retained from dsp_basic, a program run hours earlier), `1234/5` x 96,
+  after 30 ms `1234/5`.  R3 (bus 5, slot 5 playing 0x0100 x 16 at IMXL 15): `1234/5` x 3, then `0100/0` x 93.  R4 (bus 5,
+  slot 5 pointing at it, IMXL 0, off): `1234/5` x 3, `1234/0`, then `0000/0`.  R5 (bus 0, lo written first): `1234/5` once,
+  then `0000/0`.  R6 (bus 5, hi only): `1234/0` x 1, `0000/0` x 4, `1234/0` x 4, `0000/0` x 4 ... (period 8 pairs = 2
+  samples), after 30 ms `1234/0`.  R7 (bus 5, lo only; hi 0x1234 left in one bank by R6): `1234/5 1234/5 1234/0 0000/0 0000/0
+  0000/0 0000/5` then `1234/5` again (period 8), after 30 ms `0000/0`.
+- Reading: a bus with writers shows the CPU value until the next sample boundary (<= 4 pairs), then the SGC value (0, or the
+  sender's 0x0100); a bus nobody points at alternates every sample between the written bank and the untouched bank, so a
+  single-half write is visible on alternate samples for ever.  The low nibble's bank switch is seen one pair (~5 us) before
+  the high word's (R4 `1234/5 → 1234/0 → 0000/0`, R7's `1234/0` / `0000/5` pairs): sub-sample, not modelled.
+- What would refute: R6 / R7 reading one constant value (a single bank on the CPU side), the written value not reading
+  back at all in the first pairs (the session-5 model: the CPU read the DSP-side `MIXS[]` of the last step, so a write was
+  invisible -- its tests/probe MIXS0 lines read 0 for every write pattern, the console 000f / 5555 / aaaa), or R3 showing
+  0x1234 beyond ~1 sample.
+- Model: `./run_model.sh mixs_rd` → `tests/mixs_rd/model/mixs_rd.txt`: the same patterns with the boundary phase differing
+  (R3 `1234/5` x 3 then `1234/0`, `0100/0`; R4 `1234/5` x 2 then `0000/0`; R6 `1234/0` x 4 / `0000/0` x 4; R7 `1234/0` x 4,
+  `1234/5`, `0000/5` x 4 ...); R2 `before: 0000/0` (no earlier program on the model).  tests/probe MIXS0.l/.h now match the
+  console except `MIXS0.l w55555555->r00000000` (console `r00000005`): a model sample boundary fell between that write and
+  its read.
+- Caveat for test writers (NOTES "Test-writing notes"): a bus nobody points at carries values across programs and hours.
+
+### U4 — every envelope register is read live (no one-sample latch); tail_c's delayed RR is in-sample ordering (tests/eg_latch, eg_latch2, eg_latch3)
+
+Method (`work/verify/s6/case_eg_latch.md`): constant-0x7FFF test slots 0..2 (or the feg_koffatt random-input FEG harness),
+three R 63 witnesses 3 / 4 / 5 on bus 3; each rewrite is one write pair -- the register and the witness's reg 0x00 with
+KYONB | KYONEX -- with the write order alternating per cycle (order 0: register then KYONEX, order 1: KYONEX then
+register); the witness onset E pins the sample the pair takes effect on.  A live register acts at clock E, a latched one at
+clock E + 2, so only even E is informative; a sample boundary inside the pair (~10 %) shifts the register by one sample
+against the key event ("straddles": EARLY = the register acted at clock E - 1, only possible for a live register in order
+0; LATE = at E + 3, only for a latched one in order 1).  16 cycles x 3 events per run, every run `errors 0`, 64 marks.
+- `build/tools/latch_check tests/eg_latch/hw` → `work/latch/check_hw.txt`.  SUMMARY lines (even E, order 0 | order 1):
+  `dl ... order0 7: live 6 latched 0 neither 1 | order1 9: live 8 latched 0 neither 1` (`found 33 missed 15`: monitor
+  trigger misses), `krs ... order0 11: live 11 latched 0 | order1 12: live 12 latched 0`, `ar ... order0 8: live 8
+  latched 0 neither 2 | order1 10: live 10 latched 0`, `d2r ... 11: live 11 | 10: live 10`, `feg_rate ... 14: live 14 |
+  15: live 15`, `flv ... order0 1: live 1 latched 0 neither 9 | order1 4: live 4 latched 0 neither 12` (pre-fail 7,
+  identical 6: targets that landed at or below the held value); `LATE 0/0` on every line; EARLY `10/7 5/0 5/0 1/0 1/0
+  3/0`.
+- `build/tools/latch_check tests/eg_latch2/hw` → `work/latch/check2_hw.txt` (5 runs, 48 events each, `found 48 missed 0`):
+  `rr0` (RR 0 → 30 on a held release) `order0 12: live 12 latched 0 | order1 14: live 14 latched 0`, `rr24` (RR 24 → 30)
+  `10: live 10 | 12: live 12`, `rr0_koff` (RR 0 → 30 with the slot's own reg 0x00 KYONB 0 rewritten + KYONEX = tail_c's
+  group without the SA change) `10: live 10 | 10: live 10`, `rekoff24` (RR 24 → 30 with a redundant key-off) `11: live 11
+  | 11: live 11`, `d2r0` (D2R 0 → 28 on a held decay 2) `6: live 6 | 16: live 16`; `LATE 0/0` everywhere, EARLY 3 / 2 /
+  2 / 2 / 2 in order 0.  So no register latch, no "rate 0 → nonzero arming", and a redundant key-off on a released slot
+  changes nothing.
+- `build/tools/latch_check tests/eg_latch3/hw` → `work/latch/check3_hw.txt` (5 runs, RR 0 → 30 plus a PROBE write in the
+  same group): `none` (control) `order0 16: live 16 | order1 18: live 18`, `sa_hi` (reg 0x00 SA[22:16] 0x20000 → 0x10000)
+  `14: live 14 | 15: live 15`, `sa_lo` (reg 0x04) `13: live 13 | 11: live 11`, `lpctl` (1 → 0) `14: live 12 neither 2 |
+  11: live 11`, `lea` `14: live 14 | 11: live 11`; `latched 0`, `LATE 0/0` everywhere; `CA restarted 0/48` on every run --
+  an SA / LPCTL / LEA rewrite neither restarts the stream nor blocks the envelope step.
+- Through the model: `./run_model.sh eg_latch eg_latch2 eg_latch3` then the checker on `tests/<case>/model` →
+  `work/verify/s6/case_eg_latch_model.txt` (the session-5 latched model: order 1 100 % latched, LATE in order 1 -- the
+  mirror), `case_eg_latch2_model.txt`, `case_eg_latch3_model.txt`; the live control build `work/latch/aica_model_live.cpp`
+  (`case_eg_latch_model_live.txt`, `case_eg_latch2_model_live.txt`) reproduces the console signature (order 0 100 % live,
+  EARLY only in order 0, LATE 0); `work/latch/aica_model_noskip.cpp` / `case_eg_latch3_model_noskip.txt` is the eg_latch3
+  control build.  The production model now reads every register live (`git diff HEAD -- src/`: `egreg` / `eg_latch` gone).
+- Controls / what would refute: a latched register predicts the order-1 events at clock E + 2 (`latched`) and LATE
+  straddles -- 0 observed across 359 informative even-E events (110 + 112 + 137); the straddle minority must appear as EARLY in order 0 only
+  (it does: 10 / 5 / 5 / 1 / 1 / 3 in eg_latch, 1-3 per run in eg_latch2 / eg_latch3, plus the odd order-1 EARLY in
+  sa_hi 1 and lpctl 2 -- a KYONEX landing one sample after its register in order 1).  A `latched` count > 0 on any run,
+  or `LATE` > 0, refutes U4; `CA restarted` > 0 on eg_latch3 would mean SA / LPCTL / LEA writes restart the stream.
+- What tail_c's delayed RR was (T8): an in-sample ordering effect.  Within a sample period the envelope update runs before
+  the sample fetch / output; key events always take effect from the next sample; a register write landing after a
+  sample's envelope phase is seen by that sample's fetch but only by the next sample's envelope clock (one landing
+  before it acts in its own sample).  tail_c's group (RR 0 → 31, reg 0x00 := 0, KYONEX) landed between the two phases of
+  11300: the SA switch shows at 11300, the first +8 release step at 11302.  The EARLY straddles are the same effect
+  seen from the other side (the register before the envelope phase, the KYONEX a sample later).  The model steps whole
+  samples and applies writes between steps, so it cannot place a write inside a sample (a known sub-sample limitation;
+  RTL rule: EG update first, then fetch / output); `tools/tail_cmp` stage 2 lets the RR write land d = w00 - w14 in {1, 0,
+  -1} samples after the SA write and tail_c fits with `w00 11300 / w14 11301`, `TOTAL ... streams FULL 12/12`.
+- Independent: on any eg_latch run derive E from the bus-3 witness onset and check the test slot's first sample at the
+  new rate against the level law: a live DL / KRS / AR / D2R must change the step at clock E, never at E + 2.
+
 ## Reference: key paths
 
-- Model: `src/aica_model.cpp` -- `step()` (key events, clock, every slot's bus write, stop/off commit, `eg_latch`),
-  `aeg_clock` (key-off rules, R 63 transition, stop/off arming), `feg_clock` (`feg_prev`, `feg_prev_dir`), `slot_stop`
-  / `slot_off`, `slot_output` (no mute), `eg_increment`, `key_on`, `key_off`, `lpf_step`; macros at the top.
+- Model: `src/aica_model.cpp` -- `step()` (key events, clock, every slot's bus write, stop commit; no register latch),
+  `aeg_clock` (key-off rules, R 63 transition, stop arming; registers live), `feg_clock` (`feg_prev`, `feg_prev_dir`, `feg_prev_passed`),
+  `slot_stop` (fetch stop + off + CA 0, session 6), `slot_output` (no mute), `eg_increment`, `key_on`, `key_off`,
+  `lpf_step`, `read()` (MIXS = current-parity bank); macros at the top.
 - Evidence: `tests/aeg_koff/hw/` (+ `hw_run1/`), `tests/eg_kprobe/hw/`, `tests/slot_tail/hw/`, `tests/feg_koffdir/hw/`,
-  `tests/feg_koffatt/hw/`, `tests/mixs_write/hw/` (session 5), `tests/eg_lock/hw/`, `tests/feg_krs/hw/` (session 4),
+  `tests/feg_koffatt/hw/`, `tests/mixs_write/hw/` (session 5), `tests/feg_koffpass/hw/`, `tests/ca_stop/hw/`,
+  `tests/mixs_rd/hw/`, `tests/eg_latch/hw/`, `tests/eg_latch2/hw/`, `tests/eg_latch3/hw/` (session 6), `tests/eg_lock/hw/`, `tests/feg_krs/hw/` (session 4),
   plus the earlier `tests/<case>/hw/`.
 - Validators: `tools/eg_model.cpp` (everything envelope, 89 runs), `tools/eg_replay.cpp` (aeg_koff cycles),
   `tools/tail_cmp.cpp` + `tail_cmp_all.sh` (slot_tail), `tools/validate_s5.sh` (the gate), `tools/feg_validate.cpp`,
   `tools/filt_validate.cpp` (`filt_validate_model`), `tools/filt_overflow.cpp`.
 - Standalone fitters: `tools/kfit.cpp`, `tools/koff_fit.cpp`, `tools/koffdir_check.cpp` + `tools/feg_law.h`,
-  `tools/koffatt_check.cpp`, `tools/mixsw_check.cpp`; `work/verify/s5/s1_indep.cpp`, `s3alt.cpp`.
-- Reports: `work/verify/s5/*.md`; session 4: `work/verify/s4.md`, `work/verify/s4/`.
+  `tools/koffatt_check.cpp`, `tools/mixsw_check.cpp`; `work/verify/s5/s1_indep.cpp`, `s3alt.cpp`; session 6:
+  `tools/koffpass_check.cpp` (feg_koffpass, outputs `work/koffpass/`), `tools/latch_check.cpp` (eg_latch / eg_latch2 /
+  eg_latch3, outputs `work/latch/check_hw.txt`, `check2_hw.txt`, `check3_hw.txt`; control builds `work/latch/aica_model_live.cpp`,
+  `aica_model_noskip.cpp`).
+- Reports: `work/verify/s6/*.md` (session 6), `work/verify/s5/*.md`; session 4: `work/verify/s4.md`, `work/verify/s4/`.
 - Previous handovers: `git show ba720b9:model/HANDOVER.md` (session 4), `git show fa451ca:model/HANDOVER.md` (session 3),
   `git show a07a62d:model/HANDOVER.md` (breakthrough).

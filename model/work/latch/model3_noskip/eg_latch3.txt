@@ -1,0 +1,275 @@
+none stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+none stream 1: slot 1 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+none stream 2: slot 2 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+none stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+none run: mode aeg cycles 16 koff_us 10000 cycle_us 31000 koff_before 1 restore_us 29000 probe none SA 10000/20000 LEA 4096 | ev0 slot 0 RR trig time 12000+1500 val 30 probe none | ev1 slot 1 RR trig time 16000+1500 val 30 probe none | ev2 slot 2 RR trig time 20000+1500 val 30 probe none
+cap_start: counter word fd39 at e4a0 (n 710), next fd3a fd3b fd3c, c0 e766, head n 723
+none cyc 0 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 578 579 590 rnd 41584 spin 29 t_us 13118 witness 3
+none cyc 0 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 718 718 730 rnd 60256 spin 26 t_us 16287 witness 4
+none cyc 0 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 922 923 934 rnd 50407 spin 7 t_us 20919 witness 5
+none cyc 1 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 567 568 579 rnd 41349 spin 19 t_us 12873 witness 3
+none cyc 1 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 745 745 756 rnd 10746 spin 30 t_us 16891 witness 4
+none cyc 1 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 936 936 947 rnd 33527 spin 7 t_us 21223 witness 5
+none cyc 2 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 576 577 588 rnd 13848 spin 20 t_us 13068 witness 3
+none cyc 2 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 712 712 723 rnd 55621 spin 14 t_us 16140 witness 4
+none cyc 2 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 961 961 972 rnd 46093 spin 35 t_us 21791 witness 5
+none cyc 3 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 553 553 564 rnd 13707 spin 38 t_us 12546 witness 3
+none cyc 3 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 744 745 756 rnd 48651 spin 24 t_us 16885 witness 4
+none cyc 3 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 936 936 947 rnd 15960 spin 4 t_us 21220 witness 5
+none cyc 4 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 576 576 587 rnd 11132 spin 14 t_us 13064 witness 3
+none cyc 4 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 719 719 730 rnd 28768 spin 26 t_us 16299 witness 4
+none cyc 4 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 927 927 939 rnd 3978 spin 41 t_us 21024 witness 5
+none cyc 5 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 567 567 578 rnd 15846 spin 5 t_us 12856 witness 3
+none cyc 5 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 744 744 756 rnd 37994 spin 17 t_us 16879 witness 4
+none cyc 5 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 937 937 948 rnd 47336 spin 30 t_us 21246 witness 5
+none cyc 6 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 585 585 596 rnd 16236 spin 25 t_us 13266 witness 3
+none cyc 6 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 769 769 780 rnd 46087 spin 27 t_us 17431 witness 4
+none cyc 6 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 896 896 907 rnd 27076 spin 9 t_us 20315 witness 5
+none cyc 7 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 552 552 563 rnd 1597 spin 4 t_us 12514 witness 3
+none cyc 7 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 761 762 773 rnd 31253 spin 11 t_us 17269 witness 4
+none cyc 7 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 943 943 954 rnd 23869 spin 14 t_us 21388 witness 5
+none cyc 8 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 576 576 587 rnd 10947 spin 13 t_us 13063 witness 3
+none cyc 8 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 768 768 779 rnd 51881 spin 12 t_us 17416 witness 4
+none cyc 8 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 961 962 973 rnd 59637 spin 44 t_us 21801 witness 5
+none cyc 9 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 552 552 564 rnd 63478 spin 16 t_us 12524 witness 3
+none cyc 9 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 744 745 756 rnd 6252 spin 20 t_us 16883 witness 4
+none cyc 9 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 936 936 947 rnd 44319 spin 9 t_us 21225 witness 5
+none cyc 10 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 540 540 551 rnd 51207 spin 31 t_us 12243 witness 3
+none cyc 10 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 768 768 779 rnd 5645 spin 11 t_us 17413 witness 4
+none cyc 10 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 960 960 971 rnd 8978 spin 11 t_us 21767 witness 5
+none cyc 11 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 558 558 569 rnd 62145 spin 10 t_us 12660 witness 3
+none cyc 11 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 743 744 755 rnd 43858 spin 1 t_us 16864 witness 4
+none cyc 11 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 883 884 895 rnd 40519 spin 12 t_us 20036 witness 5
+none cyc 12 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 576 577 588 rnd 2001 spin 22 t_us 13070 witness 3
+none cyc 12 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 707 708 719 rnd 39003 spin 35 t_us 16043 witness 4
+none cyc 12 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 961 961 972 rnd 62570 spin 36 t_us 21793 witness 5
+none cyc 13 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 551 552 563 rnd 64984 spin 2 t_us 12510 witness 3
+none cyc 13 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 772 773 784 rnd 40467 spin 45 t_us 17517 witness 4
+none cyc 13 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 937 937 949 rnd 7140 spin 41 t_us 21256 witness 5
+none cyc 14 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 576 577 588 rnd 30701 spin 19 t_us 13069 witness 3
+none cyc 14 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 769 769 780 rnd 2525 spin 36 t_us 17440 witness 4
+none cyc 14 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe none 0000 ca 917 917 928 rnd 21773 spin 19 t_us 20797 witness 5
+none cyc 15 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 616 617 628 rnd 62978 spin 20 t_us 13979 witness 3
+none cyc 15 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 744 744 755 rnd 21256 spin 13 t_us 16875 witness 4
+none cyc 15 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe none 0000 ca 935 936 947 rnd 37089 spin 0 t_us 21216 witness 5
+none: 22592 samples, errors 0, 64 marks
+sa_hi stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_hi stream 1: slot 1 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_hi stream 2: slot 2 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_hi stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+sa_hi run: mode aeg cycles 16 koff_us 10000 cycle_us 31000 koff_before 1 restore_us 29000 probe sa_hi SA 10000/20000 LEA 4096 | ev0 slot 0 RR trig time 12000+1500 val 30 probe sa_hi | ev1 slot 1 RR trig time 16000+1500 val 30 probe sa_hi | ev2 slot 2 RR trig time 20000+1500 val 30 probe sa_hi
+cap_start: counter word fda2 at 7720 (n 605), next fda3 fda4 fda5, c0 797d, head n 631
+sa_hi cyc 0 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 594 595 606 rnd 58422 spin 38 t_us 13465 witness 3
+sa_hi cyc 0 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 734 735 746 rnd 27613 spin 24 t_us 16642 witness 4
+sa_hi cyc 0 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 897 897 909 rnd 45192 spin 23 t_us 20329 witness 5
+sa_hi cyc 1 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 555 555 566 rnd 15546 spin 25 t_us 12576 witness 3
+sa_hi cyc 1 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 766 767 778 rnd 14836 spin 30 t_us 17371 witness 4
+sa_hi cyc 1 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 940 941 952 rnd 56783 spin 28 t_us 21316 witness 5
+sa_hi cyc 2 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 578 578 589 rnd 50041 spin 38 t_us 13087 witness 3
+sa_hi cyc 2 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 770 770 781 rnd 1223 spin 38 t_us 17441 witness 4
+sa_hi cyc 2 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 896 896 907 rnd 6046 spin 0 t_us 20305 witness 5
+sa_hi cyc 3 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 580 581 592 rnd 23632 spin 15 t_us 13152 witness 3
+sa_hi cyc 3 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 757 757 768 rnd 55121 spin 30 t_us 17156 witness 4
+sa_hi cyc 3 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 944 944 955 rnd 13391 spin 0 t_us 21396 witness 5
+sa_hi cyc 4 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 577 578 589 rnd 55938 spin 30 t_us 13079 witness 3
+sa_hi cyc 4 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 769 770 781 rnd 63971 spin 32 t_us 17435 witness 4
+sa_hi cyc 4 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 913 913 924 rnd 65151 spin 27 t_us 20683 witness 5
+sa_hi cyc 5 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 579 580 591 rnd 13088 spin 31 t_us 13124 witness 3
+sa_hi cyc 5 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 746 746 757 rnd 32270 spin 43 t_us 16905 witness 4
+sa_hi cyc 5 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 944 944 955 rnd 31368 spin 19 t_us 21392 witness 5
+sa_hi cyc 6 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 592 593 604 rnd 44876 spin 35 t_us 13416 witness 3
+sa_hi cyc 6 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 715 715 726 rnd 46665 spin 23 t_us 16193 witness 4
+sa_hi cyc 6 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 905 905 916 rnd 49992 spin 7 t_us 20504 witness 5
+sa_hi cyc 7 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 552 552 564 rnd 34617 spin 1 t_us 12510 witness 3
+sa_hi cyc 7 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 760 760 771 rnd 58207 spin 10 t_us 17222 witness 4
+sa_hi cyc 7 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 903 903 914 rnd 43921 spin 35 t_us 20461 witness 5
+sa_hi cyc 8 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 544 545 556 rnd 51285 spin 44 t_us 12334 witness 3
+sa_hi cyc 8 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 769 770 781 rnd 53613 spin 26 t_us 17429 witness 4
+sa_hi cyc 8 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 919 919 930 rnd 42808 spin 11 t_us 20824 witness 5
+sa_hi cyc 9 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 570 570 582 rnd 5375 spin 39 t_us 12919 witness 3
+sa_hi cyc 9 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 755 756 767 rnd 4085 spin 33 t_us 17123 witness 4
+sa_hi cyc 9 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 937 937 948 rnd 9878 spin 17 t_us 21233 witness 5
+sa_hi cyc 10 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 576 577 588 rnd 6583 spin 4 t_us 13054 witness 3
+sa_hi cyc 10 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 722 723 734 rnd 54355 spin 11 t_us 16371 witness 4
+sa_hi cyc 10 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 917 917 928 rnd 63747 spin 26 t_us 20778 witness 5
+sa_hi cyc 11 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 579 580 591 rnd 29605 spin 23 t_us 13133 witness 3
+sa_hi cyc 11 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 745 745 756 rnd 56212 spin 15 t_us 16878 witness 4
+sa_hi cyc 11 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 938 938 949 rnd 26249 spin 37 t_us 21253 witness 5
+sa_hi cyc 12 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 578 578 589 rnd 42488 spin 39 t_us 13088 witness 3
+sa_hi cyc 12 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 768 769 780 rnd 47235 spin 6 t_us 17409 witness 4
+sa_hi cyc 12 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 962 962 973 rnd 61159 spin 44 t_us 21801 witness 5
+sa_hi cyc 13 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 562 563 574 rnd 36699 spin 41 t_us 12745 witness 3
+sa_hi cyc 13 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 744 745 756 rnd 21606 spin 3 t_us 16865 witness 4
+sa_hi cyc 13 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 897 897 909 rnd 60312 spin 16 t_us 20333 witness 5
+sa_hi cyc 14 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 539 539 550 rnd 1696 spin 5 t_us 12206 witness 3
+sa_hi cyc 14 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 768 769 780 rnd 62654 spin 7 t_us 17410 witness 4
+sa_hi cyc 14 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0202 ca 899 900 911 rnd 9343 spin 35 t_us 20383 witness 5
+sa_hi cyc 15 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 554 554 565 rnd 52551 spin 42 t_us 12550 witness 3
+sa_hi cyc 15 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 770 771 782 rnd 17933 spin 21 t_us 17459 witness 4
+sa_hi cyc 15 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0202 ca 888 888 900 rnd 43618 spin 7 t_us 20130 witness 5
+sa_hi: 22592 samples, errors 0, 64 marks
+sa_lo stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_lo stream 1: slot 1 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_lo stream 2: slot 2 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+sa_lo stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+sa_lo run: mode aeg cycles 16 koff_us 10000 cycle_us 31000 koff_before 1 restore_us 29000 probe sa_lo SA 10000/20000 LEA 4096 | ev0 slot 0 RR trig time 12000+1500 val 30 probe sa_lo | ev1 slot 1 RR trig time 16000+1500 val 30 probe sa_lo | ev2 slot 2 RR trig time 20000+1500 val 30 probe sa_lo
+cap_start: counter word fdef at 09e0 (n 528), next fdf0 fdf1 fdf2, c0 0bf0, head n 538
+sa_lo cyc 0 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 576 576 587 rnd 9724 spin 14 t_us 13064 witness 3
+sa_lo cyc 0 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 729 729 740 rnd 60507 spin 23 t_us 16535 witness 4
+sa_lo cyc 0 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 927 927 938 rnd 39978 spin 40 t_us 21023 witness 5
+sa_lo cyc 1 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 617 618 629 rnd 55279 spin 31 t_us 13991 witness 3
+sa_lo cyc 1 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 748 749 760 rnd 18926 spin 31 t_us 16962 witness 4
+sa_lo cyc 1 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 936 937 948 rnd 14503 spin 3 t_us 21219 witness 5
+sa_lo cyc 2 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 583 583 594 rnd 20697 spin 24 t_us 13226 witness 3
+sa_lo cyc 2 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 721 722 733 rnd 12362 spin 3 t_us 16370 witness 4
+sa_lo cyc 2 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 895 896 907 rnd 31535 spin 10 t_us 20315 witness 5
+sa_lo cyc 3 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 556 556 568 rnd 33556 spin 38 t_us 12599 witness 3
+sa_lo cyc 3 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 712 712 723 rnd 61591 spin 37 t_us 16133 witness 4
+sa_lo cyc 3 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 899 899 910 rnd 10821 spin 43 t_us 20369 witness 5
+sa_lo cyc 4 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 576 576 587 rnd 35209 spin 13 t_us 13062 witness 3
+sa_lo cyc 4 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 735 736 747 rnd 33638 spin 38 t_us 16681 witness 4
+sa_lo cyc 4 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 917 917 928 rnd 60788 spin 0 t_us 20793 witness 5
+sa_lo cyc 5 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 617 618 629 rnd 10329 spin 25 t_us 13984 witness 3
+sa_lo cyc 5 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 753 753 764 rnd 26546 spin 9 t_us 17060 witness 4
+sa_lo cyc 5 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 902 903 914 rnd 15400 spin 41 t_us 20446 witness 5
+sa_lo cyc 6 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 577 577 589 rnd 7980 spin 45 t_us 13094 witness 3
+sa_lo cyc 6 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 768 768 779 rnd 47242 spin 19 t_us 17422 witness 4
+sa_lo cyc 6 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 959 960 971 rnd 7373 spin 6 t_us 21763 witness 5
+sa_lo cyc 7 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 558 559 570 rnd 2100 spin 44 t_us 12649 witness 3
+sa_lo cyc 7 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 713 713 724 rnd 19624 spin 23 t_us 16152 witness 4
+sa_lo cyc 7 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 936 937 948 rnd 63974 spin 10 t_us 21226 witness 5
+sa_lo cyc 8 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 577 577 588 rnd 26088 spin 43 t_us 13092 witness 3
+sa_lo cyc 8 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 769 769 780 rnd 55345 spin 39 t_us 17442 witness 4
+sa_lo cyc 8 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 903 904 915 rnd 25979 spin 10 t_us 20494 witness 5
+sa_lo cyc 9 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 566 567 578 rnd 12808 spin 16 t_us 12829 witness 3
+sa_lo cyc 9 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 745 745 756 rnd 1918 spin 13 t_us 16875 witness 4
+sa_lo cyc 9 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 904 904 916 rnd 40974 spin 11 t_us 20490 witness 5
+sa_lo cyc 10 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 577 577 588 rnd 27495 spin 36 t_us 13086 witness 3
+sa_lo cyc 10 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 709 709 720 rnd 37529 spin 44 t_us 16078 witness 4
+sa_lo cyc 10 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 905 905 916 rnd 52980 spin 42 t_us 20527 witness 5
+sa_lo cyc 11 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 579 580 591 rnd 62601 spin 21 t_us 13127 witness 3
+sa_lo cyc 11 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 709 709 720 rnd 3031 spin 28 t_us 16064 witness 4
+sa_lo cyc 11 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 949 949 960 rnd 11980 spin 15 t_us 21500 witness 5
+sa_lo cyc 12 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 576 576 588 rnd 17438 spin 23 t_us 13072 witness 3
+sa_lo cyc 12 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 771 772 783 rnd 55468 spin 23 t_us 17496 witness 4
+sa_lo cyc 12 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 959 960 971 rnd 59748 spin 7 t_us 21764 witness 5
+sa_lo cyc 13 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 572 572 583 rnd 8415 spin 34 t_us 12954 witness 3
+sa_lo cyc 13 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 761 762 773 rnd 2745 spin 7 t_us 17257 witness 4
+sa_lo cyc 13 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 948 949 960 rnd 47949 spin 37 t_us 21491 witness 5
+sa_lo cyc 14 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 575 576 587 rnd 38226 spin 5 t_us 13054 witness 3
+sa_lo cyc 14 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 717 718 729 rnd 57247 spin 25 t_us 16277 witness 4
+sa_lo cyc 14 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 04 0040 ca 924 924 935 rnd 62449 spin 5 t_us 20959 witness 5
+sa_lo cyc 15 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 552 553 564 rnd 42124 spin 5 t_us 12513 witness 3
+sa_lo cyc 15 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 757 757 768 rnd 14611 spin 30 t_us 17146 witness 4
+sa_lo cyc 15 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 04 0040 ca 937 937 948 rnd 50146 spin 14 t_us 21230 witness 5
+sa_lo: 22592 samples, errors 0, 64 marks
+lpctl stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lpctl stream 1: slot 1 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lpctl stream 2: slot 2 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lpctl stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+lpctl run: mode aeg cycles 16 koff_us 10000 cycle_us 31000 koff_before 1 restore_us 29000 probe lpctl SA 10000/20000 LEA 4096 | ev0 slot 0 RR trig time 12000+1500 val 30 probe lpctl | ev1 slot 1 RR trig time 16000+1500 val 30 probe lpctl | ev2 slot 2 RR trig time 20000+1500 val 30 probe lpctl
+cap_start: counter word fd7f at 9c40 (n 640), next fd80 fd81 fd82, c0 9ec0, head n 662
+lpctl cyc 0 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 577 578 589 rnd 26563 spin 37 t_us 13105 witness 3
+lpctl cyc 0 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 767 768 779 rnd 27865 spin 7 t_us 17410 witness 4
+lpctl cyc 0 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 895 896 907 rnd 34763 spin 10 t_us 20316 witness 5
+lpctl cyc 1 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 575 575 586 rnd 29477 spin 37 t_us 13019 witness 3
+lpctl cyc 1 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 745 746 757 rnd 23017 spin 31 t_us 16893 witness 4
+lpctl cyc 1 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 895 896 907 rnd 37759 spin 24 t_us 20288 witness 5
+lpctl cyc 2 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 592 593 604 rnd 56890 spin 42 t_us 13437 witness 3
+lpctl cyc 2 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 768 768 779 rnd 23500 spin 13 t_us 17416 witness 4
+lpctl cyc 2 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 896 896 908 rnd 57024 spin 21 t_us 20326 witness 5
+lpctl cyc 3 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 616 617 628 rnd 43481 spin 1 t_us 13961 witness 3
+lpctl cyc 3 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 753 754 765 rnd 2526 spin 44 t_us 17075 witness 4
+lpctl cyc 3 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 937 938 949 rnd 8252 spin 25 t_us 21241 witness 5
+lpctl cyc 4 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 577 577 589 rnd 14479 spin 43 t_us 13092 witness 3
+lpctl cyc 4 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 720 721 732 rnd 3305 spin 30 t_us 16340 witness 4
+lpctl cyc 4 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 923 924 935 rnd 56426 spin 18 t_us 20949 witness 5
+lpctl cyc 5 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 552 553 564 rnd 7571 spin 5 t_us 12513 witness 3
+lpctl cyc 5 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 766 767 778 rnd 20822 spin 35 t_us 17362 witness 4
+lpctl cyc 5 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 905 905 916 rnd 64968 spin 30 t_us 20503 witness 5
+lpctl cyc 6 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 575 576 587 rnd 36620 spin 9 t_us 13058 witness 3
+lpctl cyc 6 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 768 768 779 rnd 47819 spin 15 t_us 17418 witness 4
+lpctl cyc 6 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 895 896 907 rnd 30289 spin 4 t_us 20310 witness 5
+lpctl cyc 7 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 559 559 571 rnd 35120 spin 41 t_us 12666 witness 3
+lpctl cyc 7 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 711 712 723 rnd 46577 spin 37 t_us 16119 witness 4
+lpctl cyc 7 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 906 906 917 rnd 18490 spin 30 t_us 20525 witness 5
+lpctl cyc 8 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 576 577 588 rnd 891 spin 28 t_us 13077 witness 3
+lpctl cyc 8 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 709 709 721 rnd 57076 spin 7 t_us 16088 witness 4
+lpctl cyc 8 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 896 897 908 rnd 9150 spin 24 t_us 20329 witness 5
+lpctl cyc 9 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 564 564 575 rnd 20242 spin 25 t_us 12772 witness 3
+lpctl cyc 9 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 746 746 757 rnd 65286 spin 40 t_us 16902 witness 4
+lpctl cyc 9 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 937 937 948 rnd 6533 spin 19 t_us 21235 witness 5
+lpctl cyc 10 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 575 576 587 rnd 48406 spin 9 t_us 13059 witness 3
+lpctl cyc 10 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 769 769 781 rnd 20704 spin 44 t_us 17447 witness 4
+lpctl cyc 10 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 896 896 907 rnd 42213 spin 12 t_us 20318 witness 5
+lpctl cyc 11 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 554 554 565 rnd 30061 spin 34 t_us 12543 witness 3
+lpctl cyc 11 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 746 746 757 rnd 15385 spin 42 t_us 16905 witness 4
+lpctl cyc 11 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 895 896 907 rnd 63246 spin 40 t_us 20291 witness 5
+lpctl cyc 12 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 575 576 587 rnd 57924 spin 8 t_us 13057 witness 3
+lpctl cyc 12 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 767 768 779 rnd 63701 spin 9 t_us 17412 witness 4
+lpctl cyc 12 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 960 961 972 rnd 58337 spin 29 t_us 21786 witness 5
+lpctl cyc 13 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 561 561 573 rnd 45667 spin 41 t_us 12713 witness 3
+lpctl cyc 13 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 769 770 781 rnd 49421 spin 11 t_us 17437 witness 4
+lpctl cyc 13 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 937 937 948 rnd 35585 spin 12 t_us 21228 witness 5
+lpctl cyc 14 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 540 541 552 rnd 9221 spin 37 t_us 12263 witness 3
+lpctl cyc 14 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 769 769 780 rnd 51840 spin 42 t_us 17445 witness 4
+lpctl cyc 14 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 00 0001 ca 905 905 917 rnd 50019 spin 7 t_us 20531 witness 5
+lpctl cyc 15 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 553 554 565 rnd 31696 spin 27 t_us 12535 witness 3
+lpctl cyc 15 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 746 746 757 rnd 11288 spin 39 t_us 16901 witness 4
+lpctl cyc 15 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 00 0001 ca 937 937 949 rnd 56675 spin 21 t_us 21237 witness 5
+lpctl: 22592 samples, errors 0, 64 marks
+lea stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lea stream 1: slot 1 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lea stream 2: slot 2 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 OCT 0 FNS 000 VOFF 0 LPOFF 1 Q 0 FLV 1ff8 1ff8 1ff8 1ff8 1ff8 FAR 31 FD1R 31 FD2R 31 FRR 31
+lea stream 3: slots 3 4 5 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 (witness j keys on with event j)
+lea run: mode aeg cycles 16 koff_us 10000 cycle_us 31000 koff_before 1 restore_us 29000 probe lea SA 10000/20000 LEA 4096 | ev0 slot 0 RR trig time 12000+1500 val 30 probe lea | ev1 slot 1 RR trig time 16000+1500 val 30 probe lea | ev2 slot 2 RR trig time 20000+1500 val 30 probe lea
+cap_start: counter word fdcb at 2ee0 (n 564), next fdcc fdcd fdce, c0 3114, head n 569
+lea cyc 0 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 592 592 603 rnd 43401 spin 14 t_us 13420 witness 3
+lea cyc 0 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 768 768 779 rnd 60759 spin 6 t_us 17409 witness 4
+lea cyc 0 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 961 961 972 rnd 29548 spin 26 t_us 21784 witness 5
+lea cyc 1 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 560 561 572 rnd 3674 spin 29 t_us 12708 witness 3
+lea cyc 1 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 712 712 723 rnd 27107 spin 32 t_us 16144 witness 4
+lea cyc 1 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 937 937 948 rnd 61015 spin 31 t_us 21247 witness 5
+lea cyc 2 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 577 577 588 rnd 27546 spin 29 t_us 13079 witness 3
+lea cyc 2 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 714 714 725 rnd 34638 spin 38 t_us 16181 witness 4
+lea cyc 2 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 905 905 916 rnd 16978 spin 31 t_us 20514 witness 5
+lea cyc 3 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 570 571 582 rnd 53406 spin 24 t_us 12935 witness 3
+lea cyc 3 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 772 772 783 rnd 8996 spin 5 t_us 17506 witness 4
+lea cyc 3 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 936 937 948 rnd 5682 spin 21 t_us 21237 witness 5
+lea cyc 4 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 577 577 588 rnd 59286 spin 26 t_us 13076 witness 3
+lea cyc 4 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 769 770 781 rnd 38507 spin 36 t_us 17439 witness 4
+lea cyc 4 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 961 962 973 rnd 52063 spin 37 t_us 21793 witness 5
+lea cyc 5 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 554 554 565 rnd 4812 spin 45 t_us 12553 witness 3
+lea cyc 5 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 710 711 722 rnd 15098 spin 1 t_us 16104 witness 4
+lea cyc 5 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 936 936 947 rnd 49000 spin 5 t_us 21221 witness 5
+lea cyc 6 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 576 577 588 rnd 65261 spin 19 t_us 13067 witness 3
+lea cyc 6 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 724 725 736 rnd 48396 spin 25 t_us 16426 witness 4
+lea cyc 6 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 914 914 925 rnd 53206 spin 2 t_us 20713 witness 5
+lea cyc 7 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 580 580 591 rnd 2604 spin 38 t_us 13147 witness 3
+lea cyc 7 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 745 746 757 rnd 7994 spin 36 t_us 16898 witness 4
+lea cyc 7 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 937 938 949 rnd 38542 spin 37 t_us 21252 witness 5
+lea cyc 8 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 577 577 588 rnd 41229 spin 27 t_us 13077 witness 3
+lea cyc 8 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 720 721 732 rnd 58808 spin 21 t_us 16334 witness 4
+lea cyc 8 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 921 921 933 rnd 57857 spin 23 t_us 20885 witness 5
+lea cyc 9 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 559 560 571 rnd 27675 spin 1 t_us 12681 witness 3
+lea cyc 9 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 711 712 723 rnd 63119 spin 7 t_us 16131 witness 4
+lea cyc 9 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 888 889 900 rnd 37628 spin 14 t_us 20147 witness 5
+lea cyc 10 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 577 577 588 rnd 3782 spin 27 t_us 13077 witness 3
+lea cyc 10 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 769 769 780 rnd 3878 spin 31 t_us 17435 witness 4
+lea cyc 10 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 960 961 972 rnd 31446 spin 13 t_us 21771 witness 5
+lea cyc 11 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 553 553 565 rnd 63057 spin 32 t_us 12542 witness 3
+lea cyc 11 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 744 744 756 rnd 27739 spin 9 t_us 16872 witness 4
+lea cyc 11 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 936 937 948 rnd 48976 spin 18 t_us 21235 witness 5
+lea cyc 12 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 591 592 603 rnd 32875 spin 25 t_us 13405 witness 3
+lea cyc 12 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 725 725 736 rnd 6398 spin 26 t_us 16429 witness 4
+lea cyc 12 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 961 962 973 rnd 56926 spin 38 t_us 21795 witness 5
+lea cyc 13 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 570 570 581 rnd 17383 spin 35 t_us 12923 witness 3
+lea cyc 13 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 744 744 755 rnd 30560 spin 0 t_us 16862 witness 4
+lea cyc 13 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 937 937 949 rnd 23221 spin 33 t_us 21250 witness 5
+lea cyc 14 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 577 577 588 rnd 45752 spin 24 t_us 13072 witness 3
+lea cyc 14 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 770 770 781 rnd 46433 spin 13 t_us 17451 witness 4
+lea cyc 14 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 0 mon 0000 field RR 0->30 probe 0c 1040 ca 897 897 908 rnd 37589 spin 23 t_us 20328 witness 5
+lea cyc 15 ev 0: slot 0 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 553 554 565 rnd 21269 spin 36 t_us 12543 witness 3
+lea cyc 15 ev 1: slot 1 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 744 744 755 rnd 7965 spin 2 t_us 16864 witness 4
+lea cyc 15 ev 2: slot 2 reg 14 old 3c80 new 3c9e order 1 mon 0000 field RR 0->30 probe 0c 1040 ca 892 893 904 rnd 63203 spin 28 t_us 20236 witness 5
+lea: 22592 samples, errors 0, 64 marks

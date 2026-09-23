@@ -13,7 +13,7 @@
 //            the last pre-onset sample pins low (MIXS = -2 low) and the band is searched in [-65536, 65535]; with VOFF 0
 //            low in [-16, 16] x band in [-64, 64]; scored on that stream alone up to the key-off window
 //   stage 1  key-off of slots 0..2, ko in [mark3 - 100, mark4 + 400]         (kind c: compared up to mark5 - 100)
-//   stage 2  (kind c) reg 0x14 = 0x001F at w00 - d (d 0/1) and reg 0x00 = 0 + KYONEX at w00, w00 in [mark5 - 100,
+//   stage 2  (kind c) reg 0x14 = 0x001F at w00 - d (d 1/0/-1) and reg 0x00 = 0 + KYONEX at w00, w00 in [mark5 - 100,
 //            mark6 + 400], compared up to mark7 - 100 (only slot 0 still plays: its SA switch to wave RAM 0 is
 //            visible at once, its AEG off 128 clocks after the RR rewrite)
 //   stage 3  (kind c) reg 0x20 = 0 (IMXL 0) on slots 0..2 at w2 in [mark7 - 100, mark8 + 400], to the end (the bus
@@ -297,7 +297,8 @@ int main(int argc, char **argv) {
         if (mark[5] >= 0 && mark[6] >= 0) { hi2 = std::min(n - 1, mark[6] + 400); }
         if (mark[7] >= 0) end2 = std::min(n, std::max(lo2 + 1, mark[7] - 100));
         std::vector<Events> cands;
-        for (int w = lo2; w <= hi2; w++) for (int d = 0; d < 2; d++) { if (w - d < lo2) continue; Events e = ev; e.w00 = w; e.w14 = w - d; cands.push_back(e); }
+        /* d = w00 - w14 in {1, 0, -1}: the RR write may reach the envelope generator one sample AFTER the SA write reached the fetch (tests/eg_latch: registers are live, but a write landing after the envelope phase of a sample is seen by that sample's fetch and by the next sample's envelope clock) */
+        for (int w = lo2; w <= hi2; w++) for (int d = 1; d >= -1; d--) { if (w - d < lo2 || w - d > hi2) continue; Events e = ev; e.w00 = w; e.w14 = w - d; cands.push_back(e); }
         std::vector<Events> ties; long sc;
         ev = search_stage(m, c, lo2, end2, cands, first_bad, aff012, ties, sc);
         printf("  stage 2 RR/KYONB rewrite: window [%d, %d], compared to %d: best w14 %d w00 %d (MDEC_CT %04x %s, d %d), score %ld/%ld, %zu tie(s):", lo2, hi2, end2, ev.w14, ev.w00,

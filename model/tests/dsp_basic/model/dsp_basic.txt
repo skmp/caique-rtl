@@ -303,7 +303,7 @@ D frc src -0ff0 shift 0: T=f80800
 D frc src -0ff0 shift 1: T=f01000
 D frc src -0ff0 shift 2: T=f01000
 D frc src -0ff0 shift 3: T=000000
-F MIXS5 right after write 0000/0, after 2ms 1234/5
+F MIXS5 right after write 1234/5, after 2ms 0000/0
 F ira 25 * -4096 shift3: T=edcc00/edcbb0/edcc00/edcbb0
 F ira 30 * -4096 shift3: T=000000
 F ira 31 * -4096 shift3: T=000000

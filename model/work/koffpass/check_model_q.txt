@@ -1,0 +1,592 @@
+koffpass_check tests/feg_koffpass/model: 2 runs, clock constant K 6491
+readings of the key-off clock E when the old segment had PASSED its target on the previous clock (v = the value at E-1):
+  A oldStep = one more step of the passed segment (its increment, its direction; the model)   B nextSeg = the next segment's step (what clock N+1 does)
+  C noStep = hold on E, release from the next clock   D relStep = the release increment on E.   Elsewhere every reading is the established old-step rule.
+
+==== kp_a: 33024 samples, first 724, c0 e776, 64 marks, 64 witness onsets (key-off samples); programs:
+     s0 FLV 1800 1810 1000 1000 1c00 rates FAR 26 FD1R 28 FD2R 28 FRR 24 = R 52 56 56 48 (inc 2 4 4 1 at cnt 0)
+     s1 FLV 1c00 1bf2 1ff0 1ff0 1400 rates FAR 26 FD1R 28 FD2R 28 FRR 24 = R 52 56 56 48 (inc 2 4 4 1 at cnt 0)
+     s2 FLV 1800 1808 1816 1000 1c00 rates FAR 30 FD1R 26 FD2R 28 FRR 24 = R 60 52 56 48 (inc 8 2 4 1 at cnt 0)
+
+== kp_a cycle 6: key-on 3207 (MDEC_CT d81b odd), E 3224 (MDEC_CT d80a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 3222 (E-2); tracked to 3666/3666 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 3222 (E-2); tracked to 3666/3666 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 3222 (E-2); tracked to 3666/3666 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 3666)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 3666)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 3666)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 7: key-on 3719 (MDEC_CT d61b odd), E 3736 (MDEC_CT d60a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 3734 (E-2); tracked to 4179/4179 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 3734 (E-2); tracked to 4179/4179 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 3734 (E-2); tracked to 4179/4179 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 4179)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 4179)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 4179)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 21: key-on 10887 (MDEC_CT ba1b odd), E 10904 (MDEC_CT ba0a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 10902 (E-2); tracked to 11346/11346 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 10902 (E-2); tracked to 11346/11346 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 10902 (E-2); tracked to 11346/11346 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 11346)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 11346)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 11346)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 22: key-on 11399 (MDEC_CT b81b odd), E 11416 (MDEC_CT b80a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 11414 (E-2); tracked to 11858/11858 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 11414 (E-2); tracked to 11858/11858 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 11414 (E-2); tracked to 11858/11858 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 11858)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 11858)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 11858)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 23: key-on 11911 (MDEC_CT b61b odd), E 11928 (MDEC_CT b60a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 11926 (E-2); tracked to 12371/12371 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 11926 (E-2); tracked to 12371/12371 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 11926 (E-2); tracked to 12371/12371 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 12371)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 12371)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 12371)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 37: key-on 19079 (MDEC_CT 9a1b odd), E 19096 (MDEC_CT 9a0a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 19094 (E-2); tracked to 19538/19538 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 19094 (E-2); tracked to 19538/19538 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 19094 (E-2); tracked to 19538/19538 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 19538)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 19538)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 19538)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 38: key-on 19591 (MDEC_CT 981b odd), E 19608 (MDEC_CT 980a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 19606 (E-2); tracked to 20050/20050 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 19606 (E-2); tracked to 20050/20050 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 19606 (E-2); tracked to 20050/20050 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 20050)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 20050)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 20050)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 39: key-on 20103 (MDEC_CT 961b odd), E 20120 (MDEC_CT 960a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 20118 (E-2); tracked to 20563/20563 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 20118 (E-2); tracked to 20563/20563 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 20118 (E-2); tracked to 20563/20563 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 20563)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 20563)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 20563)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 53: key-on 27271 (MDEC_CT 7a1b odd), E 27288 (MDEC_CT 7a0a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 27286 (E-2); tracked to 27730/27730 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 27286 (E-2); tracked to 27730/27730 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 27286 (E-2); tracked to 27730/27730 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 27730)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 27730)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 27730)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 54: key-on 27783 (MDEC_CT 781b odd), E 27800 (MDEC_CT 780a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 27798 (E-2); tracked to 28242/28242 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 27798 (E-2); tracked to 28242/28242 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 27798 (E-2); tracked to 28242/28242 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 28242)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 28242)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 28242)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_a cycle 55: key-on 28295 (MDEC_CT 761b odd), E 28312 (MDEC_CT 760a EVEN = a clock), d = E - key-on = 17, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1810 dir +1 passed 1; crossing clock at 28310 (E-2); tracked to 28755/28755 (set 1, max 35)
+   s1 before E: attack v 1bf0 dir -1 passed 1; crossing clock at 28310 (E-2); tracked to 28755/28755 (set 1, max 9)
+   s2 before E: decay1 v 1816 dir +1 passed 1; crossing clock at 28310 (E-2); tracked to 28755/28755 (set 1, max 35)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c07  c07  c08  c08  c09  c09  c09  c09  c0a    ?  c0a  c0a  c0b  c0b  c0b
+      A oldStep   c07  c07  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   FULL (matches every known sample to 28755)
+      B nextSeg   c07  c07  c08  c08  c06  c06  c06  c06  c07  c07  c07  c07  c08  c08  c08   fail@E+0 (observed c09, predicted c06)
+      C noStep    c07  c07  c08  c08  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a   fail@E+0 (observed c09, predicted c08)
+      D relStep   c07  c07  c08  c08  c08  c08  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b   fail@E+0 (observed c09, predicted c08)
+   s1 observed     df9  df9  df8  df8  df7    ?  df6  df6  df6  df6  df5  df5  df5  df5  df4
+      A oldStep   df9  df9  df8  df8  df7  df7  df6  df6  df6  df6  df5  df5  df5  df5  df4   FULL (matches every known sample to 28755)
+      B nextSeg   df9  df9  df8  df8  dfa  dfa  df9  df9  df9  df9  df8  df8  df8  df8  df7   fail@E+0 (observed df7, predicted dfa)
+      C noStep    df9  df9  df8  df8  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5   fail@E+0 (observed df7, predicted df8)
+      D relStep   df9  df9  df8  df8  df7  df7  df7  df7  df6  df6  df6  df6  df5  df5  df5   fail@E+2 (observed df6, predicted df7)
+   s2 observed     c0a  c0a  c0b  c0b  c0c  c0c  c0c    ?    ?    ?  c0d  c0d  c0e  c0e  c0e
+      A oldStep   c0a  c0a  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   FULL (matches every known sample to 28755)
+      B nextSeg   c0a  c0a  c0b  c0b  c09  c09  c09  c09  c0a  c0a  c0a  c0a  c0b  c0b  c0b   fail@E+0 (observed c0c, predicted c09)
+      C noStep    c0a  c0a  c0b  c0b  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d   fail@E+0 (observed c0c, predicted c0b)
+      D relStep   c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e   fail@E+0 (observed c0c, predicted c0b)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+-- kp_a: d = E - key-on histogram: 15:9 16:12 17:11 18:11 19:11 20:10
+-- kp_a: cycles per phase: N+1 11 N 8 pre 0 post 11 odd* 12 odd 22;  untracked stream-cycles: 0 0 0
+-- kp_a: FULL per reading (cycles with all 3 streams FULL / cycles of the phase, then per stream):
+     N+1    A oldStep 11/11  B nextSeg 0/11  C noStep 0/11  D relStep 0/11   |  s0: 11 0 0 0/11  s1: 11 0 0 0/11  s2: 11 0 0 0/11
+     N      A oldStep 8/8  B nextSeg 8/8  C noStep 8/8  D relStep 8/8   |  s0: 8 8 8 8/8  s1: 8 8 8 8/8  s2: 8 8 8 8/8
+     post   A oldStep 11/11  B nextSeg 11/11  C noStep 11/11  D relStep 11/11   |  s0: 11 11 11 11/11  s1: 11 11 11 11/11  s2: 11 11 11 11/11
+     odd*   A oldStep 12/12  B nextSeg 12/12  C noStep 12/12  D relStep 12/12   |  s0: 12 12 12 12/12  s1: 12 12 12 12/12  s2: 12 12 12 12/12
+     odd    A oldStep 22/22  B nextSeg 22/22  C noStep 22/22  D relStep 22/22   |  s0: 22 22 22 22/22  s1: 22 22 22 22/22  s2: 22 22 22 22/22
+
+==== kp_b: 33088 samples, first 597, c0 50d1, 64 marks, 64 witness onsets (key-off samples); programs:
+     s0 FLV 1800 1818 1000 1000 1c00 rates FAR 26 FD1R 28 FD2R 28 FRR 24 = R 52 56 56 48 (inc 2 4 4 1 at cnt 0)
+     s1 FLV 1c00 1bea 1ff0 1ff0 1400 rates FAR 26 FD1R 28 FD2R 28 FRR 24 = R 52 56 56 48 (inc 2 4 4 1 at cnt 0)
+     s2 FLV 1800 1808 181e 1000 1c00 rates FAR 30 FD1R 26 FD2R 28 FRR 24 = R 60 52 56 48 (inc 8 2 4 1 at cnt 0)
+
+== kp_b cycle 7: key-on 3719 (MDEC_CT 3ff5 odd), E 3744 (MDEC_CT 3fdc EVEN = a clock), d = E - key-on = 25, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 3742 (E-2); tracked to 4187/4187 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 3742 (E-2); tracked to 4187/4187 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 3742 (E-2); tracked to 4187/4187 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c0b    ?  c0c  c0c  c0d  c0d    ?    ?  c0e  c0e  c0e  c0e    ?  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 4187)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 4187)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed     c0e    ?  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11    ?  c12  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 4187)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 9: key-on 4744 (MDEC_CT 3bf4 even), E 4770 (MDEC_CT 3bda EVEN = a clock), d = E - key-on = 26, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 4768 (E-2); tracked to 5213/5213 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 4768 (E-2); tracked to 5213/5213 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 4768 (E-2); tracked to 5213/5213 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed       ?  c0b  c0c  c0c  c0d  c0d    ?    ?  c0e  c0e  c0e  c0e  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 5213)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 5213)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed       ?  c0e  c0f  c0f  c10  c10    ?    ?  c11  c11  c11  c11  c12    ?  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 5213)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 23: key-on 11920 (MDEC_CT 1fec even), E 11946 (MDEC_CT 1fd2 EVEN = a clock), d = E - key-on = 26, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 11944 (E-2); tracked to 12389/12389 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 11944 (E-2); tracked to 12389/12389 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 11944 (E-2); tracked to 12389/12389 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed       ?  c0b  c0c  c0c  c0d  c0d    ?  c0d  c0e  c0e  c0e    ?  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 12389)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 12389)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed       ?  c0e  c0f  c0f    ?    ?    ?    ?  c11  c11  c11    ?  c12  c12  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 12389)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+4 (observed c11, predicted c0e)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+4 (observed c11, predicted c10)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+4 (observed c11, predicted c10)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 25: key-on 12946 (MDEC_CT 1bea even), E 12972 (MDEC_CT 1bd0 EVEN = a clock), d = E - key-on = 26, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 12970 (E-2); tracked to 13415/13415 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 12970 (E-2); tracked to 13415/13415 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 12970 (E-2); tracked to 13415/13415 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed       ?  c0b  c0c  c0c  c0d  c0d    ?    ?  c0e  c0e  c0e  c0e  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 13415)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 13415)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed       ?  c0e  c0f  c0f  c10  c10    ?    ?  c11  c11  c11  c11  c12    ?  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 13415)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 38: key-on 19611 (MDEC_CT 01e1 odd), E 19636 (MDEC_CT 01c8 EVEN = a clock), d = E - key-on = 25, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 19634 (E-2); tracked to 20079/20079 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 19634 (E-2); tracked to 20079/20079 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 19634 (E-2); tracked to 20079/20079 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c0b  c0b  c0c  c0c  c0d    ?    ?  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 20079)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 20079)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed     c0e  c0e  c0f  c0f  c10    ?    ?  c10  c11  c11  c11  c11  c12  c12  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 20079)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 40: key-on 20636 (MDEC_CT fde0 even), E 20662 (MDEC_CT fdc6 EVEN = a clock), d = E - key-on = 26, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 20660 (E-2); tracked to 21105/21105 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 20660 (E-2); tracked to 21105/21105 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 20660 (E-2); tracked to 21105/21105 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed       ?  c0b  c0c  c0c  c0d  c0d    ?  c0d  c0e  c0e  c0e    ?  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 21105)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 21105)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed       ?  c0e  c0f  c0f    ?    ?    ?    ?  c11  c11  c11    ?  c12  c12  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 21105)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+4 (observed c11, predicted c0e)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+4 (observed c11, predicted c10)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+4 (observed c11, predicted c10)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 56: key-on 28873 (MDEC_CT ddb3 odd), E 28898 (MDEC_CT dd9a EVEN = a clock), d = E - key-on = 25, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 28896 (E-2); tracked to 29342/29342 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 28896 (E-2); tracked to 29342/29342 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 28896 (E-2); tracked to 29342/29342 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed     c0b    ?  c0c  c0c  c0d  c0d  c0d    ?    ?  c0e  c0e  c0e  c0f  c0f    ?
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 29342)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 29342)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed       ?    ?  c0f  c0f  c10  c10  c10    ?    ?  c11  c11  c11  c12  c12    ?
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 29342)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+== kp_b cycle 57: key-on 29386 (MDEC_CT dbb2 even), E 29412 (MDEC_CT db98 EVEN = a clock), d = E - key-on = 26, phase N+1; witness E-1..E+2: 0 520176 520176 487408
+   s0 before E: attack v 1818 dir +1 passed 1; crossing clock at 29410 (E-2); tracked to 29855/29855 (set 1, max 33)
+   s1 before E: attack v 1be8 dir -1 passed 1; crossing clock at 29410 (E-2); tracked to 29855/29855 (set 1, max 9)
+   s2 before E: decay1 v 181e dir +1 passed 1; crossing clock at 29410 (E-2); tracked to 29855/29855 (set 1, max 33)
+   u at E-4..E+10:   -4   -3   -2   -1 * +0   +1   +2   +3   +4   +5   +6   +7   +8   +9  +10
+   s0 observed       ?  c0b  c0c  c0c  c0d  c0d    ?    ?  c0e  c0e  c0e  c0e  c0f  c0f  c0f
+      A oldStep   c0b  c0b  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   FULL (matches every known sample to 29855)
+      B nextSeg   c0b  c0b  c0c  c0c  c0a  c0a  c0a  c0a  c0b  c0b  c0b  c0b  c0c  c0c  c0c   fail@E+0 (observed c0d, predicted c0a)
+      C noStep    c0b  c0b  c0c  c0c  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e   fail@E+0 (observed c0d, predicted c0c)
+      D relStep   c0b  c0b  c0c  c0c  c0c  c0c  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f   fail@E+0 (observed c0d, predicted c0c)
+   s1 observed     df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0
+      A oldStep   df5  df5  df4  df4  df3  df3  df2  df2  df2  df2  df1  df1  df1  df1  df0   FULL (matches every known sample to 29855)
+      B nextSeg   df5  df5  df4  df4  df6  df6  df5  df5  df5  df5  df4  df4  df4  df4  df3   fail@E+0 (observed df3, predicted df6)
+      C noStep    df5  df5  df4  df4  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1   fail@E+0 (observed df3, predicted df4)
+      D relStep   df5  df5  df4  df4  df3  df3  df3  df3  df2  df2  df2  df2  df1  df1  df1   fail@E+2 (observed df2, predicted df3)
+   s2 observed     c0e  c0e  c0f  c0f  c10  c10    ?    ?  c11  c11  c11  c11  c12    ?  c12
+      A oldStep   c0e  c0e  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12  c12  c12   FULL (matches every known sample to 29855)
+      B nextSeg   c0e  c0e  c0f  c0f  c0d  c0d  c0d  c0d  c0e  c0e  c0e  c0e  c0f  c0f  c0f   fail@E+0 (observed c10, predicted c0d)
+      C noStep    c0e  c0e  c0f  c0f  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11   fail@E+0 (observed c10, predicted c0f)
+      D relStep   c0e  c0e  c0f  c0f  c0f  c0f  c10  c10  c10  c10  c11  c11  c11  c11  c12   fail@E+0 (observed c10, predicted c0f)
+   N+1 verdict (all 3 streams FULL):  A oldStep FULL  B nextSeg refuted  C noStep refuted  D relStep refuted
+
+-- kp_b: d = E - key-on histogram: 22:2 23:8 24:15 25:7 26:13 27:10 28:9
+-- kp_b: cycles per phase: N+1 8 N 12 pre 2 post 9 odd* 13 odd 20;  untracked stream-cycles: 0 0 0
+-- kp_b: FULL per reading (cycles with all 3 streams FULL / cycles of the phase, then per stream):
+     N+1    A oldStep 8/8  B nextSeg 0/8  C noStep 0/8  D relStep 0/8   |  s0: 8 0 0 0/8  s1: 8 0 0 0/8  s2: 8 0 0 0/8
+     N      A oldStep 12/12  B nextSeg 12/12  C noStep 12/12  D relStep 12/12   |  s0: 12 12 12 12/12  s1: 12 12 12 12/12  s2: 12 12 12 12/12
+     pre    A oldStep 2/2  B nextSeg 2/2  C noStep 2/2  D relStep 2/2   |  s0: 2 2 2 2/2  s1: 2 2 2 2/2  s2: 2 2 2 2/2
+     post   A oldStep 9/9  B nextSeg 9/9  C noStep 9/9  D relStep 9/9   |  s0: 9 9 9 9/9  s1: 9 9 9 9/9  s2: 9 9 9 9/9
+     odd*   A oldStep 13/13  B nextSeg 13/13  C noStep 13/13  D relStep 13/13   |  s0: 13 13 13 13/13  s1: 13 13 13 13/13  s2: 13 13 13 13/13
+     odd    A oldStep 20/20  B nextSeg 20/20  C noStep 20/20  D relStep 20/20   |  s0: 20 20 20 20/20  s1: 20 20 20 20/20  s2: 20 20 20 20/20
+
+SUMMARY per cycle (A/B/C/D = streams reproduced to the end of the cycle; readings differ only on N+1 cycles)
+  kp_a cyc  0  on    134  E    149  d 15  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  1  on    647  E    662  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  2  on   1159  E   1174  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  3  on   1671  E   1687  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  4  on   2183  E   2199  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  5  on   2695  E   2711  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  6  on   3207  E   3224  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc  7  on   3719  E   3736  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc  8  on   4231  E   4249  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc  9  on   4743  E   4761  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 10  on   5255  E   5273  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 11  on   5767  E   5786  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 12  on   6279  E   6298  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 13  on   6791  E   6810  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 14  on   7303  E   7323  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 15  on   7815  E   7835  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 16  on   8327  E   8342  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 17  on   8839  E   8854  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 18  on   9351  E   9367  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 19  on   9863  E   9879  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 20  on  10375  E  10391  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 21  on  10887  E  10904  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 22  on  11399  E  11416  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 23  on  11911  E  11928  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 24  on  12423  E  12441  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 25  on  12935  E  12953  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 26  on  13447  E  13465  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 27  on  13959  E  13978  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 28  on  14471  E  14490  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 29  on  14983  E  15002  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 30  on  15495  E  15515  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 31  on  16007  E  16027  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 32  on  16519  E  16534  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 33  on  17031  E  17046  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 34  on  17543  E  17559  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 35  on  18055  E  18071  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 36  on  18567  E  18583  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 37  on  19079  E  19096  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 38  on  19591  E  19608  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 39  on  20103  E  20120  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 40  on  20615  E  20633  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 41  on  21127  E  21145  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 42  on  21639  E  21657  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 43  on  22151  E  22170  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 44  on  22663  E  22682  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 45  on  23175  E  23195  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 46  on  23687  E  23707  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 47  on  24199  E  24219  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 48  on  24711  E  24726  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 49  on  25223  E  25238  d 15  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 50  on  25735  E  25751  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 51  on  26247  E  26263  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 52  on  26759  E  26775  d 16  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 53  on  27271  E  27288  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 54  on  27783  E  27800  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 55  on  28295  E  28312  d 17  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_a cyc 56  on  28807  E  28825  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 57  on  29319  E  29337  d 18  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 58  on  29831  E  29850  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 59  on  30343  E  30362  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 60  on  30855  E  30874  d 19  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 61  on  31367  E  31387  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 62  on  31879  E  31899  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_a cyc 63  on  32391  E  32411  d 20  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  0  on    134  E    156  d 22  EVEN  pre   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  1  on    647  E    670  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  2  on   1159  E   1182  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  3  on   1671  E   1694  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  4  on   2183  E   2207  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  5  on   2695  E   2719  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  6  on   3207  E   3231  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  7  on   3719  E   3744  d 25  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc  8  on   4231  E   4257  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc  9  on   4744  E   4770  d 26  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 10  on   5257  E   5283  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 11  on   5770  E   5797  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 12  on   6284  E   6311  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 13  on   6798  E   6826  d 28  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 14  on   7313  E   7340  d 27  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 15  on   7828  E   7856  d 28  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 16  on   8343  E   8366  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 17  on   8853  E   8876  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 18  on   9363  E   9387  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 19  on   9874  E   9898  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 20  on  10385  E  10409  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 21  on  10897  E  10921  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 22  on  11408  E  11433  d 25  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 23  on  11920  E  11946  d 26  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 24  on  12433  E  12459  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 25  on  12946  E  12972  d 26  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 26  on  13459  E  13485  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 27  on  13973  E  13999  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 28  on  14486  E  14513  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 29  on  15001  E  15028  d 27  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 30  on  15515  E  15543  d 28  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 31  on  16030  E  16058  d 28  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 32  on  16546  E  16568  d 22  EVEN  pre   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 33  on  17056  E  17079  d 23  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 34  on  17566  E  17590  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 35  on  18077  E  18101  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 36  on  18588  E  18612  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 37  on  19100  E  19124  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 38  on  19611  E  19636  d 25  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 39  on  20124  E  20149  d 25  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 40  on  20636  E  20662  d 26  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 41  on  21149  E  21175  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 42  on  21662  E  21689  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 43  on  22176  E  22203  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 44  on  22690  E  22717  d 27  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 45  on  23233  E  23261  d 28  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 46  on  23751  E  23778  d 27  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 47  on  24266  E  24294  d 28  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 48  on  24781  E  24804  d 23  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 49  on  25291  E  25315  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 50  on  25802  E  25825  d 23  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 51  on  26313  E  26337  d 24  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 52  on  26824  E  26848  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 53  on  27336  E  27360  d 24  EVEN  N     A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 54  on  27848  E  27873  d 25  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 55  on  28360  E  28385  d 25  odd   odd*  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 56  on  28873  E  28898  d 25  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 57  on  29386  E  29412  d 26  EVEN  N+1   A 3/3  B 0/3  C 0/3  D 0/3
+  kp_b cyc 58  on  29899  E  29925  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 59  on  30413  E  30439  d 26  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 60  on  30927  E  30954  d 27  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 61  on  31441  E  31469  d 28  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 62  on  31956  E  31984  d 28  EVEN  post  A 3/3  B 3/3  C 3/3  D 3/3
+  kp_b cyc 63  on  32471  E  32499  d 28  odd   odd   A 3/3  B 3/3  C 3/3  D 3/3
+
+TOTAL over the runs (cycles with all 3 streams FULL / cycles of the phase | per stream FULL / tracked):
+  N+1    A oldStep 19/19  B nextSeg 0/19  C noStep 0/19  D relStep 0/19   |  s0: 19 0 0 0/19  s1: 19 0 0 0/19  s2: 19 0 0 0/19
+  N      A oldStep 20/20  B nextSeg 20/20  C noStep 20/20  D relStep 20/20   |  s0: 20 20 20 20/20  s1: 20 20 20 20/20  s2: 20 20 20 20/20
+  pre    A oldStep 2/2  B nextSeg 2/2  C noStep 2/2  D relStep 2/2   |  s0: 2 2 2 2/2  s1: 2 2 2 2/2  s2: 2 2 2 2/2
+  post   A oldStep 20/20  B nextSeg 20/20  C noStep 20/20  D relStep 20/20   |  s0: 20 20 20 20/20  s1: 20 20 20 20/20  s2: 20 20 20 20/20
+  odd*   A oldStep 25/25  B nextSeg 25/25  C noStep 25/25  D relStep 25/25   |  s0: 25 25 25 25/25  s1: 25 25 25 25/25  s2: 25 25 25 25/25
+  odd    A oldStep 42/42  B nextSeg 42/42  C noStep 42/42  D relStep 42/42   |  s0: 42 42 42 42/42  s1: 42 42 42 42/42  s2: 42 42 42 42/42
+  N+1 cycles (all streams tracked) where NO reading is FULL: 0; where MORE THAN ONE reading is FULL (not separated): 0
+  (N / pre / post / odd cycles re-test the established rule -- every reading coincides there; odd* = the passed flag was pending on an odd key-off sample:
+   the prediction is the release from the next clock.)

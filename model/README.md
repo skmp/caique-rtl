@@ -9,7 +9,7 @@ and the MIXS writer rule are measured (session 5); the key-off clock with a pass
 segment's step), the stop = off + CA 0 at a = 0x3C0, the CPU's MIXS readback bank and the live (unlatched) envelope
 registers (359 informative witness-pinned rewrites, 0 latched) are measured (session 6).
 Findings, with the test behind each one: **[NOTES.md](NOTES.md)**. Handover / how to verify the current claims:
-**[HANDOVER.md](HANDOVER.md)**. Current model-vs-console status:
+**[HANDOVER.md](HANDOVER.md)**. What is NOT nailed down (sub-sample effects, empirical rules, unmeasured areas, harness artefacts): **[LIMITATIONS.md](LIMITATIONS.md)**. Current model-vs-console status:
 **[tests/SUMMARY.txt](tests/SUMMARY.txt)**. Current C++ reproduction commands are in HANDOVER.md.
 
 ## Layout

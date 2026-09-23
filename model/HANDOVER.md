@@ -1,6 +1,6 @@
 # caique AICA model — session 5 handover (2026-09-23, night) + session 6 addendum
 
-**Scope: verify the session-5 results, then the session-6 addendum (claims U1-U3 at the end).**  Session 4 is commit
+**Known gaps and caveats: [LIMITATIONS.md](LIMITATIONS.md).**  **Scope: verify the session-5 results, then the session-6 addendum (claims U1-U3 at the end).**  Session 4 is commit
 `ba720b9` (its handover: `git show ba720b9:model/HANDOVER.md`); session 5 is commit `5207a9f`; session 6 is uncommitted
 (`git diff HEAD` plus the untracked files: cases ca_stop / eg_latch / eg_latch2 / eg_latch3 / feg_koffpass / mixs_rd,
 tools koffpass_check / latch_check, tests/<case>/, work/koffpass, work/latch, work/verify/s6).  Session 5 ran on the **same console boot as

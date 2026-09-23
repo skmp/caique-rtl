@@ -1,0 +1,10 @@
+ft_0_s0    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5469(odd)
+ft_0_s1    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5468(even) 5469(odd)
+ft_0_s2    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5469(odd)
+ft_1_s0    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6660(even) 6661(odd) 6662(even) 6663(odd)
+ft_1_s1    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6660(even) 6661(odd)
+ft_1_s2    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6659(odd) 6660(even)
+ft_2_s0    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 803(even) 804(odd)
+ft_2_s1    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 801(even) 802(odd) 803(even) 804(odd)
+ft_2_s2    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 803(even) 804(odd)
+TOTAL full=9/9

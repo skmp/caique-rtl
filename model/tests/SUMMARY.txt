@@ -19,3 +19,8 @@ sgc_lfo        OK     23/23 LFO streams agree (ALFO steps/ranges exact, PLFO mea
 filt_id2       STATE  55/60 streams identical; 619/254980 samples differ, all startup transients (<300 samples)
 filt_coef      STATE  117/119 streams identical; 17/503438 samples differ, all startup transients (<17 samples)
 filter_math    OK     Production model: 235/235 streams, 2050454/2050454 samples identical with inferred initial state
+# Session 4 (2026-09-23, envelope clock locked to MDEC_CT; tools/eg_model.cpp replays captures with the ring position):
+eg_lock        OK     33/33 envelope streams sample-exact via eg_model (with aeg_dl0, sgc_loop lo_2, feg_krs, feg_track); keys 32 cycles 0 violations
+feg_krs        OK     12/12 FEG streams (key-off on a clock steps with the previous segment's increment; KRS irrelevant)
+sgc_aeg        PHASE  whole-program runs key on at the model's own phase; the console phase is now known per capture (use eg_model)
+feg_track      OK     9/9 (feg_validate, ring-locked; was fitted per batch)

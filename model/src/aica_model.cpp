@@ -45,6 +45,7 @@ void AicaModel::reset() {
     memset(TEMP, 0, sizeof TEMP);
     memset(MEMS, 0, sizeof MEMS);
     memset(MIXS, 0, sizeof MIXS);
+    memset(MIXS_bank, 0, sizeof MIXS_bank);
     memset(EXTS, 0, sizeof EXTS);
     memset(EFREG, 0, sizeof EFREG);
     MDEC_CT = 1;
@@ -57,6 +58,7 @@ void AicaModel::reset() {
     outL = outR = 0;
     samples = 0;
     eg_cnt = 0;
+    eg_K = 6491;
     lfsr = 1;
     for (int ch = 0; ch < 64; ch++) {
         for (uint32_t o = 0; o < 0x48; o += 4) slot_regwrite(ch, o);
@@ -92,10 +94,10 @@ void AicaModel::key_on(int ch) {
     set_aeg_state(ch, EG_ATTACK);
     c.AEG.a = 0x280; /* key-on level: -60 dB (tests/sgc_aeg) */
     c.AEG.off = false;
-    if (eff_rate(ch, chr(ch, 0x10) & 0x1F) >= 63) { /* R 63: instant attack (tests/sgc_krs) */
-        c.AEG.a = 0;
-        if (!((chr(ch, 0x14) >> 14) & 1)) set_aeg_state(ch, EG_DECAY1);
-    }
+    /* R 63: instant attack (tests/sgc_krs): the level is 0 from the key-on sample, but the state machine still
+     * leaves the attack on the next clock (a step that lands at 0), so decay 1 first steps one clock later
+     * (tests/eg_lock odd_dec: a = 0 on the first clock after key-on) */
+    if (eff_rate(ch, chr(ch, 0x10) & 0x1F) >= 63) c.AEG.a = 0;
     c.FEG.state = EG_ATTACK;
     c.FEG.v = chr(ch, 0x2C) & 0x1FFF; /* FLV0 (tests/feg_probe) */
     c.FEG.dir = c.FEG.v >= (chr(ch, 0x30) & 0x1FFF) ? -1 : 1;
@@ -110,6 +112,8 @@ void AicaModel::key_on(int ch) {
 }
 
 void AicaModel::key_off(int ch) {
+    slot[ch].aeg_prev = slot[ch].AEG.state;
+    slot[ch].feg_prev = slot[ch].FEG.state;
     if (slot[ch].AEG.state != EG_RELEASE) set_aeg_state(ch, EG_RELEASE);
     slot[ch].FEG.state = EG_RELEASE;
     slot[ch].FEG.dir = slot[ch].FEG.v >= (chr(ch, 0x3C) & 0x1FFF) ? -1 : 1;
@@ -182,8 +186,9 @@ void AicaModel::slot_regwrite(int ch, uint32_t o) {
     case 0x00:
         if (reg[(0x80 * ch) >> 2] & 0x8000) { /* KYONEX */
             reg[(0x80 * ch) >> 2] &= 0x7FFF;
-            /* key events take effect at the next envelope clock (tests/sgc_aeg: the key-on level always lasts
-             * exactly one clock before the first attack step) */
+            /* key events take effect on the next sample, whatever its parity, and that sample takes no envelope
+             * step: the key-on level lasts 2 samples when the key-on sample is a clock, else 1 (tests/eg_lock keys,
+             * 32 cycles on 8 slots, and feg_track batch 2) */
             for (int i = 0; i < 64; i++) slot[i].key_pending = (chr(i, 0x00) & 0x4000) ? 1 : -1;
         }
         break;
@@ -298,20 +303,24 @@ void AicaModel::stream_step(int ch) {
     }
 }
 
-/* Envelope (tests/sgc_aeg): the OPN envelope generator clocked every 2 samples.  Rate R < 48: every
- * 2^(11 - R/4) clocks, increment from row R&3; R >= 48: every clock, rows 4.. (R 60-63 all +8).
+/* Envelope (tests/sgc_aeg, eg_lock): the OPN envelope generator clocked every 2 samples (the samples with even
+ * MDEC_CT).  Rate R < 48: every 2^(11 - R/4) clocks, increment from row R&3; R >= 48: every clock, rows 4.. (R 60-63
+ * all +8).  The rows for R = 1 mod 4 above 48 (5, 9, 13) differ from the YM2612 table: the double step sits at
+ * index 1 and 5, not 3 and 7 (tests/eg_lock odd_att / odd_same, feg_track batch 1 slot 2, feg_odd); the rest is
+ * the OPN table (rows 1, 3, 7, 11, 15 measured at odd effective rates, tests/eg_lock).
  * Attack: a += (~a * inc) >> 4, to 0 -> decay 1 (unless LPSLNK).  Decay 1 -> decay 2 once a >= DL << 5, checked after
  * that clock's decay 1 step (see aeg_clock; tests/aeg_dl0), so decay 2's increment applies from the next clock.  Decay 2 / release: a += inc; past 0x3FF the
  * slot is "off" (monitor 0x1FFF), the state is kept. */
 static const uint8_t eg_inc[17][8] = {
     {0, 1, 0, 1, 0, 1, 0, 1}, {0, 1, 0, 1, 1, 1, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1, 1},
-    {1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 2, 1, 1, 1, 2}, {1, 2, 1, 2, 1, 2, 1, 2}, {1, 2, 2, 2, 1, 2, 2, 2},
-    {2, 2, 2, 2, 2, 2, 2, 2}, {2, 2, 2, 4, 2, 2, 2, 4}, {2, 4, 2, 4, 2, 4, 2, 4}, {2, 4, 4, 4, 2, 4, 4, 4},
-    {4, 4, 4, 4, 4, 4, 4, 4}, {4, 4, 4, 8, 4, 4, 4, 8}, {4, 8, 4, 8, 4, 8, 4, 8}, {4, 8, 8, 8, 4, 8, 8, 8},
+    {1, 1, 1, 1, 1, 1, 1, 1}, {1, 2, 1, 1, 1, 2, 1, 1}, {1, 2, 1, 2, 1, 2, 1, 2}, {1, 2, 2, 2, 1, 2, 2, 2},
+    {2, 2, 2, 2, 2, 2, 2, 2}, {2, 4, 2, 2, 2, 4, 2, 2}, {2, 4, 2, 4, 2, 4, 2, 4}, {2, 4, 4, 4, 2, 4, 4, 4},
+    {4, 4, 4, 4, 4, 4, 4, 4}, {4, 8, 4, 4, 4, 8, 4, 4}, {4, 8, 4, 8, 4, 8, 4, 8}, {4, 8, 8, 8, 4, 8, 8, 8},
     {8, 8, 8, 8, 8, 8, 8, 8}};
-/* slow_off: for the FEG, the R < 48 rows see the clock counter one step behind the R >= 48 rows (tests/feg_track:
- * slots mixing both kinds of rate need an offset = 3 mod 4, i.e. -1).  The AEG keeps 0: its tests are
- * phase-independent, so the offset is unmeasured there (the hardware likely shares it). */
+/* slow_off: the R < 48 rows see the clock counter one step behind the R >= 48 rows (tests/feg_track: slots mixing
+ * both kinds of rate need an offset = 3 mod 4, i.e. -1).  The AEG shares it: with the ring-locked counter the AEG
+ * captures (tests/eg_lock att_slow / att_mid, aeg_dl0) and the FEG captures agree on the same eg_K only with the
+ * same offset. */
 static inline uint32_t eg_increment(uint32_t R, uint32_t cnt, uint32_t slow_off = 0) {
     if (R == 0) return 0;
     if (R < 48) {
@@ -325,7 +334,7 @@ static inline uint32_t eg_increment(uint32_t R, uint32_t cnt, uint32_t slow_off 
 
 void AicaModel::aeg_clock(int ch) {
     Slot &c = slot[ch];
-    if (c.AEG.off) return;
+    if (c.AEG.off || c.keyed) return;
     uint16_t r10 = chr(ch, 0x10), r14 = chr(ch, 0x14);
     /* decay 1 -> decay 2: on a clock that starts in decay 1, the decay 1 step is applied first, then a >= DL << 5
      * switches (every such clock, also without a step; not on the clock that enters decay 1).  tests/aeg_dl0: with
@@ -333,11 +342,14 @@ void AicaModel::aeg_clock(int ch) {
      * monitor shows decay 2 within the crossing clock.  For DL > 0 the levels are the same as switching at the
      * start of the next clock. */
     bool was_d1 = c.AEG.state == EG_DECAY1;
-    uint32_t rate = c.AEG.state == EG_ATTACK ? (r10 & 0x1F) : c.AEG.state == EG_DECAY1 ? ((r10 >> 6) & 0x1F)
-                  : c.AEG.state == EG_DECAY2 ? ((r10 >> 11) & 0x1F) : (r14 & 0x1F);
-    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt);
+    /* on the key-off sample the increment still comes from the previous segment's rate (measured on the FEG:
+     * tests/feg_krs fk_1 / fk_3, feg_track batches 1 and 2; the AEG shares the machinery, unmeasured there) */
+    EgState rs = c.keyed_off ? c.aeg_prev : c.AEG.state;
+    uint32_t rate = rs == EG_ATTACK ? (r10 & 0x1F) : rs == EG_DECAY1 ? ((r10 >> 6) & 0x1F)
+                  : rs == EG_DECAY2 ? ((r10 >> 11) & 0x1F) : (r14 & 0x1F);
+    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt, (uint32_t)-1);
     if (!inc) {
-        if (was_d1 && c.AEG.a >= (((r14 >> 5) & 0x1F) << 5)) set_aeg_state(ch, EG_DECAY2);
+        if (was_d1 && (c.AEG.a >> 5) == ((r14 >> 5) & 0x1F)) set_aeg_state(ch, EG_DECAY2);
         return;
     }
     int32_t a = c.AEG.a;
@@ -357,7 +369,10 @@ void AicaModel::aeg_clock(int ch) {
         }
     }
     c.AEG.a = (uint16_t)a;
-    if (was_d1 && !c.AEG.off && a >= (((r14 >> 5) & 0x1F) << 5)) set_aeg_state(ch, EG_DECAY2);
+    /* decay 1 -> decay 2 when the top 5 bits of a EQUAL DL (not >=): a slot that enters decay 1 through LPSLNK
+     * above DL << 5 keeps decaying at D1R (tests/sgc_loop lo_2 stream 2, DL 0, a 0x20D); for the attack-entered
+     * decay 1 the two compares are the same (steps of at most 8 cannot skip the DL window) */
+    if (was_d1 && !c.AEG.off && (a >> 5) == ((r14 >> 5) & 0x1F)) set_aeg_state(ch, EG_DECAY2);
 }
 
 /* Filter envelope (tests/feg_probe, feg_track): a 13-bit value loaded with FLV0 at key-on that moves linearly
@@ -369,11 +384,11 @@ void AicaModel::aeg_clock(int ch) {
  *   - attack / decay 1 step until C flips (up: ends at or past the target; down: strictly below it -- overshoot by
  *     up to one step), and the next segment moves on the very next clock (no idle clock);
  *   - decay 2 / release skip any step that would flip C: they hold short of the target.
- * Key-on loads FLV0 at an envelope clock and the value first moves on the next clock; key-off switches to release
- * and moves on the same clock. */
+ * Key-on loads FLV0 on the key-on sample and the value first moves on the next clock; key-off switches to release on
+ * the key-off sample (no step on it; the next clock steps). */
 void AicaModel::feg_clock(int ch) {
     Slot &c = slot[ch];
-    if (!c.enabled) return;
+    if (!c.enabled || c.keyed) return;
     uint16_t r40 = chr(ch, 0x40), r44 = chr(ch, 0x44);
     static const uint8_t tgt_reg[4] = {0x30, 0x34, 0x38, 0x3C};
     if (c.FEG.passed && c.FEG.state < EG_DECAY2) {
@@ -382,7 +397,7 @@ void AicaModel::feg_clock(int ch) {
         c.FEG.passed = false;
     }
     uint32_t rate;
-    switch (c.FEG.state) {
+    switch (c.keyed_off ? c.feg_prev : c.FEG.state) {   /* key-off sample: the previous segment's rate */
     case EG_ATTACK: rate = (r40 >> 8) & 0x1F; break;
     case EG_DECAY1: rate = r40 & 0x1F; break;
     case EG_DECAY2: rate = (r44 >> 8) & 0x1F; break;
@@ -529,7 +544,7 @@ void AicaModel::dsp_step() {
 
         int32_t INPUTS;
         if (in.IRA <= 0x1F) INPUTS = MEMS[in.IRA];
-        else if (in.IRA <= 0x2F) INPUTS = MIXS[in.IRA - 0x20] << 4;
+        else if (in.IRA <= 0x2F) INPUTS = MIXS_bank[samples & 1][in.IRA - 0x20] << 4;
         else if (in.IRA <= 0x31) INPUTS = EXTS[in.IRA - 0x30] << 8;
         else INPUTS = 0;
         INPUTS = sext(INPUTS, 24);
@@ -597,7 +612,7 @@ void AicaModel::dsp_step() {
         nofl_pipe[1] = nofl_pipe[0];
         nofl_pipe[0] = (uint8_t)in.NOFL;
     }
-    if (--MDEC_CT == 0) MDEC_CT = RBL + 1;
+    MDEC_CT = (MDEC_CT - 1) & 0xFFFF;   /* free-running 16-bit sample counter (masked to the ring above; envelope clock) */
 }
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -612,32 +627,41 @@ static void volpan(int32_t value, uint32_t vol, uint32_t pan, int32_t &outl, int
     else { outl += Sc; outr += temp; }
 }
 
-int AicaModel::EG_PHASE = 0;
-
 void AicaModel::step() {
     int32_t mixl = 0, mixr = 0;
-    if ((samples & 1) == (uint64_t)EG_PHASE) {
-        eg_cnt++;
+    /* key events (KYONEX) take effect on the next sample, whatever its parity; that sample takes no envelope step */
+    for (int ch = 0; ch < 64; ch++) {
+        slot[ch].keyed = slot[ch].keyed_off = false;
+        if (slot[ch].key_pending) {
+            int k = slot[ch].key_pending;
+            slot[ch].key_pending = 0;
+            if (k > 0 && slot[ch].AEG.state == EG_RELEASE) { key_on(ch); slot[ch].keyed = true; }
+            if (k < 0 && slot[ch].AEG.state != EG_RELEASE) { key_off(ch); slot[ch].keyed_off = true; }
+        }
+    }
+    /* envelope clock: the samples with even MDEC_CT; counter locked to it (tests/eg_lock, feg_track, aeg_dl0) */
+    if ((MDEC_CT & 1) == 0) {
+        eg_cnt = (eg_K - (MDEC_CT >> 1)) & 0x3FFF;
         for (int ch = 0; ch < 64; ch++) {
-            if (slot[ch].key_pending) {
-                int k = slot[ch].key_pending;
-                slot[ch].key_pending = 0;
-                if (k > 0 && slot[ch].AEG.state == EG_RELEASE) { key_on(ch); continue; }
-                if (k < 0) key_off(ch);
-            }
             aeg_clock(ch);
             feg_clock(ch);
         }
     }
     memset(MIXS, 0, sizeof MIXS);
+    bool sent[16] = {false};
     for (int ch = 0; ch < 64; ch++) {
         int32_t l, rr, d;
         slot_output(ch, l, rr, d);
         mixl += l;
         mixr += rr;
-        MIXS[chr(ch, 0x20) & 0xF] += d; /* MIXS is 20-bit (sample scale x16), DSP INPUTS = MIXS << 4 */
+        uint16_t r20 = chr(ch, 0x20);
+        if ((r20 >> 4) & 0xF) { MIXS[r20 & 0xF] += d; sent[r20 & 0xF] = true; } /* MIXS is 20-bit (sample scale x16), DSP INPUTS = MIXS << 4 */
     }
-    for (int i = 0; i < 16; i++) MIXS[i] = sext(MIXS[i], 20); /* the 20-bit sum wraps, no saturation (tests/sgc_mix) */
+    /* a bus that no slot sends to (IMXL 0) keeps its last value; the DSP reads bank samples&1 (tests/eg_lock mixs) */
+    for (int i = 0; i < 16; i++) {
+        if (sent[i]) MIXS_bank[samples & 1][i] = sext(MIXS[i], 20); /* the 20-bit sum wraps, no saturation (tests/sgc_mix) */
+        MIXS[i] = MIXS_bank[samples & 1][i];
+    }
     for (int i = 0; i < 2; i++) {
         uint16_t v = r(0x2040 + 4 * i);
         volpan(EXTS[i], (v >> 8) & 0xF, v & 0x1F, mixl, mixr);
@@ -685,9 +709,9 @@ void AicaModel::write(uint32_t off, uint32_t val) {
     }
     if (off >= 0x4500 && off < 0x4580) {
         int i = (off - 0x4500) >> 3;
-        if (off & 4) MIXS[i] = sext((int32_t)((v << 4) | (MIXS[i] & 0xF)), 20);
-        else MIXS[i] = (MIXS[i] & ~0xF) | (v & 0xF);
-        return;
+        int32_t &b = MIXS_bank[samples & 1][i];   /* the bank the DSP reads on the next sample; alternate samples */
+        if (off & 4) b = sext((int32_t)((v << 4) | (b & 0xF)), 20);
+        else b = (b & ~0xF) | (v & 0xF);
     }
     if (off >= 0x4580 && off < 0x45C0) { EFREG[(off - 0x4580) >> 2] = (int16_t)v; return; }
     if (off >= 0x45C0) return;

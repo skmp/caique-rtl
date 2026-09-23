@@ -1,0 +1,2 @@
+cap_start: counter word fd29 at ea40 (n 726), next fd2a fd2b fd2c, c0 ed16, head n 728
+fr: 13568 samples, errors 0

@@ -1,0 +1,28 @@
+===== feg_odd rows: OPN
+tests/eg_lock/hw/feg_odd stream 0: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 479, max set 143; R 49/53/57/45; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 1 5
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 1 5
+  best 6646/11125 (K 5 slow_off -1 koff 6769 same 0): first mismatch n 6646 hw u d01 model v 1a04
+tests/eg_lock/hw/feg_odd stream 1: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 467, max set 143; R 51/55/59/47; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+    FULL (11125 samples) with slow_off -1 koff_same 0: K mod 8 in {3}; key-off samples: 6771(even) 6772(odd)
+    FULL (11125 samples) with slow_off -1 koff_same 1: K mod 8 in {3}; key-off samples: 6772(odd) 6773(even)
+tests/eg_lock/hw/feg_odd stream 2: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 479, max set 143; R 49/53/57/45; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 1 5
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 1 5
+  best 6646/11125 (K 5 slow_off -1 koff 6769 same 0): first mismatch n 6646 hw u d01 model v 1a04
+===== feg_odd rows: -rot
+tests/eg_lock/hw/feg_odd stream 0: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 479, max set 143; R 49/53/57/45; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  best 6646/11125 (K 3 slow_off -1 koff 6769 same 0): first mismatch n 6646 hw u d01 model v 1a04
+tests/eg_lock/hw/feg_odd stream 1: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 467, max set 143; R 51/55/59/47; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+    FULL (11125 samples) with slow_off -1 koff_same 0: K mod 8 in {3}; key-off samples: 6771(even) 6772(odd)
+    FULL (11125 samples) with slow_off -1 koff_same 1: K mod 8 in {3}; key-off samples: 6772(odd) 6773(even)
+tests/eg_lock/hw/feg_odd stream 2: tracked 11125/11125 from onset 139 (MDEC_CT 00d4 even), ambiguous 479, max set 143; R 49/53/57/45; key-off marks 6749..6750
+  slow_off 0: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  slow_off -1: 2 of 8 K residues reproduce the key-on phase (6606 samples): 3 7
+  best 6646/11125 (K 3 slow_off -1 koff 6769 same 0): first mismatch n 6646 hw u d01 model v 1a04

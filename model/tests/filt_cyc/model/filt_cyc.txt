@@ -2,35 +2,35 @@ fc_0 stream 0: F 1ffe Q 4 A 1000
 fc_0 stream 1: F 1ffe Q 4 A -1000
 fc_0 stream 2: F 1ffe Q 4 A 7
 fc_0 stream 3: F 1ffe Q 0 A 1000
-cap_start: counter word fde9 at 0840 (n 534), next fdea fdeb fdec, c0 0a56, head n 537
+cap_start: counter word fd49 at e7a0 (n 694), next fd4a fd4b fd4c, c0 ea56, head n 726
 fc_0: 6848 samples, errors 0
 fc_1 stream 0: F 1ff0 Q 4 A 1000
 fc_1 stream 1: F 1ff0 Q 4 A -1000
 fc_1 stream 2: F 1ff0 Q 0 A 1000
 fc_1 stream 3: F 1ffc Q 4 A 1000
-cap_start: counter word fd56 at d4a0 (n 681), next fd57 fd58 fd59, c0 d749, head n 710
+cap_start: counter word fd73 at b400 (n 652), next fd74 fd75 fd76, c0 b68c, head n 683
 fc_1: 6848 samples, errors 0
 fc_2 stream 0: F 1e00 Q 4 A 1000
 fc_2 stream 1: F 1e00 Q 4 A -1000
 fc_2 stream 2: F 1e00 Q 0 A 1000
 fc_2 stream 3: F 1e00 Q 0 A -1000
-cap_start: counter word fd71 at a100 (n 654), next fd72 fd73 fd74, c0 a38e, head n 672
+cap_start: counter word fd92 at 8080 (n 621), next fd93 fd94 fd95, c0 82ed, head n 642
 fc_2: 6848 samples, errors 0
 fc_3 stream 0: F 1c00 Q 4 A 1000
 fc_3 stream 1: F 1c00 Q 4 A -1000
 fc_3 stream 2: F 1c00 Q 0 A 1000
 fc_3 stream 3: F 1c00 Q 0 A -1000
-cap_start: counter word fda5 at 6da0 (n 602), next fda6 fda7 fda8, c0 6ffa, head n 626
+cap_start: counter word fda9 at 4d20 (n 598), next fdaa fdab fdac, c0 4f76, head n 599
 fc_3: 6848 samples, errors 0
 fc_4 stream 0: F 1a00 Q 4 A 1000
 fc_4 stream 1: F 1a00 Q 4 A -1000
 fc_4 stream 2: F 1800 Q 4 A 1000
 fc_4 stream 3: F 1800 Q 4 A -1000
-cap_start: counter word fdcc at 3a60 (n 563), next fdcd fdce fdcf, c0 3c93, head n 579
+cap_start: counter word fdf4 at 1a20 (n 523), next fdf5 fdf6 fdf7, c0 1c2b, head n 552
 fc_4: 6848 samples, errors 0
 fc_5 stream 0: F 1f55 Q 4 A 1000
 fc_5 stream 1: F 1f55 Q 4 A -1000
 fc_5 stream 2: F 1d55 Q 4 A 1000
 fc_5 stream 3: F 1d55 Q 4 A -1000
-cap_start: counter word fe03 at 0760 (n 508), next fe04 fe05 fe06, c0 095c, head n 536
+cap_start: counter word fd30 at e640 (n 719), next fd31 fd32 fd33, c0 e90f, head n 736
 fc_5: 6848 samples, errors 0

@@ -1,0 +1,7 @@
+feg_odd_s0 onset 139 (MDEC_CT 00d4 even) K 6491: FULL 11125/11125, key-off samples 6771(even) 6772(odd)
+feg_odd_s1 onset 139 (MDEC_CT 00d4 even) K 6491: FULL 11125/11125, key-off samples 6771(even) 6772(odd)
+fk_0_s0    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off samples 6770(even) 6771(odd)
+fk_1_s0    onset 138 (MDEC_CT c81a even) K 6491: fail 4316/8758, key-off samples; first mismatch at 4454 (+4316): hw u d01 model v 19fe
+fk_2_s0    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off samples 4564(even) 4565(odd)
+fk_3_s0    onset 138 (MDEC_CT 57e2 even) K 6491: fail 4426/8950, key-off samples; first mismatch at 4564 (+4426): hw u d01 model v 19fe
+TOTAL full=4/6

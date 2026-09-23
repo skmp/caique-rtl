@@ -1,0 +1,12 @@
+tests/feg_krs/hw/fk_0 stream 0: tracked 11126/11126 from onset 138 (MDEC_CT 09d6 even), ambiguous 420, max set 143; R 49/57/63/61; key-off marks 6749..6750
+tests/feg_krs/hw/fk_0 stream 1: tracked 11126/11126 from onset 138 (MDEC_CT 09d6 even), ambiguous 442, max set 143; R 39/47/55/51; key-off marks 6749..6750
+tests/feg_krs/hw/fk_0 stream 2: tracked 11126/11126 from onset 138 (MDEC_CT 09d6 even), ambiguous 620, max set 143; R 32/40/48/44; key-off marks 6749..6750
+tests/feg_krs/hw/fk_1 stream 0: tracked 8758/8758 from onset 138 (MDEC_CT c81a even), ambiguous 303, max set 155; R 48/52/56/48; key-off marks 4356..4357
+tests/feg_krs/hw/fk_1 stream 1: tracked 8758/8758 from onset 138 (MDEC_CT c81a even), ambiguous 303, max set 155; R 48/52/56/48; key-off marks 4356..4357
+tests/feg_krs/hw/fk_1 stream 2: tracked 8758/8758 from onset 138 (MDEC_CT c81a even), ambiguous 303, max set 155; R 48/52/56/48; key-off marks 4356..4357
+tests/feg_krs/hw/fk_2 stream 0: tracked 8949/8949 from onset 139 (MDEC_CT 901d odd), ambiguous 314, max set 155; R 48/52/56/48; key-off marks 4548..4549
+tests/feg_krs/hw/fk_2 stream 1: tracked 8949/8949 from onset 139 (MDEC_CT 901d odd), ambiguous 314, max set 155; R 48/52/56/48; key-off marks 4548..4549
+tests/feg_krs/hw/fk_2 stream 2: tracked 8949/8949 from onset 139 (MDEC_CT 901d odd), ambiguous 314, max set 155; R 48/52/56/48; key-off marks 4548..4549
+tests/feg_krs/hw/fk_3 stream 0: tracked 8950/8950 from onset 138 (MDEC_CT 57e2 even), ambiguous 313, max set 155; R 48/52/56/48; key-off marks 4548..4549
+tests/feg_krs/hw/fk_3 stream 1: tracked 8950/8950 from onset 138 (MDEC_CT 57e2 even), ambiguous 312, max set 155; R 48/52/56/48; key-off marks 4548..4549
+tests/feg_krs/hw/fk_3 stream 2: tracked 8950/8950 from onset 138 (MDEC_CT 57e2 even), ambiguous 312, max set 155; R 48/52/56/48; key-off marks 4548..4549

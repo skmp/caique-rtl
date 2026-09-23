@@ -20,10 +20,9 @@ minicast are listed below with the test that forced them.
   - COEF bits 15:3; MADRS, MPRO 16 bits.
   - TEMP: full 24 bits R/W (+0: bits 7:0, +4: bits 23:8).
   - MEMS: +4 (bits 23:8) R/W; +0 (bits 7:0) is **not CPU-writable** but reads back what the DSP wrote.
-  - MIXS: R/W 20 bits (+0: 3:0, +4: 19:4); the CPU reads a written value back as 0 after 2 ms.  But the console's
-    DSP keeps seeing a CPU-written MIXS value: on all 128 TEMP slots over a 4 ms run (tests/dsp_temp T2), on
-    alternate samples in tests/dsp_basic F.  Not modelled (the model clears MIXS every sample); probably a
-    double-buffered input latch; no real software writes MIXS.  [claim D2]
+  - MIXS: R/W 20 bits (+0: 3:0, +4: 19:4).  A bus that no slot sends to keeps its last value, and a CPU-written
+    value is seen by the DSP on alternate samples (two banks): see "MIXS retention" below (tests/eg_lock mixs;
+    resolves the dsp_temp T2 / dsp_basic F observations; modelled).  [claim D2]
   - EFREG 16 bits R/W. EXTS reads 0, not writable (no CD playing).
 - Monitors: MSLC (0x280C bits 13:8) selects the slot. 0x2810 = LP(15) SGC state(14:13) EG(12:0). EG is **13 bits**:
   0x1FFF when the slot is off/released, 0 at full volume; otherwise the 10-bit attenuation (see Amplitude envelope).
@@ -53,8 +52,10 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   - R < 48: a tick every 2^(11 - R/4) EG clocks, increment from row R&3 of the OPN eg_inc table (AR 1: spacings
     4096, 4096, 8192 samples).  R >= 48: every clock, rows 4.. (R 60-63 all 8).
   - Attack: `a += (~a * inc) >> 4` (= a - (a >> s) - 1 with inc 8/4/2/1 ↔ s 1/2/3/4); at 0 → decay 1.
-  - Decay 1 / decay 2 / release: `a += inc`.  Decay 1 → decay 2 when a >= DL << 5, **checked after that clock's
-    decay 1 step** (every clock that starts in decay 1, also without a step; not on the clock that enters decay 1):
+  - Decay 1 / decay 2 / release: `a += inc`.  Decay 1 → decay 2 when **a[9:5] == DL** (an equality, not >=: a decay 1
+    entered through LPSLNK above DL << 5 never reaches decay 2, tests/sgc_loop lo_2; for an attack-entered decay 1 the
+    two are the same), **checked after that clock's decay 1 step** (every clock that starts in decay 1, also without
+    a step; not on the clock that enters decay 1):
     decay 2's rate applies from the next clock, no skipped tick.  tests/aeg_dl0: with **DL = 0** the first decay 1
     clock still takes its step (D1R 31: attenuation 0 → 8, level 32767·119/128) and then holds in decay 2; D1R 20
     and 10 have no step on that clock and never move.  The EG monitor shows the new state within the crossing
@@ -63,13 +64,17 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
     [claims A1-A3]
   - Reaching the top (past 0x3FF) the slot goes "off": the monitor reads 0x1FFF and the output is silent.  The
     state is kept: decay 2 stays decay 2 (monitor 0x5FFF); **minicast** switches decay 2 → release instead.
-- **Key-on loads a = 0x280 (-60 dB)**, not 0x3FF, and the key event takes effect on an envelope clock: the key-on
-  level always lasts exactly one clock (2 samples) before the first attack step.  Model: key events are latched
-  by KYONEX and applied at the next envelope clock.
+- **Key-on loads a = 0x280 (-60 dB)**, not 0x3FF.  The key event takes effect on the sample after the KYONEX write,
+  whatever its parity; that sample takes no envelope step, so the key-on level lasts 2 samples when it is a clock and
+  1 when it is not (tests/eg_lock keys; the earlier "always one clock" came from key-ons that happened to land on
+  clocks).  See "Envelope clock" below for the clock itself.
 - **minicast** used millisecond tables and an instant AR=31; replaced by the above.
 - Model vs console (tools/aeg_cmp.py, phase-independent: level path + tick-spacing histogram): all 44 streams agree
-  except where the envelope clock's phase at key-on differs (which half of an alternating 1,2 / 2,4 / 4,8 pattern
-  comes first; the hardware counter phase is not observable in advance) and capture-end truncation.
+  except where the envelope clock's phase at key-on differs and capture-end truncation.  Since session 4 the phase
+  IS observable (see "Envelope clock"): tools/eg_model.cpp replays aeg_dl0, the eg_lock AEG runs and sgc_loop lo_2
+  through the model sample-exactly (whole-program model runs still key on at their own phase).
+- **R = 63 (instant) attack**: a = 0 from the key-on sample, but the envelope leaves the attack on the next clock,
+  so decay 1 first steps one clock later (tests/eg_lock odd_dec).
 
 ## Pitch and interpolation (tests/sgc_pitch — model bit-exact on all 16 pitches)
 
@@ -133,8 +138,9 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   bit-exact filter with a full-scale random input -- v bit 0 is unused by the filter; tools/feg_fit.cpp fits the
   envelope clock; tools/feg_validate.cpp runs the production model: 9/9 streams, 77,862/77,862 samples)
   [claims E1-E4]:
-  - the envelope clock ticks every 2 samples; key-on loads FLV0 at a clock, the first step comes on the next clock;
-    key-off switches to release and steps on the same clock.
+  - the envelope clock ticks every 2 samples (the even-MDEC_CT samples, "Envelope clock"); key-on loads FLV0 on the
+    key-on sample and the first step comes on the next clock; key-off switches to release on the key-off sample, and
+    if that sample is a clock it steps then with the previous segment's increment.
   - **KRS applies to FEG rates** exactly as to the AEG (R = 2 rate + KRS scaling; KRS 0 and 5 at OCT +3 fit only
     with it).
   - **One comparator C = (v >= target).**  A segment moves down if C holds when it starts, else up (a segment that
@@ -143,10 +149,11 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
     FLV1 0x1C05) -- and the next segment steps on the very next clock (no idle clock).  Decay 2 and release skip
     any step that would flip C and hold short of the target (0x1AFA with FLV3 0x1B00 at +8; 0x1BFF, 0x1FF8).
   - The R < 48 increment rows see the clock counter one step behind the R >= 48 rows (streams mixing both need
-    an offset = 3 mod 4).  Applied to the FEG only; the AEG tests are phase-independent, so it is unmeasured there.
-  - Open: in one batch slot 2 took the shared key-off one clock earlier than slots 0/1, and its counter phase
-    differs from theirs by 2 (mod 4): the envelope work is probably spread over the slots within the 2-sample
-    period, so a register write can land between slots.  A slot-number sweep with one FEG program would pin it.
+    an offset = 3 mod 4).  The AEG shares the offset (session 4: the AEG and FEG captures agree on one ring-locked
+    counter constant only with it).
+  - The batch-1 slot-2 anomaly (its key-off one clock early, its counter phase 2 mod 4 off) is resolved: the rows
+    for R = 49/57 differ from the OPN table, and a key-off sample that is a clock steps with the previous segment's
+    increment (see "Envelope clock"; tests/eg_lock, feg_krs).
   - The model had clamping at the target and an idle clock at each transition; both are fixed (src/aica_model.cpp
     feg_clock).
 
@@ -272,6 +279,11 @@ Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
   its console value needs a settled low of exactly x, the model settles one LSB below, both inside the DC deadband
   and the console state is inherited.)
 
+- **Sign convention** (session 4, tools/filt_negform.cpp): with the band state sign-flipped (Bh = -B) every rounding
+  of the recurrence is a plain arithmetic right shift -- `Dh = 2 * ((q128 * Bh) >> 8)`, `H = clamp24(x - L + Dh)`,
+  `Bh -= (k * H) >> s`, `L -= (k * Bh) >> s` (and with Lh = -L too, `out = 2 Lh`); 2^28 random states over all
+  131072 settings give 0 differences.  The floor / ceil / ceil asymmetry is an artefact of the sign of the stored band,
+  not a datapath feature.
 - **Integrator width** [F4 as first stated was WRONG; corrected in F6/F7].  The first claim (tests/filt_wide:
   "no FLV/Q setting is unstable", Q31 resonance is the worst case, >= 23 bits) missed the undamped unity-cutoff Q0
   mode; without the H clamp that mode grows without bound (tools/filt_unity_sim.cpp).  filt_wide itself stays valid
@@ -283,10 +295,75 @@ Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
   (0x1FF4 Q31); nothing reaches 2^23 (work/filt/reach_clamp_all.txt).  Without the clamp the same search diverges
   (2.9e9 at 0x1FFE Q0).  So wider registers are not observable with any drive found; this is a search, not a
   proof.  The model's int32 states are exact for everything reachable in that search.  [claim F7]
+  Session 4 (tools/filt_reach2.cpp, a setting switch mid-drive: pump at Q 31 / alternate at Q 0 unity, then every
+  setting with four drives): |band| 5,315,589 (0x1FEE Q31 pump -> 0x1FFE Q0 dc) and |low| 4,791,874, larger than
+  the single-setting maxima but still below 2^23 -- the conclusion stands.
 - The validator (tools/filt_validate.cpp) gained the filt_low and filt_wide sets: 265 streams, 4,286,180 samples;
   other damping roundings fail (qbias 0: 4/265, 128: 117/265, 223: 154/265) [F5].
 - The old `filt_probe/fp_2` capture has 228 counter errors; it must not be used as arithmetic evidence.  minicast
   had no filter.
+
+## Envelope clock, key timing and increment rows (tests/eg_lock, feg_krs; session 4, 2026-09-23)
+
+The envelope clock is **observable**: it is locked to the DSP's ring counter.
+
+- **MDEC_CT is a free-running 16-bit sample counter** (masked to the ring at the DSP address, wrapping at 64K, not
+  reset by the RBP/RBL write or a DSP program load); cap.h records sample n at ring address c0 - n = MDEC_CT, so
+  every capture carries the counter of every sample (c0 from the case's `cap_start:` log line, n_first from the
+  header).
+- **The envelope clock ticks on every sample whose MDEC_CT is even**, for the AEG and the FEG alike, and its counter
+  is `eg_cnt = K - MDEC_CT/2 (mod 2^14)` with **one constant K per console boot**: K = 6491 (mod 16384; 14683 is not
+  excluded by rate 2, which pins mod 8192) for tests/feg_track, aeg_dl0, eg_lock and feg_krs; tests/sgc_loop, captured
+  before a reset, has K = 165 mod 1024.  Evidence: tools/eg_phase.cpp (the AEG of every constant-input capture
+  predicted from the level law with K the only free parameter: aeg_dl0 4/4 streams, eg_lock att_slow (AR 6/4/2/1,
+  487,478 samples each) 4/4, att_mid 4/4), tools/eg_keys.cpp (32 key-on/off cycles on slots 0..3 and 60..63: every
+  first envelope step on an even sample, 0 violations), tools/feg_validate.cpp / feg_lock.cpp (FEG), and
+  tools/eg_model.cpp: the production model with MDEC_CT set from the capture reproduces **33/33 streams sample by
+  sample** (aeg_dl0, eg_lock x 8 runs, sgc_loop lo_2 with LPSLNK, feg_odd, feg_krs x 4, feg_track x 3: 1.17 M
+  samples).  Model: `AicaModel::eg_K`; the clock is derived from MDEC_CT in `step()`.
+- **Key events take effect on the sample after the KYONEX write, whatever its parity.**  The key-on sample takes no
+  envelope step: the key-on level lasts 2 samples when that sample is a clock, 1 when it is not (eg_lock keys: 32
+  cycles, both cases).  The old model applied key events at the next clock (level always 2 samples).
+- **A key-off sample that is a clock steps toward the release target with the increment of the segment the envelope
+  was in** (the rate lookup lags the state change by one clock): feg_krs fk_1 / fk_3 (decay 2 holding short at
+  0x19FE with +4, release +1: the first release clock moves +4 to 0x1A02, then +1 per clock); when the key-off sample
+  is not a clock the next clock uses the release rate (fk_2, feg_odd).  This closes the old E4 anomaly: in
+  feg_track batch 1 the KRS-5 slot "released one clock early" because its old segment (decay 2, +8) had a nonzero
+  increment on the key-off clock while its siblings sat in slow attacks whose increment at that counter was 0;
+  batch 2 the same (slot 1 in attack R 36 with a +1 tick, slot 0 at R 48 with an invisible +1, slot 2 at rate 0).
+  With the rule, all slots of every batch share one key-off sample (eg_model).  Measured on the FEG; the AEG uses
+  the same code (its eg_lock key-offs happened from rate-0 segments, increment 0, consistent).
+- **The R < 48 counter offset (-1) applies to the AEG too**: the AEG captures and the FEG captures agree on the same
+  K only with the same offset (eg_phase / eg_model).
+- **Increment rows for R = 1 mod 4 at R >= 48 (rows 5, 9, 13) are {b, 2b, b, b, b, 2b, b, b}**, the double step at
+  index 1 and 5, not the YM2612's index 3 and 7; every other row is the OPN table (rows 1, 3, 7, 11, 15 measured at odd
+  effective rates through KRS: eg_lock odd_att / odd_att3 / odd_same / odd_dec, feg_odd, feg_krs).  This is the
+  other half of E4 (the "counter phase differing by 2 mod 4").
+- **R = 63 attack**: the level is 0 from the key-on sample, but the envelope leaves the attack on the next clock (a
+  step landing at 0), so decay 1 first steps one clock later (eg_lock odd_dec).
+- **Decay 1 -> decay 2 when the top 5 bits of a EQUAL DL**, not >=: a slot that enters decay 1 through LPSLNK above
+  DL << 5 keeps decaying at D1R and never reaches decay 2 (sgc_loop lo_2 stream 2, DL 0, entered at a = 0x20D:
+  it decays to "off").  For an attack-entered decay 1 the two compares are identical (steps of at most 8 cannot skip
+  the DL window), which is why aeg_dl0 (DL 0, immediate decay 2) and every sgc_aeg run agree with both.
+- **KRS is not a timing factor** (feg_krs: the feg_track batch-1 programs on swapped slots key off together).
+- The old model's `EG_PHASE` is gone; whole-program model runs still key on at a phase set by the emulated SH4
+  timing, so a console capture is reproduced exactly only through eg_model (MDEC_CT taken from the capture).
+- Loop-end interpolation (side finding, model already correct): at pitch 1.5 with a 32-sample loop the sample before
+  LEA interpolates against the RAM word beyond LEA (0 there), halving one output sample every loop; tools/eg_phase.cpp
+  assumes a constant input and therefore stops at +21 on the eg_lock odd runs -- use eg_model for those.
+
+## MIXS retention and CPU writes (tests/eg_lock mixs; claim D2 resolved)
+
+- **A MIXS bus that no slot sends to (IMXL 0 on every slot targeting it) keeps its last value**; a configured but
+  silent slot (IMXL != 0, off) rewrites its bus with 0 every sample.  In eg_lock mixs, MIXS2 held -8 (the last value
+  slot 2 sent in the previous run) for 7193 samples with nothing sending to it.  Model: `MIXS_bank`, a bus is
+  rewritten only when a slot with IMXL != 0 targets it.
+- **The DSP reads one of two MIXS banks on alternate samples**: a CPU write to an unused bus shows on every other
+  sample (0xABCD / -8 alternating for the rest of the capture); a bus with a sender shows the CPU value for at most one
+  sample (the sender rewrites the bank).  The SH4 read the high word of its own write back as 0 immediately, the low
+  nibble as written.  dsp_basic "F ira 25" (alternating) and dsp_temp T2 (all 128 slots) differ by whether the
+  write landed... both are consistent with two banks and a sender-free bus; the sub-sample order of the SH4 write
+  against the slot's read-modify-write is not modelled.  Model: CPU writes go to the bank the DSP reads next.
 
 ## DSP (tests/dsp_basic — model matches hardware on every vector)
 
@@ -330,13 +407,14 @@ Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
 
 ## Open items
 
-- AEG: the counter phase between the R < 48 and R >= 48 rows (measured on the FEG, see Filter envelope) is not
-  applied to the AEG, whose captures are compared phase-independently.  (KRS, LPSLNK, key-on while not released,
-  decay 2 "off" + key-on and DL = 0 are measured: see the sections above.)
+- Envelope: whether a key-off that lands on a clock sample also steps the AEG with the previous segment's increment
+  (measured on the FEG; the AEG key-offs so far came from rate-0 segments); whether a key-on during a release (not
+  "off") takes a step on the key-on sample; K bit 13 (rate 1 or 3 through KRS would pin it); the alternate-sample
+  MIXS write against a sender is sub-sample timing (not modelled).
 - Filter: nothing open in the arithmetic (see Slot filter).  sgc_level L5 stays an inherited-state difference.
-- FEG: per-slot envelope timing within the 2-sample period (see Filter envelope, claim E4); the rest is measured.
-- DSP: SH4-written MIXS persists as a DSP input on the console, not modelled (see Access / register map, claim D2);
-  dsp_basic keeps its "F ira 25" line excluded.
+- The stopped slot 2 of eg_lock mixs left -8 on its bus (the model leaves 0): the exact residual a slot sends after
+  its release (filter tail through the VOFF path) is not compared.
+- dsp_basic keeps its "F ira 25" line excluded (sub-sample timing of the CPU write).
 
 ## Test-writing notes
 

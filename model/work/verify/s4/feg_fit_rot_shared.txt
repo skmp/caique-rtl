@@ -1,0 +1,3 @@
+ft_0 shared p 0 c0 4 koff 2666:  s0 ALL 9846  s1 ALL 9846  s2 ALL 9846
+ft_1 shared p 0 c0 21 koff 3262:  s0 ALL 10934  s1 ALL 10934  s2 6522/10934 (n 6522: hw d02 model cfe)
+ft_2 shared p 1 c0 1 koff 332:  s0 3/5174 (n 3: hw c01 model c00)  s1 ALL 5174  s2 1/5174 (n 1: hw e01 model e00)

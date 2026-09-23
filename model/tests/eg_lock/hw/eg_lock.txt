@@ -1,0 +1,64 @@
+att_slow stream 0: slot 0 AR 6 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_slow stream 1: slot 1 AR 4 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_slow stream 2: slot 2 AR 2 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_slow stream 3: slot 3 AR 1 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+cap_start: counter word fdb6 at 4280 (n 585), next fdb7 fdb8 fdb9, c0 44c9, head n 590
+att_slow: 487936 samples, errors 0, 4 marks
+att_mid stream 0: slot 0 AR 22 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_mid stream 1: slot 1 AR 20 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_mid stream 2: slot 2 AR 18 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+att_mid stream 3: slot 3 AR 16 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+cap_start: counter word fdd1 at 3ce0 (n 558), next fdd2 fdd3 fdd4, c0 3f0e, head n 584
+att_mid: 91008 samples, errors 0, 4 marks
+odd_att stream 0: slot 0 AR 22 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att stream 2: slot 2 AR 26 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att stream 3: slot 3 AR 28 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+cap_start: counter word fd60 at ad40 (n 671), next fd61 fd62 fd63, c0 afdf, head n 683
+odd_att: 68992 samples, errors 0, 4 marks
+odd_att3 stream 0: slot 0 AR 23 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att3 stream 1: slot 1 AR 25 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att3 stream 2: slot 2 AR 27 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_att3 stream 3: slot 3 AR 29 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+cap_start: counter word fd85 at 7ac0 (n 634), next fd86 fd87 fd88, c0 7d3a, head n 638
+odd_att3: 68992 samples, errors 0, 4 marks
+odd_same stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same stream 2: slot 2 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same stream 3: slot 3 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+cap_start: counter word fdc4 at 4840 (n 571), next fdc5 fdc6 fdc7, c0 4a7b, head n 594
+odd_same: 46912 samples, errors 0, 4 marks
+odd_same2 stream 0: slot 5 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same2 stream 1: slot 17 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same2 stream 2: slot 40 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_same2 stream 3: slot 63 AR 24 D1R 0 DL 0 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+cap_start: counter word fd94 at 71e0 (n 619), next fd95 fd96 fd97, c0 744b, head n 631
+odd_same2: 46912 samples, errors 0, 4 marks
+odd_dec stream 0: slot 0 AR 31 D1R 24 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_dec stream 1: slot 1 AR 31 D1R 26 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_dec stream 2: slot 2 AR 31 D1R 28 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+odd_dec stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+cap_start: counter word fd6a at 9b60 (n 661), next fd6b fd6c fd6d, c0 9df5, head n 667
+odd_dec: 68992 samples, errors 0, 4 marks
+keys stream 0: slot 0 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys stream 1: slot 1 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys stream 2: slot 2 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys stream 3: slot 3 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+cap_start: counter word fdaf at 6960 (n 592), next fdb0 fdb1 fdb2, c0 6bb0, head n 623
+keys: 8128 samples, errors 0, 64 marks
+keys2 stream 0: slot 60 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys2 stream 1: slot 61 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys2 stream 2: slot 62 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+keys2 stream 3: slot 63 AR 31 D1R 0 DL 0 D2R 0 RR 31 KRS 15 OCT 0 FNS 000
+cap_start: counter word fdd7 at 34c0 (n 552), next fdd8 fdd9 fdda, c0 36e8, head n 577
+keys2: 7872 samples, errors 0, 64 marks
+feg_odd stream 0: slot 0 OCT 0 FNS 200 KRS 0 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 lpoff 0
+feg_odd stream 1: slot 1 OCT 0 FNS 200 KRS 0 FLV 1800 1c00 1800 1a00 1c00 FAR 25 FD1R 27 FD2R 29 FRR 23 lpoff 0
+feg_odd stream 2: slot 2 OCT 0 FNS 200 KRS 0 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 lpoff 0
+feg_odd stream 3: slot 3 OCT 0 FNS 200 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
+cap_start: counter word fe0b at 0180 (n 500), next fe0c fe0d fe0e, c0 0374, head n 532
+feg_odd: 11264 samples, errors 0
+cap_start: counter word fd57 at baa0 (n 680), next fd58 fd59 fd5a, c0 bd48, head n 702
+mixs: MIXS3 readback right after the write 0000/5
+mixs: MIXS3 readback after 30 ms 0000/0
+mixs: 8640 samples, errors 0

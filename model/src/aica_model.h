@@ -43,7 +43,11 @@ struct Slot {
         uint8_t state, alfo_w, alfo_shft, plfo, plfo_shft; /* alfo_w: 8-bit ALFO waveform value */
     } lfo;
     bool enabled;
-    int8_t key_pending;   /* +1 key-on / -1 key-off, applied at the next envelope clock */
+    int8_t key_pending;   /* +1 key-on / -1 key-off, applied on the next sample (tests/eg_lock keys) */
+    bool keyed;           /* key-on applied on this sample: no envelope step on it */
+    bool keyed_off;       /* key-off applied on this sample: a clock on it steps toward the release target with the
+                           * increment of the segment the envelope was in (tests/feg_krs, feg_track batches 1/2) */
+    EgState aeg_prev, feg_prev; /* the states before that key-off */
 };
 
 struct AicaModel {
@@ -56,7 +60,9 @@ struct AicaModel {
     /* DSP state */
     int32_t TEMP[128];  /* 24-bit */
     int32_t MEMS[32];   /* 24-bit */
-    int32_t MIXS[16];   /* 20-bit, accumulated by the SGC each sample */
+    int32_t MIXS[16];   /* 20-bit, accumulated by the SGC each sample; a bus no slot sends to keeps its value, and
+                         * the DSP reads one of two banks on alternate samples (tests/eg_lock mixs) */
+    int32_t MIXS_bank[2][16];
     int32_t EXTS[2];    /* 16-bit */
     int32_t EFREG[16];  /* 16-bit */
     uint32_t MDEC_CT;
@@ -72,8 +78,12 @@ struct AicaModel {
     int16_t outL, outR;       /* DAC output of the last sample */
     uint64_t samples;         /* samples run */
     uint32_t lfsr;            /* noise: 17-bit LFSR x^17 + x^12 + 1, one step per slot processed */
-    uint32_t eg_cnt;          /* envelope clock: +1 every 2 samples (EG_PHASE picks which) */
-    static int EG_PHASE;      /* 0/1: sample parity on which the envelope clock ticks (hardware phase unknown) */
+    /* Envelope clock (tests/eg_lock, feg_track, aeg_dl0): it ticks on every sample whose MDEC_CT is even, and its
+     * counter is eg_cnt = eg_K - MDEC_CT/2 (mod 2^14).  MDEC_CT is a free-running 16-bit sample counter (masked to
+     * the ring at the DSP address), so the envelope phase of a capture follows from the ring position.  eg_K is a
+     * constant of the console boot (6491 on the console used for tests/eg_lock; it changes at a reset). */
+    uint32_t eg_cnt;
+    uint32_t eg_K;
 
     AicaModel();
     ~AicaModel();

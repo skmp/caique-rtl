@@ -1,0 +1,6 @@
+koff 3261 s0: 0 full c0 values (best 6526/10934)
+koff 3261 s1: 0 full c0 values (best 6522/10934)
+koff 3261 s2: 4096 full c0 values (best 10934/10934) 1 5 9 13 17 21 25 29 33 37 41 45
+koff 3262 s0: 1024 full c0 values (best 10934/10934) 5 21 37 53 69 85 101 117 133 149 165 181
+koff 3262 s1: 512 full c0 values (best 10934/10934) 21 53 85 117 149 181 213 245 277 309 341 373
+koff 3262 s2: 0 full c0 values (best 6522/10934)

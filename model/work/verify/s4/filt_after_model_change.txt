@@ -1,0 +1,3 @@
+TOTAL qbias=255 full=265/265 consecutive samples=4286180/4286180
+TOTAL full=15/15 matched_full_samples=150558
+TOTAL full=12/12 matched_full_samples=45384

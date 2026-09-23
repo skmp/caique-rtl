@@ -1,7 +1,8 @@
 # caique AICA model
 
 Behavioural model of the Dreamcast AICA sound generator (64 slots) and DSP, measured against the console.
-Slot-filter arithmetic now matches 4,286,180 captured samples across 265 streams, including production-code validation.
+Slot-filter arithmetic matches 4,286,180 captured samples across 265 streams; the envelope clock is locked to the
+DSP ring counter, so the amplitude and filter envelopes replay sample-exactly too (33/33 streams, 1.17 M samples).
 Findings, with the test behind each one: **[NOTES.md](NOTES.md)**. Handover / how to verify the open filter study:
 **[HANDOVER.md](HANDOVER.md)**. Current model-vs-console status:
 **[tests/SUMMARY.txt](tests/SUMMARY.txt)**. Current C++ reproduction commands are in HANDOVER.md.
@@ -43,6 +44,12 @@ Console runs take a few seconds each (dcload-ip); only one program can use the c
 - `tools/filt_edges.cpp`: independent analysis of the fresh endpoint impulses and bypass timing reference.
 - `tools/filt_need.cpp`: forced rounding and contradictory-operand diagnostics for older hypotheses.
 - `tools/cap_cmp.cpp`: compare two captures (e.g. console vs model) aligned at a stream onset (replaces `cap.py cmp`).
+- `tools/eg_model.cpp`: replay a capture's slot programs through the production model with the envelope clock locked
+  to the capture's ring position (MDEC_CT from `cap_start` c0 and the header) and compare every sample -- the
+  envelope validator (33/33 streams).  `tools/eg_phase.cpp` (AEG from the level law, K search), `tools/eg_keys.cpp`
+  (key timing per slot), `tools/feg_lock.cpp` (FEG tracker + ring-locked fit), `tools/feg_validate.cpp`.
+- `tools/filt_negform.cpp` (the sign-flipped all-floor filter form), `tools/filt_reach2.cpp` (state maxima with a
+  mid-drive setting switch).
 - The other Python comparison tools and `filt_search*.cpp` are historical; current work uses C++ integer math only.
 
 ## Not observable from the SH4

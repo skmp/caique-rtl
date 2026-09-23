@@ -1,0 +1,19 @@
+tests/feg_track/hw/ft_1 stream 0: tracked 10934/10934 from onset 138 (MDEC_CT a4cc even), ambiguous 642, max set 143; R 32/40/48/44; key-off marks 6491..6555
+  slow_off 0: 4 of 64 K residues reproduce the key-on phase (6349 samples): 10 26 42 58
+    FULL (10934 samples) with slow_off 0 koff_same 0: K mod 64 in {10,26,42,58}; key-off samples: 6660(even) 6661(odd) 6662(even) 6663(odd)
+    FULL (10934 samples) with slow_off 0 koff_same 1: K mod 64 in {10,26,42,58}; key-off samples: 6661(odd) 6662(even) 6663(odd) 6664(even)
+  slow_off -1: 4 of 64 K residues reproduce the key-on phase (6349 samples): 11 27 43 59
+    FULL (10934 samples) with slow_off -1 koff_same 0: K mod 64 in {11,27,43,59}; key-off samples: 6660(even) 6661(odd) 6662(even) 6663(odd)
+    FULL (10934 samples) with slow_off -1 koff_same 1: K mod 64 in {11,27,43,59}; key-off samples: 6661(odd) 6662(even) 6663(odd) 6664(even)
+tests/feg_track/hw/ft_1 stream 1: tracked 10934/10934 from onset 138 (MDEC_CT a4cc even), ambiguous 427, max set 143; R 39/47/55/51; key-off marks 6491..6555
+  slow_off 0: 1 of 32 K residues reproduce the key-on phase (6349 samples): 26
+  slow_off -1: 1 of 32 K residues reproduce the key-on phase (6349 samples): 27
+    FULL (10934 samples) with slow_off -1 koff_same 0: K mod 32 in {27}; key-off samples: 6660(even) 6661(odd)
+    FULL (10934 samples) with slow_off -1 koff_same 1: K mod 32 in {27}; key-off samples: 6661(odd) 6662(even)
+tests/feg_track/hw/ft_1 stream 2: tracked 10934/10934 from onset 138 (MDEC_CT a4cc even), ambiguous 435, max set 143; R 49/57/63/61; key-off marks 6491..6555
+  slow_off 0: 1 of 4 K residues reproduce the key-on phase (6349 samples): 3
+    FULL (10934 samples) with slow_off 0 koff_same 0: K mod 4 in {3}; key-off samples: 6658(even) 6659(odd)
+    FULL (10934 samples) with slow_off 0 koff_same 1: K mod 4 in {3}; key-off samples: 6659(odd) 6660(even)
+  slow_off -1: 1 of 4 K residues reproduce the key-on phase (6349 samples): 3
+    FULL (10934 samples) with slow_off -1 koff_same 0: K mod 4 in {3}; key-off samples: 6658(even) 6659(odd)
+    FULL (10934 samples) with slow_off -1 koff_same 1: K mod 4 in {3}; key-off samples: 6659(odd) 6660(even)

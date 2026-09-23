@@ -2,17 +2,17 @@ ff_0 stream 0: F 1ffe Q 4 lpoff 0 OCT 0 FNS 333
 ff_0 stream 1: F 1e00 Q 4 lpoff 0 OCT 0 FNS 333
 ff_0 stream 2: F 1c00 Q 31 lpoff 0 OCT 0 FNS 333
 ff_0 stream 3: F 1ffe Q 4 lpoff 1 OCT 0 FNS 333
-cap_start: counter word fdff at 0ae0 (n 512), next fe00 fe01 fe02, c0 0ce0, head n 539
+cap_start: counter word fd3f at ea20 (n 704), next fd40 fd41 fd42, c0 ece0, head n 728
 ff_0: 6848 samples, errors 0
 ff_1 stream 0: F 1ffe Q 4 lpoff 0 OCT 15 FNS 155
 ff_1 stream 1: F 1e00 Q 4 lpoff 0 OCT 15 FNS 155
 ff_1 stream 2: F 1c00 Q 31 lpoff 0 OCT 15 FNS 155
 ff_1 stream 3: F 1ffe Q 4 lpoff 1 OCT 15 FNS 155
-cap_start: counter word fd4b at da80 (n 692), next fd4c fd4d fd4e, c0 dd34, head n 716
+cap_start: counter word fd68 at b9e0 (n 663), next fd69 fd6a fd6b, c0 bc77, head n 694
 ff_1: 6848 samples, errors 0
 ff_2 stream 0: F 1ffe Q 4 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 1: F 1e00 Q 4 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 2: F 1c00 Q 31 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 3: F 1ffe Q 4 lpoff 1 OCT 0 FNS 0ab
-cap_start: counter word fd69 at aa40 (n 662), next fd6a fd6b fd6c, c0 acd6, head n 681
+cap_start: counter word fd90 at 89c0 (n 623), next fd91 fd92 fd93, c0 8c2f, head n 650
 ff_2: 6848 samples, errors 0

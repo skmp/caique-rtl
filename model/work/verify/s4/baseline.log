@@ -1,0 +1,22 @@
+validate rc=0
+overflow rc=0
+overflow heldout rc=0
+overflow model rc=0
+overflow model heldout rc=0
+frac rc=0
+voff rc=0
+feg_track rc=0
+feg_validate rc=0
+aeg_dl0 rc=0
+lowrange rc=0
+SAME filt_validate_model
+SAME filt_overflow_s1w24
+SAME filt_overflow_s1w24_heldout
+SAME filt_overflow_model_s1w24
+SAME filt_overflow_model_s1w24_heldout
+SAME filt_frac
+SAME filt_voff
+SAME feg_track
+SAME feg_validate
+SAME aeg_dl0_check_hw
+SAME lowrange

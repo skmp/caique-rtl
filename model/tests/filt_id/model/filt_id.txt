@@ -1,0 +1,108 @@
+cap_start: counter word fd3d at e9e0 (n 706), next fd3e fd3f fd40, c0 eca2, head n 728
+fi_0 stream 0: F 0800 Q 0
+fi_0 stream 1: F 0800 Q 4
+fi_0 stream 2: F 0800 Q 8
+fi_0 stream 3: F 0800 Q 16
+fi_0: 8384 samples, errors 0
+cap_start: counter word fd5d at b280 (n 674), next fd5e fd5f fd60, c0 b522, head n 693
+fi_1 stream 0: F 0800 Q 24
+fi_1 stream 1: F 0800 Q 31
+fi_1 stream 2: F 0c00 Q 0
+fi_1 stream 3: F 0c00 Q 4
+fi_1: 8384 samples, errors 0
+cap_start: counter word fd9a at 7b60 (n 613), next fd9b fd9c fd9d, c0 7dc5, head n 640
+fi_2 stream 0: F 0c00 Q 8
+fi_2 stream 1: F 0c00 Q 16
+fi_2 stream 2: F 0c00 Q 24
+fi_2 stream 3: F 0c00 Q 31
+fi_2: 8384 samples, errors 0
+cap_start: counter word fdc2 at 4460 (n 573), next fdc3 fdc4 fdc5, c0 469d, head n 590
+fi_3 stream 0: F 1000 Q 0
+fi_3 stream 1: F 1000 Q 4
+fi_3 stream 2: F 1000 Q 8
+fi_3 stream 3: F 1000 Q 16
+fi_3: 8384 samples, errors 0
+cap_start: counter word fdf8 at 0da0 (n 519), next fdf9 fdfa fdfb, c0 0fa7, head n 541
+fi_4 stream 0: F 1000 Q 24
+fi_4 stream 1: F 1000 Q 31
+fi_4 stream 2: F 1200 Q 0
+fi_4 stream 3: F 1200 Q 4
+fi_4: 8384 samples, errors 0
+cap_start: counter word fd3d at d620 (n 706), next fd3e fd3f fd40, c0 d8e2, head n 719
+fi_5 stream 0: F 1200 Q 8
+fi_5 stream 1: F 1200 Q 16
+fi_5 stream 2: F 1200 Q 24
+fi_5 stream 3: F 1200 Q 31
+fi_5: 8384 samples, errors 0
+cap_start: counter word fd75 at 9ee0 (n 650), next fd76 fd77 fd78, c0 a16a, head n 670
+fi_6 stream 0: F 1400 Q 0
+fi_6 stream 1: F 1400 Q 4
+fi_6 stream 2: F 1400 Q 8
+fi_6 stream 3: F 1400 Q 16
+fi_6: 8384 samples, errors 0
+cap_start: counter word fd9b at 67c0 (n 612), next fd9c fd9d fd9e, c0 6a24, head n 623
+fi_7 stream 0: F 1400 Q 24
+fi_7 stream 1: F 1400 Q 31
+fi_7 stream 2: F 1600 Q 0
+fi_7 stream 3: F 1600 Q 4
+fi_7: 8384 samples, errors 0
+cap_start: counter word fdd3 at 30e0 (n 556), next fdd4 fdd5 fdd6, c0 330c, head n 572
+fi_8 stream 0: F 1600 Q 8
+fi_8 stream 1: F 1600 Q 16
+fi_8 stream 2: F 1600 Q 24
+fi_8 stream 3: F 1600 Q 31
+fi_8: 8384 samples, errors 0
+cap_start: counter word fd17 at f940 (n 744), next fd18 fd19 fd1a, c0 fc28, head n 756
+fi_9 stream 0: F 1800 Q 0
+fi_9 stream 1: F 1800 Q 4
+fi_9 stream 2: F 1800 Q 8
+fi_9 stream 3: F 1800 Q 16
+fi_9: 8384 samples, errors 0
+cap_start: counter word fd53 at c1e0 (n 684), next fd54 fd55 fd56, c0 c48c, head n 706
+fi_10 stream 0: F 1800 Q 24
+fi_10 stream 1: F 1800 Q 31
+fi_10 stream 2: F 1a00 Q 0
+fi_10 stream 3: F 1a00 Q 4
+fi_10: 8384 samples, errors 0
+cap_start: counter word fd7d at 8aa0 (n 642), next fd7e fd7f fd80, c0 8d22, head n 655
+fi_11 stream 0: F 1a00 Q 8
+fi_11 stream 1: F 1a00 Q 16
+fi_11 stream 2: F 1a00 Q 24
+fi_11 stream 3: F 1a00 Q 31
+fi_11: 8384 samples, errors 0
+cap_start: counter word fdb5 at 53a0 (n 586), next fdb6 fdb7 fdb8, c0 55ea, head n 604
+fi_12 stream 0: F 1c00 Q 0
+fi_12 stream 1: F 1c00 Q 4
+fi_12 stream 2: F 1c00 Q 8
+fi_12 stream 3: F 1c00 Q 16
+fi_12: 8384 samples, errors 0
+cap_start: counter word fdda at 1cc0 (n 549), next fddb fddc fddd, c0 1ee5, head n 555
+fi_13 stream 0: F 1c00 Q 24
+fi_13 stream 1: F 1c00 Q 31
+fi_13 stream 2: F 1e00 Q 0
+fi_13 stream 3: F 1e00 Q 4
+fi_13: 8384 samples, errors 0
+cap_start: counter word fd2d at e540 (n 722), next fd2e fd2f fd30, c0 e812, head n 737
+fi_14 stream 0: F 1e00 Q 8
+fi_14 stream 1: F 1e00 Q 16
+fi_14 stream 2: F 1e00 Q 24
+fi_14 stream 3: F 1e00 Q 31
+fi_14: 8384 samples, errors 0
+cap_start: counter word fd56 at ade0 (n 681), next fd57 fd58 fd59, c0 b089, head n 688
+fi_15 stream 0: F 1f00 Q 0
+fi_15 stream 1: F 1f00 Q 4
+fi_15 stream 2: F 1f00 Q 8
+fi_15 stream 3: F 1f00 Q 16
+fi_15: 8384 samples, errors 0
+cap_start: counter word fd8f at 76c0 (n 624), next fd90 fd91 fd92, c0 7930, head n 634
+fi_16 stream 0: F 1f00 Q 24
+fi_16 stream 1: F 1f00 Q 31
+fi_16 stream 2: F 1f80 Q 0
+fi_16 stream 3: F 1f80 Q 4
+fi_16: 8384 samples, errors 0
+cap_start: counter word fdd1 at 3fe0 (n 558), next fdd2 fdd3 fdd4, c0 420e, head n 584
+fi_17 stream 0: F 1f80 Q 8
+fi_17 stream 1: F 1f80 Q 16
+fi_17 stream 2: F 1f80 Q 24
+fi_17 stream 3: F 1f80 Q 31
+fi_17: 8384 samples, errors 0

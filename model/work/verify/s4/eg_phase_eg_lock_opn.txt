@@ -1,0 +1,91 @@
+feg_track batches: MDEC_CT of the onset sample and of the fitted key-on clock; K = c0 + MDEC_CT/2:
+  ft_0: onset MDEC_CT e14e (even), fitted clock parity p 0 -> clock samples have MDEC_CT even; key-on clock at MDEC_CT e14e, c0 4 -> K = 12459 (mod 32: 11, mod 8: 3)
+  ft_1: onset MDEC_CT a4cc (even), fitted clock parity p 0 -> clock samples have MDEC_CT even; key-on clock at MDEC_CT a4cc, c0 21 -> K = 4731 (mod 32: 27, mod 8: 3)
+  ft_2: onset MDEC_CT 63b5 (odd), fitted clock parity p 1 -> clock samples have MDEC_CT even; key-on clock at MDEC_CT 63b6, c0 0 -> K = 12763 (mod 32: 27, mod 8: 3)
+tests/eg_lock/hw/att_slow: n 487936 first 591 onset 458 (MDEC_CT 40b0 even) c0 44c9 key-off marks 485572..485573
+  stream 0 AR  6 D1R  0 DL  0 D2R  0 RR 31 (R 12/0/0/62, K period 2048): best 487478/487478 (K 346 slow_off 0 koff 485596 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 2048 in {346,858,1370,1882}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off 0 koff_same 1: K mod 2048 in {346,858,1370,1882}; key-off samples: 485597(odd) 485598(even)
+    FULL with slow_off -1 koff_same 0: K mod 2048 in {347,859,1371,1883}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off -1 koff_same 1: K mod 2048 in {347,859,1371,1883}; key-off samples: 485597(odd) 485598(even)
+  stream 1 AR  4 D1R  0 DL  0 D2R  0 RR 31 (R 8/0/0/62, K period 4096): best 487478/487478 (K 346 slow_off 0 koff 485596 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 4096 in {346,1370,2394,3418}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off 0 koff_same 1: K mod 4096 in {346,1370,2394,3418}; key-off samples: 485597(odd) 485598(even)
+    FULL with slow_off -1 koff_same 0: K mod 4096 in {347,1371,2395,3419}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off -1 koff_same 1: K mod 4096 in {347,1371,2395,3419}; key-off samples: 485597(odd) 485598(even)
+  stream 2 AR  2 D1R  0 DL  0 D2R  0 RR 31 (R 4/0/0/62, K period 8192): best 487478/487478 (K 346 slow_off 0 koff 485596 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 8192 in {346,2394,4442,6490}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off 0 koff_same 1: K mod 8192 in {346,2394,4442,6490}; key-off samples: 485597(odd) 485598(even)
+    FULL with slow_off -1 koff_same 0: K mod 8192 in {347,2395,4443,6491}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off -1 koff_same 1: K mod 8192 in {347,2395,4443,6491}; key-off samples: 485597(odd) 485598(even)
+  stream 3 AR  1 D1R  0 DL  0 D2R  0 RR 31 (R 2/0/0/62, K period 16384): best 487478/487478 (K 6490 slow_off 0 koff 485596 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 16384 in {6490,14682}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off 0 koff_same 1: K mod 16384 in {6490,14682}; key-off samples: 485597(odd) 485598(even)
+    FULL with slow_off -1 koff_same 0: K mod 16384 in {6491,14683}; key-off samples: 485596(even) 485597(odd)
+    FULL with slow_off -1 koff_same 1: K mod 16384 in {6491,14683}; key-off samples: 485597(odd) 485598(even)
+tests/eg_lock/hw/att_mid: n 91008 first 585 onset 458 (MDEC_CT 3afb odd) c0 3f0e key-off marks 88653..88654
+  stream 0 AR 22 D1R  0 DL  0 D2R  0 RR 31 (R 44/0/0/62, K period 8): best 90550/90550 (K 0 slow_off 0 koff 88663 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 8 in {0,2,4,6}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off 0 koff_same 1: K mod 8 in {0,2,4,6}; key-off samples: 88664(odd) 88665(even)
+    FULL with slow_off -1 koff_same 0: K mod 8 in {1,3,5,7}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off -1 koff_same 1: K mod 8 in {1,3,5,7}; key-off samples: 88664(odd) 88665(even)
+  stream 1 AR 20 D1R  0 DL  0 D2R  0 RR 31 (R 40/0/0/62, K period 16): best 90550/90550 (K 2 slow_off 0 koff 88663 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 16 in {2,6,10,14}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off 0 koff_same 1: K mod 16 in {2,6,10,14}; key-off samples: 88664(odd) 88665(even)
+    FULL with slow_off -1 koff_same 0: K mod 16 in {3,7,11,15}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off -1 koff_same 1: K mod 16 in {3,7,11,15}; key-off samples: 88664(odd) 88665(even)
+  stream 2 AR 18 D1R  0 DL  0 D2R  0 RR 31 (R 36/0/0/62, K period 32): best 90550/90550 (K 2 slow_off 0 koff 88663 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 32 in {2,10,18,26}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off 0 koff_same 1: K mod 32 in {2,10,18,26}; key-off samples: 88664(odd) 88665(even)
+    FULL with slow_off -1 koff_same 0: K mod 32 in {3,11,19,27}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off -1 koff_same 1: K mod 32 in {3,11,19,27}; key-off samples: 88664(odd) 88665(even)
+  stream 3 AR 16 D1R  0 DL  0 D2R  0 RR 31 (R 32/0/0/62, K period 64): best 90550/90550 (K 10 slow_off 0 koff 88663 koff_same 0)
+    FULL with slow_off 0 koff_same 0: K mod 64 in {10,26,42,58}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off 0 koff_same 1: K mod 64 in {10,26,42,58}; key-off samples: 88664(odd) 88665(even)
+    FULL with slow_off -1 koff_same 0: K mod 64 in {11,27,43,59}; key-off samples: 88663(even) 88664(odd)
+    FULL with slow_off -1 koff_same 1: K mod 64 in {11,27,43,59}; key-off samples: 88664(odd) 88665(even)
+tests/eg_lock/hw/odd_att: n 68992 first 684 onset 458 (MDEC_CT ab69 odd) c0 afdf key-off marks 66628..66629
+  stream 0 AR 22 D1R  0 DL  0 D2R  0 RR 31 (R 44/0/0/62, K period 8): best 13/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 471 (+13): model a 20d level 1808, hw 2640
+  stream 1 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 5/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 20d level 1808, hw 2704
+  stream 2 AR 26 D1R  0 DL  0 D2R  0 RR 31 (R 52/0/0/62, K period 1): best 5/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 1ab level 5360, hw 10352
+  stream 3 AR 28 D1R  0 DL  0 D2R  0 RR 31 (R 56/0/0/62, K period 1): best 5/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 10d level 29168, hw 77808
+tests/eg_lock/hw/odd_att3: n 68992 first 639 onset 458 (MDEC_CT 78f1 odd) c0 7d3a key-off marks 66628..66629
+  stream 0 AR 23 D1R  0 DL  0 D2R  0 RR 31 (R 46/0/0/62, K period 8): best 7/68534 (K 1 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 465 (+7): model a 20d level 1808, hw 2640
+  stream 1 AR 25 D1R  0 DL  0 D2R  0 RR 31 (R 50/0/0/62, K period 2): best 7/68534 (K 1 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 465 (+7): model a 1ad level 5232, hw 7088
+  stream 2 AR 27 D1R  0 DL  0 D2R  0 RR 31 (R 54/0/0/62, K period 2): best 7/68534 (K 1 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 465 (+7): model a 112 level 27888, hw 42992
+  stream 3 AR 29 D1R  0 DL  0 D2R  0 RR 31 (R 58/0/0/62, K period 2): best 7/68534 (K 1 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 465 (+7): model a 059 level 208880, hw 278512
+tests/eg_lock/hw/odd_same: n 46912 first 595 onset 459 (MDEC_CT 465d odd) c0 4a7b key-off marks 44553..44554
+  stream 0 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 1/46453 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 460 (+1): model a 257 level 816, hw 1264
+  stream 1 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 1/46453 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 460 (+1): model a 257 level 816, hw 1264
+  stream 2 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 1/46453 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 460 (+1): model a 257 level 816, hw 1264
+  stream 3 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 1/46453 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 460 (+1): model a 257 level 816, hw 1264
+tests/eg_lock/hw/odd_same2: n 46912 first 632 onset 458 (MDEC_CT 7009 odd) c0 744b key-off marks 44553..44554
+  stream 0 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 5/46454 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 20d level 1808, hw 2704
+  stream 1 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 5/46454 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 20d level 1808, hw 2704
+  stream 2 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 5/46454 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 20d level 1808, hw 2704
+  stream 3 AR 24 D1R  0 DL  0 D2R  0 RR 31 (R 48/0/0/62, K period 1): best 5/46454 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 463 (+5): model a 20d level 1808, hw 2704
+tests/eg_lock/hw/odd_dec: n 68992 first 668 onset 458 (MDEC_CT 998f odd) c0 9df5 key-off marks 66628..66629
+  stream 0 AR 31 D1R 24 DL 31 D2R  0 RR 31 (R 62/48/0/62, K period 1): best 0/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 458 (+0): model a 280 level 496, hw 520176
+  stream 1 AR 31 D1R 26 DL 31 D2R  0 RR 31 (R 62/52/0/62, K period 1): best 0/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 458 (+0): model a 280 level 496, hw 520176
+  stream 2 AR 31 D1R 28 DL 31 D2R  0 RR 31 (R 62/56/0/62, K period 1): best 0/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 458 (+0): model a 280 level 496, hw 520176
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 (R 62/44/0/62, K period 8): best 0/68534 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 458 (+0): model a 280 level 496, hw 520176

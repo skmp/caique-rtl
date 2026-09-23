@@ -1,0 +1,8 @@
+tests/sgc_loop/hw/lo_2: n 5632 first 570 onset 227 (MDEC_CT 2a23 odd) c0 2d40 key-off marks -1..-1
+  stream 0 AR 31 D1R  0 DL  0 D2R  0 RR 31 (R 62/0/0/62, K period 1): best 0/5405 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 227 (+0): model a 280 level -256, hw -262144
+  stream 1 AR 31 D1R  0 DL  0 D2R  0 RR 31 (R 62/0/0/62, K period 1): best 0/5405 (K 0 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 227 (+0): model a 280 level -256, hw -262144
+  stream 2 AR  8 D1R 20 DL  0 D2R  0 RR 31 (R 16/40/0/62, K period 1024): best 2012/5405 (K 164 slow_off 0 koff -1 koff_same 0)
+    first mismatch at i 2239 (+2012): model a 20d level -32, hw -16
+  stream 3 AR  8 D1R  0 DL  0 D2R  0 RR 31 (R 16/0/0/62, K period 1024): best 5405/5405 (K 164 slow_off 0 koff -1 koff_same 0)

@@ -22,3 +22,6 @@ $(BUILD)/%: %.cpp $(HDRS)
 	g++ $(CXXFLAGS) -o $@ $<
 clean:
 	-rm -rf $(BUILD)
+$(BUILD)/eg_model: eg_model.cpp ../src/aica_model.cpp $(HDRS) $(wildcard ../src/*.h)
+	@mkdir -p $(BUILD)
+	g++ $(CXXFLAGS) -o $@ eg_model.cpp ../src/aica_model.cpp

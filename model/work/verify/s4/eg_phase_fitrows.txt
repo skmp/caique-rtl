@@ -1,0 +1,24 @@
+== row 1
+  stream 0 AR 22 (R 45, row 1): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern ba)
+== row 5
+  stream 1 AR 24 (R 49, row 5): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 0 AR 24 (R 49, row 5): patterns reproducing 44090 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 1 AR 24 (R 49, row 5): patterns reproducing 44090 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 2 AR 24 (R 49, row 5): patterns reproducing 44090 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 3 AR 24 (R 49, row 5): patterns reproducing 44090 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 0 AR 24 (R 49, row 5): patterns reproducing 44091 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 1 AR 24 (R 49, row 5): patterns reproducing 44091 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 2 AR 24 (R 49, row 5): patterns reproducing 44091 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+  stream 3 AR 24 (R 49, row 5): patterns reproducing 44091 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+== row 9
+  stream 2 AR 26 (R 53, row 9): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+== row 13
+  stream 3 AR 28 (R 57, row 13): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern 22)
+== row 3
+  stream 0 AR 23 (R 47, row 3): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern fe)
+== row 7
+  stream 1 AR 25 (R 51, row 7): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern ee)
+== row 11
+  stream 2 AR 27 (R 55, row 11): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern ee)
+== row 15
+  stream 3 AR 29 (R 59, row 15): patterns reproducing 66166 samples of the key-on phase at K 6491: none (best 21 with pattern ee)

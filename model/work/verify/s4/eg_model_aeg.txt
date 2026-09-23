@@ -1,0 +1,10 @@
+aeg_dl0    onset 461 (MDEC_CT 8362 even) K 6491: FULL 20019/20019, key-off sample 18172 (MDEC_CT 3e33 odd)
+att_slow   onset 458 (MDEC_CT 40b0 even) K 6491: FULL 487478/487478, key-off sample 485596 (MDEC_CT d99e even)
+att_mid    onset 458 (MDEC_CT 3afb odd) K 6491: FULL 90550/90550, key-off sample 88663 (MDEC_CT e26e even)
+odd_att    onset 458 (MDEC_CT ab69 odd) K 6491: FULL 68534/68534, key-off sample 66581 (MDEC_CT a91e even)
+odd_att3   onset 458 (MDEC_CT 78f1 odd) K 6491: FULL 68534/68534, key-off sample 66581 (MDEC_CT 76a6 even)
+odd_same   onset 459 (MDEC_CT 465d odd) K 6491: FULL 46453/46453, key-off sample 44562 (MDEC_CT 9a16 even)
+odd_same2  onset 458 (MDEC_CT 7009 odd) K 6491: FULL 46454/46454, key-off sample 44561 (MDEC_CT c3c2 even)
+odd_dec    onset 458 (MDEC_CT 998f odd) K 6491: fail 1/68534; first mismatch at 459 (+1): s0 hw 520176 model 516080 s1 hw 520176 model 511984 s2 hw 520176 model 503792 s3 hw 520176 model 516080
+lo_2       onset 227 (MDEC_CT 2a23 odd) K 165: fail 2012/5405; first mismatch at 2239 (+2012): s0 hw 0 model 0 s1 hw -4608 model -4608 s2 hw -16 model -32 s3 hw -32 model -32
+TOTAL full=7/9

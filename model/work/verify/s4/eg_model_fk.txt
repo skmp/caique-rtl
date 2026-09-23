@@ -1,0 +1,13 @@
+fk_0_s0    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off sample 6770 (MDEC_CT efee even)
+fk_0_s1    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off sample 6770 (MDEC_CT efee even)
+fk_0_s2    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off sample 6770 (MDEC_CT efee even)
+fk_1_s0    onset 138 (MDEC_CT c81a even) K 6491: fail 4316/8758, key-off sample 4450 (MDEC_CT b742 even); first mismatch at 4454 (+4316): hw u d01 model v 19fe
+fk_1_s1    onset 138 (MDEC_CT c81a even) K 6491: fail 4316/8758, key-off sample 4450 (MDEC_CT b742 even); first mismatch at 4454 (+4316): hw u d01 model v 19fe
+fk_1_s2    onset 138 (MDEC_CT c81a even) K 6491: fail 4316/8758, key-off sample 4450 (MDEC_CT b742 even); first mismatch at 4454 (+4316): hw u d01 model v 19fe
+fk_2_s0    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off sample 4564 (MDEC_CT 7ed4 even)
+fk_2_s1    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off sample 4564 (MDEC_CT 7ed4 even)
+fk_2_s2    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off sample 4564 (MDEC_CT 7ed4 even)
+fk_3_s0    onset 138 (MDEC_CT 57e2 even) K 6491: fail 4426/8950, key-off sample 4560 (MDEC_CT 469c even); first mismatch at 4564 (+4426): hw u d01 model v 19fe
+fk_3_s1    onset 138 (MDEC_CT 57e2 even) K 6491: fail 4426/8950, key-off sample 4560 (MDEC_CT 469c even); first mismatch at 4564 (+4426): hw u d01 model v 19fe
+fk_3_s2    onset 138 (MDEC_CT 57e2 even) K 6491: fail 4426/8950, key-off sample 4560 (MDEC_CT 469c even); first mismatch at 4564 (+4426): hw u d01 model v 19fe
+TOTAL full=6/12

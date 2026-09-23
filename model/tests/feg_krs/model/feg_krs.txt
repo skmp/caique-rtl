@@ -8,17 +8,17 @@ fk_1 stream 0: slot 0 OCT 0 FNS 000 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 F
 fk_1 stream 1: slot 1 OCT 0 FNS 000 KRS 2 FLV 1800 1c00 1800 1a00 1c00 FAR 22 FD1R 24 FD2R 26 FRR 22 lpoff 0
 fk_1 stream 2: slot 2 OCT 0 FNS 000 KRS 5 FLV 1800 1c00 1800 1a00 1c00 FAR 19 FD1R 21 FD2R 23 FRR 19 lpoff 0
 fk_1 stream 3: slot 3 OCT 0 FNS 000 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd60 at a7c0 (n 671), next fd61 fd62 fd63, c0 aa5f, head n 678
+cap_start: counter word fd60 at a7c0 (n 671), next fd61 fd62 fd63, c0 aa5f, head n 676
 fk_1: 9088 samples, errors 0
 fk_2 stream 0: slot 5 OCT 0 FNS 000 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 fk_2 stream 1: slot 17 OCT 0 FNS 000 KRS 2 FLV 1800 1c00 1800 1a00 1c00 FAR 22 FD1R 24 FD2R 26 FRR 22 lpoff 0
 fk_2 stream 2: slot 40 OCT 0 FNS 000 KRS 5 FLV 1800 1c00 1800 1a00 1c00 FAR 19 FD1R 21 FD2R 23 FRR 19 lpoff 0
 fk_2 stream 3: slot 63 OCT 0 FNS 000 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd97 at 6f00 (n 616), next fd98 fd99 fd9a, c0 7168, head n 624
+cap_start: counter word fd96 at 6f00 (n 617), next fd97 fd98 fd99, c0 7169, head n 623
 fk_2: 9088 samples, errors 0
 fk_3 stream 0: slot 0 OCT 0 FNS 000 KRS 2 FLV 1800 1c00 1800 1a00 1c00 FAR 22 FD1R 24 FD2R 26 FRR 22 lpoff 0
 fk_3 stream 1: slot 1 OCT 0 FNS 000 KRS 5 FLV 1800 1c00 1800 1a00 1c00 FAR 19 FD1R 21 FD2R 23 FRR 19 lpoff 0
 fk_3 stream 2: slot 2 OCT 0 FNS 000 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 fk_3 stream 3: slot 3 OCT 0 FNS 000 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fdd8 at 3680 (n 551), next fdd9 fdda fddb, c0 38a7, head n 576
+cap_start: counter word fdd7 at 3680 (n 552), next fdd8 fdd9 fdda, c0 38a8, head n 575
 fk_3: 9088 samples, errors 0

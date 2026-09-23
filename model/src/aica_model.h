@@ -100,6 +100,11 @@ struct AicaModel {
      * constant of the console boot (6491 on the console used for tests/eg_lock; it changes at a reset). */
     uint32_t eg_cnt;
     uint32_t eg_K;
+    /* KYONEX (tests/kon_defer, eg_sched2): the write only raises this flag; at the next sample boundary the KYONB bit of
+     * every slot is read (a KYONB written after the KYONEX but before that boundary still counts -- on the chip the read
+     * happens at each slot's frame of the following sample, so high slots accept it up to ~2 samples late) and the key
+     * events take effect on the sample after that one (E = M + 1 with M the first sample after the write's boundary) */
+    bool kyonex_pending;
 
     AicaModel();
     ~AicaModel();

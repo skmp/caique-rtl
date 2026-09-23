@@ -1,0 +1,561 @@
+sched2_check tests/eg_sched2/hw: 8 runs.  M = boundary after the group (MIXS3 anchor); E - M = witness key-on, S - M = register effect (fetch: SA toggle; envelope: first level change).
+== f_0_32 (kind f, A 0 B 32 wl 1, c0 d57b, 35968 samples, 96 events)
+  cyc  0 ev 0 order 0: M   1098 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 1 order 1: M   1482 (EVEN)  E-M +2  SA-M +2  SB-M +1
+  cyc  0 ev 2 order 0: M   1816 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  0 ev 3 order 1: M   2190 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 0 order 0: M   2589 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  1 ev 1 order 1: M   2959 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 2 order 0: M   3280 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  1 ev 3 order 1: M   3666 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  2 ev 0 order 0: M   4067 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  2 ev 1 order 1: M   4435 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  2 ev 2 order 0: M   4755 (odd )  E-M +3  SA-M +2  SB-M +1
+  cyc  2 ev 3 order 1: M   5081 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  3 ev 0 order 0: M   5480 (EVEN)  E-M +3  SA-M +2  SB-M +1
+  cyc  3 ev 1 order 1: M   5847 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 2 order 0: M   6180 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 3 order 1: M   6554 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  4 ev 0 order 0: M   6945 (odd )  E-M +3  SA-M +2  SB-M +1
+  cyc  4 ev 1 order 1: M   7266 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  4 ev 2 order 0: M   7654 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  4 ev 3 order 1: M   7989 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 0 order 0: M   8353 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 1 order 1: M   8743 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 2 order 0: M   9117 (odd )  E-M +3  SA-M +2  SB-M +1
+  cyc  5 ev 3 order 1: M   9445 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  6 ev 0 order 0: M   9824 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 1 order 1: M  10152 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  6 ev 2 order 0: M  10533 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc  6 ev 3 order 1: M  10916 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 0 order 0: M  11325 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 1 order 1: M  11685 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  7 ev 2 order 0: M  12006 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 3 order 1: M  12337 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  8 ev 0 order 0: M  12712 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 1 order 1: M  13035 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  8 ev 2 order 0: M  13417 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  8 ev 3 order 1: M  13803 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  9 ev 0 order 0: M  14187 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  9 ev 1 order 1: M  14573 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  9 ev 2 order 0: M  14915 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 3 order 1: M  15279 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 0 order 0: M  15662 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 10 ev 1 order 1: M  16048 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 2 order 0: M  16379 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 3 order 1: M  16753 (odd )  E-M +2  SA-M +2  SB-M +1
+  cyc 11 ev 0 order 0: M  17138 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 11 ev 1 order 1: M  17524 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 11 ev 2 order 0: M  17870 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 11 ev 3 order 1: M  18230 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 12 ev 0 order 0: M  18616 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 12 ev 1 order 1: M  18890 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 12 ev 2 order 0: M  19211 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 12 ev 3 order 1: M  19595 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 13 ev 0 order 0: M  19981 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 1 order 1: M  20321 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 13 ev 2 order 0: M  20709 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 13 ev 3 order 1: M  21070 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 14 ev 0 order 0: M  21458 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 14 ev 1 order 1: M  21841 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 14 ev 2 order 0: M  22162 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 14 ev 3 order 1: M  22544 (EVEN)  E-M +2  SA-M +2  SB-M +1
+  cyc 15 ev 0 order 0: M  22931 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 15 ev 1 order 1: M  23315 (odd )  E-M +2  SA-M +2  SB-M +1
+  cyc 15 ev 2 order 0: M  23660 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 15 ev 3 order 1: M  23963 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 16 ev 0 order 0: M  24343 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 1 order 1: M  24728 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 16 ev 2 order 0: M  25072 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 3 order 1: M  25433 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 17 ev 0 order 0: M  25818 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 17 ev 1 order 1: M  26162 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 17 ev 2 order 0: M  26524 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 17 ev 3 order 1: M  26910 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 0 order 0: M  27295 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 1 order 1: M  27679 (odd )  E-M +2  SA-M +2  SB-M +1
+  cyc 18 ev 2 order 0: M  28012 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 18 ev 3 order 1: M  28386 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 19 ev 0 order 0: M  28795 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 19 ev 1 order 1: M  29100 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 2 order 0: M  29499 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 3 order 1: M  29797 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 20 ev 0 order 0: M  30247 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 1 order 1: M  30568 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 2 order 0: M  30907 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 20 ev 3 order 1: M  31273 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 21 ev 0 order 0: M  31678 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 1 order 1: M  32043 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 2 order 0: M  32377 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 21 ev 3 order 1: M  32706 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 22 ev 0 order 0: M  33070 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 22 ev 1 order 1: M  33455 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 22 ev 2 order 0: M  33792 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 3 order 1: M  34117 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 23 ev 0 order 0: M  34480 (EVEN)  E-M +3  SA-M +2  SB-M +1
+  cyc 23 ev 1 order 1: M  34830 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 23 ev 2 order 0: M  35253 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 23 ev 3 order 1: M  35580 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  summary (0 events not found):
+    fetch slot  0 order 0                 d+0:43  d+2:5
+    fetch slot  0 order 1                 d+0:42  d+1:1  d+2:5
+    fetch slot 32 order 0                 d-1:17  d+0:26  d+1:5
+    fetch slot 32 order 1                 d-1:15  d+0:27  d+1:6
+    key-on (slot  1) order 0              d+1:29  d+2:14  d+3:5
+    key-on (slot  1) order 1              d+1:42  d+2:6
+== f_8_40 (kind f, A 8 B 40 wl 2, c0 2c5b, 35776 samples, 96 events)
+  cyc  0 ev 0 order 0: M   1099 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 1 order 1: M   1431 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 2 order 0: M   1806 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  0 ev 3 order 1: M   2135 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  1 ev 0 order 0: M   2574 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 1 order 1: M   2849 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  1 ev 2 order 0: M   3216 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  1 ev 3 order 1: M   3602 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  2 ev 0 order 0: M   3988 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  2 ev 1 order 1: M   4316 (EVEN)  E-M +2  SA-M +1  SB-M +1
+  cyc  2 ev 2 order 0: M   4711 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 3 order 1: M   5029 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  3 ev 0 order 0: M   5400 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  3 ev 1 order 1: M   5784 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 2 order 0: M   6112 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  3 ev 3 order 1: M   6451 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  4 ev 0 order 0: M   6836 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 1 order 1: M   7145 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  4 ev 2 order 0: M   7582 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  4 ev 3 order 1: M   7915 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 0 order 0: M   8350 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 1 order 1: M   8615 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 2 order 0: M   8992 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 3 order 1: M   9377 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  6 ev 0 order 0: M   9765 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  6 ev 1 order 1: M  10147 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 2 order 0: M  10474 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  6 ev 3 order 1: M  10853 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 0 order 0: M  11201 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 1 order 1: M  11623 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 2 order 0: M  11952 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  7 ev 3 order 1: M  12275 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 0 order 0: M  12654 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 1 order 1: M  13033 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  8 ev 2 order 0: M  13354 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 3 order 1: M  13738 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  9 ev 0 order 0: M  14123 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc  9 ev 1 order 1: M  14510 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 2 order 0: M  14793 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 3 order 1: M  15169 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 0 order 0: M  15535 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 1 order 1: M  15862 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 2 order 0: M  16241 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 3 order 1: M  16589 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 11 ev 0 order 0: M  16946 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 11 ev 1 order 1: M  17338 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 11 ev 2 order 0: M  17716 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 11 ev 3 order 1: M  18037 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 12 ev 0 order 0: M  18423 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 12 ev 1 order 1: M  18808 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 12 ev 2 order 0: M  19131 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 12 ev 3 order 1: M  19451 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 0 order 0: M  19753 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 1 order 1: M  20174 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 2 order 0: M  20493 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 13 ev 3 order 1: M  20837 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 14 ev 0 order 0: M  21263 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 14 ev 1 order 1: M  21586 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 14 ev 2 order 0: M  21905 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 14 ev 3 order 1: M  22293 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 0 order 0: M  22701 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 15 ev 1 order 1: M  23061 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 2 order 0: M  23387 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 3 order 1: M  23767 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 0 order 0: M  24151 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 16 ev 1 order 1: M  24537 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 2 order 0: M  24883 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 16 ev 3 order 1: M  25243 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 17 ev 0 order 0: M  25626 (EVEN)  E-M +3  SA-M +1  SB-M +1
+  cyc 17 ev 1 order 1: M  26012 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 17 ev 2 order 0: M  26332 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 17 ev 3 order 1: M  26719 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 0 order 0: M  27066 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 1 order 1: M  27426 (EVEN)  E-M +2  SA-M +1  SB-M +1
+  cyc 18 ev 2 order 0: M  27808 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 3 order 1: M  28145 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 19 ev 0 order 0: M  28513 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 19 ev 1 order 1: M  28841 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 19 ev 2 order 0: M  29222 (EVEN)  E-M +3  SA-M +1  SB-M +1
+  cyc 19 ev 3 order 1: M  29605 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 0 order 0: M  30003 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 20 ev 1 order 1: M  30332 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 20 ev 2 order 0: M  30721 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 20 ev 3 order 1: M  31029 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 21 ev 0 order 0: M  31427 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 21 ev 1 order 1: M  31742 (EVEN)  E-M +2  SA-M +1  SB-M +1
+  cyc 21 ev 2 order 0: M  32107 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 3 order 1: M  32492 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 22 ev 0 order 0: M  32876 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 22 ev 1 order 1: M  33262 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 2 order 0: M  33583 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 22 ev 3 order 1: M  33966 (EVEN)  E-M +2  SA-M +1  SB-M +1
+  cyc 23 ev 0 order 0: M  34353 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 23 ev 1 order 1: M  34674 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 23 ev 2 order 0: M  35073 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 23 ev 3 order 1: M  35383 (odd )  E-M +1  SA-M +0  SB-M +0
+  summary (0 events not found):
+    fetch slot  8 order 0                 d-1:3  d+0:42  d+1:3
+    fetch slot  8 order 1                 d-1:3  d+0:38  d+1:7
+    fetch slot 40 order 0                 d-1:21  d+0:24  d+1:3
+    fetch slot 40 order 1                 d-1:24  d+0:17  d+1:7
+    key-on (slot  2) order 0              d+1:27  d+2:18  d+3:3
+    key-on (slot  2) order 1              d+1:41  d+2:7
+== f_16_48 (kind f, A 16 B 48 wl 3, c0 84ea, 35776 samples, 96 events)
+  cyc  0 ev 0 order 0: M   1099 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 1 order 1: M   1484 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc  0 ev 2 order 0: M   1807 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  0 ev 3 order 1: M   2129 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  1 ev 0 order 0: M   2511 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc  1 ev 1 order 1: M   2835 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 2 order 0: M   3216 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  1 ev 3 order 1: M   3605 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 0 order 0: M   3987 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 1 order 1: M   4372 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 2 order 0: M   4717 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 3 order 1: M   5038 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  3 ev 0 order 0: M   5398 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc  3 ev 1 order 1: M   5785 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  3 ev 2 order 0: M   6111 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 3 order 1: M   6490 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 0 order 0: M   6877 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 1 order 1: M   7259 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  4 ev 2 order 0: M   7587 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 3 order 1: M   7901 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 0 order 0: M   8285 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 1 order 1: M   8605 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 2 order 0: M   8991 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  5 ev 3 order 1: M   9377 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 0 order 0: M   9761 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  6 ev 1 order 1: M  10098 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 2 order 0: M  10483 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 3 order 1: M  10791 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  7 ev 0 order 0: M  11172 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc  7 ev 1 order 1: M  11557 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  7 ev 2 order 0: M  11903 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 3 order 1: M  12207 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  8 ev 0 order 0: M  12584 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 1 order 1: M  12969 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 2 order 0: M  13290 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 3 order 1: M  13620 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc  9 ev 0 order 0: M  14013 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  9 ev 1 order 1: M  14381 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  9 ev 2 order 0: M  14716 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc  9 ev 3 order 1: M  15046 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 10 ev 0 order 0: M  15407 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 10 ev 1 order 1: M  15792 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 10 ev 2 order 0: M  16117 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 10 ev 3 order 1: M  16499 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 11 ev 0 order 0: M  16900 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 11 ev 1 order 1: M  17203 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 11 ev 2 order 0: M  17591 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 11 ev 3 order 1: M  17931 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 12 ev 0 order 0: M  18318 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 12 ev 1 order 1: M  18680 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 12 ev 2 order 0: M  19002 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 12 ev 3 order 1: M  19388 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 13 ev 0 order 0: M  19782 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 1 order 1: M  20155 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 2 order 0: M  20482 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 3 order 1: M  20798 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 14 ev 0 order 0: M  21198 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 14 ev 1 order 1: M  21521 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 14 ev 2 order 0: M  21923 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 14 ev 3 order 1: M  22291 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 0 order 0: M  22675 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 15 ev 1 order 1: M  23023 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 2 order 0: M  23381 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 15 ev 3 order 1: M  23721 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 16 ev 0 order 0: M  24086 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 1 order 1: M  24472 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 2 order 0: M  24857 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 16 ev 3 order 1: M  25181 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 17 ev 0 order 0: M  25569 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 17 ev 1 order 1: M  25884 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 17 ev 2 order 0: M  26268 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 17 ev 3 order 1: M  26654 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 0 order 0: M  27038 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 18 ev 1 order 1: M  27425 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 18 ev 2 order 0: M  27744 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 3 order 1: M  28090 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 0 order 0: M  28450 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 19 ev 1 order 1: M  28835 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 2 order 0: M  29156 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 3 order 1: M  29498 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 20 ev 0 order 0: M  29926 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 1 order 1: M  30247 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 2 order 0: M  30568 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 20 ev 3 order 1: M  30956 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 0 order 0: M  31337 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 1 order 1: M  31677 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 21 ev 2 order 0: M  32052 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 3 order 1: M  32426 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 22 ev 0 order 0: M  32812 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 22 ev 1 order 1: M  33146 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 22 ev 2 order 0: M  33519 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 3 order 1: M  33904 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 23 ev 0 order 0: M  34310 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 23 ev 1 order 1: M  34673 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 23 ev 2 order 0: M  35002 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 23 ev 3 order 1: M  35380 (odd )  E-M +1  SA-M +0  SB-M +0
+  summary (0 events not found):
+    fetch slot 16 order 0                 d-1:13  d+0:30  d+1:5
+    fetch slot 16 order 1                 d-1:15  d+0:29  d+1:4
+    fetch slot 48 order 0                 d-1:35  d+0:8  d+1:5
+    fetch slot 48 order 1                 d-1:34  d+0:10  d+1:4
+    key-on (slot  3) order 0              d+1:35  d+2:8  d+3:5
+    key-on (slot  3) order 1              d+1:44  d+2:4
+== f_24_56 (kind f, A 24 B 56 wl 4, c0 dd44, 35968 samples, 96 events)
+  cyc  0 ev 0 order 0: M   1100 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc  0 ev 1 order 1: M   1484 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 2 order 0: M   1813 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  0 ev 3 order 1: M   2189 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  1 ev 0 order 0: M   2575 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 1 order 1: M   2907 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  1 ev 2 order 0: M   3303 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  1 ev 3 order 1: M   3664 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 0 order 0: M   4050 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  2 ev 1 order 1: M   4436 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  2 ev 2 order 0: M   4771 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  2 ev 3 order 1: M   5141 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  3 ev 0 order 0: M   5531 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  3 ev 1 order 1: M   5846 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 2 order 0: M   6248 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  3 ev 3 order 1: M   6617 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 0 order 0: M   7025 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 1 order 1: M   7388 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  4 ev 2 order 0: M   7716 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc  4 ev 3 order 1: M   8092 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  5 ev 0 order 0: M   8481 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  5 ev 1 order 1: M   8862 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  5 ev 2 order 0: M   9184 (odd )  E-M +2  SA-M +0  SB-M -1
+  cyc  5 ev 3 order 1: M   9568 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  6 ev 0 order 0: M   9979 (EVEN)  E-M +2  SA-M +0  SB-M -1
+  cyc  6 ev 1 order 1: M  10339 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  6 ev 2 order 0: M  10662 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  6 ev 3 order 1: M  11043 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 0 order 0: M  11450 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  7 ev 1 order 1: M  11767 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc  7 ev 2 order 0: M  12200 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  7 ev 3 order 1: M  12466 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  8 ev 0 order 0: M  12847 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc  8 ev 1 order 1: M  13178 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  8 ev 2 order 0: M  13568 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc  8 ev 3 order 1: M  13932 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 0 order 0: M  14317 (EVEN)  E-M +3  SA-M +1  SB-M +1
+  cyc  9 ev 1 order 1: M  14638 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 2 order 0: M  15044 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc  9 ev 3 order 1: M  15408 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 10 ev 0 order 0: M  15816 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 10 ev 1 order 1: M  16176 (odd )  E-M +1  SA-M +0  SB-M +0
+  cyc 10 ev 2 order 0: M  16508 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 10 ev 3 order 1: M  16883 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 11 ev 0 order 0: M  17270 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 11 ev 1 order 1: M  17652 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 11 ev 2 order 0: M  17973 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 11 ev 3 order 1: M  18358 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 12 ev 0 order 0: M  18745 (EVEN)  E-M +2  SA-M +0  SB-M +0
+  cyc 12 ev 1 order 1: M  19128 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 12 ev 2 order 0: M  19462 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 12 ev 3 order 1: M  19780 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 13 ev 0 order 0: M  20159 (EVEN)  E-M +3  SA-M +1  SB-M +1
+  cyc 13 ev 1 order 1: M  20538 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 13 ev 2 order 0: M  20862 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 13 ev 3 order 1: M  21246 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 14 ev 0 order 0: M  21631 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 14 ev 1 order 1: M  21896 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 14 ev 2 order 0: M  22224 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 14 ev 3 order 1: M  22552 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 15 ev 0 order 0: M  22934 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 15 ev 1 order 1: M  23318 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 15 ev 2 order 0: M  23638 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 15 ev 3 order 1: M  23960 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 16 ev 0 order 0: M  24341 (EVEN)  E-M +3  SA-M +1  SB-M +1
+  cyc 16 ev 1 order 1: M  24729 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 2 order 0: M  25049 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 16 ev 3 order 1: M  25433 (EVEN)  E-M +2  SA-M +1  SB-M +1
+  cyc 17 ev 0 order 0: M  25820 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 17 ev 1 order 1: M  26204 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 17 ev 2 order 0: M  26542 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 17 ev 3 order 1: M  26911 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 0 order 0: M  27295 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 1 order 1: M  27617 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 18 ev 2 order 0: M  28012 (odd )  E-M +2  SA-M +0  SB-M -1
+  cyc 18 ev 3 order 1: M  28343 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 19 ev 0 order 0: M  28706 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 19 ev 1 order 1: M  29092 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 19 ev 2 order 0: M  29477 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 19 ev 3 order 1: M  29797 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 0 order 0: M  30144 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 20 ev 1 order 1: M  30529 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 20 ev 2 order 0: M  30889 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 20 ev 3 order 1: M  31208 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 0 order 0: M  31593 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 21 ev 1 order 1: M  31928 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 21 ev 2 order 0: M  32320 (odd )  E-M +2  SA-M +0  SB-M +0
+  cyc 21 ev 3 order 1: M  32684 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 0 order 0: M  33071 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 1 order 1: M  33418 (odd )  E-M +1  SA-M +0  SB-M -1
+  cyc 22 ev 2 order 0: M  33774 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 22 ev 3 order 1: M  34161 (EVEN)  E-M +1  SA-M -1  SB-M -1
+  cyc 23 ev 0 order 0: M  34558 (odd )  E-M +3  SA-M +1  SB-M +1
+  cyc 23 ev 1 order 1: M  34873 (EVEN)  E-M +1  SA-M +0  SB-M -1
+  cyc 23 ev 2 order 0: M  35252 (odd )  E-M +1  SA-M -1  SB-M -1
+  cyc 23 ev 3 order 1: M  35572 (odd )  E-M +1  SA-M +0  SB-M +0
+  summary (0 events not found):
+    fetch slot 24 order 0                 d-1:20  d+0:19  d+1:9
+    fetch slot 24 order 1                 d-1:13  d+0:31  d+1:4
+    fetch slot 56 order 0                 d-1:33  d+0:6  d+1:9
+    fetch slot 56 order 1                 d-1:40  d+0:4  d+1:4
+    key-on (slot  4) order 0              d+1:30  d+2:9  d+3:9
+    key-on (slot  4) order 1              d+1:44  d+2:4
+== e_0_32 (kind e, A 0 B 32 wl 1, c0 3461, 26944 samples, 24 events)
+  cyc  0 ev 0 order 0: M   1304 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc  1 ev 0 order 1: M   2345 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc  2 ev 0 order 0: M   3472 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc  3 ev 0 order 1: M   4564 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  4 ev 0 order 0: M   5657 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc  5 ev 0 order 1: M   6752 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  6 ev 0 order 0: M   7845 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  7 ev 0 order 1: M   8943 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  8 ev 0 order 0: M  10019 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc  9 ev 0 order 1: M  11120 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 10 ev 0 order 0: M  12199 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 11 ev 0 order 1: M  13291 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 12 ev 0 order 0: M  14380 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 13 ev 0 order 1: M  15425 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 14 ev 0 order 0: M  16578 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 15 ev 0 order 1: M  17654 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 16 ev 0 order 0: M  18744 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 17 ev 0 order 1: M  19836 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 18 ev 0 order 0: M  20945 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 19 ev 0 order 1: M  22019 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 20 ev 0 order 0: M  22987 (EVEN)  E-M +3  SA-M +2  SB-M +2
+  cyc 21 ev 0 order 1: M  24088 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 22 ev 0 order 0: M  25177 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 23 ev 0 order 1: M  26267 (EVEN)  E-M +2  SA-M +2  SB-M +2
+  summary (0 events not found):
+    envelope slot  0 order 0 M even       d+2:7
+    envelope slot  0 order 0 M odd        d+1:4  d+3:1
+    envelope slot  0 order 1 M even       d+2:6
+    envelope slot  0 order 1 M odd        d+1:6
+    envelope slot 32 order 0 M even       d+0:3  d+2:4
+    envelope slot 32 order 0 M odd        d+1:4  d+3:1
+    envelope slot 32 order 1 M even       d+0:3  d+2:3
+    envelope slot 32 order 1 M odd        d+1:6
+    key-on (slot  1) order 0              d+1:7  d+2:3  d+3:2
+    key-on (slot  1) order 1              d+1:11  d+2:1
+== e_8_40 (kind e, A 8 B 40 wl 2, c0 b1d1, 26944 samples, 24 events)
+  cyc  0 ev 0 order 0: M   1293 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  1 ev 0 order 1: M   2384 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  2 ev 0 order 0: M   3433 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  3 ev 0 order 1: M   4564 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  4 ev 0 order 0: M   5612 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc  5 ev 0 order 1: M   6746 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  6 ev 0 order 0: M   7791 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  7 ev 0 order 1: M   8927 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  8 ev 0 order 0: M  10017 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc  9 ev 0 order 1: M  11108 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 10 ev 0 order 0: M  12160 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 11 ev 0 order 1: M  13290 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 12 ev 0 order 0: M  14384 (EVEN)  E-M +3  SA-M +2  SB-M +2
+  cyc 13 ev 0 order 1: M  15478 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 14 ev 0 order 0: M  16561 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc 15 ev 0 order 1: M  17654 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 16 ev 0 order 0: M  18744 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 17 ev 0 order 1: M  19836 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 18 ev 0 order 0: M  20925 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 19 ev 0 order 1: M  22015 (odd )  E-M +2  SA-M +3  SB-M +3
+  cyc 20 ev 0 order 0: M  23127 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 21 ev 0 order 1: M  24206 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 22 ev 0 order 0: M  25289 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 23 ev 0 order 1: M  26380 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  summary (0 events not found):
+    envelope slot  8 order 0 M even       d+2:4
+    envelope slot  8 order 0 M odd        d+1:6  d+3:2
+    envelope slot  8 order 1 M even       d+0:1  d+2:9
+    envelope slot  8 order 1 M odd        d+1:1  d+3:1
+    envelope slot 40 order 0 M even       d+0:1  d+2:3
+    envelope slot 40 order 0 M odd        d+1:6  d+3:2
+    envelope slot 40 order 1 M even       d+0:6  d+2:4
+    envelope slot 40 order 1 M odd        d+1:1  d+3:1
+    key-on (slot  2) order 0              d+1:7  d+2:2  d+3:3
+    key-on (slot  2) order 1              d+1:11  d+2:1
+== e_16_48 (kind e, A 16 B 48 wl 3, c0 2e55, 26944 samples, 24 events)
+  cyc  0 ev 0 order 0: M   1294 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  1 ev 0 order 1: M   2386 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  2 ev 0 order 0: M   3473 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc  3 ev 0 order 1: M   4564 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  4 ev 0 order 0: M   5654 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  5 ev 0 order 1: M   6704 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  6 ev 0 order 0: M   7837 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  7 ev 0 order 1: M   8927 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  8 ev 0 order 0: M  10018 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  9 ev 0 order 1: M  11115 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 10 ev 0 order 0: M  12199 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 11 ev 0 order 1: M  13290 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 12 ev 0 order 0: M  14381 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 13 ev 0 order 1: M  15479 (odd )  E-M +2  SA-M +3  SB-M +3
+  cyc 14 ev 0 order 0: M  16523 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc 15 ev 0 order 1: M  17612 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 16 ev 0 order 0: M  18743 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 17 ev 0 order 1: M  19793 (odd )  E-M +2  SA-M +3  SB-M +3
+  cyc 18 ev 0 order 0: M  20929 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc 19 ev 0 order 1: M  22016 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 20 ev 0 order 0: M  23108 (EVEN)  E-M +2  SA-M +2  SB-M +2
+  cyc 21 ev 0 order 1: M  24198 (EVEN)  E-M +1  SA-M +2  SB-M +2
+  cyc 22 ev 0 order 0: M  25290 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 23 ev 0 order 1: M  26379 (odd )  E-M +1  SA-M +1  SB-M +1
+  summary (0 events not found):
+    envelope slot 16 order 0 M even       d+0:3  d+2:2
+    envelope slot 16 order 0 M odd        d+1:5  d+3:2
+    envelope slot 16 order 1 M even       d+0:2  d+2:5
+    envelope slot 16 order 1 M odd        d+1:3  d+3:2
+    envelope slot 48 order 0 M even       d+0:4  d+2:1
+    envelope slot 48 order 0 M odd        d+1:5  d+3:2
+    envelope slot 48 order 1 M even       d+0:6  d+2:1
+    envelope slot 48 order 1 M odd        d+1:3  d+3:2
+    key-on (slot  3) order 0              d+1:7  d+2:3  d+3:2
+    key-on (slot  3) order 1              d+1:10  d+2:2
+== e_24_56 (kind e, A 24 B 56 wl 4, c0 ab6c, 26880 samples, 24 events)
+  cyc  0 ev 0 order 0: M   1295 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  1 ev 0 order 1: M   2382 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  2 ev 0 order 0: M   3473 (EVEN)  E-M +2  SA-M +2  SB-M +0
+  cyc  3 ev 0 order 1: M   4563 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc  4 ev 0 order 0: M   5668 (odd )  E-M +3  SA-M +3  SB-M +3
+  cyc  5 ev 0 order 1: M   6745 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  6 ev 0 order 0: M   7835 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc  7 ev 0 order 1: M   8926 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  8 ev 0 order 0: M  10018 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc  9 ev 0 order 1: M  10952 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 10 ev 0 order 0: M  12023 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 11 ev 0 order 1: M  13115 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 12 ev 0 order 0: M  14208 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 13 ev 0 order 1: M  15260 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 14 ev 0 order 0: M  16388 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 15 ev 0 order 1: M  17478 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 16 ev 0 order 0: M  18568 (odd )  E-M +2  SA-M +1  SB-M +1
+  cyc 17 ev 0 order 1: M  19658 (odd )  E-M +2  SA-M +3  SB-M +3
+  cyc 18 ev 0 order 0: M  20755 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 19 ev 0 order 1: M  21840 (odd )  E-M +2  SA-M +3  SB-M +3
+  cyc 20 ev 0 order 0: M  22932 (odd )  E-M +1  SA-M +1  SB-M +1
+  cyc 21 ev 0 order 1: M  24023 (EVEN)  E-M +1  SA-M +0  SB-M +0
+  cyc 22 ev 0 order 0: M  25115 (EVEN)  E-M +1  SA-M +2  SB-M +0
+  cyc 23 ev 0 order 1: M  26218 (odd )  E-M +1  SA-M +1  SB-M +1
+  summary (0 events not found):
+    envelope slot 24 order 0 M even       d+0:3  d+2:3
+    envelope slot 24 order 0 M odd        d+1:5  d+3:1
+    envelope slot 24 order 1 M even       d+0:2  d+2:2
+    envelope slot 24 order 1 M odd        d+1:6  d+3:2
+    envelope slot 56 order 0 M even       d+0:6
+    envelope slot 56 order 0 M odd        d+1:5  d+3:1
+    envelope slot 56 order 1 M even       d+0:4
+    envelope slot 56 order 1 M odd        d+1:6  d+3:2
+    key-on (slot  4) order 0              d+1:9  d+2:2  d+3:1
+    key-on (slot  4) order 1              d+1:10  d+2:2

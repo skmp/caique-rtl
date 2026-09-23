@@ -1,6 +1,6 @@
-model: e45cb4ef1a29 aad815a8bc33  K 6491
-eg_model  GROUPS session4=33/33 eg_kprobe=8/8 feg_koffdir=24/24 feg_koffatt=24/24
-eg_model  TOTAL full=89/89
+model: bcb5d657a0f1 b54de421a690  K 6491
+eg_model  GROUPS session4=33/33 eg_kprobe=16/16 feg_koffdir=24/24 feg_koffatt=24/24
+eg_model  TOTAL full=97/97
 eg_replay TOTAL koff_d2: streams FULL 4/4, samples matched 174080/174080, clean cycles 16/16
 eg_replay TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16
 eg_replay TOTAL koff_d1: streams FULL 4/4, samples matched 174592/174592, clean cycles 16/16
@@ -8,7 +8,7 @@ eg_replay TOTAL koff_att: streams FULL 4/4, samples matched 163328/163328, clean
 eg_replay TOTAL kon_rel: streams FULL 4/4, samples matched 215808/215808, clean cycles 16/16
 tail_cmp  RESULT tests/slot_tail/hw/tail_a: 4/4 streams FULL, events ko 4650(even)
 tail_cmp  RESULT tests/slot_tail/hw/tail_b: 4/4 streams FULL, events ko 4648(even)
-tail_cmp  RESULT tests/slot_tail/hw/tail_c: 4/4 streams FULL, events ko 6875(odd) w14 11301(odd) w00 11300(even) w2 12198(even)
+tail_cmp  RESULT tests/slot_tail/hw/tail_c: 4/4 streams FULL, events ko 6875(odd) w14 11301(odd) w00 11301(odd) w2 12198(even)
 tail_cmp  TOTAL tests/slot_tail/hw: streams FULL 12/12
 mixs_write hw:    H_G  every slot writes its ISEL bus every sample (IMXL is a gain, 0 -> 0); a bus retains iff nobody points at it
 H_G  21 agree   0 disagree  consistent

@@ -178,14 +178,18 @@ int main(int argc, char **argv) {
         // leaves on the first clock at or after the key-on sample), decay 1 at R 3 / 13 / 29 / 45 from a = 0 (D1R 1/6/14/22,
         // KRS 0 OCT 0 FNS 0x200), DL 31, key-off RR 31 at ~1.5 s.  c0 per probe from the "probe pN: c0 XXXX" lines; the
         // key-off marks are head estimates up to ~100 samples off after 1.5 s, hence the 400-sample lower margin.
-        auto probes = probe_c0s("tests/eg_kprobe/hw/eg_kprobe.txt");
-        if (probes.empty()) fprintf(stderr, "eg_model: tests/eg_kprobe/hw/eg_kprobe.txt not found: the kp_ runs are skipped\n");
         const int d1r[4] = {1, 6, 14, 22};
-        for (auto &p : probes) {
-            Run r{"kp_" + p.first, "tests/eg_kprobe/hw/" + p.first, p.second, 6491, 3, {}};
-            for (int k = 0; k < 4; k++) { SlotCfg c; c.slot = k; c.ISEL = k; c.AR = 31; c.D1R = d1r[k]; c.DL = 31; c.D2R = 0; c.RR = 31; c.KRS = 0; c.OCT = 0; c.FNS = 0x200; r.slots.push_back(c); }
-            r.ko_lo_margin = 400; r.group = 1;
-            runs.push_back(r);
+        /* boot 1 (K 6491, tests/eg_kprobe/hw_boot1) and the rebooted console (K 0 by tools/kfit, tests/eg_kprobe/hw) */
+        for (int boot = 0; boot < 2; boot++) {
+            std::string dir = boot ? "tests/eg_kprobe/hw/" : "tests/eg_kprobe/hw_boot1/";
+            auto probes = probe_c0s(dir + "eg_kprobe.txt");
+            if (probes.empty()) fprintf(stderr, "eg_model: %seg_kprobe.txt not found: those kp runs are skipped\n", dir.c_str());
+            for (auto &p : probes) {
+                Run r{(boot ? "kp2_" : "kp_") + p.first, dir + p.first, p.second, boot ? 0u : 6491u, 3, {}};
+                for (int k = 0; k < 4; k++) { SlotCfg c; c.slot = k; c.ISEL = k; c.AR = 31; c.D1R = d1r[k]; c.DL = 31; c.D2R = 0; c.RR = 31; c.KRS = 0; c.OCT = 0; c.FNS = 0x200; r.slots.push_back(c); }
+                r.ko_lo_margin = 400; r.group = 1;
+                runs.push_back(r);
+            }
         }
     }
     {   // session 5 -- feg_koffdir batches kd_0..kd_7 (cases/feg_koffdir.c): FEG key-off on a clock with the old segment and
@@ -274,14 +278,14 @@ int main(int argc, char **argv) {
         load_ram(m, r.ram_kind);
         for (auto &c : r.slots) write_slot(m, c);
         for (int i = 0; i < 16; i++) m.step();
-        m.MDEC_CT = md_on;
+        m.MDEC_CT = (md_on + 1) & 0xFFFF;   /* the KYONEX is read at the next boundary, the onset is the sample after it */
         /* the key-on write: KYONB 1 on every slot but the witness (KYONB 0, as the case writes it), then KYONEX through the
          * first slot (the case does it through slot 0); the key-off write: KYONB 0 on every slot, KYONB 1 on the witness */
         auto key_write = [&](bool on_event) {
             for (size_t si = 0; si < r.slots.size(); si++) { int s = r.slots[si].slot; bool kyonb = ((int)si == r.witness) != on_event; m.write(0x80 * s, kyonb ? (m.chr(s, 0) | 0x4000) : (m.chr(s, 0) & 0x3FFF)); }
             m.write(0x80 * r.slots[0].slot, m.chr(r.slots[0].slot, 0) | 0x8000);
         };
-        key_write(true);   /* KYONEX: the next sample is the onset */
+        key_write(true); m.step();   /* KYONEX: the boundary sample, then the onset */
         // compare function for sample i (after m.step())
         auto check = [&](int i) -> bool {
             if (r.witness >= 0) { const SlotCfg &w = r.slots[r.witness]; if (m.MIXS[w.ISEL] != cp.v[i * cp.ns + w.ISEL]) return false; }
@@ -291,16 +295,16 @@ int main(int argc, char **argv) {
         };
         int lo = m3 >= 0 ? m3 - r.ko_lo_margin : end, hi = m3 >= 0 ? std::min(end - 1, m4 + 400) : end - 1;
         int bad = -1, i = on;
-        for (; i < lo && i < end; i++) { m.step(); if (!check(i)) { bad = i; break; } }
+        for (; i < lo - 1 && i < end; i++) { m.step(); if (!check(i)) { bad = i; break; } }
         int bestko = -1, best = bad < 0 ? i : bad;
         std::vector<int> kos;
         if (bad < 0 && i < end) {
             snap_take(*snap, m);
             for (int ko = lo; ko <= hi; ko++) {
                 snap_restore(m, *snap);
-                int b2 = -1, got = lo;
-                for (int n = lo; n < end; n++) {
-                    if (n == ko) key_write(false);
+                int b2 = -1, got = lo - 1;
+                for (int n = lo - 1; n < end; n++) {
+                    if (n + 1 == ko) key_write(false);   /* the key-off takes effect on sample ko */
                     m.step();
                     if (!check(n)) { b2 = n; break; }
                     got = n + 1;

@@ -8,11 +8,11 @@ ff_1 stream 0: F 1ffe Q 4 lpoff 0 OCT 15 FNS 155
 ff_1 stream 1: F 1e00 Q 4 lpoff 0 OCT 15 FNS 155
 ff_1 stream 2: F 1c00 Q 31 lpoff 0 OCT 15 FNS 155
 ff_1 stream 3: F 1ffe Q 4 lpoff 1 OCT 15 FNS 155
-cap_start: counter word fd68 at b9e0 (n 663), next fd69 fd6a fd6b, c0 bc77, head n 694
+cap_start: counter word fd68 at b9e0 (n 663), next fd69 fd6a fd6b, c0 bc77, head n 687
 ff_1: 6848 samples, errors 0
 ff_2 stream 0: F 1ffe Q 4 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 1: F 1e00 Q 4 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 2: F 1c00 Q 31 lpoff 0 OCT 0 FNS 0ab
 ff_2 stream 3: F 1ffe Q 4 lpoff 1 OCT 0 FNS 0ab
-cap_start: counter word fd90 at 89c0 (n 623), next fd91 fd92 fd93, c0 8c2f, head n 650
+cap_start: counter word fd89 at 89c0 (n 630), next fd8a fd8b fd8c, c0 8c36, head n 646
 ff_2: 6848 samples, errors 0

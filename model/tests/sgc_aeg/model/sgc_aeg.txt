@@ -1,22 +1,22 @@
 cap_start: counter word fd28 at eae0 (n 727), next fd29 fd2a fd2b, c0 edb7, head n 728
-att_31_28: 20416 samples, counter errors 0, 85062 EG monitor reads, 1192 changes
+att_31_28: 20416 samples, counter errors 0, 85062 EG monitor reads, 1193 changes
 cap_start: counter word fd95 at 85e0 (n 618), next fd96 fd97 fd98, c0 884a, head n 643
 att_27_24: 38080 samples, counter errors 0, 158239 EG monitor reads, 2294 changes
 cap_start: counter word fd4b at db80 (n 692), next fd4c fd4d fd4e, c0 de34, head n 716
-att_22_16: 91008 samples, counter errors 0, 379447 EG monitor reads, 5631 changes
+att_22_16: 91008 samples, counter errors 0, 379448 EG monitor reads, 5622 changes
 cap_start: counter word fdaa at 62c0 (n 597), next fdab fdac fdad, c0 6515, head n 613
-att_14_08: 267392 samples, counter errors 0, 1114950 EG monitor reads, 16681 changes
+att_14_08: 267392 samples, counter errors 0, 1114951 EG monitor reads, 16674 changes
 cap_start: counter word fdc2 at 3920 (n 573), next fdc3 fdc4 fdc5, c0 3b5d, head n 578
-att_06_01: 487872 samples, counter errors 0, 2028050 EG monitor reads, 30398 changes
+att_06_01: 487872 samples, counter errors 0, 2028050 EG monitor reads, 30399 changes
 cap_start: counter word fd59 at b1e0 (n 678), next fd5a fd5b fd5c, c0 b486, head n 680
-dec_a: 68928 samples, counter errors 0, 287622 EG monitor reads, 4216 changes
+dec_a: 68928 samples, counter errors 0, 287622 EG monitor reads, 4219 changes
 cap_start: counter word fd76 at 8f40 (n 649), next fd77 fd78 fd79, c0 91c9, head n 651
-dec_b: 267392 samples, counter errors 0, 1114946 EG monitor reads, 16745 changes
+dec_b: 267392 samples, counter errors 0, 1114950 EG monitor reads, 16676 changes
 cap_start: counter word fdb4 at 65a0 (n 587), next fdb5 fdb6 fdb7, c0 67eb, head n 616
-dec_dl: 113024 samples, counter errors 0, 469987 EG monitor reads, 6998 changes
+dec_dl: 113024 samples, counter errors 0, 469987 EG monitor reads, 6996 changes
 cap_start: counter word fd70 at 96a0 (n 655), next fd71 fd72 fd73, c0 992f, head n 658
-dec2: 135104 samples, counter errors 0, 562106 EG monitor reads, 158 changes
+dec2: 135104 samples, counter errors 0, 562106 EG monitor reads, 160 changes
 cap_start: counter word fd95 at 71a0 (n 618), next fd96 fd97 fd98, c0 740a, head n 625
-rel_a: 71168 samples, counter errors 0, 296055 EG monitor reads, 370 changes
+rel_a: 71168 samples, counter errors 0, 296055 EG monitor reads, 365 changes
 cap_start: counter word fdba at 4680 (n 581), next fdbb fdbc fdbd, c0 48c5, head n 589
-rel_b: 357824 samples, counter errors 0, 1493413 EG monitor reads, 3159 changes
+rel_b: 357824 samples, counter errors 0, 1493446 EG monitor reads, 2686 changes

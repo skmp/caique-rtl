@@ -1,0 +1,25 @@
+== validate_s5
+eg_model  GROUPS session4=33/33 eg_kprobe=16/16 feg_koffdir=24/24 feg_koffatt=24/24
+eg_model  TOTAL full=97/97
+eg_replay TOTAL koff_d2: streams FULL 4/4, samples matched 174080/174080, clean cycles 16/16
+eg_replay TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16
+eg_replay TOTAL koff_d1: streams FULL 4/4, samples matched 174592/174592, clean cycles 16/16
+eg_replay TOTAL koff_att: streams FULL 4/4, samples matched 163328/163328, clean cycles 16/16
+eg_replay TOTAL kon_rel: streams FULL 4/4, samples matched 215808/215808, clean cycles 16/16
+tail_cmp  TOTAL tests/slot_tail/hw: streams FULL 12/12
+mixs_write TOTAL: 21 probe/bus verdict rows, hw and model identical, H_G consistent on both
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)
+== FEG / filters
+TOTAL full=9/9 samples=77862/77862
+TOTAL qbias=255 full=265/265 consecutive samples=4286180/4286180
+TOTAL full=15/15 matched_full_samples=150558
+TOTAL full=12/12 matched_full_samples=45384
+== K
+expect K = 6491: all probes match
+expect K = 0: all probes match
+== schedule / DSP
+8
+dsp_wslot identical
+== expected files
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)
+563 work/model_outputs_2026-09-23e.sha256

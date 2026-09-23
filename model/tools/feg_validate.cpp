@@ -65,11 +65,11 @@ int main() {
             m.write(0x40, (c.rate[0] << 8) | c.rate[1]);
             m.write(0x44, (c.rate[2] << 8) | c.rate[3]);
             for (int i = 0; i < 16; i++) m.step();
-            m.MDEC_CT = md_on;                           /* the onset sample has the capture's ring position */
-            m.write(0x00, (1 << 9) | 0x4000 | 0x8000);   /* KYONB + KYONEX: key-on lands on the next sample */
+            m.MDEC_CT = (md_on + 1) & 0xFFFF;
+            m.write(0x00, (1 << 9) | 0x4000 | 0x8000); m.step();   /* KYONB + KYONEX: boundary sample, then the onset */
             auto run = [&](int koff, int *bad) -> int {   /* samples from the onset that agree with u; -1 = all */
                 for (int n = 0; n < (int)u.size(); n++) {
-                    if (n == koff) m.write(0x00, (1 << 9) | 0x8000);   /* KYONB 0 + KYONEX: key-off on this sample */
+                    if (n + 1 == koff) m.write(0x00, (1 << 9) | 0x8000);   /* KYONB 0 + KYONEX: key-off on sample koff */
                     m.step();
                     if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { *bad = n; return n; }
                 }
@@ -77,16 +77,16 @@ int main() {
             };
             int lo = m2 - 256, hi = m2 + 400, bad = -1, best = -1, bestko = -1;   /* the mark is a head estimate */
             // run to lo - 1, snapshot, then try every key-off sample
-            for (int n = 0; n < lo; n++) { m.step(); if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { bad = n; break; } }
+            for (int n = 0; n < lo - 1; n++) { m.step(); if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { bad = n; break; } }
             if (bad < 0) {
                 snap_take(*snap, m);
                 for (int ko = lo; ko <= hi; ko++) {
                     snap_restore(m, *snap);
                     int b2 = -1;
                     // continue from lo
-                    int got = lo;
-                    for (int n = lo; n < (int)u.size(); n++) {
-                        if (n == ko) m.write(0x00, (1 << 9) | 0x8000);
+                    int got = lo - 1;
+                    for (int n = lo - 1; n < (int)u.size(); n++) {
+                        if (n + 1 == ko) m.write(0x00, (1 << 9) | 0x8000);
                         m.step();
                         if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { b2 = n; break; }
                         got = n + 1;

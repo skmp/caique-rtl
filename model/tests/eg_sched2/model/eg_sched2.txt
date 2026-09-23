@@ -1,0 +1,536 @@
+f_0_32 stream 0: slot 0 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_0_32 stream 1: slot 32 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_0_32 stream 2: slot 1 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_0_32 stream 3: MIXS3 written by the CPU in every group (anchor)
+f_0_32 run: kind f A 0 B 32 wl 1 cycles 24
+cap_start: counter word fd32 at e4a0 (n 717), next fd33 fd34 fd35, c0 e76d, head n 724
+f_0_32 cyc 0 ev 0 order 0 mixs 100 t_us 2810
+f_0_32 cyc 0 ev 1 order 1 mixs 101 t_us 10779
+f_0_32 cyc 0 ev 2 order 0 mixs 102 t_us 19065
+f_0_32 cyc 0 ev 3 order 1 mixs 103 t_us 27489
+f_0_32 cyc 1 ev 0 order 0 mixs 104 t_us 3253
+f_0_32 cyc 1 ev 1 order 1 mixs 105 t_us 11621
+f_0_32 cyc 1 ev 2 order 0 mixs 106 t_us 18894
+f_0_32 cyc 1 ev 3 order 1 mixs 107 t_us 27610
+f_0_32 cyc 2 ev 0 order 0 mixs 108 t_us 3311
+f_0_32 cyc 2 ev 1 order 1 mixs 109 t_us 11630
+f_0_32 cyc 2 ev 2 order 0 mixs 10a t_us 18904
+f_0_32 cyc 2 ev 3 order 1 mixs 10b t_us 26245
+f_0_32 cyc 3 ev 0 order 0 mixs 10c t_us 3298
+f_0_32 cyc 3 ev 1 order 1 mixs 10d t_us 11555
+f_0_32 cyc 3 ev 2 order 0 mixs 10e t_us 19094
+f_0_32 cyc 3 ev 3 order 1 mixs 10f t_us 27506
+f_0_32 cyc 4 ev 0 order 0 mixs 110 t_us 3134
+f_0_32 cyc 4 ev 1 order 1 mixs 111 t_us 10363
+f_0_32 cyc 4 ev 2 order 0 mixs 112 t_us 19142
+f_0_32 cyc 4 ev 3 order 1 mixs 113 t_us 26718
+f_0_32 cyc 5 ev 0 order 0 mixs 114 t_us 2616
+f_0_32 cyc 5 ev 1 order 1 mixs 115 t_us 11434
+f_0_32 cyc 5 ev 2 order 0 mixs 116 t_us 19917
+f_0_32 cyc 5 ev 3 order 1 mixs 117 t_us 27322
+f_0_32 cyc 6 ev 0 order 0 mixs 118 t_us 2902
+f_0_32 cyc 6 ev 1 order 1 mixs 119 t_us 10329
+f_0_32 cyc 6 ev 2 order 0 mixs 11a t_us 18953
+f_0_32 cyc 6 ev 3 order 1 mixs 11b t_us 27601
+f_0_32 cyc 7 ev 0 order 0 mixs 11c t_us 3471
+f_0_32 cyc 7 ev 1 order 1 mixs 11d t_us 11622
+f_0_32 cyc 7 ev 2 order 0 mixs 11e t_us 18878
+f_0_32 cyc 7 ev 3 order 1 mixs 11f t_us 26370
+f_0_32 cyc 8 ev 0 order 0 mixs 120 t_us 2850
+f_0_32 cyc 8 ev 1 order 1 mixs 121 t_us 10157
+f_0_32 cyc 8 ev 2 order 0 mixs 122 t_us 18797
+f_0_32 cyc 8 ev 3 order 1 mixs 123 t_us 27533
+f_0_32 cyc 9 ev 0 order 0 mixs 124 t_us 2913
+f_0_32 cyc 9 ev 1 order 1 mixs 125 t_us 11640
+f_0_32 cyc 9 ev 2 order 0 mixs 126 t_us 19361
+f_0_32 cyc 9 ev 3 order 1 mixs 127 t_us 27581
+f_0_32 cyc 10 ev 0 order 0 mixs 128 t_us 2899
+f_0_32 cyc 10 ev 1 order 1 mixs 129 t_us 11615
+f_0_32 cyc 10 ev 2 order 0 mixs 12a t_us 19100
+f_0_32 cyc 10 ev 3 order 1 mixs 12b t_us 27593
+f_0_32 cyc 11 ev 0 order 0 mixs 12c t_us 2121
+f_0_32 cyc 11 ev 1 order 1 mixs 12d t_us 11634
+f_0_32 cyc 11 ev 2 order 0 mixs 12e t_us 19459
+f_0_32 cyc 11 ev 3 order 1 mixs 12f t_us 26817
+f_0_32 cyc 12 ev 0 order 0 mixs 130 t_us 2718
+f_0_32 cyc 12 ev 1 order 1 mixs 131 t_us 11147
+f_0_32 cyc 12 ev 2 order 0 mixs 132 t_us 18912
+f_0_32 cyc 12 ev 3 order 1 mixs 133 t_us 27106
+f_0_32 cyc 13 ev 0 order 0 mixs 134 t_us 2941
+f_0_32 cyc 13 ev 1 order 1 mixs 135 t_us 10619
+f_0_32 cyc 13 ev 2 order 0 mixs 136 t_us 19403
+f_0_32 cyc 13 ev 3 order 1 mixs 137 t_us 27578
+f_0_32 cyc 14 ev 0 order 0 mixs 138 t_us 2964
+f_0_32 cyc 14 ev 1 order 1 mixs 139 t_us 10819
+f_0_32 cyc 14 ev 2 order 0 mixs 13a t_us 18902
+f_0_32 cyc 14 ev 3 order 1 mixs 13b t_us 27571
+f_0_32 cyc 15 ev 0 order 0 mixs 13c t_us 2920
+f_0_32 cyc 15 ev 1 order 1 mixs 13d t_us 11630
+f_0_32 cyc 15 ev 2 order 0 mixs 13e t_us 19364
+f_0_32 cyc 15 ev 3 order 1 mixs 13f t_us 26214
+f_0_32 cyc 16 ev 0 order 0 mixs 140 t_us 2843
+f_0_32 cyc 16 ev 1 order 1 mixs 141 t_us 11553
+f_0_32 cyc 16 ev 2 order 0 mixs 142 t_us 19294
+f_0_32 cyc 16 ev 3 order 1 mixs 143 t_us 27533
+f_0_32 cyc 17 ev 0 order 0 mixs 144 t_us 2074
+f_0_32 cyc 17 ev 1 order 1 mixs 145 t_us 10613
+f_0_32 cyc 17 ev 2 order 0 mixs 146 t_us 18876
+f_0_32 cyc 17 ev 3 order 1 mixs 147 t_us 27590
+f_0_32 cyc 18 ev 0 order 0 mixs 148 t_us 2925
+f_0_32 cyc 18 ev 1 order 1 mixs 149 t_us 11633
+f_0_32 cyc 18 ev 2 order 0 mixs 14a t_us 19095
+f_0_32 cyc 18 ev 3 order 1 mixs 14b t_us 27607
+f_0_32 cyc 19 ev 0 order 0 mixs 14c t_us 3420
+f_0_32 cyc 19 ev 1 order 1 mixs 14d t_us 10311
+f_0_32 cyc 19 ev 2 order 0 mixs 14e t_us 19337
+f_0_32 cyc 19 ev 3 order 1 mixs 14f t_us 26140
+f_0_32 cyc 20 ev 0 order 0 mixs 150 t_us 3486
+f_0_32 cyc 20 ev 1 order 1 mixs 151 t_us 10740
+f_0_32 cyc 20 ev 2 order 0 mixs 152 t_us 19191
+f_0_32 cyc 20 ev 3 order 1 mixs 153 t_us 27526
+f_0_32 cyc 21 ev 0 order 0 mixs 154 t_us 3375
+f_0_32 cyc 21 ev 1 order 1 mixs 155 t_us 11626
+f_0_32 cyc 21 ev 2 order 0 mixs 156 t_us 19203
+f_0_32 cyc 21 ev 3 order 1 mixs 157 t_us 26634
+f_0_32 cyc 22 ev 0 order 0 mixs 158 t_us 2618
+f_0_32 cyc 22 ev 1 order 1 mixs 159 t_us 11334
+f_0_32 cyc 22 ev 2 order 0 mixs 15a t_us 18946
+f_0_32 cyc 22 ev 3 order 1 mixs 15b t_us 26297
+f_0_32 cyc 23 ev 0 order 0 mixs 15c t_us 2550
+f_0_32 cyc 23 ev 1 order 1 mixs 15d t_us 10423
+f_0_32 cyc 23 ev 2 order 0 mixs 15e t_us 19934
+f_0_32 cyc 23 ev 3 order 1 mixs 15f t_us 27395
+f_0_32: 35904 samples, errors 0, 64 marks
+f_8_40 stream 0: slot 8 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_8_40 stream 1: slot 40 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_8_40 stream 2: slot 2 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_8_40 stream 3: MIXS3 written by the CPU in every group (anchor)
+f_8_40 run: kind f A 8 B 40 wl 2 cycles 24
+cap_start: counter word fdb5 at 4340 (n 586), next fdb6 fdb7 fdb8, c0 458a, head n 591
+f_8_40 cyc 0 ev 0 order 0 mixs 100 t_us 2812
+f_8_40 cyc 0 ev 1 order 1 mixs 101 t_us 10321
+f_8_40 cyc 0 ev 2 order 0 mixs 102 t_us 18795
+f_8_40 cyc 0 ev 3 order 1 mixs 103 t_us 26261
+f_8_40 cyc 1 ev 0 order 0 mixs 104 t_us 3405
+f_8_40 cyc 1 ev 1 order 1 mixs 105 t_us 10408
+f_8_40 cyc 1 ev 2 order 0 mixs 106 t_us 18691
+f_8_40 cyc 1 ev 3 order 1 mixs 107 t_us 27439
+f_8_40 cyc 2 ev 0 order 0 mixs 108 t_us 2954
+f_8_40 cyc 2 ev 1 order 1 mixs 109 t_us 10402
+f_8_40 cyc 2 ev 2 order 0 mixs 10a t_us 19300
+f_8_40 cyc 2 ev 3 order 1 mixs 10b t_us 26504
+f_8_40 cyc 3 ev 0 order 0 mixs 10c t_us 2753
+f_8_40 cyc 3 ev 1 order 1 mixs 10d t_us 11457
+f_8_40 cyc 3 ev 2 order 0 mixs 10e t_us 18881
+f_8_40 cyc 3 ev 3 order 1 mixs 10f t_us 26545
+f_8_40 cyc 4 ev 0 order 0 mixs 110 t_us 3085
+f_8_40 cyc 4 ev 1 order 1 mixs 111 t_us 10080
+f_8_40 cyc 4 ev 2 order 0 mixs 112 t_us 19940
+f_8_40 cyc 4 ev 3 order 1 mixs 113 t_us 27497
+f_8_40 cyc 5 ev 0 order 0 mixs 114 t_us 3517
+f_8_40 cyc 5 ev 1 order 1 mixs 115 t_us 10219
+f_8_40 cyc 5 ev 2 order 0 mixs 116 t_us 18765
+f_8_40 cyc 5 ev 3 order 1 mixs 117 t_us 27459
+f_8_40 cyc 6 ev 0 order 0 mixs 118 t_us 3006
+f_8_40 cyc 6 ev 1 order 1 mixs 119 t_us 11643
+f_8_40 cyc 6 ev 2 order 0 mixs 11a t_us 19044
+f_8_40 cyc 6 ev 3 order 1 mixs 11b t_us 27608
+f_8_40 cyc 7 ev 0 order 0 mixs 11c t_us 2101
+f_8_40 cyc 7 ev 1 order 1 mixs 11d t_us 11638
+f_8_40 cyc 7 ev 2 order 0 mixs 11e t_us 19096
+f_8_40 cyc 7 ev 3 order 1 mixs 11f t_us 26390
+f_8_40 cyc 8 ev 0 order 0 mixs 120 t_us 2967
+f_8_40 cyc 8 ev 1 order 1 mixs 121 t_us 11543
+f_8_40 cyc 8 ev 2 order 0 mixs 122 t_us 18787
+f_8_40 cyc 8 ev 3 order 1 mixs 123 t_us 26688
+f_8_40 cyc 9 ev 0 order 0 mixs 124 t_us 2457
+f_8_40 cyc 9 ev 1 order 1 mixs 125 t_us 11331
+f_8_40 cyc 9 ev 2 order 0 mixs 126 t_us 18463
+f_8_40 cyc 9 ev 3 order 1 mixs 127 t_us 27135
+f_8_40 cyc 10 ev 0 order 0 mixs 128 t_us 2902
+f_8_40 cyc 10 ev 1 order 1 mixs 129 t_us 10191
+f_8_40 cyc 10 ev 2 order 0 mixs 12a t_us 18872
+f_8_40 cyc 10 ev 3 order 1 mixs 12b t_us 26501
+f_8_40 cyc 11 ev 0 order 0 mixs 12c t_us 2718
+f_8_40 cyc 11 ev 1 order 1 mixs 12d t_us 11442
+f_8_40 cyc 11 ev 2 order 0 mixs 12e t_us 19351
+f_8_40 cyc 11 ev 3 order 1 mixs 12f t_us 27417
+f_8_40 cyc 12 ev 0 order 0 mixs 130 t_us 2924
+f_8_40 cyc 12 ev 1 order 1 mixs 131 t_us 11621
+f_8_40 cyc 12 ev 2 order 0 mixs 132 t_us 18932
+f_8_40 cyc 12 ev 3 order 1 mixs 133 t_us 26161
+f_8_40 cyc 13 ev 0 order 0 mixs 134 t_us 2044
+f_8_40 cyc 13 ev 1 order 1 mixs 135 t_us 11556
+f_8_40 cyc 13 ev 2 order 0 mixs 136 t_us 18823
+f_8_40 cyc 13 ev 3 order 1 mixs 137 t_us 27538
+f_8_40 cyc 14 ev 0 order 0 mixs 138 t_us 3336
+f_8_40 cyc 14 ev 1 order 1 mixs 139 t_us 10631
+f_8_40 cyc 14 ev 2 order 0 mixs 13a t_us 18864
+f_8_40 cyc 14 ev 3 order 1 mixs 13b t_us 27576
+f_8_40 cyc 15 ev 0 order 0 mixs 13c t_us 3503
+f_8_40 cyc 15 ev 1 order 1 mixs 13d t_us 10797
+f_8_40 cyc 15 ev 2 order 0 mixs 13e t_us 19011
+f_8_40 cyc 15 ev 3 order 1 mixs 13f t_us 26863
+f_8_40 cyc 16 ev 0 order 0 mixs 140 t_us 2371
+f_8_40 cyc 16 ev 1 order 1 mixs 141 t_us 11324
+f_8_40 cyc 16 ev 2 order 0 mixs 142 t_us 19772
+f_8_40 cyc 16 ev 3 order 1 mixs 143 t_us 27392
+f_8_40 cyc 17 ev 0 order 0 mixs 144 t_us 2770
+f_8_40 cyc 17 ev 1 order 1 mixs 145 t_us 11453
+f_8_40 cyc 17 ev 2 order 0 mixs 146 t_us 18704
+f_8_40 cyc 17 ev 3 order 1 mixs 147 t_us 27435
+f_8_40 cyc 18 ev 0 order 0 mixs 148 t_us 2078
+f_8_40 cyc 18 ev 1 order 1 mixs 149 t_us 10196
+f_8_40 cyc 18 ev 2 order 0 mixs 14a t_us 18859
+f_8_40 cyc 18 ev 3 order 1 mixs 14b t_us 26456
+f_8_40 cyc 19 ev 0 order 0 mixs 14c t_us 2762
+f_8_40 cyc 19 ev 1 order 1 mixs 14d t_us 10162
+f_8_40 cyc 19 ev 2 order 0 mixs 14e t_us 18782
+f_8_40 cyc 19 ev 3 order 1 mixs 14f t_us 27444
+f_8_40 cyc 20 ev 0 order 0 mixs 150 t_us 3216
+f_8_40 cyc 20 ev 1 order 1 mixs 151 t_us 10637
+f_8_40 cyc 20 ev 2 order 0 mixs 152 t_us 19457
+f_8_40 cyc 20 ev 3 order 1 mixs 153 t_us 26414
+f_8_40 cyc 21 ev 0 order 0 mixs 154 t_us 3395
+f_8_40 cyc 21 ev 1 order 1 mixs 155 t_us 10550
+f_8_40 cyc 21 ev 2 order 0 mixs 156 t_us 18770
+f_8_40 cyc 21 ev 3 order 1 mixs 157 t_us 27484
+f_8_40 cyc 22 ev 0 order 0 mixs 158 t_us 2895
+f_8_40 cyc 22 ev 1 order 1 mixs 159 t_us 11614
+f_8_40 cyc 22 ev 2 order 0 mixs 15a t_us 18884
+f_8_40 cyc 22 ev 3 order 1 mixs 15b t_us 27568
+f_8_40 cyc 23 ev 0 order 0 mixs 15c t_us 2917
+f_8_40 cyc 23 ev 1 order 1 mixs 15d t_us 10180
+f_8_40 cyc 23 ev 2 order 0 mixs 15e t_us 19188
+f_8_40 cyc 23 ev 3 order 1 mixs 15f t_us 26214
+f_8_40: 35712 samples, errors 0, 64 marks
+f_16_48 stream 0: slot 16 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_16_48 stream 1: slot 48 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_16_48 stream 2: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_16_48 stream 3: MIXS3 written by the CPU in every group (anchor)
+f_16_48 run: kind f A 16 B 48 wl 3 cycles 24
+cap_start: counter word fd74 at a260 (n 651), next fd75 fd76 fd77, c0 a4eb, head n 671
+f_16_48 cyc 0 ev 0 order 0 mixs 100 t_us 2819
+f_16_48 cyc 0 ev 1 order 1 mixs 101 t_us 11534
+f_16_48 cyc 0 ev 2 order 0 mixs 102 t_us 18827
+f_16_48 cyc 0 ev 3 order 1 mixs 103 t_us 26086
+f_16_48 cyc 1 ev 0 order 0 mixs 104 t_us 2766
+f_16_48 cyc 1 ev 1 order 1 mixs 105 t_us 10085
+f_16_48 cyc 1 ev 2 order 0 mixs 106 t_us 18697
+f_16_48 cyc 1 ev 3 order 1 mixs 107 t_us 27441
+f_16_48 cyc 2 ev 0 order 0 mixs 108 t_us 2916
+f_16_48 cyc 2 ev 1 order 1 mixs 109 t_us 11640
+f_16_48 cyc 2 ev 2 order 0 mixs 10a t_us 19441
+f_16_48 cyc 2 ev 3 order 1 mixs 10b t_us 26688
+f_16_48 cyc 3 ev 0 order 0 mixs 10c t_us 2562
+f_16_48 cyc 3 ev 1 order 1 mixs 10d t_us 11278
+f_16_48 cyc 3 ev 2 order 0 mixs 10e t_us 18668
+f_16_48 cyc 3 ev 3 order 1 mixs 10f t_us 27235
+f_16_48 cyc 4 ev 0 order 0 mixs 110 t_us 2984
+f_16_48 cyc 4 ev 1 order 1 mixs 111 t_us 11640
+f_16_48 cyc 4 ev 2 order 0 mixs 112 t_us 19039
+f_16_48 cyc 4 ev 3 order 1 mixs 113 t_us 26145
+f_16_48 cyc 5 ev 0 order 0 mixs 114 t_us 2843
+f_16_48 cyc 5 ev 1 order 1 mixs 115 t_us 10078
+f_16_48 cyc 5 ev 2 order 0 mixs 116 t_us 18799
+f_16_48 cyc 5 ev 3 order 1 mixs 117 t_us 26719
+f_16_48 cyc 6 ev 0 order 0 mixs 118 t_us 2753
+f_16_48 cyc 6 ev 1 order 1 mixs 119 t_us 11155
+f_16_48 cyc 6 ev 2 order 0 mixs 11a t_us 19869
+f_16_48 cyc 6 ev 3 order 1 mixs 11b t_us 26205
+f_16_48 cyc 7 ev 0 order 0 mixs 11c t_us 2394
+f_16_48 cyc 7 ev 1 order 1 mixs 11d t_us 11072
+f_16_48 cyc 7 ev 2 order 0 mixs 11e t_us 19785
+f_16_48 cyc 7 ev 3 order 1 mixs 11f t_us 26226
+f_16_48 cyc 8 ev 0 order 0 mixs 120 t_us 2556
+f_16_48 cyc 8 ev 1 order 1 mixs 121 t_us 11176
+f_16_48 cyc 8 ev 2 order 0 mixs 122 t_us 18558
+f_16_48 cyc 8 ev 3 order 1 mixs 123 t_us 26225
+f_16_48 cyc 9 ev 0 order 0 mixs 124 t_us 3657
+f_16_48 cyc 9 ev 1 order 1 mixs 125 t_us 10934
+f_16_48 cyc 9 ev 2 order 0 mixs 126 t_us 19621
+f_16_48 cyc 9 ev 3 order 1 mixs 127 t_us 26885
+f_16_48 cyc 10 ev 0 order 0 mixs 128 t_us 2908
+f_16_48 cyc 10 ev 1 order 1 mixs 129 t_us 11609
+f_16_48 cyc 10 ev 2 order 0 mixs 12a t_us 18893
+f_16_48 cyc 10 ev 3 order 1 mixs 12b t_us 26747
+f_16_48 cyc 11 ev 0 order 0 mixs 12c t_us 3964
+f_16_48 cyc 11 ev 1 order 1 mixs 12d t_us 10012
+f_16_48 cyc 11 ev 2 order 0 mixs 12e t_us 18434
+f_16_48 cyc 11 ev 3 order 1 mixs 12f t_us 27184
+f_16_48 cyc 12 ev 0 order 0 mixs 130 t_us 3149
+f_16_48 cyc 12 ev 1 order 1 mixs 131 t_us 11634
+f_16_48 cyc 12 ev 2 order 0 mixs 132 t_us 18904
+f_16_48 cyc 12 ev 3 order 1 mixs 133 t_us 27596
+f_16_48 cyc 13 ev 0 order 0 mixs 134 t_us 3177
+f_16_48 cyc 13 ev 1 order 1 mixs 135 t_us 11611
+f_16_48 cyc 13 ev 2 order 0 mixs 136 t_us 19006
+f_16_48 cyc 13 ev 3 order 1 mixs 137 t_us 27583
+f_16_48 cyc 14 ev 0 order 0 mixs 138 t_us 2909
+f_16_48 cyc 14 ev 1 order 1 mixs 139 t_us 10181
+f_16_48 cyc 14 ev 2 order 0 mixs 13a t_us 19267
+f_16_48 cyc 14 ev 3 order 1 mixs 13b t_us 27595
+f_16_48 cyc 15 ev 0 order 0 mixs 13c t_us 2914
+f_16_48 cyc 15 ev 1 order 1 mixs 13d t_us 10755
+f_16_48 cyc 15 ev 2 order 0 mixs 13e t_us 18152
+f_16_48 cyc 15 ev 3 order 1 mixs 13f t_us 26541
+f_16_48 cyc 16 ev 0 order 0 mixs 140 t_us 2673
+f_16_48 cyc 16 ev 1 order 1 mixs 141 t_us 11395
+f_16_48 cyc 16 ev 2 order 0 mixs 142 t_us 19372
+f_16_48 cyc 16 ev 3 order 1 mixs 143 t_us 27424
+f_16_48 cyc 17 ev 0 order 0 mixs 144 t_us 3061
+f_16_48 cyc 17 ev 1 order 1 mixs 145 t_us 10168
+f_16_48 cyc 17 ev 2 order 0 mixs 146 t_us 18871
+f_16_48 cyc 17 ev 3 order 1 mixs 147 t_us 26787
+f_16_48 cyc 18 ev 0 order 0 mixs 148 t_us 2473
+f_16_48 cyc 18 ev 1 order 1 mixs 149 t_us 11272
+f_16_48 cyc 18 ev 2 order 0 mixs 14a t_us 18578
+f_16_48 cyc 18 ev 3 order 1 mixs 14b t_us 27144
+f_16_48 cyc 19 ev 0 order 0 mixs 14c t_us 2921
+f_16_48 cyc 19 ev 1 order 1 mixs 14d t_us 11616
+f_16_48 cyc 19 ev 2 order 0 mixs 14e t_us 18885
+f_16_48 cyc 19 ev 3 order 1 mixs 14f t_us 26227
+f_16_48 cyc 20 ev 0 order 0 mixs 150 t_us 3336
+f_16_48 cyc 20 ev 1 order 1 mixs 151 t_us 11556
+f_16_48 cyc 20 ev 2 order 0 mixs 152 t_us 18068
+f_16_48 cyc 20 ev 3 order 1 mixs 153 t_us 27534
+f_16_48 cyc 21 ev 0 order 0 mixs 154 t_us 2909
+f_16_48 cyc 21 ev 1 order 1 mixs 155 t_us 10588
+f_16_48 cyc 21 ev 2 order 0 mixs 156 t_us 19079
+f_16_48 cyc 21 ev 3 order 1 mixs 157 t_us 27569
+f_16_48 cyc 22 ev 0 order 0 mixs 158 t_us 2898
+f_16_48 cyc 22 ev 1 order 1 mixs 159 t_us 10474
+f_16_48 cyc 22 ev 2 order 0 mixs 15a t_us 18880
+f_16_48 cyc 22 ev 3 order 1 mixs 15b t_us 26873
+f_16_48 cyc 23 ev 0 order 0 mixs 15c t_us 3810
+f_16_48 cyc 23 ev 1 order 1 mixs 15d t_us 11381
+f_16_48 cyc 23 ev 2 order 0 mixs 15e t_us 19047
+f_16_48 cyc 23 ev 3 order 1 mixs 15f t_us 27042
+f_16_48: 35648 samples, errors 0, 64 marks
+f_24_56 stream 0: slot 24 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_24_56 stream 1: slot 56 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_24_56 stream 2: slot 4 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_24_56 stream 3: MIXS3 written by the CPU in every group (anchor)
+f_24_56 run: kind f A 24 B 56 wl 4 cycles 24
+cap_start: counter word fe03 at 0240 (n 508), next fe04 fe05 fe06, c0 043c, head n 531
+f_24_56 cyc 0 ev 0 order 0 mixs 100 t_us 2827
+f_24_56 cyc 0 ev 1 order 1 mixs 101 t_us 11538
+f_24_56 cyc 0 ev 2 order 0 mixs 102 t_us 18964
+f_24_56 cyc 0 ev 3 order 1 mixs 103 t_us 27477
+f_24_56 cyc 1 ev 0 order 0 mixs 104 t_us 2933
+f_24_56 cyc 1 ev 1 order 1 mixs 105 t_us 10447
+f_24_56 cyc 1 ev 2 order 0 mixs 106 t_us 19401
+f_24_56 cyc 1 ev 3 order 1 mixs 107 t_us 27568
+f_24_56 cyc 2 ev 0 order 0 mixs 108 t_us 2912
+f_24_56 cyc 2 ev 1 order 1 mixs 109 t_us 11640
+f_24_56 cyc 2 ev 2 order 0 mixs 10a t_us 19201
+f_24_56 cyc 2 ev 3 order 1 mixs 10b t_us 27605
+f_24_56 cyc 3 ev 0 order 0 mixs 10c t_us 3028
+f_24_56 cyc 3 ev 1 order 1 mixs 10d t_us 10160
+f_24_56 cyc 3 ev 2 order 0 mixs 10e t_us 19255
+f_24_56 cyc 3 ev 3 order 1 mixs 10f t_us 27590
+f_24_56 cyc 4 ev 0 order 0 mixs 110 t_us 3437
+f_24_56 cyc 4 ev 1 order 1 mixs 111 t_us 11647
+f_24_56 cyc 4 ev 2 order 0 mixs 112 t_us 19107
+f_24_56 cyc 4 ev 3 order 1 mixs 113 t_us 27580
+f_24_56 cyc 5 ev 0 order 0 mixs 114 t_us 2978
+f_24_56 cyc 5 ev 1 order 1 mixs 115 t_us 10827
+f_24_56 cyc 5 ev 2 order 0 mixs 116 t_us 18861
+f_24_56 cyc 5 ev 3 order 1 mixs 117 t_us 27582
+f_24_56 cyc 6 ev 0 order 0 mixs 118 t_us 3515
+f_24_56 cyc 6 ev 1 order 1 mixs 119 t_us 11639
+f_24_56 cyc 6 ev 2 order 0 mixs 11a t_us 18885
+f_24_56 cyc 6 ev 3 order 1 mixs 11b t_us 26808
+f_24_56 cyc 7 ev 0 order 0 mixs 11c t_us 3864
+f_24_56 cyc 7 ev 1 order 1 mixs 11d t_us 11123
+f_24_56 cyc 7 ev 2 order 0 mixs 11e t_us 19867
+f_24_56 cyc 7 ev 3 order 1 mixs 11f t_us 26377
+f_24_56 cyc 8 ev 0 order 0 mixs 120 t_us 2990
+f_24_56 cyc 8 ev 1 order 1 mixs 121 t_us 11052
+f_24_56 cyc 8 ev 2 order 0 mixs 122 t_us 19772
+f_24_56 cyc 8 ev 3 order 1 mixs 123 t_us 27047
+f_24_56 cyc 9 ev 0 order 0 mixs 124 t_us 2970
+f_24_56 cyc 9 ev 1 order 1 mixs 125 t_us 10199
+f_24_56 cyc 9 ev 2 order 0 mixs 126 t_us 19359
+f_24_56 cyc 9 ev 3 order 1 mixs 127 t_us 27595
+f_24_56 cyc 10 ev 0 order 0 mixs 128 t_us 3472
+f_24_56 cyc 10 ev 1 order 1 mixs 129 t_us 11609
+f_24_56 cyc 10 ev 2 order 0 mixs 12a t_us 19111
+f_24_56 cyc 10 ev 3 order 1 mixs 12b t_us 27598
+f_24_56 cyc 11 ev 0 order 0 mixs 12c t_us 2920
+f_24_56 cyc 11 ev 1 order 1 mixs 12d t_us 10852
+f_24_56 cyc 11 ev 2 order 0 mixs 12e t_us 18869
+f_24_56 cyc 11 ev 3 order 1 mixs 12f t_us 27576
+f_24_56 cyc 12 ev 0 order 0 mixs 130 t_us 2900
+f_24_56 cyc 12 ev 1 order 1 mixs 131 t_us 11615
+f_24_56 cyc 12 ev 2 order 0 mixs 132 t_us 19168
+f_24_56 cyc 12 ev 3 order 1 mixs 133 t_us 26364
+f_24_56 cyc 13 ev 0 order 0 mixs 134 t_us 2970
+f_24_56 cyc 13 ev 1 order 1 mixs 135 t_us 11543
+f_24_56 cyc 13 ev 2 order 0 mixs 136 t_us 18825
+f_24_56 cyc 13 ev 3 order 1 mixs 137 t_us 27514
+f_24_56 cyc 14 ev 0 order 0 mixs 138 t_us 2921
+f_24_56 cyc 14 ev 1 order 1 mixs 139 t_us 10172
+f_24_56 cyc 14 ev 2 order 0 mixs 13a t_us 18873
+f_24_56 cyc 14 ev 3 order 1 mixs 13b t_us 26249
+f_24_56 cyc 15 ev 0 order 0 mixs 13c t_us 2884
+f_24_56 cyc 15 ev 1 order 1 mixs 13d t_us 10759
+f_24_56 cyc 15 ev 2 order 0 mixs 13e t_us 18829
+f_24_56 cyc 15 ev 3 order 1 mixs 13f t_us 26130
+f_24_56 cyc 16 ev 0 order 0 mixs 140 t_us 2759
+f_24_56 cyc 16 ev 1 order 1 mixs 141 t_us 11498
+f_24_56 cyc 16 ev 2 order 0 mixs 142 t_us 18739
+f_24_56 cyc 16 ev 3 order 1 mixs 143 t_us 27440
+f_24_56 cyc 17 ev 0 order 0 mixs 144 t_us 2938
+f_24_56 cyc 17 ev 1 order 1 mixs 145 t_us 11619
+f_24_56 cyc 17 ev 2 order 0 mixs 146 t_us 19278
+f_24_56 cyc 17 ev 3 order 1 mixs 147 t_us 27604
+f_24_56 cyc 18 ev 0 order 0 mixs 148 t_us 2206
+f_24_56 cyc 18 ev 1 order 1 mixs 149 t_us 10194
+f_24_56 cyc 18 ev 2 order 0 mixs 14a t_us 19144
+f_24_56 cyc 18 ev 3 order 1 mixs 14b t_us 26629
+f_24_56 cyc 19 ev 0 order 0 mixs 14c t_us 2613
+f_24_56 cyc 19 ev 1 order 1 mixs 14d t_us 11339
+f_24_56 cyc 19 ev 2 order 0 mixs 14e t_us 20037
+f_24_56 cyc 19 ev 3 order 1 mixs 14f t_us 27276
+f_24_56 cyc 20 ev 0 order 0 mixs 150 t_us 2090
+f_24_56 cyc 20 ev 1 order 1 mixs 151 t_us 10767
+f_24_56 cyc 20 ev 2 order 0 mixs 152 t_us 18902
+f_24_56 cyc 20 ev 3 order 1 mixs 153 t_us 26126
+f_24_56 cyc 21 ev 0 order 0 mixs 154 t_us 2083
+f_24_56 cyc 21 ev 1 order 1 mixs 155 t_us 10405
+f_24_56 cyc 21 ev 2 order 0 mixs 156 t_us 19280
+f_24_56 cyc 21 ev 3 order 1 mixs 157 t_us 27508
+f_24_56 cyc 22 ev 0 order 0 mixs 158 t_us 2932
+f_24_56 cyc 22 ev 1 order 1 mixs 159 t_us 10792
+f_24_56 cyc 22 ev 2 order 0 mixs 15a t_us 18893
+f_24_56 cyc 22 ev 3 order 1 mixs 15b t_us 27603
+f_24_56 cyc 23 ev 0 order 0 mixs 15c t_us 3236
+f_24_56 cyc 23 ev 1 order 1 mixs 15d t_us 10325
+f_24_56 cyc 23 ev 2 order 0 mixs 15e t_us 18183
+f_24_56 cyc 23 ev 3 order 1 mixs 15f t_us 26146
+f_24_56: 35904 samples, errors 0, 64 marks
+e_0_32 stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_0_32 stream 1: slot 32 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_0_32 stream 2: slot 1 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_0_32 stream 3: MIXS3 written by the CPU in every group (anchor)
+e_0_32 run: kind e A 0 B 32 wl 1 cycles 24
+cap_start: counter word fda6 at 60c0 (n 601), next fda7 fda8 fda9, c0 6319, head n 616
+e_0_32 cyc 0 ev 0 order 0 mixs 200 t_us 13297
+e_0_32 cyc 1 ev 0 order 1 mixs 201 t_us 12230
+e_0_32 cyc 2 ev 0 order 0 mixs 202 t_us 12192
+e_0_32 cyc 3 ev 0 order 1 mixs 203 t_us 13085
+e_0_32 cyc 4 ev 0 order 0 mixs 204 t_us 13099
+e_0_32 cyc 5 ev 0 order 1 mixs 205 t_us 13236
+e_0_32 cyc 6 ev 0 order 0 mixs 206 t_us 13286
+e_0_32 cyc 7 ev 0 order 1 mixs 207 t_us 13440
+e_0_32 cyc 8 ev 0 order 0 mixs 208 t_us 13114
+e_0_32 cyc 9 ev 0 order 1 mixs 209 t_us 13350
+e_0_32 cyc 10 ev 0 order 0 mixs 20a t_us 13072
+e_0_32 cyc 11 ev 0 order 1 mixs 20b t_us 13084
+e_0_32 cyc 12 ev 0 order 0 mixs 20c t_us 13077
+e_0_32 cyc 13 ev 0 order 1 mixs 20d t_us 12029
+e_0_32 cyc 14 ev 0 order 0 mixs 20e t_us 13449
+e_0_32 cyc 15 ev 0 order 1 mixs 20f t_us 13075
+e_0_32 cyc 16 ev 0 order 0 mixs 210 t_us 13078
+e_0_32 cyc 17 ev 0 order 1 mixs 211 t_us 13100
+e_0_32 cyc 18 ev 0 order 0 mixs 212 t_us 13515
+e_0_32 cyc 19 ev 0 order 1 mixs 213 t_us 13089
+e_0_32 cyc 20 ev 0 order 0 mixs 214 t_us 12386
+e_0_32 cyc 21 ev 0 order 1 mixs 215 t_us 12312
+e_0_32 cyc 22 ev 0 order 0 mixs 216 t_us 13064
+e_0_32 cyc 23 ev 0 order 1 mixs 217 t_us 12324
+e_0_32: 26944 samples, errors 0, 24 marks
+e_8_40 stream 0: slot 8 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_8_40 stream 1: slot 40 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_8_40 stream 2: slot 2 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_8_40 stream 3: MIXS3 written by the CPU in every group (anchor)
+e_8_40 run: kind e A 8 B 40 wl 2 cycles 24
+cap_start: counter word fd3d at e1e0 (n 706), next fd3e fd3f fd40, c0 e4a2, head n 726
+e_8_40 cyc 0 ev 0 order 0 mixs 200 t_us 13000
+e_8_40 cyc 1 ev 0 order 1 mixs 201 t_us 13102
+e_8_40 cyc 2 ev 0 order 0 mixs 202 t_us 12169
+e_8_40 cyc 3 ev 0 order 1 mixs 203 t_us 13073
+e_8_40 cyc 4 ev 0 order 0 mixs 204 t_us 12112
+e_8_40 cyc 5 ev 0 order 1 mixs 205 t_us 13086
+e_8_40 cyc 6 ev 0 order 0 mixs 206 t_us 12051
+e_8_40 cyc 7 ev 0 order 1 mixs 207 t_us 13075
+e_8_40 cyc 8 ev 0 order 0 mixs 208 t_us 13091
+e_8_40 cyc 9 ev 0 order 1 mixs 209 t_us 13066
+e_8_40 cyc 10 ev 0 order 0 mixs 20a t_us 12176
+e_8_40 cyc 11 ev 0 order 1 mixs 20b t_us 13070
+e_8_40 cyc 12 ev 0 order 0 mixs 20c t_us 13185
+e_8_40 cyc 13 ev 0 order 1 mixs 20d t_us 13217
+e_8_40 cyc 14 ev 0 order 0 mixs 20e t_us 13080
+e_8_40 cyc 15 ev 0 order 1 mixs 20f t_us 13079
+e_8_40 cyc 16 ev 0 order 0 mixs 210 t_us 13081
+e_8_40 cyc 17 ev 0 order 1 mixs 211 t_us 13097
+e_8_40 cyc 18 ev 0 order 0 mixs 212 t_us 13068
+e_8_40 cyc 19 ev 0 order 1 mixs 213 t_us 12271
+e_8_40 cyc 20 ev 0 order 0 mixs 214 t_us 13521
+e_8_40 cyc 21 ev 0 order 1 mixs 215 t_us 13263
+e_8_40 cyc 22 ev 0 order 0 mixs 216 t_us 13071
+e_8_40 cyc 23 ev 0 order 1 mixs 217 t_us 13076
+e_8_40: 26944 samples, errors 0, 24 marks
+e_16_48 stream 0: slot 16 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_16_48 stream 1: slot 48 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_16_48 stream 2: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_16_48 stream 3: MIXS3 written by the CPU in every group (anchor)
+e_16_48 run: kind e A 16 B 48 wl 3 cycles 24
+cap_start: counter word fda2 at 6360 (n 605), next fda3 fda4 fda5, c0 65bd, head n 618
+e_16_48 cyc 0 ev 0 order 0 mixs 200 t_us 12973
+e_16_48 cyc 1 ev 0 order 1 mixs 201 t_us 13170
+e_16_48 cyc 2 ev 0 order 0 mixs 202 t_us 13094
+e_16_48 cyc 3 ev 0 order 1 mixs 203 t_us 13074
+e_16_48 cyc 4 ev 0 order 0 mixs 204 t_us 13068
+e_16_48 cyc 5 ev 0 order 1 mixs 205 t_us 12145
+e_16_48 cyc 6 ev 0 order 0 mixs 206 t_us 13103
+e_16_48 cyc 7 ev 0 order 1 mixs 207 t_us 13085
+e_16_48 cyc 8 ev 0 order 0 mixs 208 t_us 13079
+e_16_48 cyc 9 ev 0 order 1 mixs 209 t_us 13233
+e_16_48 cyc 10 ev 0 order 0 mixs 20a t_us 13085
+e_16_48 cyc 11 ev 0 order 1 mixs 20b t_us 13084
+e_16_48 cyc 12 ev 0 order 0 mixs 20c t_us 12317
+e_16_48 cyc 13 ev 0 order 1 mixs 20d t_us 13287
+e_16_48 cyc 14 ev 0 order 0 mixs 20e t_us 12233
+e_16_48 cyc 15 ev 0 order 1 mixs 20f t_us 12149
+e_16_48 cyc 16 ev 0 order 0 mixs 210 t_us 13062
+e_16_48 cyc 17 ev 0 order 1 mixs 211 t_us 12172
+e_16_48 cyc 18 ev 0 order 0 mixs 212 t_us 13209
+e_16_48 cyc 19 ev 0 order 1 mixs 213 t_us 12319
+e_16_48 cyc 20 ev 0 order 0 mixs 214 t_us 13104
+e_16_48 cyc 21 ev 0 order 1 mixs 215 t_us 13099
+e_16_48 cyc 22 ev 0 order 0 mixs 216 t_us 13102
+e_16_48 cyc 23 ev 0 order 1 mixs 217 t_us 13074
+e_16_48: 26944 samples, errors 0, 24 marks
+e_24_56 stream 0: slot 24 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_24_56 stream 1: slot 56 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_24_56 stream 2: slot 4 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_24_56 stream 3: MIXS3 written by the CPU in every group (anchor)
+e_24_56 run: kind e A 24 B 56 wl 4 cycles 24
+cap_start: counter word fd3c at e480 (n 707), next fd3d fd3e fd3f, c0 e743, head n 728
+e_24_56 cyc 0 ev 0 order 0 mixs 200 t_us 13062
+e_24_56 cyc 1 ev 0 order 1 mixs 201 t_us 13087
+e_24_56 cyc 2 ev 0 order 0 mixs 202 t_us 13100
+e_24_56 cyc 3 ev 0 order 1 mixs 203 t_us 13072
+e_24_56 cyc 4 ev 0 order 0 mixs 204 t_us 13441
+e_24_56 cyc 5 ev 0 order 1 mixs 205 t_us 13086
+e_24_56 cyc 6 ev 0 order 0 mixs 206 t_us 13074
+e_24_56 cyc 7 ev 0 order 1 mixs 207 t_us 13061
+e_24_56 cyc 8 ev 0 order 0 mixs 208 t_us 13097
+e_24_56 cyc 9 ev 0 order 1 mixs 209 t_us 12258
+e_24_56 cyc 10 ev 0 order 0 mixs 20a t_us 12144
+e_24_56 cyc 11 ev 0 order 1 mixs 20b t_us 13090
+e_24_56 cyc 12 ev 0 order 0 mixs 20c t_us 13142
+e_24_56 cyc 13 ev 0 order 1 mixs 20d t_us 12266
+e_24_56 cyc 14 ev 0 order 0 mixs 20e t_us 13101
+e_24_56 cyc 15 ev 0 order 1 mixs 20f t_us 13082
+e_24_56 cyc 16 ev 0 order 0 mixs 210 t_us 13074
+e_24_56 cyc 17 ev 0 order 1 mixs 211 t_us 13086
+e_24_56 cyc 18 ev 0 order 0 mixs 212 t_us 13190
+e_24_56 cyc 19 ev 0 order 1 mixs 213 t_us 13098
+e_24_56 cyc 20 ev 0 order 0 mixs 214 t_us 13068
+e_24_56 cyc 21 ev 0 order 1 mixs 215 t_us 13093
+e_24_56 cyc 22 ev 0 order 0 mixs 216 t_us 12370
+e_24_56 cyc 23 ev 0 order 1 mixs 217 t_us 13396
+e_24_56: 26944 samples, errors 0, 24 marks

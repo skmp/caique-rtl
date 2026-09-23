@@ -14,35 +14,35 @@ kd_2 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28
 kd_2 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_2 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_2 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd9e at 7740 (n 609), next fd9f fda0 fda1, c0 79a1, head n 635
+cap_start: counter word fd9e at 7740 (n 609), next fd9f fda0 fda1, c0 79a1, head n 631
 kd_2: 9152 samples, errors 0
 kd_3 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_3 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_3 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_3 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fdca at 3e60 (n 565), next fdcb fdcc fdcd, c0 4095, head n 582
+cap_start: counter word fdc6 at 3e60 (n 569), next fdc7 fdc8 fdc9, c0 4099, head n 583
 kd_3: 9216 samples, errors 0
 kd_4 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_4 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_4 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_4 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fe02 at 0580 (n 509), next fe03 fe04 fe05, c0 077d, head n 534
+cap_start: counter word fdfe at 0580 (n 513), next fdff fe00 fe01, c0 0781, head n 534
 kd_4: 9280 samples, errors 0
 kd_5 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_5 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_5 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0
 kd_5 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd4a at cba0 (n 693), next fd4b fd4c fd4d, c0 ce55, head n 712
+cap_start: counter word fd46 at cba0 (n 697), next fd47 fd48 fd49, c0 ce59, head n 712
 kd_5: 9280 samples, errors 0
 kd_6 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_6 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_6 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_6 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1 (KYONB-only clear, KYONEX 100 ms later)
-cap_start: counter word fd83 at 9200 (n 636), next fd84 fd85 fd86, c0 947c, head n 658
+cap_start: counter word fd7f at 9200 (n 640), next fd80 fd81 fd82, c0 9480, head n 659
 kd_6: 13760 samples, errors 0
 kd_7 stream 0: slot 0 KRS 15 FLV 1c00 1800 1c00 1a02 1c00 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_7 stream 1: slot 1 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_7 stream 2: slot 2 KRS 15 FLV 1800 1c00 1800 1a00 1800 FAR 28 FD1R 26 FD2R 28 FRR 24 lpoff 0 (KYONB-only clear, KYONEX 100 ms later)
 kd_7 stream 3: slot 3 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1 (KYONB-only clear, KYONEX 100 ms later)
-cap_start: counter word fdc7 at 4720 (n 568), next fdc8 fdc9 fdca, c0 4958, head n 590
+cap_start: counter word fdc4 at 4720 (n 571), next fdc5 fdc6 fdc7, c0 495b, head n 590
 kd_7: 13824 samples, errors 0

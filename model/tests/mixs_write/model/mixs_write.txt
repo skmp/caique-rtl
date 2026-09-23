@@ -54,9 +54,9 @@ P5: slot 9 SA 10000 loop [0,32) AR 31 D1R 0 RR 31 KRS 15 ISEL 4 IMXL 0 TL 0 VOFF
 P5: slot 7 regs 00 4201 04 0000 20 0002 28 0020
 P5: slot 7 before the capture: EGMON c000 CA 0
 P5: slot 8 regs 00 4201 04 0000 20 0003 28 0060
-P5: slot 8 before the capture: EGMON c000 CA 30
+P5: slot 8 before the capture: EGMON c000 CA 28
 P5: slot 9 regs 00 4201 04 0000 20 0004 28 0000
-P5: slot 9 before the capture: EGMON c000 CA 31
+P5: slot 9 before the capture: EGMON c000 CA 29
 cap_start: counter word fdd0 at 4780 (n 559), next fdd1 fdd2 fdd3, c0 49af, head n 590
 P5: MIXS readback before the writes: [2]=0 [3]=0 [4]=0 [0]=0
 P5: wrote 15225 to MIXS2 (hi 1522 lo 5); readback right after: hi 1522 lo 5
@@ -64,9 +64,9 @@ P5: wrote 15325 to MIXS3 (hi 1532 lo 5); readback right after: hi 1532 lo 5
 P5: wrote 15425 to MIXS4 (hi 1542 lo 5); readback right after: hi 1542 lo 5
 P5: MIXS readback at the end: [2]=0 [3]=0 [4]=0 [0]=0
 P5: 2816 samples, errors 0, 6 marks
-P5: slot 7 after the capture: EGMON c000 CA 8
-P5: slot 8 after the capture: EGMON c000 CA 8
-P5: slot 9 after the capture: EGMON c000 CA 8
+P5: slot 7 after the capture: EGMON c000 CA 6
+P5: slot 8 after the capture: EGMON c000 CA 6
+P5: slot 9 after the capture: EGMON c000 CA 6
 P7: slot 0 reg 0x20 = 0x03 (ISEL 3, IMXL 0) VOFF 1; slots 1..63 reg 0x20 = 0x0F (ISEL 15)
 P7: slot 0 regs 00 0000 04 0000 20 0003 28 0040
 P7: slot 1 regs 00 0000 04 0000 20 000f 28 0000

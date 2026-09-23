@@ -1,0 +1,22 @@
+P1 ev0 group0: wl 4000 OFF, wh 4000 OFF
+P1 ev1 group1: wl 20a8 on, wh 20a8 on
+P1 ev2 group0: wl 20a8 on, wh 20a8 on
+P1 ev3 group1: wl 20a8 on, wh 20a8 on
+P2 ev0 group0: wl 20a8 on, wh 20a8 on
+P2 ev1 group1: wl 20a8 on, wh 20a8 on
+P2 ev2 group0: wl 20a8 on, wh 20a8 on
+P2 ev3 group1: wl 20a8 on, wh 20a8 on
+P3 ev0 group0: wl 20a8 on, wh 20a8 on
+P3 ev1 group0: wl 20a8 on, wh 20a8 on
+P3 ev2 group0: wl 20a8 on, wh 20a8 on
+P3 ev3 group0: wl 20a0 on, wh 20a0 on
+P4: wl 2208 on, wh 2208 on
+P4 again: wl 20a0 on, wh 20a0 on
+P5: wl 2200 on, wh 2200 on
+P5 again: wl 20a8 on, wh 20a8 on
+P6: wl 20a8 on, wh 20a8 on
+P6 again: wl 20a0 on, wh 20a0 on
+P7: wl 20a0 on, wh 20a0 on
+P7 again: wl 20a8 on, wh 20a8 on
+P8 witnesses only: wl 20a0 on, wh 20a8 on
+P8 again: wl 20a0 on, wh 20a0 on

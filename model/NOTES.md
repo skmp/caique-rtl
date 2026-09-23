@@ -613,6 +613,63 @@ session-5 open envelope items closed, details in the sections above / below:
   lines (now match the console except one nibble where a model sample boundary fell between the write and the read),
   tests/sgc_keys K4 (CA 0 logged with the 0x1FFF, 5868 us).
 
+## Session 7 (2026-09-23/24, REBOOTED console, K 0): the per-sample schedule (tests/eg_sched, eg_sched2, kon_defer, dsp_wslot)
+
+Frame facts from outside the captures: the AICA bus runs at 22.5792 MHz (512 cycles per 44.1 kHz sample); the ARM7 gets
+one memory slot per 8 cycles (measured on the console: 2.8224 MHz of ARM memory cycles); the manual's DSP buffer table
+gives a DSP step two clock phases (T0 DSP read / T1 DSP write + CPU port).  So one 8-cycle frame = one SGC slot pass = two
+DSP steps, 64 frames per sample.  What the captures add (all runs errors 0; every rate a constant row, so K-free):
+
+- **K after a clean reboot is 0** (tests/eg_kprobe re-run: kfit 8/8 probes, K = 0 exactly, bit 13 = 0; the boot-1
+  captures with K 6491 are kept in `tests/eg_kprobe/hw_boot1/`, eg_model replays both sets: kp_ 6491, kp2_ 0).  The two
+  counters start aligned; the 6491 of the first boot accumulated during that boot, and none of the seven register actions
+  of the probe moves it on either boot.  What shifted them there is still unknown (a DSP halt would do it).
+- **Register writes act at the slot's own frame** (tests/eg_sched2: a VOFF-1 slot's SA[22:16] toggled between two
+  constant blocks, anchored by a CPU MIXS write in the same write group -- its value appears on the first sample M after
+  the next boundary, tests/mixs_rd).  The SA switch shows on M when the write landed after the slot's frame and on **M - 1**
+  (the write's own sample) when it landed before it: the fraction of "M - 1" per slot, 96 events each, order 0 / order 1:
+  slot 0 0.00 / 0.00, 8 0.06 / 0.06, 16 0.27 / 0.31, 24 0.42 / 0.27, 32 0.35 / 0.31, 40 0.44 / 0.50, 48 0.73 / 0.71, 56
+  0.69 / 0.83 -- a line of slope about one sample per 64 slots: **frame k sits at phase ~k/64 of the sample, the sweep
+  starting at the DSP's boundary**.  The fetch of slot k for sample n happens in that frame and is output in the same
+  sample (no interpolator lag: the two words at CA, CA+1 are read every frame).  tools/sched2_check.
+- **Key events: KYONEX is latched at the next boundary, the KYONB bits are read per slot at its frame in the FOLLOWING
+  sample, and the slot starts on the sample after that** (tests/kon_defer: a KYONB written d us after the KYONEX is still
+  honoured with probability falling from 7/8 at d = 0 to 0 at d = 21 us for slot 1, but 8/8 up to d = 24 us and 2/8 at
+  d = 33 us for slot 62 -- the window is one sample plus the slot's frame position; the reverse test, KYONB cleared d us
+  after the KYONEX, is the complement).  tests/eg_sched2: the witness key-on is at **E = M + 1** (order 1: 41-44 of 48
+  events, the rest +2 = the KYONEX landed after the anchor's boundary), for every witness slot; two witnesses (slot 1..4
+  and 60..63) keyed by one KYONEX always start on the same sample (tests/eg_sched, dh = 0 in 380 of 381 events).  So a
+  key event shows one sample later than a register write from the same instant.  The model: `kyonex_pending` (the
+  KYONB read at the next step, applied the step after); the sub-sample per-frame part of the window is not modelled.
+  Consequence for test writers: never write a KYONB within ~2 samples after a KYONEX unless you mean it (the first
+  eg_sched run keyed its witnesses off/on with the wrong KYONEX exactly this way).
+- **The envelope value of slot k for sample n is computed at frame k of sample n - 1** (tests/eg_sched2 e_ runs, RR 0 -> 30
+  on a held release, 24 events per slot): when the anchor sample M is a clock the first +8 step is on M for slot 56
+  (10/10) and on M + 2 for slot 0 (13/13), the middle slots in between (8: 1/14, 16: 5/12, 24: 5/10, 32: 6/13, 40: 7/14,
+  48: 10/12 at M); when M is not a clock the step is on M + 1 for every slot (the value for M + 1 is computed during M,
+  after any write of M - 1).  This is the mechanism behind session 5's key-off-clock rule: the step applied on the key
+  event's sample was computed a sample earlier with the old state.  It also explains tail_c (RR one clock behind SA).
+  Whole-sample model: the envelope clock runs at the top of step() on the live registers, i.e. as if computed at phase 0
+  of the previous sample for every slot -- exact for slot 0, one clock early for writes that land before frame k of a high
+  slot (sub-sample).
+- **DSP writes are posted with their own memory slot** (tests/dsp_wslot, 13 checks identical on console and model): an MWT
+  at even step 2 next to an MRD at odd step 3 both complete, 15 writes at even steps interleaved with 15 reads at odd
+  steps all complete (W5 15/15 + 15/15), the read latency stays s + 2 / s + 3.  (A first version of W6 lacked NOFL on
+  step 5 and both platforms returned the float decode 0x105a00 of word 45 -- the NOFL-two-steps-before rule, not a slot
+  effect.)
+- **Model changes**: (1) KYONEX raises `kyonex_pending`; the KYONB bits are read at the next step() and the key events land
+  the step after (E = M + 1 as measured; the model-linked validators write their key events one step earlier: eg_model,
+  eg_replay, tail_cmp, feg_validate); (2) within a step every slot fetches (`stream_step`) BEFORE it outputs, except on its
+  key-on sample (the SA effect on M instead of M + 1; the key-on sample still outputs the word at CA 0); (3) nothing else.
+  Gates after the change: eg_model 97/97 (33 + 16 kprobe over two boots + 24 + 24), eg_replay 5 runs 4/4, tail_cmp 12/12
+  (tail_c now w00 = w14 = 11301), feg_validate 9/9, filt_validate_model 265/265, filt_overflow 15/15 + 12/12, 61 cases
+  exit 0, dsp_wslot / mixs_write / kon_defer / kon_probe(2) / kon_first console and model agree (the kon_ monitor traces
+  differ only in poll timing).
+- Tools: tools/sched_check (eg_sched: offsets from the witness), tools/sched2_check (eg_sched2: offsets from the MIXS
+  anchor); cases/kon_probe.c, kon_probe2.c, kon_first.c (key-acceptance sequences: every sequence accepted on both
+  platforms, incl. key-on after a key-off from "off" at any delay, one-write KYONB|KYONEX, KYONEX via another slot's
+  register; a key-on after off without a key-off stays ignored).
+
 ## MIXS retention and CPU writes (tests/eg_lock mixs, tests/mixs_write, tests/mixs_rd; claim D2 resolved, T9, U3)
 
 - **Every slot writes its ISEL bus every sample; IMXL is a pure gain (IMXL 0 sends 0); a bus keeps its last value
@@ -692,24 +749,20 @@ session-5 open envelope items closed, details in the sections above / below:
   rewrites every slot within 128 samples, as in the model.  The one stale slot seen once in dsp_basic
   "A ffff -4096 1" did not reproduce (a program-load transient of that run).  [claim D1]
 
-## Open items (after session 6)
+## Open items (after session 7)
 
-- What sets K at boot: every register-level candidate tested (RBP/RBL, timers, MVOL, ARM7 release, DSP program load,
-  64-slot sweep with KYONEX) leaves it; needs a controlled reboot with an eg_kprobe run right after.
-- Envelope: the sub-sample position of register writes vs the envelope phase (not modelled; RTL: EG update precedes
-  the fetch within a sample, a write landing after the EG phase acts on the next sample's clock -- "Envelope clock",
-  U4; tools/tail_cmp absorbs it with the d = w00 - w14 search).
-- MIXS: the sub-sample order of a CPU MIXS write / read against the SGC write of the same sample (not modelled: the
-  low nibble switches ~5 us before the high word, mixs_rd; dsp_basic "F ira 25" stays excluded; the one tests/probe
-  nibble).
-- Filter: nothing open in the arithmetic (see Slot filter).  sgc_level L5 stays an inherited-state difference.
-- Harness: whole-program model runs of capture cases start their capture at a head estimate that depends on the ring
-  words left by the previous run (cap_start's sync scan costs one G2 read per zero word, up to five per non-zero one),
-  so a model change that alters a silent slot's filter rest shifts `cap_start`/n_first by one sample (feg_krs /
-  feg_track / feg_probe model outputs after session 5); the envelopes themselves are unchanged (eg_model).
-- Closed in session 6 (kept for the record): the FEG key-off clock with `passed` set (U1), CA between the stop and
-  off (U2: moot, CA reads 0 from the stop), the CPU MIXS readback path (U3), the one-sample register latch (U4:
-  refuted, every register live; tail_c = in-sample ordering).
+- K at boot: 0 after a clean reboot, 6491 on the previous boot; nothing a program does moves it (eg_kprobe on both boots).
+  What offset the envelope counter from MDEC_CT during boot 1 is unknown.
+- Sub-sample effects the whole-sample model cannot express: a register write landing before frame k acts on the write's
+  own sample (fetch) / on the clock computed during that sample (envelope); the per-frame KYONB read window; the
+  low-nibble/high-word MIXS write order; the CPU write's position against the SGC write of the same bus.  The RTL rule set
+  is in "Session 7".
+- The absolute position of frame 0 against the DSP boundary is known only to about a frame (the fetch fraction at slot 0
+  is 0.00, at slot 8 0.06).
+- Filter: nothing open.  The cap_start head estimate still moves whole-program model captures by a sample when the ring's
+  leftover words change (harness).
+- Where ADPCM / noise / high-pitch slots take their memory words in the 8-cycle frame, and the CPU/DMA slot phase, are RTL
+  details no capture can see.
 
 ## Test-writing notes
 

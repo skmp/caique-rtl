@@ -39,6 +39,14 @@ kp_p4      onset 227 (MDEC_CT 3fe7 odd) K 6491: FULL 67165/67165, key-off sample
 kp_p5      onset 226 (MDEC_CT 13b8 even) K 6491: FULL 67166/67166, key-off samples 66434(even) 66435(odd)
 kp_p6      onset 226 (MDEC_CT e510 even) K 6491: FULL 67166/67166, key-off samples 66436(even) 66437(odd)
 kp_p7      onset 227 (MDEC_CT b324 even) K 6491: FULL 67165/67165, key-off samples 66325(even) 66326(odd)
+kp2_p0     onset 226 (MDEC_CT abf2 even) K 0: FULL 67166/67166, key-off samples 66324(even) 66325(odd)
+kp2_p1     onset 227 (MDEC_CT 8053 odd) K 0: FULL 67165/67165, key-off samples 66436(even) 66437(odd)
+kp2_p2     onset 227 (MDEC_CT 53c2 even) K 0: FULL 67165/67165, key-off samples 66435(even) 66436(odd)
+kp2_p3     onset 226 (MDEC_CT 271c even) K 0: FULL 67166/67166, key-off samples 66324(even) 66325(odd)
+kp2_p4     onset 226 (MDEC_CT fa6b odd) K 0: FULL 67166/67166, key-off samples 66325(even) 66326(odd)
+kp2_p5     onset 226 (MDEC_CT cd6c even) K 0: FULL 67166/67166, key-off samples 66434(even) 66435(odd)
+kp2_p6     onset 227 (MDEC_CT 9ec7 odd) K 0: FULL 67165/67165, key-off samples 66436(even) 66437(odd)
+kp2_p7     onset 227 (MDEC_CT 6cf5 odd) K 0: FULL 67165/67165, key-off samples 66324(even) 66325(odd)
 kd_0_s0    onset 138 (MDEC_CT aa5d odd) K 6491: FULL 8950/8950, key-off samples 4565(even)
 kd_0_s1    onset 138 (MDEC_CT aa5d odd) K 6491: FULL 8950/8950, key-off samples 4565(even)
 kd_0_s2    onset 138 (MDEC_CT aa5d odd) K 6491: FULL 8950/8950, key-off samples 4565(even)
@@ -87,5 +95,5 @@ ka_6_s2    onset 138 (MDEC_CT 84c4 even) K 6491: FULL 5110/5110, key-off samples
 ka_7_s0    onset 139 (MDEC_CT 5c45 odd) K 6491: FULL 5365/5365, key-off samples 908(even)
 ka_7_s1    onset 139 (MDEC_CT 5c45 odd) K 6491: FULL 5365/5365, key-off samples 908(even)
 ka_7_s2    onset 139 (MDEC_CT 5c45 odd) K 6491: FULL 5365/5365, key-off samples 908(even)
-GROUPS session4=33/33 eg_kprobe=8/8 feg_koffdir=24/24 feg_koffatt=24/24
-TOTAL full=89/89
+GROUPS session4=33/33 eg_kprobe=16/16 feg_koffdir=24/24 feg_koffatt=24/24
+TOTAL full=97/97

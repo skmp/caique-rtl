@@ -92,7 +92,7 @@ static void snap_restore(AicaModel &m, const Snap &s) { uint8_t *ram = m.ram; me
 
 struct Events { int ko = -1, w14 = -1, w00 = -1, w2 = -1; };
 static void apply_events(AicaModel &m, const Events &e, int n) {
-    if (n == e.ko) {   /* KYONB 0 on slots 0..2, one KYONEX: the release starts on this sample */
+    if (n + 1 == e.ko) {   /* KYONB 0 on slots 0..2, one KYONEX: the release starts on sample ko */
         for (int k = 0; k < 3; k++) m.write(0x80 * k, m.chr(k, 0) & 0x3FFF);
         m.write(0, m.chr(0, 0) | 0x8000);
     }
@@ -224,9 +224,10 @@ int main(int argc, char **argv) {
     for (auto &s : cfg) write_slot(m, s);
     for (int i = 0; i < 16; i++) m.step();
     uint32_t md_on = (c0ring - cp.first - (uint32_t)on) & 0xFFFF;
-    m.MDEC_CT = md_on;
+    m.MDEC_CT = (md_on + 1) & 0xFFFF;
     for (auto &s : cfg) m.write(0x80 * s.slot, m.chr(s.slot, 0) | 0x4000);
     m.write(0, m.chr(0, 0) | 0x8000);
+    m.step();   /* the boundary sample; the next step is the onset */
 
     printf("%s: kind %c, %d samples x %d streams, n_first %u, c0 %04x, K %u, marks", path.c_str(), kind, n, ns, cp.first, c0ring, K);
     for (int i = 1; i < 9; i++) if (mark[i] >= 0) printf(" %d@%d", i, mark[i]);

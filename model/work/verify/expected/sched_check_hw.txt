@@ -1,0 +1,561 @@
+sched_check tests/eg_sched/hw: 8 runs.  Per event: E = wl's key-on sample (MDEC_CT parity), dh = wh onset - E, dA / dB = register effect sample - E.
+== f_0_32 (kind f, A 0 B 32 wl 1 wh 62, c0 e1c0, 35712 samples, 96 events, 64 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 457 Eh 457 SA -1 SB -1, window 397..517)
+  cyc  0 ev 1 order 1: E   1117 (EVEN)  dh +0  dA -1  dB -2
+  cyc  0 ev 2 order 0: E   1441 (EVEN)  dh +0  dA -1  dB -1
+  cyc  0 ev 3 order 1: E   1813 (EVEN)  dh +0  dA -1  dB -1
+  cyc  1 ev 0 order 0: E   2144 (odd )  dh +0  dA -1  dB -2
+  cyc  1 ev 1 order 1: E   2510 (odd )  dh +0  dA -1  dB -2
+  cyc  1 ev 2 order 0: E   2897 (EVEN)  dh +0  dA -1  dB -2
+  cyc  1 ev 3 order 1: E   3282 (odd )  dh +0  dA -2  dB -2
+  cyc  2 ev 0 order 0: NOT FOUND (El 3601 Eh -1 SA 3600 SB 3600, window 3541..3661)
+  cyc  2 ev 1 order 1: E   3986 (odd )  dh +0  dA -1  dB -1
+  cyc  2 ev 2 order 0: E   4330 (odd )  dh +0  dA -1  dB -1
+  cyc  2 ev 3 order 1: E   4693 (EVEN)  dh +0  dA -1  dB -2
+  cyc  3 ev 0 order 0: E   5078 (odd )  dh +0  dA -1  dB -1
+  cyc  3 ev 1 order 1: E   5476 (odd )  dh +0  dA -1  dB -2
+  cyc  3 ev 2 order 0: E   5849 (EVEN)  dh +0  dA -1  dB -1
+  cyc  3 ev 3 order 1: E   6168 (odd )  dh +0  dA -1  dB -2
+  cyc  4 ev 0 order 0: E   6504 (odd )  dh +0  dA -1  dB -1
+  cyc  4 ev 1 order 1: E   6874 (odd )  dh +0  dA -1  dB -2
+  cyc  4 ev 2 order 0: E   7262 (odd )  dh +0  dA -1  dB -1
+  cyc  4 ev 3 order 1: E   7580 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 0 order 0: E   7965 (EVEN)  dh +0  dA -1  dB -1
+  cyc  5 ev 1 order 1: E   8350 (odd )  dh +0  dA -1  dB -1
+  cyc  5 ev 2 order 0: E   8737 (EVEN)  dh +0  dA +0  dB -1
+  cyc  5 ev 3 order 1: E   9065 (EVEN)  dh +0  dA -1  dB -2
+  cyc  6 ev 0 order 0: E   9380 (odd )  dh +0  dA -1  dB -1
+  cyc  6 ev 1 order 1: E   9785 (EVEN)  dh +0  dA -1  dB -1
+  cyc  6 ev 2 order 0: E  10147 (EVEN)  dh +0  dA -1  dB -2
+  cyc  6 ev 3 order 1: E  10468 (odd )  dh +0  dA -2  dB -2
+  cyc  7 ev 0 order 0: E  10812 (odd )  dh +0  dA -1  dB -1
+  cyc  7 ev 1 order 1: E  11237 (EVEN)  dh +0  dA -1  dB -2
+  cyc  7 ev 2 order 0: NOT FOUND (El 11561 Eh -1 SA 11560 SB 11559, window 11501..11621)
+  cyc  7 ev 3 order 1: E  11881 (EVEN)  dh +0  dA -1  dB -2
+  cyc  8 ev 0 order 0: E  12274 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 1 order 1: E  12658 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 2 order 0: E  13034 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 3 order 1: E  13360 (odd )  dh +0  dA -1  dB -1
+  cyc  9 ev 0 order 0: E  13688 (odd )  dh +0  dA +0  dB -1
+  cyc  9 ev 1 order 1: E  14060 (odd )  dh +0  dA -1  dB -1
+  cyc  9 ev 2 order 0: E  14446 (odd )  dh +0  dA -1  dB -2
+  cyc  9 ev 3 order 1: E  14785 (EVEN)  dh +0  dA -1  dB -2
+  cyc 10 ev 0 order 0: E  15151 (EVEN)  dh +0  dA -1  dB -2
+  cyc 10 ev 1 order 1: E  15536 (odd )  dh +0  dA -1  dB -1
+  cyc 10 ev 2 order 0: E  15921 (EVEN)  dh +0  dA -1  dB -2
+  cyc 10 ev 3 order 1: E  16252 (odd )  dh +0  dA -2  dB -2
+  cyc 11 ev 0 order 0: E  16628 (odd )  dh +0  dA -1  dB -2
+  cyc 11 ev 1 order 1: E  17018 (odd )  dh +0  dA -2  dB -2
+  cyc 11 ev 2 order 0: E  17396 (odd )  dh +0  dA -1  dB -1
+  cyc 11 ev 3 order 1: E  17717 (EVEN)  dh +0  dA -1  dB -2
+  cyc 12 ev 0 order 0: E  18102 (odd )  dh +0  dA -1  dB -2
+  cyc 12 ev 1 order 1: E  18424 (odd )  dh +0  dA -1  dB -2
+  cyc 12 ev 2 order 0: NOT FOUND (El 18706 Eh -1 SA 18705 SB 18705, window 18646..18766)
+  cyc 12 ev 3 order 1: E  19098 (odd )  dh +0  dA -1  dB -2
+  cyc 13 ev 0 order 0: E  19468 (odd )  dh +0  dA -1  dB -2
+  cyc 13 ev 1 order 1: E  19853 (EVEN)  dh +0  dA -1  dB -1
+  cyc 13 ev 2 order 0: E  20174 (odd )  dh +0  dA -1  dB -1
+  cyc 13 ev 3 order 1: E  20560 (odd )  dh +0  dA -1  dB -2
+  cyc 14 ev 0 order 0: E  20943 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 1 order 1: E  21329 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 2 order 0: E  21651 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 3 order 1: E  22035 (EVEN)  dh +0  dA -2  dB -2
+  cyc 15 ev 0 order 0: E  22360 (odd )  dh +0  dA -1  dB -1
+  cyc 15 ev 1 order 1: E  22758 (odd )  dh +0  dA -1  dB -1
+  cyc 15 ev 2 order 0: E  23125 (EVEN)  dh +0  dA -1  dB -2
+  cyc 15 ev 3 order 1: E  23449 (EVEN)  dh +0  dA -2  dB -2
+  cyc 16 ev 0 order 0: E  23832 (odd )  dh +0  dA -1  dB -2
+  cyc 16 ev 1 order 1: E  24216 (odd )  dh +0  dA -1  dB -2
+  cyc 16 ev 2 order 0: E  24551 (EVEN)  dh +0  dA -1  dB -2
+  cyc 16 ev 3 order 1: E  24941 (EVEN)  dh +0  dA -1  dB -2
+  cyc 17 ev 0 order 0: E  25243 (EVEN)  dh +0  dA -1  dB -2
+  cyc 17 ev 1 order 1: E  25635 (EVEN)  dh +0  dA -1  dB -2
+  cyc 17 ev 2 order 0: E  26013 (EVEN)  dh +0  dA -1  dB -1
+  cyc 17 ev 3 order 1: E  26332 (odd )  dh +0  dA -1  dB -1
+  cyc 18 ev 0 order 0: E  26675 (EVEN)  dh +0  dA -1  dB -1
+  cyc 18 ev 1 order 1: E  27106 (odd )  dh +0  dA -2  dB -2
+  cyc 18 ev 2 order 0: NOT FOUND (El 27376 Eh -1 SA 27375 SB 27374, window 27316..27436)
+  cyc 18 ev 3 order 1: E  27747 (EVEN)  dh +0  dA -1  dB -2
+  cyc 19 ev 0 order 0: E  28081 (EVEN)  dh +0  dA -1  dB -2
+  cyc 19 ev 1 order 1: E  28460 (odd )  dh +0  dA -1  dB -2
+  cyc 19 ev 2 order 0: E  28835 (EVEN)  dh +0  dA -1  dB -1
+  cyc 19 ev 3 order 1: E  29156 (odd )  dh +0  dA -2  dB -2
+  cyc 20 ev 0 order 0: E  29541 (EVEN)  dh +0  dA -1  dB -1
+  cyc 20 ev 1 order 1: E  29926 (odd )  dh +0  dA -2  dB -2
+  cyc 20 ev 2 order 0: E  30248 (odd )  dh +0  dA -1  dB -2
+  cyc 20 ev 3 order 1: E  30632 (odd )  dh +0  dA -2  dB -2
+  cyc 21 ev 0 order 0: E  30957 (EVEN)  dh +0  dA -1  dB -2
+  cyc 21 ev 1 order 1: E  31402 (odd )  dh +0  dA -1  dB -1
+  cyc 21 ev 2 order 0: NOT FOUND (El 31723 Eh -1 SA 31722 SB 31722, window 31663..31783)
+  cyc 21 ev 3 order 1: E  32049 (EVEN)  dh +0  dA -1  dB -2
+  cyc 22 ev 0 order 0: E  32430 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 1 order 1: E  32813 (EVEN)  dh +0  dA -1  dB -1
+  cyc 22 ev 2 order 0: E  33154 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 3 order 1: E  33542 (odd )  dh +0  dA -2  dB -2
+  cyc 23 ev 0 order 0: E  33904 (odd )  dh +0  dA -1  dB -1
+  cyc 23 ev 1 order 1: E  34316 (odd )  dh +0  dA -1  dB -1
+  cyc 23 ev 2 order 0: E  34613 (EVEN)  dh +0  dA -1  dB -1
+  cyc 23 ev 3 order 1: E  34995 (EVEN)  dh +0  dA -1  dB -1
+  summary (6 events not found):
+    fetch slot  0 order 0                     d-1:40  d+0:2
+    fetch slot  0 order 1                     d-2:11  d-1:37
+    fetch slot 32 order 0                     d-2:18  d-1:24
+    fetch slot 32 order 1                     d-2:32  d-1:16
+    wh-wl (slot 62 - slot 1) order 0          d+0:42
+    wh-wl (slot 62 - slot 1) order 1          d+0:48
+== f_8_40 (kind f, A 8 B 40 wl 2 wh 61, c0 39ef, 35648 samples, 96 events, 64 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 457 Eh 457 SA -1 SB -1, window 397..517)
+  cyc  0 ev 1 order 1: E   1100 (EVEN)  dh +0  dA -1  dB -2
+  cyc  0 ev 2 order 0: E   1485 (odd )  dh +0  dA -1  dB -1
+  cyc  0 ev 3 order 1: E   1805 (odd )  dh +0  dA -2  dB -2
+  cyc  1 ev 0 order 0: E   2144 (EVEN)  dh +0  dA -1  dB -1
+  cyc  1 ev 1 order 1: E   2511 (odd )  dh +0  dA -2  dB -2
+  cyc  1 ev 2 order 0: E   2856 (EVEN)  dh +0  dA -1  dB -2
+  cyc  1 ev 3 order 1: E   3218 (EVEN)  dh +0  dA -1  dB -2
+  cyc  2 ev 0 order 0: E   3602 (EVEN)  dh +0  dA -1  dB -2
+  cyc  2 ev 1 order 1: E   3987 (odd )  dh +0  dA -1  dB -2
+  cyc  2 ev 2 order 0: E   4316 (EVEN)  dh +0  dA -1  dB -2
+  cyc  2 ev 3 order 1: E   4694 (EVEN)  dh +0  dA -2  dB -2
+  cyc  3 ev 0 order 0: E   5013 (odd )  dh +0  dA -1  dB -1
+  cyc  3 ev 1 order 1: E   5415 (odd )  dh +0  dA -1  dB -2
+  cyc  3 ev 2 order 0: E   5730 (EVEN)  dh +0  dA -1  dB -2
+  cyc  3 ev 3 order 1: E   6104 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 0 order 0: E   6489 (odd )  dh +0  dA -1  dB -2
+  cyc  4 ev 1 order 1: E   6837 (odd )  dh +0  dA -1  dB -2
+  cyc  4 ev 2 order 0: E   7200 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 3 order 1: E   7599 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 0 order 0: E   7902 (EVEN)  dh +0  dA -1  dB -1
+  cyc  5 ev 1 order 1: E   8286 (EVEN)  dh +0  dA -1  dB -2
+  cyc  5 ev 2 order 0: E   8671 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 3 order 1: E   8992 (EVEN)  dh +0  dA -1  dB -2
+  cyc  6 ev 0 order 0: E   9340 (EVEN)  dh +0  dA -1  dB -1
+  cyc  6 ev 1 order 1: E   9712 (EVEN)  dh +0  dA -2  dB -2
+  cyc  6 ev 2 order 0: E  10083 (odd )  dh +0  dA -1  dB -2
+  cyc  6 ev 3 order 1: E  10404 (EVEN)  dh +0  dA -2  dB -2
+  cyc  7 ev 0 order 0: E  10749 (odd )  dh +0  dA -1  dB -1
+  cyc  7 ev 1 order 1: E  11172 (EVEN)  dh +0  dA -1  dB -1
+  cyc  7 ev 2 order 0: E  11500 (EVEN)  dh +0  dA -1  dB -1
+  cyc  7 ev 3 order 1: E  11834 (EVEN)  dh +0  dA -2  dB -2
+  cyc  8 ev 0 order 0: E  12205 (odd )  dh +0  dA -1  dB -2
+  cyc  8 ev 1 order 1: E  12584 (EVEN)  dh +0  dA -1  dB -2
+  cyc  8 ev 2 order 0: E  12971 (odd )  dh +0  dA -2  dB -2
+  cyc  8 ev 3 order 1: E  13291 (odd )  dh +0  dA -2  dB -2
+  cyc  9 ev 0 order 0: E  13676 (EVEN)  dh +0  dA -1  dB -1
+  cyc  9 ev 1 order 1: E  14064 (EVEN)  dh +0  dA -1  dB -1
+  cyc  9 ev 2 order 0: E  14445 (odd )  dh +0  dA -1  dB -2
+  cyc  9 ev 3 order 1: E  14789 (odd )  dh +0  dA -2  dB -2
+  cyc 10 ev 0 order 0: E  15152 (EVEN)  dh +0  dA -1  dB -1
+  cyc 10 ev 1 order 1: E  15542 (EVEN)  dh +0  dA -1  dB -1
+  cyc 10 ev 2 order 0: E  15867 (odd )  dh +0  dA -1  dB -1
+  cyc 10 ev 3 order 1: E  16257 (odd )  dh +0  dA -2  dB -2
+  cyc 11 ev 0 order 0: E  16577 (odd )  dh +0  dA -1  dB -2
+  cyc 11 ev 1 order 1: E  16947 (odd )  dh +0  dA -1  dB -2
+  cyc 11 ev 2 order 0: E  17286 (EVEN)  dh +0  dA -1  dB -2
+  cyc 11 ev 3 order 1: E  17654 (EVEN)  dh +0  dA -2  dB -2
+  cyc 12 ev 0 order 0: E  18038 (EVEN)  dh +0  dA -1  dB -1
+  cyc 12 ev 1 order 1: E  18425 (odd )  dh +0  dA -2  dB -2
+  cyc 12 ev 2 order 0: E  18771 (odd )  dh +0  dA -1  dB -2
+  cyc 12 ev 3 order 1: E  19130 (EVEN)  dh +0  dA -2  dB -2
+  cyc 13 ev 0 order 0: E  19461 (odd )  dh +0  dA -1  dB -2
+  cyc 13 ev 1 order 1: E  19855 (odd )  dh +0  dA -1  dB -2
+  cyc 13 ev 2 order 0: E  20185 (odd )  dh +0  dA -1  dB -1
+  cyc 13 ev 3 order 1: E  20558 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 0 order 0: E  20880 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 1 order 1: E  21274 (EVEN)  dh +0  dA -2  dB -2
+  cyc 14 ev 2 order 0: E  21648 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 3 order 1: E  21983 (odd )  dh +0  dA -1  dB -2
+  cyc 15 ev 0 order 0: E  22356 (EVEN)  dh +0  dA -1  dB -2
+  cyc 15 ev 1 order 1: E  22739 (odd )  dh +0  dA -1  dB -1
+  cyc 15 ev 2 order 0: E  23126 (EVEN)  dh +0  dA -1  dB -2
+  cyc 15 ev 3 order 1: E  23472 (EVEN)  dh +0  dA -2  dB -2
+  cyc 16 ev 0 order 0: E  23767 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 1 order 1: E  24151 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 2 order 0: E  24537 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 3 order 1: E  24880 (EVEN)  dh +0  dA -2  dB -2
+  cyc 17 ev 0 order 0: E  25178 (EVEN)  dh +0  dA -1  dB -2
+  cyc 17 ev 1 order 1: E  25565 (odd )  dh +0  dA -2  dB -2
+  cyc 17 ev 2 order 0: E  25911 (odd )  dh +0  dA -1  dB -1
+  cyc 17 ev 3 order 1: E  26270 (EVEN)  dh +0  dA -2  dB -2
+  cyc 18 ev 0 order 0: E  26653 (odd )  dh +0  dA -1  dB -1
+  cyc 18 ev 1 order 1: E  27055 (odd )  dh +0  dA -1  dB -1
+  cyc 18 ev 2 order 0: E  27370 (EVEN)  dh +0  dA -1  dB -2
+  cyc 18 ev 3 order 1: E  27746 (EVEN)  dh +0  dA -2  dB -2
+  cyc 19 ev 0 order 0: E  28066 (EVEN)  dh +0  dA -1  dB -1
+  cyc 19 ev 1 order 1: E  28455 (odd )  dh +0  dA -1  dB -2
+  cyc 19 ev 2 order 0: E  28835 (odd )  dh +0  dA -1  dB -2
+  cyc 19 ev 3 order 1: E  29156 (EVEN)  dh +0  dA -1  dB -2
+  cyc 20 ev 0 order 0: E  29542 (EVEN)  dh +0  dA -1  dB -1
+  cyc 20 ev 1 order 1: E  29928 (EVEN)  dh +0  dA -1  dB -2
+  cyc 20 ev 2 order 0: E  30312 (EVEN)  dh +0  dA -1  dB -2
+  cyc 20 ev 3 order 1: E  30633 (odd )  dh +0  dA -1  dB -2
+  cyc 21 ev 0 order 0: E  30973 (odd )  dh +0  dA -2  dB -2
+  cyc 21 ev 1 order 1: E  31349 (odd )  dh +0  dA -1  dB -2
+  cyc 21 ev 2 order 0: E  31676 (EVEN)  dh +0  dA -1  dB -1
+  cyc 21 ev 3 order 1: E  32044 (EVEN)  dh +0  dA -1  dB -2
+  cyc 22 ev 0 order 0: E  32386 (EVEN)  dh +0  dA -1  dB -2
+  cyc 22 ev 1 order 1: E  32750 (EVEN)  dh +0  dA -2  dB -2
+  cyc 22 ev 2 order 0: E  33141 (odd )  dh +0  dA -1  dB -1
+  cyc 22 ev 3 order 1: E  33457 (odd )  dh +0  dA -1  dB -2
+  cyc 23 ev 0 order 0: E  33803 (odd )  dh +0  dA -1  dB -1
+  cyc 23 ev 1 order 1: E  34162 (EVEN)  dh +0  dA -1  dB -1
+  cyc 23 ev 2 order 0: E  34547 (odd )  dh +0  dA -1  dB -2
+  cyc 23 ev 3 order 1: E  34867 (odd )  dh +0  dA -1  dB -1
+  summary (1 events not found):
+    fetch slot  8 order 0                     d-2:2  d-1:45
+    fetch slot  8 order 1                     d-2:19  d-1:29
+    fetch slot 40 order 0                     d-2:24  d-1:23
+    fetch slot 40 order 1                     d-2:39  d-1:9
+    wh-wl (slot 61 - slot 2) order 0          d+0:47
+    wh-wl (slot 61 - slot 2) order 1          d+0:48
+== f_16_48 (kind f, A 16 B 48 wl 3 wh 60, c0 92f0, 35840 samples, 96 events, 64 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 458 Eh 458 SA -1 SB -1, window 398..518)
+  cyc  0 ev 1 order 1: E   1115 (odd )  dh +0  dA -1  dB -2
+  cyc  0 ev 2 order 0: E   1484 (EVEN)  dh +0  dA -1  dB -1
+  cyc  0 ev 3 order 1: E   1829 (odd )  dh +0  dA -2  dB -2
+  cyc  1 ev 0 order 0: E   2191 (odd )  dh +0  dA -1  dB -2
+  cyc  1 ev 1 order 1: E   2576 (EVEN)  dh +0  dA -1  dB -2
+  cyc  1 ev 2 order 0: E   2961 (odd )  dh +0  dA -1  dB -1
+  cyc  1 ev 3 order 1: E   3284 (EVEN)  dh +0  dA -1  dB -2
+  cyc  2 ev 0 order 0: E   3667 (odd )  dh +0  dA -1  dB -1
+  cyc  2 ev 1 order 1: E   4051 (odd )  dh +0  dA -1  dB -1
+  cyc  2 ev 2 order 0: E   4378 (EVEN)  dh +0  dA -1  dB -2
+  cyc  2 ev 3 order 1: E   4784 (EVEN)  dh +0  dA -1  dB -2
+  cyc  3 ev 0 order 0: E   5104 (EVEN)  dh +0  dA -1  dB -1
+  cyc  3 ev 1 order 1: E   5463 (odd )  dh +0  dA -1  dB -2
+  cyc  3 ev 2 order 0: E   5849 (odd )  dh +0  dA -1  dB -2
+  cyc  3 ev 3 order 1: E   6170 (EVEN)  dh +0  dA -2  dB -2
+  cyc  4 ev 0 order 0: E   6554 (EVEN)  dh +0  dA -1  dB -1
+  cyc  4 ev 1 order 1: E   6938 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 2 order 0: E   7324 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 3 order 1: E   7661 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 0 order 0: E   7981 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 1 order 1: E   8352 (EVEN)  dh +0  dA -2  dB -2
+  cyc  5 ev 2 order 0: E   8676 (EVEN)  dh +0  dA -1  dB -2
+  cyc  5 ev 3 order 1: E   9056 (EVEN)  dh +0  dA -1  dB -2
+  cyc  6 ev 0 order 0: E   9442 (EVEN)  dh +0  dA -1  dB -1
+  cyc  6 ev 1 order 1: E   9843 (odd )  dh +0  dA -1  dB -2
+  cyc  6 ev 2 order 0: E  10212 (EVEN)  dh +0  dA -1  dB -2
+  cyc  6 ev 3 order 1: E  10533 (odd )  dh +0  dA -2  dB -2
+  cyc  7 ev 0 order 0: E  10860 (EVEN)  dh +0  dA -1  dB -2
+  cyc  7 ev 1 order 1: E  11261 (odd )  dh +0  dA -2  dB -2
+  cyc  7 ev 2 order 0: E  11581 (odd )  dh +0  dA -1  dB -1
+  cyc  7 ev 3 order 1: E  11951 (odd )  dh +0  dA -1  dB -2
+  cyc  8 ev 0 order 0: E  12289 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 1 order 1: E  12651 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 2 order 0: E  13034 (EVEN)  dh +0  dA -1  dB -1
+  cyc  8 ev 3 order 1: E  13381 (odd )  dh +0  dA -2  dB -2
+  cyc  9 ev 0 order 0: E  13739 (odd )  dh +0  dA -1  dB -1
+  cyc  9 ev 1 order 1: E  14145 (odd )  dh +0  dA -2  dB -2
+  cyc  9 ev 2 order 0: E  14446 (EVEN)  dh +0  dA -1  dB -1
+  cyc  9 ev 3 order 1: E  14830 (EVEN)  dh +0  dA -1  dB -1
+  cyc 10 ev 0 order 0: E  15216 (EVEN)  dh +0  dA -1  dB -2
+  cyc 10 ev 1 order 1: E  15602 (EVEN)  dh +0  dA -2  dB -2
+  cyc 10 ev 2 order 0: E  15986 (EVEN)  dh +0  dA -2  dB -2
+  cyc 10 ev 3 order 1: E  16307 (odd )  dh +0  dA -2  dB -2
+  cyc 11 ev 0 order 0: E  16692 (EVEN)  dh +0  dA -1  dB -2
+  cyc 11 ev 1 order 1: E  17083 (odd )  dh +0  dA -2  dB -2
+  cyc 11 ev 2 order 0: E  17420 (EVEN)  dh +0  dA -1  dB -2
+  cyc 11 ev 3 order 1: E  17784 (EVEN)  dh +0  dA -2  dB -2
+  cyc 12 ev 0 order 0: E  18131 (odd )  dh +0  dA -1  dB -2
+  cyc 12 ev 1 order 1: E  18554 (EVEN)  dh +0  dA -2  dB -2
+  cyc 12 ev 2 order 0: E  18872 (EVEN)  dh +0  dA -1  dB -1
+  cyc 12 ev 3 order 1: E  19194 (EVEN)  dh +0  dA -1  dB -2
+  cyc 13 ev 0 order 0: E  19578 (EVEN)  dh +0  dA -1  dB -1
+  cyc 13 ev 1 order 1: E  19971 (odd )  dh +0  dA -2  dB -2
+  cyc 13 ev 2 order 0: E  20288 (EVEN)  dh +0  dA -1  dB -2
+  cyc 13 ev 3 order 1: E  20696 (EVEN)  dh +0  dA -2  dB -2
+  cyc 14 ev 0 order 0: E  20991 (odd )  dh +0  dA -1  dB -1
+  cyc 14 ev 1 order 1: E  21393 (odd )  dh +0  dA -1  dB -2
+  cyc 14 ev 2 order 0: E  21778 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 3 order 1: E  22099 (odd )  dh +0  dA -1  dB -2
+  cyc 15 ev 0 order 0: E  22484 (EVEN)  dh +0  dA -1  dB -1
+  cyc 15 ev 1 order 1: E  22870 (EVEN)  dh +0  dA -1  dB -2
+  cyc 15 ev 2 order 0: E  23254 (EVEN)  dh +0  dA -1  dB -1
+  cyc 15 ev 3 order 1: E  23603 (odd )  dh +0  dA -1  dB -2
+  cyc 16 ev 0 order 0: E  23921 (odd )  dh +0  dA -1  dB -2
+  cyc 16 ev 1 order 1: E  24281 (odd )  dh +0  dA -2  dB -2
+  cyc 16 ev 2 order 0: E  24665 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 3 order 1: E  25050 (EVEN)  dh +0  dA -1  dB -1
+  cyc 17 ev 0 order 0: E  25374 (EVEN)  dh +0  dA -1  dB -1
+  cyc 17 ev 1 order 1: E  25756 (EVEN)  dh +0  dA -2  dB -2
+  cyc 17 ev 2 order 0: E  26103 (odd )  dh +0  dA -1  dB -1
+  cyc 17 ev 3 order 1: E  26463 (odd )  dh +0  dA -2  dB -2
+  cyc 18 ev 0 order 0: E  26788 (EVEN)  dh +0  dA -1  dB -1
+  cyc 18 ev 1 order 1: E  27168 (EVEN)  dh +0  dA -1  dB -2
+  cyc 18 ev 2 order 0: E  27557 (odd )  dh +0  dA -1  dB -2
+  cyc 18 ev 3 order 1: E  27875 (odd )  dh +0  dA -2  dB -2
+  cyc 19 ev 0 order 0: E  28259 (odd )  dh +0  dA -2  dB -2
+  cyc 19 ev 1 order 1: E  28645 (odd )  dh +0  dA -2  dB -2
+  cyc 19 ev 2 order 0: E  29032 (EVEN)  dh +0  dA -1  dB -1
+  cyc 19 ev 3 order 1: E  29349 (odd )  dh +0  dA -1  dB -2
+  cyc 20 ev 0 order 0: E  29695 (odd )  dh +0  dA -1  dB -2
+  cyc 20 ev 1 order 1: E  30120 (EVEN)  dh +0  dA -1  dB -2
+  cyc 20 ev 2 order 0: NOT FOUND (El 30441 Eh -1 SA 30439 SB 30439, window 30381..30501)
+  cyc 20 ev 3 order 1: E  30767 (odd )  dh +0  dA -1  dB -1
+  cyc 21 ev 0 order 0: E  31146 (EVEN)  dh +0  dA -2  dB -2
+  cyc 21 ev 1 order 1: E  31530 (EVEN)  dh +0  dA -1  dB -1
+  cyc 21 ev 2 order 0: E  31853 (odd )  dh +0  dA -1  dB -2
+  cyc 21 ev 3 order 1: E  32237 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 0 order 0: E  32621 (odd )  dh +0  dA -1  dB -1
+  cyc 22 ev 1 order 1: E  33007 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 2 order 0: E  33327 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 3 order 1: E  33714 (EVEN)  dh +0  dA -1  dB -2
+  cyc 23 ev 0 order 0: E  34035 (odd )  dh +0  dA -2  dB -2
+  cyc 23 ev 1 order 1: E  34426 (EVEN)  dh +0  dA -2  dB -2
+  cyc 23 ev 2 order 0: E  34746 (EVEN)  dh +0  dA -2  dB -2
+  cyc 23 ev 3 order 1: E  35124 (EVEN)  dh +0  dA -1  dB -2
+  summary (2 events not found):
+    fetch slot 16 order 0                     d-2:5  d-1:41
+    fetch slot 16 order 1                     d-2:20  d-1:28
+    fetch slot 48 order 0                     d-2:23  d-1:23
+    fetch slot 48 order 1                     d-2:42  d-1:6
+    wh-wl (slot 60 - slot 3) order 0          d+0:46
+    wh-wl (slot 60 - slot 3) order 1          d+0:48
+== f_24_56 (kind f, A 24 B 56 wl 4 wh 63, c0 eaf1, 35648 samples, 96 events, 64 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 457 Eh 457 SA -1 SB -1, window 397..517)
+  cyc  0 ev 1 order 1: E   1119 (odd )  dh +0  dA -2  dB -2
+  cyc  0 ev 2 order 0: E   1484 (EVEN)  dh +0  dA -1  dB -2
+  cyc  0 ev 3 order 1: E   1805 (odd )  dh +0  dA -2  dB -2
+  cyc  1 ev 0 order 0: E   2190 (EVEN)  dh +0  dA -1  dB -2
+  cyc  1 ev 1 order 1: E   2588 (EVEN)  dh +0  dA -2  dB -2
+  cyc  1 ev 2 order 0: E   2960 (EVEN)  dh +0  dA -1  dB -2
+  cyc  1 ev 3 order 1: E   3281 (odd )  dh +0  dA -2  dB -2
+  cyc  2 ev 0 order 0: E   3623 (odd )  dh +0  dA -1  dB -2
+  cyc  2 ev 1 order 1: E   3987 (odd )  dh +0  dA -2  dB -2
+  cyc  2 ev 2 order 0: E   4332 (EVEN)  dh +0  dA -1  dB -1
+  cyc  2 ev 3 order 1: E   4757 (odd )  dh +0  dA -2  dB -2
+  cyc  3 ev 0 order 0: NOT FOUND (El 5080 Eh -1 SA 5078 SB 5078, window 5020..5140)
+  cyc  3 ev 1 order 1: E   5462 (EVEN)  dh +0  dA -1  dB -1
+  cyc  3 ev 2 order 0: E   5847 (odd )  dh +0  dA -2  dB -2
+  cyc  3 ev 3 order 1: E   6189 (odd )  dh +0  dA -1  dB -2
+  cyc  4 ev 0 order 0: E   6556 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 1 order 1: E   6939 (odd )  dh +0  dA -2  dB -2
+  cyc  4 ev 2 order 0: E   7258 (EVEN)  dh +0  dA -1  dB -2
+  cyc  4 ev 3 order 1: E   7644 (EVEN)  dh +0  dA -2  dB -2
+  cyc  5 ev 0 order 0: E   7972 (EVEN)  dh +0  dA -2  dB -2
+  cyc  5 ev 1 order 1: E   8349 (odd )  dh +0  dA -2  dB -2
+  cyc  5 ev 2 order 0: E   8735 (odd )  dh +0  dA -1  dB -2
+  cyc  5 ev 3 order 1: E   9056 (EVEN)  dh +0  dA -2  dB -2
+  cyc  6 ev 0 order 0: E   9441 (odd )  dh +0  dA -1  dB -2
+  cyc  6 ev 1 order 1: E   9840 (EVEN)  dh +0  dA -2  dB -2
+  cyc  6 ev 2 order 0: E  10146 (EVEN)  dh +0  dA -2  dB -2
+  cyc  6 ev 3 order 1: E  10532 (EVEN)  dh +0  dA -1  dB -2
+  cyc  7 ev 0 order 0: E  10878 (EVEN)  dh +0  dA -2  dB -2
+  cyc  7 ev 1 order 1: E  11238 (EVEN)  dh +0  dA -2  dB -2
+  cyc  7 ev 2 order 0: E  11623 (odd )  dh +0  dA -1  dB -2
+  cyc  7 ev 3 order 1: E  11955 (odd )  dh +0  dA -2  dB -2
+  cyc  8 ev 0 order 0: E  12328 (EVEN)  dh +0  dA -1  dB -1
+  cyc  8 ev 1 order 1: E  12719 (odd )  dh +0  dA -1  dB -1
+  cyc  8 ev 2 order 0: E  13099 (odd )  dh +0  dA -2  dB -2
+  cyc  8 ev 3 order 1: E  13425 (odd )  dh +0  dA -1  dB -2
+  cyc  9 ev 0 order 0: E  13803 (odd )  dh +0  dA -2  dB -2
+  cyc  9 ev 1 order 1: E  14188 (EVEN)  dh +0  dA -2  dB -2
+  cyc  9 ev 2 order 0: E  14574 (EVEN)  dh +0  dA -2  dB -2
+  cyc  9 ev 3 order 1: E  14895 (odd )  dh +0  dA -2  dB -2
+  cyc 10 ev 0 order 0: E  15239 (odd )  dh +0  dA -1  dB -2
+  cyc 10 ev 1 order 1: E  15600 (EVEN)  dh +0  dA -1  dB -2
+  cyc 10 ev 2 order 0: E  15937 (odd )  dh +0  dA -1  dB -1
+  cyc 10 ev 3 order 1: E  16371 (odd )  dh +0  dA -1  dB -2
+  cyc 11 ev 0 order 0: E  16692 (EVEN)  dh +0  dA -2  dB -2
+  cyc 11 ev 1 order 1: E  17036 (EVEN)  dh +0  dA -2  dB -2
+  cyc 11 ev 2 order 0: E  17409 (odd )  dh +0  dA -1  dB -2
+  cyc 11 ev 3 order 1: E  17794 (EVEN)  dh +0  dA -1  dB -2
+  cyc 12 ev 0 order 0: E  18166 (EVEN)  dh +0  dA -1  dB -2
+  cyc 12 ev 1 order 1: E  18555 (odd )  dh +0  dA -2  dB -2
+  cyc 12 ev 2 order 0: E  18882 (EVEN)  dh +0  dA -2  dB -2
+  cyc 12 ev 3 order 1: E  19258 (EVEN)  dh +0  dA -1  dB -1
+  cyc 13 ev 0 order 0: E  19594 (EVEN)  dh +0  dA -1  dB -1
+  cyc 13 ev 1 order 1: E  19963 (odd )  dh +0  dA -2  dB -2
+  cyc 13 ev 2 order 0: E  20349 (odd )  dh +0  dA -2  dB -2
+  cyc 13 ev 3 order 1: E  20693 (odd )  dh +0  dA -1  dB -2
+  cyc 14 ev 0 order 0: E  21018 (EVEN)  dh +0  dA -2  dB -2
+  cyc 14 ev 1 order 1: E  21438 (EVEN)  dh +0  dA -1  dB -2
+  cyc 14 ev 2 order 0: E  21764 (EVEN)  dh +0  dA -1  dB -1
+  cyc 14 ev 3 order 1: NOT FOUND (El 22021 Eh -1 SA 22019 SB 22019, window 21961..22081)
+  cyc 15 ev 0 order 0: E  22354 (EVEN)  dh +0  dA -1  dB -1
+  cyc 15 ev 1 order 1: E  22744 (EVEN)  dh +0  dA -2  dB -2
+  cyc 15 ev 2 order 0: E  23070 (EVEN)  dh +0  dA -1  dB -2
+  cyc 15 ev 3 order 1: E  23469 (odd )  dh +0  dA -1  dB -2
+  cyc 16 ev 0 order 0: E  23777 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 1 order 1: E  24151 (odd )  dh +0  dA -2  dB -2
+  cyc 16 ev 2 order 0: E  24536 (EVEN)  dh +0  dA -1  dB -1
+  cyc 16 ev 3 order 1: E  24868 (EVEN)  dh +0  dA -2  dB -2
+  cyc 17 ev 0 order 0: E  25202 (EVEN)  dh +0  dA -1  dB -2
+  cyc 17 ev 1 order 1: E  25627 (odd )  dh +0  dA -2  dB -2
+  cyc 17 ev 2 order 0: NOT FOUND (El 25950 Eh -1 SA 25948 SB 25948, window 25890..26010)
+  cyc 17 ev 3 order 1: E  26334 (EVEN)  dh +0  dA -2  dB -2
+  cyc 18 ev 0 order 0: E  26653 (odd )  dh +0  dA -1  dB -2
+  cyc 18 ev 1 order 1: E  27038 (EVEN)  dh +0  dA -1  dB -2
+  cyc 18 ev 2 order 0: E  27424 (EVEN)  dh +0  dA -2  dB -2
+  cyc 18 ev 3 order 1: E  27746 (EVEN)  dh +0  dA -2  dB -2
+  cyc 19 ev 0 order 0: E  28065 (odd )  dh +0  dA -1  dB -1
+  cyc 19 ev 1 order 1: E  28463 (odd )  dh +0  dA -1  dB -2
+  cyc 19 ev 2 order 0: E  28836 (EVEN)  dh +0  dA -1  dB -2
+  cyc 19 ev 3 order 1: E  29157 (odd )  dh +0  dA -1  dB -2
+  cyc 20 ev 0 order 0: E  29500 (EVEN)  dh +0  dA -1  dB -1
+  cyc 20 ev 1 order 1: E  29862 (EVEN)  dh +0  dA -2  dB -2
+  cyc 20 ev 2 order 0: E  30197 (odd )  dh +0  dA -2  dB -2
+  cyc 20 ev 3 order 1: E  30582 (EVEN)  dh +0  dA -2  dB -2
+  cyc 21 ev 0 order 0: E  30910 (EVEN)  dh +0  dA -2  dB -2
+  cyc 21 ev 1 order 1: E  31275 (odd )  dh +0  dA -1  dB -2
+  cyc 21 ev 2 order 0: E  31658 (EVEN)  dh +0  dA -1  dB -1
+  cyc 21 ev 3 order 1: E  31980 (EVEN)  dh +0  dA -2  dB -2
+  cyc 22 ev 0 order 0: E  32376 (EVEN)  dh +0  dA -2  dB -2
+  cyc 22 ev 1 order 1: E  32757 (odd )  dh +0  dA -1  dB -2
+  cyc 22 ev 2 order 0: E  33075 (odd )  dh +0  dA -2  dB -2
+  cyc 22 ev 3 order 1: E  33465 (odd )  dh +0  dA -1  dB -2
+  cyc 23 ev 0 order 0: E  33841 (odd )  dh +0  dA -1  dB -2
+  cyc 23 ev 1 order 1: E  34226 (EVEN)  dh +0  dA -2  dB -2
+  cyc 23 ev 2 order 0: E  34567 (odd )  dh +0  dA -1  dB -2
+  cyc 23 ev 3 order 1: E  34931 (odd )  dh +0  dA -2  dB -2
+  summary (4 events not found):
+    fetch slot 24 order 0                     d-2:16  d-1:29
+    fetch slot 24 order 1                     d-2:29  d-1:18
+    fetch slot 56 order 0                     d-2:34  d-1:11
+    fetch slot 56 order 1                     d-2:44  d-1:3
+    wh-wl (slot 63 - slot 4) order 0          d+0:45
+    wh-wl (slot 63 - slot 4) order 1          d+0:47
+== e_0_32 (kind e, A 0 B 32 wl 1 wh 62, c0 435b, 26944 samples, 24 events, 24 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 226 Eh 226 SA -1 SB -1, window 166..626)
+  cyc  1 ev 0 order 1: E   1307 (odd )  dh +0  dA +1  dB +1
+  cyc  2 ev 0 order 0: E   2382 (EVEN)  dh +0  dA +0  dB +0
+  cyc  3 ev 0 order 1: E   3473 (odd )  dh +0  dA -1  dB -1
+  cyc  4 ev 0 order 0: E   4565 (odd )  dh +0  dA +1  dB +1
+  cyc  5 ev 0 order 1: E   5655 (odd )  dh +0  dA -1  dB -1
+  cyc  6 ev 0 order 0: E   6758 (EVEN)  dh +0  dA +0  dB +0
+  cyc  7 ev 0 order 1: E   7836 (EVEN)  dh +0  dA +0  dB +0
+  cyc  8 ev 0 order 0: E   8927 (odd )  dh +0  dA +1  dB -1
+  cyc  9 ev 0 order 1: E   9973 (odd )  dh +0  dA -1  dB -1
+  cyc 10 ev 0 order 0: E  11110 (EVEN)  dh +0  dA +0  dB +0
+  cyc 11 ev 0 order 1: E  12159 (odd )  dh +0  dA +1  dB -1
+  cyc 12 ev 0 order 0: E  13310 (EVEN)  dh +0  dA +0  dB +0
+  cyc 13 ev 0 order 1: E  14389 (odd )  dh +0  dA +1  dB +1
+  cyc 14 ev 0 order 0: E  15472 (EVEN)  dh +0  dA +0  dB +0
+  cyc 15 ev 0 order 1: E  16564 (EVEN)  dh +0  dA +0  dB +0
+  cyc 16 ev 0 order 0: E  17662 (EVEN)  dh +0  dA +0  dB +0
+  cyc 17 ev 0 order 1: E  18760 (EVEN)  dh +0  dA +0  dB +0
+  cyc 18 ev 0 order 0: E  19836 (EVEN)  dh +0  dA +0  dB +0
+  cyc 19 ev 0 order 1: E  20925 (odd )  dh +0  dA +1  dB -1
+  cyc 20 ev 0 order 0: E  22018 (EVEN)  dh +0  dA +0  dB +0
+  cyc 21 ev 0 order 1: E  23108 (EVEN)  dh +0  dA +0  dB +0
+  cyc 22 ev 0 order 0: E  24105 (odd )  dh +0  dA +1  dB -1
+  cyc 23 ev 0 order 1: E  25179 (odd )  dh +0  dA +1  dB -1
+  summary (1 events not found):
+    envelope slot  0 order 0 E even           d+0:8
+    envelope slot  0 order 0 E odd            d+1:3
+    envelope slot  0 order 1 E even           d+0:4
+    envelope slot  0 order 1 E odd            d-1:3  d+1:5
+    envelope slot 32 order 0 E even           d+0:8
+    envelope slot 32 order 0 E odd            d-1:2  d+1:1
+    envelope slot 32 order 1 E even           d+0:4
+    envelope slot 32 order 1 E odd            d-1:6  d+1:2
+    wh-wl (slot 62 - slot 1) order 0          d+0:11
+    wh-wl (slot 62 - slot 1) order 1          d+0:12
+== e_8_40 (kind e, A 8 B 40 wl 2 wh 61, c0 c0d3, 26944 samples, 24 events, 24 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 226 Eh 226 SA -1 SB -1, window 166..626)
+  cyc  1 ev 0 order 1: E   1316 (EVEN)  dh +0  dA +0  dB +0
+  cyc  2 ev 0 order 0: E   2386 (EVEN)  dh +0  dA +0  dB +0
+  cyc  3 ev 0 order 1: E   3474 (EVEN)  dh +0  dA +0  dB +0
+  cyc  4 ev 0 order 0: E   4564 (EVEN)  dh +0  dA +0  dB +0
+  cyc  5 ev 0 order 1: E   5655 (odd )  dh +0  dA +1  dB -1
+  cyc  6 ev 0 order 0: E   6703 (odd )  dh +0  dA +1  dB +1
+  cyc  7 ev 0 order 1: E   7836 (EVEN)  dh +0  dA +0  dB +0
+  cyc  8 ev 0 order 0: E   8929 (odd )  dh +0  dA +1  dB -1
+  cyc  9 ev 0 order 1: E  10018 (EVEN)  dh +0  dA +0  dB +0
+  cyc 10 ev 0 order 0: E  11114 (EVEN)  dh +0  dA +0  dB +0
+  cyc 11 ev 0 order 1: E  12201 (odd )  dh +0  dA +1  dB +1
+  cyc 12 ev 0 order 0: E  13294 (EVEN)  dh +0  dA +0  dB +0
+  cyc 13 ev 0 order 1: E  14341 (odd )  dh +0  dA -1  dB -1
+  cyc 14 ev 0 order 0: E  15473 (odd )  dh +0  dA +1  dB -1
+  cyc 15 ev 0 order 1: E  16562 (EVEN)  dh +0  dA +0  dB +0
+  cyc 16 ev 0 order 0: E  17654 (EVEN)  dh +0  dA +0  dB +0
+  cyc 17 ev 0 order 1: E  18709 (odd )  dh +0  dA +1  dB -1
+  cyc 18 ev 0 order 0: E  19844 (EVEN)  dh +0  dA +0  dB +0
+  cyc 19 ev 0 order 1: E  20878 (EVEN)  dh +0  dA +0  dB +0
+  cyc 20 ev 0 order 0: E  22018 (EVEN)  dh +0  dA +0  dB +0
+  cyc 21 ev 0 order 1: E  23107 (odd )  dh +0  dA -1  dB -1
+  cyc 22 ev 0 order 0: E  24198 (EVEN)  dh +0  dA +0  dB +0
+  cyc 23 ev 0 order 1: E  25289 (odd )  dh +0  dA -1  dB -1
+  summary (1 events not found):
+    envelope slot  8 order 0 E even           d+0:8
+    envelope slot  8 order 0 E odd            d+1:3
+    envelope slot  8 order 1 E even           d+0:6
+    envelope slot  8 order 1 E odd            d-1:3  d+1:3
+    envelope slot 40 order 0 E even           d+0:8
+    envelope slot 40 order 0 E odd            d-1:2  d+1:1
+    envelope slot 40 order 1 E even           d+0:6
+    envelope slot 40 order 1 E odd            d-1:5  d+1:1
+    wh-wl (slot 61 - slot 2) order 0          d+0:11
+    wh-wl (slot 61 - slot 2) order 1          d+0:12
+== e_16_48 (kind e, A 16 B 48 wl 3 wh 60, c0 3d67, 26752 samples, 24 events, 24 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 226 Eh 226 SA -1 SB -1, window 166..626)
+  cyc  1 ev 0 order 1: E   1249 (EVEN)  dh +0  dA +0  dB +0
+  cyc  2 ev 0 order 0: E   2293 (EVEN)  dh +0  dA +0  dB +0
+  cyc  3 ev 0 order 1: E   3367 (EVEN)  dh +0  dA +0  dB +0
+  cyc  4 ev 0 order 0: E   4462 (odd )  dh +0  dA +1  dB +1
+  cyc  5 ev 0 order 1: E   5505 (EVEN)  dh +0  dA +0  dB +0
+  cyc  6 ev 0 order 0: E   6656 (odd )  dh +0  dA +1  dB +1
+  cyc  7 ev 0 order 1: E   7731 (EVEN)  dh +0  dA +0  dB +0
+  cyc  8 ev 0 order 0: E   8838 (odd )  dh +0  dA -1  dB -1
+  cyc  9 ev 0 order 1: E   9911 (EVEN)  dh +0  dA +0  dB +0
+  cyc 10 ev 0 order 0: E  11002 (odd )  dh +0  dA +1  dB +1
+  cyc 11 ev 0 order 1: E  12093 (EVEN)  dh +0  dA +0  dB +0
+  cyc 12 ev 0 order 0: E  13186 (odd )  dh +0  dA -1  dB -1
+  cyc 13 ev 0 order 1: E  14275 (EVEN)  dh +0  dA +0  dB +0
+  cyc 14 ev 0 order 0: E  15371 (EVEN)  dh +0  dA +0  dB +0
+  cyc 15 ev 0 order 1: E  16466 (odd )  dh +0  dA +1  dB +1
+  cyc 16 ev 0 order 0: E  17559 (EVEN)  dh +0  dA +0  dB +0
+  cyc 17 ev 0 order 1: E  18644 (odd )  dh +0  dA +1  dB -1
+  cyc 18 ev 0 order 0: E  19727 (EVEN)  dh +0  dA +0  dB +0
+  cyc 19 ev 0 order 1: E  20820 (odd )  dh +0  dA +1  dB -1
+  cyc 20 ev 0 order 0: E  21910 (odd )  dh +0  dA +1  dB +1
+  cyc 21 ev 0 order 1: E  23002 (odd )  dh +0  dA -1  dB -1
+  cyc 22 ev 0 order 0: E  24108 (odd )  dh +0  dA -1  dB -1
+  cyc 23 ev 0 order 1: E  25199 (EVEN)  dh +0  dA +0  dB +0
+  summary (1 events not found):
+    envelope slot 16 order 0 E even           d+0:4
+    envelope slot 16 order 0 E odd            d-1:3  d+1:4
+    envelope slot 16 order 1 E even           d+0:8
+    envelope slot 16 order 1 E odd            d-1:1  d+1:3
+    envelope slot 48 order 0 E even           d+0:4
+    envelope slot 48 order 0 E odd            d-1:3  d+1:4
+    envelope slot 48 order 1 E even           d+0:8
+    envelope slot 48 order 1 E odd            d-1:3  d+1:1
+    wh-wl (slot 60 - slot 3) order 0          d+0:11
+    wh-wl (slot 60 - slot 3) order 1          d+0:12
+== e_24_56 (kind e, A 24 B 56 wl 4 wh 63, c0 bae4, 26944 samples, 24 events, 24 marks)
+  cyc  0 ev 0 order 0: NOT FOUND (El 225 Eh 225 SA -1 SB -1, window 165..625)
+  cyc  1 ev 0 order 1: E   1292 (EVEN)  dh +0  dA +0  dB +0
+  cyc  2 ev 0 order 0: E   2396 (EVEN)  dh +0  dA +0  dB +0
+  cyc  3 ev 0 order 1: E   3475 (odd )  dh +0  dA -1  dB -1
+  cyc  4 ev 0 order 0: E   4565 (odd )  dh +0  dA +1  dB -1
+  cyc  5 ev 0 order 1: E   5654 (EVEN)  dh +0  dA +0  dB +0
+  cyc  6 ev 0 order 0: E   6746 (EVEN)  dh +0  dA +0  dB +0
+  cyc  7 ev 0 order 1: E   7794 (EVEN)  dh +0  dA +0  dB +0
+  cyc  8 ev 0 order 0: E   8927 (odd )  dh +0  dA +1  dB +1
+  cyc  9 ev 0 order 1: E  10018 (EVEN)  dh +0  dA +0  dB +0
+  cyc 10 ev 0 order 0: E  10982 (EVEN)  dh -1  dA +0  dB +0
+  cyc 11 ev 0 order 1: E  12044 (EVEN)  dh +0  dA +0  dB +0
+  cyc 12 ev 0 order 0: E  13180 (EVEN)  dh +0  dA +0  dB +0
+  cyc 13 ev 0 order 1: E  14271 (odd )  dh +0  dA +1  dB -1
+  cyc 14 ev 0 order 0: E  15361 (odd )  dh +0  dA +1  dB -1
+  cyc 15 ev 0 order 1: E  16461 (odd )  dh +0  dA -1  dB -1
+  cyc 16 ev 0 order 0: E  17543 (odd )  dh +0  dA +1  dB -1
+  cyc 17 ev 0 order 1: E  18633 (odd )  dh +0  dA -1  dB -1
+  cyc 18 ev 0 order 0: E  19724 (EVEN)  dh +0  dA +0  dB +0
+  cyc 19 ev 0 order 1: E  20833 (odd )  dh +0  dA +1  dB -1
+  cyc 20 ev 0 order 0: E  21906 (EVEN)  dh +0  dA +0  dB +0
+  cyc 21 ev 0 order 1: E  23010 (EVEN)  dh +0  dA +0  dB +0
+  cyc 22 ev 0 order 0: E  24087 (odd )  dh +0  dA +1  dB -1
+  cyc 23 ev 0 order 1: E  25131 (odd )  dh +0  dA -1  dB -1
+  summary (1 events not found):
+    envelope slot 24 order 0 E even           d+0:6
+    envelope slot 24 order 0 E odd            d+1:5
+    envelope slot 24 order 1 E even           d+0:6
+    envelope slot 24 order 1 E odd            d-1:4  d+1:2
+    envelope slot 56 order 0 E even           d+0:6
+    envelope slot 56 order 0 E odd            d-1:4  d+1:1
+    envelope slot 56 order 1 E even           d+0:6
+    envelope slot 56 order 1 E odd            d-1:6
+    wh-wl (slot 63 - slot 4) order 0          d-1:1  d+0:10
+    wh-wl (slot 63 - slot 4) order 1          d+0:12

@@ -106,7 +106,7 @@ static inline int32_t hw(const Ctx &c, int i, int k) { return c.cp.v[(size_t)i *
 /* run the model over [pos, to) with the fixed events, recording and comparing */
 static void advance(AicaModel &m, Ctx &c, int to) {
     for (int i = c.pos; i < to; i++) {
-        auto it = c.evs.find(i);
+        auto it = c.evs.find(i + 1);   /* the event's writes land one boundary before its effect sample */
         if (it != c.evs.end()) apply_event(m, it->second);
         m.step();
         for (int k = 0; k < c.ns; k++) {
@@ -132,9 +132,9 @@ static int search_event(AicaModel &m, Ctx &c, int lo, int hi, int cmp_end, const
         snap_restore(m, s);
         int fb[4] = {-1, -1, -1, -1};
         for (int i = lo; i < cmp_end; i++) {
-            auto it = c.evs.find(i);
+            auto it = c.evs.find(i + 1);
             if (it != c.evs.end()) apply_event(m, it->second);
-            if (i == ko) apply_event(m, templ);
+            if (i + 1 == ko) apply_event(m, templ);
             m.step();
             bool all_bad = true;
             for (int k = 0; k < c.ns; k++) {

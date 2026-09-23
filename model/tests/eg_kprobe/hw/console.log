@@ -1,4 +1,4 @@
-hwrun: 17:40:54 lock taken by pid 671147 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/eg_kprobe.elf
+hwrun: 22:05:49 lock taken by pid 852655 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/eg_kprobe.elf
 Executing at <0xac010000>
 Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
 
@@ -24,16 +24,16 @@ dc-load console support enabled
 maple: attached devices:
   A0: Dreamcast Controller           (01000000: Controller)
 
-probe p0: c0 f76e head n 771 t_head_us 0552200 mdec_head f46b samples 67392 errors 0 marks 4 action none (baseline)
-probe p1: c0 cba8 head n 729 t_head_us 2292011 mdec_head c8cf samples 67392 errors 0 marks 4 action none (repeatability)
-probe p2: c0 9c57 head n 685 t_head_us 4052287 mdec_head 99aa samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
-probe p3: c0 6f5c head n 638 t_head_us 5796470 mdec_head 6cde samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
-probe p4: c0 431f head n 596 t_head_us 7538982 mdec_head 40cb samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
-probe p5: c0 16c3 head n 552 t_head_us 9282128 mdec_head 149b samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
-probe p6: c0 e8e9 head n 758 t_head_us 11039583 mdec_head e5f3 samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
-probe p7: c0 b6c9 head n 705 t_head_us 12813438 mdec_head b408 samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
+probe p0: c0 af95 head n 704 t_head_us 0555992 mdec_head acd5 samples 67392 errors 0 marks 4 action none (baseline)
+probe p1: c0 83c9 head n 658 t_head_us 2295863 mdec_head 8137 samples 67392 errors 0 marks 4 action none (repeatability)
+probe p2: c0 570e head n 616 t_head_us 4041217 mdec_head 54a6 samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
+probe p3: c0 2a3a head n 571 t_head_us 5784557 mdec_head 27ff samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
+probe p4: c0 fe59 head n 779 t_head_us 7530634 mdec_head fb4e samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
+probe p5: c0 d12d head n 734 t_head_us 9278472 mdec_head ce4f samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
+probe p6: c0 a258 head n 685 t_head_us 11035852 mdec_head 9fab samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
+probe p7: c0 7058 head n 639 t_head_us 12809126 mdec_head 6dd9 samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
 
 arch: exit return code 0
 arch: shutting down kernel
-maple: final stats -- device count = 23, vbl_cntr = 803, dma_cntr = 803
+maple: final stats -- device count = 23, vbl_cntr = 805, dma_cntr = 803
 vid_set_mode: 640x480 VGA with 1 framebuffers.

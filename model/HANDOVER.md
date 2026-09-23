@@ -434,6 +434,49 @@ against the key event ("straddles": EARLY = the register acted at clock E - 1, o
 - Independent: on any eg_latch run derive E from the bus-3 witness onset and check the test slot's first sample at the
   new rate against the level law: a live DL / KRS / AR / D2R must change the step at clock E, never at E + 2.
 
+
+## Session 7 addendum (2026-09-23/24, REBOOTED console: K 0; uncommitted)
+
+Scope: the per-sample schedule.  NOTES.md "Session 7" has the findings; every number below is reproduced by the listed
+tool on the console captures under `tests/<case>/hw/`.
+
+### V1 — K = 0 on the rebooted console (tests/eg_kprobe, boot 2)
+`build/tools/kfit -case tests/eg_kprobe/hw -expect 0` → `expect K = 0: all probes match` (8/8, dK 0 on every action);
+boot 1: `build/tools/kfit -case tests/eg_kprobe/hw_boot1 -expect 6491`.  `build/tools/eg_model | tail -1` → `TOTAL full=97/97`
+(GROUPS eg_kprobe=16/16 = kp_ boot 1 with K 6491 + kp2_ boot 2 with K 0).  Control: eg_model kp2_ with K 6491 fails at +2.
+
+### V2 — register writes act at the slot's frame, ~k/64 into the sample (tests/eg_sched2 f_ runs)
+`build/tools/sched2_check tests/eg_sched2/hw` (expected/sched2_check_hw.txt): per "fetch slot k order o" the d-1 share
+rises 0.00 (slot 0) → 0.06 (8) → 0.27/0.31 (16) → 0.42/0.27 (24) → 0.35/0.31 (32) → 0.44/0.50 (40) → 0.73/0.71 (48) →
+0.69/0.83 (56), 48 events per row, 0 not found.  Refutation: a flat line (boundary-processed registers) or a line
+falling with k.  The model (writes between steps) gives d+0 on every slot: `build/tools/sched2_check tests/eg_sched2/model`.
+
+### V3 — KYONEX latched at the boundary, KYONB read per frame in the next sample, start the sample after (tests/kon_defer, eg_sched2)
+`tests/kon_defer/hw/kon_defer.txt` (expected/kon_defer_hw.txt): slot 1 "KYONEX then KYONB 1 after d" 7 5 4 4 1 3 1 0 0 0 0 0
+(d 0..33 by 3), slot 62: 7 8 8 8 8 8 8 8 8 5 5 2; the reverse rows are the complements.  sched2_check "key-on (slot w)
+order 1": d+1 41-44 of 48 on every run.  eg_sched (`build/tools/sched_check tests/eg_sched/hw`): "wh-wl" d+0 for 380 of 381
+events.  Model: kon_defer model = a 0..1-sample window for both slots (the per-frame extension is sub-sample);
+`work/model5/order_probe` prints anchor M, SA effect M, key-on M+1.  Refutation: key-on on M (no latch) or slot-dependent
+onsets.
+
+### V4 — the envelope of slot k for sample n is computed at frame k of sample n-1 (tests/eg_sched2 e_ runs)
+sched2_check "envelope slot k order o M even": slot 56 d+0 10/10, slot 0 d+2 13/13, middle slots split (numbers in NOTES);
+"M odd": d+1 for every slot.  Refutation: slot 0 stepping on M, or slot 56 on M+2.
+
+### V5 — DSP writes are posted with their own slot (tests/dsp_wslot)
+`diff tests/dsp_wslot/hw/dsp_wslot.txt tests/dsp_wslot/model/dsp_wslot.txt` → identical, `0 failing checks`; W5 "writes
+completed 15/15, reads completed 15/15".  Refutation: any lost write or read in W2/W5.
+
+### V6 — regression after the two model changes (KYONEX deferral + key latency, fetch before output)
+`tools/validate_s5.sh` → PASS (eg_model 97/97, eg_replay 5 × 4/4, tail_cmp 12/12 with tail_c w00 = w14 = 11301,
+mixs_write identical); feg_validate 9/9; filt_validate_model 265/265; filt_overflow_model 15/15 and 12/12; every case
+exits 0 (`work/verify/s6/run_model_all_s7.log`); baseline `work/model_outputs_2026-09-23e.sha256`; transcript
+`work/verify/s6/bitcheck_s7.txt`.  The model-linked validators (eg_model, eg_replay, tail_cmp, feg_validate) now write a
+key event one step before its effect sample.
+
+Console cases added: eg_sched, eg_sched2, kon_defer, kon_probe, kon_probe2, kon_first, dsp_wslot (all under tests/, with
+model runs).  Group H (still open): what offsets K during a boot; the phase of the CPU/DMA memory slot in the frame.
+
 ## Reference: key paths
 
 - Model: `src/aica_model.cpp` -- `step()` (key events, clock, every slot's bus write, stop commit; no register latch),

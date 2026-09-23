@@ -45,9 +45,9 @@ tests/slot_tail/hw/tail_c: kind c, 14528 samples x 4 streams, n_first 655, c0 74
   stage 0 slot 1 inherited filter state: pre-onset value 6 -> low -3 (pinned), band -2 (matches to 6753, 3 tie(s) of 131072)
   stage 0 slot 2 inherited filter state: pre-onset value 0 -> low 0 (pinned), band -3 (matches to 6753, 4 tie(s) of 131072)
   stage 1 key-off: window [6753, 7254], compared to 11169: best ko 6875 (MDEC_CT 5781 odd), score 33507/33507, 1 tie(s): 6875(odd)
-  stage 2 RR/KYONB rewrite: window [11169, 11669], compared to 12064: best w14 11301 w00 11300 (MDEC_CT 4638 even, d -1), score 36192/36192, 1 tie(s): 11301/11300
+  stage 2 RR/KYONB rewrite: window [11169, 11669], compared to 12064: best w14 11301 w00 11301 (MDEC_CT 4637 odd, d 0), score 36192/36192, 2 tie(s): 11301/11301 11302/11301
   stage 3 IMXL 0: window [12064, 12564], compared to 14528: best w2 12198 (MDEC_CT 42b6 even), score 43584/43584, 1 tie(s)
-  events: ko 6875(odd) w14 11301(odd) w00 11300(even) w2 12198(even)
+  events: ko 6875(odd) w14 11301(odd) w00 11301(odd) w2 12198(even)
   stream 0 (slot 0 VOFF 1 LPOFF 0 Q 4 FLV0 1800 AR 31 RR 0 KRS 0 FNS 200): FULL 14302/14302; model off at 11540 (+11314 after the onset, +4665 after the key-off) = +239 after the RR rewrite; model values from off: 11540:808 11541:8860 11542:14352 11543:17580 11544:18908 11545:18728 11546:17426 11547:15364 11548:12860 11549:10180 11550:7536 11551:5082 ...; final value hw 0 model 0
     hw    tail (24 distinct values, index:value): 11576:228 11577:178 11578:130 11579:86 11580:48 11581:16 11582:-10 11583:-28 11584:-40 11585:-46 11586:-48 11587:-46 11588:-42 11589:-36 11590:-30 11591:-24 11592:-18 11593:-12 11594:-6 11595:-2 11596:2 11597:4 11598:6 12198:0
     model tail (24 distinct values, index:value): 11576:228 11577:178 11578:130 11579:86 11580:48 11581:16 11582:-10 11583:-28 11584:-40 11585:-46 11586:-48 11587:-46 11588:-42 11589:-36 11590:-30 11591:-24 11592:-18 11593:-12 11594:-6 11595:-2 11596:2 11597:4 11598:6 12198:0
@@ -64,5 +64,5 @@ tests/slot_tail/hw/tail_c: kind c, 14528 samples x 4 streams, n_first 655, c0 74
     hw bus 0: value before the IMXL 0 write 6, last change at 11598 (600 samples before w2)
     hw bus 1: value before the IMXL 0 write 2, last change at 7220 (4978 samples before w2)
     hw bus 2: value before the IMXL 0 write 2, last change at 8480 (3718 samples before w2)
-RESULT tests/slot_tail/hw/tail_c: 4/4 streams FULL, events ko 6875(odd) w14 11301(odd) w00 11300(even) w2 12198(even)
+RESULT tests/slot_tail/hw/tail_c: 4/4 streams FULL, events ko 6875(odd) w14 11301(odd) w00 11301(odd) w2 12198(even)
 TOTAL tests/slot_tail/hw: streams FULL 12/12

@@ -1,0 +1,14 @@
+W1 MRD 3 -> MEMS0 (word 40): expected 102800 got 102800 OK
+W1 MEMS0 again: expected 102800 got 102800 OK
+W2 MWT even 2 -> word 50: expected 00f000 got 00f000 OK
+W2 MRD odd 3 -> MEMS1 (word 41): expected 102900 got 102900 OK
+W3 MWT odd 3 -> word 51: expected 00ef00 got 00ef00 OK
+W3 MRD odd 5 -> MEMS2 (word 42): expected 102a00 got 102a00 OK
+W4 MWT odd 3 -> word 52: expected 00ee00 got 00ee00 OK
+W4 MRD even 4 -> IWT 7 MEMS3 (word 43): expected 102b00 got 102b00 OK
+W5 dense: writes completed 15/15, reads completed 15/15
+W5 words: f000 ef00 ee00 ed00 ec00 eb00 ea00 e900 e800 e700 e600 e500 e400 e300 e200
+W5 mems: 103000 103100 103200 103300 103400 103500 103600 103700 103800 103900 103a00 103b00 103c00 103d00 103e00
+W6 MRD 3 -> MEMS4 (word 44): expected 102c00 got 102c00 OK
+W6 MRD 4 -> IWT 7 MEMS5 (word 45): expected 102d00 got 102d00 OK
+dsp_wslot: 0 failing checks

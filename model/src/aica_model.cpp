@@ -74,6 +74,7 @@ void AicaModel::reset() {
     samples = 0;
     eg_cnt = 0;
     eg_K = 6491;
+    kyonex_pending = false;
     lfsr = 1;
     for (int ch = 0; ch < 64; ch++) {
         for (uint32_t o = 0; o < 0x48; o += 4) slot_regwrite(ch, o);
@@ -205,10 +206,10 @@ void AicaModel::slot_regwrite(int ch, uint32_t o) {
     case 0x00:
         if (reg[(0x80 * ch) >> 2] & 0x8000) { /* KYONEX */
             reg[(0x80 * ch) >> 2] &= 0x7FFF;
-            /* key events take effect on the next sample, whatever its parity, and that sample takes no envelope
-             * step: the key-on level lasts 2 samples when the key-on sample is a clock, else 1 (tests/eg_lock keys,
-             * 32 cycles on 8 slots, and feg_track batch 2) */
-            for (int i = 0; i < 64; i++) slot[i].key_pending = (chr(i, 0x00) & 0x4000) ? 1 : -1;
+            /* the KYONB bits are read at the next sample boundary, the key events land on the sample after it (see
+             * AicaModel::kyonex_pending); a key event sample takes no envelope step: the key-on level lasts 2 samples when
+             * that sample is a clock, else 1 (tests/eg_lock keys, 32 cycles on 8 slots, and feg_track batch 2) */
+            kyonex_pending = true;
         }
         break;
     case 0x08: case 0x0C:
@@ -575,7 +576,6 @@ void AicaModel::slot_output(int ch, int32_t &l, int32_t &r, int32_t &d) {
     if (pan & 0x10) { l = dir; r = side; }
     else { l = side; r = dir; }
     if (!c.enabled) return;
-    stream_step(ch);
     if ((chr(ch, 0x1C) >> 15) & 1) { /* LFORE: held reset while set (tests/sgc_lfo; minicast: one-shot) */
         c.lfo.state = 0;
         c.lfo.counter = c.lfo.start_value;
@@ -706,6 +706,10 @@ void AicaModel::step() {
             if (k < 0 && slot[ch].AEG.state != EG_RELEASE) { key_off(ch); slot[ch].keyed_off = true; }
         }
     }
+    if (kyonex_pending) {   /* the boundary after a KYONEX write: read every KYONB now, apply on the next sample */
+        kyonex_pending = false;
+        for (int ch = 0; ch < 64; ch++) slot[ch].key_pending = (chr(ch, 0x00) & 0x4000) ? 1 : -1;
+    }
     /* envelope clock: the samples with even MDEC_CT; counter locked to it (tests/eg_lock, feg_track, aeg_dl0) */
     if ((MDEC_CT & 1) == 0) {
         eg_cnt = (eg_K - (MDEC_CT >> 1)) & 0x3FFF;
@@ -718,6 +722,11 @@ void AicaModel::step() {
     bool sent[16] = {false};
     for (int ch = 0; ch < 64; ch++) {
         int32_t l, rr, d;
+        /* the sample fetch of slot k (frame k of the sample) precedes its output: a stream register written before the
+         * boundary is used by this sample's fetch (tests/eg_sched2: the SA switch shows on the boundary sample or, when
+         * the write landed before frame k, even on the write's own sample -- the latter is below the model's resolution);
+         * the key-on sample outputs the word at CA 0 without advancing (tests/sgc_pitch, sgc_loop) */
+        if (slot[ch].enabled && !slot[ch].keyed) stream_step(ch);
         slot_output(ch, l, rr, d);
         mixl += l;
         mixr += rr;

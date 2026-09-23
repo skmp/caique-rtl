@@ -14,11 +14,11 @@ fv_2 stream 0: F 1c00 Q 31 TL 07 VOFF 0 LPOFF 0
 fv_2 stream 1: F 1c00 Q 31 TL 40 VOFF 0 LPOFF 0
 fv_2 stream 2: F 1c00 Q 31 TL 00 VOFF 1 LPOFF 0
 fv_2 stream 3: F 1c00 Q 31 TL 00 VOFF 1 LPOFF 1
-cap_start: counter word fd8d at 89c0 (n 626), next fd8e fd8f fd90, c0 8c32, head n 649
+cap_start: counter word fd8d at 89c0 (n 626), next fd8e fd8f fd90, c0 8c32, head n 646
 fv_2: 6848 samples, errors 0
 fv_3 stream 0: F 1a00 Q 16 TL 01 VOFF 0 LPOFF 0
 fv_3 stream 1: F 1a00 Q 16 TL a3 VOFF 0 LPOFF 0
 fv_3 stream 2: F 1a00 Q 16 TL 00 VOFF 1 LPOFF 0
 fv_3 stream 3: F 1a00 Q 16 TL 00 VOFF 1 LPOFF 1
-cap_start: counter word fda8 at 59c0 (n 599), next fda9 fdaa fdab, c0 5c17, head n 608
+cap_start: counter word fda4 at 59c0 (n 603), next fda5 fda6 fda7, c0 5c1b, head n 606
 fv_3: 6848 samples, errors 0

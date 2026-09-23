@@ -16,6 +16,6 @@ tail_c stream 1: slot 1 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 0 AR 3
 tail_c stream 2: slot 2 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 0 AR 31 D1R 0 DL 0 D2R 0 RR 24 TL 0 VOFF 1 LPOFF 0 Q 4 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 IMXL 15 ISEL 2
 tail_c stream 3: slot 3 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 0 TL 0 VOFF 1 LPOFF 1 Q 4 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 3
 cap_start: counter word fdae at 4cc0 (n 593), next fdaf fdb0 fdb1, c0 4f11, head n 595
-tail_c: MIXS readback after the IMXL 0 write: 6 -8 -2 212320
-tail_c: MIXS readback at the end: 0 -8 -2 -464832
+tail_c: MIXS readback after the IMXL 0 write: 2 -4 0 -183344
+tail_c: MIXS readback at the end: 0 -4 0 59392
 tail_c: 14464 samples, errors 0, 8 marks

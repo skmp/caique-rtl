@@ -1,0 +1,43 @@
+tests/aeg_koff/hw/koff_d2b (koff_d2b): 42176 samples x 4 streams, n_first 683, c0 ac67 (MDEC_CT of sample i = (a9bc - i) & 0xFFFF), K 6491
+  stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 30 RR 24 KRS 15 OCT 0 FNS 000 const
+  stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 26 RR 30 KRS 15 OCT 0 FNS 000 const
+  stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 const
+  stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 const WITNESS
+  kind 0 (key-on / key-off, marks 1 / 3), 16 cycles, test slots mask 07, witness mask 08
+  cycle  0: E_A 458 (even) E_B 550 (even, 92 samples on)
+  cycle  1: E_A 3028 (even) E_B 3162 (even, 134 samples on)
+  cycle  2: E_A 5677 (odd) E_B 5851 (odd, 174 samples on)
+  cycle  3: E_A 8351 (odd) E_B 8479 (odd, 128 samples on)
+  cycle  4: E_A 10870 (even) E_B 10946 (even, 76 samples on)
+  cycle  5: E_A 13445 (odd) E_B 13502 (even, 57 samples on)
+  cycle  6: E_A 15961 (odd) E_B 16068 (even, 107 samples on)
+  cycle  7: E_A 18570 (even) E_B 18648 (even, 78 samples on)
+  cycle  8: E_A 21202 (even) E_B 21274 (even, 72 samples on)
+  cycle  9: E_A 23833 (odd) E_B 23960 (even, 127 samples on)
+  cycle 10: E_A 26465 (odd) E_B 26550 (even, 85 samples on)
+  cycle 11: E_A 29047 (odd) E_B 29158 (even, 111 samples on)
+  cycle 12: E_A 31724 (even) E_B 31852 (even, 128 samples on)
+  cycle 13: E_A 34314 (even) E_B 34418 (even, 104 samples on)
+  cycle 14: E_A 36921 (odd) E_B 36989 (odd, 68 samples on)
+  cycle 15: E_A 39501 (odd) E_B 39639 (odd, 138 samples on)
+  cycle  0 [458, 3028):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  1 [3028, 5677):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  2 [5677, 8351):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  3 [8351, 10870):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  4 [10870, 13445):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  5 [13445, 15961):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  6 [15961, 18570):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  7 [18570, 21202):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  8 [21202, 23833):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  9 [23833, 26465):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 10 [26465, 29047):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 11 [29047, 31724):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 12 [31724, 34314):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 13 [34314, 36921):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 14 [36921, 39501):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 15 [39501, 42176):  s0 ok  s1 ok  s2 ok  s3 ok
+  stream 0 (slot 0): FULL 42176/42176
+  stream 1 (slot 1): FULL 42176/42176
+  stream 2 (slot 2): FULL 42176/42176
+  stream 3 (slot 3 witness): FULL 42176/42176
+TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16

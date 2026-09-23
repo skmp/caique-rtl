@@ -1,0 +1,24 @@
+koff_d2 stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 26 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 24 RR 28 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 28 RR 0 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd94 at 7ae0 (n 619), next fd95 fd96 fd97, c0 7d4b, head n 638
+koff_d2: 43520 samples, errors 0, 64 marks
+koff_d2b stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 30 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 26 RR 30 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd58 at a9c0 (n 679), next fd59 fd5a fd5b, c0 ac67, head n 682
+koff_d2b: 42176 samples, errors 0, 64 marks
+koff_att stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 28 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 1: slot 1 AR 26 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 2: slot 2 AR 28 D1R 0 DL 0 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd2a at e660 (n 725), next fd2b fd2c fd2d, c0 e935, head n 734
+koff_att: 40832 samples, errors 0, 64 marks
+kon_rel stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+kon_rel stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 1 role test
+kon_rel stream 2: slot 2 AR 31 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 1 role test
+kon_rel stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fde1 at 2940 (n 542), next fde2 fde3 fde4, c0 2b5e, head n 567
+kon_rel: 53824 samples, errors 0, 64 marks

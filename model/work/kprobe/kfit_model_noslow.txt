@@ -1,0 +1,94 @@
+kfit: 8 probes, R < 48 counter offset 0 (control)
+tests/eg_kprobe/model/p0: n 67392 first 729 c0 edb6 onset 222/222/222/222 (MDEC_CT e9ff odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+tests/eg_kprobe/model/p1: n 67392 first 705 c0 d0ca onset 222/222/222/222 (MDEC_CT cd2b odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+tests/eg_kprobe/model/p2: n 67392 first 680 c0 b345 onset 222/222/222/222 (MDEC_CT afbf odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+tests/eg_kprobe/model/p3: n 67392 first 655 c0 9580 onset 222/222/222/222 (MDEC_CT 9213 odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+tests/eg_kprobe/model/p4: n 67392 first 630 c0 782d onset 222/222/222/222 (MDEC_CT 74d9 odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+tests/eg_kprobe/model/p5: n 67392 first 605 c0 5a6d onset 222/222/222/222 (MDEC_CT 5732 even) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66372(even) 66373(odd)  mode 1 (prev inc): 66372(even) 66373(odd)  mode 2 (rel inc): 66373(odd) 66374(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66372(even) 66373(odd)  mode 1 (prev inc): 66372(even) 66373(odd)  mode 2 (rel inc): 66373(odd) 66374(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 1 (prev inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 2 (rel inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 1 (prev inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 2 (rel inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)
+tests/eg_kprobe/model/p6: n 67392 first 579 c0 3b7f onset 222/222/222/222 (MDEC_CT 385e even) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66372(even) 66373(odd)  mode 1 (prev inc): 66372(even) 66373(odd)  mode 2 (rel inc): 66373(odd) 66374(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66372(even) 66373(odd)  mode 1 (prev inc): 66372(even) 66373(odd)  mode 2 (rel inc): 66373(odd) 66374(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 1 (prev inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 2 (rel inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 1 (prev inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)  mode 2 (rel inc): 65970(even) 65971(odd) 65972(even) 65973(odd) ...(802)
+tests/eg_kprobe/model/p7: n 67392 first 550 c0 18c3 onset 222/222/222/222 (MDEC_CT 15bf odd) key-off marks 66370..66371
+  stream 0 AR 31 D1R  1 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/3/0/63, period 16384): key-on phase 65748 samples, 1 K fit (expected 1 for period 16384): K mod 16384 = 6490
+  stream 1 AR 31 D1R  6 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/13/0/63, period 2048): key-on phase 65748 samples, 8 K fit (expected 8 for period 2048): K mod 2048 = 346
+  stream 2 AR 31 D1R 14 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/29/0/63, period 128): key-on phase 65748 samples, 128 K fit (expected 128 for period 128): K mod 128 = 90
+  stream 3 AR 31 D1R 22 DL 31 D2R  0 RR 31 KRS  0 OCT 0 FNS 200 (R 63/45/0/63, period 8): key-on phase 65748 samples, 2048 K fit (expected 2048 for period 8): K mod 8 = 2
+  K = 6490 (mod 8192: 6490, bit 13 = 0)
+  stream 0 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 1 key-off (window 65970..66771):  mode 0 (no step): 66373(even) 66374(odd)  mode 1 (prev inc): 66373(even) 66374(odd)  mode 2 (rel inc): 66374(odd) 66375(even)
+  stream 2 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+  stream 3 key-off (window 65970..66771) [silent at the window start: uninformative]:  mode 0 (no step): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 1 (prev inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)  mode 2 (rel inc): 65970(odd) 65971(even) 65972(odd) 65973(even) ...(802)
+
+summary (K per probe; dK vs p0; MDEC_CT drift = measured - predicted from the SH4 clock at 44100 Hz):
+  probe       K  mod8k bit13     dK  mdec_head drift       action
+  p0       6490   6490     0     +0  eade      -           
+  p1       6490   6490     0     +0  ce0a      +0          
+  p2       6490   6490     0     +0  b09e      +0          
+  p3       6490   6490     0     +0  92f2      +0          
+  p4       6490   6490     0     +0  75b8      +0          
+  p5       6490   6490     0     +0  5811      +0          
+  p6       6490   6490     0     +0  393d      +0          
+  p7       6490   6490     0     +0  169e      +0          
+reading: dK != 0 after an action => that action reset or offset a counter; a drift of thousands with it => MDEC_CT itself
+         jumped (the EG counter kept running); dK != 0 with a drift of a few samples => the EG counter was reset.

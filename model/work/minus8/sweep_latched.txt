@@ -1,0 +1,9 @@
+feg_odd replay: n 11264 n_first 533 onset 139 (MDEC_CT 00d4 even) K 6491 key-off 6772; MIXS2 mismatches 140 (first 139, last 284: the console's inherited filter state, model starts from 0), MIXS3 mismatches 0 (first -1)
+  t 11263 MDEC_CT d560 EVEN MIXS2 -108498 | AEG a 000 rel off 0 enabled 1 CA   303 | FEG v 1bff rel | low 54249 band 61771  <- capture end
+  FEG of slot 2 first reached 0x1BFF (hold short of FLV4 0x1C00) at capture sample 1777
+sweep: 32768 gaps in [0, 32768) stride 1 after the capture end, SA/LPCTL kept, spread 0; 882 samples after the quiet KYONEX:
+  slot 2 stops at t 254..255 after the KYONEX sample (never stopped: 0); AEG off (release +8 past 0x3FF): 32768;
+  output settles 66.5 samples after the stop on average, max 80; unsettled within 882 samples: 0
+  final MIXS2 histogram: -8:1412(4.3%) -6:2632(8.0%) -4:4748(14.5%) -2:1344(4.1%) 0:4532(13.8%) 2:10232(31.2%) 4:1332(4.1%) 6:5588(17.1%) 8:948(2.9%)
+  final (low, band) states: (-4,-1):948 (-3,-1):5588 (-2,-3):1332 (-1,-3):6232 (-1,0):4000 (0,0):4532 (1,-2):1344 (2,-2):4748 (3,-4):2632 (4,-4):1412
+  by parity of the quiet-write sample (MDEC_CT&1 : MIXS2 : count): 0:-8:706 0:-6:1316 0:-4:2374 0:-2:672 0:0:2266 0:2:5116 0:4:666 0:6:2794 0:8:474 1:-8:706 1:-6:1316 1:-4:2374 1:-2:672 1:0:2266 1:2:5116 1:4:666 1:6:2794 1:8:474

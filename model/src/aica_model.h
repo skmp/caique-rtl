@@ -27,8 +27,11 @@ struct Slot {
     bool in_loop;          /* CA has reached LSA since key-on (arms the loop-end check) */
     int32_t adpcm_quant;
     struct {
-        uint16_t a;        /* 10-bit attenuation, 0.09375 dB units (TL counts 4) */
-        bool off;          /* reached the top: monitor reads 0x1FFF, output muted */
+        uint16_t a;        /* 10-bit attenuation, 0.09375 dB units (TL counts 4); keeps stepping up to 0x3FF after the
+                            * sample fetch has stopped at 0x3C0 (tests/slot_tail) */
+        bool off;          /* the 10-bit adder overflowed past 0x3FF: monitor reads 0x1FFF, the envelope stops; set on the
+                            * sample after that clock.  The output is NOT muted: the level saturated at 0x3FF keeps applying
+                            * to the (zero-input) filter tail (tests/slot_tail tail_b: -16 on its negative half-waves) */
         EgState state;
     } AEG;
     struct {
@@ -42,12 +45,27 @@ struct Slot {
         uint32_t counter, start_value;
         uint8_t state, alfo_w, alfo_shft, plfo, plfo_shft; /* alfo_w: 8-bit ALFO waveform value */
     } lfo;
-    bool enabled;
+    bool enabled;         /* sample fetch running; cleared (zero input, the filter keeps running, CA holds until "off"
+                           * resets it) one sample after the clock on which the AEG reached 0x3C0 (tests/slot_tail), or
+                           * by a one-shot end */
+    /* slot stop / off pipeline (tests/slot_tail): a clock that brings the AEG to 0x3C0 arms the fetch stop, one that
+     * overflows 0x3FF arms "off"; both take effect on the NEXT sample (the clock sample still outputs the sample already
+     * fetched), so aeg_clock only sets these countdowns and step() commits them after slot_output (0 = nothing armed) */
+    uint8_t stop_in, off_in;
+    /* the envelope generators read the rate registers one sample late (tests/slot_tail tail_c: RR rewritten 0 -> 31
+     * on a clock sample together with SA; the fetch switched to the new SA on that sample, the release stepped only
+     * from the next clock), so their copies are refreshed at the end of every step(); key events already land one
+     * sample after their write.  Only r10 / r14 / r18 (AEG rates, KRS, DL) and r40 / r44 (FEG rates) are latched. */
+    struct { uint16_t r10, r14, r18, r40, r44; } egreg;
     int8_t key_pending;   /* +1 key-on / -1 key-off, applied on the next sample (tests/eg_lock keys) */
-    bool keyed;           /* key-on applied on this sample: no envelope step on it */
-    bool keyed_off;       /* key-off applied on this sample: a clock on it steps toward the release target with the
-                           * increment of the segment the envelope was in (tests/feg_krs, feg_track batches 1/2) */
+    bool keyed;           /* key-on applied on this sample: no envelope step on it (an R 63 attack still leaves the attack
+                           * state on it when it is a clock, tests/eg_kprobe) */
+    bool keyed_off;       /* key-off applied on this sample: a clock on it takes one more step of the segment the envelope
+                           * was in -- its increment (tests/feg_krs, feg_track batches 1/2, aeg_koff koff_d2) and, for the
+                           * FEG, its direction (tests/feg_koffdir) -- unless that segment was the attack (tests/aeg_koff
+                           * koff_att: no step) */
     EgState aeg_prev, feg_prev; /* the states before that key-off */
+    int8_t feg_prev_dir;        /* the FEG direction before that key-off (key_off() recomputes FEG.dir toward FLV4) */
 };
 
 struct AicaModel {
@@ -105,7 +123,8 @@ struct AicaModel {
     void update_sa_stream(int ch);
     void update_pitch(int ch);
     void update_lfo(int ch, bool from_write);
-    uint32_t eff_rate(int ch, uint32_t rate);
+    static uint32_t eff_rate(uint32_t rate, uint16_t r14, uint16_t r18); /* from the KRS (r14) and OCT/FNS (r18) given */
+    void eg_latch(int ch);
     void stream_step(int ch);
     void decode_sample(int ch, bool last, uint32_t CA);
     void decode_initial(int ch);

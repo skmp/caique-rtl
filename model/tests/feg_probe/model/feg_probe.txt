@@ -3902,7 +3902,7 @@
 8703 e200
 8703 6200
 == extremes FAR 20 FD1R 20 FD2R 20 FRR 20 FLV 1ff8 0008 1000 0000 1fff: 3517 changes
-0 e200
+0 e1fc
 0 1ff8
 8 1ff7
 16 1ff6

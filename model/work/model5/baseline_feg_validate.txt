@@ -1,0 +1,10 @@
+ft_0 s0: 9846/9846 (onset MDEC_CT e14e, key-off sample +5331 MDEC_CT cc7b odd)
+ft_0 s1: 9846/9846 (onset MDEC_CT e14e, key-off sample +5330 MDEC_CT cc7c even)
+ft_0 s2: 9846/9846 (onset MDEC_CT e14e, key-off sample +5331 MDEC_CT cc7b odd)
+ft_1 s0: 10934/10934 (onset MDEC_CT a4cc, key-off sample +6522 MDEC_CT 8b52 even)
+ft_1 s1: 10934/10934 (onset MDEC_CT a4cc, key-off sample +6522 MDEC_CT 8b52 even)
+ft_1 s2: 10934/10934 (onset MDEC_CT a4cc, key-off sample +6521 MDEC_CT 8b53 odd)
+ft_2 s0: 5174/5174 (onset MDEC_CT 63b5, key-off sample +665 MDEC_CT 611c even)
+ft_2 s1: 5174/5174 (onset MDEC_CT 63b5, key-off sample +663 MDEC_CT 611e even)
+ft_2 s2: 5174/5174 (onset MDEC_CT 63b5, key-off sample +665 MDEC_CT 611c even)
+TOTAL full=9/9 samples=77862/77862

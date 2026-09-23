@@ -1,0 +1,1992 @@
+== fk_0_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 5 OCT 3 FNS 200 -> R 49/57/63/61; onset 138, S3 key-off sample 6771 (MDEC_CT efed odd): FULL 11126/11126
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6731  f015  odd         cfc  cfc     d2                 
+     6594   6732  f014  EVEN  8529  cfc  cfc     d2  d2       8   
+     6595   6733  f013  odd         cfc  cfc     d2                 
+     6596   6734  f012  EVEN  8530  cfc  cfc     d2  d2       8   
+     6597   6735  f011  odd         cfc  cfc     d2                 
+     6598   6736  f010  EVEN  8531  cfc  cfc     d2  d2       8   
+     6599   6737  f00f  odd         cfc  cfc     d2                 
+     6600   6738  f00e  EVEN  8532  cfc  cfc     d2  d2       8   
+     6601   6739  f00d  odd         cfc  cfc     d2                 
+     6602   6740  f00c  EVEN  8533  cfc  cfc     d2  d2       8   
+     6603   6741  f00b  odd         cfc  cfc     d2                 
+     6604   6742  f00a  EVEN  8534  cfc  cfc     d2  d2       8   
+     6605   6743  f009  odd         cfc  cfc     d2                 
+     6606   6744  f008  EVEN  8535  cfc  cfc     d2  d2       8   
+     6607   6745  f007  odd         cfc  cfc     d2                 
+     6608   6746  f006  EVEN  8536  cfc  cfc     d2  d2       8   
+     6609   6747  f005  odd         cfc  cfc     d2                 
+     6610   6748  f004  EVEN  8537  cfc  cfc     d2  d2       8   
+     6611   6749  f003  odd         cfc  cfc     d2                 
+     6612   6750  f002  EVEN  8538  cfc  cfc     d2  d2       8   
+     6613   6751  f001  odd         cfc  cfc     d2                 
+     6614   6752  f000  EVEN  8539  cfc  cfc     d2  d2       8   
+     6615   6753  efff  odd         cfc  cfc     d2                 
+     6616   6754  effe  EVEN  8540  cfc  cfc     d2  d2       8   
+     6617   6755  effd  odd         cfc  cfc     d2                 
+     6618   6756  effc  EVEN  8541  cfc  cfc     d2  d2       8   
+     6619   6757  effb  odd         cfc  cfc     d2                 
+     6620   6758  effa  EVEN  8542  cfc  cfc     d2  d2       8   
+     6621   6759  eff9  odd         cfc  cfc     d2                 
+     6622   6760  eff8  EVEN  8543  cfc  cfc     d2  d2       8   
+     6623   6761  eff7  odd         cfc  cfc     d2                 
+     6624   6762  eff6  EVEN  8544  cfc  cfc     d2  d2       8   
+     6625   6763  eff5  odd         cfc  cfc     d2                 
+     6626   6764  eff4  EVEN  8545  cfc  cfc     d2  d2       8   
+     6627   6765  eff3  odd         cfc  cfc     d2                 
+     6628   6766  eff2  EVEN  8546  cfc  cfc     d2  d2       8   
+     6629   6767  eff1  odd         cfc  cfc     d2                 
+     6630   6768  eff0  EVEN  8547  cfc  cfc     d2  d2       8   
+     6631   6769  efef  odd         cfc  cfc     d2                 
+     6632   6770  efee  EVEN  8548  cfc  cfc     d2  d2       8   
+     6633   6771  efed  odd         cfc  cfc     rel                KEY-OFF
+     6634   6772  efec  EVEN  8549  d00  d00     rel rel      8   
+     6635   6773  efeb  odd         d00  d00     rel                
+     6636   6774  efea  EVEN  8550  d04  d04     rel rel      8   
+     6637   6775  efe9  odd           ?  d04     rel                
+     6638   6776  efe8  EVEN  8551  d08  d08     rel rel      8   
+     6639   6777  efe7  odd         d08  d08     rel                
+     6640   6778  efe6  EVEN  8552  d0c  d0c     rel rel      8   
+     6641   6779  efe5  odd         d0c  d0c     rel                
+     6642   6780  efe4  EVEN  8553  d10  d10     rel rel      8   
+     6643   6781  efe3  odd         d10  d10     rel                
+     6644   6782  efe2  EVEN  8554  d14  d14     rel rel      8   
+     6645   6783  efe1  odd         d14  d14     rel                
+     6646   6784  efe0  EVEN  8555  d18  d18     rel rel      8   
+     6647   6785  efdf  odd         d18  d18     rel                
+     6648   6786  efde  EVEN  8556  d1c  d1c     rel rel      8   
+     6649   6787  efdd  odd         d1c  d1c     rel                
+     6650   6788  efdc  EVEN  8557  d20  d20     rel rel      8   
+     6651   6789  efdb  odd         d20  d20     rel                
+     6652   6790  efda  EVEN  8558  d24  d24     rel rel      8   
+     6653   6791  efd9  odd         d24  d24     rel                
+     6654   6792  efd8  EVEN  8559  d28  d28     rel rel      8   
+     6655   6793  efd7  odd         d28  d28     rel                
+     6656   6794  efd6  EVEN  8560  d2c  d2c     rel rel      8   
+     6657   6795  efd5  odd         d2c  d2c     rel                
+     6658   6796  efd4  EVEN  8561  d30  d30     rel rel      8   
+     6659   6797  efd3  odd         d30  d30     rel                
+     6660   6798  efd2  EVEN  8562  d34  d34     rel rel      8   
+     6661   6799  efd1  odd         d34  d34     rel                
+     6662   6800  efd0  EVEN  8563  d38  d38     rel rel      8   
+     6663   6801  efcf  odd         d38  d38     rel                
+     6664   6802  efce  EVEN  8564  d3c  d3c     rel rel      8   
+     6665   6803  efcd  odd         d3c  d3c     rel                
+     6666   6804  efcc  EVEN  8565  d40  d40     rel rel      8   
+     6667   6805  efcb  odd         d40  d40     rel                
+     6668   6806  efca  EVEN  8566  d44  d44     rel rel      8   
+     6669   6807  efc9  odd         d44  d44     rel                
+     6670   6808  efc8  EVEN  8567  d48  d48     rel rel      8   
+     6671   6809  efc7  odd         d48  d48     rel                
+     6672   6810  efc6  EVEN  8568  d4c  d4c     rel rel      8   
+     6673   6811  efc5  odd         d4c  d4c     rel                
+== fk_0_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 0 OCT 3 FNS 200 -> R 39/47/55/51; onset 138, S3 key-off sample 6771 (MDEC_CT efed odd): FULL 11126/11126
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6731  f015  odd         d68  d68     att                
+     6594   6732  f014  EVEN  8529  d69  d69     att att      1   
+     6595   6733  f013  odd         d69  d69     att                
+     6596   6734  f012  EVEN  8530  d69  d69     att att      0   
+     6597   6735  f011  odd         d69  d69     att                
+     6598   6736  f010  EVEN  8531  d69  d69     att att      0   
+     6599   6737  f00f  odd         d69  d69     att                
+     6600   6738  f00e  EVEN  8532  d69  d69     att att      0   
+     6601   6739  f00d  odd         d69  d69     att                
+     6602   6740  f00c  EVEN  8533  d69  d69     att att      1   
+     6603   6741  f00b  odd         d69  d69     att                
+     6604   6742  f00a  EVEN  8534  d69  d69     att att      0   
+     6605   6743  f009  odd         d69  d69     att                
+     6606   6744  f008  EVEN  8535  d69  d69     att att      0   
+     6607   6745  f007  odd         d69  d69     att                
+     6608   6746  f006  EVEN  8536  d69  d69     att att      0   
+     6609   6747  f005  odd         d69  d69     att                
+     6610   6748  f004  EVEN  8537    ?  d6a     att att      1   
+     6611   6749  f003  odd         d6a  d6a     att                
+     6612   6750  f002  EVEN  8538  d6a  d6a     att att      0   
+     6613   6751  f001  odd         d6a  d6a     att                
+     6614   6752  f000  EVEN  8539  d6a  d6a     att att      0   
+     6615   6753  efff  odd         d6a  d6a     att                
+     6616   6754  effe  EVEN  8540  d6a  d6a     att att      0   
+     6617   6755  effd  odd         d6a  d6a     att                
+     6618   6756  effc  EVEN  8541  d6a  d6a     att att      1   
+     6619   6757  effb  odd         d6a  d6a     att                
+     6620   6758  effa  EVEN  8542  d6a  d6a     att att      0   
+     6621   6759  eff9  odd         d6a  d6a     att                
+     6622   6760  eff8  EVEN  8543  d6a  d6a     att att      0   
+     6623   6761  eff7  odd         d6a  d6a     att                
+     6624   6762  eff6  EVEN  8544  d6a  d6a     att att      0   
+     6625   6763  eff5  odd         d6a  d6a     att                
+     6626   6764  eff4  EVEN  8545  d6a  d6a     att att      0   
+     6627   6765  eff3  odd         d6a  d6a     att                
+     6628   6766  eff2  EVEN  8546  d6a  d6a     att att      0   
+     6629   6767  eff1  odd         d6a  d6a     att                
+     6630   6768  eff0  EVEN  8547  d6a  d6a     att att      0   
+     6631   6769  efef  odd         d6a  d6a     att                
+     6632   6770  efee  EVEN  8548  d6a  d6a     att att      0   
+     6633   6771  efed  odd         d6a  d6a     rel                KEY-OFF
+     6634   6772  efec  EVEN  8549  d6b  d6b     rel rel      2   
+     6635   6773  efeb  odd         d6b  d6b     rel                
+     6636   6774  efea  EVEN  8550  d6c  d6c     rel rel      2   
+     6637   6775  efe9  odd         d6c  d6c     rel                
+     6638   6776  efe8  EVEN  8551  d6d  d6d     rel rel      2   
+     6639   6777  efe7  odd         d6d  d6d     rel                
+     6640   6778  efe6  EVEN  8552  d6e  d6e     rel rel      1   
+     6641   6779  efe5  odd         d6e  d6e     rel                
+     6642   6780  efe4  EVEN  8553  d6f  d6f     rel rel      2   
+     6643   6781  efe3  odd         d6f  d6f     rel                
+     6644   6782  efe2  EVEN  8554  d70  d70     rel rel      2   
+     6645   6783  efe1  odd         d70  d70     rel                
+     6646   6784  efe0  EVEN  8555  d71  d71     rel rel      2   
+     6647   6785  efdf  odd         d71  d71     rel                
+     6648   6786  efde  EVEN  8556  d71  d71     rel rel      1   
+     6649   6787  efdd  odd           ?  d71     rel                
+     6650   6788  efdc  EVEN  8557  d72  d72     rel rel      2   
+     6651   6789  efdb  odd         d72  d72     rel                
+     6652   6790  efda  EVEN  8558    ?  d73     rel rel      2   
+     6653   6791  efd9  odd         d73  d73     rel                
+     6654   6792  efd8  EVEN  8559  d74  d74     rel rel      2   
+     6655   6793  efd7  odd         d74  d74     rel                
+     6656   6794  efd6  EVEN  8560  d75  d75     rel rel      1   
+     6657   6795  efd5  odd         d75  d75     rel                
+     6658   6796  efd4  EVEN  8561  d76  d76     rel rel      2   
+     6659   6797  efd3  odd         d76  d76     rel                
+     6660   6798  efd2  EVEN  8562  d77  d77     rel rel      2   
+     6661   6799  efd1  odd         d77  d77     rel                
+     6662   6800  efd0  EVEN  8563  d78  d78     rel rel      2   
+     6663   6801  efcf  odd         d78  d78     rel                
+     6664   6802  efce  EVEN  8564  d78  d78     rel rel      1   
+     6665   6803  efcd  odd         d78  d78     rel                
+     6666   6804  efcc  EVEN  8565  d79  d79     rel rel      2   
+     6667   6805  efcb  odd         d79  d79     rel                
+     6668   6806  efca  EVEN  8566  d7a  d7a     rel rel      2   
+     6669   6807  efc9  odd         d7a  d7a     rel                
+     6670   6808  efc8  EVEN  8567  d7b  d7b     rel rel      2   
+     6671   6809  efc7  odd         d7b  d7b     rel                
+     6672   6810  efc6  EVEN  8568  d7c  d7c     rel rel      1   
+     6673   6811  efc5  odd         d7c  d7c     rel                
+== fk_0_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 15 OCT 3 FNS 200 -> R 32/40/48/44; onset 138, S3 key-off sample 6771 (MDEC_CT efed odd): FULL 11126/11126
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6731  f015  odd         c67  c67     att                
+     6594   6732  f014  EVEN  8529  c67  c67     att att      0   
+     6595   6733  f013  odd         c67  c67     att                
+     6596   6734  f012  EVEN  8530  c67  c67     att att      0   
+     6597   6735  f011  odd         c67  c67     att                
+     6598   6736  f010  EVEN  8531  c67  c67     att att      0   
+     6599   6737  f00f  odd         c67  c67     att                
+     6600   6738  f00e  EVEN  8532  c67  c67     att att      0   
+     6601   6739  f00d  odd         c67  c67     att                
+     6602   6740  f00c  EVEN  8533  c67  c67     att att      0   
+     6603   6741  f00b  odd         c67  c67     att                
+     6604   6742  f00a  EVEN  8534  c67  c67     att att      0   
+     6605   6743  f009  odd         c67  c67     att                
+     6606   6744  f008  EVEN  8535  c67  c67     att att      0   
+     6607   6745  f007  odd         c67  c67     att                
+     6608   6746  f006  EVEN  8536  c67  c67     att att      0   
+     6609   6747  f005  odd           ?  c67     att                
+     6610   6748  f004  EVEN  8537  c67  c67     att att      1   
+     6611   6749  f003  odd         c67  c67     att                
+     6612   6750  f002  EVEN  8538  c67  c67     att att      0   
+     6613   6751  f001  odd         c67  c67     att                
+     6614   6752  f000  EVEN  8539  c67  c67     att att      0   
+     6615   6753  efff  odd         c67  c67     att                
+     6616   6754  effe  EVEN  8540  c67  c67     att att      0   
+     6617   6755  effd  odd         c67  c67     att                
+     6618   6756  effc  EVEN  8541  c67  c67     att att      0   
+     6619   6757  effb  odd         c67  c67     att                
+     6620   6758  effa  EVEN  8542  c67  c67     att att      0   
+     6621   6759  eff9  odd         c67  c67     att                
+     6622   6760  eff8  EVEN  8543  c67  c67     att att      0   
+     6623   6761  eff7  odd         c67  c67     att                
+     6624   6762  eff6  EVEN  8544  c67  c67     att att      0   
+     6625   6763  eff5  odd         c67  c67     att                
+     6626   6764  eff4  EVEN  8545  c67  c67     att att      0   
+     6627   6765  eff3  odd         c67  c67     att                
+     6628   6766  eff2  EVEN  8546  c67  c67     att att      0   
+     6629   6767  eff1  odd         c67  c67     att                
+     6630   6768  eff0  EVEN  8547  c67  c67     att att      0   
+     6631   6769  efef  odd         c67  c67     att                
+     6632   6770  efee  EVEN  8548  c67  c67     att att      0   
+     6633   6771  efed  odd         c67  c67     rel                KEY-OFF
+     6634   6772  efec  EVEN  8549  c67  c67     rel rel      0   
+     6635   6773  efeb  odd         c67  c67     rel                
+     6636   6774  efea  EVEN  8550  c68  c68     rel rel      1   
+     6637   6775  efe9  odd         c68  c68     rel                
+     6638   6776  efe8  EVEN  8551  c68  c68     rel rel      0   
+     6639   6777  efe7  odd         c68  c68     rel                
+     6640   6778  efe6  EVEN  8552  c68  c68     rel rel      1   
+     6641   6779  efe5  odd         c68  c68     rel                
+     6642   6780  efe4  EVEN  8553    ?  c68     rel rel      0   
+     6643   6781  efe3  odd         c68  c68     rel                
+     6644   6782  efe2  EVEN  8554  c69  c69     rel rel      1   
+     6645   6783  efe1  odd         c69  c69     rel                
+     6646   6784  efe0  EVEN  8555  c69  c69     rel rel      0   
+     6647   6785  efdf  odd         c69  c69     rel                
+     6648   6786  efde  EVEN  8556  c69  c69     rel rel      1   
+     6649   6787  efdd  odd         c69  c69     rel                
+     6650   6788  efdc  EVEN  8557  c69  c69     rel rel      0   
+     6651   6789  efdb  odd         c69  c69     rel                
+     6652   6790  efda  EVEN  8558  c6a  c6a     rel rel      1   
+     6653   6791  efd9  odd         c6a  c6a     rel                
+     6654   6792  efd8  EVEN  8559  c6a  c6a     rel rel      0   
+     6655   6793  efd7  odd         c6a  c6a     rel                
+     6656   6794  efd6  EVEN  8560  c6a  c6a     rel rel      1   
+     6657   6795  efd5  odd         c6a  c6a     rel                
+     6658   6796  efd4  EVEN  8561  c6a  c6a     rel rel      0   
+     6659   6797  efd3  odd         c6a  c6a     rel                
+     6660   6798  efd2  EVEN  8562  c6b  c6b     rel rel      1   
+     6661   6799  efd1  odd         c6b  c6b     rel                
+     6662   6800  efd0  EVEN  8563  c6b  c6b     rel rel      0   
+     6663   6801  efcf  odd         c6b  c6b     rel                
+     6664   6802  efce  EVEN  8564  c6b  c6b     rel rel      1   
+     6665   6803  efcd  odd         c6b  c6b     rel                
+     6666   6804  efcc  EVEN  8565  c6b  c6b     rel rel      0   
+     6667   6805  efcb  odd         c6b  c6b     rel                
+     6668   6806  efca  EVEN  8566  c6c  c6c     rel rel      1   
+     6669   6807  efc9  odd         c6c  c6c     rel                
+     6670   6808  efc8  EVEN  8567  c6c  c6c     rel rel      0   
+     6671   6809  efc7  odd         c6c  c6c     rel                
+     6672   6810  efc6  EVEN  8568  c6c  c6c     rel rel      1   
+     6673   6811  efc5  odd         c6c  c6c     rel                
+== fk_1_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 24 FD1R 26 FD2R 28 FRR 24 KRS 15 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4454 (MDEC_CT b73e EVEN): FULL 8758/8758
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4276   4414  b766  EVEN 15784  cff  cff     d2  d2       4   
+     4277   4415  b765  odd         cff  cff     d2                 
+     4278   4416  b764  EVEN 15785  cff  cff     d2  d2       4   
+     4279   4417  b763  odd         cff  cff     d2                 
+     4280   4418  b762  EVEN 15786  cff  cff     d2  d2       4   
+     4281   4419  b761  odd         cff  cff     d2                 
+     4282   4420  b760  EVEN 15787  cff  cff     d2  d2       4   
+     4283   4421  b75f  odd         cff  cff     d2                 
+     4284   4422  b75e  EVEN 15788  cff  cff     d2  d2       4   
+     4285   4423  b75d  odd         cff  cff     d2                 
+     4286   4424  b75c  EVEN 15789  cff  cff     d2  d2       4   
+     4287   4425  b75b  odd         cff  cff     d2                 
+     4288   4426  b75a  EVEN 15790  cff  cff     d2  d2       4   
+     4289   4427  b759  odd         cff  cff     d2                 
+     4290   4428  b758  EVEN 15791  cff  cff     d2  d2       4   
+     4291   4429  b757  odd         cff  cff     d2                 
+     4292   4430  b756  EVEN 15792  cff  cff     d2  d2       4   
+     4293   4431  b755  odd         cff  cff     d2                 
+     4294   4432  b754  EVEN 15793  cff  cff     d2  d2       4   
+     4295   4433  b753  odd         cff  cff     d2                 
+     4296   4434  b752  EVEN 15794  cff  cff     d2  d2       4   
+     4297   4435  b751  odd         cff  cff     d2                 
+     4298   4436  b750  EVEN 15795  cff  cff     d2  d2       4   
+     4299   4437  b74f  odd         cff  cff     d2                 
+     4300   4438  b74e  EVEN 15796  cff  cff     d2  d2       4   
+     4301   4439  b74d  odd         cff  cff     d2                 
+     4302   4440  b74c  EVEN 15797  cff  cff     d2  d2       4   
+     4303   4441  b74b  odd         cff  cff     d2                 
+     4304   4442  b74a  EVEN 15798  cff  cff     d2  d2       4   
+     4305   4443  b749  odd         cff  cff     d2                 
+     4306   4444  b748  EVEN 15799  cff  cff     d2  d2       4   
+     4307   4445  b747  odd         cff  cff     d2                 
+     4308   4446  b746  EVEN 15800  cff  cff     d2  d2       4   
+     4309   4447  b745  odd         cff  cff     d2                 
+     4310   4448  b744  EVEN 15801  cff  cff     d2  d2       4   
+     4311   4449  b743  odd         cff  cff     d2                 
+     4312   4450  b742  EVEN 15802  cff  cff     d2  d2       4   
+     4313   4451  b741  odd         cff  cff     d2                 
+     4314   4452  b740  EVEN 15803  cff  cff     d2  d2       4   
+     4315   4453  b73f  odd         cff  cff     d2                 
+     4316   4454  b73e  EVEN 15804  d01  d01     rel d2       4   KEY-OFF
+     4317   4455  b73d  odd         d01  d01     rel                
+     4318   4456  b73c  EVEN 15805  d01  d01     rel rel      1   
+     4319   4457  b73b  odd         d01  d01     rel                
+     4320   4458  b73a  EVEN 15806  d02  d02     rel rel      1   
+     4321   4459  b739  odd         d02  d02     rel                
+     4322   4460  b738  EVEN 15807  d02  d02     rel rel      1   
+     4323   4461  b737  odd         d02  d02     rel                
+     4324   4462  b736  EVEN 15808  d03  d03     rel rel      1   
+     4325   4463  b735  odd         d03  d03     rel                
+     4326   4464  b734  EVEN 15809  d03  d03     rel rel      1   
+     4327   4465  b733  odd         d03  d03     rel                
+     4328   4466  b732  EVEN 15810  d04  d04     rel rel      1   
+     4329   4467  b731  odd         d04  d04     rel                
+     4330   4468  b730  EVEN 15811  d04  d04     rel rel      1   
+     4331   4469  b72f  odd         d04  d04     rel                
+     4332   4470  b72e  EVEN 15812  d05  d05     rel rel      1   
+     4333   4471  b72d  odd         d05  d05     rel                
+     4334   4472  b72c  EVEN 15813  d05  d05     rel rel      1   
+     4335   4473  b72b  odd         d05  d05     rel                
+     4336   4474  b72a  EVEN 15814  d06  d06     rel rel      1   
+     4337   4475  b729  odd         d06  d06     rel                
+     4338   4476  b728  EVEN 15815  d06  d06     rel rel      1   
+     4339   4477  b727  odd         d06  d06     rel                
+     4340   4478  b726  EVEN 15816  d07  d07     rel rel      1   
+     4341   4479  b725  odd         d07  d07     rel                
+     4342   4480  b724  EVEN 15817  d07  d07     rel rel      1   
+     4343   4481  b723  odd         d07  d07     rel                
+     4344   4482  b722  EVEN 15818  d08  d08     rel rel      1   
+     4345   4483  b721  odd         d08  d08     rel                
+     4346   4484  b720  EVEN 15819  d08  d08     rel rel      1   
+     4347   4485  b71f  odd         d08  d08     rel                
+     4348   4486  b71e  EVEN 15820  d09  d09     rel rel      1   
+     4349   4487  b71d  odd         d09  d09     rel                
+     4350   4488  b71c  EVEN 15821  d09  d09     rel rel      1   
+     4351   4489  b71b  odd         d09  d09     rel                
+     4352   4490  b71a  EVEN 15822  d0a  d0a     rel rel      1   
+     4353   4491  b719  odd         d0a  d0a     rel                
+     4354   4492  b718  EVEN 15823  d0a  d0a     rel rel      1   
+     4355   4493  b717  odd         d0a  d0a     rel                
+     4356   4494  b716  EVEN 15824  d0b  d0b     rel rel      1   
+== fk_1_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 22 FD1R 24 FD2R 26 FRR 22 KRS 2 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4454 (MDEC_CT b73e EVEN): FULL 8758/8758
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4276   4414  b766  EVEN 15784  cff  cff     d2  d2       4   
+     4277   4415  b765  odd         cff  cff     d2                 
+     4278   4416  b764  EVEN 15785  cff  cff     d2  d2       4   
+     4279   4417  b763  odd         cff  cff     d2                 
+     4280   4418  b762  EVEN 15786  cff  cff     d2  d2       4   
+     4281   4419  b761  odd         cff  cff     d2                 
+     4282   4420  b760  EVEN 15787  cff  cff     d2  d2       4   
+     4283   4421  b75f  odd         cff  cff     d2                 
+     4284   4422  b75e  EVEN 15788  cff  cff     d2  d2       4   
+     4285   4423  b75d  odd         cff  cff     d2                 
+     4286   4424  b75c  EVEN 15789  cff  cff     d2  d2       4   
+     4287   4425  b75b  odd         cff  cff     d2                 
+     4288   4426  b75a  EVEN 15790  cff  cff     d2  d2       4   
+     4289   4427  b759  odd         cff  cff     d2                 
+     4290   4428  b758  EVEN 15791  cff  cff     d2  d2       4   
+     4291   4429  b757  odd         cff  cff     d2                 
+     4292   4430  b756  EVEN 15792  cff  cff     d2  d2       4   
+     4293   4431  b755  odd         cff  cff     d2                 
+     4294   4432  b754  EVEN 15793  cff  cff     d2  d2       4   
+     4295   4433  b753  odd         cff  cff     d2                 
+     4296   4434  b752  EVEN 15794  cff  cff     d2  d2       4   
+     4297   4435  b751  odd         cff  cff     d2                 
+     4298   4436  b750  EVEN 15795  cff  cff     d2  d2       4   
+     4299   4437  b74f  odd         cff  cff     d2                 
+     4300   4438  b74e  EVEN 15796  cff  cff     d2  d2       4   
+     4301   4439  b74d  odd         cff  cff     d2                 
+     4302   4440  b74c  EVEN 15797  cff  cff     d2  d2       4   
+     4303   4441  b74b  odd         cff  cff     d2                 
+     4304   4442  b74a  EVEN 15798  cff  cff     d2  d2       4   
+     4305   4443  b749  odd         cff  cff     d2                 
+     4306   4444  b748  EVEN 15799  cff  cff     d2  d2       4   
+     4307   4445  b747  odd         cff  cff     d2                 
+     4308   4446  b746  EVEN 15800  cff  cff     d2  d2       4   
+     4309   4447  b745  odd         cff  cff     d2                 
+     4310   4448  b744  EVEN 15801  cff  cff     d2  d2       4   
+     4311   4449  b743  odd         cff  cff     d2                 
+     4312   4450  b742  EVEN 15802  cff  cff     d2  d2       4   
+     4313   4451  b741  odd         cff  cff     d2                 
+     4314   4452  b740  EVEN 15803  cff  cff     d2  d2       4   
+     4315   4453  b73f  odd         cff  cff     d2                 
+     4316   4454  b73e  EVEN 15804  d01  d01     rel d2       4   KEY-OFF
+     4317   4455  b73d  odd         d01  d01     rel                
+     4318   4456  b73c  EVEN 15805  d01  d01     rel rel      1   
+     4319   4457  b73b  odd         d01  d01     rel                
+     4320   4458  b73a  EVEN 15806  d02  d02     rel rel      1   
+     4321   4459  b739  odd         d02  d02     rel                
+     4322   4460  b738  EVEN 15807  d02  d02     rel rel      1   
+     4323   4461  b737  odd         d02  d02     rel                
+     4324   4462  b736  EVEN 15808  d03  d03     rel rel      1   
+     4325   4463  b735  odd         d03  d03     rel                
+     4326   4464  b734  EVEN 15809  d03  d03     rel rel      1   
+     4327   4465  b733  odd         d03  d03     rel                
+     4328   4466  b732  EVEN 15810  d04  d04     rel rel      1   
+     4329   4467  b731  odd         d04  d04     rel                
+     4330   4468  b730  EVEN 15811  d04  d04     rel rel      1   
+     4331   4469  b72f  odd         d04  d04     rel                
+     4332   4470  b72e  EVEN 15812  d05  d05     rel rel      1   
+     4333   4471  b72d  odd         d05  d05     rel                
+     4334   4472  b72c  EVEN 15813  d05  d05     rel rel      1   
+     4335   4473  b72b  odd         d05  d05     rel                
+     4336   4474  b72a  EVEN 15814  d06  d06     rel rel      1   
+     4337   4475  b729  odd         d06  d06     rel                
+     4338   4476  b728  EVEN 15815  d06  d06     rel rel      1   
+     4339   4477  b727  odd         d06  d06     rel                
+     4340   4478  b726  EVEN 15816  d07  d07     rel rel      1   
+     4341   4479  b725  odd         d07  d07     rel                
+     4342   4480  b724  EVEN 15817  d07  d07     rel rel      1   
+     4343   4481  b723  odd         d07  d07     rel                
+     4344   4482  b722  EVEN 15818  d08  d08     rel rel      1   
+     4345   4483  b721  odd         d08  d08     rel                
+     4346   4484  b720  EVEN 15819  d08  d08     rel rel      1   
+     4347   4485  b71f  odd         d08  d08     rel                
+     4348   4486  b71e  EVEN 15820  d09  d09     rel rel      1   
+     4349   4487  b71d  odd         d09  d09     rel                
+     4350   4488  b71c  EVEN 15821  d09  d09     rel rel      1   
+     4351   4489  b71b  odd         d09  d09     rel                
+     4352   4490  b71a  EVEN 15822  d0a  d0a     rel rel      1   
+     4353   4491  b719  odd         d0a  d0a     rel                
+     4354   4492  b718  EVEN 15823  d0a  d0a     rel rel      1   
+     4355   4493  b717  odd         d0a  d0a     rel                
+     4356   4494  b716  EVEN 15824  d0b  d0b     rel rel      1   
+== fk_1_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 19 FD1R 21 FD2R 23 FRR 19 KRS 5 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4454 (MDEC_CT b73e EVEN): FULL 8758/8758
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4276   4414  b766  EVEN 15784  cff  cff     d2  d2       4   
+     4277   4415  b765  odd         cff  cff     d2                 
+     4278   4416  b764  EVEN 15785  cff  cff     d2  d2       4   
+     4279   4417  b763  odd         cff  cff     d2                 
+     4280   4418  b762  EVEN 15786  cff  cff     d2  d2       4   
+     4281   4419  b761  odd         cff  cff     d2                 
+     4282   4420  b760  EVEN 15787  cff  cff     d2  d2       4   
+     4283   4421  b75f  odd         cff  cff     d2                 
+     4284   4422  b75e  EVEN 15788  cff  cff     d2  d2       4   
+     4285   4423  b75d  odd         cff  cff     d2                 
+     4286   4424  b75c  EVEN 15789  cff  cff     d2  d2       4   
+     4287   4425  b75b  odd         cff  cff     d2                 
+     4288   4426  b75a  EVEN 15790  cff  cff     d2  d2       4   
+     4289   4427  b759  odd         cff  cff     d2                 
+     4290   4428  b758  EVEN 15791  cff  cff     d2  d2       4   
+     4291   4429  b757  odd         cff  cff     d2                 
+     4292   4430  b756  EVEN 15792  cff  cff     d2  d2       4   
+     4293   4431  b755  odd         cff  cff     d2                 
+     4294   4432  b754  EVEN 15793  cff  cff     d2  d2       4   
+     4295   4433  b753  odd         cff  cff     d2                 
+     4296   4434  b752  EVEN 15794  cff  cff     d2  d2       4   
+     4297   4435  b751  odd         cff  cff     d2                 
+     4298   4436  b750  EVEN 15795  cff  cff     d2  d2       4   
+     4299   4437  b74f  odd         cff  cff     d2                 
+     4300   4438  b74e  EVEN 15796  cff  cff     d2  d2       4   
+     4301   4439  b74d  odd         cff  cff     d2                 
+     4302   4440  b74c  EVEN 15797  cff  cff     d2  d2       4   
+     4303   4441  b74b  odd         cff  cff     d2                 
+     4304   4442  b74a  EVEN 15798  cff  cff     d2  d2       4   
+     4305   4443  b749  odd         cff  cff     d2                 
+     4306   4444  b748  EVEN 15799  cff  cff     d2  d2       4   
+     4307   4445  b747  odd         cff  cff     d2                 
+     4308   4446  b746  EVEN 15800  cff  cff     d2  d2       4   
+     4309   4447  b745  odd         cff  cff     d2                 
+     4310   4448  b744  EVEN 15801  cff  cff     d2  d2       4   
+     4311   4449  b743  odd         cff  cff     d2                 
+     4312   4450  b742  EVEN 15802  cff  cff     d2  d2       4   
+     4313   4451  b741  odd         cff  cff     d2                 
+     4314   4452  b740  EVEN 15803  cff  cff     d2  d2       4   
+     4315   4453  b73f  odd         cff  cff     d2                 
+     4316   4454  b73e  EVEN 15804  d01  d01     rel d2       4   KEY-OFF
+     4317   4455  b73d  odd         d01  d01     rel                
+     4318   4456  b73c  EVEN 15805  d01  d01     rel rel      1   
+     4319   4457  b73b  odd         d01  d01     rel                
+     4320   4458  b73a  EVEN 15806  d02  d02     rel rel      1   
+     4321   4459  b739  odd         d02  d02     rel                
+     4322   4460  b738  EVEN 15807  d02  d02     rel rel      1   
+     4323   4461  b737  odd         d02  d02     rel                
+     4324   4462  b736  EVEN 15808  d03  d03     rel rel      1   
+     4325   4463  b735  odd         d03  d03     rel                
+     4326   4464  b734  EVEN 15809  d03  d03     rel rel      1   
+     4327   4465  b733  odd         d03  d03     rel                
+     4328   4466  b732  EVEN 15810  d04  d04     rel rel      1   
+     4329   4467  b731  odd         d04  d04     rel                
+     4330   4468  b730  EVEN 15811  d04  d04     rel rel      1   
+     4331   4469  b72f  odd         d04  d04     rel                
+     4332   4470  b72e  EVEN 15812  d05  d05     rel rel      1   
+     4333   4471  b72d  odd         d05  d05     rel                
+     4334   4472  b72c  EVEN 15813  d05  d05     rel rel      1   
+     4335   4473  b72b  odd         d05  d05     rel                
+     4336   4474  b72a  EVEN 15814  d06  d06     rel rel      1   
+     4337   4475  b729  odd         d06  d06     rel                
+     4338   4476  b728  EVEN 15815  d06  d06     rel rel      1   
+     4339   4477  b727  odd         d06  d06     rel                
+     4340   4478  b726  EVEN 15816  d07  d07     rel rel      1   
+     4341   4479  b725  odd         d07  d07     rel                
+     4342   4480  b724  EVEN 15817  d07  d07     rel rel      1   
+     4343   4481  b723  odd         d07  d07     rel                
+     4344   4482  b722  EVEN 15818  d08  d08     rel rel      1   
+     4345   4483  b721  odd         d08  d08     rel                
+     4346   4484  b720  EVEN 15819  d08  d08     rel rel      1   
+     4347   4485  b71f  odd         d08  d08     rel                
+     4348   4486  b71e  EVEN 15820  d09  d09     rel rel      1   
+     4349   4487  b71d  odd         d09  d09     rel                
+     4350   4488  b71c  EVEN 15821  d09  d09     rel rel      1   
+     4351   4489  b71b  odd         d09  d09     rel                
+     4352   4490  b71a  EVEN 15822  d0a  d0a     rel rel      1   
+     4353   4491  b719  odd         d0a  d0a     rel                
+     4354   4492  b718  EVEN 15823  d0a  d0a     rel rel      1   
+     4355   4493  b717  odd         d0a  d0a     rel                
+     4356   4494  b716  EVEN 15824  d0b  d0b     rel rel      1   
+== fk_2_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 24 FD1R 26 FD2R 28 FRR 24 KRS 15 OCT 0 FNS 000 -> R 48/52/56/48; onset 139, S3 key-off sample 4565 (MDEC_CT 7ed3 odd): FULL 8949/8949
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4525  7efb  odd         cff  cff     d2                 
+     4387   4526  7efa  EVEN  6622  cff  cff     d2  d2       4   
+     4388   4527  7ef9  odd         cff  cff     d2                 
+     4389   4528  7ef8  EVEN  6623  cff  cff     d2  d2       4   
+     4390   4529  7ef7  odd         cff  cff     d2                 
+     4391   4530  7ef6  EVEN  6624    ?  cff     d2  d2       4   
+     4392   4531  7ef5  odd         cff  cff     d2                 
+     4393   4532  7ef4  EVEN  6625  cff  cff     d2  d2       4   
+     4394   4533  7ef3  odd         cff  cff     d2                 
+     4395   4534  7ef2  EVEN  6626  cff  cff     d2  d2       4   
+     4396   4535  7ef1  odd         cff  cff     d2                 
+     4397   4536  7ef0  EVEN  6627  cff  cff     d2  d2       4   
+     4398   4537  7eef  odd         cff  cff     d2                 
+     4399   4538  7eee  EVEN  6628  cff  cff     d2  d2       4   
+     4400   4539  7eed  odd         cff  cff     d2                 
+     4401   4540  7eec  EVEN  6629  cff  cff     d2  d2       4   
+     4402   4541  7eeb  odd         cff  cff     d2                 
+     4403   4542  7eea  EVEN  6630  cff  cff     d2  d2       4   
+     4404   4543  7ee9  odd         cff  cff     d2                 
+     4405   4544  7ee8  EVEN  6631  cff  cff     d2  d2       4   
+     4406   4545  7ee7  odd         cff  cff     d2                 
+     4407   4546  7ee6  EVEN  6632  cff  cff     d2  d2       4   
+     4408   4547  7ee5  odd         cff  cff     d2                 
+     4409   4548  7ee4  EVEN  6633  cff  cff     d2  d2       4   
+     4410   4549  7ee3  odd         cff  cff     d2                 
+     4411   4550  7ee2  EVEN  6634  cff  cff     d2  d2       4   
+     4412   4551  7ee1  odd         cff  cff     d2                 
+     4413   4552  7ee0  EVEN  6635  cff  cff     d2  d2       4   
+     4414   4553  7edf  odd         cff  cff     d2                 
+     4415   4554  7ede  EVEN  6636  cff  cff     d2  d2       4   
+     4416   4555  7edd  odd         cff  cff     d2                 
+     4417   4556  7edc  EVEN  6637  cff  cff     d2  d2       4   
+     4418   4557  7edb  odd         cff  cff     d2                 
+     4419   4558  7eda  EVEN  6638    ?  cff     d2  d2       4   
+     4420   4559  7ed9  odd         cff  cff     d2                 
+     4421   4560  7ed8  EVEN  6639  cff  cff     d2  d2       4   
+     4422   4561  7ed7  odd         cff  cff     d2                 
+     4423   4562  7ed6  EVEN  6640  cff  cff     d2  d2       4   
+     4424   4563  7ed5  odd         cff  cff     d2                 
+     4425   4564  7ed4  EVEN  6641  cff  cff     d2  d2       4   
+     4426   4565  7ed3  odd         cff  cff     rel                KEY-OFF
+     4427   4566  7ed2  EVEN  6642  cff  cff     rel rel      1   
+     4428   4567  7ed1  odd         cff  cff     rel                
+     4429   4568  7ed0  EVEN  6643  d00  d00     rel rel      1   
+     4430   4569  7ecf  odd         d00  d00     rel                
+     4431   4570  7ece  EVEN  6644  d00  d00     rel rel      1   
+     4432   4571  7ecd  odd         d00  d00     rel                
+     4433   4572  7ecc  EVEN  6645  d01  d01     rel rel      1   
+     4434   4573  7ecb  odd         d01  d01     rel                
+     4435   4574  7eca  EVEN  6646  d01  d01     rel rel      1   
+     4436   4575  7ec9  odd         d01  d01     rel                
+     4437   4576  7ec8  EVEN  6647  d02  d02     rel rel      1   
+     4438   4577  7ec7  odd         d02  d02     rel                
+     4439   4578  7ec6  EVEN  6648  d02  d02     rel rel      1   
+     4440   4579  7ec5  odd         d02  d02     rel                
+     4441   4580  7ec4  EVEN  6649  d03  d03     rel rel      1   
+     4442   4581  7ec3  odd         d03  d03     rel                
+     4443   4582  7ec2  EVEN  6650  d03  d03     rel rel      1   
+     4444   4583  7ec1  odd         d03  d03     rel                
+     4445   4584  7ec0  EVEN  6651  d04  d04     rel rel      1   
+     4446   4585  7ebf  odd           ?  d04     rel                
+     4447   4586  7ebe  EVEN  6652  d04  d04     rel rel      1   
+     4448   4587  7ebd  odd         d04  d04     rel                
+     4449   4588  7ebc  EVEN  6653  d05  d05     rel rel      1   
+     4450   4589  7ebb  odd         d05  d05     rel                
+     4451   4590  7eba  EVEN  6654  d05  d05     rel rel      1   
+     4452   4591  7eb9  odd         d05  d05     rel                
+     4453   4592  7eb8  EVEN  6655  d06  d06     rel rel      1   
+     4454   4593  7eb7  odd         d06  d06     rel                
+     4455   4594  7eb6  EVEN  6656  d06  d06     rel rel      1   
+     4456   4595  7eb5  odd         d06  d06     rel                
+     4457   4596  7eb4  EVEN  6657  d07  d07     rel rel      1   
+     4458   4597  7eb3  odd         d07  d07     rel                
+     4459   4598  7eb2  EVEN  6658  d07  d07     rel rel      1   
+     4460   4599  7eb1  odd         d07  d07     rel                
+     4461   4600  7eb0  EVEN  6659  d08  d08     rel rel      1   
+     4462   4601  7eaf  odd         d08  d08     rel                
+     4463   4602  7eae  EVEN  6660  d08  d08     rel rel      1   
+     4464   4603  7ead  odd         d08  d08     rel                
+     4465   4604  7eac  EVEN  6661  d09  d09     rel rel      1   
+     4466   4605  7eab  odd         d09  d09     rel                
+== fk_2_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 22 FD1R 24 FD2R 26 FRR 22 KRS 2 OCT 0 FNS 000 -> R 48/52/56/48; onset 139, S3 key-off sample 4565 (MDEC_CT 7ed3 odd): FULL 8949/8949
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4525  7efb  odd         cff  cff     d2                 
+     4387   4526  7efa  EVEN  6622  cff  cff     d2  d2       4   
+     4388   4527  7ef9  odd         cff  cff     d2                 
+     4389   4528  7ef8  EVEN  6623  cff  cff     d2  d2       4   
+     4390   4529  7ef7  odd         cff  cff     d2                 
+     4391   4530  7ef6  EVEN  6624    ?  cff     d2  d2       4   
+     4392   4531  7ef5  odd         cff  cff     d2                 
+     4393   4532  7ef4  EVEN  6625  cff  cff     d2  d2       4   
+     4394   4533  7ef3  odd         cff  cff     d2                 
+     4395   4534  7ef2  EVEN  6626  cff  cff     d2  d2       4   
+     4396   4535  7ef1  odd         cff  cff     d2                 
+     4397   4536  7ef0  EVEN  6627  cff  cff     d2  d2       4   
+     4398   4537  7eef  odd         cff  cff     d2                 
+     4399   4538  7eee  EVEN  6628  cff  cff     d2  d2       4   
+     4400   4539  7eed  odd         cff  cff     d2                 
+     4401   4540  7eec  EVEN  6629  cff  cff     d2  d2       4   
+     4402   4541  7eeb  odd         cff  cff     d2                 
+     4403   4542  7eea  EVEN  6630  cff  cff     d2  d2       4   
+     4404   4543  7ee9  odd         cff  cff     d2                 
+     4405   4544  7ee8  EVEN  6631  cff  cff     d2  d2       4   
+     4406   4545  7ee7  odd         cff  cff     d2                 
+     4407   4546  7ee6  EVEN  6632  cff  cff     d2  d2       4   
+     4408   4547  7ee5  odd         cff  cff     d2                 
+     4409   4548  7ee4  EVEN  6633  cff  cff     d2  d2       4   
+     4410   4549  7ee3  odd         cff  cff     d2                 
+     4411   4550  7ee2  EVEN  6634  cff  cff     d2  d2       4   
+     4412   4551  7ee1  odd         cff  cff     d2                 
+     4413   4552  7ee0  EVEN  6635  cff  cff     d2  d2       4   
+     4414   4553  7edf  odd         cff  cff     d2                 
+     4415   4554  7ede  EVEN  6636  cff  cff     d2  d2       4   
+     4416   4555  7edd  odd         cff  cff     d2                 
+     4417   4556  7edc  EVEN  6637  cff  cff     d2  d2       4   
+     4418   4557  7edb  odd         cff  cff     d2                 
+     4419   4558  7eda  EVEN  6638    ?  cff     d2  d2       4   
+     4420   4559  7ed9  odd         cff  cff     d2                 
+     4421   4560  7ed8  EVEN  6639  cff  cff     d2  d2       4   
+     4422   4561  7ed7  odd         cff  cff     d2                 
+     4423   4562  7ed6  EVEN  6640  cff  cff     d2  d2       4   
+     4424   4563  7ed5  odd         cff  cff     d2                 
+     4425   4564  7ed4  EVEN  6641  cff  cff     d2  d2       4   
+     4426   4565  7ed3  odd         cff  cff     rel                KEY-OFF
+     4427   4566  7ed2  EVEN  6642  cff  cff     rel rel      1   
+     4428   4567  7ed1  odd         cff  cff     rel                
+     4429   4568  7ed0  EVEN  6643  d00  d00     rel rel      1   
+     4430   4569  7ecf  odd         d00  d00     rel                
+     4431   4570  7ece  EVEN  6644  d00  d00     rel rel      1   
+     4432   4571  7ecd  odd         d00  d00     rel                
+     4433   4572  7ecc  EVEN  6645  d01  d01     rel rel      1   
+     4434   4573  7ecb  odd         d01  d01     rel                
+     4435   4574  7eca  EVEN  6646  d01  d01     rel rel      1   
+     4436   4575  7ec9  odd         d01  d01     rel                
+     4437   4576  7ec8  EVEN  6647  d02  d02     rel rel      1   
+     4438   4577  7ec7  odd         d02  d02     rel                
+     4439   4578  7ec6  EVEN  6648  d02  d02     rel rel      1   
+     4440   4579  7ec5  odd         d02  d02     rel                
+     4441   4580  7ec4  EVEN  6649  d03  d03     rel rel      1   
+     4442   4581  7ec3  odd         d03  d03     rel                
+     4443   4582  7ec2  EVEN  6650  d03  d03     rel rel      1   
+     4444   4583  7ec1  odd         d03  d03     rel                
+     4445   4584  7ec0  EVEN  6651  d04  d04     rel rel      1   
+     4446   4585  7ebf  odd           ?  d04     rel                
+     4447   4586  7ebe  EVEN  6652  d04  d04     rel rel      1   
+     4448   4587  7ebd  odd         d04  d04     rel                
+     4449   4588  7ebc  EVEN  6653  d05  d05     rel rel      1   
+     4450   4589  7ebb  odd         d05  d05     rel                
+     4451   4590  7eba  EVEN  6654  d05  d05     rel rel      1   
+     4452   4591  7eb9  odd         d05  d05     rel                
+     4453   4592  7eb8  EVEN  6655  d06  d06     rel rel      1   
+     4454   4593  7eb7  odd         d06  d06     rel                
+     4455   4594  7eb6  EVEN  6656  d06  d06     rel rel      1   
+     4456   4595  7eb5  odd         d06  d06     rel                
+     4457   4596  7eb4  EVEN  6657  d07  d07     rel rel      1   
+     4458   4597  7eb3  odd         d07  d07     rel                
+     4459   4598  7eb2  EVEN  6658  d07  d07     rel rel      1   
+     4460   4599  7eb1  odd         d07  d07     rel                
+     4461   4600  7eb0  EVEN  6659  d08  d08     rel rel      1   
+     4462   4601  7eaf  odd         d08  d08     rel                
+     4463   4602  7eae  EVEN  6660  d08  d08     rel rel      1   
+     4464   4603  7ead  odd         d08  d08     rel                
+     4465   4604  7eac  EVEN  6661  d09  d09     rel rel      1   
+     4466   4605  7eab  odd         d09  d09     rel                
+== fk_2_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 19 FD1R 21 FD2R 23 FRR 19 KRS 5 OCT 0 FNS 000 -> R 48/52/56/48; onset 139, S3 key-off sample 4565 (MDEC_CT 7ed3 odd): FULL 8949/8949
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4525  7efb  odd         cff  cff     d2                 
+     4387   4526  7efa  EVEN  6622  cff  cff     d2  d2       4   
+     4388   4527  7ef9  odd         cff  cff     d2                 
+     4389   4528  7ef8  EVEN  6623  cff  cff     d2  d2       4   
+     4390   4529  7ef7  odd         cff  cff     d2                 
+     4391   4530  7ef6  EVEN  6624    ?  cff     d2  d2       4   
+     4392   4531  7ef5  odd         cff  cff     d2                 
+     4393   4532  7ef4  EVEN  6625  cff  cff     d2  d2       4   
+     4394   4533  7ef3  odd         cff  cff     d2                 
+     4395   4534  7ef2  EVEN  6626  cff  cff     d2  d2       4   
+     4396   4535  7ef1  odd         cff  cff     d2                 
+     4397   4536  7ef0  EVEN  6627  cff  cff     d2  d2       4   
+     4398   4537  7eef  odd         cff  cff     d2                 
+     4399   4538  7eee  EVEN  6628  cff  cff     d2  d2       4   
+     4400   4539  7eed  odd         cff  cff     d2                 
+     4401   4540  7eec  EVEN  6629  cff  cff     d2  d2       4   
+     4402   4541  7eeb  odd         cff  cff     d2                 
+     4403   4542  7eea  EVEN  6630  cff  cff     d2  d2       4   
+     4404   4543  7ee9  odd         cff  cff     d2                 
+     4405   4544  7ee8  EVEN  6631  cff  cff     d2  d2       4   
+     4406   4545  7ee7  odd         cff  cff     d2                 
+     4407   4546  7ee6  EVEN  6632  cff  cff     d2  d2       4   
+     4408   4547  7ee5  odd         cff  cff     d2                 
+     4409   4548  7ee4  EVEN  6633  cff  cff     d2  d2       4   
+     4410   4549  7ee3  odd         cff  cff     d2                 
+     4411   4550  7ee2  EVEN  6634  cff  cff     d2  d2       4   
+     4412   4551  7ee1  odd         cff  cff     d2                 
+     4413   4552  7ee0  EVEN  6635  cff  cff     d2  d2       4   
+     4414   4553  7edf  odd         cff  cff     d2                 
+     4415   4554  7ede  EVEN  6636  cff  cff     d2  d2       4   
+     4416   4555  7edd  odd         cff  cff     d2                 
+     4417   4556  7edc  EVEN  6637  cff  cff     d2  d2       4   
+     4418   4557  7edb  odd         cff  cff     d2                 
+     4419   4558  7eda  EVEN  6638    ?  cff     d2  d2       4   
+     4420   4559  7ed9  odd         cff  cff     d2                 
+     4421   4560  7ed8  EVEN  6639  cff  cff     d2  d2       4   
+     4422   4561  7ed7  odd         cff  cff     d2                 
+     4423   4562  7ed6  EVEN  6640  cff  cff     d2  d2       4   
+     4424   4563  7ed5  odd         cff  cff     d2                 
+     4425   4564  7ed4  EVEN  6641  cff  cff     d2  d2       4   
+     4426   4565  7ed3  odd         cff  cff     rel                KEY-OFF
+     4427   4566  7ed2  EVEN  6642  cff  cff     rel rel      1   
+     4428   4567  7ed1  odd         cff  cff     rel                
+     4429   4568  7ed0  EVEN  6643  d00  d00     rel rel      1   
+     4430   4569  7ecf  odd         d00  d00     rel                
+     4431   4570  7ece  EVEN  6644  d00  d00     rel rel      1   
+     4432   4571  7ecd  odd         d00  d00     rel                
+     4433   4572  7ecc  EVEN  6645  d01  d01     rel rel      1   
+     4434   4573  7ecb  odd         d01  d01     rel                
+     4435   4574  7eca  EVEN  6646  d01  d01     rel rel      1   
+     4436   4575  7ec9  odd         d01  d01     rel                
+     4437   4576  7ec8  EVEN  6647  d02  d02     rel rel      1   
+     4438   4577  7ec7  odd         d02  d02     rel                
+     4439   4578  7ec6  EVEN  6648  d02  d02     rel rel      1   
+     4440   4579  7ec5  odd         d02  d02     rel                
+     4441   4580  7ec4  EVEN  6649  d03  d03     rel rel      1   
+     4442   4581  7ec3  odd         d03  d03     rel                
+     4443   4582  7ec2  EVEN  6650  d03  d03     rel rel      1   
+     4444   4583  7ec1  odd         d03  d03     rel                
+     4445   4584  7ec0  EVEN  6651  d04  d04     rel rel      1   
+     4446   4585  7ebf  odd           ?  d04     rel                
+     4447   4586  7ebe  EVEN  6652  d04  d04     rel rel      1   
+     4448   4587  7ebd  odd         d04  d04     rel                
+     4449   4588  7ebc  EVEN  6653  d05  d05     rel rel      1   
+     4450   4589  7ebb  odd         d05  d05     rel                
+     4451   4590  7eba  EVEN  6654  d05  d05     rel rel      1   
+     4452   4591  7eb9  odd         d05  d05     rel                
+     4453   4592  7eb8  EVEN  6655  d06  d06     rel rel      1   
+     4454   4593  7eb7  odd         d06  d06     rel                
+     4455   4594  7eb6  EVEN  6656  d06  d06     rel rel      1   
+     4456   4595  7eb5  odd         d06  d06     rel                
+     4457   4596  7eb4  EVEN  6657  d07  d07     rel rel      1   
+     4458   4597  7eb3  odd         d07  d07     rel                
+     4459   4598  7eb2  EVEN  6658  d07  d07     rel rel      1   
+     4460   4599  7eb1  odd         d07  d07     rel                
+     4461   4600  7eb0  EVEN  6659  d08  d08     rel rel      1   
+     4462   4601  7eaf  odd         d08  d08     rel                
+     4463   4602  7eae  EVEN  6660  d08  d08     rel rel      1   
+     4464   4603  7ead  odd         d08  d08     rel                
+     4465   4604  7eac  EVEN  6661  d09  d09     rel rel      1   
+     4466   4605  7eab  odd         d09  d09     rel                
+== fk_3_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 22 FD1R 24 FD2R 26 FRR 22 KRS 2 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4564 (MDEC_CT 4698 EVEN): FULL 8950/8950
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4524  46c0  EVEN 13819  cff  cff     d2  d2       4   
+     4387   4525  46bf  odd         cff  cff     d2                 
+     4388   4526  46be  EVEN 13820  cff  cff     d2  d2       4   
+     4389   4527  46bd  odd         cff  cff     d2                 
+     4390   4528  46bc  EVEN 13821  cff  cff     d2  d2       4   
+     4391   4529  46bb  odd           ?  cff     d2                 
+     4392   4530  46ba  EVEN 13822  cff  cff     d2  d2       4   
+     4393   4531  46b9  odd         cff  cff     d2                 
+     4394   4532  46b8  EVEN 13823  cff  cff     d2  d2       4   
+     4395   4533  46b7  odd         cff  cff     d2                 
+     4396   4534  46b6  EVEN 13824  cff  cff     d2  d2       4   
+     4397   4535  46b5  odd         cff  cff     d2                 
+     4398   4536  46b4  EVEN 13825  cff  cff     d2  d2       4   
+     4399   4537  46b3  odd         cff  cff     d2                 
+     4400   4538  46b2  EVEN 13826  cff  cff     d2  d2       4   
+     4401   4539  46b1  odd         cff  cff     d2                 
+     4402   4540  46b0  EVEN 13827  cff  cff     d2  d2       4   
+     4403   4541  46af  odd         cff  cff     d2                 
+     4404   4542  46ae  EVEN 13828  cff  cff     d2  d2       4   
+     4405   4543  46ad  odd         cff  cff     d2                 
+     4406   4544  46ac  EVEN 13829  cff  cff     d2  d2       4   
+     4407   4545  46ab  odd         cff  cff     d2                 
+     4408   4546  46aa  EVEN 13830  cff  cff     d2  d2       4   
+     4409   4547  46a9  odd         cff  cff     d2                 
+     4410   4548  46a8  EVEN 13831  cff  cff     d2  d2       4   
+     4411   4549  46a7  odd         cff  cff     d2                 
+     4412   4550  46a6  EVEN 13832  cff  cff     d2  d2       4   
+     4413   4551  46a5  odd         cff  cff     d2                 
+     4414   4552  46a4  EVEN 13833  cff  cff     d2  d2       4   
+     4415   4553  46a3  odd         cff  cff     d2                 
+     4416   4554  46a2  EVEN 13834  cff  cff     d2  d2       4   
+     4417   4555  46a1  odd         cff  cff     d2                 
+     4418   4556  46a0  EVEN 13835  cff  cff     d2  d2       4   
+     4419   4557  469f  odd           ?  cff     d2                 
+     4420   4558  469e  EVEN 13836  cff  cff     d2  d2       4   
+     4421   4559  469d  odd         cff  cff     d2                 
+     4422   4560  469c  EVEN 13837  cff  cff     d2  d2       4   
+     4423   4561  469b  odd         cff  cff     d2                 
+     4424   4562  469a  EVEN 13838  cff  cff     d2  d2       4   
+     4425   4563  4699  odd         cff  cff     d2                 
+     4426   4564  4698  EVEN 13839  d01  d01     rel d2       4   KEY-OFF
+     4427   4565  4697  odd         d01  d01     rel                
+     4428   4566  4696  EVEN 13840  d01  d01     rel rel      1   
+     4429   4567  4695  odd         d01  d01     rel                
+     4430   4568  4694  EVEN 13841  d02  d02     rel rel      1   
+     4431   4569  4693  odd         d02  d02     rel                
+     4432   4570  4692  EVEN 13842  d02  d02     rel rel      1   
+     4433   4571  4691  odd         d02  d02     rel                
+     4434   4572  4690  EVEN 13843  d03  d03     rel rel      1   
+     4435   4573  468f  odd         d03  d03     rel                
+     4436   4574  468e  EVEN 13844  d03  d03     rel rel      1   
+     4437   4575  468d  odd         d03  d03     rel                
+     4438   4576  468c  EVEN 13845  d04  d04     rel rel      1   
+     4439   4577  468b  odd         d04  d04     rel                
+     4440   4578  468a  EVEN 13846  d04  d04     rel rel      1   
+     4441   4579  4689  odd         d04  d04     rel                
+     4442   4580  4688  EVEN 13847  d05  d05     rel rel      1   
+     4443   4581  4687  odd         d05  d05     rel                
+     4444   4582  4686  EVEN 13848  d05  d05     rel rel      1   
+     4445   4583  4685  odd         d05  d05     rel                
+     4446   4584  4684  EVEN 13849    ?  d06     rel rel      1   
+     4447   4585  4683  odd         d06  d06     rel                
+     4448   4586  4682  EVEN 13850  d06  d06     rel rel      1   
+     4449   4587  4681  odd         d06  d06     rel                
+     4450   4588  4680  EVEN 13851  d07  d07     rel rel      1   
+     4451   4589  467f  odd         d07  d07     rel                
+     4452   4590  467e  EVEN 13852  d07  d07     rel rel      1   
+     4453   4591  467d  odd         d07  d07     rel                
+     4454   4592  467c  EVEN 13853  d08  d08     rel rel      1   
+     4455   4593  467b  odd         d08  d08     rel                
+     4456   4594  467a  EVEN 13854  d08  d08     rel rel      1   
+     4457   4595  4679  odd         d08  d08     rel                
+     4458   4596  4678  EVEN 13855  d09  d09     rel rel      1   
+     4459   4597  4677  odd         d09  d09     rel                
+     4460   4598  4676  EVEN 13856  d09  d09     rel rel      1   
+     4461   4599  4675  odd         d09  d09     rel                
+     4462   4600  4674  EVEN 13857  d0a  d0a     rel rel      1   
+     4463   4601  4673  odd         d0a  d0a     rel                
+     4464   4602  4672  EVEN 13858  d0a  d0a     rel rel      1   
+     4465   4603  4671  odd         d0a  d0a     rel                
+     4466   4604  4670  EVEN 13859  d0b  d0b     rel rel      1   
+== fk_3_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 19 FD1R 21 FD2R 23 FRR 19 KRS 5 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4564 (MDEC_CT 4698 EVEN): FULL 8950/8950
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4524  46c0  EVEN 13819  cff  cff     d2  d2       4   
+     4387   4525  46bf  odd         cff  cff     d2                 
+     4388   4526  46be  EVEN 13820  cff  cff     d2  d2       4   
+     4389   4527  46bd  odd         cff  cff     d2                 
+     4390   4528  46bc  EVEN 13821  cff  cff     d2  d2       4   
+     4391   4529  46bb  odd           ?  cff     d2                 
+     4392   4530  46ba  EVEN 13822  cff  cff     d2  d2       4   
+     4393   4531  46b9  odd         cff  cff     d2                 
+     4394   4532  46b8  EVEN 13823  cff  cff     d2  d2       4   
+     4395   4533  46b7  odd         cff  cff     d2                 
+     4396   4534  46b6  EVEN 13824  cff  cff     d2  d2       4   
+     4397   4535  46b5  odd         cff  cff     d2                 
+     4398   4536  46b4  EVEN 13825  cff  cff     d2  d2       4   
+     4399   4537  46b3  odd         cff  cff     d2                 
+     4400   4538  46b2  EVEN 13826  cff  cff     d2  d2       4   
+     4401   4539  46b1  odd         cff  cff     d2                 
+     4402   4540  46b0  EVEN 13827  cff  cff     d2  d2       4   
+     4403   4541  46af  odd         cff  cff     d2                 
+     4404   4542  46ae  EVEN 13828  cff  cff     d2  d2       4   
+     4405   4543  46ad  odd         cff  cff     d2                 
+     4406   4544  46ac  EVEN 13829  cff  cff     d2  d2       4   
+     4407   4545  46ab  odd         cff  cff     d2                 
+     4408   4546  46aa  EVEN 13830  cff  cff     d2  d2       4   
+     4409   4547  46a9  odd         cff  cff     d2                 
+     4410   4548  46a8  EVEN 13831  cff  cff     d2  d2       4   
+     4411   4549  46a7  odd         cff  cff     d2                 
+     4412   4550  46a6  EVEN 13832  cff  cff     d2  d2       4   
+     4413   4551  46a5  odd         cff  cff     d2                 
+     4414   4552  46a4  EVEN 13833  cff  cff     d2  d2       4   
+     4415   4553  46a3  odd         cff  cff     d2                 
+     4416   4554  46a2  EVEN 13834  cff  cff     d2  d2       4   
+     4417   4555  46a1  odd         cff  cff     d2                 
+     4418   4556  46a0  EVEN 13835  cff  cff     d2  d2       4   
+     4419   4557  469f  odd           ?  cff     d2                 
+     4420   4558  469e  EVEN 13836  cff  cff     d2  d2       4   
+     4421   4559  469d  odd         cff  cff     d2                 
+     4422   4560  469c  EVEN 13837  cff  cff     d2  d2       4   
+     4423   4561  469b  odd         cff  cff     d2                 
+     4424   4562  469a  EVEN 13838  cff  cff     d2  d2       4   
+     4425   4563  4699  odd         cff  cff     d2                 
+     4426   4564  4698  EVEN 13839  d01  d01     rel d2       4   KEY-OFF
+     4427   4565  4697  odd         d01  d01     rel                
+     4428   4566  4696  EVEN 13840  d01  d01     rel rel      1   
+     4429   4567  4695  odd         d01  d01     rel                
+     4430   4568  4694  EVEN 13841  d02  d02     rel rel      1   
+     4431   4569  4693  odd         d02  d02     rel                
+     4432   4570  4692  EVEN 13842  d02  d02     rel rel      1   
+     4433   4571  4691  odd         d02  d02     rel                
+     4434   4572  4690  EVEN 13843  d03  d03     rel rel      1   
+     4435   4573  468f  odd         d03  d03     rel                
+     4436   4574  468e  EVEN 13844  d03  d03     rel rel      1   
+     4437   4575  468d  odd         d03  d03     rel                
+     4438   4576  468c  EVEN 13845  d04  d04     rel rel      1   
+     4439   4577  468b  odd         d04  d04     rel                
+     4440   4578  468a  EVEN 13846  d04  d04     rel rel      1   
+     4441   4579  4689  odd         d04  d04     rel                
+     4442   4580  4688  EVEN 13847  d05  d05     rel rel      1   
+     4443   4581  4687  odd         d05  d05     rel                
+     4444   4582  4686  EVEN 13848  d05  d05     rel rel      1   
+     4445   4583  4685  odd         d05  d05     rel                
+     4446   4584  4684  EVEN 13849    ?  d06     rel rel      1   
+     4447   4585  4683  odd         d06  d06     rel                
+     4448   4586  4682  EVEN 13850  d06  d06     rel rel      1   
+     4449   4587  4681  odd         d06  d06     rel                
+     4450   4588  4680  EVEN 13851  d07  d07     rel rel      1   
+     4451   4589  467f  odd         d07  d07     rel                
+     4452   4590  467e  EVEN 13852  d07  d07     rel rel      1   
+     4453   4591  467d  odd         d07  d07     rel                
+     4454   4592  467c  EVEN 13853  d08  d08     rel rel      1   
+     4455   4593  467b  odd         d08  d08     rel                
+     4456   4594  467a  EVEN 13854  d08  d08     rel rel      1   
+     4457   4595  4679  odd         d08  d08     rel                
+     4458   4596  4678  EVEN 13855  d09  d09     rel rel      1   
+     4459   4597  4677  odd         d09  d09     rel                
+     4460   4598  4676  EVEN 13856  d09  d09     rel rel      1   
+     4461   4599  4675  odd         d09  d09     rel                
+     4462   4600  4674  EVEN 13857  d0a  d0a     rel rel      1   
+     4463   4601  4673  odd         d0a  d0a     rel                
+     4464   4602  4672  EVEN 13858  d0a  d0a     rel rel      1   
+     4465   4603  4671  odd         d0a  d0a     rel                
+     4466   4604  4670  EVEN 13859  d0b  d0b     rel rel      1   
+== fk_3_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 24 FD1R 26 FD2R 28 FRR 24 KRS 15 OCT 0 FNS 000 -> R 48/52/56/48; onset 138, S3 key-off sample 4564 (MDEC_CT 4698 EVEN): FULL 8950/8950
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     4386   4524  46c0  EVEN 13819  cff  cff     d2  d2       4   
+     4387   4525  46bf  odd         cff  cff     d2                 
+     4388   4526  46be  EVEN 13820  cff  cff     d2  d2       4   
+     4389   4527  46bd  odd         cff  cff     d2                 
+     4390   4528  46bc  EVEN 13821  cff  cff     d2  d2       4   
+     4391   4529  46bb  odd           ?  cff     d2                 
+     4392   4530  46ba  EVEN 13822  cff  cff     d2  d2       4   
+     4393   4531  46b9  odd         cff  cff     d2                 
+     4394   4532  46b8  EVEN 13823  cff  cff     d2  d2       4   
+     4395   4533  46b7  odd         cff  cff     d2                 
+     4396   4534  46b6  EVEN 13824  cff  cff     d2  d2       4   
+     4397   4535  46b5  odd         cff  cff     d2                 
+     4398   4536  46b4  EVEN 13825  cff  cff     d2  d2       4   
+     4399   4537  46b3  odd         cff  cff     d2                 
+     4400   4538  46b2  EVEN 13826  cff  cff     d2  d2       4   
+     4401   4539  46b1  odd         cff  cff     d2                 
+     4402   4540  46b0  EVEN 13827  cff  cff     d2  d2       4   
+     4403   4541  46af  odd         cff  cff     d2                 
+     4404   4542  46ae  EVEN 13828  cff  cff     d2  d2       4   
+     4405   4543  46ad  odd         cff  cff     d2                 
+     4406   4544  46ac  EVEN 13829  cff  cff     d2  d2       4   
+     4407   4545  46ab  odd         cff  cff     d2                 
+     4408   4546  46aa  EVEN 13830  cff  cff     d2  d2       4   
+     4409   4547  46a9  odd         cff  cff     d2                 
+     4410   4548  46a8  EVEN 13831  cff  cff     d2  d2       4   
+     4411   4549  46a7  odd         cff  cff     d2                 
+     4412   4550  46a6  EVEN 13832  cff  cff     d2  d2       4   
+     4413   4551  46a5  odd         cff  cff     d2                 
+     4414   4552  46a4  EVEN 13833  cff  cff     d2  d2       4   
+     4415   4553  46a3  odd         cff  cff     d2                 
+     4416   4554  46a2  EVEN 13834  cff  cff     d2  d2       4   
+     4417   4555  46a1  odd         cff  cff     d2                 
+     4418   4556  46a0  EVEN 13835  cff  cff     d2  d2       4   
+     4419   4557  469f  odd           ?  cff     d2                 
+     4420   4558  469e  EVEN 13836  cff  cff     d2  d2       4   
+     4421   4559  469d  odd         cff  cff     d2                 
+     4422   4560  469c  EVEN 13837  cff  cff     d2  d2       4   
+     4423   4561  469b  odd         cff  cff     d2                 
+     4424   4562  469a  EVEN 13838  cff  cff     d2  d2       4   
+     4425   4563  4699  odd         cff  cff     d2                 
+     4426   4564  4698  EVEN 13839  d01  d01     rel d2       4   KEY-OFF
+     4427   4565  4697  odd         d01  d01     rel                
+     4428   4566  4696  EVEN 13840  d01  d01     rel rel      1   
+     4429   4567  4695  odd         d01  d01     rel                
+     4430   4568  4694  EVEN 13841  d02  d02     rel rel      1   
+     4431   4569  4693  odd         d02  d02     rel                
+     4432   4570  4692  EVEN 13842  d02  d02     rel rel      1   
+     4433   4571  4691  odd         d02  d02     rel                
+     4434   4572  4690  EVEN 13843  d03  d03     rel rel      1   
+     4435   4573  468f  odd         d03  d03     rel                
+     4436   4574  468e  EVEN 13844  d03  d03     rel rel      1   
+     4437   4575  468d  odd         d03  d03     rel                
+     4438   4576  468c  EVEN 13845  d04  d04     rel rel      1   
+     4439   4577  468b  odd         d04  d04     rel                
+     4440   4578  468a  EVEN 13846  d04  d04     rel rel      1   
+     4441   4579  4689  odd         d04  d04     rel                
+     4442   4580  4688  EVEN 13847  d05  d05     rel rel      1   
+     4443   4581  4687  odd         d05  d05     rel                
+     4444   4582  4686  EVEN 13848  d05  d05     rel rel      1   
+     4445   4583  4685  odd         d05  d05     rel                
+     4446   4584  4684  EVEN 13849    ?  d06     rel rel      1   
+     4447   4585  4683  odd         d06  d06     rel                
+     4448   4586  4682  EVEN 13850  d06  d06     rel rel      1   
+     4449   4587  4681  odd         d06  d06     rel                
+     4450   4588  4680  EVEN 13851  d07  d07     rel rel      1   
+     4451   4589  467f  odd         d07  d07     rel                
+     4452   4590  467e  EVEN 13852  d07  d07     rel rel      1   
+     4453   4591  467d  odd         d07  d07     rel                
+     4454   4592  467c  EVEN 13853  d08  d08     rel rel      1   
+     4455   4593  467b  odd         d08  d08     rel                
+     4456   4594  467a  EVEN 13854  d08  d08     rel rel      1   
+     4457   4595  4679  odd         d08  d08     rel                
+     4458   4596  4678  EVEN 13855  d09  d09     rel rel      1   
+     4459   4597  4677  odd         d09  d09     rel                
+     4460   4598  4676  EVEN 13856  d09  d09     rel rel      1   
+     4461   4599  4675  odd         d09  d09     rel                
+     4462   4600  4674  EVEN 13857  d0a  d0a     rel rel      1   
+     4463   4601  4673  odd         d0a  d0a     rel                
+     4464   4602  4672  EVEN 13858  d0a  d0a     rel rel      1   
+     4465   4603  4671  odd         d0a  d0a     rel                
+     4466   4604  4670  EVEN 13859  d0b  d0b     rel rel      1   
+== ft_0_s0  slot program FLV 1800 1c05 1a03 1b00 1900  FAR 28 FD1R 26 FD2R 30 FRR 27 KRS 15 OCT 0 FNS 000 -> R 56/52/60/54; onset 138, S3 key-off sample 5469 (MDEC_CT cc7b odd): FULL 9846/9846
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     5291   5429  cca3  odd         d7d  d7d     d2                 
+     5292   5430  cca2  EVEN 13066  d7d  d7d     d2  d2       8   
+     5293   5431  cca1  odd         d7d  d7d     d2                 
+     5294   5432  cca0  EVEN 13067  d7d  d7d     d2  d2       8   
+     5295   5433  cc9f  odd         d7d  d7d     d2                 
+     5296   5434  cc9e  EVEN 13068  d7d  d7d     d2  d2       8   
+     5297   5435  cc9d  odd         d7d  d7d     d2                 
+     5298   5436  cc9c  EVEN 13069  d7d  d7d     d2  d2       8   
+     5299   5437  cc9b  odd         d7d  d7d     d2                 
+     5300   5438  cc9a  EVEN 13070  d7d  d7d     d2  d2       8   
+     5301   5439  cc99  odd         d7d  d7d     d2                 
+     5302   5440  cc98  EVEN 13071  d7d  d7d     d2  d2       8   
+     5303   5441  cc97  odd         d7d  d7d     d2                 
+     5304   5442  cc96  EVEN 13072  d7d  d7d     d2  d2       8   
+     5305   5443  cc95  odd         d7d  d7d     d2                 
+     5306   5444  cc94  EVEN 13073  d7d  d7d     d2  d2       8   
+     5307   5445  cc93  odd         d7d  d7d     d2                 
+     5308   5446  cc92  EVEN 13074  d7d  d7d     d2  d2       8   
+     5309   5447  cc91  odd         d7d  d7d     d2                 
+     5310   5448  cc90  EVEN 13075  d7d  d7d     d2  d2       8   
+     5311   5449  cc8f  odd         d7d  d7d     d2                 
+     5312   5450  cc8e  EVEN 13076  d7d  d7d     d2  d2       8   
+     5313   5451  cc8d  odd         d7d  d7d     d2                 
+     5314   5452  cc8c  EVEN 13077  d7d  d7d     d2  d2       8   
+     5315   5453  cc8b  odd         d7d  d7d     d2                 
+     5316   5454  cc8a  EVEN 13078  d7d  d7d     d2  d2       8   
+     5317   5455  cc89  odd         d7d  d7d     d2                 
+     5318   5456  cc88  EVEN 13079  d7d  d7d     d2  d2       8   
+     5319   5457  cc87  odd         d7d  d7d     d2                 
+     5320   5458  cc86  EVEN 13080  d7d  d7d     d2  d2       8   
+     5321   5459  cc85  odd         d7d  d7d     d2                 
+     5322   5460  cc84  EVEN 13081  d7d  d7d     d2  d2       8   
+     5323   5461  cc83  odd         d7d  d7d     d2                 
+     5324   5462  cc82  EVEN 13082  d7d  d7d     d2  d2       8   
+     5325   5463  cc81  odd         d7d  d7d     d2                 
+     5326   5464  cc80  EVEN 13083  d7d  d7d     d2  d2       8   
+     5327   5465  cc7f  odd         d7d  d7d     d2                 
+     5328   5466  cc7e  EVEN 13084  d7d  d7d     d2  d2       8   
+     5329   5467  cc7d  odd         d7d  d7d     d2                 
+     5330   5468  cc7c  EVEN 13085  d7d  d7d     d2  d2       8   
+     5331   5469  cc7b  odd         d7d  d7d     rel                KEY-OFF
+     5332   5470  cc7a  EVEN 13086  d7c  d7c     rel rel      2   
+     5333   5471  cc79  odd         d7c  d7c     rel                
+     5334   5472  cc78  EVEN 13087  d7a  d7a     rel rel      4   
+     5335   5473  cc77  odd         d7a  d7a     rel                
+     5336   5474  cc76  EVEN 13088  d79  d79     rel rel      2   
+     5337   5475  cc75  odd         d79  d79     rel                
+     5338   5476  cc74  EVEN 13089  d77  d77     rel rel      4   
+     5339   5477  cc73  odd         d77  d77     rel                
+     5340   5478  cc72  EVEN 13090  d76  d76     rel rel      2   
+     5341   5479  cc71  odd         d76  d76     rel                
+     5342   5480  cc70  EVEN 13091  d74  d74     rel rel      4   
+     5343   5481  cc6f  odd         d74  d74     rel                
+     5344   5482  cc6e  EVEN 13092  d73  d73     rel rel      2   
+     5345   5483  cc6d  odd         d73  d73     rel                
+     5346   5484  cc6c  EVEN 13093  d71  d71     rel rel      4   
+     5347   5485  cc6b  odd         d71  d71     rel                
+     5348   5486  cc6a  EVEN 13094  d70  d70     rel rel      2   
+     5349   5487  cc69  odd         d70  d70     rel                
+     5350   5488  cc68  EVEN 13095  d6e  d6e     rel rel      4   
+     5351   5489  cc67  odd         d6e  d6e     rel                
+     5352   5490  cc66  EVEN 13096  d6d  d6d     rel rel      2   
+     5353   5491  cc65  odd         d6d  d6d     rel                
+     5354   5492  cc64  EVEN 13097  d6b  d6b     rel rel      4   
+     5355   5493  cc63  odd         d6b  d6b     rel                
+     5356   5494  cc62  EVEN 13098    ?  d6a     rel rel      2   
+     5357   5495  cc61  odd         d6a  d6a     rel                
+     5358   5496  cc60  EVEN 13099  d68  d68     rel rel      4   
+     5359   5497  cc5f  odd         d68  d68     rel                
+     5360   5498  cc5e  EVEN 13100  d67  d67     rel rel      2   
+     5361   5499  cc5d  odd         d67  d67     rel                
+     5362   5500  cc5c  EVEN 13101  d65  d65     rel rel      4   
+     5363   5501  cc5b  odd         d65  d65     rel                
+     5364   5502  cc5a  EVEN 13102  d64  d64     rel rel      2   
+     5365   5503  cc59  odd         d64  d64     rel                
+     5366   5504  cc58  EVEN 13103  d62  d62     rel rel      4   
+     5367   5505  cc57  odd         d62  d62     rel                
+     5368   5506  cc56  EVEN 13104  d61  d61     rel rel      2   
+     5369   5507  cc55  odd         d61  d61     rel                
+     5370   5508  cc54  EVEN 13105  d5f  d5f     rel rel      4   
+     5371   5509  cc53  odd         d5f  d5f     rel                
+== ft_0_s1  slot program FLV 1ff0 1802 1f01 1e00 1ffd  FAR 30 FD1R 29 FD2R 24 FRR 30 KRS 15 OCT 0 FNS 000 -> R 60/58/48/60; onset 138, S3 key-off sample 5469 (MDEC_CT cc7b odd): FULL 9846/9846
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     5291   5429  cca3  odd         f00  f00     d2                 
+     5292   5430  cca2  EVEN 13066  f00  f00     d2  d2       1   
+     5293   5431  cca1  odd         f00  f00     d2                 
+     5294   5432  cca0  EVEN 13067  f00  f00     d2  d2       1   
+     5295   5433  cc9f  odd         f00  f00     d2                 
+     5296   5434  cc9e  EVEN 13068  f00  f00     d2  d2       1   
+     5297   5435  cc9d  odd         f00  f00     d2                 
+     5298   5436  cc9c  EVEN 13069  f00  f00     d2  d2       1   
+     5299   5437  cc9b  odd         f00  f00     d2                 
+     5300   5438  cc9a  EVEN 13070  f00  f00     d2  d2       1   
+     5301   5439  cc99  odd         f00  f00     d2                 
+     5302   5440  cc98  EVEN 13071  f00  f00     d2  d2       1   
+     5303   5441  cc97  odd         f00  f00     d2                 
+     5304   5442  cc96  EVEN 13072  f00  f00     d2  d2       1   
+     5305   5443  cc95  odd         f00  f00     d2                 
+     5306   5444  cc94  EVEN 13073  f00  f00     d2  d2       1   
+     5307   5445  cc93  odd         f00  f00     d2                 
+     5308   5446  cc92  EVEN 13074  f00  f00     d2  d2       1   
+     5309   5447  cc91  odd         f00  f00     d2                 
+     5310   5448  cc90  EVEN 13075  f00  f00     d2  d2       1   
+     5311   5449  cc8f  odd         f00  f00     d2                 
+     5312   5450  cc8e  EVEN 13076  f00  f00     d2  d2       1   
+     5313   5451  cc8d  odd         f00  f00     d2                 
+     5314   5452  cc8c  EVEN 13077  f00  f00     d2  d2       1   
+     5315   5453  cc8b  odd         f00  f00     d2                 
+     5316   5454  cc8a  EVEN 13078  f00  f00     d2  d2       1   
+     5317   5455  cc89  odd         f00  f00     d2                 
+     5318   5456  cc88  EVEN 13079  f00  f00     d2  d2       1   
+     5319   5457  cc87  odd         f00  f00     d2                 
+     5320   5458  cc86  EVEN 13080  f00  f00     d2  d2       1   
+     5321   5459  cc85  odd         f00  f00     d2                 
+     5322   5460  cc84  EVEN 13081  f00  f00     d2  d2       1   
+     5323   5461  cc83  odd         f00  f00     d2                 
+     5324   5462  cc82  EVEN 13082  f00  f00     d2  d2       1   
+     5325   5463  cc81  odd         f00  f00     d2                 
+     5326   5464  cc80  EVEN 13083  f00  f00     d2  d2       1   
+     5327   5465  cc7f  odd         f00  f00     d2                 
+     5328   5466  cc7e  EVEN 13084  f00  f00     d2  d2       1   
+     5329   5467  cc7d  odd         f00  f00     d2                 
+     5330   5468  cc7c  EVEN 13085  f00  f00     d2  d2       1   
+     5331   5469  cc7b  odd         f00  f00     rel                KEY-OFF
+     5332   5470  cc7a  EVEN 13086  f04  f04     rel rel      8   
+     5333   5471  cc79  odd         f04  f04     rel                
+     5334   5472  cc78  EVEN 13087  f08  f08     rel rel      8   
+     5335   5473  cc77  odd         f08  f08     rel                
+     5336   5474  cc76  EVEN 13088  f0c  f0c     rel rel      8   
+     5337   5475  cc75  odd         f0c  f0c     rel                
+     5338   5476  cc74  EVEN 13089  f10  f10     rel rel      8   
+     5339   5477  cc73  odd         f10  f10     rel                
+     5340   5478  cc72  EVEN 13090  f14  f14     rel rel      8   
+     5341   5479  cc71  odd         f14  f14     rel                
+     5342   5480  cc70  EVEN 13091  f18  f18     rel rel      8   
+     5343   5481  cc6f  odd         f18  f18     rel                
+     5344   5482  cc6e  EVEN 13092  f1c  f1c     rel rel      8   
+     5345   5483  cc6d  odd         f1c  f1c     rel                
+     5346   5484  cc6c  EVEN 13093  f20  f20     rel rel      8   
+     5347   5485  cc6b  odd         f20  f20     rel                
+     5348   5486  cc6a  EVEN 13094  f24  f24     rel rel      8   
+     5349   5487  cc69  odd         f24  f24     rel                
+     5350   5488  cc68  EVEN 13095  f28  f28     rel rel      8   
+     5351   5489  cc67  odd         f28  f28     rel                
+     5352   5490  cc66  EVEN 13096  f2c  f2c     rel rel      8   
+     5353   5491  cc65  odd         f2c  f2c     rel                
+     5354   5492  cc64  EVEN 13097  f30  f30     rel rel      8   
+     5355   5493  cc63  odd         f30  f30     rel                
+     5356   5494  cc62  EVEN 13098  f34  f34     rel rel      8   
+     5357   5495  cc61  odd         f34  f34     rel                
+     5358   5496  cc60  EVEN 13099  f38  f38     rel rel      8   
+     5359   5497  cc5f  odd         f38  f38     rel                
+     5360   5498  cc5e  EVEN 13100  f3c  f3c     rel rel      8   
+     5361   5499  cc5d  odd         f3c  f3c     rel                
+     5362   5500  cc5c  EVEN 13101  f40  f40     rel rel      8   
+     5363   5501  cc5b  odd         f40  f40     rel                
+     5364   5502  cc5a  EVEN 13102  f44  f44     rel rel      8   
+     5365   5503  cc59  odd         f44  f44     rel                
+     5366   5504  cc58  EVEN 13103  f48  f48     rel rel      8   
+     5367   5505  cc57  odd         f48  f48     rel                
+     5368   5506  cc56  EVEN 13104  f4c  f4c     rel rel      8   
+     5369   5507  cc55  odd         f4c  f4c     rel                
+     5370   5508  cc54  EVEN 13105  f50  f50     rel rel      8   
+     5371   5509  cc53  odd         f50  f50     rel                
+== ft_0_s2  slot program FLV 1c00 1c80 1c00 1c40 1bf0  FAR 22 FD1R 23 FD2R 21 FRR 25 KRS 15 OCT 0 FNS 000 -> R 44/46/42/50; onset 138, S3 key-off sample 5469 (MDEC_CT cc7b odd): FULL 9846/9846
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     5291   5429  cca3  odd         e1f  e1f     d2                 
+     5292   5430  cca2  EVEN 13066  e1f  e1f     d2  d2       0   
+     5293   5431  cca1  odd         e1f  e1f     d2                 
+     5294   5432  cca0  EVEN 13067  e1f  e1f     d2  d2       1   
+     5295   5433  cc9f  odd         e1f  e1f     d2                 
+     5296   5434  cc9e  EVEN 13068  e1f  e1f     d2  d2       0   
+     5297   5435  cc9d  odd         e1f  e1f     d2                 
+     5298   5436  cc9c  EVEN 13069  e1f  e1f     d2  d2       1   
+     5299   5437  cc9b  odd         e1f  e1f     d2                 
+     5300   5438  cc9a  EVEN 13070  e1f  e1f     d2  d2       0   
+     5301   5439  cc99  odd         e1f  e1f     d2                 
+     5302   5440  cc98  EVEN 13071  e1f  e1f     d2  d2       1   
+     5303   5441  cc97  odd         e1f  e1f     d2                 
+     5304   5442  cc96  EVEN 13072  e1f  e1f     d2  d2       0   
+     5305   5443  cc95  odd         e1f  e1f     d2                 
+     5306   5444  cc94  EVEN 13073  e1f  e1f     d2  d2       0   
+     5307   5445  cc93  odd         e1f  e1f     d2                 
+     5308   5446  cc92  EVEN 13074  e1f  e1f     d2  d2       0   
+     5309   5447  cc91  odd         e1f  e1f     d2                 
+     5310   5448  cc90  EVEN 13075  e1f  e1f     d2  d2       1   
+     5311   5449  cc8f  odd         e1f  e1f     d2                 
+     5312   5450  cc8e  EVEN 13076  e1f  e1f     d2  d2       0   
+     5313   5451  cc8d  odd         e1f  e1f     d2                 
+     5314   5452  cc8c  EVEN 13077  e1f  e1f     d2  d2       1   
+     5315   5453  cc8b  odd         e1f  e1f     d2                 
+     5316   5454  cc8a  EVEN 13078  e1f  e1f     d2  d2       0   
+     5317   5455  cc89  odd         e1f  e1f     d2                 
+     5318   5456  cc88  EVEN 13079  e1f  e1f     d2  d2       1   
+     5319   5457  cc87  odd         e1f  e1f     d2                 
+     5320   5458  cc86  EVEN 13080  e1f  e1f     d2  d2       0   
+     5321   5459  cc85  odd         e1f  e1f     d2                 
+     5322   5460  cc84  EVEN 13081  e1f  e1f     d2  d2       0   
+     5323   5461  cc83  odd         e1f  e1f     d2                 
+     5324   5462  cc82  EVEN 13082  e1f  e1f     d2  d2       0   
+     5325   5463  cc81  odd         e1f  e1f     d2                 
+     5326   5464  cc80  EVEN 13083  e1f  e1f     d2  d2       1   
+     5327   5465  cc7f  odd         e1f  e1f     d2                 
+     5328   5466  cc7e  EVEN 13084  e1f  e1f     d2  d2       0   
+     5329   5467  cc7d  odd         e1f  e1f     d2                 
+     5330   5468  cc7c  EVEN 13085  e1f  e1f     d2  d2       1   
+     5331   5469  cc7b  odd         e1f  e1f     rel                KEY-OFF
+     5332   5470  cc7a  EVEN 13086  e1f  e1f     rel rel      1   
+     5333   5471  cc79  odd         e1f  e1f     rel                
+     5334   5472  cc78  EVEN 13087  e1e  e1e     rel rel      2   
+     5335   5473  cc77  odd         e1e  e1e     rel                
+     5336   5474  cc76  EVEN 13088  e1d  e1d     rel rel      1   
+     5337   5475  cc75  odd         e1d  e1d     rel                
+     5338   5476  cc74  EVEN 13089  e1c  e1c     rel rel      2   
+     5339   5477  cc73  odd         e1c  e1c     rel                
+     5340   5478  cc72  EVEN 13090  e1c  e1c     rel rel      1   
+     5341   5479  cc71  odd         e1c  e1c     rel                
+     5342   5480  cc70  EVEN 13091  e1b  e1b     rel rel      2   
+     5343   5481  cc6f  odd         e1b  e1b     rel                
+     5344   5482  cc6e  EVEN 13092  e1a  e1a     rel rel      1   
+     5345   5483  cc6d  odd         e1a  e1a     rel                
+     5346   5484  cc6c  EVEN 13093  e19  e19     rel rel      2   
+     5347   5485  cc6b  odd         e19  e19     rel                
+     5348   5486  cc6a  EVEN 13094  e19  e19     rel rel      1   
+     5349   5487  cc69  odd         e19  e19     rel                
+     5350   5488  cc68  EVEN 13095  e18  e18     rel rel      2   
+     5351   5489  cc67  odd         e18  e18     rel                
+     5352   5490  cc66  EVEN 13096  e17  e17     rel rel      1   
+     5353   5491  cc65  odd         e17  e17     rel                
+     5354   5492  cc64  EVEN 13097  e16  e16     rel rel      2   
+     5355   5493  cc63  odd         e16  e16     rel                
+     5356   5494  cc62  EVEN 13098  e16  e16     rel rel      1   
+     5357   5495  cc61  odd         e16  e16     rel                
+     5358   5496  cc60  EVEN 13099  e15  e15     rel rel      2   
+     5359   5497  cc5f  odd         e15  e15     rel                
+     5360   5498  cc5e  EVEN 13100  e14  e14     rel rel      1   
+     5361   5499  cc5d  odd         e14  e14     rel                
+     5362   5500  cc5c  EVEN 13101  e13  e13     rel rel      2   
+     5363   5501  cc5b  odd         e13  e13     rel                
+     5364   5502  cc5a  EVEN 13102  e13  e13     rel rel      1   
+     5365   5503  cc59  odd         e13  e13     rel                
+     5366   5504  cc58  EVEN 13103  e12  e12     rel rel      2   
+     5367   5505  cc57  odd         e12  e12     rel                
+     5368   5506  cc56  EVEN 13104  e11  e11     rel rel      1   
+     5369   5507  cc55  odd         e11  e11     rel                
+     5370   5508  cc54  EVEN 13105  e10  e10     rel rel      2   
+     5371   5509  cc53  odd         e10  e10     rel                
+== ft_1_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 15 OCT 3 FNS 200 -> R 32/40/48/44; onset 138, S3 key-off sample 6660 (MDEC_CT 8b52 EVEN): FULL 10934/10934
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6482   6620  8b7a  EVEN  5022  c65  c65     att att      0   
+     6483   6621  8b79  odd           ?  c65     att                
+     6484   6622  8b78  EVEN  5023  c65  c65     att att      0   
+     6485   6623  8b77  odd         c65  c65     att                
+     6486   6624  8b76  EVEN  5024  c65  c65     att att      0   
+     6487   6625  8b75  odd         c65  c65     att                
+     6488   6626  8b74  EVEN  5025  c65  c65     att att      0   
+     6489   6627  8b73  odd         c65  c65     att                
+     6490   6628  8b72  EVEN  5026  c65  c65     att att      0   
+     6491   6629  8b71  odd         c65  c65     att                
+     6492   6630  8b70  EVEN  5027  c65  c65     att att      0   
+     6493   6631  8b6f  odd         c65  c65     att                
+     6494   6632  8b6e  EVEN  5028  c65  c65     att att      0   
+     6495   6633  8b6d  odd         c65  c65     att                
+     6496   6634  8b6c  EVEN  5029  c65  c65     att att      0   
+     6497   6635  8b6b  odd         c65  c65     att                
+     6498   6636  8b6a  EVEN  5030  c65  c65     att att      0   
+     6499   6637  8b69  odd         c65  c65     att                
+     6500   6638  8b68  EVEN  5031  c65  c65     att att      0   
+     6501   6639  8b67  odd         c65  c65     att                
+     6502   6640  8b66  EVEN  5032  c65  c65     att att      0   
+     6503   6641  8b65  odd         c65  c65     att                
+     6504   6642  8b64  EVEN  5033  c66  c66     att att      1   
+     6505   6643  8b63  odd         c66  c66     att                
+     6506   6644  8b62  EVEN  5034  c66  c66     att att      0   
+     6507   6645  8b61  odd         c66  c66     att                
+     6508   6646  8b60  EVEN  5035  c66  c66     att att      0   
+     6509   6647  8b5f  odd         c66  c66     att                
+     6510   6648  8b5e  EVEN  5036  c66  c66     att att      0   
+     6511   6649  8b5d  odd           ?  c66     att                
+     6512   6650  8b5c  EVEN  5037  c66  c66     att att      0   
+     6513   6651  8b5b  odd         c66  c66     att                
+     6514   6652  8b5a  EVEN  5038  c66  c66     att att      0   
+     6515   6653  8b59  odd           ?  c66     att                
+     6516   6654  8b58  EVEN  5039  c66  c66     att att      0   
+     6517   6655  8b57  odd         c66  c66     att                
+     6518   6656  8b56  EVEN  5040  c66  c66     att att      0   
+     6519   6657  8b55  odd           ?  c66     att                
+     6520   6658  8b54  EVEN  5041    ?  c66     att att      0   
+     6521   6659  8b53  odd           ?  c66     att                
+     6522   6660  8b52  EVEN  5042  c66  c66     rel att      0   KEY-OFF
+     6523   6661  8b51  odd         c66  c66     rel                
+     6524   6662  8b50  EVEN  5043  c66  c66     rel rel      0   
+     6525   6663  8b4f  odd         c66  c66     rel                
+     6526   6664  8b4e  EVEN  5044  c66  c66     rel rel      1   
+     6527   6665  8b4d  odd         c66  c66     rel                
+     6528   6666  8b4c  EVEN  5045  c66  c66     rel rel      0   
+     6529   6667  8b4b  odd         c66  c66     rel                
+     6530   6668  8b4a  EVEN  5046  c67  c67     rel rel      1   
+     6531   6669  8b49  odd         c67  c67     rel                
+     6532   6670  8b48  EVEN  5047  c67  c67     rel rel      0   
+     6533   6671  8b47  odd         c67  c67     rel                
+     6534   6672  8b46  EVEN  5048  c67  c67     rel rel      1   
+     6535   6673  8b45  odd         c67  c67     rel                
+     6536   6674  8b44  EVEN  5049  c67  c67     rel rel      0   
+     6537   6675  8b43  odd         c67  c67     rel                
+     6538   6676  8b42  EVEN  5050  c68  c68     rel rel      1   
+     6539   6677  8b41  odd         c68  c68     rel                
+     6540   6678  8b40  EVEN  5051  c68  c68     rel rel      0   
+     6541   6679  8b3f  odd           ?  c68     rel                
+     6542   6680  8b3e  EVEN  5052  c68  c68     rel rel      1   
+     6543   6681  8b3d  odd         c68  c68     rel                
+     6544   6682  8b3c  EVEN  5053  c68  c68     rel rel      0   
+     6545   6683  8b3b  odd         c68  c68     rel                
+     6546   6684  8b3a  EVEN  5054  c69  c69     rel rel      1   
+     6547   6685  8b39  odd           ?  c69     rel                
+     6548   6686  8b38  EVEN  5055    ?  c69     rel rel      0   
+     6549   6687  8b37  odd         c69  c69     rel                
+     6550   6688  8b36  EVEN  5056  c69  c69     rel rel      1   
+     6551   6689  8b35  odd         c69  c69     rel                
+     6552   6690  8b34  EVEN  5057  c69  c69     rel rel      0   
+     6553   6691  8b33  odd         c69  c69     rel                
+     6554   6692  8b32  EVEN  5058  c6a  c6a     rel rel      1   
+     6555   6693  8b31  odd         c6a  c6a     rel                
+     6556   6694  8b30  EVEN  5059  c6a  c6a     rel rel      0   
+     6557   6695  8b2f  odd         c6a  c6a     rel                
+     6558   6696  8b2e  EVEN  5060  c6a  c6a     rel rel      1   
+     6559   6697  8b2d  odd         c6a  c6a     rel                
+     6560   6698  8b2c  EVEN  5061  c6a  c6a     rel rel      0   
+     6561   6699  8b2b  odd         c6a  c6a     rel                
+     6562   6700  8b2a  EVEN  5062  c6b  c6b     rel rel      1   
+== ft_1_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 0 OCT 3 FNS 200 -> R 39/47/55/51; onset 138, S3 key-off sample 6660 (MDEC_CT 8b52 EVEN): FULL 10934/10934
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6482   6620  8b7a  EVEN  5022  d62  d62     att att      0   
+     6483   6621  8b79  odd         d62  d62     att                
+     6484   6622  8b78  EVEN  5023  d62  d62     att att      0   
+     6485   6623  8b77  odd         d62  d62     att                
+     6486   6624  8b76  EVEN  5024  d62  d62     att att      0   
+     6487   6625  8b75  odd         d62  d62     att                
+     6488   6626  8b74  EVEN  5025  d62  d62     att att      0   
+     6489   6627  8b73  odd         d62  d62     att                
+     6490   6628  8b72  EVEN  5026  d62  d62     att att      0   
+     6491   6629  8b71  odd         d62  d62     att                
+     6492   6630  8b70  EVEN  5027  d62  d62     att att      0   
+     6493   6631  8b6f  odd         d62  d62     att                
+     6494   6632  8b6e  EVEN  5028  d62  d62     att att      0   
+     6495   6633  8b6d  odd         d62  d62     att                
+     6496   6634  8b6c  EVEN  5029  d63  d63     att att      1   
+     6497   6635  8b6b  odd         d63  d63     att                
+     6498   6636  8b6a  EVEN  5030  d63  d63     att att      0   
+     6499   6637  8b69  odd           ?  d63     att                
+     6500   6638  8b68  EVEN  5031  d63  d63     att att      0   
+     6501   6639  8b67  odd         d63  d63     att                
+     6502   6640  8b66  EVEN  5032  d63  d63     att att      0   
+     6503   6641  8b65  odd         d63  d63     att                
+     6504   6642  8b64  EVEN  5033  d63  d63     att att      1   
+     6505   6643  8b63  odd         d63  d63     att                
+     6506   6644  8b62  EVEN  5034  d63  d63     att att      0   
+     6507   6645  8b61  odd         d63  d63     att                
+     6508   6646  8b60  EVEN  5035  d63  d63     att att      0   
+     6509   6647  8b5f  odd         d63  d63     att                
+     6510   6648  8b5e  EVEN  5036    ?  d63     att att      0   
+     6511   6649  8b5d  odd         d63  d63     att                
+     6512   6650  8b5c  EVEN  5037  d64  d64     att att      1   
+     6513   6651  8b5b  odd         d64  d64     att                
+     6514   6652  8b5a  EVEN  5038  d64  d64     att att      0   
+     6515   6653  8b59  odd         d64  d64     att                
+     6516   6654  8b58  EVEN  5039  d64  d64     att att      0   
+     6517   6655  8b57  odd         d64  d64     att                
+     6518   6656  8b56  EVEN  5040  d64  d64     att att      0   
+     6519   6657  8b55  odd         d64  d64     att                
+     6520   6658  8b54  EVEN  5041  d64  d64     att att      1   
+     6521   6659  8b53  odd         d64  d64     att                
+     6522   6660  8b52  EVEN  5042  d64  d64     rel att      0   KEY-OFF
+     6523   6661  8b51  odd         d64  d64     rel                
+     6524   6662  8b50  EVEN  5043  d65  d65     rel rel      2   
+     6525   6663  8b4f  odd         d65  d65     rel                
+     6526   6664  8b4e  EVEN  5044  d66  d66     rel rel      1   
+     6527   6665  8b4d  odd         d66  d66     rel                
+     6528   6666  8b4c  EVEN  5045  d67  d67     rel rel      2   
+     6529   6667  8b4b  odd         d67  d67     rel                
+     6530   6668  8b4a  EVEN  5046  d68  d68     rel rel      2   
+     6531   6669  8b49  odd         d68  d68     rel                
+     6532   6670  8b48  EVEN  5047  d69  d69     rel rel      2   
+     6533   6671  8b47  odd         d69  d69     rel                
+     6534   6672  8b46  EVEN  5048  d69  d69     rel rel      1   
+     6535   6673  8b45  odd         d69  d69     rel                
+     6536   6674  8b44  EVEN  5049  d6a  d6a     rel rel      2   
+     6537   6675  8b43  odd         d6a  d6a     rel                
+     6538   6676  8b42  EVEN  5050  d6b  d6b     rel rel      2   
+     6539   6677  8b41  odd         d6b  d6b     rel                
+     6540   6678  8b40  EVEN  5051  d6c  d6c     rel rel      2   
+     6541   6679  8b3f  odd         d6c  d6c     rel                
+     6542   6680  8b3e  EVEN  5052    ?  d6d     rel rel      1   
+     6543   6681  8b3d  odd         d6d  d6d     rel                
+     6544   6682  8b3c  EVEN  5053  d6e  d6e     rel rel      2   
+     6545   6683  8b3b  odd         d6e  d6e     rel                
+     6546   6684  8b3a  EVEN  5054  d6f  d6f     rel rel      2   
+     6547   6685  8b39  odd         d6f  d6f     rel                
+     6548   6686  8b38  EVEN  5055  d70  d70     rel rel      2   
+     6549   6687  8b37  odd         d70  d70     rel                
+     6550   6688  8b36  EVEN  5056  d70  d70     rel rel      1   
+     6551   6689  8b35  odd         d70  d70     rel                
+     6552   6690  8b34  EVEN  5057  d71  d71     rel rel      2   
+     6553   6691  8b33  odd         d71  d71     rel                
+     6554   6692  8b32  EVEN  5058  d72  d72     rel rel      2   
+     6555   6693  8b31  odd         d72  d72     rel                
+     6556   6694  8b30  EVEN  5059  d73  d73     rel rel      2   
+     6557   6695  8b2f  odd         d73  d73     rel                
+     6558   6696  8b2e  EVEN  5060    ?  d74     rel rel      1   
+     6559   6697  8b2d  odd         d74  d74     rel                
+     6560   6698  8b2c  EVEN  5061  d75  d75     rel rel      2   
+     6561   6699  8b2b  odd         d75  d75     rel                
+     6562   6700  8b2a  EVEN  5062  d76  d76     rel rel      2   
+== ft_1_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 16 FD1R 20 FD2R 24 FRR 22 KRS 5 OCT 3 FNS 200 -> R 49/57/63/61; onset 138, S3 key-off sample 6660 (MDEC_CT 8b52 EVEN): FULL 10934/10934
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6482   6620  8b7a  EVEN  5022    ?  cfe     d2  d2       8   
+     6483   6621  8b79  odd           ?  cfe     d2                 
+     6484   6622  8b78  EVEN  5023  cfe  cfe     d2  d2       8   
+     6485   6623  8b77  odd         cfe  cfe     d2                 
+     6486   6624  8b76  EVEN  5024  cfe  cfe     d2  d2       8   
+     6487   6625  8b75  odd         cfe  cfe     d2                 
+     6488   6626  8b74  EVEN  5025  cfe  cfe     d2  d2       8   
+     6489   6627  8b73  odd         cfe  cfe     d2                 
+     6490   6628  8b72  EVEN  5026  cfe  cfe     d2  d2       8   
+     6491   6629  8b71  odd         cfe  cfe     d2                 
+     6492   6630  8b70  EVEN  5027  cfe  cfe     d2  d2       8   
+     6493   6631  8b6f  odd         cfe  cfe     d2                 
+     6494   6632  8b6e  EVEN  5028  cfe  cfe     d2  d2       8   
+     6495   6633  8b6d  odd           ?  cfe     d2                 
+     6496   6634  8b6c  EVEN  5029  cfe  cfe     d2  d2       8   
+     6497   6635  8b6b  odd         cfe  cfe     d2                 
+     6498   6636  8b6a  EVEN  5030  cfe  cfe     d2  d2       8   
+     6499   6637  8b69  odd           ?  cfe     d2                 
+     6500   6638  8b68  EVEN  5031  cfe  cfe     d2  d2       8   
+     6501   6639  8b67  odd         cfe  cfe     d2                 
+     6502   6640  8b66  EVEN  5032  cfe  cfe     d2  d2       8   
+     6503   6641  8b65  odd         cfe  cfe     d2                 
+     6504   6642  8b64  EVEN  5033  cfe  cfe     d2  d2       8   
+     6505   6643  8b63  odd         cfe  cfe     d2                 
+     6506   6644  8b62  EVEN  5034  cfe  cfe     d2  d2       8   
+     6507   6645  8b61  odd         cfe  cfe     d2                 
+     6508   6646  8b60  EVEN  5035  cfe  cfe     d2  d2       8   
+     6509   6647  8b5f  odd         cfe  cfe     d2                 
+     6510   6648  8b5e  EVEN  5036  cfe  cfe     d2  d2       8   
+     6511   6649  8b5d  odd           ?  cfe     d2                 
+     6512   6650  8b5c  EVEN  5037  cfe  cfe     d2  d2       8   
+     6513   6651  8b5b  odd         cfe  cfe     d2                 
+     6514   6652  8b5a  EVEN  5038  cfe  cfe     d2  d2       8   
+     6515   6653  8b59  odd           ?  cfe     d2                 
+     6516   6654  8b58  EVEN  5039    ?  cfe     d2  d2       8   
+     6517   6655  8b57  odd         cfe  cfe     d2                 
+     6518   6656  8b56  EVEN  5040  cfe  cfe     d2  d2       8   
+     6519   6657  8b55  odd           ?  cfe     d2                 
+     6520   6658  8b54  EVEN  5041    ?  cfe     d2  d2       8   
+     6521   6659  8b53  odd         cfe  cfe     d2                 
+     6522   6660  8b52  EVEN  5042  d02  d02     rel d2       8   KEY-OFF
+     6523   6661  8b51  odd         d02  d02     rel                
+     6524   6662  8b50  EVEN  5043  d06  d06     rel rel      8   
+     6525   6663  8b4f  odd         d06  d06     rel                
+     6526   6664  8b4e  EVEN  5044  d0a  d0a     rel rel      8   
+     6527   6665  8b4d  odd         d0a  d0a     rel                
+     6528   6666  8b4c  EVEN  5045  d0e  d0e     rel rel      8   
+     6529   6667  8b4b  odd         d0e  d0e     rel                
+     6530   6668  8b4a  EVEN  5046  d12  d12     rel rel      8   
+     6531   6669  8b49  odd         d12  d12     rel                
+     6532   6670  8b48  EVEN  5047  d16  d16     rel rel      8   
+     6533   6671  8b47  odd         d16  d16     rel                
+     6534   6672  8b46  EVEN  5048  d1a  d1a     rel rel      8   
+     6535   6673  8b45  odd         d1a  d1a     rel                
+     6536   6674  8b44  EVEN  5049  d1e  d1e     rel rel      8   
+     6537   6675  8b43  odd         d1e  d1e     rel                
+     6538   6676  8b42  EVEN  5050  d22  d22     rel rel      8   
+     6539   6677  8b41  odd         d22  d22     rel                
+     6540   6678  8b40  EVEN  5051  d26  d26     rel rel      8   
+     6541   6679  8b3f  odd         d26  d26     rel                
+     6542   6680  8b3e  EVEN  5052  d2a  d2a     rel rel      8   
+     6543   6681  8b3d  odd         d2a  d2a     rel                
+     6544   6682  8b3c  EVEN  5053  d2e  d2e     rel rel      8   
+     6545   6683  8b3b  odd         d2e  d2e     rel                
+     6546   6684  8b3a  EVEN  5054  d32  d32     rel rel      8   
+     6547   6685  8b39  odd         d32  d32     rel                
+     6548   6686  8b38  EVEN  5055  d36  d36     rel rel      8   
+     6549   6687  8b37  odd         d36  d36     rel                
+     6550   6688  8b36  EVEN  5056  d3a  d3a     rel rel      8   
+     6551   6689  8b35  odd         d3a  d3a     rel                
+     6552   6690  8b34  EVEN  5057  d3e  d3e     rel rel      8   
+     6553   6691  8b33  odd         d3e  d3e     rel                
+     6554   6692  8b32  EVEN  5058  d42  d42     rel rel      8   
+     6555   6693  8b31  odd         d42  d42     rel                
+     6556   6694  8b30  EVEN  5059  d46  d46     rel rel      8   
+     6557   6695  8b2f  odd         d46  d46     rel                
+     6558   6696  8b2e  EVEN  5060  d4a  d4a     rel rel      8   
+     6559   6697  8b2d  odd         d4a  d4a     rel                
+     6560   6698  8b2c  EVEN  5061  d4e  d4e     rel rel      8   
+     6561   6699  8b2b  odd         d4e  d4e     rel                
+     6562   6700  8b2a  EVEN  5062  d52  d52     rel rel      8   
+== ft_2_s0  slot program FLV 1800 1ff0 1800 1800 1a00  FAR 24 FD1R 26 FD2R 0 FRR 28 KRS 15 OCT 13 FNS 155 -> R 48/52/0/56; onset 138, S3 key-off sample 803 (MDEC_CT 611c EVEN): FULL 5174/5174
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+      625    763  6144  EVEN 10425  c9c  c9c     att att      1   
+      626    764  6143  odd         c9c  c9c     att                
+      627    765  6142  EVEN 10426  c9d  c9d     att att      1   
+      628    766  6141  odd         c9d  c9d     att                
+      629    767  6140  EVEN 10427  c9d  c9d     att att      1   
+      630    768  613f  odd         c9d  c9d     att                
+      631    769  613e  EVEN 10428  c9e  c9e     att att      1   
+      632    770  613d  odd         c9e  c9e     att                
+      633    771  613c  EVEN 10429  c9e  c9e     att att      1   
+      634    772  613b  odd         c9e  c9e     att                
+      635    773  613a  EVEN 10430  c9f  c9f     att att      1   
+      636    774  6139  odd         c9f  c9f     att                
+      637    775  6138  EVEN 10431  c9f  c9f     att att      1   
+      638    776  6137  odd         c9f  c9f     att                
+      639    777  6136  EVEN 10432  ca0  ca0     att att      1   
+      640    778  6135  odd         ca0  ca0     att                
+      641    779  6134  EVEN 10433  ca0  ca0     att att      1   
+      642    780  6133  odd         ca0  ca0     att                
+      643    781  6132  EVEN 10434  ca1  ca1     att att      1   
+      644    782  6131  odd         ca1  ca1     att                
+      645    783  6130  EVEN 10435  ca1  ca1     att att      1   
+      646    784  612f  odd         ca1  ca1     att                
+      647    785  612e  EVEN 10436  ca2  ca2     att att      1   
+      648    786  612d  odd         ca2  ca2     att                
+      649    787  612c  EVEN 10437  ca2  ca2     att att      1   
+      650    788  612b  odd         ca2  ca2     att                
+      651    789  612a  EVEN 10438  ca3  ca3     att att      1   
+      652    790  6129  odd         ca3  ca3     att                
+      653    791  6128  EVEN 10439  ca3  ca3     att att      1   
+      654    792  6127  odd         ca3  ca3     att                
+      655    793  6126  EVEN 10440  ca4  ca4     att att      1   
+      656    794  6125  odd         ca4  ca4     att                
+      657    795  6124  EVEN 10441  ca4  ca4     att att      1   
+      658    796  6123  odd         ca4  ca4     att                
+      659    797  6122  EVEN 10442  ca5  ca5     att att      1   
+      660    798  6121  odd         ca5  ca5     att                
+      661    799  6120  EVEN 10443  ca5  ca5     att att      1   
+      662    800  611f  odd         ca5  ca5     att                
+      663    801  611e  EVEN 10444  ca6  ca6     att att      1   
+      664    802  611d  odd         ca6  ca6     att                
+      665    803  611c  EVEN 10445  ca6  ca6     rel att      1   KEY-OFF
+      666    804  611b  odd         ca6  ca6     rel                
+      667    805  611a  EVEN 10446  ca8  ca8     rel rel      4   
+      668    806  6119  odd         ca8  ca8     rel                
+      669    807  6118  EVEN 10447  caa  caa     rel rel      4   
+      670    808  6117  odd         caa  caa     rel                
+      671    809  6116  EVEN 10448  cac  cac     rel rel      4   
+      672    810  6115  odd         cac  cac     rel                
+      673    811  6114  EVEN 10449  cae  cae     rel rel      4   
+      674    812  6113  odd         cae  cae     rel                
+      675    813  6112  EVEN 10450  cb0  cb0     rel rel      4   
+      676    814  6111  odd         cb0  cb0     rel                
+      677    815  6110  EVEN 10451  cb2  cb2     rel rel      4   
+      678    816  610f  odd         cb2  cb2     rel                
+      679    817  610e  EVEN 10452  cb4  cb4     rel rel      4   
+      680    818  610d  odd         cb4  cb4     rel                
+      681    819  610c  EVEN 10453  cb6  cb6     rel rel      4   
+      682    820  610b  odd         cb6  cb6     rel                
+      683    821  610a  EVEN 10454  cb8  cb8     rel rel      4   
+      684    822  6109  odd           ?  cb8     rel                
+      685    823  6108  EVEN 10455  cba  cba     rel rel      4   
+      686    824  6107  odd         cba  cba     rel                
+      687    825  6106  EVEN 10456  cbc  cbc     rel rel      4   
+      688    826  6105  odd         cbc  cbc     rel                
+      689    827  6104  EVEN 10457  cbe  cbe     rel rel      4   
+      690    828  6103  odd         cbe  cbe     rel                
+      691    829  6102  EVEN 10458  cc0  cc0     rel rel      4   
+      692    830  6101  odd         cc0  cc0     rel                
+      693    831  6100  EVEN 10459  cc2  cc2     rel rel      4   
+      694    832  60ff  odd         cc2  cc2     rel                
+      695    833  60fe  EVEN 10460  cc4  cc4     rel rel      4   
+      696    834  60fd  odd         cc4  cc4     rel                
+      697    835  60fc  EVEN 10461  cc6  cc6     rel rel      4   
+      698    836  60fb  odd         cc6  cc6     rel                
+      699    837  60fa  EVEN 10462  cc8  cc8     rel rel      4   
+      700    838  60f9  odd         cc8  cc8     rel                
+      701    839  60f8  EVEN 10463  cca  cca     rel rel      4   
+      702    840  60f7  odd         cca  cca     rel                
+      703    841  60f6  EVEN 10464  ccc  ccc     rel rel      4   
+      704    842  60f5  odd         ccc  ccc     rel                
+      705    843  60f4  EVEN 10465  cce  cce     rel rel      4   
+== ft_2_s1  slot program FLV 1800 1c00 1900 1a00 1c00  FAR 18 FD1R 20 FD2R 22 FRR 24 KRS 2 OCT 13 FNS 155 -> R 36/40/44/48; onset 138, S3 key-off sample 803 (MDEC_CT 611c EVEN): FULL 5174/5174
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+      625    763  6144  EVEN 10425  c13  c13     att att      0   
+      626    764  6143  odd         c13  c13     att                
+      627    765  6142  EVEN 10426  c13  c13     att att      0   
+      628    766  6141  odd         c13  c13     att                
+      629    767  6140  EVEN 10427  c13  c13     att att      0   
+      630    768  613f  odd         c13  c13     att                
+      631    769  613e  EVEN 10428  c13  c13     att att      0   
+      632    770  613d  odd         c13  c13     att                
+      633    771  613c  EVEN 10429  c14  c14     att att      1   
+      634    772  613b  odd         c14  c14     att                
+      635    773  613a  EVEN 10430  c14  c14     att att      0   
+      636    774  6139  odd         c14  c14     att                
+      637    775  6138  EVEN 10431  c14  c14     att att      0   
+      638    776  6137  odd         c14  c14     att                
+      639    777  6136  EVEN 10432  c14  c14     att att      0   
+      640    778  6135  odd         c14  c14     att                
+      641    779  6134  EVEN 10433  c14  c14     att att      0   
+      642    780  6133  odd         c14  c14     att                
+      643    781  6132  EVEN 10434  c14  c14     att att      0   
+      644    782  6131  odd         c14  c14     att                
+      645    783  6130  EVEN 10435  c14  c14     att att      0   
+      646    784  612f  odd         c14  c14     att                
+      647    785  612e  EVEN 10436  c14  c14     att att      0   
+      648    786  612d  odd         c14  c14     att                
+      649    787  612c  EVEN 10437  c14  c14     att att      1   
+      650    788  612b  odd         c14  c14     att                
+      651    789  612a  EVEN 10438  c14  c14     att att      0   
+      652    790  6129  odd         c14  c14     att                
+      653    791  6128  EVEN 10439  c14  c14     att att      0   
+      654    792  6127  odd         c14  c14     att                
+      655    793  6126  EVEN 10440  c14  c14     att att      0   
+      656    794  6125  odd         c14  c14     att                
+      657    795  6124  EVEN 10441  c14  c14     att att      0   
+      658    796  6123  odd         c14  c14     att                
+      659    797  6122  EVEN 10442  c14  c14     att att      0   
+      660    798  6121  odd         c14  c14     att                
+      661    799  6120  EVEN 10443  c14  c14     att att      0   
+      662    800  611f  odd         c14  c14     att                
+      663    801  611e  EVEN 10444  c14  c14     att att      0   
+      664    802  611d  odd         c14  c14     att                
+      665    803  611c  EVEN 10445  c15  c15     rel att      1   KEY-OFF
+      666    804  611b  odd         c15  c15     rel                
+      667    805  611a  EVEN 10446  c15  c15     rel rel      1   
+      668    806  6119  odd         c15  c15     rel                
+      669    807  6118  EVEN 10447  c16  c16     rel rel      1   
+      670    808  6117  odd         c16  c16     rel                
+      671    809  6116  EVEN 10448  c16  c16     rel rel      1   
+      672    810  6115  odd         c16  c16     rel                
+      673    811  6114  EVEN 10449  c17  c17     rel rel      1   
+      674    812  6113  odd         c17  c17     rel                
+      675    813  6112  EVEN 10450  c17  c17     rel rel      1   
+      676    814  6111  odd         c17  c17     rel                
+      677    815  6110  EVEN 10451  c18  c18     rel rel      1   
+      678    816  610f  odd         c18  c18     rel                
+      679    817  610e  EVEN 10452  c18  c18     rel rel      1   
+      680    818  610d  odd         c18  c18     rel                
+      681    819  610c  EVEN 10453  c19  c19     rel rel      1   
+      682    820  610b  odd         c19  c19     rel                
+      683    821  610a  EVEN 10454  c19  c19     rel rel      1   
+      684    822  6109  odd         c19  c19     rel                
+      685    823  6108  EVEN 10455    ?  c1a     rel rel      1   
+      686    824  6107  odd           ?  c1a     rel                
+      687    825  6106  EVEN 10456    ?  c1a     rel rel      1   
+      688    826  6105  odd           ?  c1a     rel                
+      689    827  6104  EVEN 10457  c1b  c1b     rel rel      1   
+      690    828  6103  odd         c1b  c1b     rel                
+      691    829  6102  EVEN 10458  c1b  c1b     rel rel      1   
+      692    830  6101  odd         c1b  c1b     rel                
+      693    831  6100  EVEN 10459  c1c  c1c     rel rel      1   
+      694    832  60ff  odd         c1c  c1c     rel                
+      695    833  60fe  EVEN 10460  c1c  c1c     rel rel      1   
+      696    834  60fd  odd         c1c  c1c     rel                
+      697    835  60fc  EVEN 10461  c1d  c1d     rel rel      1   
+      698    836  60fb  odd         c1d  c1d     rel                
+      699    837  60fa  EVEN 10462  c1d  c1d     rel rel      1   
+      700    838  60f9  odd         c1d  c1d     rel                
+      701    839  60f8  EVEN 10463  c1e  c1e     rel rel      1   
+      702    840  60f7  odd         c1e  c1e     rel                
+      703    841  60f6  EVEN 10464  c1e  c1e     rel rel      1   
+      704    842  60f5  odd         c1e  c1e     rel                
+      705    843  60f4  EVEN 10465  c1f  c1f     rel rel      1   
+== ft_2_s2  slot program FLV 1c00 1d00 1d00 1e00 1b00  FAR 26 FD1R 26 FD2R 0 FRR 26 KRS 15 OCT 13 FNS 155 -> R 52/52/0/52; onset 138, S3 key-off sample 803 (MDEC_CT 611c EVEN): FULL 5174/5174
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+      625    763  6144  EVEN 10425  e7f  e7f     d2  d2       0   
+      626    764  6143  odd         e7f  e7f     d2                 
+      627    765  6142  EVEN 10426  e7f  e7f     d2  d2       0   
+      628    766  6141  odd         e7f  e7f     d2                 
+      629    767  6140  EVEN 10427  e7f  e7f     d2  d2       0   
+      630    768  613f  odd         e7f  e7f     d2                 
+      631    769  613e  EVEN 10428  e7f  e7f     d2  d2       0   
+      632    770  613d  odd         e7f  e7f     d2                 
+      633    771  613c  EVEN 10429  e7f  e7f     d2  d2       0   
+      634    772  613b  odd         e7f  e7f     d2                 
+      635    773  613a  EVEN 10430  e7f  e7f     d2  d2       0   
+      636    774  6139  odd         e7f  e7f     d2                 
+      637    775  6138  EVEN 10431  e7f  e7f     d2  d2       0   
+      638    776  6137  odd         e7f  e7f     d2                 
+      639    777  6136  EVEN 10432  e7f  e7f     d2  d2       0   
+      640    778  6135  odd         e7f  e7f     d2                 
+      641    779  6134  EVEN 10433  e7f  e7f     d2  d2       0   
+      642    780  6133  odd         e7f  e7f     d2                 
+      643    781  6132  EVEN 10434  e7f  e7f     d2  d2       0   
+      644    782  6131  odd         e7f  e7f     d2                 
+      645    783  6130  EVEN 10435  e7f  e7f     d2  d2       0   
+      646    784  612f  odd         e7f  e7f     d2                 
+      647    785  612e  EVEN 10436  e7f  e7f     d2  d2       0   
+      648    786  612d  odd         e7f  e7f     d2                 
+      649    787  612c  EVEN 10437  e7f  e7f     d2  d2       0   
+      650    788  612b  odd         e7f  e7f     d2                 
+      651    789  612a  EVEN 10438  e7f  e7f     d2  d2       0   
+      652    790  6129  odd         e7f  e7f     d2                 
+      653    791  6128  EVEN 10439  e7f  e7f     d2  d2       0   
+      654    792  6127  odd         e7f  e7f     d2                 
+      655    793  6126  EVEN 10440  e7f  e7f     d2  d2       0   
+      656    794  6125  odd         e7f  e7f     d2                 
+      657    795  6124  EVEN 10441  e7f  e7f     d2  d2       0   
+      658    796  6123  odd         e7f  e7f     d2                 
+      659    797  6122  EVEN 10442  e7f  e7f     d2  d2       0   
+      660    798  6121  odd           ?  e7f     d2                 
+      661    799  6120  EVEN 10443    ?  e7f     d2  d2       0   
+      662    800  611f  odd         e7f  e7f     d2                 
+      663    801  611e  EVEN 10444  e7f  e7f     d2  d2       0   
+      664    802  611d  odd         e7f  e7f     d2                 
+      665    803  611c  EVEN 10445  e7f  e7f     rel d2       0   KEY-OFF
+      666    804  611b  odd         e7f  e7f     rel                
+      667    805  611a  EVEN 10446  e7e  e7e     rel rel      2   
+      668    806  6119  odd         e7e  e7e     rel                
+      669    807  6118  EVEN 10447  e7d  e7d     rel rel      2   
+      670    808  6117  odd         e7d  e7d     rel                
+      671    809  6116  EVEN 10448  e7c  e7c     rel rel      2   
+      672    810  6115  odd         e7c  e7c     rel                
+      673    811  6114  EVEN 10449  e7b  e7b     rel rel      2   
+      674    812  6113  odd         e7b  e7b     rel                
+      675    813  6112  EVEN 10450  e7a  e7a     rel rel      2   
+      676    814  6111  odd         e7a  e7a     rel                
+      677    815  6110  EVEN 10451  e79  e79     rel rel      2   
+      678    816  610f  odd         e79  e79     rel                
+      679    817  610e  EVEN 10452  e78  e78     rel rel      2   
+      680    818  610d  odd         e78  e78     rel                
+      681    819  610c  EVEN 10453  e77  e77     rel rel      2   
+      682    820  610b  odd         e77  e77     rel                
+      683    821  610a  EVEN 10454  e76  e76     rel rel      2   
+      684    822  6109  odd         e76  e76     rel                
+      685    823  6108  EVEN 10455  e75  e75     rel rel      2   
+      686    824  6107  odd         e75  e75     rel                
+      687    825  6106  EVEN 10456  e74  e74     rel rel      2   
+      688    826  6105  odd         e74  e74     rel                
+      689    827  6104  EVEN 10457  e73  e73     rel rel      2   
+      690    828  6103  odd         e73  e73     rel                
+      691    829  6102  EVEN 10458  e72  e72     rel rel      2   
+      692    830  6101  odd         e72  e72     rel                
+      693    831  6100  EVEN 10459  e71  e71     rel rel      2   
+      694    832  60ff  odd         e71  e71     rel                
+      695    833  60fe  EVEN 10460  e70  e70     rel rel      2   
+      696    834  60fd  odd         e70  e70     rel                
+      697    835  60fc  EVEN 10461  e6f  e6f     rel rel      2   
+      698    836  60fb  odd         e6f  e6f     rel                
+      699    837  60fa  EVEN 10462  e6e  e6e     rel rel      2   
+      700    838  60f9  odd         e6e  e6e     rel                
+      701    839  60f8  EVEN 10463  e6d  e6d     rel rel      2   
+      702    840  60f7  odd         e6d  e6d     rel                
+      703    841  60f6  EVEN 10464  e6c  e6c     rel rel      2   
+      704    842  60f5  odd         e6c  e6c     rel                
+      705    843  60f4  EVEN 10465  e6b  e6b     rel rel      2   
+== feg_odd_s0  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 24 FD1R 26 FD2R 28 FRR 22 KRS 0 OCT 0 FNS 200 -> R 49/53/57/45; onset 139, S3 key-off sample 6772 (MDEC_CT e6eb odd): FULL 11125/11125
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6732  e713  odd         cff  cff     d2                 
+     6594   6733  e712  EVEN  9682  cff  cff     d2  d2       4   
+     6595   6734  e711  odd         cff  cff     d2                 
+     6596   6735  e710  EVEN  9683  cff  cff     d2  d2       4   
+     6597   6736  e70f  odd         cff  cff     d2                 
+     6598   6737  e70e  EVEN  9684  cff  cff     d2  d2       4   
+     6599   6738  e70d  odd         cff  cff     d2                 
+     6600   6739  e70c  EVEN  9685  cff  cff     d2  d2       8   
+     6601   6740  e70b  odd         cff  cff     d2                 
+     6602   6741  e70a  EVEN  9686  cff  cff     d2  d2       4   
+     6603   6742  e709  odd         cff  cff     d2                 
+     6604   6743  e708  EVEN  9687  cff  cff     d2  d2       4   
+     6605   6744  e707  odd         cff  cff     d2                 
+     6606   6745  e706  EVEN  9688  cff  cff     d2  d2       4   
+     6607   6746  e705  odd         cff  cff     d2                 
+     6608   6747  e704  EVEN  9689  cff  cff     d2  d2       8   
+     6609   6748  e703  odd         cff  cff     d2                 
+     6610   6749  e702  EVEN  9690  cff  cff     d2  d2       4   
+     6611   6750  e701  odd         cff  cff     d2                 
+     6612   6751  e700  EVEN  9691  cff  cff     d2  d2       4   
+     6613   6752  e6ff  odd         cff  cff     d2                 
+     6614   6753  e6fe  EVEN  9692  cff  cff     d2  d2       4   
+     6615   6754  e6fd  odd         cff  cff     d2                 
+     6616   6755  e6fc  EVEN  9693  cff  cff     d2  d2       8   
+     6617   6756  e6fb  odd         cff  cff     d2                 
+     6618   6757  e6fa  EVEN  9694  cff  cff     d2  d2       4   
+     6619   6758  e6f9  odd         cff  cff     d2                 
+     6620   6759  e6f8  EVEN  9695    ?  cff     d2  d2       4   
+     6621   6760  e6f7  odd           ?  cff     d2                 
+     6622   6761  e6f6  EVEN  9696  cff  cff     d2  d2       4   
+     6623   6762  e6f5  odd           ?  cff     d2                 
+     6624   6763  e6f4  EVEN  9697  cff  cff     d2  d2       8   
+     6625   6764  e6f3  odd         cff  cff     d2                 
+     6626   6765  e6f2  EVEN  9698  cff  cff     d2  d2       4   
+     6627   6766  e6f1  odd         cff  cff     d2                 
+     6628   6767  e6f0  EVEN  9699  cff  cff     d2  d2       4   
+     6629   6768  e6ef  odd         cff  cff     d2                 
+     6630   6769  e6ee  EVEN  9700  cff  cff     d2  d2       4   
+     6631   6770  e6ed  odd         cff  cff     d2                 
+     6632   6771  e6ec  EVEN  9701  cff  cff     d2  d2       8   
+     6633   6772  e6eb  odd         cff  cff     rel                KEY-OFF
+     6634   6773  e6ea  EVEN  9702  d00  d00     rel rel      1   
+     6635   6774  e6e9  odd         d00  d00     rel                
+     6636   6775  e6e8  EVEN  9703  d00  d00     rel rel      0   
+     6637   6776  e6e7  odd         d00  d00     rel                
+     6638   6777  e6e6  EVEN  9704  d00  d00     rel rel      1   
+     6639   6778  e6e5  odd         d00  d00     rel                
+     6640   6779  e6e4  EVEN  9705  d00  d00     rel rel      0   
+     6641   6780  e6e3  odd         d00  d00     rel                
+     6642   6781  e6e2  EVEN  9706  d01  d01     rel rel      1   
+     6643   6782  e6e1  odd         d01  d01     rel                
+     6644   6783  e6e0  EVEN  9707  d01  d01     rel rel      0   
+     6645   6784  e6df  odd         d01  d01     rel                
+     6646   6785  e6de  EVEN  9708  d01  d01     rel rel      1   
+     6647   6786  e6dd  odd         d01  d01     rel                
+     6648   6787  e6dc  EVEN  9709  d02  d02     rel rel      1   
+     6649   6788  e6db  odd         d02  d02     rel                
+     6650   6789  e6da  EVEN  9710  d02  d02     rel rel      1   
+     6651   6790  e6d9  odd         d02  d02     rel                
+     6652   6791  e6d8  EVEN  9711  d02  d02     rel rel      0   
+     6653   6792  e6d7  odd         d02  d02     rel                
+     6654   6793  e6d6  EVEN  9712  d03  d03     rel rel      1   
+     6655   6794  e6d5  odd         d03  d03     rel                
+     6656   6795  e6d4  EVEN  9713  d03  d03     rel rel      0   
+     6657   6796  e6d3  odd         d03  d03     rel                
+     6658   6797  e6d2  EVEN  9714  d03  d03     rel rel      1   
+     6659   6798  e6d1  odd         d03  d03     rel                
+     6660   6799  e6d0  EVEN  9715  d03  d03     rel rel      0   
+     6661   6800  e6cf  odd         d03  d03     rel                
+     6662   6801  e6ce  EVEN  9716  d04  d04     rel rel      1   
+     6663   6802  e6cd  odd         d04  d04     rel                
+     6664   6803  e6cc  EVEN  9717  d04  d04     rel rel      1   
+     6665   6804  e6cb  odd         d04  d04     rel                
+     6666   6805  e6ca  EVEN  9718  d05  d05     rel rel      1   
+     6667   6806  e6c9  odd         d05  d05     rel                
+     6668   6807  e6c8  EVEN  9719  d05  d05     rel rel      0   
+     6669   6808  e6c7  odd         d05  d05     rel                
+     6670   6809  e6c6  EVEN  9720  d05  d05     rel rel      1   
+     6671   6810  e6c5  odd         d05  d05     rel                
+     6672   6811  e6c4  EVEN  9721  d05  d05     rel rel      0   
+     6673   6812  e6c3  odd         d05  d05     rel                
+== feg_odd_s1  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 25 FD1R 27 FD2R 29 FRR 23 KRS 0 OCT 0 FNS 200 -> R 51/55/59/47; onset 139, S3 key-off sample 6772 (MDEC_CT e6eb odd): FULL 11125/11125
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6732  e713  odd         cff  cff     d2                 
+     6594   6733  e712  EVEN  9682  cff  cff     d2  d2       8   
+     6595   6734  e711  odd         cff  cff     d2                 
+     6596   6735  e710  EVEN  9683  cff  cff     d2  d2       8   
+     6597   6736  e70f  odd         cff  cff     d2                 
+     6598   6737  e70e  EVEN  9684  cff  cff     d2  d2       4   
+     6599   6738  e70d  odd         cff  cff     d2                 
+     6600   6739  e70c  EVEN  9685  cff  cff     d2  d2       8   
+     6601   6740  e70b  odd         cff  cff     d2                 
+     6602   6741  e70a  EVEN  9686  cff  cff     d2  d2       8   
+     6603   6742  e709  odd         cff  cff     d2                 
+     6604   6743  e708  EVEN  9687  cff  cff     d2  d2       8   
+     6605   6744  e707  odd         cff  cff     d2                 
+     6606   6745  e706  EVEN  9688  cff  cff     d2  d2       4   
+     6607   6746  e705  odd         cff  cff     d2                 
+     6608   6747  e704  EVEN  9689  cff  cff     d2  d2       8   
+     6609   6748  e703  odd         cff  cff     d2                 
+     6610   6749  e702  EVEN  9690  cff  cff     d2  d2       8   
+     6611   6750  e701  odd         cff  cff     d2                 
+     6612   6751  e700  EVEN  9691  cff  cff     d2  d2       8   
+     6613   6752  e6ff  odd         cff  cff     d2                 
+     6614   6753  e6fe  EVEN  9692  cff  cff     d2  d2       4   
+     6615   6754  e6fd  odd         cff  cff     d2                 
+     6616   6755  e6fc  EVEN  9693  cff  cff     d2  d2       8   
+     6617   6756  e6fb  odd         cff  cff     d2                 
+     6618   6757  e6fa  EVEN  9694  cff  cff     d2  d2       8   
+     6619   6758  e6f9  odd         cff  cff     d2                 
+     6620   6759  e6f8  EVEN  9695    ?  cff     d2  d2       8   
+     6621   6760  e6f7  odd           ?  cff     d2                 
+     6622   6761  e6f6  EVEN  9696  cff  cff     d2  d2       4   
+     6623   6762  e6f5  odd           ?  cff     d2                 
+     6624   6763  e6f4  EVEN  9697  cff  cff     d2  d2       8   
+     6625   6764  e6f3  odd         cff  cff     d2                 
+     6626   6765  e6f2  EVEN  9698  cff  cff     d2  d2       8   
+     6627   6766  e6f1  odd         cff  cff     d2                 
+     6628   6767  e6f0  EVEN  9699  cff  cff     d2  d2       8   
+     6629   6768  e6ef  odd         cff  cff     d2                 
+     6630   6769  e6ee  EVEN  9700  cff  cff     d2  d2       4   
+     6631   6770  e6ed  odd         cff  cff     d2                 
+     6632   6771  e6ec  EVEN  9701  cff  cff     d2  d2       8   
+     6633   6772  e6eb  odd         cff  cff     rel                KEY-OFF
+     6634   6773  e6ea  EVEN  9702  cff  cff     rel rel      1   
+     6635   6774  e6e9  odd         cff  cff     rel                
+     6636   6775  e6e8  EVEN  9703  d00  d00     rel rel      1   
+     6637   6776  e6e7  odd         d00  d00     rel                
+     6638   6777  e6e6  EVEN  9704  d00  d00     rel rel      1   
+     6639   6778  e6e5  odd         d00  d00     rel                
+     6640   6779  e6e4  EVEN  9705  d00  d00     rel rel      0   
+     6641   6780  e6e3  odd         d00  d00     rel                
+     6642   6781  e6e2  EVEN  9706  d01  d01     rel rel      1   
+     6643   6782  e6e1  odd         d01  d01     rel                
+     6644   6783  e6e0  EVEN  9707  d01  d01     rel rel      1   
+     6645   6784  e6df  odd         d01  d01     rel                
+     6646   6785  e6de  EVEN  9708  d02  d02     rel rel      1   
+     6647   6786  e6dd  odd         d02  d02     rel                
+     6648   6787  e6dc  EVEN  9709  d02  d02     rel rel      1   
+     6649   6788  e6db  odd         d02  d02     rel                
+     6650   6789  e6da  EVEN  9710  d03  d03     rel rel      1   
+     6651   6790  e6d9  odd         d03  d03     rel                
+     6652   6791  e6d8  EVEN  9711  d03  d03     rel rel      1   
+     6653   6792  e6d7  odd         d03  d03     rel                
+     6654   6793  e6d6  EVEN  9712  d04  d04     rel rel      1   
+     6655   6794  e6d5  odd         d04  d04     rel                
+     6656   6795  e6d4  EVEN  9713  d04  d04     rel rel      0   
+     6657   6796  e6d3  odd         d04  d04     rel                
+     6658   6797  e6d2  EVEN  9714  d04  d04     rel rel      1   
+     6659   6798  e6d1  odd         d04  d04     rel                
+     6660   6799  e6d0  EVEN  9715  d05  d05     rel rel      1   
+     6661   6800  e6cf  odd         d05  d05     rel                
+     6662   6801  e6ce  EVEN  9716  d05  d05     rel rel      1   
+     6663   6802  e6cd  odd         d05  d05     rel                
+     6664   6803  e6cc  EVEN  9717  d06  d06     rel rel      1   
+     6665   6804  e6cb  odd         d06  d06     rel                
+     6666   6805  e6ca  EVEN  9718  d06  d06     rel rel      1   
+     6667   6806  e6c9  odd         d06  d06     rel                
+     6668   6807  e6c8  EVEN  9719  d07  d07     rel rel      1   
+     6669   6808  e6c7  odd         d07  d07     rel                
+     6670   6809  e6c6  EVEN  9720  d07  d07     rel rel      1   
+     6671   6810  e6c5  odd         d07  d07     rel                
+     6672   6811  e6c4  EVEN  9721  d07  d07     rel rel      0   
+     6673   6812  e6c3  odd         d07  d07     rel                
+== feg_odd_s2  slot program FLV 1800 1c00 1800 1a00 1c00  FAR 24 FD1R 26 FD2R 28 FRR 22 KRS 0 OCT 0 FNS 200 -> R 49/53/57/45; onset 139, S3 key-off sample 6772 (MDEC_CT e6eb odd): FULL 11125/11125
+   n(+onset)  i     MDEC_CT par  cnt   hw_u  model_u st  rate-seg inc  note
+     6593   6732  e713  odd         cff  cff     d2                 
+     6594   6733  e712  EVEN  9682  cff  cff     d2  d2       4   
+     6595   6734  e711  odd         cff  cff     d2                 
+     6596   6735  e710  EVEN  9683  cff  cff     d2  d2       4   
+     6597   6736  e70f  odd         cff  cff     d2                 
+     6598   6737  e70e  EVEN  9684  cff  cff     d2  d2       4   
+     6599   6738  e70d  odd         cff  cff     d2                 
+     6600   6739  e70c  EVEN  9685  cff  cff     d2  d2       8   
+     6601   6740  e70b  odd         cff  cff     d2                 
+     6602   6741  e70a  EVEN  9686  cff  cff     d2  d2       4   
+     6603   6742  e709  odd         cff  cff     d2                 
+     6604   6743  e708  EVEN  9687  cff  cff     d2  d2       4   
+     6605   6744  e707  odd         cff  cff     d2                 
+     6606   6745  e706  EVEN  9688  cff  cff     d2  d2       4   
+     6607   6746  e705  odd         cff  cff     d2                 
+     6608   6747  e704  EVEN  9689  cff  cff     d2  d2       8   
+     6609   6748  e703  odd         cff  cff     d2                 
+     6610   6749  e702  EVEN  9690  cff  cff     d2  d2       4   
+     6611   6750  e701  odd         cff  cff     d2                 
+     6612   6751  e700  EVEN  9691  cff  cff     d2  d2       4   
+     6613   6752  e6ff  odd         cff  cff     d2                 
+     6614   6753  e6fe  EVEN  9692  cff  cff     d2  d2       4   
+     6615   6754  e6fd  odd         cff  cff     d2                 
+     6616   6755  e6fc  EVEN  9693  cff  cff     d2  d2       8   
+     6617   6756  e6fb  odd         cff  cff     d2                 
+     6618   6757  e6fa  EVEN  9694  cff  cff     d2  d2       4   
+     6619   6758  e6f9  odd         cff  cff     d2                 
+     6620   6759  e6f8  EVEN  9695    ?  cff     d2  d2       4   
+     6621   6760  e6f7  odd           ?  cff     d2                 
+     6622   6761  e6f6  EVEN  9696  cff  cff     d2  d2       4   
+     6623   6762  e6f5  odd           ?  cff     d2                 
+     6624   6763  e6f4  EVEN  9697  cff  cff     d2  d2       8   
+     6625   6764  e6f3  odd         cff  cff     d2                 
+     6626   6765  e6f2  EVEN  9698  cff  cff     d2  d2       4   
+     6627   6766  e6f1  odd         cff  cff     d2                 
+     6628   6767  e6f0  EVEN  9699  cff  cff     d2  d2       4   
+     6629   6768  e6ef  odd         cff  cff     d2                 
+     6630   6769  e6ee  EVEN  9700  cff  cff     d2  d2       4   
+     6631   6770  e6ed  odd         cff  cff     d2                 
+     6632   6771  e6ec  EVEN  9701  cff  cff     d2  d2       8   
+     6633   6772  e6eb  odd         cff  cff     rel                KEY-OFF
+     6634   6773  e6ea  EVEN  9702  d00  d00     rel rel      1   
+     6635   6774  e6e9  odd         d00  d00     rel                
+     6636   6775  e6e8  EVEN  9703  d00  d00     rel rel      0   
+     6637   6776  e6e7  odd         d00  d00     rel                
+     6638   6777  e6e6  EVEN  9704  d00  d00     rel rel      1   
+     6639   6778  e6e5  odd         d00  d00     rel                
+     6640   6779  e6e4  EVEN  9705  d00  d00     rel rel      0   
+     6641   6780  e6e3  odd         d00  d00     rel                
+     6642   6781  e6e2  EVEN  9706  d01  d01     rel rel      1   
+     6643   6782  e6e1  odd         d01  d01     rel                
+     6644   6783  e6e0  EVEN  9707  d01  d01     rel rel      0   
+     6645   6784  e6df  odd         d01  d01     rel                
+     6646   6785  e6de  EVEN  9708  d01  d01     rel rel      1   
+     6647   6786  e6dd  odd         d01  d01     rel                
+     6648   6787  e6dc  EVEN  9709  d02  d02     rel rel      1   
+     6649   6788  e6db  odd         d02  d02     rel                
+     6650   6789  e6da  EVEN  9710  d02  d02     rel rel      1   
+     6651   6790  e6d9  odd         d02  d02     rel                
+     6652   6791  e6d8  EVEN  9711  d02  d02     rel rel      0   
+     6653   6792  e6d7  odd         d02  d02     rel                
+     6654   6793  e6d6  EVEN  9712  d03  d03     rel rel      1   
+     6655   6794  e6d5  odd         d03  d03     rel                
+     6656   6795  e6d4  EVEN  9713  d03  d03     rel rel      0   
+     6657   6796  e6d3  odd         d03  d03     rel                
+     6658   6797  e6d2  EVEN  9714  d03  d03     rel rel      1   
+     6659   6798  e6d1  odd         d03  d03     rel                
+     6660   6799  e6d0  EVEN  9715  d03  d03     rel rel      0   
+     6661   6800  e6cf  odd         d03  d03     rel                
+     6662   6801  e6ce  EVEN  9716  d04  d04     rel rel      1   
+     6663   6802  e6cd  odd         d04  d04     rel                
+     6664   6803  e6cc  EVEN  9717  d04  d04     rel rel      1   
+     6665   6804  e6cb  odd         d04  d04     rel                
+     6666   6805  e6ca  EVEN  9718  d05  d05     rel rel      1   
+     6667   6806  e6c9  odd         d05  d05     rel                
+     6668   6807  e6c8  EVEN  9719  d05  d05     rel rel      0   
+     6669   6808  e6c7  odd         d05  d05     rel                
+     6670   6809  e6c6  EVEN  9720  d05  d05     rel rel      1   
+     6671   6810  e6c5  odd         d05  d05     rel                
+     6672   6811  e6c4  EVEN  9721  d05  d05     rel rel      0   
+     6673   6812  e6c3  odd         d05  d05     rel                

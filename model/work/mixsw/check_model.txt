@@ -1,0 +1,271 @@
+== P0: 4 streams (MIXS 0 1 2 3), 2368 samples, n_first 726, errors 0, 4 marks
+-- write 10025 to MIXS0 at sample 447..448 (window 441..2368): value seen on 960 samples exact, 960 with the high 16 bits, first at 449 (+2 from the mark), last at 2367
+   RLE around the write [441, 487):
+   441:0*8 449:65573*1 450:0*1 451:65573*1 452:0*1 453:65573*1 454:0*1 455:65573*1
+   456:0*1 457:65573*1 458:0*1 459:65573*1 460:0*1 461:65573*1 462:0*1 463:65573*1
+   464:0*1 465:65573*1 466:0*1 467:65573*1 468:0*1 469:65573*1 470:0*1 471:65573*1
+   472:0*1 473:65573*1 474:0*1 475:65573*1 476:0*1 477:65573*1 478:0*1 479:65573*1
+   480:0*1 481:65573*1 482:0*1 483:65573*1 484:0*1 485:65573*1 486:0*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+-- write 10125 to MIXS1 at sample 895..895 (window 889..2368): value seen on 736 samples exact, 736 with the high 16 bits, first at 896 (+1 from the mark), last at 2366
+   RLE around the write [889, 935):
+   889:0*7 896:65829*1 897:0*1 898:65829*1 899:0*1 900:65829*1 901:0*1 902:65829*1
+   903:0*1 904:65829*1 905:0*1 906:65829*1 907:0*1 908:65829*1 909:0*1 910:65829*1
+   911:0*1 912:65829*1 913:0*1 914:65829*1 915:0*1 916:65829*1 917:0*1 918:65829*1
+   919:0*1 920:65829*1 921:0*1 922:65829*1 923:0*1 924:65829*1 925:0*1 926:65829*1
+   927:0*1 928:65829*1 929:0*1 930:65829*1 931:0*1 932:65829*1 933:0*1 934:65829*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+-- MIXS2 not written (reference stream): 0*2368
+-- MIXS3 not written (reference stream): 0*2368
+
+== P1: 4 streams (MIXS 1 0 2 3), 2368 samples, n_first 703, errors 0, 4 marks
+-- write 11125 to MIXS1 at sample 447..448 (window 441..2368): value seen on 959 samples exact, 959 with the high 16 bits, first at 450 (+3 from the mark), last at 2366
+   RLE around the write [441, 487):
+   441:0*1 442:65829*1 443:0*1 444:65829*1 445:0*1 446:65829*1 447:0*1 448:65829*1
+   449:0*1 450:69925*1 451:0*1 452:69925*1 453:0*1 454:69925*1 455:0*1 456:69925*1
+   457:0*1 458:69925*1 459:0*1 460:69925*1 461:0*1 462:69925*1 463:0*1 464:69925*1
+   465:0*1 466:69925*1 467:0*1 468:69925*1 469:0*1 470:69925*1 471:0*1 472:69925*1
+   473:0*1 474:69925*1 475:0*1 476:69925*1 477:0*1 478:69925*1 479:0*1 480:69925*1
+   481:0*1 482:69925*1 483:0*1 484:69925*1 485:0*1 486:69925*1
+   VERDICT KEPT: alternating to the end (959/959 on its parity, 0 on the other); other bank: 0*959
+-- write 11025 to MIXS0 at sample 895..895 (window 889..2368): value seen on 736 samples exact, 736 with the high 16 bits, first at 897 (+2 from the mark), last at 2367
+   RLE around the write [889, 935):
+   889:65573*1 890:0*1 891:65573*1 892:0*1 893:65573*1 894:0*1 895:65573*1 896:0*1
+   897:69669*1 898:0*1 899:69669*1 900:0*1 901:69669*1 902:0*1 903:69669*1 904:0*1
+   905:69669*1 906:0*1 907:69669*1 908:0*1 909:69669*1 910:0*1 911:69669*1 912:0*1
+   913:69669*1 914:0*1 915:69669*1 916:0*1 917:69669*1 918:0*1 919:69669*1 920:0*1
+   921:69669*1 922:0*1 923:69669*1 924:0*1 925:69669*1 926:0*1 927:69669*1 928:0*1
+   929:69669*1 930:0*1 931:69669*1 932:0*1 933:69669*1 934:0*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+-- MIXS2 not written (reference stream): 0*2368
+-- MIXS3 not written (reference stream): 0*2368
+
+== P1b: 4 streams (MIXS 0 1 15 2), 2816 samples, n_first 675, errors 0, 6 marks
+-- write 12025 to MIXS0 at sample 447..448 (window 441..2816): value seen on 1183 samples exact, 1183 with the high 16 bits, first at 450 (+3 from the mark), last at 2814
+   RLE around the write [441, 487):
+   441:69669*1 442:0*1 443:69669*1 444:0*1 445:69669*1 446:0*1 447:69669*1 448:0*1
+   449:69669*1 450:73765*1 451:69669*1 452:73765*1 453:69669*1 454:73765*1 455:69669*1 456:73765*1
+   457:69669*1 458:73765*1 459:69669*1 460:73765*1 461:69669*1 462:73765*1 463:69669*1 464:73765*1
+   465:69669*1 466:73765*1 467:69669*1 468:73765*1 469:69669*1 470:73765*1 471:69669*1 472:73765*1
+   473:69669*1 474:73765*1 475:69669*1 476:73765*1 477:69669*1 478:73765*1 479:69669*1 480:73765*1
+   481:69669*1 482:73765*1 483:69669*1 484:73765*1 485:69669*1 486:73765*1
+   VERDICT KEPT: alternating to the end (1183/1183 on its parity, 0 on the other); other bank: 69669*1183
+-- write 12125 to MIXS1 at sample 895..895 (window 889..2816): value seen on 960 samples exact, 960 with the high 16 bits, first at 897 (+2 from the mark), last at 2815
+   RLE around the write [889, 935):
+   889:0*1 890:69925*1 891:0*1 892:69925*1 893:0*1 894:69925*1 895:0*1 896:69925*1
+   897:74021*1 898:69925*1 899:74021*1 900:69925*1 901:74021*1 902:69925*1 903:74021*1 904:69925*1
+   905:74021*1 906:69925*1 907:74021*1 908:69925*1 909:74021*1 910:69925*1 911:74021*1 912:69925*1
+   913:74021*1 914:69925*1 915:74021*1 916:69925*1 917:74021*1 918:69925*1 919:74021*1 920:69925*1
+   921:74021*1 922:69925*1 923:74021*1 924:69925*1 925:74021*1 926:69925*1 927:74021*1 928:69925*1
+   929:74021*1 930:69925*1 931:74021*1 932:69925*1 933:74021*1 934:69925*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 69925*959
+-- write 12f25 to MIXS15 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1345 (+2 from the mark), last at 2815
+   RLE around the write [1337, 1383):
+   1337:0*8 1345:77605*1 1346:0*1 1347:77605*1 1348:0*1 1349:77605*1 1350:0*1 1351:77605*1
+   1352:0*1 1353:77605*1 1354:0*1 1355:77605*1 1356:0*1 1357:77605*1 1358:0*1 1359:77605*1
+   1360:0*1 1361:77605*1 1362:0*1 1363:77605*1 1364:0*1 1365:77605*1 1366:0*1 1367:77605*1
+   1368:0*1 1369:77605*1 1370:0*1 1371:77605*1 1372:0*1 1373:77605*1 1374:0*1 1375:77605*1
+   1376:0*1 1377:77605*1 1378:0*1 1379:77605*1 1380:0*1 1381:77605*1 1382:0*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+-- MIXS2 not written (reference stream): 0*2816
+
+== P2: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 650, errors 0, 6 marks
+-- write 13225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 1184 samples exact, 1184 with the high 16 bits, first at 449 (+2 from the mark), last at 2815
+   RLE around the write [441, 487):
+   441:0*8 449:78373*1 450:0*1 451:78373*1 452:0*1 453:78373*1 454:0*1 455:78373*1
+   456:0*1 457:78373*1 458:0*1 459:78373*1 460:0*1 461:78373*1 462:0*1 463:78373*1
+   464:0*1 465:78373*1 466:0*1 467:78373*1 468:0*1 469:78373*1 470:0*1 471:78373*1
+   472:0*1 473:78373*1 474:0*1 475:78373*1 476:0*1 477:78373*1 478:0*1 479:78373*1
+   480:0*1 481:78373*1 482:0*1 483:78373*1 484:0*1 485:78373*1 486:0*1
+   VERDICT KEPT: alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+-- write 13325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 13425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1344 (+1 from the mark), last at 2814
+   RLE around the write [1337, 1383):
+   1337:0*7 1344:78885*1 1345:0*1 1346:78885*1 1347:0*1 1348:78885*1 1349:0*1 1350:78885*1
+   1351:0*1 1352:78885*1 1353:0*1 1354:78885*1 1355:0*1 1356:78885*1 1357:0*1 1358:78885*1
+   1359:0*1 1360:78885*1 1361:0*1 1362:78885*1 1363:0*1 1364:78885*1 1365:0*1 1366:78885*1
+   1367:0*1 1368:78885*1 1369:0*1 1370:78885*1 1371:0*1 1372:78885*1 1373:0*1 1374:78885*1
+   1375:0*1 1376:78885*1 1377:0*1 1378:78885*1 1379:0*1 1380:78885*1 1381:0*1 1382:78885*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+-- MIXS0 not written (reference stream): 73765*1408 69669*1408
+
+== P3: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 623, errors 0, 6 marks
+-- write 14225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 0 samples exact, 1184 with the high 16 bits, first at 449 (+2 from the mark), last at 2815
+   RLE around the write [441, 487):
+   441:0*1 442:78373*1 443:0*1 444:78373*1 445:0*1 446:78373*1 447:0*1 448:78373*1
+   449:82464*1 450:78373*1 451:82464*1 452:78373*1 453:82464*1 454:78373*1 455:82464*1 456:78373*1
+   457:82464*1 458:78373*1 459:82464*1 460:78373*1 461:82464*1 462:78373*1 463:82464*1 464:78373*1
+   465:82464*1 466:78373*1 467:82464*1 468:78373*1 469:82464*1 470:78373*1 471:82464*1 472:78373*1
+   473:82464*1 474:78373*1 475:82464*1 476:78373*1 477:82464*1 478:78373*1 479:82464*1 480:78373*1
+   481:82464*1 482:78373*1 483:82464*1 484:78373*1 485:82464*1 486:78373*1
+   VERDICT KEPT: alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 78373*1183
+-- write 14325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 960 samples exact, 960 with the high 16 bits, first at 897 (+2 from the mark), last at 2815
+   RLE around the write [889, 935):
+   889:0*8 897:82725*1 898:0*1 899:82725*1 900:0*1 901:82725*1 902:0*1 903:82725*1
+   904:0*1 905:82725*1 906:0*1 907:82725*1 908:0*1 909:82725*1 910:0*1 911:82725*1
+   912:0*1 913:82725*1 914:0*1 915:82725*1 916:0*1 917:82725*1 918:0*1 919:82725*1
+   920:0*1 921:82725*1 922:0*1 923:82725*1 924:0*1 925:82725*1 926:0*1 927:82725*1
+   928:0*1 929:82725*1 930:0*1 931:82725*1 932:0*1 933:82725*1 934:0*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+-- write 14425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1345 (+2 from the mark), last at 2815
+   RLE around the write [1337, 1383):
+   1337:78885*1 1338:0*1 1339:78885*1 1340:0*1 1341:78885*1 1342:0*1 1343:78885*1 1344:0*1
+   1345:82981*1 1346:0*1 1347:82981*1 1348:0*1 1349:82981*1 1350:0*1 1351:82981*1 1352:0*1
+   1353:82981*1 1354:0*1 1355:82981*1 1356:0*1 1357:82981*1 1358:0*1 1359:82981*1 1360:0*1
+   1361:82981*1 1362:0*1 1363:82981*1 1364:0*1 1365:82981*1 1366:0*1 1367:82981*1 1368:0*1
+   1369:82981*1 1370:0*1 1371:82981*1 1372:0*1 1373:82981*1 1374:0*1 1375:82981*1 1376:0*1
+   1377:82981*1 1378:0*1 1379:82981*1 1380:0*1 1381:82981*1 1382:0*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+-- MIXS0 not written (reference stream): 73765*1408 69669*1408
+
+== P5: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 595, errors 0, 6 marks
+-- write 15225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 1184 samples exact, 1184 with the high 16 bits, first at 449 (+2 from the mark), last at 2815
+   RLE around the write [441, 487):
+   441:78373*1 442:82464*1 443:78373*1 444:82464*1 445:78373*1 446:82464*1 447:78373*1 448:82464*1
+   449:86565*1 450:82464*1 451:86565*1 452:82464*1 453:86565*1 454:82464*1 455:86565*1 456:82464*1
+   457:86565*1 458:82464*1 459:86565*1 460:82464*1 461:86565*1 462:82464*1 463:86565*1 464:82464*1
+   465:86565*1 466:82464*1 467:86565*1 468:82464*1 469:86565*1 470:82464*1 471:86565*1 472:82464*1
+   473:86565*1 474:82464*1 475:86565*1 476:82464*1 477:86565*1 478:82464*1 479:86565*1 480:82464*1
+   481:86565*1 482:82464*1 483:86565*1 484:82464*1 485:86565*1 486:82464*1
+   VERDICT KEPT: alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 82464*1183
+-- write 15325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 960 samples exact, 960 with the high 16 bits, first at 896 (+1 from the mark), last at 2814
+   RLE around the write [889, 935):
+   889:0*1 890:82725*1 891:0*1 892:82725*1 893:0*1 894:82725*1 895:0*1 896:86821*1
+   897:0*1 898:86821*1 899:0*1 900:86821*1 901:0*1 902:86821*1 903:0*1 904:86821*1
+   905:0*1 906:86821*1 907:0*1 908:86821*1 909:0*1 910:86821*1 911:0*1 912:86821*1
+   913:0*1 914:86821*1 915:0*1 916:86821*1 917:0*1 918:86821*1 919:0*1 920:86821*1
+   921:0*1 922:86821*1 923:0*1 924:86821*1 925:0*1 926:86821*1 927:0*1 928:86821*1
+   929:0*1 930:86821*1 931:0*1 932:86821*1 933:0*1 934:86821*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*960
+-- write 15425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1344 (+1 from the mark), last at 2814
+   RLE around the write [1337, 1383):
+   1337:0*1 1338:82981*1 1339:0*1 1340:82981*1 1341:0*1 1342:82981*1 1343:0*1 1344:87077*1
+   1345:0*1 1346:87077*1 1347:0*1 1348:87077*1 1349:0*1 1350:87077*1 1351:0*1 1352:87077*1
+   1353:0*1 1354:87077*1 1355:0*1 1356:87077*1 1357:0*1 1358:87077*1 1359:0*1 1360:87077*1
+   1361:0*1 1362:87077*1 1363:0*1 1364:87077*1 1365:0*1 1366:87077*1 1367:0*1 1368:87077*1
+   1369:0*1 1370:87077*1 1371:0*1 1372:87077*1 1373:0*1 1374:87077*1 1375:0*1 1376:87077*1
+   1377:0*1 1378:87077*1 1379:0*1 1380:87077*1 1381:0*1 1382:87077*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+-- MIXS0 not written (reference stream): 73765*1408 69669*1408
+
+== P7: 4 streams (MIXS 3 15 0 1), 2816 samples, n_first 566, errors 0, 6 marks
+-- write 16325 to MIXS3 at sample 447..448 (window 441..2816): value seen on 1184 samples exact, 1184 with the high 16 bits, first at 449 (+2 from the mark), last at 2815
+   RLE around the write [441, 487):
+   441:86821*1 442:0*1 443:86821*1 444:0*1 445:86821*1 446:0*1 447:86821*1 448:0*1
+   449:90917*1 450:0*1 451:90917*1 452:0*1 453:90917*1 454:0*1 455:90917*1 456:0*1
+   457:90917*1 458:0*1 459:90917*1 460:0*1 461:90917*1 462:0*1 463:90917*1 464:0*1
+   465:90917*1 466:0*1 467:90917*1 468:0*1 469:90917*1 470:0*1 471:90917*1 472:0*1
+   473:90917*1 474:0*1 475:90917*1 476:0*1 477:90917*1 478:0*1 479:90917*1 480:0*1
+   481:90917*1 482:0*1 483:90917*1 484:0*1 485:90917*1 486:0*1
+   VERDICT KEPT: alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+-- write 16f25 to MIXS15 at sample 895..895 (window 889..2816): value seen on 960 samples exact, 960 with the high 16 bits, first at 896 (+1 from the mark), last at 2814
+   RLE around the write [889, 935):
+   889:77605*1 890:0*1 891:77605*1 892:0*1 893:77605*1 894:0*1 895:77605*1 896:93989*1
+   897:77605*1 898:93989*1 899:77605*1 900:93989*1 901:77605*1 902:93989*1 903:77605*1 904:93989*1
+   905:77605*1 906:93989*1 907:77605*1 908:93989*1 909:77605*1 910:93989*1 911:77605*1 912:93989*1
+   913:77605*1 914:93989*1 915:77605*1 916:93989*1 917:77605*1 918:93989*1 919:77605*1 920:93989*1
+   921:77605*1 922:93989*1 923:77605*1 924:93989*1 925:77605*1 926:93989*1 927:77605*1 928:93989*1
+   929:77605*1 930:93989*1 931:77605*1 932:93989*1 933:77605*1 934:93989*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 77605*960
+-- write 16025 to MIXS0 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1344 (+1 from the mark), last at 2814
+   RLE around the write [1337, 1383):
+   1337:69669*1 1338:73765*1 1339:69669*1 1340:73765*1 1341:69669*1 1342:73765*1 1343:69669*1 1344:90149*1
+   1345:69669*1 1346:90149*1 1347:69669*1 1348:90149*1 1349:69669*1 1350:90149*1 1351:69669*1 1352:90149*1
+   1353:69669*1 1354:90149*1 1355:69669*1 1356:90149*1 1357:69669*1 1358:90149*1 1359:69669*1 1360:90149*1
+   1361:69669*1 1362:90149*1 1363:69669*1 1364:90149*1 1365:69669*1 1366:90149*1 1367:69669*1 1368:90149*1
+   1369:69669*1 1370:90149*1 1371:69669*1 1372:90149*1 1373:69669*1 1374:90149*1 1375:69669*1 1376:90149*1
+   1377:69669*1 1378:90149*1 1379:69669*1 1380:90149*1 1381:69669*1 1382:90149*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 69669*736
+-- MIXS1 not written (reference stream): 74021*1408 69925*1408
+
+== P8: 4 streams (MIXS 4 0 1 2), 2368 samples, n_first 537, errors 0, 4 marks
+-- write 17425 to MIXS4 at sample 447..448 (window 441..2368): value seen on 960 samples exact, 960 with the high 16 bits, first at 449 (+2 from the mark), last at 2367
+   RLE around the write [441, 487):
+   441:87077*1 442:0*1 443:87077*1 444:0*1 445:87077*1 446:0*1 447:87077*1 448:0*1
+   449:95269*1 450:0*1 451:95269*1 452:0*1 453:95269*1 454:0*1 455:95269*1 456:0*1
+   457:95269*1 458:0*1 459:95269*1 460:0*1 461:95269*1 462:0*1 463:95269*1 464:0*1
+   465:95269*1 466:0*1 467:95269*1 468:0*1 469:95269*1 470:0*1 471:95269*1 472:0*1
+   473:95269*1 474:0*1 475:95269*1 476:0*1 477:95269*1 478:0*1 479:95269*1 480:0*1
+   481:95269*1 482:0*1 483:95269*1 484:0*1 485:95269*1 486:0*1
+   VERDICT KEPT: alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+-- write 17025 to MIXS0 at sample 895..895 (window 889..2368): value seen on 736 samples exact, 736 with the high 16 bits, first at 896 (+1 from the mark), last at 2366
+   RLE around the write [889, 935):
+   889:69669*1 890:90149*1 891:69669*1 892:90149*1 893:69669*1 894:90149*1 895:69669*1 896:94245*1
+   897:69669*1 898:94245*1 899:69669*1 900:94245*1 901:69669*1 902:94245*1 903:69669*1 904:94245*1
+   905:69669*1 906:94245*1 907:69669*1 908:94245*1 909:69669*1 910:94245*1 911:69669*1 912:94245*1
+   913:69669*1 914:94245*1 915:69669*1 916:94245*1 917:69669*1 918:94245*1 919:69669*1 920:94245*1
+   921:69669*1 922:94245*1 923:69669*1 924:94245*1 925:69669*1 926:94245*1 927:69669*1 928:94245*1
+   929:69669*1 930:94245*1 931:69669*1 932:94245*1 933:69669*1 934:94245*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 69669*736
+-- MIXS1 not written (reference stream): 74021*1184 69925*1184
+-- MIXS2 not written (reference stream): 86565*1184 82464*1184
+
+==== summary: tests/mixs_write/model
+probe bus who points at the bus                                      result exact  hi16  first  detail
+P0    0   64 zeroed slots (ISEL 0 IMXL 0 VOFF 0 LPOFF 0 SA 0, off)   KEPT     960   960     +2  alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+P0    1   nobody points at it                                        KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+P1    1   slot 0 alone (reg 0x20 = 0x01, else 0, off)                KEPT     959   959     +3  alternating to the end (959/959 on its parity, 0 on the other); other bank: 0*959
+P1    0   slots 1..63 zeroed (ISEL 0)                                KEPT     736   736     +2  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+P1b   0   nobody (slot 0 at 1, slots 1..63 at 15)                    KEPT    1183  1183     +3  alternating to the end (1183/1183 on its parity, 0 on the other); other bank: 69669*1183
+P1b   1   slot 0 alone (ISEL 1, else 0, off)                         KEPT     960   960     +2  alternating to the end (960/960 on its parity, 0 on the other); other bank: 69925*959
+P1b   15  slots 1..63 (reg 0x20 = 0x0F, else 0, off)                 KEPT     736   736     +2  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+P2    2   slot 7 alone (reg 0x20 = 0x02, else 0, off)                KEPT    1184  1184     +2  alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+P2    3   slot 8 alone, IMXL 15 (0xF3), off: LOST control            LOST       0     0     +0  bus afterwards: 0*1921
+P2    4   slot 9 alone (ISEL 4, IMXL 0), SA 0x10000, never keyed     KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+P3    2   slot 7 alone, IMXL 0, VOFF 1, LPOFF 0, off                 KEPT       0  1184     +2  alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 78373*1183
+P3    3   slot 8 alone, IMXL 0, VOFF 0, LPOFF 1, off                 KEPT     960   960     +2  alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+P3    4   slot 9 alone, IMXL 0, VOFF 1, LPOFF 1, off                 KEPT     736   736     +2  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*735
+P5    2   slot 7 alone, PLAYING 0x7FFF, IMXL 0, VOFF 0, LPOFF 1      KEPT    1184  1184     +2  alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 82464*1183
+P5    3   slot 8 alone, PLAYING 0x7FFF, IMXL 0, VOFF 1, LPOFF 1      KEPT     960   960     +1  alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*960
+P5    4   slot 9 alone, PLAYING 0x7FFF, IMXL 0, VOFF 0, LPOFF 0      KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+P7    3   slot 0 alone, IMXL 0, VOFF 1, LPOFF 0, off                 KEPT    1184  1184     +2  alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+P7    15  slots 1..63 (reg 0x20 = 0x0F, else 0, off)                 KEPT     960   960     +1  alternating to the end (960/960 on its parity, 0 on the other); other bank: 77605*960
+P7    0   nobody (slot 0 at 3, slots 1..63 at 15)                    KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 69669*736
+P8    4   slot 63 alone (reg 0x20 = 0x04, else 0, off)               KEPT     960   960     +2  alternating to the end (960/960 on its parity, 0 on the other); other bank: 0*959
+P8    0   slots 0..62 zeroed (ISEL 0)                                KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 69669*736
+
+==== candidate rules (prediction per row: K = KEPT, L = LOST)
+  H_M  IMXL 0 never writes; a bus is rewritten iff a slot with IMXL != 0 has ISEL = bus (the model)
+  H_G  every slot writes its ISEL bus every sample (IMXL is a gain, 0 -> 0); a bus retains iff nobody points at it
+  H_B  slot 0 always writes its ISEL bus (0 when IMXL 0); other IMXL-0 slots never write
+  H_V  an IMXL-0 slot writes 0 iff VOFF 0 (H_D: IMXL 0 = gain 0, VOFF 1 + IMXL 0 = no send)
+  H_F  an IMXL-0 slot writes 0 iff LPOFF 0 (filter on)
+  H_O  an IMXL-0 slot writes 0 iff the slot is off (not playing)
+  H_S  an IMXL-0 slot writes 0 iff SA == 0
+  H_0  bus 0 is rewritten every sample whoever points at it; other buses as H_M
+
+probe bus result H_M H_G H_B H_V H_F H_O H_S H_0
+P0    0   KEPT    K=   LX   LX   LX   LX   LX   LX   LX 
+P0    1   KEPT    K=   K=   K=   K=   K=   K=   K=   K= 
+P1    1   KEPT    K=   LX   LX   LX   LX   LX   LX   K= 
+P1    0   KEPT    K=   LX   K=   LX   LX   LX   LX   LX 
+P1b   0   KEPT    K=   K=   K=   K=   K=   K=   K=   LX 
+P1b   1   KEPT    K=   LX   LX   LX   LX   LX   LX   K= 
+P1b   15  KEPT    K=   LX   K=   LX   LX   LX   LX   K= 
+P2    2   KEPT    K=   LX   K=   LX   LX   LX   LX   K= 
+P2    3   LOST    L=   L=   L=   L=   L=   L=   L=   L= 
+P2    4   KEPT    K=   LX   K=   LX   LX   LX   K=   K= 
+P3    2   KEPT    K=   LX   K=   K=   LX   LX   LX   K= 
+P3    3   KEPT    K=   LX   K=   LX   K=   LX   LX   K= 
+P3    4   KEPT    K=   LX   K=   K=   K=   LX   LX   K= 
+P5    2   KEPT    K=   LX   K=   LX   K=   K=   K=   K= 
+P5    3   KEPT    K=   LX   K=   K=   K=   K=   K=   K= 
+P5    4   KEPT    K=   LX   K=   LX   LX   K=   K=   K= 
+P7    3   KEPT    K=   LX   LX   K=   LX   LX   LX   K= 
+P7    15  KEPT    K=   LX   K=   LX   LX   LX   LX   K= 
+P7    0   KEPT    K=   K=   K=   K=   K=   K=   K=   LX 
+P8    4   KEPT    K=   LX   K=   LX   LX   LX   LX   K= 
+P8    0   KEPT    K=   LX   LX   LX   LX   LX   LX   LX 
+
+==== rules vs the verdicts (21 rows)
+  H_M  21 agree   0 disagree  consistent
+  H_G   4 agree  17 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P2:4 P3:2 P3:3 P3:4 P5:2 P5:3 P5:4 P7:3 P7:15 P8:4 P8:0
+  H_B  16 agree   5 disagree  REFUTED by P0:0 P1:1 P1b:1 P7:3 P8:0
+  H_V   8 agree  13 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P2:4 P3:3 P5:2 P5:4 P7:15 P8:4 P8:0
+  H_F   8 agree  13 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P2:4 P3:2 P5:4 P7:3 P7:15 P8:4 P8:0
+  H_O   7 agree  14 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P2:4 P3:2 P3:3 P3:4 P7:3 P7:15 P8:4 P8:0
+  H_S   8 agree  13 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P3:2 P3:3 P3:4 P7:3 P7:15 P8:4 P8:0
+  H_0  16 agree   5 disagree  REFUTED by P0:0 P1:0 P1b:0 P7:0 P8:0

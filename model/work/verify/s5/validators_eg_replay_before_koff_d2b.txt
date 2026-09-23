@@ -1,0 +1,55 @@
+tests/aeg_koff/hw/koff_d2b (koff_d2b): 42176 samples x 4 streams, n_first 683, c0 ac67 (MDEC_CT of sample i = (a9bc - i) & 0xFFFF), K 6491
+  stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 30 RR 24 KRS 15 OCT 0 FNS 000 const
+  stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 26 RR 30 KRS 15 OCT 0 FNS 000 const
+  stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 const
+  stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 const WITNESS
+  kind 0 (key-on / key-off, marks 1 / 3), 16 cycles, test slots mask 07, witness mask 08
+  cycle  0: E_A 458 (even) E_B 550 (even, 92 samples on)
+  cycle  1: E_A 3028 (even) E_B 3162 (even, 134 samples on)
+  cycle  2: E_A 5677 (odd) E_B 5851 (odd, 174 samples on)
+  cycle  3: E_A 8351 (odd) E_B 8479 (odd, 128 samples on)
+  cycle  4: E_A 10870 (even) E_B 10946 (even, 76 samples on)
+  cycle  5: E_A 13445 (odd) E_B 13502 (even, 57 samples on)
+  cycle  6: E_A 15961 (odd) E_B 16068 (even, 107 samples on)
+  cycle  7: E_A 18570 (even) E_B 18648 (even, 78 samples on)
+  cycle  8: E_A 21202 (even) E_B 21274 (even, 72 samples on)
+  cycle  9: E_A 23833 (odd) E_B 23960 (even, 127 samples on)
+  cycle 10: E_A 26465 (odd) E_B 26550 (even, 85 samples on)
+  cycle 11: E_A 29047 (odd) E_B 29158 (even, 111 samples on)
+  cycle 12: E_A 31724 (even) E_B 31852 (even, 128 samples on)
+  cycle 13: E_A 34314 (even) E_B 34418 (even, 104 samples on)
+  cycle 14: E_A 36921 (odd) E_B 36989 (odd, 68 samples on)
+  cycle 15: E_A 39501 (odd) E_B 39639 (odd, 138 samples on)
+  cycle  0 [458, 3028):  s0 ok  s1 ok  s2 ok  s3 FAIL at 552 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  1 [3028, 5677):  s0 ok  s1 ok  s2 ok  s3 FAIL at 3164 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  2 [5677, 8351):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  3 [8351, 10870):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  4 [10870, 13445):  s0 ok  s1 ok  s2 ok  s3 FAIL at 10948 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  5 [13445, 15961):  s0 ok  s1 ok  s2 ok  s3 FAIL at 13504 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  6 [15961, 18570):  s0 ok  s1 ok  s2 ok  s3 FAIL at 16070 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  7 [18570, 21202):  s0 ok  s1 ok  s2 ok  s3 FAIL at 18650 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  8 [21202, 23833):  s0 ok  s1 ok  s2 ok  s3 FAIL at 21276 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  9 [23833, 26465):  s0 ok  s1 ok  s2 ok  s3 FAIL at 23962 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 10 [26465, 29047):  s0 ok  s1 ok  s2 ok  s3 FAIL at 26552 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 11 [29047, 31724):  s0 ok  s1 ok  s2 ok  s3 FAIL at 29160 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 12 [31724, 34314):  s0 ok  s1 ok  s2 ok  s3 FAIL at 31854 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 13 [34314, 36921):  s0 ok  s1 ok  s2 ok  s3 FAIL at 34420 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 14 [36921, 39501):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 15 [39501, 42176):  s0 ok  s1 ok  s2 ok  s3 ok
+  stream 0 (slot 0): FULL 42176/42176
+  stream 1 (slot 1): FULL 42176/42176
+  stream 2 (slot 2): FULL 42176/42176
+  stream 3 (slot 3 witness): prefix 552/42176, 2472 mismatching samples, first mismatch at 552 (E_B 550+2, MDEC_CT a794 even): hw 487408 model 520176; model a 0x000 d1 CA 3
+      i 552 MDEC_CT a794 EVEN: hw   487408 model   520176 (a 0x000 d1 CA 3)
+      i 553 MDEC_CT a793 odd : hw   487408 model   520176 (a 0x000 d1 CA 4)
+      i 554 MDEC_CT a792 EVEN: hw   454640 model   487408 (a 0x008 d1 CA 5)
+      i 555 MDEC_CT a791 odd : hw   454640 model   487408 (a 0x008 d1 CA 6)
+      i 556 MDEC_CT a790 EVEN: hw   421872 model   454640 (a 0x010 d1 CA 7)
+      i 557 MDEC_CT a78f odd : hw   421872 model   454640 (a 0x010 d1 CA 8)
+      i 558 MDEC_CT a78e EVEN: hw   389104 model   421872 (a 0x018 d1 CA 9)
+      i 559 MDEC_CT a78d odd : hw   389104 model   421872 (a 0x018 d1 CA 10)
+      i 560 MDEC_CT a78c EVEN: hw   356336 model   389104 (a 0x020 d1 CA 11)
+      i 561 MDEC_CT a78b odd : hw   356336 model   389104 (a 0x020 d1 CA 12)
+      i 562 MDEC_CT a78a EVEN: hw   323568 model   356336 (a 0x028 d1 CA 13)
+      i 563 MDEC_CT a789 odd : hw   323568 model   356336 (a 0x028 d1 CA 14)
+TOTAL koff_d2b: streams FULL 3/4, samples matched 166232/168704, clean cycles 4/16

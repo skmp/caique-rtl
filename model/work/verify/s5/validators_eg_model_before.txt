@@ -1,0 +1,67 @@
+aeg_dl0    onset 461 (MDEC_CT 8362 even) K 6491: FULL 20019/20019, key-off samples 18171(even) 18172(odd)
+att_slow   onset 458 (MDEC_CT 40b0 even) K 6491: FULL 487478/487478, key-off samples 485596(even) 485597(odd)
+att_mid    onset 458 (MDEC_CT 3afb odd) K 6491: FULL 90550/90550, key-off samples 88663(even) 88664(odd)
+odd_att    onset 458 (MDEC_CT ab69 odd) K 6491: FULL 68534/68534, key-off samples 66581(even) 66582(odd)
+odd_att3   onset 458 (MDEC_CT 78f1 odd) K 6491: FULL 68534/68534, key-off samples 66581(even) 66582(odd)
+odd_same   onset 459 (MDEC_CT 465d odd) K 6491: FULL 46453/46453, key-off samples 44562(even) 44563(odd)
+odd_same2  onset 458 (MDEC_CT 7009 odd) K 6491: FULL 46454/46454, key-off samples 44561(even) 44562(odd)
+odd_dec    onset 458 (MDEC_CT 998f odd) K 6491: FULL 68534/68534, key-off samples 66564(odd) 66565(even) 66566(odd) 66567(even) 66568(odd) 66569(even) ... (466 work)
+lo_2       onset 227 (MDEC_CT 2a23 odd) K 165: FULL 5405/5405
+feg_odd_s0 onset 139 (MDEC_CT 00d4 even) K 6491: FULL 11125/11125, key-off samples 6772(odd)
+feg_odd_s1 onset 139 (MDEC_CT 00d4 even) K 6491: FULL 11125/11125, key-off samples 6772(odd)
+feg_odd_s2 onset 139 (MDEC_CT 00d4 even) K 6491: FULL 11125/11125, key-off samples 6772(odd)
+fk_0_s0    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off samples 6771(odd) 6772(even)
+fk_0_s1    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off samples 6770(even) 6771(odd)
+fk_0_s2    onset 138 (MDEC_CT 09d6 even) K 6491: FULL 11126/11126, key-off samples 6770(even) 6771(odd) 6772(even) 6773(odd)
+fk_1_s0    onset 138 (MDEC_CT c81a even) K 6491: FULL 8758/8758, key-off samples 4454(even)
+fk_1_s1    onset 138 (MDEC_CT c81a even) K 6491: FULL 8758/8758, key-off samples 4454(even)
+fk_1_s2    onset 138 (MDEC_CT c81a even) K 6491: FULL 8758/8758, key-off samples 4454(even)
+fk_2_s0    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off samples 4565(odd)
+fk_2_s1    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off samples 4565(odd)
+fk_2_s2    onset 139 (MDEC_CT 901d odd) K 6491: FULL 8949/8949, key-off samples 4565(odd)
+fk_3_s0    onset 138 (MDEC_CT 57e2 even) K 6491: FULL 8950/8950, key-off samples 4564(even)
+fk_3_s1    onset 138 (MDEC_CT 57e2 even) K 6491: FULL 8950/8950, key-off samples 4564(even)
+fk_3_s2    onset 138 (MDEC_CT 57e2 even) K 6491: FULL 8950/8950, key-off samples 4564(even)
+ft_0_s0    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5469(odd)
+ft_0_s1    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5468(even) 5469(odd)
+ft_0_s2    onset 138 (MDEC_CT e14e even) K 6491: FULL 9846/9846, key-off samples 5469(odd)
+ft_1_s0    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6660(even) 6661(odd) 6662(even) 6663(odd)
+ft_1_s1    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6660(even) 6661(odd)
+ft_1_s2    onset 138 (MDEC_CT a4cc even) K 6491: FULL 10934/10934, key-off samples 6659(odd) 6660(even)
+ft_2_s0    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 803(even) 804(odd)
+ft_2_s1    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 801(even) 802(odd) 803(even) 804(odd)
+ft_2_s2    onset 138 (MDEC_CT 63b5 odd) K 6491: FULL 5174/5174, key-off samples 803(even) 804(odd)
+kp_p0      onset 227 (MDEC_CT f387 odd) K 6491: FULL 67165/67165, key-off samples 66324(even) 66325(odd)
+kp_p1      onset 227 (MDEC_CT c7eb odd) K 6491: FULL 67165/67165, key-off samples 66436(even) 66437(odd)
+kp_p2      onset 227 (MDEC_CT 98c6 even) K 6491: FULL 67165/67165, key-off samples 66435(even) 66436(odd)
+kp_p3      onset 226 (MDEC_CT 6bfb odd) K 6491: FULL 67166/67166, key-off samples 66325(even) 66326(odd)
+kp_p4      onset 227 (MDEC_CT 3fe7 odd) K 6491: FULL 67165/67165, key-off samples 66324(even) 66325(odd)
+kp_p5      onset 226 (MDEC_CT 13b8 even) K 6491: fail 2/67166; first mismatch at 228 (+2, MDEC_CT even): s0 hw 520176 model 520176 s1 hw 520176 model 520176 s2 hw 520176 model 520176 s3 hw 516080 model 520176
+kp_p6      onset 226 (MDEC_CT e510 even) K 6491: fail 2/67166; first mismatch at 228 (+2, MDEC_CT even): s0 hw 520176 model 520176 s1 hw 520176 model 520176 s2 hw 520176 model 520176 s3 hw 516080 model 520176
+kp_p7      onset 227 (MDEC_CT b324 even) K 6491: fail 2/67165; first mismatch at 229 (+2, MDEC_CT even): s0 hw 520176 model 520176 s1 hw 520176 model 520176 s2 hw 520176 model 520176 s3 hw 516080 model 520176
+kd_0_s0    onset 138 (MDEC_CT aa5d odd) K 6491: fail 4427/8950, key-off samples (best key-off 4562 odd); first mismatch at 4565 (+4427, MDEC_CT even): hw u d00 model v 1a06
+kd_0_s1    onset 138 (MDEC_CT aa5d odd) K 6491: FULL 8950/8950, key-off samples 4565(even)
+kd_0_s2    onset 138 (MDEC_CT aa5d odd) K 6491: fail 4427/8950, key-off samples (best key-off 4564 odd); first mismatch at 4565 (+4427, MDEC_CT even): hw u d01 model v 19fd
+kd_1_s0    onset 138 (MDEC_CT 71f8 even) K 6491: fail 4490/8822, key-off samples (best key-off 4625 odd); first mismatch at 4628 (+4490, MDEC_CT even): hw u d00 model v 1a06
+kd_1_s1    onset 138 (MDEC_CT 71f8 even) K 6491: FULL 8822/8822, key-off samples 4628(even)
+kd_1_s2    onset 138 (MDEC_CT 71f8 even) K 6491: fail 4490/8822, key-off samples (best key-off 4627 odd); first mismatch at 4628 (+4490, MDEC_CT even): hw u d01 model v 19fd
+kd_2_s0    onset 138 (MDEC_CT 39f8 even) K 6491: FULL 9014/9014, key-off samples 4647(odd)
+kd_2_s1    onset 138 (MDEC_CT 39f8 even) K 6491: FULL 9014/9014, key-off samples 4647(odd)
+kd_2_s2    onset 138 (MDEC_CT 39f8 even) K 6491: FULL 9014/9014, key-off samples 4647(odd)
+kd_3_s0    onset 138 (MDEC_CT 01c2 even) K 6491: FULL 9078/9078, key-off samples 4693(odd)
+kd_3_s1    onset 138 (MDEC_CT 01c2 even) K 6491: FULL 9078/9078, key-off samples 4693(odd)
+kd_3_s2    onset 138 (MDEC_CT 01c2 even) K 6491: FULL 9078/9078, key-off samples 4693(odd)
+kd_4_s0    onset 138 (MDEC_CT c889 odd) K 6491: FULL 9142/9142, key-off samples 4756(odd)
+kd_4_s1    onset 138 (MDEC_CT c889 odd) K 6491: FULL 9142/9142, key-off samples 4756(odd)
+kd_4_s2    onset 138 (MDEC_CT c889 odd) K 6491: FULL 9142/9142, key-off samples 4756(odd)
+kd_5_s0    onset 138 (MDEC_CT 8fb6 even) K 6491: fail 4638/9142, key-off samples (best key-off 4773 odd); first mismatch at 4776 (+4638, MDEC_CT even): hw u d00 model v 1a06
+kd_5_s1    onset 138 (MDEC_CT 8fb6 even) K 6491: FULL 9142/9142, key-off samples 4776(even)
+kd_5_s2    onset 138 (MDEC_CT 8fb6 even) K 6491: fail 4638/9142, key-off samples (best key-off 4775 odd); first mismatch at 4776 (+4638, MDEC_CT even): hw u d01 model v 19fd
+kd_6_s0    onset 138 (MDEC_CT 569f odd) K 6491: fail 9109/13622, key-off samples (best key-off 9244 odd); first mismatch at 9247 (+9109, MDEC_CT even): hw u d00 model v 1a06
+kd_6_s1    onset 138 (MDEC_CT 569f odd) K 6491: FULL 13622/13622, key-off samples 9247(even)
+kd_6_s2    onset 138 (MDEC_CT 569f odd) K 6491: fail 9109/13622, key-off samples (best key-off 9246 odd); first mismatch at 9247 (+9109, MDEC_CT even): hw u d01 model v 19fd
+kd_7_s0    onset 139 (MDEC_CT 0b17 odd) K 6491: FULL 13493/13493, key-off samples 9203(odd)
+kd_7_s1    onset 139 (MDEC_CT 0b17 odd) K 6491: FULL 13493/13493, key-off samples 9203(odd)
+kd_7_s2    onset 139 (MDEC_CT 0b17 odd) K 6491: FULL 13493/13493, key-off samples 9203(odd)
+GROUPS session4=33/33 eg_kprobe=5/8 feg_koffdir=16/24
+TOTAL full=54/65

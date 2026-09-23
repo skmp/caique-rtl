@@ -1,0 +1,189 @@
+== P0: 4 streams (MIXS 0 1 2 3), 2368 samples, n_first 726, errors 0, 4 marks
+-- write 10025 to MIXS0 at sample 447..448 (window 441..2368): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 10125 to MIXS1 at sample 895..895 (window 889..2368): value seen on 736 samples exact, 736 with the high 16 bits, first at 896 (+1 from the mark), last at 2366
+   RLE around the write [889, 935):
+   889:0*7 896:65829*1 897:0*1 898:65829*1 899:0*1 900:65829*1 901:0*1 902:65829*1
+   903:0*1 904:65829*1 905:0*1 906:65829*1 907:0*1 908:65829*1 909:0*1 910:65829*1
+   911:0*1 912:65829*1 913:0*1 914:65829*1 915:0*1 916:65829*1 917:0*1 918:65829*1
+   919:0*1 920:65829*1 921:0*1 922:65829*1 923:0*1 924:65829*1 925:0*1 926:65829*1
+   927:0*1 928:65829*1 929:0*1 930:65829*1 931:0*1 932:65829*1 933:0*1 934:65829*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+-- MIXS2 not written (reference stream): 0*2368
+-- MIXS3 not written (reference stream): 0*2368
+
+== P1: 4 streams (MIXS 1 0 2 3), 2368 samples, n_first 700, errors 0, 4 marks
+-- write 11125 to MIXS1 at sample 447..448 (window 441..2368): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 11025 to MIXS0 at sample 895..895 (window 889..2368): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS2 not written (reference stream): 0*2368
+-- MIXS3 not written (reference stream): 0*2368
+
+== P1b: 4 streams (MIXS 0 1 15 2), 2816 samples, n_first 674, errors 0, 6 marks
+-- write 12025 to MIXS0 at sample 447..448 (window 441..2816): value seen on 1184 samples exact, 1184 with the high 16 bits, first at 449 (+2 from the mark), last at 2815
+   RLE around the write [441, 487):
+   441:0*8 449:73765*1 450:0*1 451:73765*1 452:0*1 453:73765*1 454:0*1 455:73765*1
+   456:0*1 457:73765*1 458:0*1 459:73765*1 460:0*1 461:73765*1 462:0*1 463:73765*1
+   464:0*1 465:73765*1 466:0*1 467:73765*1 468:0*1 469:73765*1 470:0*1 471:73765*1
+   472:0*1 473:73765*1 474:0*1 475:73765*1 476:0*1 477:73765*1 478:0*1 479:73765*1
+   480:0*1 481:73765*1 482:0*1 483:73765*1 484:0*1 485:73765*1 486:0*1
+   VERDICT KEPT: alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+-- write 12125 to MIXS1 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 12f25 to MIXS15 at sample 1343..1343 (window 1337..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [1337, 1383):
+   1337:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS2 not written (reference stream): 0*2816
+
+== P2: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 646, errors 0, 6 marks
+-- write 13225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*2369
+-- write 13325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 13425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [1337, 1383):
+   1337:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS0 not written (reference stream): 0*2816
+
+== P3: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 619, errors 0, 6 marks
+-- write 14225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*2369
+-- write 14325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 14425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [1337, 1383):
+   1337:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS0 not written (reference stream): 0*2816
+
+== P5: 4 streams (MIXS 2 3 4 0), 2816 samples, n_first 591, errors 0, 6 marks
+-- write 15225 to MIXS2 at sample 447..448 (window 441..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*2369
+-- write 15325 to MIXS3 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 15425 to MIXS4 at sample 1343..1343 (window 1337..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [1337, 1383):
+   1337:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS0 not written (reference stream): 0*2816
+
+== P7: 4 streams (MIXS 3 15 0 1), 2816 samples, n_first 564, errors 0, 6 marks
+-- write 16325 to MIXS3 at sample 447..448 (window 441..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*2369
+-- write 16f25 to MIXS15 at sample 895..895 (window 889..2816): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 16025 to MIXS0 at sample 1343..1343 (window 1337..2816): value seen on 736 samples exact, 736 with the high 16 bits, first at 1344 (+1 from the mark), last at 2814
+   RLE around the write [1337, 1383):
+   1337:0*7 1344:90149*1 1345:0*1 1346:90149*1 1347:0*1 1348:90149*1 1349:0*1 1350:90149*1
+   1351:0*1 1352:90149*1 1353:0*1 1354:90149*1 1355:0*1 1356:90149*1 1357:0*1 1358:90149*1
+   1359:0*1 1360:90149*1 1361:0*1 1362:90149*1 1363:0*1 1364:90149*1 1365:0*1 1366:90149*1
+   1367:0*1 1368:90149*1 1369:0*1 1370:90149*1 1371:0*1 1372:90149*1 1373:0*1 1374:90149*1
+   1375:0*1 1376:90149*1 1377:0*1 1378:90149*1 1379:0*1 1380:90149*1 1381:0*1 1382:90149*1
+   VERDICT KEPT: alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+-- MIXS1 not written (reference stream): 0*2816
+
+== P8: 4 streams (MIXS 4 0 1 2), 2368 samples, n_first 537, errors 0, 4 marks
+-- write 17425 to MIXS4 at sample 447..448 (window 441..2368): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [441, 487):
+   441:0*46
+   VERDICT LOST: bus afterwards: 0*1921
+-- write 17025 to MIXS0 at sample 895..895 (window 889..2368): value seen on 0 samples exact, 0 with the high 16 bits
+   RLE around the write [889, 935):
+   889:0*46
+   VERDICT LOST: bus afterwards: 0*1473
+-- MIXS1 not written (reference stream): 0*2368
+-- MIXS2 not written (reference stream): 0*2368
+
+==== summary: tests/mixs_write/model
+probe bus who points at the bus                                      result exact  hi16  first  detail
+P0    0   64 zeroed slots (ISEL 0 IMXL 0 VOFF 0 LPOFF 0 SA 0, off)   LOST       0     0     +0  bus afterwards: 0*1921
+P0    1   nobody points at it                                        KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+P1    1   slot 0 alone (reg 0x20 = 0x01, else 0, off)                LOST       0     0     +0  bus afterwards: 0*1921
+P1    0   slots 1..63 zeroed (ISEL 0)                                LOST       0     0     +0  bus afterwards: 0*1473
+P1b   0   nobody (slot 0 at 1, slots 1..63 at 15)                    KEPT    1184  1184     +2  alternating to the end (1184/1184 on its parity, 0 on the other); other bank: 0*1183
+P1b   1   slot 0 alone (ISEL 1, else 0, off)                         LOST       0     0     +0  bus afterwards: 0*1921
+P1b   15  slots 1..63 (reg 0x20 = 0x0F, else 0, off)                 LOST       0     0     +0  bus afterwards: 0*1473
+P2    2   slot 7 alone (reg 0x20 = 0x02, else 0, off)                LOST       0     0     +0  bus afterwards: 0*2369
+P2    3   slot 8 alone, IMXL 15 (0xF3), off: LOST control            LOST       0     0     +0  bus afterwards: 0*1921
+P2    4   slot 9 alone (ISEL 4, IMXL 0), SA 0x10000, never keyed     LOST       0     0     +0  bus afterwards: 0*1473
+P3    2   slot 7 alone, IMXL 0, VOFF 1, LPOFF 0, off                 LOST       0     0     +0  bus afterwards: 0*2369
+P3    3   slot 8 alone, IMXL 0, VOFF 0, LPOFF 1, off                 LOST       0     0     +0  bus afterwards: 0*1921
+P3    4   slot 9 alone, IMXL 0, VOFF 1, LPOFF 1, off                 LOST       0     0     +0  bus afterwards: 0*1473
+P5    2   slot 7 alone, PLAYING 0x7FFF, IMXL 0, VOFF 0, LPOFF 1      LOST       0     0     +0  bus afterwards: 0*2369
+P5    3   slot 8 alone, PLAYING 0x7FFF, IMXL 0, VOFF 1, LPOFF 1      LOST       0     0     +0  bus afterwards: 0*1921
+P5    4   slot 9 alone, PLAYING 0x7FFF, IMXL 0, VOFF 0, LPOFF 0      LOST       0     0     +0  bus afterwards: 0*1473
+P7    3   slot 0 alone, IMXL 0, VOFF 1, LPOFF 0, off                 LOST       0     0     +0  bus afterwards: 0*2369
+P7    15  slots 1..63 (reg 0x20 = 0x0F, else 0, off)                 LOST       0     0     +0  bus afterwards: 0*1921
+P7    0   nobody (slot 0 at 3, slots 1..63 at 15)                    KEPT     736   736     +1  alternating to the end (736/736 on its parity, 0 on the other); other bank: 0*736
+P8    4   slot 63 alone (reg 0x20 = 0x04, else 0, off)               LOST       0     0     +0  bus afterwards: 0*1921
+P8    0   slots 0..62 zeroed (ISEL 0)                                LOST       0     0     +0  bus afterwards: 0*1473
+
+==== candidate rules (prediction per row: K = KEPT, L = LOST)
+  H_M  IMXL 0 never writes; a bus is rewritten iff a slot with IMXL != 0 has ISEL = bus (the model)
+  H_G  every slot writes its ISEL bus every sample (IMXL is a gain, 0 -> 0); a bus retains iff nobody points at it
+  H_B  slot 0 always writes its ISEL bus (0 when IMXL 0); other IMXL-0 slots never write
+  H_V  an IMXL-0 slot writes 0 iff VOFF 0 (H_D: IMXL 0 = gain 0, VOFF 1 + IMXL 0 = no send)
+  H_F  an IMXL-0 slot writes 0 iff LPOFF 0 (filter on)
+  H_O  an IMXL-0 slot writes 0 iff the slot is off (not playing)
+  H_S  an IMXL-0 slot writes 0 iff SA == 0
+  H_0  bus 0 is rewritten every sample whoever points at it; other buses as H_M
+
+probe bus result H_M H_G H_B H_V H_F H_O H_S H_0
+P0    0   LOST    KX   L=   L=   L=   L=   L=   L=   L= 
+P0    1   KEPT    K=   K=   K=   K=   K=   K=   K=   K= 
+P1    1   LOST    KX   L=   L=   L=   L=   L=   L=   KX 
+P1    0   LOST    KX   L=   KX   L=   L=   L=   L=   L= 
+P1b   0   KEPT    K=   K=   K=   K=   K=   K=   K=   LX 
+P1b   1   LOST    KX   L=   L=   L=   L=   L=   L=   KX 
+P1b   15  LOST    KX   L=   KX   L=   L=   L=   L=   KX 
+P2    2   LOST    KX   L=   KX   L=   L=   L=   L=   KX 
+P2    3   LOST    L=   L=   L=   L=   L=   L=   L=   L= 
+P2    4   LOST    KX   L=   KX   L=   L=   L=   KX   KX 
+P3    2   LOST    KX   L=   KX   KX   L=   L=   L=   KX 
+P3    3   LOST    KX   L=   KX   L=   KX   L=   L=   KX 
+P3    4   LOST    KX   L=   KX   KX   KX   L=   L=   KX 
+P5    2   LOST    KX   L=   KX   L=   KX   KX   KX   KX 
+P5    3   LOST    KX   L=   KX   KX   KX   KX   KX   KX 
+P5    4   LOST    KX   L=   KX   L=   L=   KX   KX   KX 
+P7    3   LOST    KX   L=   L=   KX   L=   L=   L=   KX 
+P7    15  LOST    KX   L=   KX   L=   L=   L=   L=   KX 
+P7    0   KEPT    K=   K=   K=   K=   K=   K=   K=   LX 
+P8    4   LOST    KX   L=   KX   L=   L=   L=   L=   KX 
+P8    0   LOST    KX   L=   L=   L=   L=   L=   L=   L= 
+
+==== rules vs the verdicts (21 rows)
+  H_M   4 agree  17 disagree  REFUTED by P0:0 P1:1 P1:0 P1b:1 P1b:15 P2:2 P2:4 P3:2 P3:3 P3:4 P5:2 P5:3 P5:4 P7:3 P7:15 P8:4 P8:0
+  H_G  21 agree   0 disagree  consistent
+  H_B   9 agree  12 disagree  REFUTED by P1:0 P1b:15 P2:2 P2:4 P3:2 P3:3 P3:4 P5:2 P5:3 P5:4 P7:15 P8:4
+  H_V  17 agree   4 disagree  REFUTED by P3:2 P3:4 P5:3 P7:3
+  H_F  17 agree   4 disagree  REFUTED by P3:3 P3:4 P5:2 P5:3
+  H_O  18 agree   3 disagree  REFUTED by P5:2 P5:3 P5:4
+  H_S  17 agree   4 disagree  REFUTED by P2:4 P5:2 P5:3 P5:4
+  H_0   5 agree  16 disagree  REFUTED by P1:1 P1b:0 P1b:1 P1b:15 P2:2 P2:4 P3:2 P3:3 P3:4 P5:2 P5:3 P5:4 P7:3 P7:15 P7:0 P8:4

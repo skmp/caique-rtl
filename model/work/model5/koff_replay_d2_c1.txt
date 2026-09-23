@@ -1,0 +1,23 @@
+tests/aeg_koff/hw/koff_d2 koff_d2: E_A 3111 (MDEC_CT 6ea5 odd) E_B 3282 (MDEC_CT 6dfa EVEN), on 171 samples, compare 2400 samples
+  stream 0: AR 31 D1R 31 DL 2 D2R 26 RR 24 KRS 15
+  stream 1: AR 31 D1R 31 DL 2 D2R 24 RR 28 KRS 15
+  stream 2: AR 31 D1R 31 DL 2 D2R 28 RR 0 KRS 15
+  around the key-off (i MDEC_CT: per stream hw/model [a state]):
+    3111 6ea5 odd :  s0     496/496     [280 att]  s1     496/496     [280 att]  s2     496/496     [280 att]  s3       0/0       [3ff rel OFF]
+    3112 6ea4 EVEN:  s0   16368/16368   [13f att]  s1   16368/16368   [13f att]  s2   16368/16368   [13f att]  s3       0/0       [3ff rel OFF]
+    3279 6dfd odd :  s0   61936/61936   [0c6 d2]  s1  126960/126960  [083 d2]  s2   14704/14704   [14c d2]  s3       0/0       [3ff rel OFF]
+    3280 6dfc EVEN:  s0   60912/60912   [0c8 d2]  s1  125936/125936  [084 d2]  s2   14192/14192   [150 d2]  s3       0/0       [3ff rel OFF]
+    3281 6dfb odd :  s0   60912/60912   [0c8 d2]  s1  125936/125936  [084 d2]  s2   14192/14192   [150 d2]  s3       0/0       [3ff rel OFF]
+    3282 6dfa EVEN:  s0   59888/59888   [0ca rel]  s1  124912/124912  [085 rel]  s2   13680/13680   [154 rel]  s3  520176/520176  [000 d1]
+    3283 6df9 odd :  s0   59888/59888   [0ca rel]  s1  124912/124912  [085 rel]  s2   13680/13680   [154 rel]  s3  520176/520176  [000 d1]
+    3284 6df8 EVEN:  s0   59376/59376   [0cb rel]  s1  120816/120816  [089 rel]  s2   13680/13680   [154 rel]  s3  487408/487408  [008 d1]
+    3285 6df7 odd :  s0   59376/59376   [0cb rel]  s1  120816/120816  [089 rel]  s2   13680/13680   [154 rel]  s3  487408/487408  [008 d1]
+    3286 6df6 EVEN:  s0   58864/58864   [0cc rel]  s1  116720/116720  [08d rel]  s2   13680/13680   [154 rel]  s3  454640/454640  [010 d1]
+    3287 6df5 odd :  s0   58864/58864   [0cc rel]  s1  116720/116720  [08d rel]  s2   13680/13680   [154 rel]  s3  454640/454640  [010 d1]
+    3288 6df4 EVEN:  s0   58352/58352   [0cd rel]  s1  112624/112624  [091 rel]  s2   13680/13680   [154 rel]  s3  421872/421872  [018 d1]
+    3289 6df3 odd :  s0   58352/58352   [0cd rel]  s1  112624/112624  [091 rel]  s2   13680/13680   [154 rel]  s3  421872/421872  [018 d1]
+  stream 0: FULL 2400/2400
+  stream 1: FULL 2400/2400
+  stream 2: FULL 2400/2400
+  stream 3: FULL 2400/2400
+RESULT koff_d2 cycle E_A 3111 E_B 3282: 4/4 streams FULL over 2400 samples

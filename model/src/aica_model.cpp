@@ -14,6 +14,21 @@ static inline int32_t clampi(int32_t v, int32_t lo, int32_t hi) { return v < lo 
  * ---------------------------------------------------------------------------------------------------------------- */
 static const int32_t adpcm_qs[8] = {0x0e6, 0x0e6, 0x0e6, 0x0e6, 0x133, 0x199, 0x200, 0x266};
 
+/* Slot stop / off (tests/slot_tail): the sample fetch stops once the AEG reaches CAIQUE_STOP_A on a clock and the slot
+ * is "off" (monitor 0x1FFF) when the AEG overflows 0x3FF, both CAIQUE_STOP_LAG samples after that clock; the output is
+ * never muted (CAIQUE_MUTE 0).  Macros only so the controls of work/verify/s5/model_fixes.md can be rebuilt with -D:
+ * 0x3BF / 0x3C1 / 0x400, lag 0 / 2, muting from "off" (1) or from the stop (2) each break a tail_a / tail_b / tail_c
+ * stream. */
+#ifndef CAIQUE_STOP_A
+#define CAIQUE_STOP_A 0x3C0
+#endif
+#ifndef CAIQUE_MUTE
+#define CAIQUE_MUTE 0
+#endif
+#ifndef CAIQUE_STOP_LAG
+#define CAIQUE_STOP_LAG 1
+#endif
+
 /* ------------------------------------------------------------------------------------------------------------------
  * Register masks (measured: tests/probe)
  * ---------------------------------------------------------------------------------------------------------------- */
@@ -62,6 +77,7 @@ void AicaModel::reset() {
     lfsr = 1;
     for (int ch = 0; ch < 64; ch++) {
         for (uint32_t o = 0; o < 0x48; o += 4) slot_regwrite(ch, o);
+        eg_latch(ch);
         slot[ch].enabled = false;
         slot[ch].AEG.state = EG_RELEASE;
         slot[ch].AEG.a = 0x3FF;
@@ -94,10 +110,12 @@ void AicaModel::key_on(int ch) {
     set_aeg_state(ch, EG_ATTACK);
     c.AEG.a = 0x280; /* key-on level: -60 dB (tests/sgc_aeg) */
     c.AEG.off = false;
-    /* R 63: instant attack (tests/sgc_krs): the level is 0 from the key-on sample, but the state machine still
-     * leaves the attack on the next clock (a step that lands at 0), so decay 1 first steps one clock later
-     * (tests/eg_lock odd_dec: a = 0 on the first clock after key-on) */
-    if (eff_rate(ch, chr(ch, 0x10) & 0x1F) >= 63) c.AEG.a = 0;
+    c.stop_in = c.off_in = 0;
+    /* R 63: instant attack (tests/sgc_krs): the level is 0 from the key-on sample, and the state machine leaves the
+     * attack on the first clock at or after the key-on sample without an increment step -- the key-on sample itself
+     * when it is a clock (tests/eg_kprobe p5/p6/p7, even onsets: decay 1 steps at onset + 2), else the next clock
+     * (tests/eg_lock odd_dec: a = 0 on the first clock after key-on, decay 1 steps from the second); see aeg_clock */
+    if (eff_rate(chr(ch, 0x10) & 0x1F, chr(ch, 0x14), chr(ch, 0x18)) >= 63) c.AEG.a = 0;
     c.FEG.state = EG_ATTACK;
     c.FEG.v = chr(ch, 0x2C) & 0x1FFF; /* FLV0 (tests/feg_probe) */
     c.FEG.dir = c.FEG.v >= (chr(ch, 0x30) & 0x1FFF) ? -1 : 1;
@@ -114,6 +132,7 @@ void AicaModel::key_on(int ch) {
 void AicaModel::key_off(int ch) {
     slot[ch].aeg_prev = slot[ch].AEG.state;
     slot[ch].feg_prev = slot[ch].FEG.state;
+    slot[ch].feg_prev_dir = slot[ch].FEG.dir; /* a key-off clock steps the FEG the old way (tests/feg_koffdir) */
     if (slot[ch].AEG.state != EG_RELEASE) set_aeg_state(ch, EG_RELEASE);
     slot[ch].FEG.state = EG_RELEASE;
     slot[ch].FEG.dir = slot[ch].FEG.v >= (chr(ch, 0x3C) & 0x1FFF) ? -1 : 1;
@@ -122,10 +141,11 @@ void AicaModel::key_off(int ch) {
 
 /* effective EG rate R (0..63) from a 5-bit rate register (tests/sgc_krs, all 320 KRS x OCT x FNS combinations):
  *   k = KRS + OCT (signed); s = k < 0 ? 0 : 2 * min(k, 15) + FNS[9];  R = min(63, 2 * rate + s);  KRS = 15: s = 0.
- * rate 0 = no change. */
-uint32_t AicaModel::eff_rate(int ch, uint32_t re) {
+ * rate 0 = no change.  r14 / r18 are the register values the caller sees (the envelope clocks pass their one-sample-late
+ * copies, key_on the live ones). */
+uint32_t AicaModel::eff_rate(uint32_t re, uint16_t r14, uint16_t r18) {
     if (re == 0) return 0;
-    uint32_t KRS = (chr(ch, 0x14) >> 10) & 0xF, FNS = chr(ch, 0x18) & 0x3FF, OCT = (chr(ch, 0x18) >> 11) & 0xF;
+    uint32_t KRS = (r14 >> 10) & 0xF, FNS = r18 & 0x3FF, OCT = (r18 >> 11) & 0xF;
     int32_t s = 0;
     if (KRS != 0xF) {
         int32_t k = (int32_t)KRS + ((OCT & 8) ? (int32_t)OCT - 16 : (int32_t)OCT);
@@ -309,8 +329,9 @@ void AicaModel::stream_step(int ch) {
  * index 1 and 5, not 3 and 7 (tests/eg_lock odd_att / odd_same, feg_track batch 1 slot 2, feg_odd); the rest is
  * the OPN table (rows 1, 3, 7, 11, 15 measured at odd effective rates, tests/eg_lock).
  * Attack: a += (~a * inc) >> 4, to 0 -> decay 1 (unless LPSLNK).  Decay 1 -> decay 2 once a >= DL << 5, checked after
- * that clock's decay 1 step (see aeg_clock; tests/aeg_dl0), so decay 2's increment applies from the next clock.  Decay 2 / release: a += inc; past 0x3FF the
- * slot is "off" (monitor 0x1FFF), the state is kept. */
+ * that clock's decay 1 step (see aeg_clock; tests/aeg_dl0), so decay 2's increment applies from the next clock.  Decay 2 / release: a += inc; at 0x3C0 the
+ * sample fetch stops, past 0x3FF the slot is "off" (monitor 0x1FFF), each from the next sample on (tests/slot_tail);
+ * the state is kept. */
 static const uint8_t eg_inc[17][8] = {
     {0, 1, 0, 1, 0, 1, 0, 1}, {0, 1, 0, 1, 1, 1, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 1}, {1, 2, 1, 1, 1, 2, 1, 1}, {1, 2, 1, 2, 1, 2, 1, 2}, {1, 2, 2, 2, 1, 2, 2, 2},
@@ -332,22 +353,47 @@ static inline uint32_t eg_increment(uint32_t R, uint32_t cnt, uint32_t slow_off 
     return eg_inc[R >= 60 ? 16 : 4 + (R - 48)][cnt & 7];
 }
 
+/* the two stop events (tests/slot_tail), committed by step() CAIQUE_STOP_LAG samples after their clock.  The fetch stop
+ * leaves CA alone: the CA monitor reads 0 only from "off" (tests/sgc_keys K4: the console's poll logged the CA reset in
+ * the same poll as EG 0x5FFF, 5916 us; a reset at the 0x3C0 stop would have shown 360 us earlier with EG 0x43C0). */
+static inline void slot_stop(Slot &c) { c.enabled = false; }
+static inline void slot_off(Slot &c) { c.AEG.off = true; c.CA = 0; }
+
+/* the envelope generators' view of the rate registers, refreshed at the end of every sample (see Slot::egreg) */
+void AicaModel::eg_latch(int ch) {
+    Slot &c = slot[ch];
+    c.egreg.r10 = chr(ch, 0x10); c.egreg.r14 = chr(ch, 0x14); c.egreg.r18 = chr(ch, 0x18);
+    c.egreg.r40 = chr(ch, 0x40); c.egreg.r44 = chr(ch, 0x44);
+}
+
 void AicaModel::aeg_clock(int ch) {
     Slot &c = slot[ch];
-    if (c.AEG.off || c.keyed) return;
-    uint16_t r10 = chr(ch, 0x10), r14 = chr(ch, 0x14);
+    if (c.AEG.off) return;
+    uint16_t r10 = c.egreg.r10, r14 = c.egreg.r14;   /* one sample late (tests/slot_tail tail_c RR rewrite) */
+    if (c.keyed) {
+        /* no increment step on a key-on sample (tests/eg_lock keys), but an R 63 attack (a = 0 from key-on) still
+         * leaves the attack state on this clock: tests/eg_kprobe p5/p6/p7 (even onsets, decay 1 at R 45) step decay 1
+         * at onset + 2, where "attack leaves on the first clock after the key-on" (tests/eg_lock odd_dec, odd onsets)
+         * would give onset + 4.  Both: the R 63 attack leaves on the first clock at or after the key-on sample. */
+        if (c.AEG.state == EG_ATTACK && c.AEG.a == 0 && !((r14 >> 14) & 1)) set_aeg_state(ch, EG_DECAY1);
+        return;
+    }
+    /* key-off on a clock sample (tests/aeg_koff, the key-off sample pinned by a witness slot keyed on by the same
+     * KYONEX): from an ATTACK no step at all (koff_att, 12/12 even key-offs; neither the attack step nor the release
+     * increment); from DECAY 2 one more step with decay 2's increment before the release rate takes over (koff_d2 /
+     * koff_d2b, 51/51) or DECAY 1 (koff_d1, 18/18: one more decay-1 step); the FEG does the same for every
+     * segment including its attack (tests/feg_krs fk_1 / fk_3, feg_track batches 1 and 2, feg_koffdir, feg_koffatt). */
+    if (c.keyed_off && c.aeg_prev == EG_ATTACK) return;
     /* decay 1 -> decay 2: on a clock that starts in decay 1, the decay 1 step is applied first, then a >= DL << 5
      * switches (every such clock, also without a step; not on the clock that enters decay 1).  tests/aeg_dl0: with
      * DL 0 the first decay 1 clock still takes its step (D1R 31: +8) before decay 2; tests/sgc_aeg dec_a: the
      * monitor shows decay 2 within the crossing clock.  For DL > 0 the levels are the same as switching at the
      * start of the next clock. */
     bool was_d1 = c.AEG.state == EG_DECAY1;
-    /* on the key-off sample the increment still comes from the previous segment's rate (measured on the FEG:
-     * tests/feg_krs fk_1 / fk_3, feg_track batches 1 and 2; the AEG shares the machinery, unmeasured there) */
-    EgState rs = c.keyed_off ? c.aeg_prev : c.AEG.state;
+    EgState rs = c.keyed_off ? c.aeg_prev : c.AEG.state;   /* key-off sample: the previous segment's rate */
     uint32_t rate = rs == EG_ATTACK ? (r10 & 0x1F) : rs == EG_DECAY1 ? ((r10 >> 6) & 0x1F)
                   : rs == EG_DECAY2 ? ((r10 >> 11) & 0x1F) : (r14 & 0x1F);
-    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt, (uint32_t)-1);
+    uint32_t inc = eg_increment(eff_rate(rate, r14, c.egreg.r18), eg_cnt, (uint32_t)-1);
     if (!inc) {
         if (was_d1 && (c.AEG.a >> 5) == ((r14 >> 5) & 0x1F)) set_aeg_state(ch, EG_DECAY2);
         return;
@@ -361,12 +407,17 @@ void AicaModel::aeg_clock(int ch) {
         }
     } else {
         a += inc;
-        if (a > 0x3FF) {
-            a = 0x3FF;
-            c.AEG.off = true;
-            c.enabled = false; /* the slot stops, CA reads 0, in decay 2 as in release (tests/sgc_keys K4) */
-            c.CA = 0;
-        }
+        /* slot stop / off (tests/slot_tail): the sample fetch stops once a reaches 0x3C0 (a[9:6] == 15) -- zero
+         * input from then on, the filter keeps running on it (tail_a: the 120th +8 clock, the 960th +1 clock; tail_c:
+         * 768 clocks of row 5) -- and the slot is "off" (monitor 0x1FFF, CA reads 0, no further steps) when the
+         * 10-bit adder overflows past 0x3FF, the 128th +8 clock; a keeps stepping in between and the level saturates at
+         * 0x3FF (tail_b: the VOFF 0 output stays -16 / 0 with the sign of the filter tail through and past off, no
+         * mute).  Both take effect on the sample AFTER their clock (the clock sample still outputs the fetched sample),
+         * so they are only armed here and committed at the end of step().  The state is kept: decay 2 stays decay 2
+         * (tests/sgc_keys K4). */
+        if (a >= CAIQUE_STOP_A && c.enabled && !c.stop_in) { if (CAIQUE_STOP_LAG) c.stop_in = CAIQUE_STOP_LAG; else slot_stop(c); }
+        if (a > 0x3FF && !c.off_in) { if (CAIQUE_STOP_LAG) c.off_in = CAIQUE_STOP_LAG; else slot_off(c); }
+        if (a > 0x3FF) a = 0x3FF;
     }
     c.AEG.a = (uint16_t)a;
     /* decay 1 -> decay 2 when the top 5 bits of a EQUAL DL (not >=): a slot that enters decay 1 through LPSLNK
@@ -385,11 +436,18 @@ void AicaModel::aeg_clock(int ch) {
  *     up to one step), and the next segment moves on the very next clock (no idle clock);
  *   - decay 2 / release skip any step that would flip C: they hold short of the target.
  * Key-on loads FLV0 on the key-on sample and the value first moves on the next clock; key-off switches to release on
- * the key-off sample (no step on it; the next clock steps). */
+ * the key-off sample, and when that sample is a clock the FEG takes ONE MORE STEP OF THE OLD SEGMENT -- its increment
+ * and its direction -- with the release's hold check against FLV4 (tests/feg_krs fk_1 / fk_3, feg_track batches 1 / 2:
+ * +4 out of a decay-2 hold at 0x19FE; tests/feg_koffdir kd_0/1/5/6/7: a decay 2 holding at 0x1A04 going DOWN steps to
+ * 0x1A00 although the release goes up, one holding at 0x19FE going UP steps to 0x1A02 although the release goes down;
+ * "old increment toward the release target" is refuted there).  KYONB cleared without KYONEX changes nothing (kd_6/7). */
 void AicaModel::feg_clock(int ch) {
     Slot &c = slot[ch];
-    if (!c.enabled || c.keyed) return;
-    uint16_t r40 = chr(ch, 0x40), r44 = chr(ch, 0x44);
+    /* the FEG keeps stepping after the sample fetch has stopped and after the AEG is "off" (tests/slot_tail tail_c
+     * streams 1 / 2: the zero-input filter tails match only with the release still moving toward FLV4 through the stop
+     * (+3 samples) and through off (+6); the old model froze it with the fetch) */
+    if (c.keyed) return;
+    uint16_t r40 = c.egreg.r40, r44 = c.egreg.r44;   /* one sample late, as the AEG's (unmeasured for the FEG) */
     static const uint8_t tgt_reg[4] = {0x30, 0x34, 0x38, 0x3C};
     if (c.FEG.passed && c.FEG.state < EG_DECAY2) {
         c.FEG.state = (EgState)(c.FEG.state + 1);
@@ -397,17 +455,18 @@ void AicaModel::feg_clock(int ch) {
         c.FEG.passed = false;
     }
     uint32_t rate;
-    switch (c.keyed_off ? c.feg_prev : c.FEG.state) {   /* key-off sample: the previous segment's rate */
+    switch (c.keyed_off ? c.feg_prev : c.FEG.state) {   /* key-off sample: the previous segment's rate ... */
     case EG_ATTACK: rate = (r40 >> 8) & 0x1F; break;
     case EG_DECAY1: rate = r40 & 0x1F; break;
     case EG_DECAY2: rate = (r44 >> 8) & 0x1F; break;
     default: rate = r44 & 0x1F; break;
     }
-    int32_t target = chr(ch, tgt_reg[c.FEG.state]) & 0x1FFF;
-    uint32_t inc = eg_increment(eff_rate(ch, rate), eg_cnt, (uint32_t)-1);
+    int32_t dir = c.keyed_off ? c.feg_prev_dir : c.FEG.dir;   /* ... and its direction (tests/feg_koffdir) */
+    int32_t target = chr(ch, tgt_reg[c.FEG.state]) & 0x1FFF;   /* the target and the hold rule are the release's */
+    uint32_t inc = eg_increment(eff_rate(rate, c.egreg.r14, c.egreg.r18), eg_cnt, (uint32_t)-1);
     if (!inc || c.FEG.passed) return;
     bool C = c.FEG.v >= target;
-    int32_t nv = (int32_t)c.FEG.v + c.FEG.dir * (int32_t)inc;
+    int32_t nv = (int32_t)c.FEG.v + dir * (int32_t)inc;
     nv = nv < 0 ? 0 : nv > 0x1FFF ? 0x1FFF : nv;
     if (c.FEG.state >= EG_DECAY2) {
         if ((nv >= target) == C) c.FEG.v = (uint16_t)nv;   /* hold short of the target */
@@ -472,7 +531,8 @@ void AicaModel::slot_output(int ch, int32_t &l, int32_t &r, int32_t &d) {
     uint32_t nb = ((lfsr >> 0) ^ (lfsr >> 5)) & 1;
     lfsr = (lfsr >> 1) | (nb << 16);
     /* A stopped sample supplies zero, but its filter keeps evolving and VOFF
-     * still exposes the result (filt_id2 tails). LPOFF alone freezes the filter. */
+     * still exposes the result (filt_id2 tails; tests/slot_tail: the zero-input tail from the sample after the AEG
+     * reached 0x3C0, settling in the filter's deadband). LPOFF alone freezes the filter. */
     if (c.enabled && ((chr(ch, 0x00) >> 10) & 1)) c.s0 = c.s1 = (int32_t)(int8_t)(lfsr & 0xFF) << 8;
     /* interpolation (tests/sgc_pitch): only the top 6 bits of the 14-bit phase fraction are used, and the result
      * keeps 4 fraction bits:  s16 = 16*s0 + floor((s1 - s0) * frac6 / 4)   (1/16 sample units) */
@@ -487,9 +547,13 @@ void AicaModel::slot_output(int ch, int32_t &l, int32_t &r, int32_t &d) {
     /* the volume stage outputs whole samples (tests/sgc_level); VOFF passes the fractional signal through
      * (tests/filt_id, sgc_pitch).  Filter on with VOFF=0: precision unmeasured. */
     int32_t V16;
-    if ((r28 >> 6) & 1) V16 = s16; /* VOFF */
-    else if (c.AEG.off) V16 = 0;
+    if ((r28 >> 6) & 1) V16 = s16; /* VOFF: never muted, the filter tail continues past "off" (tests/slot_tail tail_a) */
+    else if (CAIQUE_MUTE == 1 ? c.AEG.off : CAIQUE_MUTE == 2 ? !c.enabled : false) V16 = 0;   /* controls only */
     else {
+        /* an "off" slot is not muted either: the level law with a saturated at 0x3FF keeps applying to the zero-input
+         * filter tail (tests/slot_tail tail_b stream 0: -16 on every negative half-wave of the tail for 100 samples past
+         * the 128th release clock, 0 on the positive ones; the old "output silent when off" came from positive constant
+         * inputs, where a = 0x3FF gives 0 anyway) */
         /* amplitude LFO (tests/sgc_lfo): attenuation (w & 0xFE) >> (7 - ALFOS) with w the 8-bit waveform; the noise
          * waveform is the global LFSR byte at this slot, every sample (it ignores the LFO clock) */
         uint32_t r1c = chr(ch, 0x1C), ws = (r1c >> 3) & 3, alfos = r1c & 7;
@@ -655,9 +719,16 @@ void AicaModel::step() {
         mixl += l;
         mixr += rr;
         uint16_t r20 = chr(ch, 0x20);
-        if ((r20 >> 4) & 0xF) { MIXS[r20 & 0xF] += d; sent[r20 & 0xF] = true; } /* MIXS is 20-bit (sample scale x16), DSP INPUTS = MIXS << 4 */
+        MIXS[r20 & 0xF] += d; sent[r20 & 0xF] = true; /* every slot writes its ISEL bus every sample, IMXL is a pure gain (IMXL 0 sends 0): tests/mixs_write, 21/21 probes; MIXS is 20-bit (sample scale x16), DSP INPUTS = MIXS << 4 */
     }
-    /* a bus that no slot sends to (IMXL 0) keeps its last value; the DSP reads bank samples&1 (tests/eg_lock mixs) */
+    /* slot stop / off armed by this sample's clock take effect from the next sample (tests/slot_tail: the clock sample
+     * still outputs the fetched sample, zero input from the one after) */
+    for (int ch = 0; ch < 64; ch++) {
+        if (slot[ch].stop_in && --slot[ch].stop_in == 0) slot_stop(slot[ch]);
+        if (slot[ch].off_in && --slot[ch].off_in == 0) slot_off(slot[ch]);
+        eg_latch(ch);   /* rate registers written during this sample reach the envelope generators from the next */
+    }
+    /* a bus that NO slot points at (ISEL) keeps its last value (tests/eg_lock mixs, slot_tail tail_c, mixs_write: every slot rewrites its ISEL bus, IMXL 0 or not); the DSP reads bank samples&1 (tests/eg_lock mixs) */
     for (int i = 0; i < 16; i++) {
         if (sent[i]) MIXS_bank[samples & 1][i] = sext(MIXS[i], 20); /* the 20-bit sum wraps, no saturation (tests/sgc_mix) */
         MIXS[i] = MIXS_bank[samples & 1][i];

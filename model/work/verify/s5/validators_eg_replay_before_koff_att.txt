@@ -1,0 +1,91 @@
+tests/aeg_koff/hw/koff_att (koff_att): 40832 samples x 4 streams, n_first 735, c0 e935 (MDEC_CT of sample i = (e656 - i) & 0xFFFF), K 6491
+  stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 28 KRS 15 OCT 0 FNS 000 const
+  stream 1: slot 1 AR 26 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 const
+  stream 2: slot 2 AR 28 D1R 0 DL 0 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 const
+  stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 const WITNESS
+  kind 0 (key-on / key-off, marks 1 / 3), 16 cycles, test slots mask 07, witness mask 08
+  cycle  0: E_A 458 (even) E_B 479 (odd, 21 samples on)
+  cycle  1: E_A 2961 (odd) E_B 2975 (odd, 14 samples on)
+  cycle  2: E_A 5309 (odd) E_B 5353 (odd, 44 samples on)
+  cycle  3: E_A 7878 (even) E_B 7920 (even, 42 samples on)
+  cycle  4: E_A 10422 (even) E_B 10444 (even, 22 samples on)
+  cycle  5: E_A 12885 (odd) E_B 12925 (odd, 40 samples on)
+  cycle  6: E_A 15430 (even) E_B 15451 (odd, 21 samples on)
+  cycle  7: E_A 17929 (odd) E_B 17943 (odd, 14 samples on)
+  cycle  8: E_A 20496 (even) E_B 20515 (odd, 19 samples on)
+  cycle  9: E_A 22998 (even) E_B 23020 (even, 22 samples on)
+  cycle 10: E_A 25584 (even) E_B 25629 (odd, 45 samples on)
+  cycle 11: E_A 28132 (even) E_B 28143 (odd, 11 samples on)
+  cycle 12: E_A 30633 (odd) E_B 30653 (odd, 20 samples on)
+  cycle 13: E_A 33200 (even) E_B 33219 (odd, 19 samples on)
+  cycle 14: E_A 35780 (even) E_B 35792 (even, 12 samples on)
+  cycle 15: E_A 38284 (even) E_B 38333 (odd, 49 samples on)
+  cycle  0 [458, 2961):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  1 [2961, 5309):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  2 [5309, 7878):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  3 [7878, 10422):  s0 FAIL at 7920 (E_B+0, even: hw 87024 model 86000, a 0x0ab rel)  s1 FAIL at 7920 (E_B+0, even: hw 352240 model 344048, a 0x02b rel)  s2 ok  s3 FAIL at 7922 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  4 [10422, 12885):  s0 FAIL at 10444 (E_B+0, even: hw 14832 model 14704, a 0x14c rel)  s1 FAIL at 10444 (E_B+0, even: hw 92144 model 90096, a 0x0a7 rel)  s2 FAIL at 10444 (E_B+0, even: hw 380912 model 364528, a 0x026 rel)  s3 FAIL at 10446 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  5 [12885, 15430):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  6 [15430, 17929):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  7 [17929, 20496):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  8 [20496, 22998):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  9 [22998, 25584):  s0 FAIL at 23020 (E_B+0, even: hw 14832 model 14704, a 0x14c rel)  s1 FAIL at 23020 (E_B+0, even: hw 92144 model 90096, a 0x0a7 rel)  s2 FAIL at 23020 (E_B+0, even: hw 380912 model 364528, a 0x026 rel)  s3 FAIL at 23022 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 10 [25584, 28132):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 11 [28132, 30633):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 12 [30633, 33200):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 13 [33200, 35780):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 14 [35780, 38284):  s0 FAIL at 35792 (E_B+0, even: hw 3632 model 3600, a 0x1ce rel)  s1 FAIL at 35792 (E_B+0, even: hw 15472 model 15216, a 0x148 rel)  s2 FAIL at 35792 (E_B+0, even: hw 107504 model 103408, a 0x09a rel)  s3 FAIL at 35794 (E_B+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 15 [38284, 40832):  s0 ok  s1 ok  s2 ok  s3 ok
+  stream 0 (slot 0): prefix 7920/40832, 600 mismatching samples, first mismatch at 7920 (E_B 7920+0, MDEC_CT c766 even): hw 87024 model 86000; model a 0x0ab rel CA 11
+      i 7920 MDEC_CT c766 EVEN: hw    87024 model    86000 (a 0x0ab rel CA 11)
+      i 7921 MDEC_CT c765 odd : hw    87024 model    86000 (a 0x0ab rel CA 12)
+      i 7922 MDEC_CT c764 EVEN: hw    82928 model    81904 (a 0x0af rel CA 13)
+      i 7923 MDEC_CT c763 odd : hw    82928 model    81904 (a 0x0af rel CA 14)
+      i 7924 MDEC_CT c762 EVEN: hw    78832 model    77808 (a 0x0b3 rel CA 15)
+      i 7925 MDEC_CT c761 odd : hw    78832 model    77808 (a 0x0b3 rel CA 16)
+      i 7926 MDEC_CT c760 EVEN: hw    74736 model    73712 (a 0x0b7 rel CA 17)
+      i 7927 MDEC_CT c75f odd : hw    74736 model    73712 (a 0x0b7 rel CA 18)
+      i 7928 MDEC_CT c75e EVEN: hw    70640 model    69616 (a 0x0bb rel CA 19)
+      i 7929 MDEC_CT c75d odd : hw    70640 model    69616 (a 0x0bb rel CA 20)
+      i 7930 MDEC_CT c75c EVEN: hw    66544 model    65520 (a 0x0bf rel CA 21)
+      i 7931 MDEC_CT c75b odd : hw    66544 model    65520 (a 0x0bf rel CA 22)
+  stream 1 (slot 1): prefix 7920/40832, 4214 mismatching samples, first mismatch at 7920 (E_B 7920+0, MDEC_CT c766 even): hw 352240 model 344048; model a 0x02b rel CA 11
+      i 7920 MDEC_CT c766 EVEN: hw   352240 model   344048 (a 0x02b rel CA 11)
+      i 7921 MDEC_CT c765 odd : hw   352240 model   344048 (a 0x02b rel CA 12)
+      i 7922 MDEC_CT c764 EVEN: hw   348144 model   339952 (a 0x02c rel CA 13)
+      i 7923 MDEC_CT c763 odd : hw   348144 model   339952 (a 0x02c rel CA 14)
+      i 7924 MDEC_CT c762 EVEN: hw   344048 model   335856 (a 0x02d rel CA 15)
+      i 7925 MDEC_CT c761 odd : hw   344048 model   335856 (a 0x02d rel CA 16)
+      i 7926 MDEC_CT c760 EVEN: hw   339952 model   331760 (a 0x02e rel CA 17)
+      i 7927 MDEC_CT c75f odd : hw   339952 model   331760 (a 0x02e rel CA 18)
+      i 7928 MDEC_CT c75e EVEN: hw   335856 model   327664 (a 0x02f rel CA 19)
+      i 7929 MDEC_CT c75d odd : hw   335856 model   327664 (a 0x02f rel CA 20)
+      i 7930 MDEC_CT c75c EVEN: hw   331760 model   323568 (a 0x030 rel CA 21)
+      i 7931 MDEC_CT c75b odd : hw   331760 model   323568 (a 0x030 rel CA 22)
+  stream 2 (slot 2): prefix 10444/40832, 2074 mismatching samples, first mismatch at 10444 (E_B 10444+0, MDEC_CT bd8a even): hw 380912 model 364528; model a 0x026 rel CA 23
+      i 10444 MDEC_CT bd8a EVEN: hw   380912 model   364528 (a 0x026 rel CA 23)
+      i 10445 MDEC_CT bd89 odd : hw   380912 model   364528 (a 0x026 rel CA 24)
+      i 10446 MDEC_CT bd88 EVEN: hw   372720 model   356336 (a 0x028 rel CA 25)
+      i 10447 MDEC_CT bd87 odd : hw   372720 model   356336 (a 0x028 rel CA 26)
+      i 10448 MDEC_CT bd86 EVEN: hw   364528 model   348144 (a 0x02a rel CA 27)
+      i 10449 MDEC_CT bd85 odd : hw   364528 model   348144 (a 0x02a rel CA 28)
+      i 10450 MDEC_CT bd84 EVEN: hw   356336 model   339952 (a 0x02c rel CA 29)
+      i 10451 MDEC_CT bd83 odd : hw   356336 model   339952 (a 0x02c rel CA 30)
+      i 10452 MDEC_CT bd82 EVEN: hw   348144 model   331760 (a 0x02e rel CA 31)
+      i 10453 MDEC_CT bd81 odd : hw   348144 model   331760 (a 0x02e rel CA 0)
+      i 10454 MDEC_CT bd80 EVEN: hw   339952 model   323568 (a 0x030 rel CA 1)
+      i 10455 MDEC_CT bd7f odd : hw   339952 model   323568 (a 0x030 rel CA 2)
+  stream 3 (slot 3 witness): prefix 7922/40832, 824 mismatching samples, first mismatch at 7922 (E_B 7920+2, MDEC_CT c764 even): hw 487408 model 520176; model a 0x000 d1 CA 3
+      i 7922 MDEC_CT c764 EVEN: hw   487408 model   520176 (a 0x000 d1 CA 3)
+      i 7923 MDEC_CT c763 odd : hw   487408 model   520176 (a 0x000 d1 CA 4)
+      i 7924 MDEC_CT c762 EVEN: hw   454640 model   487408 (a 0x008 d1 CA 5)
+      i 7925 MDEC_CT c761 odd : hw   454640 model   487408 (a 0x008 d1 CA 6)
+      i 7926 MDEC_CT c760 EVEN: hw   421872 model   454640 (a 0x010 d1 CA 7)
+      i 7927 MDEC_CT c75f odd : hw   421872 model   454640 (a 0x010 d1 CA 8)
+      i 7928 MDEC_CT c75e EVEN: hw   389104 model   421872 (a 0x018 d1 CA 9)
+      i 7929 MDEC_CT c75d odd : hw   389104 model   421872 (a 0x018 d1 CA 10)
+      i 7930 MDEC_CT c75c EVEN: hw   356336 model   389104 (a 0x020 d1 CA 11)
+      i 7931 MDEC_CT c75b odd : hw   356336 model   389104 (a 0x020 d1 CA 12)
+      i 7932 MDEC_CT c75a EVEN: hw   323568 model   356336 (a 0x028 d1 CA 13)
+      i 7933 MDEC_CT c759 odd : hw   323568 model   356336 (a 0x028 d1 CA 14)
+TOTAL koff_att: streams FULL 0/4, samples matched 155616/163328, clean cycles 12/16

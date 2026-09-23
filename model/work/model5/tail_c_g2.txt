@@ -1,0 +1,27 @@
+tests/slot_tail/hw/tail_c: kind c, 14528 samples x 4 streams, n_first 655, c0 74eb, K 6491, marks 1@221 2@222 3@6853 4@6854 5@11269 6@11269 7@12164 8@12164
+  onset 226 (MDEC_CT 717a even), pre-onset non-zero samples per stream 226 226 0 0
+  stage 0 slot 0 inherited filter state: pre-onset value 6 -> low -3 (pinned), band -2 (matches to 6753, 3 tie(s) of 131072)
+  stage 0 slot 1 inherited filter state: pre-onset value 6 -> low -3 (pinned), band -2 (matches to 6753, 3 tie(s) of 131072)
+  stage 0 slot 2 inherited filter state: pre-onset value 0 -> low 0 (pinned), band -3 (matches to 6753, 4 tie(s) of 131072)
+  stage 1 key-off: window [6753, 7254], compared to 11169: best ko 6875 (MDEC_CT 5781 odd), score 33507/33507, 1 tie(s): 6875(odd)
+  stage 2 RR/KYONB rewrite: window [11169, 11669], compared to 12064: best w14 11300 w00 11300 (MDEC_CT 4638 even, d 0), score 36192/36192, 1 tie(s): 11300/11300
+  stage 3 IMXL 0: window [12064, 12564], compared to 14528: best w2 12064 (MDEC_CT 433c even), score 41254/43584, 501 tie(s) (the freeze is invisible while the tail is at rest)
+  events: ko 6875(odd) w14 11300(even) w00 11300(even) w2 12064(even)
+  stream 0 (slot 0 VOFF 1 LPOFF 0 Q 4 FLV0 1800 AR 31 RR 0 KRS 0 FNS 200): 11972/14302, first mismatch at 12198 (+11972, MDEC_CT 42b6 even): hw 0 model 6; model slot a 3ff rel OFF CA 0 FEG.v 1bff rel low -3 band -1, 2330 mismatching samples; model off at 11556 (+11330 after the onset, +4681 after the key-off) = +256 after the RR rewrite; model values from off: 11556:-2050 11557:-2450 11558:-2598 11559:-2546 11560:-2348 11561:-2054 11562:-1706 11563:-1338 11564:-978 11565:-648 11566:-360 11567:-120 ...; final value hw 0 model 6
+    around the first mismatch (i: hw/model): 12196:6/6 12197:6/6 12198:0/6 12199:0/6 12200:0/6 12201:0/6 12202:0/6 12203:0/6 12204:0/6 12205:0/6 12206:0/6 12207:0/6
+    hw    tail (24 distinct values, index:value): 11576:228 11577:178 11578:130 11579:86 11580:48 11581:16 11582:-10 11583:-28 11584:-40 11585:-46 11586:-48 11587:-46 11588:-42 11589:-36 11590:-30 11591:-24 11592:-18 11593:-12 11594:-6 11595:-2 11596:2 11597:4 11598:6 12198:0
+    model tail (24 distinct values, index:value): 11575:276 11576:228 11577:178 11578:130 11579:86 11580:48 11581:16 11582:-10 11583:-28 11584:-40 11585:-46 11586:-48 11587:-46 11588:-42 11589:-36 11590:-30 11591:-24 11592:-18 11593:-12 11594:-6 11595:-2 11596:2 11597:4 11598:6
+  stream 1 (slot 1 VOFF 1 LPOFF 0 Q 4 FLV0 1800 AR 31 RR 31 KRS 0 FNS 200): FULL 14302/14302; model off at 7130 (+6904 after the onset, +255 after the key-off); model values from off: 7130:3884 7131:4838 7132:5554 7133:6052 7134:6354 7135:6480 7136:6452 7137:6294 7138:6028 7139:5674 7140:5252 7141:4782 ...; final value hw 2 model 2
+    hw    tail (24 distinct values, index:value): 7192:70 7193:58 7194:48 7195:38 7196:28 7197:20 7198:12 7199:6 7200:0 7201:-6 7202:-10 7203:-14 7204:-16 7205:-18 7211:-16 7212:-14 7213:-12 7214:-10 7215:-8 7216:-6 7217:-4 7218:-2 7219:0 7220:2
+    model tail (24 distinct values, index:value): 7192:70 7193:58 7194:48 7195:38 7196:28 7197:20 7198:12 7199:6 7200:0 7201:-6 7202:-10 7203:-14 7204:-16 7205:-18 7211:-16 7212:-14 7213:-12 7214:-10 7215:-8 7216:-6 7217:-4 7218:-2 7219:0 7220:2
+  stream 2 (slot 2 VOFF 1 LPOFF 0 Q 4 FLV0 1800 AR 31 RR 24 KRS 0 FNS 200): FULL 14302/14302; model off at 8512 (+8286 after the onset, +1637 after the key-off); model values from off: 8512:2; final value hw 2 model 2
+    hw    tail (24 distinct values, index:value): 8453:52 8454:0 8455:-40 8456:-68 8457:-84 8458:-92 8460:-86 8461:-76 8462:-64 8463:-52 8464:-40 8465:-28 8466:-16 8467:-6 8468:2 8469:8 8470:12 8471:14 8475:12 8476:10 8477:8 8478:6 8479:4 8480:2
+    model tail (24 distinct values, index:value): 8453:52 8454:0 8455:-40 8456:-68 8457:-84 8458:-92 8460:-86 8461:-76 8462:-64 8463:-52 8464:-40 8465:-28 8466:-16 8467:-6 8468:2 8469:8 8470:12 8471:14 8475:12 8476:10 8477:8 8478:6 8479:4 8480:2
+  stream 3 (slot 3 VOFF 1 LPOFF 1 Q 4 FLV0 1ffe AR 31 RR 0 KRS 15 FNS 200): FULL 14302/14302; final value hw -18208 model -18208
+    hw    tail (24 distinct values, index:value): 14504:-460432 14505:42920 14506:-466720 14507:189768 14508:106608 14509:-49104 14510:-97696 14511:-322328 14512:20224 14513:-263752 14514:-408496 14515:-49600 14516:308592 14517:170344 14518:-440560 14519:144816 14520:153600 14521:168528 14522:84176 14523:23656 14524:82096 14525:-467816 14526:-282304 14527:-18208
+    model tail (24 distinct values, index:value): 14504:-460432 14505:42920 14506:-466720 14507:189768 14508:106608 14509:-49104 14510:-97696 14511:-322328 14512:20224 14513:-263752 14514:-408496 14515:-49600 14516:308592 14517:170344 14518:-440560 14519:144816 14520:153600 14521:168528 14522:84176 14523:23656 14524:82096 14525:-467816 14526:-282304 14527:-18208
+  retained bus values at the end (IMXL 0 from 12064): hw 0 2 2 | model 6 2 2;  stream 3 hw -18208 model -18208
+    hw bus 0: value before the IMXL 0 write 6, last change at 11598 (466 samples before w2)
+    hw bus 1: value before the IMXL 0 write 2, last change at 7220 (4844 samples before w2)
+    hw bus 2: value before the IMXL 0 write 2, last change at 8480 (3584 samples before w2)
+RESULT tests/slot_tail/hw/tail_c: 3/4 streams FULL, events ko 6875(odd) w14 11300(even) w00 11300(even) w2 12064(even)

@@ -1,0 +1,257 @@
+koffatt_check tests/feg_koffatt/model: 8 batches, clock constant K 6491
+readings of an even key-off sample E (v = the FEG value before E): oldStep = old increment, old direction; noStep = hold on E;
+S3 = old increment toward the release target (the model before F4); relInc = release increment on E.  Odd E: all coincide.
+== ka_0: 5184 samples, first 724, c0 e776, FEG onset 134 (MDEC_CT e41c even; rest values before it: 0 0 0), marks: 1@132 3@575 4@576 5@4991 6@4992
+   key-off sample E 578 (witness onset; MDEC_CT e260 EVEN = a clock: informative, 444 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 487408 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5050/5050 samples, 74 ambiguous, max set 25
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5050/5050 samples, 812 ambiguous, max set 155
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5050/5050 samples, 96 ambiguous, max set 155
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: 0e 1o]  s1 FULL [key-off samples reproducing, rel. E: 0e 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+0(even) E+1(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 fail@E+0 (hw u d22, predicted d23) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u cde, predicted cdd) [key-off samples reproducing, rel. E: 1o]  s2 fail@E+0 (hw u cde, predicted cdd) [key-off samples reproducing, rel. E: 1o]  -> shared key-off sample: E+1(odd)
+   S3(oldInc->rel)   s0 fail@E+0 (hw u d22, predicted d24) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u cde, predicted cdc) [key-off samples reproducing, rel. E: 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+1(odd)
+   relInc            s0 fail@E+0 (hw u d22, predicted d25) [key-off samples reproducing, rel. E: 1o 2e]  s1 fail@E+0 (hw u cde, predicted cdb) [key-off samples reproducing, rel. E: 1o 2e]  s2 fail@E+0 (hw u cde, predicted cdf) [key-off samples reproducing, rel. E: 1o 2e]  -> shared key-off sample: E+1(odd) E+2(even)
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        572 ( -6) e266 EVEN    d25    cdb    cdb     observed
+        573 ( -5) e265 odd     d25    cdb    cdb     observed
+        574 ( -4) e264 EVEN    d24    cdc    cdc     observed
+        575 ( -3) e263 odd     d24    cdc    cdc     observed
+        576 ( -2) e262 EVEN    d23    cdd    cdd     observed
+        577 ( -1) e261 odd     d23    cdd    cdd     observed
+        578 ( +0) e260 EVEN *  d22    cde    cde     observed
+        579 ( +1) e25f odd     d22    cde    cde     observed
+        580 ( +2) e25e EVEN    d24    cdc    ce0     observed
+        581 ( +3) e25d odd     d24    cdc    ce0     observed
+        582 ( +4) e25c EVEN    d26    cda    ce2     observed
+        583 ( +5) e25b odd     d26    cda    ce2     observed
+        584 ( +6) e25a EVEN    d28    cd8    ce4     observed
+        585 ( +7) e259 odd     d28    cd8    ce4     observed
+        586 ( +8) e258 EVEN    d2a    cd6    ce6     observed
+     oldStep                 E:d22  E:cde  E:cde   E+2: d24 cdc ce0   E+4: d26 cda ce2   (FULL on every tracked stream)
+     noStep                  E:d23  E:cdd  E:cdd   E+2: d25 cdb cdf   E+4: d27 cd9 ce1   (refuted)
+     S3(oldInc->rel)         E:d24  E:cdc  E:cde   E+2: d26 cda ce0   E+4: d28 cd8 ce2   (partial)
+     relInc                  E:d25  E:cdb  E:cdf   E+2: d27 cd9 ce1   E+4: d29 cd7 ce3   (refuted)
+== ka_1: 5248 samples, first 697, c0 bd91, FEG onset 133 (MDEC_CT ba53 odd; rest values before it: 2 -28 2), marks: 1@132 3@639 4@640 5@5055 6@5056
+   key-off sample E 641 (witness onset; MDEC_CT b857 odd: indifferent, 508 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 520176 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5115/5115 samples, 80 ambiguous, max set 25
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5115/5115 samples, 826 ambiguous, max set 152
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5115/5115 samples, 101 ambiguous, max set 143
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: -1e 0o]  s1 FULL [key-off samples reproducing, rel. E: -1e 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E-1(even) E+0(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: -3e 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   S3(oldInc->rel)   s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   relInc            s0 FULL [key-off samples reproducing, rel. E: 0o 1e]  s1 FULL [key-off samples reproducing, rel. E: 0o 1e]  s2 FULL [key-off samples reproducing, rel. E: 0o 1e]  -> shared key-off sample: E+0(odd) E+1(even)   <== fits the whole capture on all 3 streams
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        635 ( -6) b85d odd     d05      ?      ?     observed
+        636 ( -5) b85c EVEN    d04    cfc    cfc     observed
+        637 ( -4) b85b odd     d04    cfc    cfc     observed
+        638 ( -3) b85a EVEN    d03      ?      ?     observed
+        639 ( -2) b859 odd     d03      ?      ?     observed
+        640 ( -1) b858 EVEN    d02    cfe    cfe     observed
+        641 ( +0) b857 odd  *  d02    cfe    cfe     observed
+        642 ( +1) b856 EVEN    d04    cfc    d00     observed
+        643 ( +2) b855 odd     d04    cfc    d00     observed
+        644 ( +3) b854 EVEN    d06    cfa    d02     observed
+        645 ( +4) b853 odd     d06    cfa    d02     observed
+        646 ( +5) b852 EVEN    d08    cf8    d04     observed
+        647 ( +6) b851 odd     d08    cf8    d04     observed
+        648 ( +7) b850 EVEN    d0a    cf6    d06     observed
+        649 ( +8) b84f odd     d0a      ?    d06     observed
+     oldStep                 E:d02  E:cfe  E:cfe   E+2: d04 cfc d00   E+4: d06 cfa d02   (FULL on every tracked stream)
+     noStep                  E:d02  E:cfe  E:cfe   E+2: d04 cfc d00   E+4: d06 cfa d02   (FULL on every tracked stream)
+     S3(oldInc->rel)         E:d02  E:cfe  E:cfe   E+2: d04 cfc d00   E+4: d06 cfa d02   (FULL on every tracked stream)
+     relInc                  E:d02  E:cfe  E:cfe   E+2: d04 cfc d00   E+4: d06 cfa d02   (FULL on every tracked stream)
+== ka_2: 5312 samples, first 655, c0 9388, FEG onset 134 (MDEC_CT 9073 odd; rest values before it: -4 0 -4), marks: 1@132 3@659 4@660 5@5070 6@5071
+   key-off sample E 662 (witness onset; MDEC_CT 8e63 odd: indifferent, 528 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 520176 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 82 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 829 ambiguous, max set 152
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 102 ambiguous, max set 143
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: -1e 0o]  s1 FULL [key-off samples reproducing, rel. E: -1e 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E-1(even) E+0(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   S3(oldInc->rel)   s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   relInc            s0 FULL [key-off samples reproducing, rel. E: 0o 1e]  s1 FULL [key-off samples reproducing, rel. E: 0o 1e]  s2 FULL [key-off samples reproducing, rel. E: 0o 1e]  -> shared key-off sample: E+0(odd) E+1(even)   <== fits the whole capture on all 3 streams
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        656 ( -6) 8e69 odd     cfb    d05    d05     observed
+        657 ( -5) 8e68 EVEN    cfa    d06    d06     observed
+        658 ( -4) 8e67 odd     cfa    d06    d06     observed
+        659 ( -3) 8e66 EVEN    cf9    d07    d07     observed
+        660 ( -2) 8e65 odd     cf9    d07    d07     observed
+        661 ( -1) 8e64 EVEN    cf8    d08    d08     observed
+        662 ( +0) 8e63 odd  *  cf8    d08    d08     observed
+        663 ( +1) 8e62 EVEN    cfa    d06    d0a     observed
+        664 ( +2) 8e61 odd     cfa    d06    d0a     observed
+        665 ( +3) 8e60 EVEN    cfc    d04    d0c     observed
+        666 ( +4) 8e5f odd     cfc    d04    d0c     observed
+        667 ( +5) 8e5e EVEN    cfe    d02    d0e     observed
+        668 ( +6) 8e5d odd     cfe    d02    d0e     observed
+        669 ( +7) 8e5c EVEN    d00    d00    d10     observed
+        670 ( +8) 8e5b odd     d00    d00    d10     observed
+     oldStep                 E:cf8  E:d08  E:d08   E+2: cfa d06 d0a   E+4: cfc d04 d0c   (FULL on every tracked stream)
+     noStep                  E:cf8  E:d08  E:d08   E+2: cfa d06 d0a   E+4: cfc d04 d0c   (FULL on every tracked stream)
+     S3(oldInc->rel)         E:cf8  E:d08  E:d08   E+2: cfa d06 d0a   E+4: cfc d04 d0c   (FULL on every tracked stream)
+     relInc                  E:cf8  E:d08  E:d08   E+2: cfa d06 d0a   E+4: cfc d04 d0c   (FULL on every tracked stream)
+== ka_3: 5312 samples, first 619, c0 6968, FEG onset 134 (MDEC_CT 6677 odd; rest values before it: -2 -28 -4), marks: 1@132 3@703 4@704 5@5119 6@5120
+   key-off sample E 706 (witness onset; MDEC_CT 643b odd: indifferent, 572 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 520176 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 89 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 823 ambiguous, max set 152
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5178/5178 samples, 103 ambiguous, max set 143
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: -1e 0o]  s1 FULL [key-off samples reproducing, rel. E: -1e 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E-1(even) E+0(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   S3(oldInc->rel)   s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   relInc            s0 FULL [key-off samples reproducing, rel. E: 0o 1e]  s1 FULL [key-off samples reproducing, rel. E: 0o 1e]  s2 FULL [key-off samples reproducing, rel. E: 0o 1e]  -> shared key-off sample: E+0(odd) E+1(even)   <== fits the whole capture on all 3 streams
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        700 ( -6) 6441 odd     ce5    d1b    d1b     observed
+        701 ( -5) 6440 EVEN    ce4    d1c    d1c     observed
+        702 ( -4) 643f odd     ce4    d1c    d1c     observed
+        703 ( -3) 643e EVEN    ce3    d1d    d1d     observed
+        704 ( -2) 643d odd     ce3    d1d    d1d     observed
+        705 ( -1) 643c EVEN    ce2    d1e    d1e     observed
+        706 ( +0) 643b odd  *  ce2    d1e    d1e     observed
+        707 ( +1) 643a EVEN    ce4    d1c    d20     observed
+        708 ( +2) 6439 odd     ce4    d1c    d20     observed
+        709 ( +3) 6438 EVEN    ce6    d1a    d22     observed
+        710 ( +4) 6437 odd     ce6    d1a    d22     observed
+        711 ( +5) 6436 EVEN    ce8    d18    d24     observed
+        712 ( +6) 6435 odd     ce8    d18    d24     observed
+        713 ( +7) 6434 EVEN    cea    d16    d26     observed
+        714 ( +8) 6433 odd       ?    d16    d26     observed
+     oldStep                 E:ce2  E:d1e  E:d1e   E+2: ce4 d1c d20   E+4: ce6 d1a d22   (FULL on every tracked stream)
+     noStep                  E:ce2  E:d1e  E:d1e   E+2: ce4 d1c d20   E+4: ce6 d1a d22   (FULL on every tracked stream)
+     S3(oldInc->rel)         E:ce2  E:d1e  E:d1e   E+2: ce4 d1c d20   E+4: ce6 d1a d22   (FULL on every tracked stream)
+     relInc                  E:ce2  E:d1e  E:d1e   E+2: ce4 d1c d20   E+4: ce6 d1a d22   (FULL on every tracked stream)
+== ka_4: 5376 samples, first 582, c0 3f6c, FEG onset 134 (MDEC_CT 3ca0 even; rest values before it: -2 -28 -4), marks: 1@132 3@767 4@768 5@5183 6@5184
+   key-off sample E 770 (witness onset; MDEC_CT 3a24 EVEN = a clock: informative, 636 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 487408 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5242/5242 samples, 85 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5242/5242 samples, 840 ambiguous, max set 152
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5242/5242 samples, 103 ambiguous, max set 155
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: 0e 1o]  s1 FULL [key-off samples reproducing, rel. E: 0e 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+0(even) E+1(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 fail@E+0 (hw u cc2, predicted cc3) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d3e, predicted d3d) [key-off samples reproducing, rel. E: 1o]  s2 fail@E+0 (hw u d3e, predicted d3d) [key-off samples reproducing, rel. E: 1o]  -> shared key-off sample: E+1(odd)
+   S3(oldInc->rel)   s0 fail@E+0 (hw u cc2, predicted cc4) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d3e, predicted d3c) [key-off samples reproducing, rel. E: 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+1(odd)
+   relInc            s0 fail@E+0 (hw u cc2, predicted cc5) [key-off samples reproducing, rel. E: 1o 2e]  s1 fail@E+0 (hw u d3e, predicted d3b) [key-off samples reproducing, rel. E: 1o 2e]  s2 fail@E+0 (hw u d3e, predicted d3f) [key-off samples reproducing, rel. E: 1o 2e]  -> shared key-off sample: E+1(odd) E+2(even)
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        764 ( -6) 3a2a EVEN    cc5    d3b    d3b     observed
+        765 ( -5) 3a29 odd       ?    d3b    d3b     observed
+        766 ( -4) 3a28 EVEN    cc4    d3c    d3c     observed
+        767 ( -3) 3a27 odd     cc4    d3c    d3c     observed
+        768 ( -2) 3a26 EVEN    cc3    d3d    d3d     observed
+        769 ( -1) 3a25 odd     cc3    d3d    d3d     observed
+        770 ( +0) 3a24 EVEN *  cc2    d3e    d3e     observed
+        771 ( +1) 3a23 odd     cc2    d3e    d3e     observed
+        772 ( +2) 3a22 EVEN    cc4    d3c    d40     observed
+        773 ( +3) 3a21 odd     cc4    d3c    d40     observed
+        774 ( +4) 3a20 EVEN    cc6    d3a    d42     observed
+        775 ( +5) 3a1f odd     cc6    d3a    d42     observed
+        776 ( +6) 3a1e EVEN    cc8    d38    d44     observed
+        777 ( +7) 3a1d odd     cc8    d38    d44     observed
+        778 ( +8) 3a1c EVEN    cca    d36    d46     observed
+     oldStep                 E:cc2  E:d3e  E:d3e   E+2: cc4 d3c d40   E+4: cc6 d3a d42   (FULL on every tracked stream)
+     noStep                  E:cc3  E:d3d  E:d3d   E+2: cc5 d3b d3f   E+4: cc7 d39 d41   (refuted)
+     S3(oldInc->rel)         E:cc4  E:d3c  E:d3e   E+2: cc6 d3a d40   E+4: cc8 d38 d42   (partial)
+     relInc                  E:cc5  E:d3b  E:d3f   E+2: cc7 d39 d41   E+4: cc9 d37 d43   (refuted)
+== ka_5: 5440 samples, first 547, c0 1555, FEG onset 134 (MDEC_CT 12ac even; rest values before it: 4 2 6), marks: 1@132 3@789 4@790 5@5200 6@5201
+   key-off sample E 791 (witness onset; MDEC_CT 101b odd: indifferent, 657 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 520176 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5306/5306 samples, 87 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5306/5306 samples, 835 ambiguous, max set 155
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5306/5306 samples, 108 ambiguous, max set 155
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: -1e 0o]  s1 FULL [key-off samples reproducing, rel. E: -1e 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E-1(even) E+0(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   S3(oldInc->rel)   s0 FULL [key-off samples reproducing, rel. E: 0o]  s1 FULL [key-off samples reproducing, rel. E: 0o]  s2 FULL [key-off samples reproducing, rel. E: -1e 0o]  -> shared key-off sample: E+0(odd)   <== fits the whole capture on all 3 streams
+   relInc            s0 FULL [key-off samples reproducing, rel. E: 0o 1e]  s1 FULL [key-off samples reproducing, rel. E: 0o 1e]  s2 FULL [key-off samples reproducing, rel. E: 0o 1e]  -> shared key-off sample: E+0(odd) E+1(even)   <== fits the whole capture on all 3 streams
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        785 ( -6) 1021 odd       ?      ?      ?     observed
+        786 ( -5) 1020 EVEN    cba    d46    d46     observed
+        787 ( -4) 101f odd     cba    d46    d46     observed
+        788 ( -3) 101e EVEN    cb9    d47    d47     observed
+        789 ( -2) 101d odd     cb9    d47    d47     observed
+        790 ( -1) 101c EVEN    cb8    d48    d48     observed
+        791 ( +0) 101b odd  *  cb8      ?      ?     observed
+        792 ( +1) 101a EVEN    cba    d46    d4a     observed
+        793 ( +2) 1019 odd     cba    d46    d4a     observed
+        794 ( +3) 1018 EVEN    cbc    d44    d4c     observed
+        795 ( +4) 1017 odd     cbc    d44    d4c     observed
+        796 ( +5) 1016 EVEN    cbe    d42    d4e     observed
+        797 ( +6) 1015 odd     cbe    d42    d4e     observed
+        798 ( +7) 1014 EVEN    cc0    d40    d50     observed
+        799 ( +8) 1013 odd     cc0    d40    d50     observed
+     oldStep                 E:cb8  E:d48  E:d48   E+2: cba d46 d4a   E+4: cbc d44 d4c   (FULL on every tracked stream)
+     noStep                  E:cb8  E:d48  E:d48   E+2: cba d46 d4a   E+4: cbc d44 d4c   (FULL on every tracked stream)
+     S3(oldInc->rel)         E:cb8  E:d48  E:d48   E+2: cba d46 d4a   E+4: cbc d44 d4c   (FULL on every tracked stream)
+     relInc                  E:cb8  E:d48  E:d48   E+2: cba d46 d4a   E+4: cbc d44 d4c   (FULL on every tracked stream)
+== ka_6: 5440 samples, first 740, c0 eb22, FEG onset 133 (MDEC_CT e7b9 odd; rest values before it: 2 30 2), marks: 1@132 3@832 4@833 5@5247 6@5248
+   key-off sample E 834 (witness onset; MDEC_CT e4fc EVEN = a clock: informative, 701 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 487408 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5307/5307 samples, 98 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5307/5307 samples, 558 ambiguous, max set 143
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5307/5307 samples, 106 ambiguous, max set 143
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: 0e 1o]  s1 FULL [key-off samples reproducing, rel. E: 0e 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+0(even) E+1(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 fail@E+0 (hw u ca1, predicted ca2) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d5f, predicted d5e) [key-off samples reproducing, rel. E: 1o]  s2 fail@E+0 (hw u d5f, predicted d5e) [key-off samples reproducing, rel. E: 1o]  -> shared key-off sample: E+1(odd)
+   S3(oldInc->rel)   s0 fail@E+0 (hw u ca1, predicted ca3) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d5f, predicted d5d) [key-off samples reproducing, rel. E: 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+1(odd)
+   relInc            s0 fail@E+0 (hw u ca1, predicted ca4) [key-off samples reproducing, rel. E: 1o 2e]  s1 fail@E+0 (hw u d5f, predicted d5c) [key-off samples reproducing, rel. E: 1o 2e]  s2 fail@E+0 (hw u d5f, predicted d60) [key-off samples reproducing, rel. E: 1o 2e]  -> shared key-off sample: E+1(odd) E+2(even)
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        828 ( -6) e502 EVEN    ca4    d5c    d5c     observed
+        829 ( -5) e501 odd     ca4    d5c    d5c     observed
+        830 ( -4) e500 EVEN    ca3    d5d    d5d     observed
+        831 ( -3) e4ff odd     ca3    d5d    d5d     observed
+        832 ( -2) e4fe EVEN    ca2    d5e    d5e     observed
+        833 ( -1) e4fd odd     ca2    d5e    d5e     observed
+        834 ( +0) e4fc EVEN *  ca1    d5f    d5f     observed
+        835 ( +1) e4fb odd     ca1    d5f    d5f     observed
+        836 ( +2) e4fa EVEN    ca3    d5d    d61     observed
+        837 ( +3) e4f9 odd     ca3    d5d    d61     observed
+        838 ( +4) e4f8 EVEN    ca5    d5b    d63     observed
+        839 ( +5) e4f7 odd     ca5    d5b    d63     observed
+        840 ( +6) e4f6 EVEN      ?    d59    d65     observed
+        841 ( +7) e4f5 odd       ?    d59    d65     observed
+        842 ( +8) e4f4 EVEN    ca9    d57    d67     observed
+     oldStep                 E:ca1  E:d5f  E:d5f   E+2: ca3 d5d d61   E+4: ca5 d5b d63   (FULL on every tracked stream)
+     noStep                  E:ca2  E:d5e  E:d5e   E+2: ca4 d5c d60   E+4: ca6 d5a d62   (refuted)
+     S3(oldInc->rel)         E:ca3  E:d5d  E:d5f   E+2: ca5 d5b d61   E+4: ca7 d59 d63   (partial)
+     relInc                  E:ca4  E:d5c  E:d60   E+2: ca6 d5a d62   E+4: ca8 d58 d64   (refuted)
+== ka_7: 5504 samples, first 699, c0 c02e, FEG onset 134 (MDEC_CT bced odd; rest values before it: 4 30 4), marks: 1@132 3@895 4@896 5@5311 6@5312
+   key-off sample E 897 (witness onset; MDEC_CT b9f2 EVEN = a clock: informative, 763 samples after the key-on), witness levels E-1..E+3: 0 520176 520176 487408 487408
+   stream 0: FLV 1c00->1800 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5370/5370 samples, 103 ambiguous, max set 24
+   stream 1: FLV 1800->1c00 rel 1800 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5370/5370 samples, 841 ambiguous, max set 152
+   stream 2: FLV 1800->1c00 rel 1c00 FAR 26 FRR 28 (R 52/56, inc 2/4): tracked 5370/5370 samples, 109 ambiguous, max set 143
+   oldStep           s0 FULL [key-off samples reproducing, rel. E: 0e 1o]  s1 FULL [key-off samples reproducing, rel. E: 0e 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+0(even) E+1(odd)   <== fits the whole capture on all 3 streams
+   noStep            s0 fail@E+0 (hw u c82, predicted c83) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d7e, predicted d7d) [key-off samples reproducing, rel. E: 1o]  s2 fail@E+0 (hw u d7e, predicted d7d) [key-off samples reproducing, rel. E: 1o]  -> shared key-off sample: E+1(odd)
+   S3(oldInc->rel)   s0 fail@E+0 (hw u c82, predicted c84) [key-off samples reproducing, rel. E: 1o]  s1 fail@E+0 (hw u d7e, predicted d7c) [key-off samples reproducing, rel. E: 1o]  s2 FULL [key-off samples reproducing, rel. E: 0e 1o]  -> shared key-off sample: E+1(odd)
+   relInc            s0 fail@E+0 (hw u c82, predicted c85) [key-off samples reproducing, rel. E: 1o 2e]  s1 fail@E+0 (hw u d7e, predicted d7b) [key-off samples reproducing, rel. E: 1o 2e]  s2 fail@E+0 (hw u d7e, predicted d7f) [key-off samples reproducing, rel. E: 1o 2e]  -> shared key-off sample: E+1(odd) E+2(even)
+   window E-6..E+8 (u = v >> 1 per sample; observed, then the predictions; ? = ambiguous):
+     i (rel. E)  MDEC_CT     s0     s1     s2   
+        891 ( -6) b9f8 EVEN    c85    d7b    d7b     observed
+        892 ( -5) b9f7 odd     c85      ?      ?     observed
+        893 ( -4) b9f6 EVEN    c84    d7c    d7c     observed
+        894 ( -3) b9f5 odd     c84    d7c    d7c     observed
+        895 ( -2) b9f4 EVEN    c83    d7d    d7d     observed
+        896 ( -1) b9f3 odd     c83    d7d    d7d     observed
+        897 ( +0) b9f2 EVEN *  c82    d7e    d7e     observed
+        898 ( +1) b9f1 odd     c82    d7e    d7e     observed
+        899 ( +2) b9f0 EVEN    c84    d7c    d80     observed
+        900 ( +3) b9ef odd     c84    d7c    d80     observed
+        901 ( +4) b9ee EVEN    c86    d7a    d82     observed
+        902 ( +5) b9ed odd     c86    d7a    d82     observed
+        903 ( +6) b9ec EVEN      ?    d78    d84     observed
+        904 ( +7) b9eb odd     c88    d78    d84     observed
+        905 ( +8) b9ea EVEN    c8a    d76    d86     observed
+     oldStep                 E:c82  E:d7e  E:d7e   E+2: c84 d7c d80   E+4: c86 d7a d82   (FULL on every tracked stream)
+     noStep                  E:c83  E:d7d  E:d7d   E+2: c85 d7b d7f   E+4: c87 d79 d81   (refuted)
+     S3(oldInc->rel)         E:c84  E:d7c  E:d7e   E+2: c86 d7a d80   E+4: c88 d78 d82   (partial)
+     relInc                  E:c85  E:d7b  E:d7f   E+2: c87 d79 d81   E+4: c89 d77 d83   (refuted)
+
+SUMMARY (streams reproduced to the end of the capture per reading; an odd E is indifferent: all four coincide there)
+  ka_0  E    578  EVEN  oldStep 3/3  noStep 0/3  S3 1/3  relInc 0/3
+  ka_1  E    641  odd   oldStep 3/3  noStep 3/3  S3 3/3  relInc 3/3
+  ka_2  E    662  odd   oldStep 3/3  noStep 3/3  S3 3/3  relInc 3/3
+  ka_3  E    706  odd   oldStep 3/3  noStep 3/3  S3 3/3  relInc 3/3
+  ka_4  E    770  EVEN  oldStep 3/3  noStep 0/3  S3 1/3  relInc 0/3
+  ka_5  E    791  odd   oldStep 3/3  noStep 3/3  S3 3/3  relInc 3/3
+  ka_6  E    834  EVEN  oldStep 3/3  noStep 0/3  S3 1/3  relInc 0/3
+  ka_7  E    897  EVEN  oldStep 3/3  noStep 0/3  S3 1/3  relInc 0/3
+  even key-off samples: 4, odd: 4
+  batches with an EVEN E fitted on all 3 streams:  oldStep 4/4  noStep 0/4  S3(oldInc->rel) 0/4  relInc 0/4
+  per stream (even E, FULL / batches):  s0: oldStep 4/4 noStep 0/4 S3(oldInc->rel) 0/4 relInc 0/4  s1: oldStep 4/4 noStep 0/4 S3(oldInc->rel) 0/4 relInc 0/4  s2: oldStep 4/4 noStep 0/4 S3(oldInc->rel) 4/4 relInc 0/4
+  (s2 releases in the attack's direction: oldStep = S3 there; s0 / s1 separate them.  A reading is refuted when FULL < batches.)

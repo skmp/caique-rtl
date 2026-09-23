@@ -1,0 +1,95 @@
+feg_odd replay: n 11264 n_first 533 onset 139 (MDEC_CT 00d4 even) K 6491 key-off 6772; MIXS2 mismatches 140 (first 139, last 284: the console's inherited filter state, model starts from 0), MIXS3 mismatches 0 (first -1)
+  t 11263 MDEC_CT d560 EVEN MIXS2 -108498 | AEG a 000 rel off 0 enabled 1 CA   303 | FEG v 1bff rel | low 54249 band 61771  <- capture end
+  FEG of slot 2 (release from FLV3 0x1A00 toward FLV4 0x1C00 at R 45) reached its hold value 0x1BFF at capture sample 8409
+after 4410 more samples (100.0 ms):
+  t 15673 MDEC_CT c426 EVEN MIXS2  -38356 | AEG a 000 rel off 0 enabled 1 CA  6918 | FEG v 1bff rel | low 19178 band 80638  <- just before the quiet writes
+quiet sequence (SA/LPCTL kept): reg 0x00 := KYONB cleared only, reg 0x14 := 0x1F on all slots, 0 samples, KYONEX; then 1000 samples:
+  t     0 MDEC_CT c425 odd  MIXS2  -78574 | AEG a 000 rel off 0 enabled 1 CA  6920 | FEG v 1bff rel | low 39287 band 80590
+  t    50 MDEC_CT c3f3 odd  MIXS2  -68810 | AEG a 0c8 rel off 0 enabled 1 CA  6995 | FEG v 1bff rel | low 34405 band -56498
+  t   100 MDEC_CT c3c1 odd  MIXS2  -42244 | AEG a 190 rel off 0 enabled 1 CA  7070 | FEG v 1bff rel | low 21122 band 27109
+  t   150 MDEC_CT c38f odd  MIXS2  -91828 | AEG a 258 rel off 0 enabled 1 CA  7145 | FEG v 1bff rel | low 45914 band -67956
+  t   200 MDEC_CT c35d odd  MIXS2  -12778 | AEG a 320 rel off 0 enabled 1 CA  7220 | FEG v 1bff rel | low 6389 band 16124
+  t   250 MDEC_CT c32b odd  MIXS2  -35714 | AEG a 3e8 rel off 0 enabled 1 CA  7295 | FEG v 1bff rel | low 17857 band -26717
+  t   255 MDEC_CT c326 EVEN MIXS2   35452 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -17726 band -31969  <- slot 2 stops here
+  t   255 MDEC_CT c326 EVEN MIXS2   35452 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -17726 band -31969
+  t   256 MDEC_CT c325 odd  MIXS2   45216 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -22608 band -19570
+  t   257 MDEC_CT c324 EVEN MIXS2   49730 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -24865 band -9047
+  t   258 MDEC_CT c323 odd  MIXS2   50022 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -25011 band -586
+  t   259 MDEC_CT c322 EVEN MIXS2   47126 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -23563 band 5800
+  t   260 MDEC_CT c321 odd  MIXS2   42018 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -21009 band 10232
+  t   261 MDEC_CT c320 EVEN MIXS2   35570 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -17785 band 12920
+  t   262 MDEC_CT c31f odd  MIXS2   28516 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -14258 band 14133
+  t   263 MDEC_CT c31e EVEN MIXS2   21448 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -10724 band 14163
+  t   264 MDEC_CT c31d odd  MIXS2   14808 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -7404 band 13304
+  t   265 MDEC_CT c31c EVEN MIXS2    8904 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -4452 band 11831
+  t   266 MDEC_CT c31b odd  MIXS2    3918 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -1959 band 9989
+  t   267 MDEC_CT c31a EVEN MIXS2     -68 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 34 band 7985
+  t   268 MDEC_CT c319 odd  MIXS2   -3054 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 1527 band 5983
+  t   269 MDEC_CT c318 EVEN MIXS2   -5104 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 2552 band 4108
+  t   270 MDEC_CT c317 odd  MIXS2   -6326 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 3163 band 2446
+  t   271 MDEC_CT c316 EVEN MIXS2   -6848 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 3424 band 1046
+  t   272 MDEC_CT c315 odd  MIXS2   -6814 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 3407 band -70
+  t   273 MDEC_CT c314 EVEN MIXS2   -6364 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 3182 band -903
+  t   274 MDEC_CT c313 odd  MIXS2   -5630 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 2815 band -1472
+  t   275 MDEC_CT c312 EVEN MIXS2   -4728 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 2364 band -1808
+  t   276 MDEC_CT c311 odd  MIXS2   -3758 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 1879 band -1947
+  t   277 MDEC_CT c310 EVEN MIXS2   -2796 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 1398 band -1931
+  t   278 MDEC_CT c30f odd  MIXS2   -1900 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 950 band -1799
+  t   279 MDEC_CT c30e EVEN MIXS2   -1108 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 554 band -1588
+  t   280 MDEC_CT c30d odd  MIXS2    -444 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 222 band -1331
+  t   281 MDEC_CT c30c EVEN MIXS2      82 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -41 band -1055
+  t   282 MDEC_CT c30b odd  MIXS2     472 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -236 band -782
+  t   283 MDEC_CT c30a EVEN MIXS2     734 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -367 band -528
+  t   284 MDEC_CT c309 odd  MIXS2     886 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -443 band -305
+  t   285 MDEC_CT c308 EVEN MIXS2     944 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -472 band -119
+  t   286 MDEC_CT c307 odd  MIXS2     930 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -465 band 28
+  t   287 MDEC_CT c306 EVEN MIXS2     860 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -430 band 137
+  t   288 MDEC_CT c305 odd  MIXS2     754 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -377 band 209
+  t   289 MDEC_CT c304 EVEN MIXS2     628 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -314 band 250
+  t   290 MDEC_CT c303 odd  MIXS2     494 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -247 band 265
+  t   291 MDEC_CT c302 EVEN MIXS2     364 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -182 band 260
+  t   292 MDEC_CT c301 odd  MIXS2     244 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -122 band 240
+  t   293 MDEC_CT c300 EVEN MIXS2     138 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -69 band 210
+  t   294 MDEC_CT c2ff odd  MIXS2      50 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -25 band 174
+  t   295 MDEC_CT c2fe EVEN MIXS2     -18 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 9 band 136
+  t   296 MDEC_CT c2fd odd  MIXS2     -68 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 34 band 99
+  t   297 MDEC_CT c2fc EVEN MIXS2    -102 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 51 band 65
+  t   298 MDEC_CT c2fb odd  MIXS2    -120 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 60 band 35
+  t   299 MDEC_CT c2fa EVEN MIXS2    -126 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 63 band 11
+  t   300 MDEC_CT c2f9 odd  MIXS2    -124 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 62 band -8
+  t   301 MDEC_CT c2f8 EVEN MIXS2    -114 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 57 band -22
+  t   302 MDEC_CT c2f7 odd  MIXS2    -100 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 50 band -31
+  t   303 MDEC_CT c2f6 EVEN MIXS2     -84 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 42 band -36
+  t   304 MDEC_CT c2f5 odd  MIXS2     -66 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 33 band -38
+  t   305 MDEC_CT c2f4 EVEN MIXS2     -48 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 24 band -37
+  t   306 MDEC_CT c2f3 odd  MIXS2     -32 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 16 band -35
+  t   307 MDEC_CT c2f2 EVEN MIXS2     -18 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 9 band -31
+  t   308 MDEC_CT c2f1 odd  MIXS2      -6 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 3 band -26
+  t   309 MDEC_CT c2f0 EVEN MIXS2       4 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -2 band -21
+  t   310 MDEC_CT c2ef odd  MIXS2      10 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -5 band -16
+  t   311 MDEC_CT c2ee EVEN MIXS2      14 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -7 band -11
+  t   312 MDEC_CT c2ed odd  MIXS2      16 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -8 band -7
+  t   316 MDEC_CT c2e9 odd  MIXS2      14 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -7 band 1
+  t   317 MDEC_CT c2e8 EVEN MIXS2      12 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -6 band 2
+  t   318 MDEC_CT c2e7 odd  MIXS2      10 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -5 band 2
+  t   319 MDEC_CT c2e6 EVEN MIXS2       8 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -4 band 2
+  t   320 MDEC_CT c2e5 odd  MIXS2       6 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -3 band 2
+  t   321 MDEC_CT c2e4 EVEN MIXS2       4 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -2 band 2
+  t   322 MDEC_CT c2e3 odd  MIXS2       2 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low -1 band 2
+  t   323 MDEC_CT c2e2 EVEN MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 1
+  t   350 MDEC_CT c2c7 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   400 MDEC_CT c295 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   450 MDEC_CT c263 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   500 MDEC_CT c231 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   550 MDEC_CT c1ff odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   600 MDEC_CT c1cd odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   650 MDEC_CT c19b odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   700 MDEC_CT c169 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   750 MDEC_CT c137 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   800 MDEC_CT c105 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   850 MDEC_CT c0d3 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   900 MDEC_CT c0a1 odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  t   950 MDEC_CT c06f odd  MIXS2       0 | AEG a 3ff rel off 1 enabled 0 CA     0 | FEG v 1bff rel | low 0 band 0
+  MIXS2 after the stop as RLE runs (t:value*len; t 0 = the sample after the KYONEX, MDEC_CT c425 odd):
+    0:-78574*1 1:-78956*1 2:-45454*1 3:-46186*1 4:-53028*1 5:-50856*1 6:-42432*1 7:-58046*1 8:-68472*1 9:-69576*1 10:-56552*1 11:-73766*1 12:-79640*1 13:-60952*1 14:-41278*1 15:-27422*1 16:-10186*1 17:-25366*1 18:-43780*1 19:-60008*1 20:-69364*1 21:-41560*1 22:-16062*1 23:-11670*1 24:13354*1 25:4636*1 26:-6474*1 27:-22566*1 28:-45274*1 29:-65780*1 30:-81304*1 31:-86948*1 32:-95974*1 33:-113504*1 34:-137492*1 35:-163270*1 36:-172402*1 37:-193384*1 38:-182410*1 39:-165580*1 40:-131954*1 41:-120998*1 42:-120110*1 43:-132926*1 44:-132220*1 45:-117356*1 46:-116680*1 47:-124646*1 48:-124152*1 49:-97002*1 50:-68810*1 51:-60240*1 52:-42290*1 53:-6820*1 54:-8306*1 55:-11440*1 56:-6222*1 57:-16652*1 58:-17496*1 59:13232*1 60:37720*1 61:54084*1 62:60136*1 63:34490*1 64:11400*1 65:12224*1 66:5426*1 67:-23682*1 68:-50220*1 69:-95414*1 70:-136264*1 71:-153730*1 72:-161274*1 73:-165278*1 74:-181968*1 75:-203334*1 76:-203282*1 77:-221766*1 78:-213448*1 79:-179760*1 80:-124314*1 81:-67422*1 82:5054*1 83:65398*1 84:86416*1 85:83470*1 86:97694*1 87:105160*1 88:86152*1 89:72974*1 90:81832*1 91:53620*1 92:34050*1 93:37306*1 94:27704*1 95:28156*1 96:6002*1 97:-5880*1 98:-14948*1 99:-28714*1 100:-42244*1 101:-33356*1 102:-47366*1 103:-69164*1 104:-61024*1 105:-67590*1 106:-65924*1 107:-59326*1 108:-71628*1 109:-49268*1 110:-51600*1 111:-45154*1 112:-41952*1 113:-30142*1 114:-32366*1 115:-9164*1 116:39116*1 117:88042*1 118:122900*1 119:132032*1 120:150346*1 121:169396*1 122:175900*1 123:191382*1 124:209528*1 125:241074*1 126:252282*1 127:249396*1 128:201326*1 129:185008*1 130:155950*1 131:142978*1 132:144586*1 133:122592*1 134:97620*1 135:61648*1 136:28138*1 137:6996*1 138:11022*1 139:-11076*1 140:-36920*1 141:-26450*1 142:-41604*1 143:-82742*1 144:-120386*1 145:-157720*1 146:-175640*1 147:-178728*1 148:-152654*1 149:-125738*1 150:-91828*1 151:-35038*1 152:11982*1 153:56206*1 154:86404*1 155:104850*1 156:112998*1 157:99816*1 158:89584*1 159:70000*1 160:50612*1 161:60914*1 162:66810*1 163:50902*1 164:38270*1 165:6848*1 166:-20826*1 167:-19414*1 168:-14116*1 169:-33512*1 170:-54716*1 171:-72188*1 172:-70012*1 173:-85134*1 174:-75088*1 175:-94438*1 176:-124994*1 177:-131508*1 178:-146450*1 179:-176854*1 180:-202332*1 181:-199340*1 182:-185456*1 183:-148482*1 184:-111676*1 185:-51596*1 186:11484*1 187:39932*1 188:55626*1 189:61026*1 190:47476*1 191:18304*1 192:-21920*1 193:-20134*1 194:-5808*1 195:19144*1 196:43868*1 197:38372*1 198:7986*1 199:-4730*1 200:-12778*1 201:-3526*1 202:20172*1 203:18060*1 204:29918*1 205:68662*1 206:77804*1 207:106880*1 208:142022*1 209:168948*1 210:191994*1 211:172504*1 212:142432*1 213:135942*1 214:126754*1 215:109770*1 216:87678*1 217:77696*1 218:87926*1 219:117054*1 220:126620*1 221:96888*1 222:81280*1 223:46870*1 224:15256*1 225:-3820*1 226:-31744*1 227:-79614*1 228:-86258*1 229:-73910*1 230:-78732*1 231:-109888*1 232:-131494*1 233:-137704*1 234:-118706*1 235:-89028*1 236:-34598*1 237:9530*1 238:38634*1 239:72680*1 240:93992*1 241:80598*1 242:52950*1 243:4718*1 244:-60432*1 245:-76360*1 246:-53986*1 247:-56176*1 248:-40974*1 249:-49046*1 250:-35714*1 251:-32916*1 252:-15382*1 253:-3374*1 254:19500*1 255:35452*1 256:45216*1 257:49730*1 258:50022*1 259:47126*1 260:42018*1 261:35570*1 262:28516*1 263:21448*1 264:14808*1 265:8904*1 266:3918*1 267:-68*1 268:-3054*1 269:-5104*1 270:-6326*1 271:-6848*1 272:-6814*1 273:-6364*1 274:-5630*1 275:-4728*1 276:-3758*1 277:-2796*1 278:-1900*1 279:-1108*1 280:-444*1 281:82*1 282:472*1 283:734*1 284:886*1 285:944*1 286:930*1 287:860*1 288:754*1 289:628*1 290:494*1 291:364*1 292:244*1 293:138*1 294:50*1 295:-18*1 296:-68*1 297:-102*1 298:-120*1 299:-126*1 300:-124*1 301:-114*1 302:-100*1 303:-84*1 304:-66*1 305:-48*1 306:-32*1 307:-18*1 308:-6*1 309:4*1 310:10*1 311:14*1 312:16*4 316:14*1 317:12*1 318:10*1 319:8*1 320:6*1 321:4*1 322:2*1 323:0*677
+landing: MIXS2 0 (low 0 band 0), slot stopped at t 255 (AEG off (release +8 past 0x3FF)), last output change at t 323

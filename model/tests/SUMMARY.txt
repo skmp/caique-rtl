@@ -13,14 +13,21 @@ sgc_krs        OK     effective-rate table (320 combos) identical
 sgc_pitch      OK     16/16 streams identical
 sgc_formats    OK     PCM8/ADPCM: 4/4 streams identical; ADPCM long stream identical; noise LFSR structure matches
 sgc_loop       OK     10/10 streams identical (+2 slow-attack streams: envelope phase)
-sgc_keys       OK     10/10 key-event end states agree (EG state, off, KYONB)
+sgc_keys       OK     10/10 key-event end states agree (EG state, off, KYONB); K4's CA reset logged at off (EG 5fff), as the model now does
 sgc_mix        OK     43 lines, 0 differ
 sgc_lfo        OK     23/23 LFO streams agree (ALFO steps/ranges exact, PLFO mean increment within 20/16384)
 filt_id2       STATE  55/60 streams identical; 619/254980 samples differ, all startup transients (<300 samples)
 filt_coef      STATE  117/119 streams identical; 17/503438 samples differ, all startup transients (<17 samples)
 filter_math    OK     Production model: 235/235 streams, 2050454/2050454 samples identical with inferred initial state
 # Session 4 (2026-09-23, envelope clock locked to MDEC_CT; tools/eg_model.cpp replays captures with the ring position):
-eg_lock        OK     33/33 envelope streams sample-exact via eg_model (with aeg_dl0, sgc_loop lo_2, feg_krs, feg_track); keys 32 cycles 0 violations
-feg_krs        OK     12/12 FEG streams (key-off on a clock steps with the previous segment's increment; KRS irrelevant)
+eg_lock        OK     33/33 envelope streams sample-exact via eg_model (with aeg_dl0, sgc_loop lo_2, feg_krs, feg_track); keys 32 cycles 0 violations; mixs: bus 0 read 0 because every zeroed slot points at it, bus 2's -8 = the filter's deadband rest at 0x1BFF Q 4 (session 5, no model change)
+feg_krs        OK     12/12 FEG streams (a key-off on a clock takes one more step of the previous segment -- its increment and direction, session-5 wording; KRS irrelevant)
 sgc_aeg        PHASE  whole-program runs key on at the model's own phase; the console phase is now known per capture (use eg_model)
 feg_track      OK     9/9 (feg_validate, ring-locked; was fitted per batch)
+# Session 5 (2026-09-23, same boot, K 6491 exact; every capture errors 0; validators: tools/validate_s5.sh PASS, eg_model 89/89):
+aeg_koff       OK     5 runs x 4 streams sample-exact via eg_replay (koff_d2 174080, koff_d2b 168704, koff_d1 174592, koff_att 163328, kon_rel 215808 samples; 16/16 clean cycles each); koff_fit: decay 2 / decay 1 -> release take one more old step (30/30, 18/18, 18/18), attack -> release takes none (27/27), key-on during release loads 0x280 on the sample with CA restarting there (48/48, C0 18/18); first console run (hw_run1) identical verdicts
+eg_kprobe      OK     K = 6491 exactly (bit 13 = 0) on 8/8 probes (kfit; RBP/RBL, TIMA/B/C, MVOL, ARM7 release, DSP program load, 64-slot sweep leave it); 8/8 streams via eg_model (R 63 attack leaves the attack on the key-on clock: p5/p6/p7)
+slot_tail      OK     12/12 streams sample-exact via tail_cmp (fetch stop at a 0x3C0, off past 0x3FF, each one sample after its clock; no mute; FEG runs on; RR rewrite reaches the EG one sample late); tail_c retained buses 0 2 2 reproduced
+feg_koffdir    OK     24/24 FEG streams via eg_model; koffdir_check 8 batches: the 4 even key-offs fit "old step, old direction" on all 3 slots, "old increment toward FLV4" / release increment / no step refuted; KYONB cleared without KYONEX holds
+feg_koffatt    OK     24/24 FEG streams via eg_model (witness-pinned key-offs); koffatt_check 8 batches (6 even): FEG attack key-off = one more attack step in the attack's direction 6/6; no step 0/6, old increment toward release 0/6, release increment 0/6
+mixs_write     OK     21/21 probe rows (mixsw_check): every slot writes its ISEL bus every sample, IMXL a pure gain (0 sends 0), a bus retains only when no slot points at it (session-4 rule 4/21); model verdict table identical

@@ -1,0 +1,210 @@
+level law: LV[0] 520176, LV[0x280] 496 (key-on level), LV[0x3FF] 0; levels pairwise distinct for a <= 0x23f
+  attenuations producing the key-on level 496: 0x27f..0x282 (treated as a = 0x280 at the onset)
+
+== att_slow: tests/eg_lock/hw/att_slow  n 487936  n_first 591  c0 44c9  errors 0  marks: id1@452 id2@453 id3@485572 id4@485573
+   onset per stream 458 458 458 458 -> onset 458 (MDEC_CT 40b0 even), analysis window [458, 485372) = mark3 - 200 (484914 samples)
+   stream 0: AR  6 D1R  0 DL  0 D2R  0 RR 31 -> R 12/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 1: AR  4 D1R  0 DL  0 D2R  0 RR 31 -> R  8/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 2: AR  2 D1R  0 DL  0 D2R  0 RR 31 -> R  4/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 3: AR  1 D1R  0 DL  0 D2R  0 RR 31 -> R  2/ 0/ 0/62 rows 2/-1/-1/16; onset level 496 (expect 496)
+
+== att_mid: tests/eg_lock/hw/att_mid  n 91008  n_first 585  c0 3f0e  errors 0  marks: id1@452 id2@453 id3@88653 id4@88654
+   onset per stream 458 458 458 458 -> onset 458 (MDEC_CT 3afb odd), analysis window [458, 88453) = mark3 - 200 (87995 samples)
+   stream 0: AR 22 D1R  0 DL  0 D2R  0 RR 31 -> R 44/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 1: AR 20 D1R  0 DL  0 D2R  0 RR 31 -> R 40/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 2: AR 18 D1R  0 DL  0 D2R  0 RR 31 -> R 36/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+   stream 3: AR 16 D1R  0 DL  0 D2R  0 RR 31 -> R 32/ 0/ 0/62 rows 0/-1/-1/16; onset level 496 (expect 496)
+
+== dl0: tests/aeg_dl0/hw/dl0  n 20480  n_first 652  c0 87bb  errors 0  marks: id1@455 id2@456 id3@18120 id4@18121
+   onset per stream 461 461 461 461 -> onset 461 (MDEC_CT 8362 even), analysis window [461, 17920) = mark3 - 200 (17459 samples)
+   stream 0: AR 31 D1R 31 DL  0 D2R  0 RR 31 -> R 62/62/ 0/62 rows 16/16/-1/16; onset level 496 (expect 496)
+   stream 1: AR 31 D1R 20 DL  0 D2R  0 RR 31 -> R 62/40/ 0/62 rows 16/0/-1/16; onset level 496 (expect 496)
+   stream 2: AR 31 D1R 10 DL  0 D2R  0 RR 31 -> R 62/20/ 0/62 rows 16/0/-1/16; onset level 496 (expect 496)
+   stream 3: AR 20 D1R 31 DL  0 D2R 10 RR 31 -> R 40/62/20/62 rows 0/16/0/16; onset level 496 (expect 496)
+
+#### (a) step samples (level changes after the onset, up to mark3 - 200) and their MDEC_CT parity
+  att_slow stream 0 (attack R 12): 66 step samples, MDEC_CT even 66, odd 0
+      i 1478 (+1020) MDEC_CT 3cb4 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 2502 (+2044) MDEC_CT 38b4 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 3526 (+3068) MDEC_CT 34b4 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 4550 (+4092) MDEC_CT 30b4 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 256 from every step sample -> 1 distinct residue(s): 91  (6491 mod 256 = 91; without the offset the residue reads 90 = 6490 mod 256)
+  att_slow stream 1 (attack R 8): 66 step samples, MDEC_CT even 66, odd 0
+      i 966 (+508) MDEC_CT 3eb4 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 3014 (+2556) MDEC_CT 36b4 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 5062 (+4604) MDEC_CT 2eb4 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 7110 (+6652) MDEC_CT 26b4 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 512 from every step sample -> 1 distinct residue(s): 347  (6491 mod 512 = 347; without the offset the residue reads 346 = 6490 mod 512)
+  att_slow stream 2 (attack R 4): 66 step samples, MDEC_CT even 66, odd 0
+      i 1990 (+1532) MDEC_CT 3ab4 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 6086 (+5628) MDEC_CT 2ab4 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 10182 (+9724) MDEC_CT 1ab4 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 14278 (+13820) MDEC_CT 0ab4 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 1024 from every step sample -> 1 distinct residue(s): 347  (6491 mod 1024 = 347; without the offset the residue reads 346 = 6490 mod 1024)
+  att_slow stream 3 (attack R 2): 66 step samples, MDEC_CT even 66, odd 0
+      i 8134 (+7676) MDEC_CT 22b4 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 12230 (+11772) MDEC_CT 12b4 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 16326 (+15868) MDEC_CT 02b4 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 24518 (+24060) MDEC_CT e2b4 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 2048 from every step sample -> 1 distinct residue(s): 347  (6491 mod 2048 = 347; without the offset the residue reads 346 = 6490 mod 2048)
+  att_mid stream 0 (attack R 44): 66 step samples, MDEC_CT even 66, odd 0
+      i 459 (+1) MDEC_CT 3afa even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 463 (+5) MDEC_CT 3af6 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 467 (+9) MDEC_CT 3af2 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 471 (+13) MDEC_CT 3aee even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 1 from every step sample -> 1 distinct residue(s): 0  (6491 mod 1 = 0; without the offset the residue reads 0 = 6490 mod 1)
+  att_mid stream 1 (attack R 40): 66 step samples, MDEC_CT even 66, odd 0
+      i 461 (+3) MDEC_CT 3af8 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 469 (+11) MDEC_CT 3af0 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 477 (+19) MDEC_CT 3ae8 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 485 (+27) MDEC_CT 3ae0 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 2 from every step sample -> 1 distinct residue(s): 1  (6491 mod 2 = 1; without the offset the residue reads 0 = 6490 mod 2)
+  att_mid stream 2 (attack R 36): 66 step samples, MDEC_CT even 66, odd 0
+      i 473 (+15) MDEC_CT 3aec even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 489 (+31) MDEC_CT 3adc even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 505 (+47) MDEC_CT 3acc even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 521 (+63) MDEC_CT 3abc even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 4 from every step sample -> 1 distinct residue(s): 3  (6491 mod 4 = 3; without the offset the residue reads 2 = 6490 mod 4)
+  att_mid stream 3 (attack R 32): 66 step samples, MDEC_CT even 66, odd 0
+      i 481 (+23) MDEC_CT 3ae4 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 513 (+55) MDEC_CT 3ac4 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 545 (+87) MDEC_CT 3aa4 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 577 (+119) MDEC_CT 3a84 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+      tick condition alone: K = MDEC_CT/2 + 1 mod 8 from every step sample -> 1 distinct residue(s): 3  (6491 mod 8 = 3; without the offset the residue reads 2 = 6490 mod 8)
+  dl0 stream 0 (attack R 62): 10 step samples, MDEC_CT even 10, odd 0
+      i 463 (+2) MDEC_CT 8360 even: level 496 -> 16368, a 0x27f..0x282 -> 0x13f..0x13f
+      i 465 (+4) MDEC_CT 835e even: level 16368 -> 98288, a 0x13f..0x13f -> 0x09f..0x09f
+      i 467 (+6) MDEC_CT 835c even: level 98288 -> 229360, a 0x09f..0x09f -> 0x04f..0x04f
+      i 469 (+8) MDEC_CT 835a even: level 229360 -> 360432, a 0x04f..0x04f -> 0x027..0x027
+  dl0 stream 1 (attack R 62): 9 step samples, MDEC_CT even 9, odd 0
+      i 463 (+2) MDEC_CT 8360 even: level 496 -> 16368, a 0x27f..0x282 -> 0x13f..0x13f
+      i 465 (+4) MDEC_CT 835e even: level 16368 -> 98288, a 0x13f..0x13f -> 0x09f..0x09f
+      i 467 (+6) MDEC_CT 835c even: level 98288 -> 229360, a 0x09f..0x09f -> 0x04f..0x04f
+      i 469 (+8) MDEC_CT 835a even: level 229360 -> 360432, a 0x04f..0x04f -> 0x027..0x027
+  dl0 stream 2 (attack R 62): 9 step samples, MDEC_CT even 9, odd 0
+      i 463 (+2) MDEC_CT 8360 even: level 496 -> 16368, a 0x27f..0x282 -> 0x13f..0x13f
+      i 465 (+4) MDEC_CT 835e even: level 16368 -> 98288, a 0x13f..0x13f -> 0x09f..0x09f
+      i 467 (+6) MDEC_CT 835c even: level 98288 -> 229360, a 0x09f..0x09f -> 0x04f..0x04f
+      i 469 (+8) MDEC_CT 835a even: level 229360 -> 360432, a 0x04f..0x04f -> 0x027..0x027
+  dl0 stream 3 (attack R 40): 134 step samples, MDEC_CT even 134, odd 0
+      i 463 (+2) MDEC_CT 8360 even: level 496 -> 816, a 0x27f..0x282 -> 0x257..0x258
+      i 471 (+10) MDEC_CT 8358 even: level 816 -> 1232, a 0x257..0x258 -> 0x231..0x231
+      i 479 (+18) MDEC_CT 8350 even: level 1232 -> 1808, a 0x231..0x231 -> 0x20d..0x20d
+      i 487 (+26) MDEC_CT 8348 even: level 1808 -> 2640, a 0x20d..0x20d -> 0x1ec..0x1ec
+  TOTAL step samples: even MDEC_CT 690, odd MDEC_CT 0 -> claim 'clock on even MDEC_CT' CONSISTENT; control 'clock on odd MDEC_CT' FAILS
+
+#### (b) K search in [0, 16384): eg_cnt = (K - MDEC_CT/2) & 0x3FFF, clock on even MDEC_CT, R<48 rows on cnt-1, measured rows
+  att_slow stream 0: 484914/484914 samples reproduced at best; K reproducing ALL: 32 values: 347 + j*512 (j = 0..31), i.e. K = 347 mod 512
+  att_slow stream 1: 484914/484914 samples reproduced at best; K reproducing ALL: 16 values: 347 + j*1024 (j = 0..15), i.e. K = 347 mod 1024
+  att_slow stream 2: 484914/484914 samples reproduced at best; K reproducing ALL: 8 values: 347 + j*2048 (j = 0..7), i.e. K = 347 mod 2048
+  att_slow stream 3: 484914/484914 samples reproduced at best; K reproducing ALL: 2 values: 6491 + j*8192 (j = 0..1), i.e. K = 6491 mod 8192
+  att_slow all 4 streams: 2 values: 6491 + j*8192 (j = 0..1), i.e. K = 6491 mod 8192
+  att_mid stream 0: 87995/87995 samples reproduced at best; K reproducing ALL: 8192 values: 1 + j*2 (j = 0..8191), i.e. K = 1 mod 2
+  att_mid stream 1: 87995/87995 samples reproduced at best; K reproducing ALL: 4096 values: 3 + j*4 (j = 0..4095), i.e. K = 3 mod 4
+  att_mid stream 2: 87995/87995 samples reproduced at best; K reproducing ALL: 2048 values: 3 + j*8 (j = 0..2047), i.e. K = 3 mod 8
+  att_mid stream 3: 87995/87995 samples reproduced at best; K reproducing ALL: 1024 values: 11 + j*16 (j = 0..1023), i.e. K = 11 mod 16
+  att_mid all 4 streams: 1024 values: 11 + j*16 (j = 0..1023), i.e. K = 11 mod 16
+  dl0 stream 0: 17459/17459 samples reproduced at best; K reproducing ALL: 16384 values: 0 + j*1 (j = 0..16383), i.e. K = 0 mod 1
+  dl0 stream 1: 17459/17459 samples reproduced at best; K reproducing ALL: 12288 values (non-uniform), first 0
+  dl0 stream 2: 17459/17459 samples reproduced at best; K reproducing ALL: 16256 values (non-uniform), first 0
+  dl0 stream 3: 17459/17459 samples reproduced at best; K reproducing ALL: 128 values: 91 + j*128 (j = 0..127), i.e. K = 91 mod 128
+  dl0 all 4 streams: 128 values: 91 + j*128 (j = 0..127), i.e. K = 91 mod 128
+  ALL 12 streams of the 3 runs: K in 2 values: 6491 + j*8192 (j = 0..1), i.e. K = 6491 mod 8192
+  expected {6491, 14683}: MATCH
+
+#### (c) controls
+  C1: R<48 rows indexed by cnt (no -1 offset)
+     att_slow stream 0: free K -> 32 values: 346 + j*512 (j = 0..31), i.e. K = 346 mod 512; at K = 6491 1018/484914, first mismatch at i 1476 (+1018 from onset, MDEC_CT 3cb6 even): model a 257 state 0 level 816, hw 496
+     att_slow stream 1: free K -> 16 values: 346 + j*1024 (j = 0..15), i.e. K = 346 mod 1024; at K = 6491 506/484914, first mismatch at i 964 (+506 from onset, MDEC_CT 3eb6 even): model a 257 state 0 level 816, hw 496
+     att_slow stream 2: free K -> 8 values: 346 + j*2048 (j = 0..7), i.e. K = 346 mod 2048; at K = 6491 1530/484914, first mismatch at i 1988 (+1530 from onset, MDEC_CT 3ab6 even): model a 257 state 0 level 816, hw 496
+     att_slow stream 3: free K -> 2 values: 6490 + j*8192 (j = 0..1), i.e. K = 6490 mod 8192; at K = 6491 7674/484914, first mismatch at i 8132 (+7674 from onset, MDEC_CT 22b6 even): model a 257 state 0 level 816, hw 496
+     att_mid stream 0: free K -> 8192 values: 0 + j*2 (j = 0..8191), i.e. K = 0 mod 2; at K = 6491 1/87995, first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     att_mid stream 1: free K -> 4096 values: 2 + j*4 (j = 0..4095), i.e. K = 2 mod 4; at K = 6491 1/87995, first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 257 state 0 level 816, hw 496
+     att_mid stream 2: free K -> 2048 values: 2 + j*8 (j = 0..2047), i.e. K = 2 mod 8; at K = 6491 13/87995, first mismatch at i 471 (+13 from onset, MDEC_CT 3aee even): model a 257 state 0 level 816, hw 496
+     att_mid stream 3: free K -> 1024 values: 10 + j*16 (j = 0..1023), i.e. K = 10 mod 16; at K = 6491 21/87995, first mismatch at i 479 (+21 from onset, MDEC_CT 3ae6 even): model a 257 state 0 level 816, hw 496
+     dl0 stream 0: free K -> 16384 values: 0 + j*1 (j = 0..16383), i.e. K = 0 mod 1; at K = 6491 17459/17459, (no mismatch)
+     dl0 stream 1: free K -> 12288 values (non-uniform), first 0; at K = 6491 17459/17459, (no mismatch)
+     dl0 stream 2: free K -> 16256 values (non-uniform), first 0; at K = 6491 17459/17459, (no mismatch)
+     dl0 stream 3: free K -> 128 values: 90 + j*128 (j = 0..127), i.e. K = 90 mod 128; at K = 6491 2/17459, first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+     all streams, free K: 2 values: 6490 + j*8192 (j = 0..1), i.e. K = 6490 mod 8192  (every rate here is R < 48 or a cnt-independent row 16, so this control only relabels K by -1: the offset is NOT decidable from these three runs alone; see S4)
+  C2: clock on ODD MDEC_CT (K free)
+     att_slow stream 0: best 1020/484914 (K 345), full K set {}; first mismatch at i 1478 (+1020 from onset, MDEC_CT 3cb4 even): model a 280 state 0 level 496, hw 816
+     att_slow stream 1: best 508/484914 (K 0), full K set {}; first mismatch at i 966 (+508 from onset, MDEC_CT 3eb4 even): model a 280 state 0 level 496, hw 816
+     att_slow stream 2: best 1532/484914 (K 0), full K set {}; first mismatch at i 1990 (+1532 from onset, MDEC_CT 3ab4 even): model a 280 state 0 level 496, hw 816
+     att_slow stream 3: best 7676/484914 (K 6233), full K set {}; first mismatch at i 8134 (+7676 from onset, MDEC_CT 22b4 even): model a 280 state 0 level 496, hw 816
+     att_mid stream 0: best 1/87995 (K 0), full K set {}; first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     att_mid stream 1: best 3/87995 (K 0), full K set {}; first mismatch at i 461 (+3 from onset, MDEC_CT 3af8 even): model a 280 state 0 level 496, hw 816
+     att_mid stream 2: best 15/87995 (K 2), full K set {}; first mismatch at i 473 (+15 from onset, MDEC_CT 3aec even): model a 280 state 0 level 496, hw 816
+     att_mid stream 3: best 23/87995 (K 6), full K set {}; first mismatch at i 481 (+23 from onset, MDEC_CT 3ae4 even): model a 280 state 0 level 496, hw 816
+     dl0 stream 0: best 1/17459 (K 0), full K set {}; first mismatch at i 462 (+1 from onset, MDEC_CT 8361 odd): model a 13f state 0 level 16368, hw 496
+     dl0 stream 1: best 1/17459 (K 0), full K set {}; first mismatch at i 462 (+1 from onset, MDEC_CT 8361 odd): model a 13f state 0 level 16368, hw 496
+     dl0 stream 2: best 1/17459 (K 0), full K set {}; first mismatch at i 462 (+1 from onset, MDEC_CT 8361 odd): model a 13f state 0 level 16368, hw 496
+     dl0 stream 3: best 2/17459 (K 0), full K set {}; first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+  C3: YM2612 rows 5/9/13 (double step at index 3 and 7)
+     any stream using rows 5/9/13 before its key-off: no -> this control is VACUOUS (same result as the measured rows) here; all-stream K set with the YM rows: 2 values: 6491 + j*8192 (j = 0..1), i.e. K = 6491 mod 8192
+  C4: K off by one (measured rows, -1 offset)
+     K  6490 att_slow stream 0: 1020/484914 first mismatch at i 1478 (+1020 from onset, MDEC_CT 3cb4 even): model a 280 state 0 level 496, hw 816
+     K  6490 att_slow stream 1: 508/484914 first mismatch at i 966 (+508 from onset, MDEC_CT 3eb4 even): model a 280 state 0 level 496, hw 816
+     K  6490 att_slow stream 2: 1532/484914 first mismatch at i 1990 (+1532 from onset, MDEC_CT 3ab4 even): model a 280 state 0 level 496, hw 816
+     K  6490 att_slow stream 3: 7676/484914 first mismatch at i 8134 (+7676 from onset, MDEC_CT 22b4 even): model a 280 state 0 level 496, hw 816
+     K  6490 att_mid stream 0: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     K  6490 att_mid stream 1: 3/87995 first mismatch at i 461 (+3 from onset, MDEC_CT 3af8 even): model a 280 state 0 level 496, hw 816
+     K  6490 att_mid stream 2: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 257 state 0 level 816, hw 496
+     K  6490 att_mid stream 3: 23/87995 first mismatch at i 481 (+23 from onset, MDEC_CT 3ae4 even): model a 280 state 0 level 496, hw 816
+     K  6490 dl0 stream 0: 17459/17459 (no mismatch)
+     K  6490 dl0 stream 1: 20/17459 first mismatch at i 481 (+20 from onset, MDEC_CT 834e even): model a 001 state 2 level 516080, hw 520176
+     K  6490 dl0 stream 2: 17459/17459 (no mismatch)
+     K  6490 dl0 stream 3: 2/17459 first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+     K  6492 att_slow stream 0: 1018/484914 first mismatch at i 1476 (+1018 from onset, MDEC_CT 3cb6 even): model a 257 state 0 level 816, hw 496
+     K  6492 att_slow stream 1: 506/484914 first mismatch at i 964 (+506 from onset, MDEC_CT 3eb6 even): model a 257 state 0 level 816, hw 496
+     K  6492 att_slow stream 2: 1530/484914 first mismatch at i 1988 (+1530 from onset, MDEC_CT 3ab6 even): model a 257 state 0 level 816, hw 496
+     K  6492 att_slow stream 3: 7674/484914 first mismatch at i 8132 (+7674 from onset, MDEC_CT 22b6 even): model a 257 state 0 level 816, hw 496
+     K  6492 att_mid stream 0: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     K  6492 att_mid stream 1: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 257 state 0 level 816, hw 496
+     K  6492 att_mid stream 2: 13/87995 first mismatch at i 471 (+13 from onset, MDEC_CT 3aee even): model a 257 state 0 level 816, hw 496
+     K  6492 att_mid stream 3: 21/87995 first mismatch at i 479 (+21 from onset, MDEC_CT 3ae6 even): model a 257 state 0 level 816, hw 496
+     K  6492 dl0 stream 0: 17459/17459 (no mismatch)
+     K  6492 dl0 stream 1: 17459/17459 (no mismatch)
+     K  6492 dl0 stream 2: 17459/17459 (no mismatch)
+     K  6492 dl0 stream 3: 2/17459 first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_slow stream 0: 1020/484914 first mismatch at i 1478 (+1020 from onset, MDEC_CT 3cb4 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_slow stream 1: 508/484914 first mismatch at i 966 (+508 from onset, MDEC_CT 3eb4 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_slow stream 2: 1532/484914 first mismatch at i 1990 (+1532 from onset, MDEC_CT 3ab4 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_slow stream 3: 7676/484914 first mismatch at i 8134 (+7676 from onset, MDEC_CT 22b4 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_mid stream 0: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     K 14682 att_mid stream 1: 3/87995 first mismatch at i 461 (+3 from onset, MDEC_CT 3af8 even): model a 280 state 0 level 496, hw 816
+     K 14682 att_mid stream 2: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 257 state 0 level 816, hw 496
+     K 14682 att_mid stream 3: 23/87995 first mismatch at i 481 (+23 from onset, MDEC_CT 3ae4 even): model a 280 state 0 level 496, hw 816
+     K 14682 dl0 stream 0: 17459/17459 (no mismatch)
+     K 14682 dl0 stream 1: 20/17459 first mismatch at i 481 (+20 from onset, MDEC_CT 834e even): model a 001 state 2 level 516080, hw 520176
+     K 14682 dl0 stream 2: 17459/17459 (no mismatch)
+     K 14682 dl0 stream 3: 2/17459 first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+     K 14684 att_slow stream 0: 1018/484914 first mismatch at i 1476 (+1018 from onset, MDEC_CT 3cb6 even): model a 257 state 0 level 816, hw 496
+     K 14684 att_slow stream 1: 506/484914 first mismatch at i 964 (+506 from onset, MDEC_CT 3eb6 even): model a 257 state 0 level 816, hw 496
+     K 14684 att_slow stream 2: 1530/484914 first mismatch at i 1988 (+1530 from onset, MDEC_CT 3ab6 even): model a 257 state 0 level 816, hw 496
+     K 14684 att_slow stream 3: 7674/484914 first mismatch at i 8132 (+7674 from onset, MDEC_CT 22b6 even): model a 257 state 0 level 816, hw 496
+     K 14684 att_mid stream 0: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 280 state 0 level 496, hw 816
+     K 14684 att_mid stream 1: 1/87995 first mismatch at i 459 (+1 from onset, MDEC_CT 3afa even): model a 257 state 0 level 816, hw 496
+     K 14684 att_mid stream 2: 13/87995 first mismatch at i 471 (+13 from onset, MDEC_CT 3aee even): model a 257 state 0 level 816, hw 496
+     K 14684 att_mid stream 3: 21/87995 first mismatch at i 479 (+21 from onset, MDEC_CT 3ae6 even): model a 257 state 0 level 816, hw 496
+     K 14684 dl0 stream 0: 17459/17459 (no mismatch)
+     K 14684 dl0 stream 1: 17459/17459 (no mismatch)
+     K 14684 dl0 stream 2: 17459/17459 (no mismatch)
+     K 14684 dl0 stream 3: 2/17459 first mismatch at i 463 (+2 from onset, MDEC_CT 8360 even): model a 280 state 0 level 496, hw 816
+
+#### (d) att_slow stream 3 (AR 1 -> R 2, row 2 = {0,1,1,1,0,1,1,1}, tick every 2^11 clocks = 4096 samples): first 12 step samples
+     i        +onset   MDEC_CT spacing  level     cnt    cnt-1  idx=((cnt-1)>>11)&7 / row[idx] / (cnt-1)&0x7FF
+     8134     7676     22b4    -        816       2049   2048   idx 1 row 1 low11 0   a 0x257..0x258
+     12230    11772    12b4    4096     1232      4097   4096   idx 2 row 1 low11 0   a 0x231..0x231
+     16326    15868    02b4    4096     1808      6145   6144   idx 3 row 1 low11 0   a 0x20d..0x20d
+     24518    24060    e2b4    8192     2640      10241  10240  idx 5 row 1 low11 0   a 0x1ec..0x1ec
+     28614    28156    d2b4    4096     3632      12289  12288  idx 6 row 1 low11 0   a 0x1cd..0x1cd
+     32710    32252    c2b4    4096     5040      14337  14336  idx 7 row 1 low11 0   a 0x1b0..0x1b0
+     40902    40444    a2b4    8192     6832      2049   2048   idx 1 row 1 low11 0   a 0x194..0x194
+     44998    44540    92b4    4096     8816      4097   4096   idx 2 row 1 low11 0   a 0x17a..0x17a
+     49094    48636    82b4    4096     11888     6145   6144   idx 3 row 1 low11 0   a 0x162..0x162
+     57286    56828    62b4    8192     14832     10241  10240  idx 5 row 1 low11 0   a 0x14b..0x14b
+     61382    60924    52b4    4096     18672     12289  12288  idx 6 row 1 low11 0   a 0x136..0x136
+     65478    65020    42b4    4096     23792     14337  14336  idx 7 row 1 low11 0   a 0x122..0x122
+     whole window: 66 step samples, 88 predicted ticks at K 6491; steps without a predicted tick 0; the attack reaches a = 0 (level 520176) at i 360390 (+359932);
+     predicted ticks without a step before that 0, after it (D1R 0: no change expected) 22

@@ -1,0 +1,14 @@
+model: 25af8e139ae1 b066ea6bd214  K 6491
+eg_model  GROUPS session4=33/33 eg_kprobe=8/8 feg_koffdir=24/24
+eg_model  TOTAL full=65/65
+eg_replay TOTAL koff_d2: streams FULL 4/4, samples matched 174080/174080, clean cycles 16/16
+eg_replay TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16
+eg_replay TOTAL koff_att: streams FULL 4/4, samples matched 163328/163328, clean cycles 16/16
+eg_replay TOTAL kon_rel: streams FULL 4/4, samples matched 215296/215296, clean cycles 16/16
+    stream 0 (slot 0 VOFF 1 LPOFF 0 Q 4 FLV0 1800 AR 31 RR 0 KRS 0 FNS 200): 11972/14302, first mismatch at 12198 (+11972, MDEC_CT 42b6 even): hw 0 model 6; model slot a 3ff rel OFF CA 0 FEG.v 1bff rel 
+      around the first mismatch (i: hw/model): 12196:6/6 12197:6/6 12198:0/6 12199:0/6 12200:0/6 12201:0/6 12202:0/6 12203:0/6 12204:0/6 12205:0/6 12206:0/6 12207:0/6
+tail_cmp  RESULT tests/slot_tail/hw/tail_a: 4/4 streams FULL, events ko 4650(even)
+tail_cmp  RESULT tests/slot_tail/hw/tail_b: 4/4 streams FULL, events ko 4648(even)
+tail_cmp  RESULT tests/slot_tail/hw/tail_c: 3/4 streams FULL, events ko 6875(odd) w14 11300(even) w00 11300(even) w2 12064(even)
+tail_cmp  TOTAL tests/slot_tail/hw: streams FULL 11/12
+validate_s5: FAIL (see above)

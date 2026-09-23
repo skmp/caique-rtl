@@ -1,0 +1,87 @@
+tests/aeg_koff/hw/kon_rel (kon_rel): 53824 samples x 4 streams, n_first 568, c0 2b5e (MDEC_CT of sample i = (2926 - i) & 0xFFFF), K 6491
+  stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 const
+  stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp
+  stream 2: slot 2 AR 31 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp
+  stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 const WITNESS
+  kind 1 (kon_rel: on, off, on during the release, off; marks 1 / 3 / 5 / 7), 16 cycles, test slots mask 07, witness mask 08
+  cycle  0: E_A 338 (even) E_C 812 (even)
+  cycle  0: E_B searched in [438, 762] (compared to 812): full match, score 1496/1496, 1 candidate(s): 471(odd); taking 471
+  cycle  0: E_D searched in [813, 1156] (compared to 3620): NO full match, score 8422/11228, 1 candidate(s): 945(odd); taking 945
+  cycle  1: E_A 3620 (even) E_C 4005 (odd)
+  cycle  1: E_B searched in [3720, 3955] (compared to 4005): full match, score 1140/1140, 2 candidate(s): 3754(even) 3755(odd); taking 3754
+  cycle  1: E_D searched in [4006, 4342] (compared to 6828): full match, score 11288/11288, 2 candidate(s): 4138(even) 4139(odd); taking 4138
+  cycle  2: E_A 6828 (even) E_C 7277 (odd)
+  cycle  2: E_B searched in [6928, 7227] (compared to 7277): full match, score 1396/1396, 2 candidate(s): 6962(even) 6963(odd); taking 6962
+  cycle  2: E_D searched in [7278, 7605] (compared to 10100): full match, score 11288/11288, 2 candidate(s): 7410(even) 7411(odd); taking 7410
+  cycle  3: E_A 10100 (even) E_C 10678 (even)
+  cycle  3: E_B searched in [10200, 10628] (compared to 10678): full match, score 1912/1912, 2 candidate(s): 10234(even) 10235(odd); taking 10234
+  cycle  3: E_D searched in [10679, 10998] (compared to 13501): NO full match, score 8467/11288, 2 candidate(s): 10812(even) 10813(odd); taking 10812
+  cycle  4: E_A 13501 (odd) E_C 13892 (even)
+  cycle  4: E_B searched in [13601, 13842] (compared to 13892): full match, score 1164/1164, 2 candidate(s): 13634(even) 13635(odd); taking 13634
+  cycle  4: E_D searched in [13893, 14203] (compared to 16709): NO full match, score 8449/11264, 2 candidate(s): 14026(even) 14027(odd); taking 14026
+  cycle  5: E_A 16709 (odd) E_C 17159 (odd)
+  cycle  5: E_B searched in [16809, 17109] (compared to 17159): full match, score 1400/1400, 2 candidate(s): 16842(even) 16843(odd); taking 16842
+  cycle  5: E_D searched in [17160, 17461] (compared to 19985): full match, score 11300/11300, 2 candidate(s): 17292(even) 17293(odd); taking 17292
+  cycle  6: E_A 19985 (odd) E_C 20432 (even)
+  cycle  6: E_B searched in [20085, 20382] (compared to 20432): full match, score 1388/1388, 2 candidate(s): 20118(even) 20119(odd); taking 20118
+  cycle  6: E_D searched in [20433, 20727] (compared to 23254): NO full match, score 8464/11284, 2 candidate(s): 20566(even) 20567(odd); taking 20566
+  cycle  7: E_A 23254 (even) E_C 23704 (even)
+  cycle  7: E_B searched in [23354, 23654] (compared to 23704): full match, score 1400/1400, 2 candidate(s): 23388(even) 23389(odd); taking 23388
+  cycle  7: E_D searched in [23705, 23990] (compared to 26526): NO full match, score 8464/11284, 2 candidate(s): 23838(even) 23839(odd); taking 23838
+  cycle  8: E_A 26526 (even) E_C 27232 (even)
+  cycle  8: E_B searched in [26626, 27182] (compared to 27232): full match, score 2424/2424, 2 candidate(s): 26660(even) 26661(odd); taking 26660
+  cycle  8: E_D searched in [27233, 27509] (compared to 30055): NO full match, score 8467/11288, 2 candidate(s): 27366(even) 27367(odd); taking 27366
+  cycle  9: E_A 30055 (odd) E_C 30581 (odd)
+  cycle  9: E_B searched in [30155, 30531] (compared to 30581): full match, score 1704/1704, 2 candidate(s): 30188(even) 30189(odd); taking 30188
+  cycle  9: E_D searched in [30582, 30850] (compared to 33392): full match, score 11240/11240, 2 candidate(s): 30714(even) 30715(odd); taking 30714
+  cycle 10: E_A 33392 (even) E_C 34098 (even)
+  cycle 10: E_B searched in [33492, 34048] (compared to 34098): full match, score 2424/2424, 1 candidate(s): 33525(odd); taking 33525
+  cycle 10: E_D searched in [34099, 34358] (compared to 36921): NO full match, score 8467/11288, 2 candidate(s): 34232(even) 34233(odd); taking 34232
+  cycle 11: E_A 36921 (odd) E_C 37370 (even)
+  cycle 11: E_B searched in [37021, 37320] (compared to 37370): full match, score 1396/1396, 2 candidate(s): 37054(even) 37055(odd); taking 37054
+  cycle 11: E_D searched in [37371, 37622] (compared to 40193): NO full match, score 8467/11288, 2 candidate(s): 37504(even) 37505(odd); taking 37504
+  cycle 12: E_A 40193 (odd) E_C 40837 (odd)
+  cycle 12: E_B searched in [40293, 40787] (compared to 40837): full match, score 2176/2176, 2 candidate(s): 40326(even) 40327(odd); taking 40326
+  cycle 12: E_D searched in [40838, 41080] (compared to 43658): full match, score 11280/11280, 2 candidate(s): 40970(even) 40971(odd); taking 40970
+  cycle 13: E_A 43658 (even) E_C 44192 (even)
+  cycle 13: E_B searched in [43758, 44142] (compared to 44192): full match, score 1736/1736, 1 candidate(s): 43791(odd); taking 43791
+  cycle 13: E_D searched in [44193, 44587] (compared to 47030): NO full match, score 8512/11348, 2 candidate(s): 44376(even) 44377(odd); taking 44376
+  cycle 14: E_A 47030 (even) E_C 47475 (odd)
+  cycle 14: E_B searched in [47130, 47425] (compared to 47475): full match, score 1380/1380, 2 candidate(s): 47164(even) 47165(odd); taking 47164
+  cycle 14: E_D searched in [47476, 47811] (compared to 50284): full match, score 11232/11232, 2 candidate(s): 47608(even) 47609(odd); taking 47608
+  cycle 15: E_A 50284 (even) E_C 50990 (even)
+  cycle 15: E_B searched in [50384, 50940] (compared to 50990): full match, score 2424/2424, 2 candidate(s): 50418(even) 50419(odd); taking 50418
+  cycle 15: E_D searched in [50991, 51317] (compared to 53824): NO full match, score 8500/11332, 2 candidate(s): 51124(even) 51125(odd); taking 51124
+  cycle  0 [338, 3620):  s0 ok  s1 ok  s2 ok  s3 FAIL at 814 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  1 [3620, 6828):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  2 [6828, 10100):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  3 [10100, 13501):  s0 ok  s1 ok  s2 ok  s3 FAIL at 10680 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  4 [13501, 16709):  s0 ok  s1 ok  s2 ok  s3 FAIL at 13894 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  5 [16709, 19985):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  6 [19985, 23254):  s0 ok  s1 ok  s2 ok  s3 FAIL at 20434 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  7 [23254, 26526):  s0 ok  s1 ok  s2 ok  s3 FAIL at 23706 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  8 [26526, 30055):  s0 ok  s1 ok  s2 ok  s3 FAIL at 27234 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle  9 [30055, 33392):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 10 [33392, 36921):  s0 ok  s1 ok  s2 ok  s3 FAIL at 34100 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 11 [36921, 40193):  s0 ok  s1 ok  s2 ok  s3 FAIL at 37372 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 12 [40193, 43658):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 13 [43658, 47030):  s0 ok  s1 ok  s2 ok  s3 FAIL at 44194 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  cycle 14 [47030, 50284):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 15 [50284, 53824):  s0 ok  s1 ok  s2 ok  s3 FAIL at 50992 (E_C+2, even: hw 487408 model 520176, a 0x000 d1)
+  stream 0 (slot 0): FULL 53824/53824
+  stream 1 (slot 1): FULL 53824/53824
+  stream 2 (slot 2): FULL 53824/53824
+  stream 3 (slot 3 witness): prefix 814/53824, 2060 mismatching samples, first mismatch at 814 (E_C 812+2, MDEC_CT 25f8 even): hw 487408 model 520176; model a 0x000 d1 CA 3
+      i 814 MDEC_CT 25f8 EVEN: hw   487408 model   520176 (a 0x000 d1 CA 3)
+      i 815 MDEC_CT 25f7 odd : hw   487408 model   520176 (a 0x000 d1 CA 4)
+      i 816 MDEC_CT 25f6 EVEN: hw   454640 model   487408 (a 0x008 d1 CA 5)
+      i 817 MDEC_CT 25f5 odd : hw   454640 model   487408 (a 0x008 d1 CA 6)
+      i 818 MDEC_CT 25f4 EVEN: hw   421872 model   454640 (a 0x010 d1 CA 7)
+      i 819 MDEC_CT 25f3 odd : hw   421872 model   454640 (a 0x010 d1 CA 8)
+      i 820 MDEC_CT 25f2 EVEN: hw   389104 model   421872 (a 0x018 d1 CA 9)
+      i 821 MDEC_CT 25f1 odd : hw   389104 model   421872 (a 0x018 d1 CA 10)
+      i 822 MDEC_CT 25f0 EVEN: hw   356336 model   389104 (a 0x020 d1 CA 11)
+      i 823 MDEC_CT 25ef odd : hw   356336 model   389104 (a 0x020 d1 CA 12)
+      i 824 MDEC_CT 25ee EVEN: hw   323568 model   356336 (a 0x028 d1 CA 13)
+      i 825 MDEC_CT 25ed odd : hw   323568 model   356336 (a 0x028 d1 CA 14)
+TOTAL kon_rel: streams FULL 3/4, samples matched 213236/215296, clean cycles 6/16

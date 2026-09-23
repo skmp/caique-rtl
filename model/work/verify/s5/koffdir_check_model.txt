@@ -1,0 +1,319 @@
+koffdir_check work/verify/s5/feg_koffdir_model: 8 batches, clock constant K 6491
+== kd_0: 9088 samples, first 727, onset 135 (MDEC_CT e8a9 odd), c0 ec07, marks: 1@132 3@4543 4@4543
+   stream 0: tracked 8953/8953 samples, 214 ambiguous, max set 25
+   stream 1: tracked 8953/8953 samples, 313 ambiguous, max set 155
+   stream 2: tracked 8953/8953 samples, 969 ambiguous, max set 143
+   S3         s0: 4546e s1: 4546e s2: 4546e  -> shared K: 4546(even)
+   oldDir     s0: none (best 4411/8953 at K 4543, +4411 hw d04 model d03) s1: 4546e s2: none (best 4411/8953 at K 4545, +4411 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 4411/8953 at K 4543, +4411 hw d04 model d03) s1: none (best 4411/8953 at K 4543, +4411 hw d01 model d00) s2: none (best 4411/8953 at K 4545, +4411 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 4411/8953 at K 4542, +4411 hw d04 model d03) s1: none (best 4411/8953 at K 4542, +4411 hw d01 model d00) s2: none (best 4411/8953 at K 4544, +4411 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: 4547o 4548e s1: 4547o 4548e s2: 4547o 4548e  -> shared K: 4547(odd) 4548(even)
+   window around the S3 key-off sample 4546 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4534 MDEC_CT d77a EVEN  : d02  cff  cff 
+     i   4535 MDEC_CT d779 odd   :   .    .    . 
+     i   4536 MDEC_CT d778 EVEN  :   .    .    . 
+     i   4537 MDEC_CT d777 odd   :   .    .    . 
+     i   4538 MDEC_CT d776 EVEN  :   .    .    . 
+     i   4539 MDEC_CT d775 odd   :   .    .    . 
+     i   4540 MDEC_CT d774 EVEN  :   .    .    . 
+     i   4541 MDEC_CT d773 odd   :   .    .    . 
+     i   4542 MDEC_CT d772 EVEN  :   .    .    . 
+     i   4543 MDEC_CT d771 odd   :   .    .    . 
+     i   4544 MDEC_CT d770 EVEN  :   .    .    . 
+     i   4545 MDEC_CT d76f odd   :   .    .    . 
+     i   4546 MDEC_CT d76e EVEN *: d04  d01  cfd 
+     i   4547 MDEC_CT d76d odd   :   .    .    ? 
+     i   4548 MDEC_CT d76c EVEN  :   .    .  cfc 
+     i   4549 MDEC_CT d76b odd   :   .    .    . 
+     i   4550 MDEC_CT d76a EVEN  : d05  d02    . 
+     i   4551 MDEC_CT d769 odd   :   .    .    . 
+     i   4552 MDEC_CT d768 EVEN  :   .    .  cfb 
+     i   4553 MDEC_CT d767 odd   :   .    .    . 
+     i   4554 MDEC_CT d766 EVEN  :   ?    ?    ? 
+     i   4555 MDEC_CT d765 odd   :   ?    ?    ? 
+     i   4556 MDEC_CT d764 EVEN  : d06  d03  cfa 
+     i   4557 MDEC_CT d763 odd   :   .    .    . 
+     i   4558 MDEC_CT d762 EVEN  : d07  d04    . 
+     i   4559 MDEC_CT d761 odd   :   .    .    . 
+     i   4560 MDEC_CT d760 EVEN  :   .    .  cf9 
+     i   4561 MDEC_CT d75f odd   :   .    .    . 
+     i   4562 MDEC_CT d75e EVEN  : d08  d05    . 
+== kd_1: 9152 samples, first 686, onset 134 (MDEC_CT afab odd), c0 b2df, marks: 1@132 3@4607 4@4607
+   stream 0: tracked 9018/9018 samples, 212 ambiguous, max set 25
+   stream 1: tracked 9018/9018 samples, 308 ambiguous, max set 155
+   stream 2: tracked 9018/9018 samples, 959 ambiguous, max set 143
+   S3         s0: 4609e s1: 4609e s2: 4609e  -> shared K: 4609(even)
+   oldDir     s0: none (best 4475/9018 at K 4606, +4475 hw d04 model d03) s1: 4609e s2: none (best 4475/9018 at K 4608, +4475 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 4475/9018 at K 4606, +4475 hw d04 model d03) s1: none (best 4475/9018 at K 4606, +4475 hw d01 model d00) s2: none (best 4475/9018 at K 4608, +4475 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 4475/9018 at K 4605, +4475 hw d04 model d03) s1: none (best 4475/9018 at K 4605, +4475 hw d01 model d00) s2: none (best 4475/9018 at K 4607, +4475 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: 4610o 4611e s1: 4610o 4611e s2: 4610o 4611e  -> shared K: 4610(odd) 4611(even)
+   window around the S3 key-off sample 4609 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4597 MDEC_CT 9e3c EVEN  : d02  cff  cff 
+     i   4598 MDEC_CT 9e3b odd   :   .    .    . 
+     i   4599 MDEC_CT 9e3a EVEN  :   .    .    . 
+     i   4600 MDEC_CT 9e39 odd   :   .    .    . 
+     i   4601 MDEC_CT 9e38 EVEN  :   .    .    . 
+     i   4602 MDEC_CT 9e37 odd   :   .    .    . 
+     i   4603 MDEC_CT 9e36 EVEN  :   .    .    . 
+     i   4604 MDEC_CT 9e35 odd   :   .    .    . 
+     i   4605 MDEC_CT 9e34 EVEN  :   .    .    . 
+     i   4606 MDEC_CT 9e33 odd   :   .    .    . 
+     i   4607 MDEC_CT 9e32 EVEN  :   .    .    . 
+     i   4608 MDEC_CT 9e31 odd   :   .    .    . 
+     i   4609 MDEC_CT 9e30 EVEN *: d04  d01  cfd 
+     i   4610 MDEC_CT 9e2f odd   :   .    .    . 
+     i   4611 MDEC_CT 9e2e EVEN  :   .    .  cfc 
+     i   4612 MDEC_CT 9e2d odd   :   .    .    . 
+     i   4613 MDEC_CT 9e2c EVEN  : d05  d02    . 
+     i   4614 MDEC_CT 9e2b odd   :   .    .    . 
+     i   4615 MDEC_CT 9e2a EVEN  :   .    .  cfb 
+     i   4616 MDEC_CT 9e29 odd   :   .    .    . 
+     i   4617 MDEC_CT 9e28 EVEN  : d06  d03    . 
+     i   4618 MDEC_CT 9e27 odd   :   .    .    . 
+     i   4619 MDEC_CT 9e26 EVEN  :   .    .  cfa 
+     i   4620 MDEC_CT 9e25 odd   :   .    .    . 
+     i   4621 MDEC_CT 9e24 EVEN  : d07  d04    . 
+     i   4622 MDEC_CT 9e23 odd   :   .    .    . 
+     i   4623 MDEC_CT 9e22 EVEN  :   .    .  cf9 
+     i   4624 MDEC_CT 9e21 odd   :   .    .    . 
+     i   4625 MDEC_CT 9e20 EVEN  : d08  d05    . 
+== kd_2: 9152 samples, first 636, onset 133 (MDEC_CT 76a0 even), c0 79a1, marks: 1@132 3@4628 4@4629
+   stream 0: tracked 9019/9019 samples, 218 ambiguous, max set 24
+   stream 1: tracked 9019/9019 samples, 311 ambiguous, max set 155
+   stream 2: tracked 9019/9019 samples, 954 ambiguous, max set 153
+   S3         s0: 4630o s1: 4630o s2: 4630o  -> shared K: 4630(odd)
+   oldDir     s0: 4630o s1: 4630o s2: 4630o  -> shared K: 4630(odd)
+   noS3       s0: 4630o 4631e s1: 4630o 4631e s2: 4630o 4631e  -> shared K: 4630(odd) 4631(even)
+   noStep     s0: 4629e 4630o s1: 4629e 4630o s2: 4629e 4630o  -> shared K: 4629(even) 4630(odd)
+   KYONB(vi)  s0: 4630o 4631e s1: 4630o 4631e s2: 4630o 4631e  -> shared K: 4630(odd) 4631(even)
+   window around the S3 key-off sample 4630 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4618 MDEC_CT 651b odd   : d02  cff  cff 
+     i   4619 MDEC_CT 651a EVEN  :   .    .    . 
+     i   4620 MDEC_CT 6519 odd   :   .    .    . 
+     i   4621 MDEC_CT 6518 EVEN  :   .    .    . 
+     i   4622 MDEC_CT 6517 odd   :   .    .    . 
+     i   4623 MDEC_CT 6516 EVEN  :   .    .    . 
+     i   4624 MDEC_CT 6515 odd   :   .    .    . 
+     i   4625 MDEC_CT 6514 EVEN  :   .    .    . 
+     i   4626 MDEC_CT 6513 odd   :   .    .    . 
+     i   4627 MDEC_CT 6512 EVEN  :   .    .    . 
+     i   4628 MDEC_CT 6511 odd   :   .    .    . 
+     i   4629 MDEC_CT 6510 EVEN  :   .    .    . 
+     i   4630 MDEC_CT 650f odd  *:   .    .    . 
+     i   4631 MDEC_CT 650e EVEN  :   .    .  cfe 
+     i   4632 MDEC_CT 650d odd   :   .    .    . 
+     i   4633 MDEC_CT 650c EVEN  : d03  d00    . 
+     i   4634 MDEC_CT 650b odd   :   .    .    . 
+     i   4635 MDEC_CT 650a EVEN  :   .    .  cfd 
+     i   4636 MDEC_CT 6509 odd   :   .    .    . 
+     i   4637 MDEC_CT 6508 EVEN  : d04  d01    . 
+     i   4638 MDEC_CT 6507 odd   :   .    .    . 
+     i   4639 MDEC_CT 6506 EVEN  :   .    .  cfc 
+     i   4640 MDEC_CT 6505 odd   :   .    .    . 
+     i   4641 MDEC_CT 6504 EVEN  : d05  d02    . 
+     i   4642 MDEC_CT 6503 odd   :   .    .    . 
+     i   4643 MDEC_CT 6502 EVEN  :   .    .  cfb 
+     i   4644 MDEC_CT 6501 odd   :   .    .    . 
+     i   4645 MDEC_CT 6500 EVEN  : d06  d03    . 
+     i   4646 MDEC_CT 64ff odd   :   .    .    . 
+== kd_3: 9216 samples, first 583, onset 134 (MDEC_CT 3dc8 even), c0 4095, marks: 1@132 3@4671 4@4672
+   stream 0: tracked 9082/9082 samples, 219 ambiguous, max set 24
+   stream 1: tracked 9082/9082 samples, 306 ambiguous, max set 155
+   stream 2: tracked 9082/9082 samples, 961 ambiguous, max set 153
+   S3         s0: 4674e s1: 4674e s2: 4674e  -> shared K: 4674(even)
+   oldDir     s0: none (best 4540/9082 at K 4671, +4540 hw d04 model d03) s1: 4674e s2: none (best 4540/9082 at K 4673, +4540 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 4540/9082 at K 4671, +4540 hw d04 model d03) s1: none (best 4540/9082 at K 4671, +4540 hw d01 model d00) s2: none (best 4540/9082 at K 4673, +4540 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 4540/9082 at K 4670, +4540 hw d04 model d03) s1: none (best 4540/9082 at K 4670, +4540 hw d01 model d00) s2: none (best 4540/9082 at K 4672, +4540 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: 4675o 4676e s1: 4675o 4676e s2: 4675o 4676e  -> shared K: 4675(odd) 4676(even)
+   window around the S3 key-off sample 4674 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4662 MDEC_CT 2c18 EVEN  : d02  cff  cff 
+     i   4663 MDEC_CT 2c17 odd   :   .    .    . 
+     i   4664 MDEC_CT 2c16 EVEN  :   .    .    . 
+     i   4665 MDEC_CT 2c15 odd   :   .    .    . 
+     i   4666 MDEC_CT 2c14 EVEN  :   .    .    . 
+     i   4667 MDEC_CT 2c13 odd   :   .    .    . 
+     i   4668 MDEC_CT 2c12 EVEN  :   .    .    . 
+     i   4669 MDEC_CT 2c11 odd   :   .    .    . 
+     i   4670 MDEC_CT 2c10 EVEN  :   .    .    . 
+     i   4671 MDEC_CT 2c0f odd   :   .    .    . 
+     i   4672 MDEC_CT 2c0e EVEN  :   .    .    . 
+     i   4673 MDEC_CT 2c0d odd   :   .    .    . 
+     i   4674 MDEC_CT 2c0c EVEN *: d04  d01  cfd 
+     i   4675 MDEC_CT 2c0b odd   :   .    .    . 
+     i   4676 MDEC_CT 2c0a EVEN  :   .    .  cfc 
+     i   4677 MDEC_CT 2c09 odd   :   .    .    . 
+     i   4678 MDEC_CT 2c08 EVEN  : d05  d02    . 
+     i   4679 MDEC_CT 2c07 odd   :   .    .    . 
+     i   4680 MDEC_CT 2c06 EVEN  :   ?    .    ? 
+     i   4681 MDEC_CT 2c05 odd   :   .    .  cfb 
+     i   4682 MDEC_CT 2c04 EVEN  : d06  d03    . 
+     i   4683 MDEC_CT 2c03 odd   :   .    .    . 
+     i   4684 MDEC_CT 2c02 EVEN  :   .    .  cfa 
+     i   4685 MDEC_CT 2c01 odd   :   .    .    . 
+     i   4686 MDEC_CT 2c00 EVEN  : d07  d04    . 
+     i   4687 MDEC_CT 2bff odd   :   .    .    . 
+     i   4688 MDEC_CT 2bfe EVEN  :   .    .  cf9 
+     i   4689 MDEC_CT 2bfd odd   :   .    .    ? 
+     i   4690 MDEC_CT 2bfc EVEN  : d08  d05    . 
+== kd_4: 9280 samples, first 535, onset 134 (MDEC_CT 04e0 even), c0 077d, marks: 1@132 3@4735 4@4736
+   stream 0: tracked 9146/9146 samples, 212 ambiguous, max set 25
+   stream 1: tracked 9146/9146 samples, 300 ambiguous, max set 155
+   stream 2: tracked 9146/9146 samples, 942 ambiguous, max set 153
+   S3         s0: 4737o s1: 4737o s2: 4737o  -> shared K: 4737(odd)
+   oldDir     s0: 4737o s1: 4737o s2: 4737o  -> shared K: 4737(odd)
+   noS3       s0: 4737o 4738e s1: 4737o 4738e s2: 4737o 4738e  -> shared K: 4737(odd) 4738(even)
+   noStep     s0: 4736e 4737o s1: 4736e 4737o s2: 4736e 4737o  -> shared K: 4736(even) 4737(odd)
+   KYONB(vi)  s0: 4737o 4738e s1: 4737o 4738e s2: 4737o 4738e  -> shared K: 4737(odd) 4738(even)
+   window around the S3 key-off sample 4737 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4725 MDEC_CT f2f1 odd   : d02    ?    ? 
+     i   4726 MDEC_CT f2f0 EVEN  :   .  cff  cff 
+     i   4727 MDEC_CT f2ef odd   :   .    .    . 
+     i   4728 MDEC_CT f2ee EVEN  :   .    .    . 
+     i   4729 MDEC_CT f2ed odd   :   .    .    . 
+     i   4730 MDEC_CT f2ec EVEN  :   .    .    . 
+     i   4731 MDEC_CT f2eb odd   :   .    .    . 
+     i   4732 MDEC_CT f2ea EVEN  :   .    .    . 
+     i   4733 MDEC_CT f2e9 odd   :   .    .    . 
+     i   4734 MDEC_CT f2e8 EVEN  :   .    .    . 
+     i   4735 MDEC_CT f2e7 odd   :   .    .    . 
+     i   4736 MDEC_CT f2e6 EVEN  :   .    .    . 
+     i   4737 MDEC_CT f2e5 odd  *:   .    .    . 
+     i   4738 MDEC_CT f2e4 EVEN  :   .    .  cfe 
+     i   4739 MDEC_CT f2e3 odd   :   .    .    . 
+     i   4740 MDEC_CT f2e2 EVEN  : d03  d00    . 
+     i   4741 MDEC_CT f2e1 odd   :   .    .    . 
+     i   4742 MDEC_CT f2e0 EVEN  :   .    .  cfd 
+     i   4743 MDEC_CT f2df odd   :   .    .    . 
+     i   4744 MDEC_CT f2de EVEN  : d04  d01    ? 
+     i   4745 MDEC_CT f2dd odd   :   .    .    ? 
+     i   4746 MDEC_CT f2dc EVEN  :   .    .  cfc 
+     i   4747 MDEC_CT f2db odd   :   .    .    . 
+     i   4748 MDEC_CT f2da EVEN  : d05  d02    . 
+     i   4749 MDEC_CT f2d9 odd   :   .    .    . 
+     i   4750 MDEC_CT f2d8 EVEN  :   .    .  cfb 
+     i   4751 MDEC_CT f2d7 odd   :   .    .    . 
+     i   4752 MDEC_CT f2d6 EVEN  : d06  d03    . 
+     i   4753 MDEC_CT f2d5 odd   :   .    .    . 
+== kd_5: 9280 samples, first 713, onset 133 (MDEC_CT cb07 odd), c0 ce55, marks: 1@132 3@4758 4@4758
+   stream 0: tracked 9147/9147 samples, 209 ambiguous, max set 25
+   stream 1: tracked 9147/9147 samples, 309 ambiguous, max set 155
+   stream 2: tracked 9147/9147 samples, 940 ambiguous, max set 143
+   S3         s0: 4760e s1: 4760e s2: 4760e  -> shared K: 4760(even)
+   oldDir     s0: none (best 4627/9147 at K 4757, +4627 hw d04 model d03) s1: 4760e s2: none (best 4627/9147 at K 4759, +4627 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 4627/9147 at K 4757, +4627 hw d04 model d03) s1: none (best 4627/9147 at K 4757, +4627 hw d01 model d00) s2: none (best 4627/9147 at K 4759, +4627 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 4627/9147 at K 4756, +4627 hw d04 model d03) s1: none (best 4627/9147 at K 4756, +4627 hw d01 model d00) s2: none (best 4627/9147 at K 4758, +4627 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: 4761o 4762e s1: 4761o 4762e s2: 4761o 4762e  -> shared K: 4761(odd) 4762(even)
+   window around the S3 key-off sample 4760 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   4748 MDEC_CT b900 EVEN  : d02  cff  cff 
+     i   4749 MDEC_CT b8ff odd   :   .    .    . 
+     i   4750 MDEC_CT b8fe EVEN  :   .    .    . 
+     i   4751 MDEC_CT b8fd odd   :   .    .    . 
+     i   4752 MDEC_CT b8fc EVEN  :   .    .    . 
+     i   4753 MDEC_CT b8fb odd   :   .    .    . 
+     i   4754 MDEC_CT b8fa EVEN  :   .    .    . 
+     i   4755 MDEC_CT b8f9 odd   :   .    .    . 
+     i   4756 MDEC_CT b8f8 EVEN  :   .    .    . 
+     i   4757 MDEC_CT b8f7 odd   :   .    .    . 
+     i   4758 MDEC_CT b8f6 EVEN  :   .    .    . 
+     i   4759 MDEC_CT b8f5 odd   :   .    .    . 
+     i   4760 MDEC_CT b8f4 EVEN *: d04  d01  cfd 
+     i   4761 MDEC_CT b8f3 odd   :   .    .    . 
+     i   4762 MDEC_CT b8f2 EVEN  :   .    .  cfc 
+     i   4763 MDEC_CT b8f1 odd   :   .    .    . 
+     i   4764 MDEC_CT b8f0 EVEN  : d05  d02    . 
+     i   4765 MDEC_CT b8ef odd   :   .    .    . 
+     i   4766 MDEC_CT b8ee EVEN  :   .    .  cfb 
+     i   4767 MDEC_CT b8ed odd   :   .    .    . 
+     i   4768 MDEC_CT b8ec EVEN  : d06  d03    . 
+     i   4769 MDEC_CT b8eb odd   :   .    .    . 
+     i   4770 MDEC_CT b8ea EVEN  :   .    .  cfa 
+     i   4771 MDEC_CT b8e9 odd   :   .    .    . 
+     i   4772 MDEC_CT b8e8 EVEN  : d07  d04    . 
+     i   4773 MDEC_CT b8e7 odd   :   .    .    . 
+     i   4774 MDEC_CT b8e6 EVEN  :   .    .  cf9 
+     i   4775 MDEC_CT b8e5 odd   :   .    .    . 
+     i   4776 MDEC_CT b8e4 EVEN  : d08  d05    . 
+== kd_6: 13760 samples, first 660, onset 134 (MDEC_CT 9162 even), c0 947c, marks: 1@132 5@4801 6@4801 7@9215 8@9215  [KYONB-only batch]
+   stream 0: tracked 13626/13626 samples, 330 ambiguous, max set 25
+   stream 1: tracked 13626/13626 samples, 536 ambiguous, max set 155
+   stream 2: tracked 13626/13626 samples, 1182 ambiguous, max set 152
+   stream 0 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u d02, min d02 max d02, first change none-1  -> held: target follows the state (S3 reading stands)
+   stream 1 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u cff, min cff max cff, first change none-1  -> held: target follows the state (S3 reading stands)
+   stream 2 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u cff, min cff max cff, first change none-1  -> held: target follows the state (S3 reading stands)
+   S3         s0: 9216e s1: 9216e s2: 9216e  -> shared K: 9216(even)
+   oldDir     s0: none (best 9082/13626 at K 9213, +9082 hw d04 model d03) s1: 9216e s2: none (best 9082/13626 at K 9215, +9082 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 9082/13626 at K 9213, +9082 hw d04 model d03) s1: none (best 9082/13626 at K 9213, +9082 hw d01 model d00) s2: none (best 9082/13626 at K 9215, +9082 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 9082/13626 at K 9212, +9082 hw d04 model d03) s1: none (best 9082/13626 at K 9212, +9082 hw d01 model d00) s2: none (best 9082/13626 at K 9214, +9082 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: none (best 4732/13626 at K 9151, +4732 hw d02 model d04) s1: none (best 4732/13626 at K 9151, +4732 hw cff model d01) s2: none (best 4732/13626 at K 9151, +4732 hw cff model cfd)  -> shared K: NONE (refuted on this batch)
+   window around the S3 key-off sample 9216 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   9204 MDEC_CT 6df4 EVEN  : d02  cff  cff 
+     i   9205 MDEC_CT 6df3 odd   :   .    .    . 
+     i   9206 MDEC_CT 6df2 EVEN  :   .    .    . 
+     i   9207 MDEC_CT 6df1 odd   :   .    .    . 
+     i   9208 MDEC_CT 6df0 EVEN  :   .    .    . 
+     i   9209 MDEC_CT 6def odd   :   .    .    . 
+     i   9210 MDEC_CT 6dee EVEN  :   .    .    . 
+     i   9211 MDEC_CT 6ded odd   :   .    .    . 
+     i   9212 MDEC_CT 6dec EVEN  :   .    .    . 
+     i   9213 MDEC_CT 6deb odd   :   .    .    . 
+     i   9214 MDEC_CT 6dea EVEN  :   .    .    . 
+     i   9215 MDEC_CT 6de9 odd   :   .    .    . 
+     i   9216 MDEC_CT 6de8 EVEN *: d04  d01  cfd 
+     i   9217 MDEC_CT 6de7 odd   :   .    .    . 
+     i   9218 MDEC_CT 6de6 EVEN  :   .    .  cfc 
+     i   9219 MDEC_CT 6de5 odd   :   .    .    . 
+     i   9220 MDEC_CT 6de4 EVEN  : d05  d02    . 
+     i   9221 MDEC_CT 6de3 odd   :   .    .    . 
+     i   9222 MDEC_CT 6de2 EVEN  :   .    .  cfb 
+     i   9223 MDEC_CT 6de1 odd   :   .    .    . 
+     i   9224 MDEC_CT 6de0 EVEN  : d06  d03    . 
+     i   9225 MDEC_CT 6ddf odd   :   .    .    . 
+     i   9226 MDEC_CT 6dde EVEN  :   .    .  cfa 
+     i   9227 MDEC_CT 6ddd odd   :   .    .    ? 
+     i   9228 MDEC_CT 6ddc EVEN  : d07  d04    . 
+     i   9229 MDEC_CT 6ddb odd   :   .    .    . 
+     i   9230 MDEC_CT 6dda EVEN  :   .    .  cf9 
+     i   9231 MDEC_CT 6dd9 odd   :   .    .    . 
+     i   9232 MDEC_CT 6dd8 EVEN  : d08  d05    . 
+== kd_7: 13824 samples, first 591, onset 134 (MDEC_CT 4683 odd), c0 4958, marks: 1@132 5@4863 6@4863 7@9279 8@9279  [KYONB-only batch]
+   stream 0: tracked 13690/13690 samples, 328 ambiguous, max set 24
+   stream 1: tracked 13690/13690 samples, 544 ambiguous, max set 155
+   stream 2: tracked 13690/13690 samples, 1189 ambiguous, max set 152
+   stream 0 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u d02, min d02 max d02, first change none-1  -> held: target follows the state (S3 reading stands)
+   stream 1 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u cff, min cff max cff, first change none-1  -> held: target follows the state (S3 reading stands)
+   stream 2 between mark 5-100 and mark 7-100 (KYONB cleared, no KYONEX): u cff, min cff max cff, first change none-1  -> held: target follows the state (S3 reading stands)
+   S3         s0: 9281e s1: 9281e s2: 9281e  -> shared K: 9281(even)
+   oldDir     s0: none (best 9147/13690 at K 9278, +9147 hw d04 model d03) s1: 9281e s2: none (best 9147/13690 at K 9280, +9147 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noS3       s0: none (best 9147/13690 at K 9278, +9147 hw d04 model d03) s1: none (best 9147/13690 at K 9278, +9147 hw d01 model d00) s2: none (best 9147/13690 at K 9280, +9147 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   noStep     s0: none (best 9147/13690 at K 9277, +9147 hw d04 model d03) s1: none (best 9147/13690 at K 9277, +9147 hw d01 model d00) s2: none (best 9147/13690 at K 9279, +9147 hw cfd model cfe)  -> shared K: NONE (refuted on this batch)
+   KYONB(vi)  s0: none (best 4793/13690 at K 9215, +4793 hw d02 model d04) s1: none (best 4793/13690 at K 9215, +4793 hw cff model d01) s2: none (best 4793/13690 at K 9215, +4793 hw cff model cfd)  -> shared K: NONE (refuted on this batch)
+   window around the S3 key-off sample 9281 (u per sample, s0 s1 s2; . = unchanged, ? = ambiguous):
+     i   9269 MDEC_CT 22d4 EVEN  : d02  cff  cff 
+     i   9270 MDEC_CT 22d3 odd   :   .    .    . 
+     i   9271 MDEC_CT 22d2 EVEN  :   .    .    . 
+     i   9272 MDEC_CT 22d1 odd   :   .    .    . 
+     i   9273 MDEC_CT 22d0 EVEN  :   .    .    . 
+     i   9274 MDEC_CT 22cf odd   :   .    .    . 
+     i   9275 MDEC_CT 22ce EVEN  :   .    .    . 
+     i   9276 MDEC_CT 22cd odd   :   .    .    . 
+     i   9277 MDEC_CT 22cc EVEN  :   .    .    . 
+     i   9278 MDEC_CT 22cb odd   :   .    .    . 
+     i   9279 MDEC_CT 22ca EVEN  :   .    .    . 
+     i   9280 MDEC_CT 22c9 odd   :   .    ?    ? 
+     i   9281 MDEC_CT 22c8 EVEN *: d04  d01  cfd 
+     i   9282 MDEC_CT 22c7 odd   :   .    .    . 
+     i   9283 MDEC_CT 22c6 EVEN  :   .    .  cfc 
+     i   9284 MDEC_CT 22c5 odd   :   .    .    . 
+     i   9285 MDEC_CT 22c4 EVEN  : d05  d02    . 
+     i   9286 MDEC_CT 22c3 odd   :   .    .    . 
+     i   9287 MDEC_CT 22c2 EVEN  :   .    .  cfb 
+     i   9288 MDEC_CT 22c1 odd   :   .    .    . 
+     i   9289 MDEC_CT 22c0 EVEN  :   ?    ?    ? 
+     i   9290 MDEC_CT 22bf odd   :   ?    ?    ? 
+     i   9291 MDEC_CT 22be EVEN  : d06  d03  cfa 
+     i   9292 MDEC_CT 22bd odd   :   .    .    . 
+     i   9293 MDEC_CT 22bc EVEN  : d07  d04    . 
+     i   9294 MDEC_CT 22bb odd   :   .    .    . 
+     i   9295 MDEC_CT 22ba EVEN  :   .    .  cf9 
+     i   9296 MDEC_CT 22b9 odd   :   .    .    . 
+     i   9297 MDEC_CT 22b8 EVEN  : d08  d05    . 

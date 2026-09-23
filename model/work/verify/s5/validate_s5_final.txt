@@ -1,0 +1,12 @@
+model: bda39fb83324 4d6e14933e79  K 6491
+eg_model  GROUPS session4=33/33 eg_kprobe=8/8 feg_koffdir=24/24
+eg_model  TOTAL full=65/65
+eg_replay TOTAL koff_d2: streams FULL 4/4, samples matched 174080/174080, clean cycles 16/16
+eg_replay TOTAL koff_d2b: streams FULL 4/4, samples matched 168704/168704, clean cycles 16/16
+eg_replay TOTAL koff_att: streams FULL 4/4, samples matched 163328/163328, clean cycles 16/16
+eg_replay TOTAL kon_rel: streams FULL 4/4, samples matched 215808/215808, clean cycles 16/16
+tail_cmp  RESULT tests/slot_tail/hw/tail_a: 4/4 streams FULL, events ko 4650(even)
+tail_cmp  RESULT tests/slot_tail/hw/tail_b: 4/4 streams FULL, events ko 4648(even)
+tail_cmp  RESULT tests/slot_tail/hw/tail_c: 4/4 streams FULL, events ko 6875(odd) w14 11300(even) w00 11300(even) w2 12198(even)
+tail_cmp  TOTAL tests/slot_tail/hw: streams FULL 12/12
+validate_s5: PASS (every stream FULL)

@@ -1,0 +1,75 @@
+tests/aeg_koff/hw/kon_rel (kon_rel): 53952 samples x 4 streams, n_first 662, c0 96c8 (MDEC_CT of sample i = (9432 - i) & 0xFFFF), K 6491
+  stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 const
+  stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp
+  stream 2: slot 2 AR 31 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp
+  stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 const WITNESS
+  kind 1 (kon_rel: on, off, on during the release, off; marks 1 / 3 / 5 / 7), 16 cycles, test slots mask 07, witness mask 08
+  cycle  0: E_A 461 (odd) E_C 971 (odd)
+  cycle  0: E_B searched in [561, 921] (compared to 971): full match, score 1640/1640, 2 candidate(s): 594(even) 595(odd); taking 594
+  cycle  0: E_D searched in [972, 1397] (compared to 3794): full match, score 11288/11288, 2 candidate(s): 1104(even) 1105(odd); taking 1104
+  cycle  1: E_A 3794 (even) E_C 4180 (even)
+  cycle  1: E_B searched in [3894, 4130] (compared to 4180): full match, score 1144/1144, 2 candidate(s): 3928(even) 3929(odd); taking 3928
+  cycle  1: E_D searched in [4181, 4598] (compared to 7002): full match, score 11284/11284, 2 candidate(s): 4314(even) 4315(odd); taking 4314
+  cycle  2: E_A 7002 (even) E_C 7451 (odd)
+  cycle  2: E_B searched in [7102, 7401] (compared to 7451): full match, score 1396/1396, 2 candidate(s): 7136(even) 7137(odd); taking 7136
+  cycle  2: E_D searched in [7452, 7861] (compared to 10275): full match, score 11292/11292, 2 candidate(s): 7584(even) 7585(odd); taking 7584
+  cycle  3: E_A 10275 (odd) E_C 10852 (even)
+  cycle  3: E_B searched in [10375, 10802] (compared to 10852): full match, score 1908/1908, 2 candidate(s): 10408(even) 10409(odd); taking 10408
+  cycle  3: E_D searched in [10853, 11253] (compared to 13676): full match, score 11292/11292, 2 candidate(s): 10986(even) 10987(odd); taking 10986
+  cycle  4: E_A 13676 (even) E_C 14067 (odd)
+  cycle  4: E_B searched in [13776, 14017] (compared to 14067): full match, score 1164/1164, 2 candidate(s): 13810(even) 13811(odd); taking 13810
+  cycle  4: E_D searched in [14068, 14460] (compared to 16883): full match, score 11260/11260, 2 candidate(s): 14200(even) 14201(odd); taking 14200
+  cycle  5: E_A 16883 (odd) E_C 17333 (odd)
+  cycle  5: E_B searched in [16983, 17283] (compared to 17333): full match, score 1400/1400, 2 candidate(s): 17016(even) 17017(odd); taking 17016
+  cycle  5: E_D searched in [17334, 17717] (compared to 20156): full match, score 11288/11288, 2 candidate(s): 17466(even) 17467(odd); taking 17466
+  cycle  6: E_A 20156 (even) E_C 20605 (odd)
+  cycle  6: E_B searched in [20256, 20555] (compared to 20605): full match, score 1396/1396, 1 candidate(s): 20289(odd); taking 20289
+  cycle  6: E_D searched in [20606, 20981] (compared to 23428): full match, score 11288/11288, 2 candidate(s): 20738(even) 20739(odd); taking 20738
+  cycle  7: E_A 23428 (even) E_C 23877 (odd)
+  cycle  7: E_B searched in [23528, 23827] (compared to 23877): full match, score 1396/1396, 2 candidate(s): 23562(even) 23563(odd); taking 23562
+  cycle  7: E_D searched in [23878, 24245] (compared to 26700): full match, score 11288/11288, 2 candidate(s): 24010(even) 24011(odd); taking 24010
+  cycle  8: E_A 26700 (even) E_C 27406 (even)
+  cycle  8: E_B searched in [26800, 27356] (compared to 27406): full match, score 2424/2424, 2 candidate(s): 26834(even) 26835(odd); taking 26834
+  cycle  8: E_D searched in [27407, 27765] (compared to 30229): full match, score 11288/11288, 2 candidate(s): 27540(even) 27541(odd); taking 27540
+  cycle  9: E_A 30229 (odd) E_C 30755 (odd)
+  cycle  9: E_B searched in [30329, 30705] (compared to 30755): full match, score 1704/1704, 2 candidate(s): 30362(even) 30363(odd); taking 30362
+  cycle  9: E_D searched in [30756, 31106] (compared to 33569): full match, score 11252/11252, 2 candidate(s): 30888(even) 30889(odd); taking 30888
+  cycle 10: E_A 33569 (odd) E_C 34272 (even)
+  cycle 10: E_B searched in [33669, 34222] (compared to 34272): full match, score 2412/2412, 2 candidate(s): 33702(even) 33703(odd); taking 33702
+  cycle 10: E_D searched in [34273, 34613] (compared to 37095): full match, score 11288/11288, 1 candidate(s): 34405(odd); taking 34405
+  cycle 11: E_A 37095 (odd) E_C 37544 (even)
+  cycle 11: E_B searched in [37195, 37494] (compared to 37544): full match, score 1396/1396, 2 candidate(s): 37228(even) 37229(odd); taking 37228
+  cycle 11: E_D searched in [37545, 37877] (compared to 40257): full match, score 10848/10848, 2 candidate(s): 37678(even) 37679(odd); taking 37678
+  cycle 12: E_A 40257 (odd) E_C 40901 (odd)
+  cycle 12: E_B searched in [40357, 40851] (compared to 40901): full match, score 2176/2176, 2 candidate(s): 40390(even) 40391(odd); taking 40390
+  cycle 12: E_D searched in [40902, 41336] (compared to 43722): full match, score 11280/11280, 2 candidate(s): 41034(even) 41035(odd); taking 41034
+  cycle 13: E_A 43722 (even) E_C 44256 (even)
+  cycle 13: E_B searched in [43822, 44206] (compared to 44256): full match, score 1736/1736, 1 candidate(s): 43855(odd); taking 43855
+  cycle 13: E_D searched in [44257, 44682] (compared to 47058): full match, score 11204/11204, 1 candidate(s): 44389(odd); taking 44389
+  cycle 14: E_A 47058 (even) E_C 47507 (odd)
+  cycle 14: E_B searched in [47158, 47457] (compared to 47507): full match, score 1396/1396, 2 candidate(s): 47192(even) 47193(odd); taking 47192
+  cycle 14: E_D searched in [47508, 47925] (compared to 50331): full match, score 11292/11292, 2 candidate(s): 47640(even) 47641(odd); taking 47640
+  cycle 15: E_A 50331 (odd) E_C 51036 (even)
+  cycle 15: E_B searched in [50431, 50986] (compared to 51036): full match, score 2420/2420, 2 candidate(s): 50464(even) 50465(odd); taking 50464
+  cycle 15: E_D searched in [51037, 51445] (compared to 53952): full match, score 11660/11660, 2 candidate(s): 51170(even) 51171(odd); taking 51170
+  cycle  0 [461, 3794):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  1 [3794, 7002):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  2 [7002, 10275):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  3 [10275, 13676):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  4 [13676, 16883):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  5 [16883, 20156):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  6 [20156, 23428):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  7 [23428, 26700):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  8 [26700, 30229):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle  9 [30229, 33569):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 10 [33569, 37095):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 11 [37095, 40257):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 12 [40257, 43722):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 13 [43722, 47058):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 14 [47058, 50331):  s0 ok  s1 ok  s2 ok  s3 ok
+  cycle 15 [50331, 53952):  s0 ok  s1 ok  s2 ok  s3 ok
+  stream 0 (slot 0): FULL 53952/53952
+  stream 1 (slot 1): FULL 53952/53952
+  stream 2 (slot 2): FULL 53952/53952
+  stream 3 (slot 3 witness): FULL 53952/53952
+TOTAL kon_rel: streams FULL 4/4, samples matched 215808/215808, clean cycles 16/16

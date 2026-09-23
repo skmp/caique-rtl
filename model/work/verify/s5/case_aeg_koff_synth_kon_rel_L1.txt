@@ -1,0 +1,73 @@
+tests/aeg_koff/model/kon_rel (kon_rel): 53760 samples x 4 streams, n_first 690, c0 bea5 -> MDEC_CT of sample i = (bbf3 - i) & 0xFFFF, K 6491, 64 marks
+  stream 0: AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000  (R 48/0/0/48, clock increments 1/0/0/1)
+  stream 1: AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp  (R 48/0/0/48, clock increments 1/0/0/1)
+  stream 2: AR 31 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp  (R 62/0/0/48, clock increments 8/0/0/1)
+  stream 3: AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 WITNESS  (R 63/63/63/63, clock increments 8/8/8/8)
+cycle  0: E_A 449 (even); first key-off (not pinned) reproducing stream 0: H1 at 582{+0}, H0 at 582{+0,+1}; second key-on E_C 922 (odd, 340 samples after, release a 0x0a9); marks 447 580 920 1053
+SYNTHETIC: test streams regenerated under L1 / C0 from the pinned events (self-test of the fitter)
+    s0 (const R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+    s2 (ramp R62): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+cycle  1: E_A 3713 (even); first key-off (not pinned) reproducing stream 0: H1 at 3846{+0}, H0 at 3846{+0,+1}; second key-on E_C 4097 (even, 251 samples after, release a 0x07d); marks 3711 3844 4095 4228
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  2: E_A 6877 (even); first key-off (not pinned) reproducing stream 0: H1 at 7041{+0,+1}, H0 at 7042{+0,+1}; second key-on E_C 7361 (even, 320 samples after, release a 0x09f); marks 6875 7039 7359 7492
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  3: E_A 10141 (even); first key-off (not pinned) reproducing stream 0: H1 at 10305{+0,+1}, H0 at 10306{+0,+1}; second key-on E_C 10753 (even, 448 samples after, release a 0x0df); marks 10139 10303 10751 10884
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  4: E_A 13533 (even); first key-off (not pinned) reproducing stream 0: H1 at 13697{+0,+1}, H0 at 13698{+0,+1}; second key-on E_C 13953 (even, 256 samples after, release a 0x07f); marks 13531 13695 13951 14084
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  5: E_A 16734 (odd); first key-off (not pinned) reproducing stream 0: H1 at 16897{+0,+1}, H0 at 16898{+0,+1}; second key-on E_C 17217 (even, 320 samples after, release a 0x09f); marks 16731 16895 17215 17348
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  6: E_A 19997 (even); first key-off (not pinned) reproducing stream 0: H1 at 20161{+0,+1}, H0 at 20162{+0,+1}; second key-on E_C 20449 (even, 288 samples after, release a 0x08f); marks 19995 20159 20447 20607
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  7: E_A 23256 (odd); first key-off (not pinned) reproducing stream 0: H1 at 23389{+0,+1}, H0 at 23390{+0,+1}; second key-on E_C 23681 (even, 292 samples after, release a 0x091); marks 23254 23387 23679 23812
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  8: E_A 26461 (even); first key-off (not pinned) reproducing stream 0: H1 at 26625{+0,+1}, H0 at 26626{+0,+1}; second key-on E_C 27201 (even, 576 samples after, release a 0x11f); marks 26459 26623 27199 27332
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle  9: E_A 29981 (even); first key-off (not pinned) reproducing stream 0: H1 at 30145{+0,+1}, H0 at 30146{+0,+1}; second key-on E_C 30536 (odd, 391 samples after, release a 0x0c2); marks 29979 30143 30534 30667
+    s0 (const R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+    s2 (ramp R62): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+cycle 10: E_A 33345 (even); first key-off (not pinned) reproducing stream 0: H1 at 33478{+0}, H0 at 33478{+0,+1}; second key-on E_C 34049 (even, 571 samples after, release a 0x11d); marks 33343 33476 34047 34180
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle 11: E_A 36829 (even); first key-off (not pinned) reproducing stream 0: H1 at 36993{+0,+1}, H0 at 36994{+0,+1}; second key-on E_C 37313 (even, 320 samples after, release a 0x09f); marks 36827 36991 37311 37444
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle 12: E_A 40093 (even); first key-off (not pinned) reproducing stream 0: H1 at 40257{+0,+1}, H0 at 40258{+0,+1}; second key-on E_C 40769 (even, 512 samples after, release a 0x0ff); marks 40091 40255 40767 40900
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle 13: E_A 43549 (even); first key-off (not pinned) reproducing stream 0: H1 at 43713{+0,+1}, H0 at 43714{+0,+1}; second key-on E_C 44112 (odd, 399 samples after, release a 0x0c6); marks 43547 43711 44110 44243
+    s0 (const R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+    s2 (ramp R62): pre-E_C FULL;  L0 FULL  L1 FULL  L2 fail@E_C+0  | CA (under L0): C0 FULL  C1 fail@E_C+0
+cycle 14: E_A 46913 (even); first key-off (not pinned) reproducing stream 0: H1 at 47046{+0}, H0 at 47046{+0,+1}; second key-on E_C 47361 (even, 315 samples after, release a 0x09d); marks 46911 47044 47359 47492
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+cycle 15: E_A 50141 (even); first key-off (not pinned) reproducing stream 0: H1 at 50305{+0,+1}, H0 at 50306{+0,+1}; second key-on E_C 50881 (even, 576 samples after, release a 0x11f); marks 50139 50303 50879 51012
+    s0 (const R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0
+    s1 (ramp R48): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+    s2 (ramp R62): pre-E_C FULL;  L0 fail@E_C+0  L1 FULL  L2 fail@E_C+0  | CA (under L1): C0 FULL  C1 FULL  (even E_C: uninformative)
+second key-on samples (E_C) on even MDEC_CT: 13, odd: 3
+SUMMARY kon_rel (16 cycles): key-on during release, reproduced / informative stream-cycles:  L0 9/48  L1 48/48  L2 0/48  |  CA restart (ramp streams, odd E_C):  C0 6/6  C1 0/6  |  stream-cycles no L fits: 0
+  (L0 and L2 coincide on an even E_C, L0 and L1 on an odd one: a hypothesis is refuted when reproduced < informative)

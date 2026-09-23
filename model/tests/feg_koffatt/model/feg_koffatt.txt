@@ -1,0 +1,48 @@
+ka_0 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_0 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_0 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_0 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd49 at e4c0 (n 694), next fd4a fd4b fd4c, c0 e776, head n 723
+ka_0: 5184 samples, errors 0, 5 marks
+ka_1 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_1 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_1 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_1 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd4e at bae0 (n 689), next fd4f fd50 fd51, c0 bd91, head n 696
+ka_1: 5248 samples, errors 0, 5 marks
+ka_2 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_2 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_2 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_2 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd77 at 9100 (n 648), next fd78 fd79 fd7a, c0 9388, head n 655
+ka_2: 5312 samples, errors 0, 5 marks
+ka_3 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_3 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_3 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_3 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd98 at 6700 (n 615), next fd99 fd9a fd9b, c0 6967, head n 619
+ka_3: 5312 samples, errors 0, 5 marks
+ka_4 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_4 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_4 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_4 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fdd4 at 3d40 (n 555), next fdd5 fdd6 fdd7, c0 3f6b, head n 582
+ka_4: 5376 samples, errors 0, 5 marks
+ka_5 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_5 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_5 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_5 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fdeb at 1340 (n 532), next fdec fded fdee, c0 1554, head n 546
+ka_5: 5440 samples, errors 0, 5 marks
+ka_6 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_6 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_6 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_6 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd1f at e840 (n 736), next fd20 fd21 fd22, c0 eb20, head n 737
+ka_6: 5440 samples, errors 0, 5 marks
+ka_7 stream 0: slot 0 role feg KRS 15 FLV 1c00 1800 1800 1800 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_7 stream 1: slot 1 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1800 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_7 stream 2: slot 2 role feg KRS 15 FLV 1800 1c00 1c00 1c00 1c00 FAR 26 FD1R 31 FD2R 31 FRR 28 Q 4 lpoff 0 voff 1
+ka_7 stream 3: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000
+cap_start: counter word fd52 at bd80 (n 685), next fd53 fd54 fd55, c0 c02d, head n 697
+ka_7: 5504 samples, errors 0, 5 marks

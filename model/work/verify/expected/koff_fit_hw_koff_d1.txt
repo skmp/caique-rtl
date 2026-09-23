@@ -1,0 +1,90 @@
+tests/aeg_koff/hw/koff_d1 (koff_d1): 43648 samples x 4 streams, n_first 555, c0 1c86 -> MDEC_CT of sample i = (1a5b - i) & 0xFFFF, K 6491, 64 marks
+  stream 0: AR 31 D1R 26 DL 31 D2R 0 RR 24 KRS 15 OCT 0 FNS 000  (R 62/52/0/48, clock increments 8/2/0/1)
+  stream 1: AR 31 D1R 24 DL 31 D2R 0 RR 28 KRS 15 OCT 0 FNS 000  (R 62/48/0/56, clock increments 8/1/0/4)
+  stream 2: AR 31 D1R 28 DL 31 D2R 0 RR 26 KRS 15 OCT 0 FNS 000  (R 62/56/0/52, clock increments 8/4/0/2)
+  stream 3: AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 WITNESS  (R 63/63/63/63, clock increments 8/8/8/8)
+cycle  0: key-on E_A 458 (odd, marks 451..651) key-off E_B 658 (odd, on 200 samples, marks 652..3154)
+    s0: d1 at E_B a 0x0b6, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x05b, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x16c, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle  1: key-on E_A 3155 (even, marks 3142..3331) key-off E_B 3345 (even, on 190 samples, marks 3332..5783)
+    s0: d1 at E_B a 0x0aa, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0aa -> 0ac on E_B (+2), then 0ad on E_B+2
+    s1: d1 at E_B a 0x055, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 055 -> 056 on E_B (+1), then 05a on E_B+2
+    s2: d1 at E_B a 0x154, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 154 -> 158 on E_B (+4), then 15a on E_B+2
+cycle  2: key-on E_A 5784 (odd, marks 5764..6019) key-off E_B 6040 (odd, on 256 samples, marks 6020..8383)
+    s0: d1 at E_B a 0x0ee, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x077, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x1dc, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle  3: key-on E_A 8384 (odd, marks 8468..8707) key-off E_B 8625 (even, on 241 samples, marks 8708..11190)
+    s0: d1 at E_B a 0x0de, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0de -> 0e0 on E_B (+2), then 0e1 on E_B+2
+    s1: d1 at E_B a 0x06f, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 06f -> 070 on E_B (+1), then 074 on E_B+2
+    s2: d1 at E_B a 0x1bc, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 1bc -> 1c0 on E_B (+4), then 1c2 on E_B+2
+cycle  4: key-on E_A 11191 (even, marks 11268..11460) key-off E_B 11384 (odd, on 193 samples, marks 11461..13839)
+    s0: d1 at E_B a 0x0ae, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x057, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x15c, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle  5: key-on E_A 13840 (odd, marks 13911..14153) key-off E_B 14084 (odd, on 244 samples, marks 14154..16644)
+    s0: d1 at E_B a 0x0e2, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x071, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x1c4, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle  6: key-on E_A 16645 (even, marks 16708..16916) key-off E_B 16855 (even, on 210 samples, marks 16917..19406)
+    s0: d1 at E_B a 0x0be, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0be -> 0c0 on E_B (+2), then 0c1 on E_B+2
+    s1: d1 at E_B a 0x05f, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 05f -> 060 on E_B (+1), then 064 on E_B+2
+    s2: d1 at E_B a 0x17c, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 17c -> 180 on E_B (+4), then 182 on E_B+2
+cycle  7: key-on E_A 19407 (even, marks 19463..19667) key-off E_B 19612 (odd, on 205 samples, marks 19668..22098)
+    s0: d1 at E_B a 0x0ba, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x05d, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x174, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle  8: key-on E_A 22099 (even, marks 22148..22275) key-off E_B 22227 (even, on 128 samples, marks 22276..24792)
+    s0: d1 at E_B a 0x06c, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 06c -> 06e on E_B (+2), then 06f on E_B+2
+    s1: d1 at E_B a 0x036, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 036 -> 037 on E_B (+1), then 03b on E_B+2
+    s2: d1 at E_B a 0x0d8, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0d8 -> 0dc on E_B (+4), then 0de on E_B+2
+cycle  9: key-on E_A 24793 (even, marks 24836..24902) key-off E_B 24860 (odd, on 67 samples, marks 24903..27359)
+    s0: d1 at E_B a 0x030, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x018, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x060, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle 10: key-on E_A 27360 (odd, marks 27396..27459) key-off E_B 27424 (odd, on 64 samples, marks 27460..29926)
+    s0: d1 at E_B a 0x02e, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x017, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x05c, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle 11: key-on E_A 29927 (even, marks 29956..30147) key-off E_B 30120 (odd, on 193 samples, marks 30148..32639)
+    s0: d1 at E_B a 0x0ae, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x057, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x15c, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle 12: key-on E_A 32640 (odd, marks 32663..32914) key-off E_B 32893 (even, on 253 samples, marks 32915..35400)
+    s0: d1 at E_B a 0x0ea, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0ea -> 0ec on E_B (+2), then 0ed on E_B+2
+    s1: d1 at E_B a 0x075, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 075 -> 076 on E_B (+1), then 07a on E_B+2
+    s2: d1 at E_B a 0x1d4, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 1d4 -> 1d8 on E_B (+4), then 1da on E_B+2
+cycle 13: key-on E_A 35401 (even, marks 35416..35486) key-off E_B 35472 (odd, on 71 samples, marks 35487..37946)
+    s0: d1 at E_B a 0x034, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x01a, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x068, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle 14: key-on E_A 37947 (even, marks 37956..38217) key-off E_B 38210 (odd, on 263 samples, marks 38218..40769)
+    s0: d1 at E_B a 0x0f4, inc_prev 2 inc_rel 1, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s1: d1 at E_B a 0x07a, inc_prev 1 inc_rel 4, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+    s2: d1 at E_B a 0x1e8, inc_prev 4 inc_rel 2, key-on L0:  H0 FULL  H1 FULL  H2 FULL  H3 FULL  (odd key-off: uninformative)   key-off samples reproducing: H0{+0,+1} H1{-1,+0} H2{-1,+0} H3{+0}
+cycle 15: key-on E_A 40770 (odd, marks 40772..40985) key-off E_B 40985 (even, on 215 samples, marks 40986..43647)
+    s0: d1 at E_B a 0x0c4, inc_prev 2 inc_rel 1, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 0c4 -> 0c6 on E_B (+2), then 0c7 on E_B+2
+    s1: d1 at E_B a 0x062, inc_prev 1 inc_rel 4, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 062 -> 063 on E_B (+1), then 067 on E_B+2
+    s2: d1 at E_B a 0x188, inc_prev 4 inc_rel 2, key-on L0:  H0 fail@E_B+0  H1 FULL  H2 FULL  H3 fail@E_B+0   key-off samples reproducing: H0{+1,+2} H1{+0,+1} H2{+0,+1} H3{+1}
+        observed: a 188 -> 18c on E_B (+4), then 18e on E_B+2
+witness key-off samples (E_B) on even MDEC_CT: 6, odd: 10
+SUMMARY koff_d1 (16 cycles): key-off on a clock, reproduced / informative stream-cycles:  H0 0/18  H1 18/18  H2 18/18  H3 0/18  |  stream-cycles no H fits: 0
+  (H1 = H2 for a key-off from a decay; H1 = H3 when inc_prev = 0; H0 = H3 when inc_rel = 0: a hypothesis is refuted when reproduced < informative)

@@ -1,0 +1,23 @@
+tests/aeg_koff/hw/koff_att koff_att: E_A 10422 (MDEC_CT bda0 EVEN) E_B 10444 (MDEC_CT bd8a EVEN), on 22 samples, compare 2400 samples
+  stream 0: AR 24 D1R 0 DL 0 D2R 0 RR 28 KRS 15
+  stream 1: AR 26 D1R 0 DL 0 D2R 0 RR 24 KRS 15
+  stream 2: AR 28 D1R 0 DL 0 D2R 0 RR 26 KRS 15
+  around the key-off (i MDEC_CT: per stream hw/model [a state]):
+    10422 bda0 EVEN:  s0     496/496     [280 att]  s1     496/496     [280 att]  s2     496/496     [280 att]  s3       0/0       [3ff rel OFF]
+    10423 bd9f odd :  s0     496/496     [280 att]  s1     496/496     [280 att]  s2     496/496     [280 att]  s3       0/0       [3ff rel OFF]
+    10441 bd8d odd :  s0   11888/11888   [162 att]  s1   67568/67568   [0bd att]  s2  331760/331760  [02e att]  s3       0/0       [3ff rel OFF]
+    10442 bd8c EVEN:  s0   14832/14832   [14b att]  s1   92144/92144   [0a5 att]  s2  380912/380912  [022 att]  s3       0/0       [3ff rel OFF]
+    10443 bd8b odd :  s0   14832/14832   [14b att]  s1   92144/92144   [0a5 att]  s2  380912/380912  [022 att]  s3       0/0       [3ff rel OFF]
+    10444 bd8a EVEN:  s0   14832/14832   [14b rel]  s1   92144/92144   [0a5 rel]  s2  380912/380912  [022 rel]  s3  520176/520176  [000 d1]
+    10445 bd89 odd :  s0   14832/14832   [14b rel]  s1   92144/92144   [0a5 rel]  s2  380912/380912  [022 rel]  s3  520176/520176  [000 d1]
+    10446 bd88 EVEN:  s0   14320/14320   [14f rel]  s1   91120/91120   [0a6 rel]  s2  372720/372720  [024 rel]  s3  487408/487408  [008 d1]
+    10447 bd87 odd :  s0   14320/14320   [14f rel]  s1   91120/91120   [0a6 rel]  s2  372720/372720  [024 rel]  s3  487408/487408  [008 d1]
+    10448 bd86 EVEN:  s0   13808/13808   [153 rel]  s1   90096/90096   [0a7 rel]  s2  364528/364528  [026 rel]  s3  454640/454640  [010 d1]
+    10449 bd85 odd :  s0   13808/13808   [153 rel]  s1   90096/90096   [0a7 rel]  s2  364528/364528  [026 rel]  s3  454640/454640  [010 d1]
+    10450 bd84 EVEN:  s0   13296/13296   [157 rel]  s1   89072/89072   [0a8 rel]  s2  356336/356336  [028 rel]  s3  421872/421872  [018 d1]
+    10451 bd83 odd :  s0   13296/13296   [157 rel]  s1   89072/89072   [0a8 rel]  s2  356336/356336  [028 rel]  s3  421872/421872  [018 d1]
+  stream 0: FULL 2400/2400
+  stream 1: FULL 2400/2400
+  stream 2: FULL 2400/2400
+  stream 3: FULL 2400/2400
+RESULT koff_att cycle E_A 10422 E_B 10444: 4/4 streams FULL over 2400 samples

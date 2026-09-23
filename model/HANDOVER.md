@@ -1,9 +1,13 @@
-# caique AICA model — swarm verification handover (2026-09-23, session 2)
+# caique AICA model — swarm verification handover (2026-09-23, sessions 2 and 3)
 
-**Scope: verify only the progress made since the previous handover.** The previous handover (the filter
-"breakthrough": coarse damping, 235 streams) is the committed state: git `HEAD` = `a07a62d` ("initial slop").
-Read it with `git show HEAD:model/HANDOVER.md`. Everything since is uncommitted: `git diff HEAD` plus the new
-untracked cases, tools and `tests/<case>/` directories listed below. **General re-verification of earlier results
+**Scope: verify only the progress made since the breakthrough handover.** That handover (coarse damping, 235
+streams) is commit `a07a62d` ("initial slop"); read it with `git show a07a62d:model/HANDOVER.md`.
+- **Session 2** is commit `2e19634`: `git diff a07a62d 2e19634` (claims L1, F1–F5, E1–E4, A1–A3, D1–D3).
+- **Session 3** (after the swarm's first findings) is uncommitted: `git diff HEAD` plus the untracked files
+  (claims L2, F6, F7, and F4 withdrawn).
+
+The swarm found two real problems in session 2: console captures from a private copy were not isolated (fixed:
+L2), and the integrator-width claim F4 was wrong (withdrawn; replaced by F6/F7). **General re-verification of earlier results
 (DSP, levels, pitch, the breakthrough recurrence itself, ...) is out of scope.**
 
 Findings live in [NOTES.md](NOTES.md). This file gives each new claim an ID, a check, the expected output, and
@@ -14,19 +18,23 @@ the controls that must fail.
 | Area | Change | Claims |
 |---|---|---|
 | Build layout | every executable/object under `model/build/` (git-ignored); `tools/Makefile`; hw/host Makefiles and run scripts moved; 22 committed tool binaries removed from `work/filt/` | L1 |
-| Filter | low cutoffs e=0..11, fractional input = floor(s16/2), VOFF=0 = level after the filter, integrator width >= 23 bits; validator extended (265 streams) | F1–F5 |
+| Filter | low cutoffs e=0..11, fractional input = floor(s16/2), VOFF=0 = level after the filter; validator extended (265 streams); integrator width (F4, **withdrawn**) | F1–F5 |
+| Filter (session 3) | **24-bit saturation of x − low − damping before the cutoff multiply** (model + validator); worst-case state search; unity-cutoff Q0 growth prediction | F6, F7 |
+| Console back-end (session 3) | captures go to the tree the case was built in (`MODEL_ROOT`); save errors fail the run | L2 |
 | FEG | sample-exact trajectories recovered through the filter; rules fitted; **model rewritten** (`feg_clock`) | E1–E4 |
 | AEG | DL=0: decay 1 steps before the DL check; **model fixed** (`aeg_clock`) | A1–A3 |
 | DSP / registers | TEMP ring coverage; SH4-written MIXS persists on the console (not modelled); timers write-only | D1–D3 |
 
 New console cases (each with `tests/<case>/{hw,model}/`): `filt_low`, `filt_frac`, `filt_voff`, `filt_wide`,
-`feg_track`, `aeg_dl0`, `dsp_temp`, `timer_probe`. New tools: `cap_cmp`, `filt_frac`, `filt_voff`,
-`filt_wide`, `feg_track`, `feg_fit`, `feg_validate`, `tools/Makefile`. Scratch programs: `work/filt/lowrange.cpp`,
-`work/aeg_dl0_check.cpp`, `work/feg/{dump,steps}.cpp`. Model: `src/aica_model.{h,cpp}` (`git diff HEAD -- src`).
+`feg_track`, `aeg_dl0`, `dsp_temp`, `timer_probe`. Session 3: `filt_overflow`, `filt_overflow_check` (captured by the swarm's
+research copy, merged into the tracked tree). New tools: `cap_cmp`, `filt_frac`, `filt_voff`,
+`filt_wide`, `feg_track`, `feg_fit`, `feg_validate`, `tools/Makefile`. Session 3: `filt_overflow` (+ `filt_overflow_model`), `filt_reach`,
+`filt_unity_sim`; `work/filt/overflow_trace.cpp` and the `work/filt/overflow_*.txt` / `reach_*.txt` results. Scratch programs: `work/filt/lowrange.cpp`,
+`work/aeg_dl0_check.cpp`, `work/feg/{dump,steps}.cpp`. Model: `src/aica_model.{h,cpp}` (session 2: `git diff a07a62d 2e19634 -- src`; session 3: `git diff HEAD -- src`).
 
 ## Rules for swarm agents
 
-1. **Main tree is read-only**, apart from your report (rule 5). Do not edit `src/`, `cases/`, `tools/`, `tests/` or the docs. Do not commit.
+1. **Main tree is read-only**, apart from your report (rule 6). Do not edit `src/`, `cases/`, `tools/`, `tests/` or the docs. Do not commit.
 2. **Work in a private copy.** The tools write fixed relative paths: `feg_track` → `work/feg/`, `filt_step` →
    `work/filt/`, `run_model.sh` → `tests/<case>/model/`, `run_hw.sh` → `tests/<case>/hw/`. So run everything in
    your own copy:
@@ -34,12 +42,18 @@ New console cases (each with `tests/<case>/{hw,model}/`): `filt_low`, `filt_frac
    cd caique-rtl/model
    mkdir -p build/swarm/$ID && rsync -a --exclude build ./ build/swarm/$ID/ && cd build/swarm/$ID   # ~150 MB, git-ignored
    ```
+   Since L2 a copy also captures into itself: `run_hw.sh` builds the case inside the copy, and the ELF embeds that
+   tree's path.  Before L2 (session 2) every capture went to the main tree whatever the copy.
 3. **Console: only the agent assigned group H.** It runs `./run_hw.sh` inside its private copy, never in the main
    tree, which holds the evidence. Everyone else stays off the console. `hwrun.sh` serializes users, so a second
    user would only stall group H's sequence.
-4. **C++ with integer math only** for any new check (awk, `cmp` and `sha256sum` are fine). The `tools/*.py` scripts are legacy; don't use them.
+4. **Everything you write must end up trackable by git** (user rule). `build/` holds build products only, and anything
+   under it is ignored. New cases, tools, captures and results made in a private copy are merged into the main tree's
+   `cases/`, `tools/`, `tests/<case>/` and `work/`, and your report lists them. Session 3 merged the research copy
+   `build/next_breakthrough/` this way.
+5. **C++ with integer math only** for any new check (awk, `cmp` and `sha256sum` are fine). The `tools/*.py` scripts are legacy; don't use them.
    Keep all files under `caique-rtl/model/` (your copy counts); nothing in `/tmp`.
-5. **Report** in the main tree at `model/work/verify/<ID>.md`: one section per claim with **CONFIRMED / REFUTED /
+6. **Report** in the main tree at `model/work/verify/<ID>.md`: one section per claim with **CONFIRMED / REFUTED /
    INCONCLUSIVE**, the commands you ran, the key output and anything suspicious. Work independently; don't read
    other agents' reports before finishing yours. Independent re-derivations (your own code from the NOTES formulas)
    are worth more than re-running our tools.
@@ -47,7 +61,7 @@ New console cases (each with `tests/<case>/{hw,model}/`): `filt_low`, `filt_frac
 ## Setup (every agent, inside the private copy)
 
 ```sh
-make -C tools -j8        # 28 tools -> build/tools/
+make -C tools -j8        # 32 tools -> build/tools/
 make -C host -j8         # model case binaries -> build/host/
 mkdir -p build/work
 g++ -O2 -std=c++17 -o build/work/lowrange work/filt/lowrange.cpp
@@ -67,9 +81,19 @@ Expected outputs of every check are in `work/verify/expected/`: diff your output
 - Check in the main tree:
   - `find . -path ./build -prune -o -type f -print | xargs file | grep ELF` → empty.
   - `git status --short --ignored` → `model/build/` is ignored.
-  - From clean (`rm -rf build/{hw,host,tools}` in your copy): `make -C tools`, `make -C host`, and `make -C hw` with KOS give 28, 37 and 37 files.
+  - From clean (`rm -rf build/{hw,host,tools}` in your copy): `make -C tools`, `make -C host`, and `make -C hw` with KOS give 32, 39 and 39 files (session 2 alone: 28, 37, 37).
   - `run_hw.sh` and `run_model.sh` use `build/hw/<case>.elf` and `build/host/<case>`.
 - The 22 tool binaries formerly committed under `work/filt/` show as deleted, which is intended. Each has its source in `tools/` or `work/filt/*.cpp`.
+
+**L2 — capture isolation (session 3; found by the swarm).** `hw/io_kos.c` used to hard-code the main tree's
+`tests/<case>/hw/` path, and it returned success when a save failed.
+- Now `hw/Makefile` passes `-DMODEL_ROOT=<tree the case is built in>`, so each copy captures into itself.
+- A failed open, write or close now makes the case exit non-zero.
+- Check: `git diff HEAD -- hw/`.
+- Console test (group H only): in a private copy, run `./run_hw.sh timer_probe`. The files land in the copy's `tests/timer_probe/hw/`, and the main tree's copy is untouched.
+- Review: `io_write_file` checks `fopen`, the `fwrite` count and `fclose`, and `main` returns the error.
+  `run_hw.sh` creates `tests/<case>/hw/` just before the upload, so a failure needs a genuinely broken path, for example a
+  hand-built ELF with a bogus `-DMODEL_ROOT`; `status` must then be non-zero.
 
 ### F — filter extensions (no console; evidence in tests/filt_*/hw)
 
@@ -96,16 +120,16 @@ samples: `MIXS = (floor(clamp(-2 low) * M / 2^(7 + (a >> 6))) >> 4) * 16`.
   Every VOFF=0 MIXS value is a multiple of 16.
 - Independent: confirm `slot_output` in `src/aica_model.cpp` computes candidate A.
 
-**F4 — integrator width.** The integrators hold at least 23 signed bits (1/8-sample units), and the model's int32 states are exact.
-- Check: `build/tools/filt_wide` (`expected/filt_wide.txt`).
-  - Every stream matches unbounded; |low| and |band| reach about 3.28M (2^21.65), and 20–36 % of samples sit on the rails.
-  - Clamping or wrapping at W = 20..22 fails; W = 23..25 matches.
-- Question to scrutinize: is Q31 resonance with a full-scale square wave really the largest reachable state? The argument is the L1 norm of the impulse response, about 1/q × 4/π.
-  If you can find an input that pushes the states further, say so.
+**F4 — integrator width. WITHDRAWN (refuted by the swarm).** The claim was that Q31 resonance with a full-scale
+square wave is the worst case, so the integrators hold at least 23 signed bits and int32 is exact. It missed the
+undamped unity-cutoff Q0 mode, which grows without bound in the unclamped model. The `filt_wide` captures and
+`build/tools/filt_wide` output (`expected/filt_wide.txt`) remain valid data: their states (2^21.65) never reach the clamp.
+Replaced by F6 and F7.
 
 **F5 — validator extension.** `tools/filt_validate.cpp` gained the `low` (18) and `wide` (12) sets; it now covers
 265 streams and 4,286,180 samples, the production model included.
-- Check: `git diff HEAD -- tools/filt_validate.cpp` touches only those two blocks and the build comment.
+- Check: `git diff a07a62d 2e19634 -- tools/filt_validate.cpp` touches only those two blocks and the build comment.
+  Session 3 adds the 24-bit clamp to its reference `step()` (F6); the totals are unchanged.
 - Control: other damping roundings fail. `build/tools/filt_validate <qbias>`:
 
   | qbias | full streams | samples matched |
@@ -114,6 +138,45 @@ samples: `MIXS = (floor(clamp(-2 low) * M / 2^(7 + (a >> 6))) >> 4) * 16`.
   | 128 | 117/265 | 2,320,155 |
   | 223 | 154/265 | 3,588,688 |
   | 255 (ceil) | 265/265 | 4,286,180 |
+
+**F6 — high-pass saturation (session 3).** The high-pass difference H = x − low − damping saturates to signed 24
+bits (±8388608) before the cutoff multiply. The model (`lpf_step`) and the validator reference now include it.
+- Evidence: `tests/filt_overflow` (FLV 0x1FFE/1FFC/1FF8, alternating full-scale bursts of 16..30000 samples at Q0,
+  then Q → 31) and the held-out `tests/filt_overflow_check` (0x1FFA/1FF6/1FF0, bursts 33..4096). Captured by the
+  swarm's research copy, merged unchanged.
+- Check:
+  - `build/tools/filt_overflow 1 24` → `TOTAL full=15/15` and `… 1 24 heldout` → `12/12`.
+  - The same with `build/tools/filt_overflow_model` (production model).
+  - Expected files: `expected/filt_overflow*_s1w24*.txt`.
+- Controls (`expected/filt_overflow_other_stages.txt`; stage = where a limit is applied; each over all widths
+  20..32, clamp and wrap). Only stage 1, the H clamp, matches all streams, and only at W=24 (`work/filt/overflow_stage1.txt`: all 15 FULL lines are `clamp W=24`):
+
+  | Stage | Limit applied to | Full streams |
+  |---|---|---|
+  | 0 | stored states | 0/405 |
+  | 2 | damping | 0/405 |
+  | 3 | band increment | 5/405 — only the k=512 streams, where it equals H |
+  | 4 | low increment | 0/405 |
+
+- Model check: every older set is unchanged with the clamp (`build/tools/filt_validate_model` → 265/265; their states never reach it).
+- Independent: `build/tools/filt_unity_sim` (`expected/filt_unity_sim.txt`) predicts the growth from rest.
+  - Unclamped, band grows by about 350k per sample.
+  - Clamped, it plateaus near |band| 4.19–4.25M.
+  - The captures show |band| 4,252,670.
+
+**F7 — reachable states (session 3).** With the F6 clamp no drive found gets |low| or |band| past 2^23. The
+captures pin **band ≥ 24 signed bits** (4,252,670 > 2^22 matched with unbounded integrators) and **low ≥ 23**
+(3.6M). Any wider register is unobservable with every drive found.
+- Check: `build/tools/filt_reach -n 65536 -emin 0` (`expected/filt_reach_all.txt`; about 15 s on 24 cores). It covers every
+  setting (16 exponents × 256 mantissas × 32 Q) with four drives:
+  - dc;
+  - alternating;
+  - time-reversed impulse-response sign (the linear optimum);
+  - an adaptive pump in phase with band.
+- Result: maximum |band| 4,286,071 (0x1FFC Q0) and |low| 3,628,859 (0x1FF4 Q31).
+- Control: `build/tools/filt_reach -noclamp -n 8192` diverges (2.9e9 at 0x1FFE Q0).
+- **This is a search, not a proof.** Try to beat it: other drive shapes, mixed Q/FLV changes mid-drive through the FEG, or
+  starting from the Q0 plateau and then switching Q. Anything past 2^23 would make the register width observable again.
 
 ### E — filter envelope (no console; evidence in tests/feg_track/hw)
 
@@ -182,12 +245,12 @@ decay 2. This happens on every such clock, including clocks without a step, but 
 - Check (inside your private copy):
   ```sh
   mkdir -p work/head
-  for e in bin hdr; do git show HEAD:model/tests/sgc_aeg/model/dec2.$e > work/head/dec2.$e; done
+  for e in bin hdr; do git show a07a62d:model/tests/sgc_aeg/model/dec2.$e > work/head/dec2.$e; done
   build/tools/cap_cmp work/head/dec2 tests/sgc_aeg/model/dec2
   ```
   Do this for dec2, rel_a, dec_a, dec_b, dec_dl and att_31_28: `0/... differ` in every stream after onset alignment.
   The raw files differ by one sample of capture offset because the emulated polling loop sees one fewer monitor change.
-- `sgc_keys.txt`: only the `t ... us` transition lines changed against HEAD, and every `end:` line is identical.
+- `sgc_keys.txt`: only the `t ... us` transition lines changed against `a07a62d`, and every `end:` line is identical.
 - New model-output baseline: `work/model_outputs_2026-09-23.sha256`. Run `./run_model.sh` in your copy, then `sha256sum -c`.
 
 **A3 — monitor timing.** `tests/sgc_aeg/hw/dec_a_eg.txt` shows decay 2 within the crossing clock (`536 1/100 → 537 2/100`, a=0x100,
@@ -227,4 +290,4 @@ That takes about 3 minutes; every capture must report `errors 0`. Then re-run F1
 - Model: `src/aica_model.cpp` — `feg_clock`, `aeg_clock`, `eg_increment(…, slow_off)`, `slot_output` (filter input floor(s16/2), VOFF path).
 - Evidence: `tests/<case>/hw/` from the console, `tests/<case>/model/` from the model.
 - Expected outputs: `work/verify/expected/`. Validator output: `work/filt/validate_model.txt`.
-- The previous handover: `git show HEAD:model/HANDOVER.md`.
+- The breakthrough handover: `git show a07a62d:model/HANDOVER.md`.

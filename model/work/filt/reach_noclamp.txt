@@ -1,0 +1,12 @@
+filt_reach: NO clamp, N 8192, FLV e 10..15 (all mantissas, bit 0 = 0), Q 0..31: 49152 settings x 4 drives
+dc  : settings with max(|low|,|band|) >= 2^22: 0, >= 2^23: 0, >= 2^24: 0; top 5:
+      FLV 1f78 Q 31  max|low|      511232  max|band|      263671
+      FLV 1f76 Q 31  max|low|      511229  max|band|      263890
+      FLV 1f7a Q 31  max|low|      511218  max|band|      263447
+      FLV 1f74 Q 31  max|low|      511210  max|band|      264103
+      FLV 1f7c Q 31  max|low|      511191  max|band|      263218
+alt : settings with max(|low|,|band|) >= 2^22: 12, >= 2^23: 6, >= 2^24: 3; top 5:
+      FLV 1ffe Q  0  max|low|  1431667608  max|band|  2863160458
+      FLV 1ffc Q  0  max|low|    13327078  max|band|    26758681
+      FLV 1ffa Q  0  max|low|     8853378  max|band|    17811117
+      FLV 1ff8 Q  0  max|low|     6616574  max|band|    13337346

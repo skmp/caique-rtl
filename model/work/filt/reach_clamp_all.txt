@@ -1,0 +1,25 @@
+filt_reach: 24-bit clamp of x - low - damping, N 65536, FLV e 0..15 (all mantissas, bit 0 = 0), Q 0..31: 131072 settings x 4 drives
+dc  : settings with max(|low|,|band|) >= 2^22: 0, >= 2^23: 0, >= 2^24: 0; top 5:
+      FLV 1f78 Q 31  max|low|      511232  max|band|      263671
+      FLV 1f76 Q 31  max|low|      511229  max|band|      263890
+      FLV 1f7a Q 31  max|low|      511218  max|band|      263447
+      FLV 1f74 Q 31  max|low|      511210  max|band|      264103
+      FLV 1f7c Q 31  max|low|      511191  max|band|      263218
+alt : settings with max(|low|,|band|) >= 2^22: 5, >= 2^23: 0, >= 2^24: 0; top 5:
+      FLV 1ffe Q  0  max|low|     2359289  max|band|     4252663
+      FLV 1ff8 Q  0  max|low|     2244857  max|band|     4252573
+      FLV 1ffa Q  0  max|low|     2273417  max|band|     4246496
+      FLV 1ffc Q  0  max|low|     2301948  max|band|     4217849
+      FLV 1ff0 Q  0  max|low|     2130921  max|band|     4194536
+irev: settings with max(|low|,|band|) >= 2^22: 6, >= 2^23: 0, >= 2^24: 0; top 5:
+      FLV 1ffc Q  0  max|low|     2300636  max|band|     4286071
+      FLV 1ffe Q  0  max|low|     2359129  max|band|     4252667
+      FLV 1ff6 Q  0  max|low|     2215274  max|band|     4230429
+      FLV 1ff4 Q  0  max|low|     2186817  max|band|     4229916
+      FLV 1ffa Q  0  max|low|     2270721  max|band|     4226543
+pump: settings with max(|low|,|band|) >= 2^22: 0, >= 2^23: 0, >= 2^24: 0; top 5:
+      FLV 1ff2 Q 31  max|low|     3626924  max|band|     3768699
+      FLV 1ff4 Q 31  max|low|     3628859  max|band|     3763800
+      FLV 1ff0 Q 31  max|low|     3611489  max|band|     3759965
+      FLV 1ff6 Q 31  max|low|     3618734  max|band|     3746857
+      FLV 1fee Q 31  max|low|     3581492  max|band|     3736403

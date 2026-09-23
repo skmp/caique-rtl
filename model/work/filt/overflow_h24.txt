@@ -1,0 +1,20 @@
+batch 0 on=650 Q_write_mark=918 N=2816
+ s0 F=1ffe mode=clamp W=24 2166/2166 b0=-1 event=924 maxL=3628375 maxB=4252670 FULL
+ s1 F=1ffc mode=clamp W=24 2166/2166 b0=-1 event=924 maxL=2146242 maxB=4217845 FULL
+ s2 F=1ff8 mode=clamp W=24 2166/2166 b0=-1 event=924 maxL=2139511 maxB=4252576 FULL
+batch 1 on=650 Q_write_mark=1030 N=2944
+ s0 F=1ffe mode=clamp W=24 2294/2294 b0=-1 event=1036 maxL=3620467 maxB=4252670 FULL
+ s1 F=1ffc mode=clamp W=24 2294/2294 b0=-1 event=1036 maxL=2299691 maxB=4217847 FULL
+ s2 F=1ff8 mode=clamp W=24 2294/2294 b0=-1 event=1036 maxL=2244331 maxB=4252576 FULL
+batch 2 on=653 Q_write_mark=1929 N=3840
+ s0 F=1ffe mode=clamp W=24 3187/3187 b0=-1 event=1937 maxL=3611321 maxB=4252668 FULL
+ s1 F=1ffc mode=clamp W=24 3187/3187 b0=-2 event=1937 maxL=2301862 maxB=4217847 FULL
+ s2 F=1ff8 mode=clamp W=24 3187/3187 b0=-1 event=1937 maxL=2244331 maxB=4252576 FULL
+batch 3 on=651 Q_write_mark=9095 N=11008
+ s0 F=1ffe mode=clamp W=24 10357/10357 b0=-1 event=9121 maxL=3614408 maxB=4252670 FULL
+ s1 F=1ffc mode=clamp W=24 10357/10357 b0=-1 event=9121 maxL=2301934 maxB=4217847 FULL
+ s2 F=1ff8 mode=clamp W=24 10357/10357 b0=-1 event=9121 maxL=2244828 maxB=4252576 FULL
+batch 4 on=650 Q_write_mark=30916 N=32832
+ s0 F=1ffe mode=clamp W=24 32182/32182 b0=-1 event=30887 maxL=3615047 maxB=4252670 FULL
+ s1 F=1ffc mode=clamp W=24 32182/32182 b0=-1 event=30887 maxL=2301974 maxB=4217846 FULL
+ s2 F=1ff8 mode=clamp W=24 32182/32182 b0=-1 event=30887 maxL=2244828 maxB=4252576 FULL

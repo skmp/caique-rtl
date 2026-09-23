@@ -19,7 +19,9 @@ static int qbias=255;
 static void step(I&L,I&B,I x,int F,int Q){
  int k=F>=0x1ffe?512:256+((F>>1)&255),s=24-(F>>9);
  I damping=2*((qm[Q]*B+qbias)>>8);
- B+=(k*(x-L-damping))>>s;
+ I high=x-L-damping;                                   // saturates to signed 24 bits (tests/filt_overflow)
+ high=high<-8388608?-8388608:high>8388607?8388607:high;
+ B+=(k*high)>>s;
  L+=ceildiv(k*B,s);
 }
 struct Result{int matched=0,total=0,band=0;I pred=0,actual=0;};

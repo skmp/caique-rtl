@@ -160,7 +160,8 @@ s = 24 - (FLV >> 9)
 k = 256 + ((FLV >> 1) & 255)
 if FLV >= 0x1FFE: k = 512
 D = 2 * ceildiv(q128[Q] * B, 8)
-B = B + ((k * (x - L - D)) >> s)
+H = clamp(x - L - D, -8388608, 8388607)      // signed 24 bits, before the cutoff multiply
+B = B + ((k * H) >> s)
 L = L + ceildiv(k * B, s)
 filtered_s16 = clamp(-2 * L, -524288, 524287)
 ```
@@ -168,6 +169,14 @@ filtered_s16 = clamp(-2 * L, -524288, 524287)
 - **The missing operation was damping quantization to 1/4 sample:** `D = 2*ceil(q*B/2)`, before the
   cutoff multiply. Both integrator states retain 1/8 sample. The band increment floors; the low increment ceils.
   No multiplier-array approximation, stochastic rounding, or extra hidden state is needed on these captures.
+- **The high-pass difference H = x - L - D saturates to signed 24 bits before the cutoff multiply** (session 3,
+  tests/filt_overflow + held-out tests/filt_overflow_check, tools/filt_overflow.cpp).  Unity cutoff at Q 0 has an
+  undamped alternating mode (poles 0.5 and -1), so full-scale alternating input grows the state until H saturates;
+  after the burst Q is rewritten to 31 and the decay reveals the state.  The H clamp at 24 bits reproduces all 15
+  streams and the 12 held-out ones (FLV 0x1FFE/1FFC/1FF8 and 0x1FFA/1FF6/1FF0, bursts 16..30000 samples), the
+  production model too.  Clamping or wrapping the stored states, the damping, or the low increment at any width
+  20..32 fits nothing; clamping the band increment fits only the k = 512 streams, where it is the same operation.
+  States reach |band| 4.25M there.  [claim F6]
 - `q128` is the previously measured table: Q' = Q + 4,
   `q128 = (16 - (Q' & 7)) << (4 - (Q' >> 3))`; q = q128/128, Q 0..31.
 - The cutoff is `(256 + FLV[8:1]) * 2^(e-24)`, except **only 0x1FFE/0x1FFF use unity**.
@@ -221,6 +230,9 @@ those initial states into **the real AicaModel**, supplies each input via its sl
 | filt_low | 18 | e = 0..11 from a KNOWN start state (unity-cutoff prelude), full-scale step, 1-4 s each; Q 0/4/31, k 256/426/511 |
 | filt_wide | 12 | Resonant Q 16..31 driven by a full-scale square wave at the resonance: states to 2^21.7, 20-36 % railed |
 
+The overflow sets (filt_overflow 15, filt_overflow_check 12 held out) are validated separately by
+tools/filt_overflow.cpp (Q write inside the capture): 27/27 full, production model included.
+
 **265/265 streams; 4,286,180/4,286,180 consecutive samples match** (production model included), including the
 raw positive saturation rail.  (235 / 2,050,454 before filt_low and filt_wide were added.)
 Commands and build flags are in HANDOVER.md. Results: `work/filt/validate_model.txt`.
@@ -260,12 +272,17 @@ Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
   its console value needs a settled low of exactly x, the model settles one LSB below, both inside the DC deadband
   and the console state is inherited.)
 
-- **Integrator width** (tests/filt_wide, tools/filt_wide.cpp) [F4]: no FLV/Q setting is unstable, so the largest states
-  come from resonance.  Q 31 driven by a full-scale square wave at the resonant period reaches |low| and |band| of
-  about 3.28M (2^21.65), with 20-36 % of output samples on the rails.  The unbounded recurrence matches all 12
-  streams; clamping or wrapping both integrators at 22 bits or fewer fails, at 23 bits or more matches.  That drive
-  is essentially the largest any input can produce (resonance gain ~1/q x 4/pi), so the integrators hold at least
-  23 signed bits (1/8 units) and any wider register behaves identically; the model's int32 states are exact.
+- **Integrator width** [F4 as first stated was WRONG; corrected in F6/F7].  The first claim (tests/filt_wide:
+  "no FLV/Q setting is unstable", Q31 resonance is the worst case, >= 23 bits) missed the undamped unity-cutoff Q0
+  mode; without the H clamp that mode grows without bound (tools/filt_unity_sim.cpp).  filt_wide itself stays valid
+  data (its states, 2^21.65, never reach the clamp).  With the H clamp: the captures reach |band| 4,252,670 > 2^22
+  and match with unbounded integrators, so **band holds at least 24 signed bits** and **low at least 23** (3.6M).
+  **tools/filt_reach.cpp** searched every setting (all 16 exponents x 256 mantissas x 32 Q) with four full-scale
+  drives (dc, alternating, time-reversed impulse-response sign = the linear optimum, and an adaptive pump in phase
+  with band) for 65536 samples: the largest states are |band| 4,286,071 (2^22.03, 0x1FFC Q0) and |low| 3,628,859
+  (0x1FF4 Q31); nothing reaches 2^23 (work/filt/reach_clamp_all.txt).  Without the clamp the same search diverges
+  (2.9e9 at 0x1FFE Q0).  So wider registers are not observable with any drive found; this is a search, not a
+  proof.  The model's int32 states are exact for everything reachable in that search.  [claim F7]
 - The validator (tools/filt_validate.cpp) gained the filt_low and filt_wide sets: 265 streams, 4,286,180 samples;
   other damping roundings fail (qbias 0: 4/265, 128: 117/265, 223: 154/265) [F5].
 - The old `filt_probe/fp_2` capture has 228 counter errors; it must not be used as arithmetic evidence.  minicast
@@ -327,3 +344,6 @@ Session 2 (since the breakthrough handover; claims F1-F5 in HANDOVER.md):
   CPU rewrites MPRO, and a later step (IWT) must never outlive the earlier one it depends on (MRD, NOFL).
 - Every sub-test must start from a known DSP state; a previous program's IWTs/in-flight reads contaminate MEMS.
 - 32-bit wave RAM accesses must be 4-byte aligned (address error on the console; the model aborts too).
+- Console output path: hw/io_kos.c writes to /pc + MODEL_ROOT (the tree the case was built in, set by hw/Makefile),
+  so a copy of the tree captures into itself; a failed open/write/close makes the case exit non-zero (before
+  session 3 the path was hard-coded to the main tree and save errors still reported success).

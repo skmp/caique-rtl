@@ -4,7 +4,8 @@
 #include <dc/g2bus.h>
 #include "../cases/aica_io.h"
 
-#define OUTDIR "/pc/home/skmp/projects/dreamster/caique-rtl/model/tests/" CASE "/hw/"
+#define OUTDIR "/pc" MODEL_ROOT "/tests/" CASE "/hw/"
+static int output_error;
 const char *io_platform = "hw";
 
 uint32_t io_r(uint32_t off) { return g2_read_32(0xA0700000u + off); }
@@ -26,9 +27,10 @@ int io_write_file(const char *name, const void *data, uint32_t bytes) {
     char p[256];
     snprintf(p, sizeof p, OUTDIR "%s", name);
     FILE *f = fopen(p, "wb");
-    if (!f) { printf("cannot open %s\n", p); return -1; }
-    fwrite(data, 1, bytes, f);
-    fclose(f);
+    if (!f) { output_error = 1; printf("cannot open %s\n", p); return -1; }
+    size_t written = fwrite(data, 1, bytes, f);
+    if (written != bytes) output_error = 1;
+    if (fclose(f)) output_error = 1;
     return 0;
 }
 void io_print(const char *s) { printf("%s", s); }
@@ -36,5 +38,5 @@ void io_print(const char *s) { printf("%s", s); }
 int main(int argc, char **argv) {
     (void)argc; (void)argv;
     int rc = test_main();
-    return rc;
+    return rc ? rc : output_error;
 }

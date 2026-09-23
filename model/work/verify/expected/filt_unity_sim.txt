@@ -1,0 +1,12 @@
+unbound n     20: L    -3553404 B    -6932050
+unbound n    200: L   -35009664 B   -69844570
+unbound n   2000: L  -349572264 B  -698969770
+unbound n 200000: L -34951458264 B -69902741770
+unbound: max(|L|,|B|) first reaches 2^21 at n=6, 2^22 at 12, 2^23 at 24, 2^31 at 6144; peak |L| 34951458264 |B| 69902741770
+
+clamp24 n     20: L    -1921236 B    -4251674
+clamp24 n    200: L    -2127204 B    -4192934
+clamp24 n   2000: L    -2359268 B    -4194305
+clamp24 n 200000: L    -2359268 B    -4194305
+clamp24: max(|L|,|B|) first reaches 2^21 at n=6, 2^22 at 12, 2^23 at -1, 2^31 at -1; peak |L| 2359289 |B| 4252663
+

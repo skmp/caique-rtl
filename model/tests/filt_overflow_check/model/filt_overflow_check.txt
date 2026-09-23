@@ -1,0 +1,8 @@
+cap_start: counter word fdf8 at 0340 (n 519), next fdf9 fdfa fdfb, c0 0547, head n 532
+fo_0 length=33 samples=2880 errors=0
+cap_start: counter word fd42 at da60 (n 701), next fd43 fd44 fd45, c0 dd1d, head n 723
+fo_1 length=257 samples=3072 errors=0
+cap_start: counter word fd6b at b0e0 (n 660), next fd6c fd6d fd6e, c0 b374, head n 686
+fo_2 length=2048 samples=4864 errors=0
+cap_start: counter word fd8f at 8080 (n 624), next fd90 fd91 fd92, c0 82f0, head n 642
+fo_3 length=4096 samples=6912 errors=0

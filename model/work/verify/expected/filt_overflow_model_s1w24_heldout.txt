@@ -1,0 +1,17 @@
+batch 0 on=650 Q_write_mark=972 N=2880
+ s0 F=1ffa mode=clamp W=24 2230/2230 b0=-2 event=977 maxL=2084735 maxB=4192256 FULL
+ s1 F=1ff6 mode=clamp W=24 2230/2230 b0=-1 event=977 maxL=1759319 maxB=3523600 FULL
+ s2 F=1ff0 mode=clamp W=24 2230/2230 b0=-1 event=917 maxL=1354249 maxB=2736133 FULL
+batch 1 on=650 Q_write_mark=1163 N=3072
+ s0 F=1ffa mode=clamp W=24 2422/2422 b0=-2 event=1168 maxL=2273247 maxB=4246565 FULL
+ s1 F=1ff6 mode=clamp W=24 2422/2422 b0=-1 event=1169 maxL=2216218 maxB=4183945 FULL
+ s2 F=1ff0 mode=clamp W=24 2422/2422 b0=-1 event=1150 maxL=2130000 maxB=4194600 FULL
+batch 2 on=650 Q_write_mark=2955 N=4864
+ s0 F=1ffa mode=clamp W=24 4214/4214 b0=-1 event=2965 maxL=2076788 maxB=4170834 FULL
+ s1 F=1ff6 mode=clamp W=24 4214/4214 b0=-2 event=2965 maxL=1318482 maxB=2662969 FULL
+ s2 F=1ff0 mode=clamp W=24 4214/4214 b0=-2 event=2925 maxL=815290 maxB=1656461 FULL
+batch 3 on=650 Q_write_mark=5005 N=6912
+ s0 F=1ffa mode=clamp W=24 6262/6262 b0=-1 event=5021 maxL=2109966 maxB=4194729 FULL
+ s1 F=1ff6 mode=clamp W=24 6262/6262 b0=-1 event=5021 maxL=1987160 maxB=4013514 FULL
+ s2 F=1ff0 mode=clamp W=24 6262/6262 b0=-1 event=4980 maxL=1228762 maxB=2496533 FULL
+TOTAL full=12/12 matched_full_samples=45384

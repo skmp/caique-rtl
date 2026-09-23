@@ -11,6 +11,6 @@ HDRS = $(wildcard ../cases/*.h ../src/*.h)
 $(CASES): %: $(BUILD)/%.elf
 $(BUILD)/%.elf: ../cases/%.c io_kos.c $(HDRS)
 	@mkdir -p $(BUILD)
-	kos-cc $(CFLAGS) -DCASE=\"$*\" -o $@ ../cases/$*.c io_kos.c
+	kos-cc $(CFLAGS) -DMODEL_ROOT=\"$(abspath ..)\" -DCASE=\"$*\" -o $@ ../cases/$*.c io_kos.c
 clean:
 	-rm -rf $(BUILD)

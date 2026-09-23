@@ -421,7 +421,11 @@ int32_t AicaModel::lpf_step(int ch, int32_t x8) {
     int64_t k = v >= 0x1FFE ? 512 : 256 + ((v >> 1) & 0xFF);
     int sh = 24 - (int)(v >> 9);
     int64_t damping = 2 * ceil_shr((int64_t)lpf_q128[chr(ch, 0x28) & 0x1F] * c.lpf_band, 8);
-    int64_t band = c.lpf_band + ((k * ((int64_t)x8 - c.lpf_low - damping)) >> sh);
+    /* The high-pass difference saturates to signed 24 bits BEFORE multiplying
+     * by cutoff (filt_overflow and held-out filt_overflow_check). */
+    int64_t high = (int64_t)x8 - c.lpf_low - damping;
+    high = high < -8388608 ? -8388608 : high > 8388607 ? 8388607 : high;
+    int64_t band = c.lpf_band + ((k * high) >> sh);
     int64_t low = c.lpf_low + ceil_shr(k * band, sh);
     c.lpf_band = (int32_t)band;
     c.lpf_low = (int32_t)low;

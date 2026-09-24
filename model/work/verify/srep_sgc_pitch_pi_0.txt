@@ -1,0 +1,6 @@
+stream_replay tests/sgc_pitch/hw9 pi_0: 6784 samples, c0 db36, K 1225, compared up to sample 6784
+  stream 0 (slot 0, bus 0, r00 0202 r18 0000 r1c 0000 r28 0060): onset 226, key-on boundary -1: 6562/6562 FULL
+  stream 1 (slot 1, bus 1, r00 0202 r18 0200 r1c 0000 r28 0060): onset 226, key-on boundary -1: 6562/6562 FULL
+  stream 2 (slot 2, bus 2, r00 0202 r18 0001 r1c 0000 r28 0060): onset 226, key-on boundary -1: 6562/6562 FULL
+  stream 3 (slot 3, bus 3, r00 0202 r18 03ff r1c 0000 r28 0060): onset 226, key-on boundary -1: 6562/6562 FULL
+stream_replay pi_0: all streams FULL

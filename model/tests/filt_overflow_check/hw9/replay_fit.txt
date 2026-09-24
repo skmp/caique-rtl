@@ -1,0 +1,7 @@
+replay_fit tests/filt_overflow_check/hw9: 45376 samples, first 789, c0 f8cc, key-on sample 227 (MDEC_CT f4d4), fit window 227..43956, sync MDEC_CT 44f3
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(f4d4) = 1b2f4 fits all 43728 noise samples; f(sync 44f3 - 1) = 1d754 (45026 samples on)
+replay_fit tests/filt_overflow_check/hw9: mdec 44f3 lfsr 1d754 K 0 par 0 -> tests/filt_overflow_check/hw9/replay.txt

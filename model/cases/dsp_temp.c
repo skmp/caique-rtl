@@ -28,8 +28,7 @@ static void prog_A(int sh) {
 }
 int test_main(void) {
     out_open("dsp_temp.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     for (int k = 0; k < 64; k++) dsp_madrs(k, 0x10 + k);
     ram_fill(RBP_BYTE, 0, 0x1000);
     for (int i = 0; i < 128; i++) { aw(R_TEMP(i, 0), 0); aw(R_TEMP(i, 1), 0); }

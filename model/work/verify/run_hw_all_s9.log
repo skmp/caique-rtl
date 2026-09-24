@@ -1,0 +1,132 @@
+== hw aeg_dl0 14:22:55
+== hw aeg_dl0 exit 0 14:22:59 replay: mdec b9e0 lfsr 19864 K 0
+== hw aeg_koff 14:22:59
+== hw aeg_koff exit 0 14:23:11 replay: mdec 50c3 lfsr 0d006 K 0
+== hw ca_stop 14:23:11
+== hw ca_stop exit 0 14:23:17 replay: mdec 0cdb lfsr 03010 K 0
+== hw cap_selftest 14:23:17
+== hw cap_selftest exit 0 14:23:26 replay: mdec c326 lfsr 07e05 K 0
+== hw dsp_basic 14:23:26
+== hw dsp_basic exit 0 14:23:33 replay: mdec 1cdd lfsr 140ec K 0
+== hw dsp_coll 14:23:33
+== hw dsp_coll exit 0 14:23:41 replay: mdec 1884 lfsr 06e11 K 0
+== hw dsp_mem 14:23:41
+== hw dsp_mem exit 0 14:23:50 replay: mdec 708b lfsr 0a539 K 0
+== hw dsp_mem2 14:23:50
+== hw dsp_mem2 exit 0 14:23:56 replay: mdec 0670 lfsr 026d6 K 0
+== hw dsp_mem3 14:23:56
+== hw dsp_mem3 exit 0 14:24:02 replay: mdec df6a lfsr 1c4f6 K 0
+== hw dsp_pack 14:24:02
+== hw dsp_pack exit 0 14:25:50 replay: mdec b832 lfsr 0726c K 0
+== hw dsp_temp 14:25:50
+== hw dsp_temp exit 0 14:25:57 replay: mdec b00b lfsr 156a7 K 0
+== hw dsp_unpack 14:25:57
+== hw dsp_unpack exit 0 14:26:04 replay: mdec 889c lfsr 16b8e K 0
+== hw dsp_wslot 14:26:04
+== hw dsp_wslot exit 0 14:26:10 replay: mdec ee1f lfsr 01729 K 0
+== hw eg_kprobe 14:26:10
+== hw eg_kprobe exit 0 14:26:30 replay: mdec b83f lfsr 07b50 K 0
+== hw eg_latch 14:26:30
+== hw eg_latch exit 0 14:26:41 replay: mdec ccd1 lfsr 0fd67 K 0
+== hw eg_latch2 14:26:41
+== hw eg_latch2 exit 0 14:26:51 replay: mdec 895d lfsr 1e5bb K 0
+== hw eg_latch3 14:26:51
+== hw eg_latch3 exit 0 14:27:01 replay: mdec 0e84 lfsr 1092a K 0
+== hw eg_lock 14:27:01
+== hw eg_lock exit 0 14:27:31 replay: mdec 7101 lfsr 0420e K 0
+== hw eg_sched 14:27:31
+== hw eg_sched exit 0 14:27:44 replay: mdec 1f9e lfsr 02250 K 0
+== hw eg_sched2 14:27:44
+== hw eg_sched2 exit 0 14:27:58 replay: mdec e822 lfsr 0d63e K 0
+== hw feg_koffatt 14:27:58
+== hw feg_koffatt exit 0 14:28:07 replay: mdec c9c4 lfsr 067db K 0
+== hw feg_koffdir 14:28:07
+== hw feg_koffdir exit 0 14:28:16 replay: mdec ff3d lfsr 0a0df K 0
+== hw feg_koffpass 14:28:16
+== hw feg_koffpass exit 0 14:28:25 replay: mdec 7bb9 lfsr 1714d K 0
+== hw feg_krs 14:28:25
+== hw feg_krs exit 0 14:28:33 replay: mdec f8db lfsr 109b4 K 0
+== hw feg_probe 14:28:33
+== hw feg_probe exit 0 14:28:41 replay: mdec 753b lfsr 13896 K 0
+== hw feg_track 14:28:41
+== hw feg_track exit 0 14:28:49 replay: mdec c00b lfsr 0785a K 0
+== hw filt_coef 14:28:49
+== hw filt_coef exit 0 14:29:07 replay: mdec c51d lfsr 0f148 K 0
+== hw filt_cyc 14:29:07
+== hw filt_cyc exit 0 14:29:15 replay: mdec 9502 lfsr 11337 K 0
+== hw filt_edges 14:29:15
+== hw filt_edges exit 0 14:29:22 replay: mdec 1676 lfsr 1c4cc K 0
+== hw filt_frac 14:29:22
+== hw filt_frac exit 0 14:29:30 replay: mdec 0f57 lfsr 1a736 K 0
+== hw filt_id 14:29:30
+== hw filt_id exit 0 14:29:43 replay: mdec 4b7a lfsr 08a8f K 0
+== hw filt_id2 14:29:43
+== hw filt_id2 exit 0 14:29:54 replay: mdec 8e74 lfsr 07a1b K 0
+== hw filt_imp 14:29:54
+== hw filt_imp exit 0 14:30:08 replay: mdec 7bf8 lfsr 1eb18 K 0
+== hw filt_low 14:30:08
+== hw filt_low exit 0 14:30:32 replay: mdec 40bc lfsr 1fe4a K 0
+== hw filt_overflow 14:30:32
+== hw filt_overflow exit 0 14:30:41 replay: mdec fc4e lfsr 0b12b K 0
+== hw filt_overflow_check 14:30:41
+== hw filt_overflow_check exit 0 14:30:48 replay: mdec 44f3 lfsr 1d754 K 0
+== hw filt_pass 14:30:48
+== hw filt_pass exit 0 14:30:54 replay: mdec 7529 lfsr 0785d K 0
+== hw filt_probe 14:30:54
+== hw filt_probe exit 0 14:31:02 replay: mdec 40cb lfsr 088d4 K 0
+== hw filt_reset 14:31:02
+== hw filt_reset exit 0 14:31:08 replay: mdec 3349 lfsr 07c55 K 0
+== hw filt_top 14:31:08
+== hw filt_top exit 0 14:31:16 replay: mdec 803f lfsr 149b9 K 0
+== hw filt_voff 14:31:16
+== hw filt_voff exit 0 14:31:23 replay: mdec 1cf7 lfsr 12ffb K 0
+== hw filt_wide 14:31:23
+== hw filt_wide exit 0 14:31:32 replay: mdec efca lfsr 06ce1 K 0
+== hw kon_defer 14:31:32
+== hw kon_defer exit 0 14:31:42 replay: mdec 9db7 lfsr 1610b K 0
+== hw kon_first 14:31:42
+== hw kon_first exit 0 14:31:50 replay: mdec 10b0 lfsr 00056 K 0
+== hw kon_probe 14:31:50
+== hw kon_probe exit 0 14:31:57 replay: mdec 39be lfsr 0c810 K 0
+== hw kon_probe2 14:31:57
+== hw kon_probe2 exit 0 14:32:04 replay: mdec 7ba1 lfsr 17f04 K 0
+== hw mixs_rd 14:32:04
+== hw mixs_rd exit 0 14:32:10 replay: mdec c956 lfsr 0bde1 K 0
+== hw mixs_write 14:32:10
+== hw mixs_write exit 0 14:32:18 replay: mdec 37dc lfsr 065f9 K 0
+== hw oneshot 14:32:18
+== hw oneshot exit 0 14:32:26 replay: mdec 3b31 lfsr 0a938 K 0
+== hw probe 14:32:26
+== hw probe exit 0 14:32:33 replay: mdec ee3b lfsr 13279 K 0
+== hw replay_check 14:32:33
+== hw replay_check exit 0 14:32:39 replay_fit FAILED
+== hw sgc_aeg 14:32:39
+== hw sgc_aeg exit 0 14:33:35 replay_fit FAILED
+== hw sgc_formats 14:33:35
+== hw sgc_formats exit 0 14:33:42 replay_fit FAILED
+== hw sgc_keys 14:33:42
+== hw sgc_keys exit 0 14:33:49 replay_fit FAILED
+== hw sgc_krs 14:33:49
+== hw sgc_krs exit 0 14:34:57 replay_fit FAILED
+== hw sgc_level 14:34:57
+== hw sgc_level exit 0 14:35:07 replay_fit FAILED
+== hw sgc_lfo 14:35:07
+== hw sgc_lfo exit 0 14:35:27 replay_fit FAILED
+== hw sgc_lfo2 14:35:27
+== hw sgc_lfo2 exit 0 14:35:35 replay_fit FAILED
+== hw sgc_loop 14:35:35
+== hw sgc_loop exit 0 14:35:43 replay_fit FAILED
+== hw sgc_mix 14:35:43
+== hw sgc_mix exit 0 14:35:49 replay_fit FAILED
+== hw sgc_pitch 14:35:49
+== hw sgc_pitch exit 0 14:35:57 replay_fit FAILED
+== hw slot_tail 14:35:57
+== hw slot_tail exit 0 14:36:04 replay_fit FAILED
+== hw sub_env 14:36:04
+== hw sub_env exit 0 14:36:44 replay_fit FAILED
+== hw sub_frame 14:36:44
+== hw sub_frame exit 0 14:37:27 replay_fit FAILED
+== hw sub_sched 14:37:27
+== hw sub_sched exit 0 14:38:20 replay_fit FAILED
+== hw timer_probe 14:38:20
+== hw timer_probe exit 0 14:38:27 replay_fit FAILED

@@ -1,0 +1,68 @@
+ramfile 040000 const.bin
+ramfile 020000 ramp.bin
+lf_0 stream 0: ALFO WS 0 S 7 LFOF 20
+slotregs lf_0 0 0 0204 0000 0000 1000 001f 041f 0000 d007 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_0 stream 1: ALFO WS 1 S 7 LFOF 20
+slotregs lf_0 1 1 0204 0000 0000 1000 001f 041f 0000 d00f 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_0 stream 2: ALFO WS 2 S 7 LFOF 20
+slotregs lf_0 2 2 0204 0000 0000 1000 001f 041f 0000 d017 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_0 stream 3: ALFO WS 3 S 7 LFOF 20
+slotregs lf_0 3 3 0204 0000 0000 1000 001f 041f 0000 d01f 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd84 at e760 (n 635), next fd85 fd86 fd87, c0 e9db, head n 639
+capture lf_0 c0 e9db first 640 samples 66496 head n 639 t_head_us 2011666
+lf_0: 66496 samples, errors 0
+lf_1 stream 0: ALFO WS 2 S 1 LFOF 20
+slotregs lf_1 0 0 0204 0000 0000 1000 001f 041f 0000 d011 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_1 stream 1: ALFO WS 2 S 3 LFOF 20
+slotregs lf_1 1 1 0204 0000 0000 1000 001f 041f 0000 d013 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_1 stream 2: ALFO WS 2 S 5 LFOF 20
+slotregs lf_1 2 2 0204 0000 0000 1000 001f 041f 0000 d015 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_1 stream 3: ALFO WS 2 S 6 LFOF 20
+slotregs lf_1 3 3 0204 0000 0000 1000 001f 041f 0000 d016 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd4f at b2c0 (n 688), next fd50 fd51 fd52, c0 b570, head n 700
+capture lf_1 c0 b570 first 701 samples 66496 head n 700 t_head_us 3801359
+lf_1: 66496 samples, errors 0
+lf_2 stream 0: ALFO WS 0 S 7 LFOF 31
+slotregs lf_2 0 0 0204 0000 0000 1000 001f 041f 0000 fc07 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_2 stream 1: ALFO WS 0 S 7 LFOF 29
+slotregs lf_2 1 1 0204 0000 0000 1000 001f 041f 0000 f407 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_2 stream 2: ALFO WS 0 S 7 LFOF 26
+slotregs lf_2 2 2 0204 0000 0000 1000 001f 041f 0000 e807 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_2 stream 3: ALFO WS 0 S 7 LFOF 23
+slotregs lf_2 3 3 0204 0000 0000 1000 001f 041f 0000 dc07 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd77 at 7ec0 (n 648), next fd78 fd79 fd7a, c0 8148, head n 654
+capture lf_2 c0 8148 first 655 samples 26816 head n 654 t_head_us 5589623
+lf_2: 26816 samples, errors 0
+lf_3 stream 0: ALFO WS 0 S 7 LFOF 16
+slotregs lf_3 0 0 0204 0000 0000 1000 001f 041f 0000 c007 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_3 stream 1: ALFO WS 0 S 7 LFOF 12
+slotregs lf_3 1 1 0204 0000 0000 1000 001f 041f 0000 b007 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_3 stream 2: ALFO WS 0 S 7 LFOF 8
+slotregs lf_3 2 2 0204 0000 0000 1000 001f 041f 0000 a007 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_3 stream 3: ALFO WS 0 S 7 LFOF 4
+slotregs lf_3 3 3 0204 0000 0000 1000 001f 041f 0000 9007 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd1f at f000 (n 736), next fd20 fd21 fd22, c0 f2e0, head n 757
+capture lf_3 c0 f2e0 first 758 samples 264960 head n 757 t_head_us 6419028
+lf_3: 264960 samples, errors 0
+lf_4 stream 0: PLFO WS 0 S 7 LFOF 20
+slotregs lf_4 0 0 0202 0000 0000 1000 001f 041f 0000 d0e0 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_4 stream 1: PLFO WS 1 S 7 LFOF 20
+slotregs lf_4 1 1 0202 0000 0000 1000 001f 041f 0000 d1e0 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_4 stream 2: PLFO WS 2 S 7 LFOF 20
+slotregs lf_4 2 2 0202 0000 0000 1000 001f 041f 0000 d2e0 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_4 stream 3: PLFO WS 3 S 7 LFOF 20
+slotregs lf_4 3 3 0202 0000 0000 1000 001f 041f 0000 d3e0 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd7d at 7fc0 (n 642), next fd7e fd7f fd80, c0 8242, head n 655
+capture lf_4 c0 8242 first 656 samples 66496 head n 655 t_head_us 13015510
+lf_4: 66496 samples, errors 0
+lf_5 stream 0: PLFO WS 2 S 1 LFOF 20
+slotregs lf_5 0 0 0202 0000 0000 1000 001f 041f 0000 d220 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_5 stream 1: PLFO WS 2 S 3 LFOF 20
+slotregs lf_5 1 1 0202 0000 0000 1000 001f 041f 0000 d260 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_5 stream 2: PLFO WS 2 S 5 LFOF 20
+slotregs lf_5 2 2 0202 0000 0000 1000 001f 041f 0000 d2a0 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+lf_5 stream 3: PLFO WS 2 S 6 LFOF 20
+slotregs lf_5 3 3 0202 0000 0000 1000 001f 041f 0000 d2c0 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdc3 at 4ba0 (n 572), next fdc4 fdc5 fdc6, c0 4ddc, head n 603
+capture lf_5 c0 4ddc first 604 samples 66496 head n 603 t_head_us 14802533
+lf_5: 66496 samples, errors 0

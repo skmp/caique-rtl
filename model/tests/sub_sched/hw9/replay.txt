@@ -1,0 +1,2 @@
+# tools/replay_fit tests/sub_sched/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec fbc5 lfsr 15fea K 10923 par 1

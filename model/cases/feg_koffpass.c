@@ -3,7 +3,7 @@
  * next segment BEFORE stepping (its rate and direction, no idle clock).  What happens when the key-off lands exactly on
  * clock N+1?  Readings (v = the value at the crossing, before E):
  *   A  one more step of the segment that just passed: its increment and direction, hold check against FLV4
- *      (src/aica_model.cpp feg_clock: key_off saves feg_prev / feg_prev_dir of the passed segment and clears `passed`,
+ *      (sample-model/aica_model.cpp feg_clock: key_off saves feg_prev / feg_prev_dir of the passed segment and clears `passed`,
  *      so the `passed && state < DECAY2` advance never runs -- the model's answer);
  *   B  a step of the NEXT segment (its rate, its direction toward its target: what a normal clock N+1 does);
  *   C  no step (like the AEG attack), release from the next clock;

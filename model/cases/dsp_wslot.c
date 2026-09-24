@@ -28,8 +28,7 @@ static void run(const char *tag, int nsteps) {
 }
 int test_main(void) {
     out_open("dsp_wslot.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     for (int i = 0; i < 64; i++) dsp_madrs(i, i);
     for (int i = 0; i < 32; i++) { aw(R_MEMS(i, 1), 0); }
     for (int j = 0; j < 15; j++) aw(R_MEMS(16 + j, 1), 0x1000 + 0x100 * j);   /* constants: MEMS[16+j] = (0x1000 + 0x100 j) << 8 */

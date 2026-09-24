@@ -16,8 +16,7 @@ static uint32_t crc32_upd(uint32_t c, uint16_t v) {
 
 int test_main(void) {
     out_open("dsp_pack.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     prog_reset();
     for (int j = 0; j < 30; j++) {
         dsp_madrs(j, 0x10 + j);

@@ -21,7 +21,7 @@
 // Output per stream: matched prefix / total, first mismatch (sample, MDEC_CT parity, hw vs model, model slot state),
 // number of mismatching samples, the console's last 24 distinct values (index of first appearance) and the model's,
 // the model's "off" sample per slot and the values it predicts after it.  Exit 0 when every stream is FULL.
-// Build: make -C tools tail_cmp (-> build/tools/tail_cmp; links src/aica_model.cpp).  All three runs of a directory:
+// Build: make -C tools tail_cmp (-> build/tools/tail_cmp; links sample-model/aica_model.cpp).  All three runs of a directory:
 //   tools/tail_cmp_all.sh [-v] tests/slot_tail/hw 6491   (c0 per run from the cap_start lines of its slot_tail.txt)
 #include <cstdio>
 #include <cstdlib>
@@ -29,7 +29,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #include "filt_capture.h"
 using namespace caique;
 
@@ -224,7 +224,7 @@ int main(int argc, char **argv) {
     for (auto &s : cfg) write_slot(m, s);
     for (int i = 0; i < 16; i++) m.step();
     uint32_t md_on = (c0ring - cp.first - (uint32_t)on) & 0xFFFF;
-    m.MDEC_CT = (md_on + 1) & 0xFFFF;
+    m.MDEC_CT = (md_on + 2) & 0xFFFF;   /* the step of a sample has MDEC_CT = capture + 1 */
     for (auto &s : cfg) m.write(0x80 * s.slot, m.chr(s.slot, 0) | 0x4000);
     m.write(0, m.chr(0, 0) | 0x8000);
     m.step();   /* the boundary sample; the next step is the onset */

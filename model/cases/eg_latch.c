@@ -1,7 +1,7 @@
 /* eg_latch.c -- which envelope registers reach the envelope generators one sample late?  tests/slot_tail tail_c
  * showed that RR rewritten on a clock sample takes effect on the NEXT clock while the SA rewrite of the same write
  * pair took effect on that sample: register writes reach the sample fetch on the sample after the write (like key
- * events) but the envelope generator one sample later still.  The model (src/aica_model.cpp Slot::egreg / eg_latch)
+ * events) but the envelope generator one sample later still.  The model (sample-model/aica_model.cpp Slot::egreg / eg_latch)
  * latches r10 (AR/D1R/D2R), r14 (RR/DL/KRS/LPSLNK), r18 (OCT/FNS), r40/r44 (FEG rates) one sample late and reads the
  * FLV targets (0x2C..0x3C) live.  Only RR is measured.  This case measures DL, KRS, AR, D2R, FD1R/FD2R and FLV3.
  *

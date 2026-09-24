@@ -1,0 +1,7 @@
+replay_fit tests/eg_latch/hw9: 45376 samples, first 642, c0 8018, key-on sample 227 (MDEC_CT 7cb3), fit window 227..43956, sync MDEC_CT ccd1
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(7cb3) = 191df fits all 43728 noise samples; f(sync ccd1 - 1) = 0fd67 (45027 samples on)
+replay_fit tests/eg_latch/hw9: mdec ccd1 lfsr 0fd67 K 0 par 0 -> tests/eg_latch/hw9/replay.txt

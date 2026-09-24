@@ -1,0 +1,7 @@
+replay_fit /home/skmp/projects/dreamster/caique-rtl/model/tests/sgc_aeg/hw9: 45376 samples, first 741, c0 ec85, key-on sample 228 (MDEC_CT e8bc), fit window 228..43966, sync MDEC_CT 38d1
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 1225, envelope clock on ODD MDEC_CT
+  LFSR: f(e8bc) = 0bb9d fits all 43737 noise samples; f(sync 38d1 - 1) = 0b181 (45036 samples on)
+replay_fit /home/skmp/projects/dreamster/caique-rtl/model/tests/sgc_aeg/hw9: mdec 38d1 lfsr 0b181 K 1225 par 1 -> /home/skmp/projects/dreamster/caique-rtl/model/tests/sgc_aeg/hw9/replay.txt

@@ -1,0 +1,7 @@
+replay_fit tests/filt_voff/hw9: 45376 samples, first 715, c0 d087, key-on sample 227 (MDEC_CT ccd9), fit window 227..43957, sync MDEC_CT 1cf7
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(ccd9) = 190b2 fits all 43729 noise samples; f(sync 1cf7 - 1) = 12ffb (45027 samples on)
+replay_fit tests/filt_voff/hw9: mdec 1cf7 lfsr 12ffb K 0 par 0 -> tests/filt_voff/hw9/replay.txt

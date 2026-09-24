@@ -4,20 +4,23 @@ BUILD = ../build/host
 CASES = $(basename $(notdir $(wildcard ../cases/*.c)))
 CFLAGS = -O2 -g -Wall -Wno-unused-function
 CXXFLAGS = -O2 -g -Wall -std=c++17
-HDRS = $(wildcard ../cases/*.h ../src/*.h)
+HDRS = $(wildcard ../cases/*.h ../src/*.h ../sample-model/*.h)
 .PHONY: all clean $(CASES)
 all: $(CASES)
 $(CASES): %: $(BUILD)/%
-$(BUILD)/aica_model.o: ../src/aica_model.cpp $(HDRS)
+$(BUILD)/aica_model.o: ../sample-model/aica_model.cpp $(HDRS)
 	@mkdir -p $(BUILD)
 	g++ $(CXXFLAGS) -c -o $@ $<
 $(BUILD)/io_model.o: io_model.cpp $(HDRS)
 	@mkdir -p $(BUILD)
 	g++ $(CXXFLAGS) -c -o $@ $<
+$(BUILD)/replay.o: ../cases/common/replay.c $(HDRS)
+	@mkdir -p $(BUILD)
+	gcc $(CFLAGS) -std=gnu11 -c -o $@ $<
 $(BUILD)/%.case.o: ../cases/%.c $(HDRS)
 	@mkdir -p $(BUILD)
 	gcc $(CFLAGS) -std=gnu11 -DCASE=\"$*\" -c -o $@ $<
-$(CASES:%=$(BUILD)/%): $(BUILD)/%: $(BUILD)/%.case.o $(BUILD)/io_model.o $(BUILD)/aica_model.o
+$(CASES:%=$(BUILD)/%): $(BUILD)/%: $(BUILD)/%.case.o $(BUILD)/io_model.o $(BUILD)/replay.o $(BUILD)/aica_model.o
 	g++ -o $@ $^
 clean:
 	-rm -rf $(BUILD)

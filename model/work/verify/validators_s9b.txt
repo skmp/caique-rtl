@@ -1,0 +1,20 @@
+== cycle
+H_G  21 agree   0 disagree  consistent
+mixs_write TOTAL: 21 probe/bus verdict rows, hw and model identical, H_G consistent on both
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)
+== sample
+H_G  21 agree   0 disagree  consistent
+mixs_write TOTAL: 21 probe/bus verdict rows, hw and model identical, H_G consistent on both
+validate_s5: PASS (every stream FULL, mixs_write verdicts identical)
+== _cycle
+TOTAL full=97/97
+TOTAL full=9/9 samples=77862/77862
+TOTAL qbias=255 full=265/265 consecutive samples=4286180/4286180
+TOTAL full=15/15 matched_full_samples=150558
+TOTAL full=12/12 matched_full_samples=45384
+== sample
+TOTAL full=97/97
+TOTAL full=9/9 samples=77862/77862
+TOTAL qbias=255 full=265/265 consecutive samples=4286180/4286180
+TOTAL full=15/15 matched_full_samples=150558
+TOTAL full=12/12 matched_full_samples=45384

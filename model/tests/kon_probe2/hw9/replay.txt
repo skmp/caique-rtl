@@ -1,0 +1,2 @@
+# tools/replay_fit tests/kon_probe2/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec 7ba1 lfsr 17f04 K 0 par 0

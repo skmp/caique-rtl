@@ -22,8 +22,7 @@ static void rd(int s, int masa, int iwa, int adreb, int nxadr, int table) {
 
 int test_main(void) {
     out_open("dsp_mem2.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     for (int k = 0; k < 64; k++) dsp_madrs(k, 0);
     fill_index();
 

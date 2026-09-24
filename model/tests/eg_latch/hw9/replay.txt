@@ -1,0 +1,2 @@
+# tools/replay_fit tests/eg_latch/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec ccd1 lfsr 0fd67 K 0 par 0

@@ -21,6 +21,13 @@ static const struct { uint32_t ms; L l[4]; } runs[] = {
 int test_main(void) {
     out_open("sgc_lfo.txt");
     for (int i = 0; i < 4096 + 64; i++) ramp[i] = (int16_t)(8 * (i & 4095) - 0x4000);
+    {   /* the RAM every run loads (tools/stream_replay) */
+        static uint32_t cst[2048];
+        for (int i = 0; i < 2048; i++) cst[i] = 0x7FFF7FFF;
+        out_bin("const.bin", cst, sizeof cst);
+        out_bin("ramp.bin", ramp, sizeof ramp);
+        LOG("ramfile 040000 const.bin\nramfile 020000 ramp.bin\n");
+    }
     int nr = sizeof runs / sizeof runs[0];
     for (int r = 0; r < nr; r++) {
         aica_quiet();
@@ -36,6 +43,9 @@ int test_main(void) {
             c.LFORE = 1;
             slot_write(k, &c);
             LOG("lf_%d stream %d: %s WS %d S %d LFOF %d\n", r, k, l->kind ? "PLFO" : "ALFO", l->ws, l->s, l->lfof);
+            char nm[32];
+            snprintf(nm, sizeof nm, "lf_%d", r);
+            slot_log(nm, k, k, &c);
         }
         static const int mixs[NS] = {0, 1, 2, 3};
         if (cap_start(NS, mixs, capbuf, MAXV)) { OUT("cap_start failed\n"); return 1; }

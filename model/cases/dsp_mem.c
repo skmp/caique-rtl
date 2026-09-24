@@ -28,7 +28,7 @@ static void counter_prog(int masa, int table) {
 
 int test_main(void) {
     out_open("dsp_mem.txt");
-    aica_quiet();
+    aica_reset(RBP_BYTE, 3);
     for (int i = 0; i < 128; i++) { aw(R_TEMP(i, 0), 0); aw(R_TEMP(i, 1), 0); }
     for (int k = 0; k < 64; k++) dsp_madrs(k, 0);
     aw(R_MEMS(31, 1), 0x0001);

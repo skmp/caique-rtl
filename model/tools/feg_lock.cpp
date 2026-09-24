@@ -19,7 +19,7 @@
 #include <tuple>
 #include "filt_capture.h"
 using I = int64_t;
-// the measured table (src/aica_model.cpp): rows 5, 9, 13 have the double step at index 1 and 5 (OPN: 3 and 7)
+// the measured table (sample-model/aica_model.cpp): rows 5, 9, 13 have the double step at index 1 and 5 (OPN: 3 and 7)
 static uint8_t eg_inc[17][8] = {
     {0, 1, 0, 1, 0, 1, 0, 1}, {0, 1, 0, 1, 1, 1, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 1}, {1, 2, 1, 1, 1, 2, 1, 1}, {1, 2, 1, 2, 1, 2, 1, 2}, {1, 2, 2, 2, 1, 2, 2, 2},

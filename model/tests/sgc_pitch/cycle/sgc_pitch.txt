@@ -1,0 +1,45 @@
+ramfile 020000 sample.bin
+pi_0 stream 0: OCT 0 FNS 000
+slotregs pi_0 0 0 0202 0000 0000 1000 001f 3c1f 0000 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_0 stream 1: OCT 0 FNS 200
+slotregs pi_0 1 1 0202 0000 0000 1000 001f 3c1f 0200 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_0 stream 2: OCT 0 FNS 001
+slotregs pi_0 2 2 0202 0000 0000 1000 001f 3c1f 0001 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_0 stream 3: OCT 0 FNS 3ff
+slotregs pi_0 3 3 0202 0000 0000 1000 001f 3c1f 03ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd24 at f2e0 (n 731), next fd25 fd26 fd27, c0 f5bb, head n 736
+capture pi_0 c0 f5bb first 737 samples 6976 head n 736 t_head_us 1562414
+pi_0: 6976 samples, errors 0
+pi_1 stream 0: OCT 0 FNS 155
+slotregs pi_1 0 0 0202 0000 0000 1000 001f 3c1f 0155 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_1 stream 1: OCT 1 FNS 000
+slotregs pi_1 1 1 0202 0000 0000 1000 001f 3c1f 0800 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_1 stream 2: OCT 1 FNS 2ab
+slotregs pi_1 2 2 0202 0000 0000 1000 001f 3c1f 0aab 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_1 stream 3: OCT 2 FNS 0ff
+slotregs pi_1 3 3 0202 0000 0000 1000 001f 3c1f 10ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd59 at b280 (n 678), next fd5a fd5b fd5c, c0 b526, head n 681
+capture pi_1 c0 b526 first 682 samples 6976 head n 681 t_head_us 1936066
+pi_1: 6976 samples, errors 0
+pi_2 stream 0: OCT 7 FNS 3ff
+slotregs pi_2 0 0 0202 0000 0000 1000 001f 3c1f 3bff 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_2 stream 1: OCT 15 FNS 000
+slotregs pi_2 1 1 0202 0000 0000 1000 001f 3c1f 7800 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_2 stream 2: OCT 15 FNS 200
+slotregs pi_2 2 2 0202 0000 0000 1000 001f 3c1f 7a00 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_2 stream 3: OCT 14 FNS 3ff
+slotregs pi_2 3 3 0202 0000 0000 1000 001f 3c1f 73ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd97 at 7260 (n 616), next fd98 fd99 fd9a, c0 74c8, head n 627
+capture pi_2 c0 74c8 first 628 samples 6976 head n 627 t_head_us 2308487
+pi_2: 6976 samples, errors 0
+pi_3 stream 0: OCT 12 FNS 123
+slotregs pi_3 0 0 0202 0000 0000 1000 001f 3c1f 6123 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_3 stream 1: OCT 8 FNS 3ff
+slotregs pi_3 1 1 0202 0000 0000 1000 001f 3c1f 43ff 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_3 stream 2: OCT 9 FNS 001
+slotregs pi_3 2 2 0202 0000 0000 1000 001f 3c1f 4801 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+pi_3 stream 3: OCT 3 FNS 1ff
+slotregs pi_3 3 3 0202 0000 0000 1000 001f 3c1f 19ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fddf at 3280 (n 544), next fde0 fde1 fde2, c0 34a0, head n 572
+capture pi_3 c0 34a0 first 573 samples 6976 head n 572 t_head_us 2679681
+pi_3: 6976 samples, errors 0

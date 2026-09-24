@@ -5,8 +5,19 @@ Everything measured on the console lives under `tests/<case>/hw/`, the model's r
 (`hw/` KOS back-end, `host/` model back-end; every executable is built under `build/`, git-ignored). Run: `./run_hw.sh CASE...` (console, through shrike4 `hwrun.sh`) and
 `./run_model.sh CASE...` (model), then diff the two output directories.
 
-Model: `src/aica_model.{h,cpp}`. Baseline = minicast `libswirl/hw/aica` (SGC port, DSP interpreter). Deviations from
+Model: `sample-model/aica_model.{h,cpp}` (one `step()` per sample; the clocked model is `cycle-model/`, NOTES "Cycle model"). Baseline = minicast `libswirl/hw/aica` (SGC port, DSP interpreter). Deviations from
 minicast are listed below with the test that forced them.
+
+## Integration with wren7 (the ARM7DI) — [../INTEGRATION.md](../INTEGRATION.md)
+
+caique integrates wren7-rtl, the AICA's sound CPU: the ARM sits on the AICA's bus, which caique owns (the arbiter and
+the ARM port in `rtl/v1/aica_bus.sv`).  **Every combined test lives here**: co-simulation of wren7's `Arm7DI` with
+rtl/v1 (`rtl/v1/tb/armjob_tb.cpp`, `armjob_all.sh`), the arbiter against wren7's measured `DcArmBus` (`make arb`),
+AICA readouts after ARM jobs (`armjob_tb -w` + wren7 `hw_suite check collide2 DIR`), and console cases where the
+ARM, the channels and the DSP interact (`cases/dsp_coll.c`).  wren7 owns the core, the ARM-side console measurements
+and `DcArmBus`; its console job suites are inputs to caique's tests.  AICA-internal behaviour goes in this file even
+when an ARM job found it (e.g. "Channel / DSP collisions"); ARM bus timing stays in wren7's NOTES / TIMING.md.
+Status 2026-09-24: 19 wren7 suites (3424 jobs) cycle-identical on rtl/v1, collide2 32/32, dsp_coll 18/18.
 
 ## Access / register map (tests/probe)
 
@@ -139,14 +150,19 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   processed (64 steps per sample, adjacent slots one step apart).  A noise slot outputs the signed byte of 8
   consecutive sequence bits (bit j = j-th newer bit) << 8, independent of pitch, not interpolated.  Verified bit
   for bit over 6000 samples x 2 slots; the power-on LFSR phase is unknown, so model and console differ only by a
-  constant sequence offset.  (**minicast**: a multiplicative congruential placeholder.)
+  constant sequence offset.  (**minicast**: a multiplicative congruential placeholder.)  Session 9: with the run's
+  LFSR from the replay preamble, both noise streams of tests/sgc_formats hw9 match every sample (13568 each), and **a
+  noise slot outputs noise whether it plays or not** -- from before its key-on (the models had gated it on the slot
+  playing; fixed in both and rtl/v1).
 
 ## Loops and key events (tests/sgc_loop — bit-exact; tests/sgc_keys)
 
 - Loop end: the check is **armed once CA has reached LSA since key-on** (arming happens after that step's check);
   then CA >= LEA → CA -= (LEA - LSA), CA 16-bit.  Normal loops = minicast (CA = LSA, overshoot kept one step at a
   time); LSA == LEA plays straight through; LEA < LSA plays to LSA, then jumps forward by LSA - LEA + 1 per sample,
-  and after CA wraps past 0xFFFF the armed loop triggers at LEA.  One-shot (LPCTL=0) end = minicast.
+  and after CA wraps past 0xFFFF the armed loop triggers at LEA.  One-shot (LPCTL=0) end: only the fetch stops --
+  CA reads LEA for one sample, then 0; the envelope keeps running (tests/oneshot, session 9; minicast's "release,
+  a = 0x3FF, off" is wrong).
 - LPSLNK: the attack stops the moment CA reaches LSA and decay 1 starts from the current level (= minicast).
 - Key-on during sustain: ignored.  **Key-on during a release that has not reached off: a = 0x280 is loaded on the
   key-on sample, that sample takes no step, and CA restarts on that sample** (tests/aeg_koff kon_rel, witness-pinned:
@@ -160,17 +176,62 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
 
 ## LFOs (tests/sgc_lfo)
 
-- LFORE is a **held reset** (the LFO stays at state 0 while the bit is set; it reads back 1).  minicast treated it
-  as a one-shot.  The noise waveforms ignore it.
+- LFORE is a **held reset** of the state (the LFO stays at state 0 while the bit is set; it reads back 1).  minicast
+  treated it as a one-shot.  The noise waveforms ignore it.
 - One LFO state per slot, +1 every O samples (O from LFOF as in minicast: 2..1016 measured, identical).
+- **Session 9 (tests/sgc_lfo, sgc_lfo2, lfo_noise hw9; tools/stream_replay -lfo): every stream matches every sample**
+  (lf_0..lf_5: 24 streams of 26593..264737 samples; l2_0: the PLFO at OCT 2 / -3, FNS past 0x3FF and FNS - 128 < 0;
+  ln_0 / ln_1: the noise waveforms on 8 slots) once each stream's LFO (state, counter) at the key-on is fitted --
+  exactly one pair fits each.  What that shows: **the counter is per slot, free-running and never reloaded by a
+  write** (slots configured and released together key on with different counters, e.g. 13 / 16 / 23 of 28), **the
+  LFO runs whether the slot plays or not** (at periods 1 and 3 the state had stepped 3 and 1 times between the LFORE
+  release and the key-on), and **LFORE holds the state, not the counter**.  A counter above a shortened period is cut
+  to it (every fitted counter lay within its period 441 samples after LFOF 0 -> 20; a clamp or an immediate wrap,
+  unmeasured).  Both models and rtl/v1 now do this (they had reloaded the counter on a 0x1C write and stepped only
+  while playing).  The counters' phase is per-slot state left by earlier programs, like the filter state: a case's
+  model run cannot know it (TODO 5.1).
 - Amplitude LFO: attenuation **(w & 0xFE) >> (7 - ALFOS)** (ALFOS 0 = none): 0..254 at 7, 0..127 at 6, ..., 0..3 at 1.
   w: saw = state, square = 0/255, triangle = minicast.  **Noise = the global noise LFSR byte at that slot, every
   sample** (verified against the m-sequence), not tied to the LFO clock.  (minicast: 4x the value, fake noise.)
 - Pitch LFO (**minicast never applied it**): it modulates FNS before the octave shift:
   **inc = (1024 + FNS + ((w & ~1) >> (7 - PLFOS))) << (OCT + 4)** with a signed 8-bit w: saw = (int8)state,
-  square = +127/-128, triangle = 0, +2 per state to 126, down to -128, back (zero-centred), noise = the LFSR byte.
+  square = +127/-128, triangle = 0, +2 per state to 126, **126 again at state 64**, down by 2 to -128, -128 again at
+  192, back up (session 9, lf_4 / lf_5 at PLFOS 1..7: the model had 128 at state 64, which wrapped to -128; bit 0 is not
+  used, so 126 / 127 and -128 / -127 are the same), noise = the LFSR byte **67 steps back, XOR 0x80** (see "The noise LFO
+  bytes").  ALFO noise: the byte **two steps after the slot's own step**.
   Verified at PLFOS 1/3/5/6/7 (square at 7: exactly 1024+126 and 1024-128).  Modulation at other base pitches
   (OCT != 0, FNS overflow past 0x3FF) unmeasured.
+
+**The noise LFO bytes, and why the PLFO's is 67 steps back (session 9; open, TODO 7.2).**  tests/sgc_lfo and
+lfo_noise (8 slots, every sample of each capture): the ALFO noise waveform takes the LFSR byte two steps after the
+slot's own step; the PLFO noise waveform the byte 67 steps before the slot's stage-A point, XOR 0x80 (offset binary).
+With one LFSR step per frame (64 per sample; the value after frame f's step), the three noise bytes of slot k in
+sample n come from:
+
+| byte | LFSR value of | against slot k's stage A (frame k of sample n) |
+|---|---|---|
+| SSCTL (the sample) | frame k (its own step) | the stage A / B frames |
+| ALFO | frame k + 2, read by frame k + 3 | + 3 frames: the start of the level stage (frame k + 4), where its 0x28 copy is read |
+| PLFO | frame k - 4, read by frame k - 3 of sample n - 1 | - 67 frames: one sample and 3 frames earlier |
+
+The ALFO's is where its stage is.  A natural reading of the PLFO's: **the phase increment is computed one sample
+ahead** -- a pitch stage 3 frames before slot k's stage A of sample n - 1 computes (1024 + FNS + PLFO) << OCT for
+sample n, and stage A of sample n adds the stored increment (the same "compute the next sample's value" structure as
+the envelope pass).  Consequences that would confirm it, none measured yet: (1) FNS / OCT (0x18) and PLFOWS / PLFOS
+(0x1C) writes act about a sample and 3 frames earlier than the SA write (tests/sub_frame measured SA, 0x28 and 0x20
+only; the frame table's "0x00-0x1C in frame k" assumes the rest); (2) the PLFO's LFO state is the one of a sample
+earlier than the ALFO's: one slot with both ALFO and PLFO on (one LFO) fits one (state, counter) only with that lag
+(each alone fits either way, which is why the sgc_lfo replays cannot tell); (3) the first sample after a key-on steps
+by an increment computed before the key-on.  Alternatives it would rule out: a separate per-slot PLFO noise latch
+refreshed at some other point, or a second LFSR tap.  The models apply the measured offset directly.
+The same family (the user's variant): the slot's address side runs ahead of its interpolation / output side (slot N
+interpolates sample n - 1's data while fetching sample n).  tests/sub_frame bounds it: an SA write acts in the SAME sweep
+as the output it changes (threshold at slot k's frame, 11333/11333 events), so the fetch itself (SA + CA) is not a
+sample ahead of the interpolation; what can be ahead is the phase accumulator (CA += increment, with FNS / OCT / PLFO),
+the SA add and the fetch staying at frame k.  The three candidates -- (a) the phase step a sample and 3 frames ahead of
+the fetch, (b) a pitch stage 3 frames before stage A in the same sample using a per-slot PLFO noise latch one sample
+old, (c) the whole slot a sample ahead (ruled out by SA) -- differ in where an FNS / OCT write acts: (a) about a sample
+and 3 frames before SA's threshold, (b) 3 frames before it.
 
 ## Key rate scaling (tests/sgc_krs, tools/krs.py — model matches all 320 combinations)
 
@@ -240,7 +301,7 @@ monitor (0x2810 with MSLC) reads the same attenuation directly (bits 12:0), stat
   - The batch-1 slot-2 anomaly (its key-off one clock early, its counter phase 2 mod 4 off) is resolved: the rows
     for R = 49/57 differ from the OPN table, and a key-off sample that is a clock takes one more step of the previous
     segment (see "Envelope clock"; tests/eg_lock, feg_krs).
-  - The model had clamping at the target and an idle clock at each transition; both are fixed (src/aica_model.cpp
+  - The model had clamping at the target and an idle clock at each transition; both are fixed (sample-model/aica_model.cpp
     feg_clock).
 
 ## Slot filter (integer arithmetic solved; 265 captured streams, 2026-09-23)
@@ -572,7 +633,7 @@ in HANDOVER.md.
   hold short), no limit cycles below 0x1C00; the model lands on -8 in ~4 % of the possible trajectories (0 in ~14 %,
   the phase of the input stop decides) and reproduces the console's tail_c retained values 0 2 2 exactly.  A held last
   sample or a frozen filter output would be of order 10^5; a muted slot would leave 0.
-- **Model** (src/aica_model.{cpp,h}, model_fixes.md): `stop_in` / `off_in` one-sample pipeline (session 6: `off_in`
+- **Model** (sample-model/aica_model.{cpp,h}, model_fixes.md): `stop_in` / `off_in` one-sample pipeline (session 6: `off_in`
   removed, `slot_stop()` does fetch stop + monitor 0x1FFF + CA 0), no mute, the FEG runs
   on, `egreg` one-sample rate latch (`eff_rate` is static now; session 6: `egreg` / `eg_latch` REMOVED, every register
   read live, U4), key-off clock rules for the AEG (attack: none; decays:
@@ -649,9 +710,9 @@ DSP steps, 64 frames per sample.  What the captures add (all runs errors 0; ever
   48: 10/12 at M); when M is not a clock the step is on M + 1 for every slot (the value for M + 1 is computed during M,
   after any write of M - 1).  This is the mechanism behind session 5's key-off-clock rule: the step applied on the key
   event's sample was computed a sample earlier with the old state.  It also explains tail_c (RR one clock behind SA).
-  Whole-sample model: the envelope clock runs at the top of step() on the live registers, i.e. as if computed at phase 0
-  of the previous sample for every slot -- exact for slot 0, one clock early for writes that land before frame k of a high
-  slot (sub-sample).
+  Whole-sample model (session 7): the envelope clock ran at the top of step() on the live registers, i.e. as if computed
+  at phase 0 of the previous sample for every slot -- exact for slot 0, one clock early for writes that land before frame
+  k of a high slot (sub-sample).  Session 8 moved it to its hardware place: see "Model step order".
 - **DSP writes are posted with their own memory slot** (tests/dsp_wslot, 13 checks identical on console and model): an MWT
   at even step 2 next to an MRD at odd step 3 both complete, 15 writes at even steps interleaved with 15 reads at odd
   steps all complete (W5 15/15 + 15/15), the read latency stays s + 2 / s + 3.  (A first version of W6 lacked NOFL on
@@ -749,16 +810,264 @@ DSP steps, 64 frames per sample.  What the captures add (all runs errors 0; ever
   rewrites every slot within 128 samples, as in the model.  The one stale slot seen once in dsp_basic
   "A ffff -4096 1" did not reproduce (a program-load transient of that run).  [claim D1]
 
+## Model step order (session 8, 2026-09-24; for rtl/v1)
+
+`step()` now runs one sample in the hardware's order (rtl/v1's frame plan), so that every register access between two
+steps is exactly an access at the hardware's sample boundary -- the contract the rtl/v1 co-simulation relies on:
+1. every slot fetches and outputs sample n (the key-on sample fetches CA 0), with the envelope value computed during
+   sample n - 1 (Session 7: the envelope of slot k for sample n is computed at frame k of sample n - 1);
+2. a stop armed by the previous envelope pass takes effect after this output (tests/slot_tail);
+3. the slots' sends fill MIXS bank n & 1 (a bus nobody points at keeps its value);
+4. a KYONEX written before this sample was latched at its boundary: every slot reads its KYONB now and the key events
+   take effect on sample n + 1; the envelope pass computes sample n + 1 with that sample's clock and counter
+   (MDEC_CT - 2);
+5. the DSP of sample n runs on the bank the slots filled in sample n - 1 (`MIXS_bank[(samples - 1) & 1]`; before it
+   read `samples & 1`), channel collisions applied (next section).
+`Slot::FEG.vo` keeps the cutoff sample n used (after step() FEG.v is already sample n + 1's).  The model-linked
+validators follow: eg_model / feg_validate / tail_cmp anchor MDEC_CT + 2 at the effect sample, eg_replay + 1, and the
+FEG compare uses FEG.vo.  Regression (`work/verify/s8/bitcheck_s8.txt`): eg_model 97/97, eg_replay 5 x 4/4, tail_cmp
+12/12 (tail_c FULL with its two writes in the same step, 11301/11301, tied with 11300/11301), feg_validate 9/9, filt_validate_model 265/265, filt_overflow 15/15 + 12/12,
+mixs_write identical, coll_check 18/18, all 61 cases exit 0.  Against the session-7 baseline 274 of 563 output files
+(48 capture-based cases) changed -- the captured streams move with the new order; the validators that compare them with
+the console all pass, and the files identical to the console are the same 30 of 582 before and after.  New baseline:
+`work/model_outputs_2026-09-24.sha256` (582 files, reproduced by a second full run).
+
+## Channel / DSP collisions (tests/dsp_coll, session 8, 2026-09-24; console = model 18/18 runs, `build/tools/coll_check`)
+
+The wave RAM has one shared slot per DSP step; a playing channel K owns the slot of step 2K - 14 (wren7-rtl
+tests/hw/sgc).  wren7 tests/hw/collide2 showed that a DSP access there loses.  tests/dsp_coll pins the rule sample by
+sample with the DSP logging, every sample, what an MRD at the channel's step returned and the channel's own output
+(MIXS0, VOFF, so MIXS0 / 16 is the sample word), plus an MWT there (and two steps later as a control):
+- **An MWT in the channel's slot is dropped; an MRD there returns the channel's word instead of its own.**  Reads and
+  writes at other steps are untouched, including a read one or two steps before the channel's (latch_odd /
+  latch_even: the channel's fetch between the DSP's read and its IWT does not replace the DSP's word).
+- **The channel's word is the 16-bit word holding its sample CA + 1** (the interpolation's second sample, after this
+  sample's step): the last word it reads.  PCM16 at pitch 1, 1/4 and 1.33 (the read runs 2 words ahead of MIXS0 at
+  pitch 1, i.e. s1 of the fetch), PCM8 (the word holding byte CA + 1), ADPCM OCT -2..+2 (the word holding nibble
+  CA + 1).
+- **Which samples**: PCM16 / PCM8 every sample while the slot plays (MWT dropped 1584/1584).  ADPCM holds one 16-bit word
+  and fetches when CA enters another word or CA + 1 lies in the next one: the MWT is dropped in exactly those samples
+  (OCT -1: 3 of every 8), which confirms at sample level the rule found from wren7's timing kernels (tests/hw/sgcadp).
+- **The key-on sample**: the first fetch is in the sample that outputs CA 0 (the word holding sample 1), not in the
+  sample of the envelope pass that keys on (PCM16 K 20 and K 3, PCM8, ADPCM).  The model now decodes the initial
+  samples there (step(): decode_initial on the key-on sample; key_on() only resets).
+- **Channels 0-6** (steps 114..126, the last eighth of the DSP sample) collide with their fetch of the NEXT sample: the
+  K 3 read runs 3 words ahead of MIXS0 where K 20's runs 2.  So the DSP sample boundary lies between channel 6's and
+  channel 7's fetch -- the frame alignment rtl/v1 derived from wren7's measurements (DSP step 0 at ph 64).
+- Model: `slot_fetch` (claim + word), recorded per slot in the SGC loop; `coll_preview` computes slots 0-6's next
+  fetch before the DSP runs, with this sample's registers (a register or RAM write between the two samples that
+  changes that fetch is the one thing it cannot see); `dsp_step` drops a colliding MWT and lands a colliding even-step
+  MRD with the channel's word.  Every other case's model output is unchanged by this (61 cases compared).
+- Not covered: with the ARM running, ARM reads also reach the DSP's read latch (wren7 NOTES, collide: MEMS0 of even-step
+  reads); which ARM read does it is not pinned.  The case holds the ARM in reset (aica_quiet).
+
+## Cycle model and the per-frame schedule (session 9, 2026-09-24; tests/sub_frame, sub_sched, sub_env, oneshot)
+
+The model is now clocked (`cycle-model/aica_model.{h,cpp}`: `clock()` = one MCLK, `step()` = 512 clocks); the
+sample-based model it replaces stays in `sample-model/` (the validators build against both: `build/tools/<name>` and
+`<name>_cycle`).  Every access goes through the model's SH4 port at a clock (host harness `cycle-model/io_cycle.cpp`,
+`./run_cycle.sh CASE`, outputs in `tests/<case>/cycle/`), and rtl/v1 co-simulates it clock for clock through its SH4
+port (`rtl/v1/tb/cosim_cycle.cpp`, `tb/gate_cycle.sh`).  The frame plan is rtl/v1's below the console's resolution and
+the console's where a capture resolves it.  A write "acts in this sample" when its X0 is before the start of its
+stage's frame + 2 clocks (T below, relative to slot k's frame start 8k):
+
+| Stage | Frame | T | Registers | Measured by |
+|---|---|---|---|---|
+| Fetch (phase, loop, fetch, LFO step, pending stop) | k | 2 | 0x00-0x1C | sub_frame SA |
+| Key events (KYONEX latched at the boundary, KYONB read per slot) | k | 2 | KYONB | sub_sched exp 0 |
+| Filter and level | k + 4 | 34 | 0x28 (TL, VOFF, LPOFF, Q) | sub_frame TL / VOFF / LPOFF |
+| Envelope pass (the envelopes of the NEXT sample) | k + 5 | 42 | 0x10 0x14 0x18, 0x30-0x44 | sub_env, sub_sched exp 1 (RR) |
+| Send and direct outputs | k + 7 | 58 | 0x20, 0x24 | sub_frame IMXL |
+
+- The MIXS write of slot k's send lands at c7 of frame k + 8; slots 60-63's level, 59-63's envelope pass and 57-63's
+  send run in the next sample's first frames.  The sweep's MIXS writes still fill exactly one DSP sample window (the
+  DSP boundary is at ph 64).
+- Inside a frame (model and RTL): registers 0x00-0x1C at c0, the fetch at c4, 0x20-0x4C at c5, the key events and the
+  CA monitor at c6; the envelope pass samples its registers at c1 of frame k + 5 and computes (and writes the EG
+  monitor) at c7; the level and send stages read their registers at c1 of their frame.
+- Measured only through their stage's neighbours, not on their own: 0x24 (with the send), the ALFO depth / waveform
+  (0x1C, fetch), FLV and the FEG rates (with the envelope pass), Q (with LPOFF), the monitor update points.
+- The DSP (step s at ph 64 + 4 s) and the bus (DcArmBus rules, X0 at t2 of a step) as in rtl/v1.
+
+**Method.**  A DSP logger (`cases/flog.h`) records MEMS31 in every frame (8-clock resolution) and chosen buses every
+sample.  Each access under test is queued between two MEMS31 marker writes in one G2 burst (`io_wn`), so its X0 is
+bracketed; the SH4's writes reach the AICA 28-32 clocks apart even when queued back to back, and the markers'
+midpoint sits about 5 clocks before the true X0.  The checkers (`build/tools/sub_check`, `sched_check`) replay every
+event through the cycle model with the access at every clock the markers allow; an event is determinate when every
+candidate predicts the same observation.
+
+**tests/sub_frame** (5 experiments x 64 slots x 40 events; SA, IMXL, TL, VOFF, LPOFF): 12800 events, 11333
+determinate, **11333 agree, 0 fail**.  The previous frame plan (0x20-0x4C all read in frame k) failed 143 of the TL /
+VOFF / IMXL events.  Writes early in a sample change the previous sample's send of slots 60-63 (observed).
+
+| Write | Markers' midpoint switches between | Model T |
+|---|---|---|
+| SA (0x00) | -4 / 0 | 2 |
+| TL, VOFF, LPOFF (0x28) | 28 / 32 | 34 |
+| IMXL (0x20) | 52 / 56 | 58 |
+
+**Even and odd slots are alike** (the Saturn-style "two slot processors" question): the best midpoint threshold is
+the same for even and odd slots in every experiment within the estimate's 4-clock grain (SA -3 / -3, IMXL 53 / 53,
+VOFF 29 / 29, LPOFF 29 / 29, TL 29 / 25 with 4 of 1132 odd events misplaced), and the exact replay needs one T for
+all 64 slots.  That rules out an even/odd phase offset and two 32-slot halves running side by side; two identical
+engines interleaved frame by frame cannot be told from one 8-clock pipeline (the send at +56 clocks, 3.5 x 16, fits
+the single pipeline slightly better).
+
+**tests/sub_sched** (per slot: exp 0 12 x 2, exp 1 12 x 2, exp 2 / 3 32 events):
+- exp 0, KYONB window: a KYONEX burst, then KYONB 1 d = 0..35 us later.  KYONB is read per slot at its frame (T 2),
+  the KYONEX at the sample boundary: 1369 determinate, **1366 agree, 3 fail**.  Open: the 3 failures are key-ons whose
+  KYONEX landed within a few clocks of the sample boundary on a slot not yet released; the console keyed on one sample
+  late.
+- exp 1, envelope pass: a held slot (RR 0) gets RR 30; the first sample below the held level shows which pass used
+  it: 1459 determinate, **1459 agree** with the pass at frame k + 5.  tests/sub_env (exp 1 only, 4 batches): 2864 /
+  2864.  The old rule (envelope computed in frame k of the previous sample) fails these.
+- exp 2 / 3, CPU MIXS write + read on a bus with no writer / with a writer: the CPU's writes and reads go to the bank
+  the DSP reads (dsp_bank): 1259 and 1279 determinate, **0 fail**.
+
+**tests/oneshot: the one-shot end** (LPCTL 0, CA reaching LEA; slot 0, LEA 64, runs H / D / A, EG and CA monitors
+polled into a buffer through the end, a KYONEX with KYONB still 1, a key-off, a key-on).  Only the fetch stops: CA
+reads the stepped value (LEA) for one sample and 0 from the next, LP is set, and the envelope keeps its state and
+level and keeps stepping (decay 1 at D1R 12 keeps rising after the end).  A KYONEX with KYONB 1 changes nothing (the
+state is not RELEASE); the key-off releases from the current level; the key-on then restarts normally.  The slot is
+not "off" until the level reaches 0x3C0 (the stop is armed by `!off`, not by `enabled`).  minicast's rule ("release,
+a = 0x3FF, off") is wrong.  Console = model in every CA sequence of all 12 windows (both models).  The EG sequences
+differ in two known ways: slow-rate steps (D1R 12, AR 6) fall on the boot's K and MDEC_CT phase (TODO 3), and the
+monitor shows (attack, a = 0) for one sample before decay 1 (TODO 5.2).
+
+**Tools' view.**  `MIXS[]` after `step()` holds the sweep `step()` just ran; the sends of slots 57-63 happen early in
+the next sample, so `publish_mixs` completes them with the registers as they are at the boundary.  A write to 0x20 / 0x24
+/ 0x28 of those slots at the boundary acts on their sends of the finished sweep in the model and the RTL (as on the
+console), not in that snapshot; no validator does that.  Likewise an EG monitor read at the boundary of slots 59-63
+shows the envelope pass of the previous sample (kon_defer, kon_probe2 monitor slot 62).
+
+**Gates (2026-09-24, after the envelope pass moved to frame k + 5 and the one-shot rule).**
+- `cycle-model/replay_all.sh` (the sample model's traces replayed into the cycle model at the sample boundary): 60 of
+  65 cases identical in every read and output sample; all 65 identical in every output sample.  The 5 read
+  differences are the pipeline: logged ring words one sample apart (sub_frame 976, sub_sched 677, sub_env 1224) and
+  the slot-62 EG monitor read at the boundary (kon_defer 38, kon_probe2 15).
+- Validators, both models: validate_s5 PASS (eg_model 97/97, eg_replay 5 x 4/4, tail_cmp 12/12, mixs_write
+  identical), feg_validate 9/9, filt_validate_model 265/265, filt_overflow 15/15 + 12/12.
+- Console checkers on the cycle model: sub_check 11333/11333, sched_check sub_sched 3 fail (the KYONB edge above) /
+  sub_env 0 fail; on the model's own runs 0 fail everywhere.
+- rtl/v1 through its SH4 port at the cycle model's clocks (`tb/gate_cycle.sh`): 65 / 65 cases, ack clocks, read data
+  and output samples identical.  After all session-9 changes (reset, preamble, timers, LFO / noise rules): 72 / 73
+  cases, adpcm_hi the exception (ADPCM above 4 nibbles a sample: outside the stepping limits, TODO 6.1).  With random
+  0..2047 ns delays on every access: seed 1 65 / 65; seed 2 64 / 65 (sgc_formats' trace run failed: its model binary was rebuilt during the run); seed 3 (the cases with the item-2 reset and the replay preamble, the RTL with the replay load port) 67 / 68 -- adpcm_hi differs, ADPCM above OCT +2 being outside the RTL's stepping limits (`warn_step`; TODO 6).
+
+## Known start state and replay parameters (session 9, 2026-09-24; TODO 2-3; tests/replay_check)
+
+**Start state.**  Every case starts with `aica_reset(rbp, rbl)` (`aica_quiet()` uses the default ring at 0x1E0000,
+64K words): the ARM held, every channel keyed off and zeroed, then `dsp_reset` -- all 128 MPRO steps NOP from step 127
+down, COEF / MADRS / EFREG / TEMP 0, the ring cleared and selected, MEMS 0 in all 24 bits (a one-sample IWT program
+after a CPU read of a zero ring word), every MIXS bus 0 in both banks (slots 0-15 pointed at buses 0-15 for three
+samples, their 0x20 restored) -- and every slot's LP flag cleared (one EG monitor read per slot).  `cap_start` and
+`flog_start` run `dsp_reset` too: before, `cap_start` zeroed only the MPRO steps its own run had loaded, so a longer
+program left by an earlier case (flog's 128 steps) kept running in the upper steps.
+
+**Replay parameters.**  What a console run cannot set -- MDEC_CT, the envelope constant K and the noise LFSR -- is
+measured by a preamble every platform's main runs before `test_main` (`cases/common/replay.c`, ~1.1 s): a cap.h
+capture of 4 streams, decay 1 at effective R 3 / 13 / 45 from an R 63 attack (eg_kprobe's probe) and a noise slot at
+VOFF / LPOFF / IMXL 15 (its bus = the LFSR byte << 12), 1 s keyed on, then a sync point: the SH4 waits for the next
+counter word, whose ring address is that DSP sample's MDEC_CT X.  `tools/replay_fit DIR` (run by `run_hw.sh` after
+every case) fits K with kfit's rules (`tools/kfit_core.h`) and the LFSR by trying all 2^17 states, and writes
+`replay.txt`: "mdec X lfsr L K k", L = the LFSR at the sample boundary after the sync sample (the ph 0 with MDEC_CT
+X - 1).  The models apply it (`CAIQUE_REPLAY`, set by `run_model.sh` / `run_cycle.sh` from tests/<case>/<REPLAY_FROM>/)
+at their own next ph 0 after the sync point; rtl/v1 takes it through `ld` in the clock before (MDEC_CT + 1: the RTL
+counter is the running DSP sample's; the LFSR one step back: the RTL steps a slot's LFSR at its stage B frame, the
+model at the end of the slot's frame).  LFSR convention (both models): one step per slot, slot k's byte =
+low8(step^(k+1)(L)) with L the value at ph 0; the DSP sample X reads the previous sweep, so capture sample X shows
+low8(step^4(f(X + 1))) for slot 3, f(X) = the LFSR at the ph 0 at which MDEC_CT = X.
+
+**Console (tests/replay_check, K 0 boot).**
+- K = 0 (as eg_kprobe measured on this boot); R 3 gives one K, R 13 eight, R 45 2048, intersected: one.
+- **The noise LFSR is the model's**: one 17-bit state fits all 43728 noise samples of the preamble capture (and of
+  the second one), so x^17 + x^12 + 1, one step per slot, 64 per sample, and the slot-byte position are right.
+- **It free-runs**: the second measurement, 62187 samples later with a full `aica_reset` in between, is the first one
+  stepped 64 x 62187 times (`replay_fit -same`).  So the LFSR is not reset by anything the program does, and it steps
+  while no slot plays.
+- Both models given the console's preamble parameters measure the console's K and LFSR / MDEC_CT relation at the
+  second sync (their sync sample is 675 samples earlier: harness timing, TODO 3.4).
+
+**0x2804 bit 15 (probably TESTB0) moves MDEC_CT against the envelope counter -- found, NOT investigated (TODO 7.1).**
+The hw9 console session (all 66 cases re-run with the preamble, `work/verify/hw9_replay.txt`): every run up to
+tests/probe's own preamble fits K 0 with the envelope clock on even MDEC_CT, every run after it K 10923 on ODD
+MDEC_CT.  probe's rw_mask writes 0x2804 with FFFF / 0 / 5555 / AAAA (then restores the old value); eg_kprobe's
+actions only ever wrote RBP/RBL there.  tests/k_jump (one run, `tests/k_jump/hw9`, a replay measurement after each
+write; `replay_fit tests/k_jump/hw9 kj<N>`):
+
+| step | write before the measurement | K | clock on MDEC_CT |
+|---|---|---|---|
+| kj0 | none | 10923 | odd |
+| kj1 | 0x2804 = 0x8000, then the default ring | 2230 | even |
+| kj2 | 0x2804 = 0x1000 | 2230 | even |
+| kj3 | 0x2804 = 0x5555 | 2230 | even |
+| kj4 | 0x2804 = 0xAAAA | 9791 | even |
+| kj5 | 0x2804 = 0xFFFF | 1225 | odd |
+| kj6-8 | EXTS0/1; MIXS0 / EFREG0 / EFREG15; TEMP / MEMS / COEF / MADRS / MPRO words | 1225 | odd |
+
+Every write with bit 15 set moved the relation (by an amount that looks arbitrary); no other write did.  Not yet known:
+which counter moves (MDEC_CT or the envelope counter: each kj log's sync line has MDEC_CT at an SH4 time, the data to
+check continuity), whether bit 15 is a reset held while set or an edge, what else it touches, and whether this is what
+set K 6491 on the earlier boot (the "what offsets K during a boot" open item).  Replay needs the clock parity:
+`replay_fit` now searches K and the parity (`kfit_core.h` k_par) and writes "par p" into replay.txt.
+
+## Timers and interrupts (session 9, 2026-09-24; TODO 4; tests/timer_irq, timer_phase, irq_bit9)
+
+All measured from the SH4 (hw9 session); both models and rtl/v1 (aica_bus) implement it, `tools/timer_irq_check` checks
+a timer_irq log against these rules -- the console's and both models' pass -- and the co-simulation of timer_irq,
+timer_probe, timer_phase, probe, eg_kprobe and k_jump is clean (7.4 M reads in timer_irq, mostly MCIPD polls).
+- **Registers.**  TIMA/B/C (0x2890/94/98: count 7:0, prescale 10:8), SCIRE, SCILV0-2 and MCIRE read 0 (write-only);
+  SCIEB / MCIEB store 11 bits.  SCIPD (0x28A0, the ARM's) and MCIPD (0x28B8, the SH4's) are **separate** pending
+  registers set by the same sources: MCIRE clears only MCIPD, SCIRE only SCIPD.  A CPU write to a pending register
+  sets bit 5 (SCPU) and nothing else.
+- **The SH4's line** (SB_ISTEXT bit 1) is (MCIEB & MCIPD) != 0.  (A line read right after an MCIRE write can still see
+  the old value: the write is posted in the G2 FIFO, SB_ISTEXT is read directly.)
+- **Bit 10** sets at every sample edge (one sample apart).  **Timers**: at the edge of the samples whose MDEC_CT =
+  tim_phase mod 2^prescale the count increments; when it wraps to 0 bit 6 / 7 / 8 sets (in both pending registers);
+  the count continues from 0 (the second overflow is 256 x 2^P samples after the first: no reload of the start value).
+  One prescaler for all three timers, never restarted by a write (a prescale change included): the first overflow
+  after a write of count S comes within ((255 - S) 2^P, (256 - S) 2^P] samples.  minicast restarts a timer's
+  prescaler on a prescale change: wrong.
+- **Phase** (tests/timer_phase: the DSP frame logger brackets each timer write and each detection): tick samples have
+  MDEC_CT = 1 mod 4, 5 mod 8, 21 mod 32 under the logger's labelling, consistently across P and across A/B/C.  With the
+  edge at ph 24 (wren7's: 40 clocks before DSP step 0; the poll latency, ~60 clocks uncertain, cannot place it
+  better), tim_phase = 20 mod 32 in this console state.  Both models and the RTL take tim_phase as a parameter
+  (default 0).  Whether it follows MDEC_CT or the envelope counter across a 0x2804 bit-15 write: TODO 7.1.
+- **Bit 9** (MIDI out in the manual) set once in tests/timer_irq's register sweep, at the end of timer_probe and at one
+  fixed step of irq_bit9 (after TIMA = 0x0700; the same step in two runs), but no single register write reproduces it
+  (every timer x prescale x count, SCIEB/SCILV/MCIEB/pending/0x2808 writes).  Not modelled.
+- **SH4 timing artefacts** (the checker's tolerances): the SH4's microsecond timer runs 0.26 % fast against the AICA
+  (22.618 us per sample); the SH4 is held now and then (~60 us often, ~2.5 ms sometimes, with the time base off by up
+  to the hold's length), so every poll records its last and longest gap.
+- Not done: the ARM side (FIQ from SCIEB & SCIPD through SCILV0-2, the L / M handshake of wren7 tests/hw/fiqdiag) --
+  rtl/v1's L reads 0 and M is ignored (TODO 4.3).
+
+## ADPCM above 4 nibbles per sample (session 9; TODO 6.1; tests/adpcm_hi, adpcm_pitch hw9)
+
+Bypassed slots (VOFF, LPOFF) on random bytes, replayed through the cycle model (`tools/stream_replay`):
+- **Up to 4 nibbles per sample the model is exact**, PCMS 2 and 3: OCT 1 FNS 000 (2), OCT 1 FNS 200 (3), OCT 2 FNS
+  000 (4) -- every sample of 2594..2785 (with sgc_formats' 1.0 and 1.37).
+- **Above 4 the console differs from the second or third sample on** (the model decodes every nibble it steps over):
+  OCT 1 FNS 3FF (3.998 per sample: steps of 3, then 4 with a carry) plays two samples, then reads 0 for good; OCT 2
+  FNS 300 (7) cycles through four values (0, 4240, 864, -2768); 5 and 6 per sample mix plausible values, 0s and
+  saturation; 8 per sample (OCT 2 FNS 3FF) looks like a plausible decode.  The key-on sample (the nibble at CA 0) is
+  right in every case.  This fits wren7's fetch rule (the channel holds one 16-bit word, 4 nibbles, and fetches at most
+  one word per sample): past 4 the decoder runs out of fetched nibbles.  Not modelled yet; the models and rtl/v1 still
+  step up to 8 (rtl/v1 raises `warn_step` beyond).
+- **OCT 3..6: the slot holds its key-on sample's value** (-2768 / 4240 in these runs) for good -- no fetch (wren7
+  tests/hw/sgcadp), no further decode.  OCT 7 FNS 3FF moves slowly (6688, 6400, 6130, ... -270 a sample) -- another
+  case.  The models decode hundreds of nibbles a sample there.
+- **An odd SA** (SA + 1: the start nibble in the byte's other half) decodes a different first nibble than the model
+  (4240 against 1744 on the key-on sample, at every pitch).
+
 ## Open items (after session 7)
 
 - K at boot: 0 after a clean reboot, 6491 on the previous boot; nothing a program does moves it (eg_kprobe on both boots).
   What offset the envelope counter from MDEC_CT during boot 1 is unknown.
-- Sub-sample effects the whole-sample model cannot express: a register write landing before frame k acts on the write's
-  own sample (fetch) / on the clock computed during that sample (envelope); the per-frame KYONB read window; the
-  low-nibble/high-word MIXS write order; the CPU write's position against the SGC write of the same bus.  The RTL rule set
-  is in "Session 7".
+- Sub-sample effects: measured and modelled in session 9 (the cycle model; "Cycle model and the per-frame schedule").
+  Still open there: 3 KYONB-window key-ons near the sample boundary; the low-nibble/high-word MIXS write order.
 - The absolute position of frame 0 against the DSP boundary is known only to about a frame (the fetch fraction at slot 0
-  is 0.00, at slot 8 0.06).
+  is 0.00, at slot 8 0.06).  Session 8: the DSP boundary lies between channel 6's and channel 7's fetch (tests/dsp_coll).
 - Filter: nothing open.  The cap_start head estimate still moves whole-program model captures by a sample when the ring's
   leftover words change (harness).
 - Where ADPCM / noise / high-pitch slots take their memory words in the 8-cycle frame, and the CPU/DMA slot phase, are RTL

@@ -1,0 +1,6 @@
+stream_replay tests/sgc_formats/hw9 fm_1: 13568 samples, c0 61fc, K 1225, compared up to sample 13568
+  stream 0 (slot 0, bus 0, r00 0382 r18 0000 r1c 0000 r28 0060): onset 227, key-on boundary -1: 13345/13345 FULL
+  stream 1 (slot 1, bus 1, r00 0382 r18 017b r1c 0000 r28 0060): onset 227, key-on boundary -1: 13345/13345 FULL
+  stream 2 (slot 2, bus 2, r00 0602 r18 0000 r1c 0000 r28 0060): onset 0, key-on boundary +1: 0/13568, first mismatch at 0 (+0): hw 237568 model 0 (3 tied candidates)
+  stream 3 (slot 3, bus 3, r00 0602 r18 017b r1c 0000 r28 0060): onset 0, key-on boundary +1: 0/13568, first mismatch at 0 (+0): hw 118784 model 0 (3 tied candidates)
+stream_replay fm_1: MISMATCH

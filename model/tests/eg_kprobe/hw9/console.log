@@ -1,0 +1,39 @@
+hwrun: 14:26:10 lock taken by pid 225263 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/hw9/eg_kprobe.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at acc619a0
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+probe p0: c0 7c3a head n 637 t_head_us 2016872 mdec_head 79bd samples 67392 errors 0 marks 4 action none (baseline)
+probe p1: c0 3e34 head n 583 t_head_us 3859579 mdec_head 3bed samples 67392 errors 0 marks 4 action none (repeatability)
+probe p2: c0 05f7 head n 534 t_head_us 5671405 mdec_head 03e1 samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
+probe p3: c0 cf11 head n 711 t_head_us 7480576 mdec_head cc4a samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
+probe p4: c0 97af head n 665 t_head_us 9287525 mdec_head 9516 samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
+probe p5: c0 5e15 head n 612 t_head_us 11107154 mdec_head 5bb1 samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
+probe p6: c0 1d98 head n 555 t_head_us 12964088 mdec_head 1b6d samples 67200 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
+probe p7: c0 e11f head n 728 t_head_us 14805455 mdec_head de47 samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 917, dma_cntr = 914
+vid_set_mode: 640x480 VGA with 1 framebuffers.

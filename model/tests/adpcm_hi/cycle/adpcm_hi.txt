@@ -1,0 +1,45 @@
+ramfile 020000 data.bin
+ah_0 stream 0: PCMS 2 OCT 2 FNS 3ff SA 020000
+slotregs ah_0 0 0 0302 0000 0000 1000 001f 3c1f 13ff 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_0 stream 1: PCMS 2 OCT 3 FNS 000 SA 020000
+slotregs ah_0 1 1 0302 0000 0000 1000 001f 3c1f 1800 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_0 stream 2: PCMS 2 OCT 5 FNS 000 SA 020000
+slotregs ah_0 2 2 0302 0000 0000 1000 001f 3c1f 2800 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_0 stream 3: PCMS 2 OCT 7 FNS 3ff SA 020000
+slotregs ah_0 3 3 0302 0000 0000 1000 001f 3c1f 3bff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd26 at f2e0 (n 729), next fd27 fd28 fd29, c0 f5b9, head n 736
+capture ah_0 c0 f5b9 first 737 samples 3008 head n 736 t_head_us 1562460
+ah_0: 3008 samples, errors 0
+ah_1 stream 0: PCMS 3 OCT 2 FNS 3ff SA 020000
+slotregs ah_1 0 0 0382 0000 0000 1000 001f 3c1f 13ff 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_1 stream 1: PCMS 3 OCT 3 FNS 000 SA 020000
+slotregs ah_1 1 1 0382 0000 0000 1000 001f 3c1f 1800 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_1 stream 2: PCMS 3 OCT 5 FNS 000 SA 020000
+slotregs ah_1 2 2 0382 0000 0000 1000 001f 3c1f 2800 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_1 stream 3: PCMS 3 OCT 7 FNS 3ff SA 020000
+slotregs ah_1 3 3 0382 0000 0000 1000 001f 3c1f 3bff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd59 at c200 (n 678), next fd5a fd5b fd5c, c0 c4a6, head n 693
+capture ah_1 c0 c4a6 first 694 samples 3008 head n 693 t_head_us 1846380
+ah_1: 3008 samples, errors 0
+ah_2 stream 0: PCMS 2 OCT 3 FNS 000 SA 020001
+slotregs ah_2 0 0 0302 0001 0000 1000 001f 3c1f 1800 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_2 stream 1: PCMS 2 OCT 4 FNS 000 SA 020001
+slotregs ah_2 1 1 0302 0001 0000 1000 001f 3c1f 2000 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_2 stream 2: PCMS 2 OCT 6 FNS 000 SA 020001
+slotregs ah_2 2 2 0302 0001 0000 1000 001f 3c1f 3000 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_2 stream 3: PCMS 2 OCT 2 FNS 000 SA 020001
+slotregs ah_2 3 3 0302 0001 0000 1000 001f 3c1f 1000 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd82 at 9140 (n 637), next fd83 fd84 fd85, c0 93bd, head n 652
+capture ah_2 c0 93bd first 653 samples 3008 head n 652 t_head_us 2129364
+ah_2: 3008 samples, errors 0
+ah_3 stream 0: PCMS 2 OCT 2 FNS 000 SA 020000
+slotregs ah_3 0 0 0302 0000 0000 1000 001f 3c1f 1000 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_3 stream 1: PCMS 2 OCT 2 FNS 000 SA 020000
+slotregs ah_3 1 1 0302 0000 0000 1000 001f 3c1f 1000 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_3 stream 2: PCMS 3 OCT 2 FNS 000 SA 020000
+slotregs ah_3 2 2 0382 0000 0000 1000 001f 3c1f 1000 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+ah_3 stream 3: PCMS 3 OCT 2 FNS 000 SA 020000
+slotregs ah_3 3 3 0382 0000 0000 1000 001f 3c1f 1000 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fda1 at 60a0 (n 606), next fda2 fda3 fda4, c0 62fe, head n 612
+capture ah_3 c0 62fe first 613 samples 3008 head n 612 t_head_us 2411414
+ah_3: 3008 samples, errors 0

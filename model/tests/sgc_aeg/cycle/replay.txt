@@ -1,0 +1,2 @@
+# tools/replay_fit tests/sgc_aeg/cycle: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec 2b61 lfsr 15f26 K 6491

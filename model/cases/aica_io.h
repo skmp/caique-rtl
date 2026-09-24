@@ -19,14 +19,20 @@ extern "C" {
 #endif
 uint32_t io_r(uint32_t off);                 /* AICA register read (32-bit slot) */
 void io_w(uint32_t off, uint32_t v);         /* AICA register write */
+void io_wn(int n, const uint32_t *off, const uint32_t *v); /* n register writes back to back (console: one G2 FIFO
+                                              * wait, then all n queued; they reach the AICA a few steps apart) */
 uint32_t io_ram_r32(uint32_t off);           /* wave RAM */
 void io_ram_w32(uint32_t off, uint32_t v);
 void io_wait_us(uint32_t us);                /* let the AICA run */
 uint64_t io_now_us(void);
 int io_write_file(const char *name, const void *data, uint32_t bytes); /* into tests/<case>/<platform>/ */
 void io_print(const char *s);                /* console */
+uint32_t io_sh4_irq(void);                   /* the AICA's SH4 interrupt line (console: SB_ISTEXT bit 1) */
 extern const char *io_platform;              /* "hw" or "model" */
 int test_main(void);
+void replay_preamble(void);                  /* cases/common/replay.c: every platform's main runs it before test_main */
+uint32_t replay_measure(const char *prefix); /* its measurement alone (cases/replay_check.c) */
+void io_replay_point(uint32_t sync_mdec);    /* the preamble's sync point (models: apply CAIQUE_REPLAY there) */
 #ifdef __cplusplus
 }
 #endif
@@ -83,10 +89,8 @@ static inline void ram_fill(uint32_t off, uint32_t v, uint32_t bytes) {
 }
 
 /* ---- DSP ---- */
-static inline void dsp_clear_prog(void) {
-    for (int s = 0; s < 128; s++)
-        for (int k = 0; k < 4; k++) aw(R_MPRO(s, k), 0);
-}
+static inline void dsp_nop_all(void);
+static inline void dsp_clear_prog(void) { dsp_nop_all(); }
 static inline void dsp_put(int step, const dsp_inst_t *in) {
     uint16_t w[4];
     dsp_encode(in, w);
@@ -141,21 +145,28 @@ static inline void slot_cfg_default(slot_cfg_t *c, uint32_t sa, uint16_t lea) {
     for (int i = 0; i < 5; i++) c->FLV[i] = 0x1FF8;
     c->FAR = c->FD1R = c->FD2R = c->FRR = 31;
 }
+/* the 18 register words (0x00 .. 0x44) slot_write writes; 0x00 without KYONB (slot_write keeps the slot's) */
+static inline void slot_regs(const slot_cfg_t *c, uint16_t r[18]) {
+    r[0] = (uint16_t)((c->SSCTL << 10) | (c->LPCTL << 9) | (c->PCMS << 7) | ((c->SA >> 16) & 0x7F));
+    r[1] = (uint16_t)(c->SA & 0xFFFF);
+    r[2] = c->LSA;
+    r[3] = c->LEA;
+    r[4] = (uint16_t)((c->D2R << 11) | (c->D1R << 6) | c->AR);
+    r[5] = (uint16_t)((c->LPSLNK << 14) | (c->KRS << 10) | (c->DL << 5) | c->RR);
+    r[6] = (uint16_t)((c->OCT << 11) | c->FNS);
+    r[7] = (uint16_t)((c->LFORE << 15) | (c->LFOF << 10) | (c->PLFOWS << 8) | (c->PLFOS << 5) | (c->ALFOWS << 3) | c->ALFOS);
+    r[8] = (uint16_t)((c->IMXL << 4) | c->ISEL);
+    r[9] = (uint16_t)((c->DISDL << 8) | c->DIPAN);
+    r[10] = (uint16_t)((c->TL << 8) | (c->VOFF << 6) | (c->LPOFF << 5) | c->Q);
+    for (int i = 0; i < 5; i++) r[11 + i] = c->FLV[i];
+    r[16] = (uint16_t)((c->FAR << 8) | c->FD1R);
+    r[17] = (uint16_t)((c->FD2R << 8) | c->FRR);
+}
 static inline void slot_write(int ch, const slot_cfg_t *c) {
-    aw(CH(ch, 0x04), c->SA & 0xFFFF);
-    aw(CH(ch, 0x08), c->LSA);
-    aw(CH(ch, 0x0C), c->LEA);
-    aw(CH(ch, 0x10), (c->D2R << 11) | (c->D1R << 6) | c->AR);
-    aw(CH(ch, 0x14), (c->LPSLNK << 14) | (c->KRS << 10) | (c->DL << 5) | c->RR);
-    aw(CH(ch, 0x18), (c->OCT << 11) | c->FNS);
-    aw(CH(ch, 0x1C), (c->LFORE << 15) | (c->LFOF << 10) | (c->PLFOWS << 8) | (c->PLFOS << 5) | (c->ALFOWS << 3) | c->ALFOS);
-    aw(CH(ch, 0x20), (c->IMXL << 4) | c->ISEL);
-    aw(CH(ch, 0x24), (c->DISDL << 8) | c->DIPAN);
-    aw(CH(ch, 0x28), (c->TL << 8) | (c->VOFF << 6) | (c->LPOFF << 5) | c->Q);
-    for (int i = 0; i < 5; i++) aw(CH(ch, 0x2C + 4 * i), c->FLV[i]);
-    aw(CH(ch, 0x40), (c->FAR << 8) | c->FD1R);
-    aw(CH(ch, 0x44), (c->FD2R << 8) | c->FRR);
-    aw(CH(ch, 0x00), (ar(CH(ch, 0x00)) & 0x4000) | (c->SSCTL << 10) | (c->LPCTL << 9) | (c->PCMS << 7) | ((c->SA >> 16) & 0x7F));
+    uint16_t r[18];
+    slot_regs(c, r);
+    for (int i = 1; i < 18; i++) aw(CH(ch, 4 * i), r[i]);
+    aw(CH(ch, 0x00), (ar(CH(ch, 0x00)) & 0x4000) | r[0]);
 }
 /* MIXS[i] as a signed 20-bit value */
 static inline int32_t mixs_rd(int i) {
@@ -173,7 +184,10 @@ static inline uint64_t now_us(void) { return io_now_us(); }
 static inline void spin_us(uint32_t us) { io_wait_us(us); }
 
 /* ---- output ----  text is collected in RAM and written to the host once (every /pc/ call is a network round trip) */
-static char g_txtbuf[3 << 20];
+#ifndef AICA_TXTBUF_SIZE
+#define AICA_TXTBUF_SIZE (3 << 20)
+#endif
+static char g_txtbuf[AICA_TXTBUF_SIZE];
 static uint32_t g_txtlen;
 static char g_txtname[128];
 static inline int out_open(const char *name) {
@@ -190,8 +204,64 @@ static inline void out_close(void) {
     g_txtname[0] = 0;
 }
 
-/* Quiet, known state: every channel keyed off with zeroed registers, DSP program cleared, CDDA (EXTS) sends off. */
-static inline void aica_quiet(void) {
+/* "slotregs <capture> <stream> <slot> r00 .. r44" (hex): a slot's register image for the replay tools (tools/
+ * stream_replay) */
+static inline void slot_log(const char *cap, int stream, int ch, const slot_cfg_t *c) {
+    uint16_t r[18];
+    slot_regs(c, r);
+    LOG("slotregs %s %d %d", cap, stream, ch);
+    for (int i = 0; i < 18; i++) LOG(" %04x", r[i]);
+    LOG("\n");
+}
+
+/* ---- known DSP state (every case and every sub-test starts from it) ----
+ * dsp_nop_all: every MPRO step a NOP, from step 127 down (a running program never keeps a later step without the earlier
+ * one it depends on), each step's w2 first (MRD / MWT / EWT / FRCL / ADRL go before their operands: an MWT left with its
+ * MASA cleared would write into another region).
+ * dsp_reset(rbp_byte, rbl): NOPs, one sample for in-flight reads to land, then COEF / MADRS / EFREG / TEMP 0, the ring
+ * (RBP rbp_byte, RBL rbl: 8K << rbl words) cleared and selected, MEMS 0 in all 24 bits (the CPU writes bits 23:8 only:
+ * a CPU read of a zero ring word leaves 0 in the memory read latch, and a one-sample program of IWT with NOFL stores it
+ * into every MEMS), and every MIXS bus 0 in both banks (slots 0..15 pointed at buses 0..15 for three samples: a silent
+ * slot writes 0 every sample; their 0x20 is restored after).  Other channel registers are left alone, so it can run after
+ * a case has configured its slots (cap_start, flog_start). */
+#define DSP_RING_RBP 0x1E0000u  /* the default ring: 64K words at 1.875 MB (cases/cap.h uses the same) */
+static inline void dsp_nop_all(void) {
+    static const int ko[4] = {2, 0, 1, 3};
+    for (int s = 127; s >= 0; s--)
+        for (int k = 0; k < 4; k++) aw(R_MPRO(s, ko[k]), 0);
+    prevN = 0;
+}
+static inline void dsp_reset(uint32_t rbp_byte, uint32_t rbl) {
+    dsp_nop_all();
+    io_wait_us(50);
+    for (int i = 0; i < 128; i++) aw(R_COEF(i), 0);
+    for (int i = 0; i < 64; i++) aw(R_MADRS(i), 0);
+    for (int i = 0; i < 16; i++) aw(R_EFREG(i), 0);
+    for (int i = 0; i < 128; i++) { aw(R_TEMP(i, 0), 0); aw(R_TEMP(i, 1), 0); }
+    for (int i = 0; i < 32; i++) aw(R_MEMS(i, 1), 0);
+    dsp_ring(rbp_byte >> 11, rbl);
+    ram_fill(rbp_byte & ~2047u, 0, (8192u << rbl) * 2);
+    (void)ram_r32(rbp_byte & ~2047u);               /* the memory read latch = 0 */
+    for (int s = 33; s >= 0; s--) {                  /* MEMS[i] at step i + 2: NOFL on the step two before */
+        uint16_t w[4] = {0, 0, 0, 0x8000};
+        if (s >= 2) w[1] = (uint16_t)(0x40 | ((s - 2) << 1));
+        for (int k = 3; k >= 0; k--) aw(R_MPRO(s, k), w[k]);
+    }
+    io_wait_us(100);
+    dsp_nop_all();
+    uint32_t r20[16];
+    for (int c = 0; c < 16; c++) r20[c] = ar(CH(c, 0x20)) & 0xFFFF;
+    for (int c = 0; c < 16; c++) aw(CH(c, 0x20), (uint32_t)c);   /* ISEL c, IMXL 0 */
+    io_wait_us(100);
+    for (int c = 0; c < 16; c++) aw(CH(c, 0x20), r20[c]);
+}
+
+/* Known state (TODO 2.1), at the start of every case and sub-test: the ARM held in reset, every channel keyed off with
+ * zeroed registers, then dsp_reset (every MPRO step a NOP, COEF / MADRS / EFREG / TEMP / MEMS 0, the ring at rbp_byte
+ * with size code rbl cleared and selected, the MIXS buses 0), and every slot's LP flag cleared (an EG monitor read per
+ * slot; tests/oneshot's first read saw LP 1 left by an earlier program), and the interrupt / timer registers.
+ * aica_quiet uses the default ring. */
+static inline void aica_reset(uint32_t rbp_byte, uint32_t rbl) {
     aw(R_ARMRST, ar(R_ARMRST) | 1); /* hold the ARM7 in reset: the tests own wave RAM */
     for (int c = 0; c < 64; c++) {
         aw(CH(c, 0x00), 0);
@@ -200,7 +270,16 @@ static inline void aica_quiet(void) {
     aw(CH(0, 0x00), 0x8000); /* KYONEX: key everything off */
     spin_us(20000);
     for (int c = 0; c < 64; c++) ch_zero_regs(c);
-    dsp_clear_prog();
+    dsp_reset(rbp_byte, rbl);
+    for (int c = 0; c < 64; c++) (void)egmon(c, 0);
+    aw(R_MSLC, 0);
+    /* interrupts and timers (tests/timer_irq: SCIEB was 0x0400 from an earlier program): enables and levels 0, the
+     * timers at prescale 0 count 0 (their prescaler cannot be reset), then both pending registers cleared */
+    aw(0x289C, 0); aw(0x28B4, 0);
+    for (int i = 0; i < 3; i++) aw(0x28A8 + 4 * i, 0);
+    aw(R_TIMA, 0); aw(R_TIMB, 0); aw(R_TIMC, 0);
+    aw(0x28A4, 0x7FF); aw(R_MCIRE, 0x7FF);
 }
+static inline void aica_quiet(void) { aica_reset(DSP_RING_RBP, 3); }
 
 #endif

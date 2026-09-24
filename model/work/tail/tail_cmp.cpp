@@ -21,14 +21,14 @@
 // Output per stream: matched prefix / total, first mismatch (sample, MDEC_CT parity, hw vs model, model slot state),
 // number of mismatching samples, the console's last 24 distinct values (index of first appearance) and the model's,
 // the model's "off" sample per slot and the values it predicts after it.  Exit 0 when every stream is FULL.
-// Build: g++ -O2 -std=c++17 -o build/work/tail_cmp work/tail/tail_cmp.cpp src/aica_model.cpp   (from model/)
+// Build: g++ -O2 -std=c++17 -o build/work/tail_cmp work/tail/tail_cmp.cpp sample-model/aica_model.cpp   (from model/)
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <string>
 #include <vector>
 #include <algorithm>
-#include "../../src/aica_model.h"
+#include "../../sample-model/aica_model.h"
 #include "../../tools/filt_capture.h"
 using namespace caique;
 

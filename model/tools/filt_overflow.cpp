@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <climits>
 #ifdef VERIFY_MODEL
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #endif
 using I=int64_t;
 struct R{int match=-1,b0=0,event=0;I maxL=0,maxB=0;};
@@ -34,12 +34,12 @@ static R run(const Capture&c,int slot,int F,int on,int ev,int width,int mode){
   if(n-on>best.match)best={n-on,b,event,maxL,maxB};
 #ifdef VERIFY_MODEL
   if(n==(int)c.n){
-   caique::AicaModel m;m.write(0x28,64);m.write(0x20,240);
-   auto &s=m.slot[0];s.enabled=true;s.AEG.off=true;s.update_rate=0;s.FEG.v=F;
+   caique::AicaModel m;m.write(0x28,64);m.write(0x20,240);m.write(0x18,0x4000);   /* OCT -8 + the phase reset below: the slot never advances */
+   auto &s=m.slot[0];s.enabled=true;s.AEG.off=true;s.FEG.v=F;
    s.lpf_low=-I(c.v[(on-1)*4+slot])/2;s.lpf_band=b;
    for(int t=on;t<(int)c.n;t++){
     if(t==event)m.write(0x28,64|31);
-    s.s0=s.s1=c.v[t*4+3]/16;m.step();
+    s.s0=s.s1=c.v[t*4+3]/16;s.step=0;m.step();
     if(m.MIXS[0]!=c.v[t*4+slot]){
      fprintf(stderr,"PRODUCTION FAIL slot=%d F=%04x n=%d expected=%d actual=%d\n",slot,F,t,c.v[t*4+slot],m.MIXS[0]);exit(2);
     }

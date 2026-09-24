@@ -1,0 +1,7 @@
+replay_fit tests/dsp_basic/hw9: 45376 samples, first 718, c0 d070, key-on sample 226 (MDEC_CT ccc0), fit window 226..43957, sync MDEC_CT 1cdd
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(ccc0) = 0d47b fits all 43730 noise samples; f(sync 1cdd - 1) = 140ec (45028 samples on)
+replay_fit tests/dsp_basic/hw9: mdec 1cdd lfsr 140ec K 0 par 0 -> tests/dsp_basic/hw9/replay.txt

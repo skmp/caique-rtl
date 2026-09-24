@@ -1,0 +1,90 @@
+cap_start: counter word fdb4 at 5360 (n 587), next fdb5 fdb6 fdb7, c0 55ab, head n 610
+fi_0 stream 0: F 1800 Q 0
+fi_0 stream 1: F 1800 Q 4
+fi_0 stream 2: F 1800 Q 8
+fi_0 stream 3: F 1800 Q 16
+fi_0: 8640 samples, errors 0
+cap_start: counter word fde3 at 1100 (n 540), next fde4 fde5 fde6, c0 131c, head n 546
+fi_1 stream 0: F 1800 Q 24
+fi_1 stream 1: F 1800 Q 31
+fi_1 stream 2: F 1a00 Q 0
+fi_1 stream 3: F 1a00 Q 4
+fi_1: 8832 samples, errors 0
+cap_start: counter word fd31 at cd60 (n 718), next fd32 fd33 fd34, c0 d02e, head n 723
+fi_2 stream 0: F 1a00 Q 8
+fi_2 stream 1: F 1a00 Q 16
+fi_2 stream 2: F 1a00 Q 24
+fi_2 stream 3: F 1a00 Q 31
+fi_2: 8832 samples, errors 0
+cap_start: counter word fd85 at 8ac0 (n 634), next fd86 fd87 fd88, c0 8d3a, head n 663
+fi_3 stream 0: F 1b55 Q 0
+fi_3 stream 1: F 1b55 Q 4
+fi_3 stream 2: F 1b55 Q 8
+fi_3 stream 3: F 1b55 Q 16
+fi_3: 8832 samples, errors 0
+cap_start: counter word fdb6 at 4740 (n 585), next fdb7 fdb8 fdb9, c0 4989, head n 598
+fi_4 stream 0: F 1b55 Q 24
+fi_4 stream 1: F 1b55 Q 31
+fi_4 stream 2: F 1c00 Q 0
+fi_4 stream 3: F 1c00 Q 4
+fi_4: 8832 samples, errors 0
+cap_start: counter word fdf8 at 03e0 (n 519), next fdf9 fdfa fdfb, c0 05e7, head n 534
+fi_5 stream 0: F 1c00 Q 8
+fi_5 stream 1: F 1c00 Q 16
+fi_5 stream 2: F 1c00 Q 24
+fi_5 stream 3: F 1c00 Q 31
+fi_5: 8640 samples, errors 0
+cap_start: counter word fd44 at c100 (n 699), next fd45 fd46 fd47, c0 c3bb, head n 716
+fi_6 stream 0: F 1d00 Q 0
+fi_6 stream 1: F 1d00 Q 4
+fi_6 stream 2: F 1d00 Q 8
+fi_6 stream 3: F 1d00 Q 16
+fi_6: 8832 samples, errors 0
+cap_start: counter word fd86 at 7de0 (n 633), next fd87 fd88 fd89, c0 8059, head n 651
+fi_7 stream 0: F 1d00 Q 24
+fi_7 stream 1: F 1d00 Q 31
+fi_7 stream 2: F 1dab Q 0
+fi_7 stream 3: F 1dab Q 4
+fi_7: 8832 samples, errors 0
+cap_start: counter word fdcc at 3b20 (n 563), next fdcd fdce fdcf, c0 3d53, head n 588
+fi_8 stream 0: F 1dab Q 8
+fi_8 stream 1: F 1dab Q 16
+fi_8 stream 2: F 1dab Q 24
+fi_8 stream 3: F 1dab Q 31
+fi_8: 8832 samples, errors 0
+cap_start: counter word fd19 at f780 (n 742), next fd1a fd1b fd1c, c0 fa66, head n 764
+fi_9 stream 0: F 1e00 Q 0
+fi_9 stream 1: F 1e00 Q 4
+fi_9 stream 2: F 1e00 Q 8
+fi_9 stream 3: F 1e00 Q 16
+fi_9: 8832 samples, errors 0
+cap_start: counter word fd4f at b420 (n 688), next fd50 fd51 fd52, c0 b6d0, head n 700
+fi_10 stream 0: F 1e00 Q 24
+fi_10 stream 1: F 1e00 Q 31
+fi_10 stream 2: F 1e01 Q 0
+fi_10 stream 3: F 1e01 Q 4
+fi_10: 8640 samples, errors 0
+cap_start: counter word fd8d at 7140 (n 626), next fd8e fd8f fd90, c0 73b2, head n 635
+fi_11 stream 0: F 1e01 Q 8
+fi_11 stream 1: F 1e01 Q 16
+fi_11 stream 2: F 1e01 Q 24
+fi_11 stream 3: F 1e01 Q 31
+fi_11: 8832 samples, errors 0
+cap_start: counter word fdc3 at 2e80 (n 572), next fdc4 fdc5 fdc6, c0 30bc, head n 574
+fi_12 stream 0: F 1f00 Q 0
+fi_12 stream 1: F 1f00 Q 4
+fi_12 stream 2: F 1f00 Q 8
+fi_12 stream 3: F 1f00 Q 16
+fi_12: 8896 samples, errors 0
+cap_start: counter word fd1b at eac0 (n 740), next fd1c fd1d fd1e, c0 eda4, head n 745
+fi_13 stream 0: F 1f00 Q 24
+fi_13 stream 1: F 1f00 Q 31
+fi_13 stream 2: F 1f80 Q 0
+fi_13 stream 3: F 1f80 Q 4
+fi_13: 8832 samples, errors 0
+cap_start: counter word fd60 at a700 (n 671), next fd61 fd62 fd63, c0 a99f, head n 685
+fi_14 stream 0: F 1f80 Q 8
+fi_14 stream 1: F 1f80 Q 16
+fi_14 stream 2: F 1f80 Q 24
+fi_14 stream 3: F 1f80 Q 31
+fi_14: 8832 samples, errors 0

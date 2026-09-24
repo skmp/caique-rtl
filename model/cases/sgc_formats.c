@@ -12,6 +12,7 @@ int test_main(void) {
     uint32_t x = 31337;
     for (int i = 0; i < 8192; i++) { x = x * 1103515245u + 12345u; data[i] = (uint8_t)(x >> 16); }
     out_bin("data.bin", data, sizeof data);
+    LOG("ramfile 020000 data.bin\n");
     static const struct { int pcms, ssctl, fns; } cf[] = {
         {1, 0, 0}, {1, 0, 0x17B}, {2, 0, 0}, {2, 0, 0x17B}, {3, 0, 0}, {3, 0, 0x17B}, {0, 1, 0}, {0, 1, 0x17B}};
     for (int base = 0; base < 8; base += NS) {
@@ -23,6 +24,9 @@ int test_main(void) {
             c.ISEL = k; c.VOFF = 1; c.PCMS = cf[base + k].pcms; c.SSCTL = cf[base + k].ssctl; c.FNS = cf[base + k].fns;
             slot_write(k, &c);
             LOG("fm_%d stream %d: PCMS %d SSCTL %d FNS %03x\n", base / NS, k, c.PCMS, c.SSCTL, c.FNS);
+            char nm[32];
+            snprintf(nm, sizeof nm, "fm_%d", base / NS);
+            slot_log(nm, k, k, &c);
         }
         static const int mixs[NS] = {0, 1, 2, 3};
         if (cap_start(NS, mixs, capbuf, MAXV)) { OUT("cap_start failed\n"); return 1; }

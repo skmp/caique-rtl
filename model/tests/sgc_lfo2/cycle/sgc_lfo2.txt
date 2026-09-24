@@ -1,0 +1,24 @@
+ramfile 020000 ramp.bin
+ramfile 030000 noise.bin
+l2_0 stream 0: square PLFOS 7 OCT 0 FNS 3f0
+slotregs l2_0 0 0 0202 0000 0000 1000 001f 3c1f 03f0 d1e0 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+l2_0 stream 1: square PLFOS 7 OCT 2 FNS 100
+slotregs l2_0 1 1 0202 0000 0000 1000 001f 3c1f 1100 d1e0 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+l2_0 stream 2: square PLFOS 7 OCT 13 FNS 200
+slotregs l2_0 2 2 0202 0000 0000 1000 001f 3c1f 6a00 d1e0 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+l2_0 stream 3: square PLFOS 7 OCT 0 FNS 050
+slotregs l2_0 3 3 0202 0000 0000 1000 001f 3c1f 0050 d1e0 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd41 at f220 (n 702), next fd42 fd43 fd44, c0 f4de, head n 734
+capture l2_0 c0 f4de first 735 samples 31232 head n 734 t_head_us 1567392
+l2_0: 31232 samples, errors 0
+l2_1 stream 0: FEG FAR 24 FD1R 26 FD2R 20 FRR 28 Q 4
+slotregs l2_1 0 0 0203 0000 0000 1000 001f 3c1f 0000 0000 00f0 0000 0044 1a00 1f00 1c00 1800 1e00 181a 141c
+l2_1 stream 1: FEG FAR 22 FD1R 24 FD2R 20 FRR 28 Q 4
+slotregs l2_1 1 1 0203 0000 0000 1000 001f 3c1f 0000 0000 00f1 0000 0044 1a00 1f00 1c00 1800 1e00 1618 141c
+l2_1 stream 2: FEG FAR 20 FD1R 22 FD2R 20 FRR 28 Q 4
+slotregs l2_1 2 2 0203 0000 0000 1000 001f 3c1f 0000 0000 00f2 0000 0044 1a00 1f00 1c00 1800 1e00 1416 141c
+l2_1 stream 3: FEG FAR 18 FD1R 20 FD2R 20 FRR 28 Q 4
+slotregs l2_1 3 3 0203 0000 0000 1000 001f 3c1f 0000 0000 00f3 0000 0044 1a00 1f00 1c00 1800 1e00 1214 141c
+cap_start: counter word fdb1 at 5260 (n 590), next fdb2 fdb3 fdb4, c0 54ae, head n 599
+capture l2_1 c0 54ae first 600 samples 18880 head n 599 t_head_us 2494211
+l2_1: 18880 samples, errors 0

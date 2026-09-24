@@ -1,4 +1,4 @@
-# caique AICA model — limitations and sticking points (2026-09-23, after session 6)
+# caique AICA model — limitations and sticking points (2026-09-23, after session 6; updated 2026-09-24, sessions 8 and 9)
 
 Everything the DSP capture path can observe is reproduced sample-exactly on this console boot: filter arithmetic
 (265 streams), DSP, levels, pitch, formats, loops, the envelope clock and its counter, key timing, every key-off-clock
@@ -6,27 +6,32 @@ rule (AEG and FEG), the slot stop, the MIXS writer and readback semantics (see [
 U1-U4, gate `tools/validate_s5.sh`).  This file lists what is NOT nailed down, grouped by kind, so nobody mistakes a
 documented gap for a verified fact.  Each item names the evidence that bounds it and what would close it.
 
-## 1. Sub-sample effects the model cannot express
+## 1. Sub-sample effects
 
-The model steps whole samples (`AicaModel::step()`), and register writes are applied between steps.  The hardware
-processes a sample in phases, and a write's position inside the sample period matters in three measured places.
+Session 9 made the model clocked (`cycle-model/`, one MCLK per `clock()`; the sample model stays in `sample-model/`),
+with the console's per-frame schedule measured event by event (NOTES "Cycle model and the per-frame schedule").
+What is still open:
 
-- **Register writes vs the envelope phase** (tests/eg_latch, eg_latch2, eg_latch3; tests/slot_tail tail_c).  Within a
-  sample the envelope update runs before the sample fetch/output; key events (KYONEX) always take effect from the next
-  sample; a register write landing before a sample's envelope phase is seen by that sample's envelope clock, one landing
-  after it only by the next sample's clock, while the fetch sees it in the sample it lands in.  All envelope registers
-  are live (359 informative rewrites, 0 latched), but tail_c's RR/SA group landed between the two phases: the SA switch
-  shows at sample 11300, the first release step at 11302.  The model reads every write "live", so `tools/tail_cmp`
-  applies that RR write one sample after the SA write (`w14 = w00 + 1`) to reproduce the capture.  Any program that
-  rewrites an envelope rate in the same sample as the envelope clock may be off by one clock in the model.  The RTL
-  should order the envelope update before the fetch and latch key events at the sample boundary.
-- **CPU MIXS write vs the SGC write of the same bus** in the same sample (tests/dsp_basic "F ira 25", excluded from
-  the comparison since session 1; tests/eg_lock mixs, tests/mixs_rd R7).  Which of the two lands first decides what
-  the DSP reads on the next sample.  Not modelled; the model's CPU write goes to the bank the DSP reads next.
+- **The KYONB window edge** (tests/sub_sched exp 0): 3 of 1369 determinate key-ons, each with its KYONEX within a few
+  clocks of the sample boundary on a slot not yet released, started one sample later on the console than the model
+  predicts.  More events at that edge would say whether the KYONEX latch point sits a few clocks later.
+- **Registers timed only through their stage's neighbours**: 0x24 (with the send, 0x20), the ALFO bits of 0x1C (with
+  the fetch), FLV and the FEG rates (with the envelope pass's RR), Q (with LPOFF), and the monitor update points.
+- **CPU MIXS write vs the SGC write of the same bus** (tests/dsp_basic "F ira 25", excluded from the comparison
+  since session 1; tests/eg_lock mixs, tests/mixs_rd R7).  tests/sub_sched exp 3 (a CPU write to a bus a slot sends
+  to, 1279 determinate events, 0 fail) supports the models' rule: the CPU writes the bank the DSP is reading, which the
+  sweep never writes during that sample.  "F ira 25" itself has not been re-compared on the cycle model.
 - **MIXS readback bank switch of the low nibble ~5 us before the high word** (tests/mixs_rd R4/R7: `1234/5 -> 1234/0
-  -> 0000/0`).  The model switches both halves at the sample boundary.  One line of tests/probe (MIXS0.l
-  `w55555555->r00000000` vs the console's `r00000005`) is a model sample boundary falling between the write and the
-  read; the console shows the same effect the other way in mixs_rd R1 (`1234/0` on the first read).
+  -> 0000/0`).  Both models switch both halves together.  One line of tests/probe (MIXS0.l `w55555555->r00000000` vs
+  the console's `r00000005`) is this effect; the console shows it the other way in mixs_rd R1 (`1234/0` on the first
+  read).
+- The sample model (`sample-model/`) still applies every write between whole samples: a write the program times inside
+  a sample acts up to a sample later there than on the console.  The cycle model and rtl/v1 have the per-frame
+  behaviour.
+
+- **0x2804 bit 15** (probably TESTB0): writing it moves MDEC_CT against the envelope counter (tests/k_jump; TODO 7.1).
+  The replay parameters record the result (K and the envelope clock's parity); the mechanism is not investigated, and
+  neither model implements the bit.
 
 ## 2. Empirical rules with no mechanism behind them
 
@@ -101,6 +106,11 @@ processes a sample in phases, and a write's position inside the sample period ma
   every fitter uses them only as search windows and pins events with a witness slot or a level jump.
 - **MDEC_CT drift against the SH4 clock** is +-90 samples over 1.7 s (tests/eg_kprobe): the two crystals differ, so
   no SH4 timestamp is sample-exact.
+
+- **Channels 0-6 and the DSP** (tests/dsp_coll): their wave RAM slots (DSP steps 114-126) collide with their fetch of the
+  NEXT sample, which the model previews with the current registers before the DSP runs.  A register or wave RAM write
+  between the two samples that changes that fetch is not seen by the preview (rtl/v1 has it).  With the ARM running, ARM
+  reads can also replace a DSP read's result (wren7 collide); not modelled.
 
 ## 7. Known console-vs-model text differences (all attributed)
 

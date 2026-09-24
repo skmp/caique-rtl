@@ -1,5 +1,5 @@
 // fegdbg.cpp -- print the model FEG value per sample next to the tracked u for one eg_lock/feg_krs stream (debug of eg_model)
-#include "../../src/aica_model.h"
+#include "../../sample-model/aica_model.h"
 #include "../../tools/filt_capture.h"
 #include <cstdlib>
 #include <vector>

@@ -1,0 +1,6 @@
+stream_replay tests/sgc_formats/hw9 fm_0: 13376 samples, c0 bab0, K 1225, compared up to sample 13376
+  stream 0 (slot 0, bus 0, r00 0282 r18 0000 r1c 0000 r28 0060): onset 227, key-on boundary -1: 13153/13153 FULL
+  stream 1 (slot 1, bus 1, r00 0282 r18 017b r1c 0000 r28 0060): onset 227, key-on boundary -1: 13153/13153 FULL
+  stream 2 (slot 2, bus 2, r00 0302 r18 0000 r1c 0000 r28 0060): onset 227, key-on boundary -1: 13153/13153 FULL
+  stream 3 (slot 3, bus 3, r00 0302 r18 017b r1c 0000 r28 0060): onset 227, key-on boundary -1: 13153/13153 FULL
+stream_replay fm_0: all streams FULL

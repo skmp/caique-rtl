@@ -1,0 +1,21 @@
+lo_0 stream 0: LSA 100 LEA 200 LPCTL 1 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+lo_0 stream 1: LSA 100 LEA 200 LPCTL 1 OCT 0 FNS 17b AR 31 LPSLNK 0 VOFF 1
+lo_0 stream 2: LSA 100 LEA 200 LPCTL 1 OCT 1 FNS 200 AR 31 LPSLNK 0 VOFF 1
+lo_0 stream 3: LSA 100 LEA 200 LPCTL 1 OCT 14 FNS 000 AR 31 LPSLNK 0 VOFF 1
+cap_start: counter word fd2a at fcc0 (n 725), next fd2b fd2c fd2d, c0 ff95, head n 752
+lo_0 after run: slot regs +00: 4202 4202 4202 4202
+lo: 5632 samples, errors 0, 2345 monitor changes
+lo_1 stream 0: LSA 0 LEA 300 LPCTL 0 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+lo_1 stream 1: LSA 0 LEA 300 LPCTL 0 OCT 0 FNS 17b AR 31 LPSLNK 0 VOFF 1
+lo_1 stream 2: LSA 199 LEA 200 LPCTL 1 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+lo_1 stream 3: LSA 200 LEA 200 LPCTL 1 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+cap_start: counter word fd53 at bbe0 (n 684), next fd54 fd55 fd56, c0 be8c, head n 695
+lo_1 after run: slot regs +00: 4002 4002 4202 4202
+lo: 5632 samples, errors 0, 121 monitor changes
+lo_2 stream 0: LSA 200 LEA 100 LPCTL 1 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+lo_2 stream 1: LSA 0 LEA 0 LPCTL 1 OCT 0 FNS 000 AR 31 LPSLNK 0 VOFF 1
+lo_2 stream 2: LSA 2000 LEA 3000 LPCTL 1 OCT 0 FNS 000 AR 8 LPSLNK 1 VOFF 0
+lo_2 stream 3: LSA 1000 LEA 3000 LPCTL 1 OCT 0 FNS 000 AR 8 LPSLNK 0 VOFF 0
+cap_start: counter word fd8f at 7f00 (n 624), next fd90 fd91 fd92, c0 8170, head n 643
+lo_2 after run: slot regs +00: 4202 4202 4202 4202
+lo: 5632 samples, errors 0, 5000 monitor changes

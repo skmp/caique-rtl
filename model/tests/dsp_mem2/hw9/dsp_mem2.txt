@@ -1,0 +1,24 @@
+A INPUTS  src 8000 -> word 0f80
+A INPUTS  src 7f00 -> word 107f
+A INPUTS  src 80ff -> word 0f80
+A INPUTS  src ff00 -> word 0fff
+A INPUTS  src 0100 -> word 1001
+A INPUTS  src ffff -> word 0fff
+A INPUTS  src f000 -> word 0ff0
+A INPUTS  src 0f00 -> word 100f
+A SHIFTED src 8000 -> word 0800
+A SHIFTED src 9000 -> word 0900
+A SHIFTED src ffe0 -> word 0ffe
+A SHIFTED src 7000 -> word 1700
+A SHIFTED src 0ff0 -> word 10ff
+A SHIFTED src 8010 -> word 0801
+A SHIFTED src fff0 -> word 0fff
+A SHIFTED src 0010 -> word 1001
+B ADRL@0 (+1) ADRL@4 (+2); ADREB reads of 0x400 at 1,3,5,7,9 -> 0401 0401 0402 0402 0402
+D IRA=IWA: TEMP[0..7]: e00000 f00000 e00000 f00000 e00000 f00000 e00000 f00000  (slot p holds -word(c=p)[new] or -word(c=p+1)[old]; even words 0x100000)
+E NOFL only on step 0: IWT@5 -> 122200 (raw 111100, float 122200)
+E NOFL only on step 1: IWT@5 -> 122200 (raw 111100, float 122200)
+E NOFL only on step 2: IWT@5 -> 122200 (raw 111100, float 122200)
+E NOFL only on step 3: IWT@5 -> 111100 (raw 111100, float 122200)
+E NOFL only on step 4: IWT@5 -> 122200 (raw 111100, float 122200)
+E NOFL only on step 5: IWT@5 -> 122200 (raw 111100, float 122200)

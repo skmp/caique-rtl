@@ -1,0 +1,7 @@
+replay_fit tests/filt_edges/hw9: 45376 samples, first 709, c0 ca01, key-on sample 227 (MDEC_CT c659), fit window 227..43958, sync MDEC_CT 1676
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(c659) = 062da fits all 43730 noise samples; f(sync 1676 - 1) = 1c4cc (45028 samples on)
+replay_fit tests/filt_edges/hw9: mdec 1676 lfsr 1c4cc K 0 par 0 -> tests/filt_edges/hw9/replay.txt

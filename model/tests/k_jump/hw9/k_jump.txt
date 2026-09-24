@@ -1,0 +1,9 @@
+kj0 action: none (baseline); sync MDEC_CT 1626, measured by t 3179014
+kj1 action: 0x2804 = 0x8000 (bit 15), then the default ring; sync MDEC_CT e761, measured by t 4542332
+kj2 action: 0x2804 = 0x1000 (bit 12), then the default ring; sync MDEC_CT fc4d, measured by t 5903623
+kj3 action: 0x2804 = 0x5555, then the default ring; sync MDEC_CT 118b, measured by t 7269775
+kj4 action: 0x2804 = 0xAAAA, then the default ring; sync MDEC_CT e1b6, measured by t 8651943
+kj5 action: 0x2804 = 0xFFFF, then the default ring; sync MDEC_CT b0ae, measured by t 10015793
+kj6 action: EXTS0 / EXTS1 written FFFF 0 5555 AAAA, restored; sync MDEC_CT c5f1, measured by t 11377211
+kj7 action: MIXS0.l / MIXS0.h / EFREG0 / EFREG15 written FFFF 0 5555 AAAA, restored; sync MDEC_CT da7b, measured by t 12741974
+kj8 action: TEMP0 / MEMS0 / MEMS31 / COEF0 / MADRS0 / MPRO127 written FFFF 0 5555 AAAA, restored; sync MDEC_CT edcb, measured by t 14123188

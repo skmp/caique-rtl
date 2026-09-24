@@ -2,7 +2,7 @@
  * ATTACK?  tests/feg_koffdir (F4) established it for decay 2 (old increment AND old direction, hold check against the
  * release target); tests/aeg_koff koff_att (F2) found the AEG attack takes NO step on the key-off clock.  The FEG attack
  * is linear, so the question is open: old step / no step / old increment toward the release target (what
- * src/aica_model.cpp feg_clock did until F4) / release increment.
+ * sample-model/aica_model.cpp feg_clock did until F4) / release increment.
  *
  * Harness = feg_koffdir (full-scale random input at SA_SIG, Q 4, VOFF 1, LPOFF 0, RR 0 so a released slot keeps
  * playing; the FEG is recovered through the bit-exact filter), but the unfiltered reference of stream 3 is replaced by

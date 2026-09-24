@@ -11,7 +11,7 @@
 // the same KYONEX keys ON; u files work/eg/ka_*.u from tools/koffatt_check -u work/eg/ka_; the witness's MIXS is compared
 // too).  The c0 of those runs is read from the case text outputs under tests/<case>/hw/ (runs skipped when absent).
 //   eg_model [-K k] [-v] [name...]   (run from caique-rtl/model; default: every run; GROUPS line = per-group counts)
-// Build: make -C tools eg_model (-> build/tools/eg_model; links src/aica_model.cpp)
+// Build: make -C tools eg_model (-> build/tools/eg_model; links sample-model/aica_model.cpp)
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -19,7 +19,7 @@
 #include <vector>
 #include <functional>
 #include <algorithm>
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #include "filt_capture.h"
 using namespace caique;
 
@@ -278,7 +278,7 @@ int main(int argc, char **argv) {
         load_ram(m, r.ram_kind);
         for (auto &c : r.slots) write_slot(m, c);
         for (int i = 0; i < 16; i++) m.step();
-        m.MDEC_CT = (md_on + 1) & 0xFFFF;   /* the KYONEX is read at the next boundary, the onset is the sample after it */
+        m.MDEC_CT = (md_on + 2) & 0xFFFF;   /* the KYONEX is read at the next boundary, the onset is the sample after it; a sample's step has MDEC_CT = capture + 1 */
         /* the key-on write: KYONB 1 on every slot but the witness (KYONB 0, as the case writes it), then KYONEX through the
          * first slot (the case does it through slot 0); the key-off write: KYONB 0 on every slot, KYONB 1 on the witness */
         auto key_write = [&](bool on_event) {
@@ -289,7 +289,7 @@ int main(int argc, char **argv) {
         // compare function for sample i (after m.step())
         auto check = [&](int i) -> bool {
             if (r.witness >= 0) { const SlotCfg &w = r.slots[r.witness]; if (m.MIXS[w.ISEL] != cp.v[i * cp.ns + w.ISEL]) return false; }
-            if (!r.ufile.empty()) { int n = i - on; return u[n] < 0 || u[n] == (m.slot[r.slots[0].slot].FEG.v >> 1); }
+            if (!r.ufile.empty()) { int n = i - on; return u[n] < 0 || u[n] == (m.slot[r.slots[0].slot].FEG.vo >> 1); }
             for (auto &c : r.slots) if (m.MIXS[c.ISEL] != cp.v[i * cp.ns + c.ISEL]) return false;
             return true;
         };
@@ -327,7 +327,7 @@ int main(int argc, char **argv) {
         if (bad >= 0) {
             if (bestko >= 0 && kos.empty()) printf(" (best key-off %d %s)", bestko, ((r.c0ring - cp.first - bestko) & 1) ? "odd" : "even");
             printf("; first mismatch at %d (+%d, MDEC_CT %s):", bad, bad - on, ((r.c0ring - cp.first - bad) & 1) ? "odd" : "even");
-            if (!r.ufile.empty()) printf(" hw u %03x model v %04x", u[bad - on], m.slot[r.slots[0].slot].FEG.v);
+            if (!r.ufile.empty()) printf(" hw u %03x model v %04x", u[bad - on], m.slot[r.slots[0].slot].FEG.vo);
             else for (auto &c : r.slots) printf(" s%d hw %d model %d", c.ISEL, cp.v[bad * cp.ns + c.ISEL], m.MIXS[c.ISEL]);
             if (r.witness >= 0) { const SlotCfg &w = r.slots[r.witness]; printf("; witness s%d hw %d model %d (a %03x)", w.ISEL, cp.v[bad * cp.ns + w.ISEL], m.MIXS[w.ISEL], m.slot[w.slot].AEG.a); }
         }

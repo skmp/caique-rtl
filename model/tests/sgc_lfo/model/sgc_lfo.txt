@@ -2,35 +2,35 @@ lf_0 stream 0: ALFO WS 0 S 7 LFOF 20
 lf_0 stream 1: ALFO WS 1 S 7 LFOF 20
 lf_0 stream 2: ALFO WS 2 S 7 LFOF 20
 lf_0 stream 3: ALFO WS 3 S 7 LFOF 20
-cap_start: counter word fd3b at e940 (n 708), next fd3c fd3d fd3e, c0 ec04, head n 727
+cap_start: counter word fd43 at da80 (n 700), next fd44 fd45 fd46, c0 dd3c, head n 714
 lf_0: 66496 samples, errors 0
 lf_1 stream 0: ALFO WS 2 S 1 LFOF 20
 lf_1 stream 1: ALFO WS 2 S 3 LFOF 20
 lf_1 stream 2: ALFO WS 2 S 5 LFOF 20
 lf_1 stream 3: ALFO WS 2 S 6 LFOF 20
-cap_start: counter word fd59 at ce40 (n 678), next fd5a fd5b fd5c, c0 d0e6, head n 704
+cap_start: counter word fd5b at b0c0 (n 676), next fd5c fd5d fd5e, c0 b364, head n 679
 lf_1: 66496 samples, errors 0
 lf_2 stream 0: ALFO WS 0 S 7 LFOF 31
 lf_2 stream 1: ALFO WS 0 S 7 LFOF 29
 lf_2 stream 2: ALFO WS 0 S 7 LFOF 26
 lf_2 stream 3: ALFO WS 0 S 7 LFOF 23
-cap_start: counter word fd5f at b340 (n 672), next fd60 fd61 fd62, c0 b5e0, head n 682
+cap_start: counter word fd91 at 8740 (n 622), next fd92 fd93 fd94, c0 89ae, head n 644
 lf_2: 26816 samples, errors 0
 lf_3 stream 0: ALFO WS 0 S 7 LFOF 16
 lf_3 stream 1: ALFO WS 0 S 7 LFOF 12
 lf_3 stream 2: ALFO WS 0 S 7 LFOF 8
 lf_3 stream 3: ALFO WS 0 S 7 LFOF 4
-cap_start: counter word fdcf at 33c0 (n 560), next fdd0 fdd1 fdd2, c0 35f0, head n 573
+cap_start: counter word fd23 at f840 (n 732), next fd24 fd25 fd26, c0 fb1c, head n 739
 lf_3: 264960 samples, errors 0
 lf_4 stream 0: PLFO WS 0 S 7 LFOF 20
 lf_4 stream 1: PLFO WS 1 S 7 LFOF 20
 lf_4 stream 2: PLFO WS 2 S 7 LFOF 20
 lf_4 stream 3: PLFO WS 3 S 7 LFOF 20
-cap_start: counter word fdf3 at 1220 (n 524), next fdf4 fdf5 fdf6, c0 142c, head n 545
+cap_start: counter word fd55 at c740 (n 682), next fd56 fd57 fd58, c0 c9ea, head n 698
 lf_4: 66496 samples, errors 0
 lf_5 stream 0: PLFO WS 2 S 1 LFOF 20
 lf_5 stream 1: PLFO WS 2 S 3 LFOF 20
 lf_5 stream 2: PLFO WS 2 S 5 LFOF 20
 lf_5 stream 3: PLFO WS 2 S 6 LFOF 20
-cap_start: counter word fd3a at f700 (n 709), next fd3b fd3c fd3d, c0 f9c5, head n 739
+cap_start: counter word fd7d at 9da0 (n 642), next fd7e fd7f fd80, c0 a022, head n 663
 lf_5: 66496 samples, errors 0

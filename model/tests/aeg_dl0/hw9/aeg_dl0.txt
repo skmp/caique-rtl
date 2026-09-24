@@ -1,0 +1,2 @@
+cap_start: counter word fd92 at 80e0 (n 621), next fd93 fd94 fd95, c0 834d, head n 645
+dl0: 20288 samples, counter errors 0, 41124 EG monitor reads, 1080 changes

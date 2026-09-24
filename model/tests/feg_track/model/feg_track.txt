@@ -2,17 +2,17 @@ ft_0 stream 0: OCT 0 FNS 000 KRS 15 FLV 1800 1c05 1a03 1b00 1900 FAR 28 FD1R 26 
 ft_0 stream 1: OCT 0 FNS 000 KRS 15 FLV 1ff0 1802 1f01 1e00 1ffd FAR 30 FD1R 29 FD2R 24 FRR 30 lpoff 0
 ft_0 stream 2: OCT 0 FNS 000 KRS 15 FLV 1c00 1c80 1c00 1c40 1bf0 FAR 22 FD1R 23 FD2R 21 FRR 25 lpoff 0
 ft_0 stream 3: OCT 0 FNS 000 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd38 at e940 (n 711), next fd39 fd3a fd3b, c0 ec07, head n 726
+cap_start: counter word fd3f at da80 (n 704), next fd40 fd41 fd42, c0 dd40, head n 715
 ft_0: 9984 samples, errors 0
 ft_1 stream 0: OCT 3 FNS 200 KRS 15 FLV 1800 1c00 1800 1a00 1c00 FAR 16 FD1R 20 FD2R 24 FRR 22 lpoff 0
 ft_1 stream 1: OCT 3 FNS 200 KRS 0 FLV 1800 1c00 1800 1a00 1c00 FAR 16 FD1R 20 FD2R 24 FRR 22 lpoff 0
 ft_1 stream 2: OCT 3 FNS 200 KRS 5 FLV 1800 1c00 1800 1a00 1c00 FAR 16 FD1R 20 FD2R 24 FRR 22 lpoff 0
 ft_1 stream 3: OCT 3 FNS 200 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd60 at acc0 (n 671), next fd61 fd62 fd63, c0 af5f, head n 680
+cap_start: counter word fd83 at 8f60 (n 636), next fd84 fd85 fd86, c0 91dc, head n 655
 ft_1: 11264 samples, errors 0
 ft_2 stream 0: OCT 13 FNS 155 KRS 15 FLV 1800 1ff0 1800 1800 1a00 FAR 24 FD1R 26 FD2R 0 FRR 28 lpoff 0
 ft_2 stream 1: OCT 13 FNS 155 KRS 2 FLV 1800 1c00 1900 1a00 1c00 FAR 18 FD1R 20 FD2R 22 FRR 24 lpoff 0
 ft_2 stream 2: OCT 13 FNS 155 KRS 15 FLV 1c00 1d00 1d00 1e00 1b00 FAR 26 FD1R 26 FD2R 0 FRR 26 lpoff 0
 ft_2 stream 3: OCT 13 FNS 155 KRS 15 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 lpoff 1
-cap_start: counter word fd9a at 6b80 (n 613), next fd9b fd9c fd9d, c0 6de5, head n 622
+cap_start: counter word fdcb at 3f80 (n 564), next fdcc fdcd fdce, c0 41b4, head n 583
 ft_2: 5312 samples, errors 0

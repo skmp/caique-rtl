@@ -4,56 +4,56 @@ p0 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p0 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p0 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p0 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fd29 at eae0 (n 726), next fd2a fd2b fd2c, c0 edb6, head n 728
-probe p0: c0 edb6 head n 728 t_head_us 0122741 mdec_head eade samples 67392 errors 0 marks 4 action none (baseline)
+cap_start: counter word fd50 at dc40 (n 687), next fd51 fd52 fd53, c0 deef, head n 717
+probe p0: c0 deef head n 717 t_head_us 0208257 mdec_head dc22 samples 67392 errors 0 marks 4 action none (baseline)
 p1 action: none (repeatability)
 p1 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p1 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p1 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p1 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fd55 at ce20 (n 682), next fd56 fd57 fd58, c0 d0ca, head n 704
-probe p1: c0 d0ca head n 704 t_head_us 1776167 mdec_head ce0a samples 67392 errors 0 marks 4 action none (repeatability)
+cap_start: counter word fd78 at b0c0 (n 647), next fd79 fd7a fd7b, c0 b347, head n 679
+probe p1: c0 b347 head n 679 t_head_us 1946915 mdec_head b0a0 samples 67392 errors 0 marks 4 action none (repeatability)
 p2 action: RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
 p2 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p2 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p2 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p2 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fd5a at b0a0 (n 677), next fd5b fd5c fd5d, c0 b345, head n 679
-probe p2: c0 b345 head n 679 t_head_us 3433032 mdec_head b09e samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
+cap_start: counter word fd8c at 84a0 (n 627), next fd8d fd8e fd8f, c0 8713, head n 642
+probe p2: c0 8713 head n 642 t_head_us 3688731 mdec_head 8491 samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
 p3 action: TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
 timers: SCIPD 0000 MCIPD 0000 after the writes
 p3 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p3 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p3 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p3 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fd7f at 9300 (n 640), next fd80 fd81 fd82, c0 9580, head n 654
-probe p3: c0 9580 head n 654 t_head_us 5091357 mdec_head 92f2 samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
+cap_start: counter word fdb3 at 5860 (n 588), next fdb4 fdb5 fdb6, c0 5aac, head n 605
+probe p3: c0 5aac head n 605 t_head_us 5431729 mdec_head 584f samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
 p4 action: 0x2800 written 0x000F then 0x0000 (MVOL only)
 p4 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p4 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p4 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p4 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fd92 at 75c0 (n 621), next fd93 fd94 fd95, c0 782d, head n 629
-probe p4: c0 782d head n 629 t_head_us 6747091 mdec_head 75b8 samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
+cap_start: counter word fddc at 2ca0 (n 547), next fddd fdde fddf, c0 2ec3, head n 567
+probe p4: c0 2ec3 head n 567 t_head_us 7171858 mdec_head 2c8c samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
 p5 action: ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
 arm: 2C00 before 00000001, released 00000000, after 00000001; vectors 0x00 eafffffe 0x3C eafffffe
 p5 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p5 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p5 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p5 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fdb2 at 5820 (n 589), next fdb3 fdb4 fdb5, c0 5a6d, head n 604
-probe p5: c0 5a6d head n 604 t_head_us 8405307 mdec_head 5811 samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
+cap_start: counter word fe06 at 0080 (n 505), next fe07 fe08 fe09, c0 0279, head n 530
+probe p5: c0 0279 head n 530 t_head_us 8914188 mdec_head 0067 samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
 p6 action: 128-step NOP DSP program loaded, run 10 ms, unloaded
 p6 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p6 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p6 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p6 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fdc0 at 3940 (n 575), next fdc1 fdc2 fdc3, c0 3b7f, head n 578
-probe p6: c0 3b7f head n 578 t_head_us 10070335 mdec_head 393d samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
+cap_start: counter word fd51 at d260 (n 686), next fd52 fd53 fd54, c0 d50e, head n 708
+probe p6: c0 d50e head n 708 t_head_us 10667952 mdec_head d24a samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
 p7 action: every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
 p7 stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p7 stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p7 stream 2: slot 2 AR 31 D1R 14 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
 p7 stream 3: slot 3 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
-cap_start: counter word fddc at 16a0 (n 547), next fddd fdde fddf, c0 18c3, head n 549
-probe p7: c0 18c3 head n 549 t_head_us 11757381 mdec_head 169e samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
+cap_start: counter word fd77 at a080 (n 648), next fd78 fd79 fd7a, c0 a308, head n 665
+probe p7: c0 a308 head n 665 t_head_us 12443439 mdec_head a06f samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed

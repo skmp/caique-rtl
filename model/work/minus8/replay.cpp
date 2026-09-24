@@ -12,7 +12,7 @@
 //     -sweep N   instead of one listing: try every gap in [0, N) with stride S (default 1), run the quiet sequence,
 //                step 882 samples (20 ms) and tally the final MIXS2 / filter state (the landing distribution)
 //     -o file    per-sample dump (t, MDEC_CT, MIXS2, a, state, off, enabled, CA, FEG.v, low, band)
-// Build: g++ -O2 -std=c++17 -fopenmp -o build/work/minus8_replay work/minus8/replay.cpp src/aica_model.cpp
+// Build: g++ -O2 -std=c++17 -fopenmp -o build/work/minus8_replay work/minus8/replay.cpp sample-model/aica_model.cpp
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -21,7 +21,7 @@
 #include <map>
 #include <algorithm>
 #include <omp.h>
-#include "../../src/aica_model.h"
+#include "../../sample-model/aica_model.h"
 #include "../../tools/filt_capture.h"
 using namespace caique;
 

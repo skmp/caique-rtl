@@ -1,0 +1,25 @@
+ramfile 020000 data.bin
+slotregs ap_0 0 0 0302 0000 0000 1000 001f 3c1f 0800 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_0 1 1 0302 0000 0000 1000 001f 3c1f 0a00 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_0 2 2 0302 0000 0000 1000 001f 3c1f 0bff 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_0 3 3 0302 0000 0000 1000 001f 3c1f 1000 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd83 at 90a0 (n 636), next fd84 fd85 fd86, c0 931c, head n 661
+capture ap_0 c0 931c first 662 samples 2816 head n 950 t_head_us 2002517
+slotregs ap_1 0 0 0302 0000 0000 1000 001f 3c1f 1100 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_1 1 1 0302 0000 0000 1000 001f 3c1f 1200 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_1 2 2 0302 0000 0000 1000 001f 3c1f 1300 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_1 3 3 0302 0000 0000 1000 001f 3c1f 13ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd9a at 66a0 (n 613), next fd9b fd9c fd9d, c0 6905, head n 621
+capture ap_1 c0 6905 first 622 samples 3008 head n 621 t_head_us 2236802
+slotregs ap_2 0 0 0382 0000 0000 1000 001f 3c1f 0800 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_2 1 1 0382 0000 0000 1000 001f 3c1f 0a00 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_2 2 2 0382 0000 0000 1000 001f 3c1f 0bff 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_2 3 3 0382 0000 0000 1000 001f 3c1f 1000 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdba at 3c40 (n 581), next fdbb fdbc fdbd, c0 3e85, head n 583
+capture ap_2 c0 3e85 first 584 samples 3008 head n 583 t_head_us 2482040
+slotregs ap_3 0 0 0382 0000 0000 1000 001f 3c1f 1100 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_3 1 1 0382 0000 0000 1000 001f 3c1f 1200 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_3 2 2 0382 0000 0000 1000 001f 3c1f 1300 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ap_3 3 3 0382 0000 0000 1000 001f 3c1f 13ff 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fded at 1220 (n 530), next fdee fdef fdf0, c0 1432, head n 548
+capture ap_3 c0 1432 first 549 samples 3008 head n 548 t_head_us 2726309

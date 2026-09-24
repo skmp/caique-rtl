@@ -7,7 +7,7 @@
 //   oldStep  one more step of the OLD segment: old increment and old direction, hold check against the release target
 //            (feg_law M_PEND_EVEN = "oldDir"; what F4 measured for decay 2)
 //   noStep   no step on E (what F2 measured for the AEG attack; feg_law M_NOSTEP)
-//   S3       old increment toward the RELEASE target (src/aica_model.cpp feg_clock before F4; feg_law M_S3)
+//   S3       old increment toward the RELEASE target (sample-model/aica_model.cpp feg_clock before F4; feg_law M_S3)
 //   relInc   the release increment already on E (feg_law M_NOS3)
 // An odd E takes no step under any reading (the release steps from E+1): the batch is indifferent.
 //   koffatt_check <dir> [-K kc] [-u <prefix>]   dir holds feg_koffatt.txt, ka_<b>.hdr/.bin and input.bin (console: tests/feg_koffatt/hw;

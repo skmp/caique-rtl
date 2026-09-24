@@ -1,0 +1,2 @@
+# tools/replay_fit /home/skmp/projects/dreamster/caique-rtl/model/tests/k_jump/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec ff56 lfsr 11bc4 K 10923 par 1

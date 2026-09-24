@@ -1,0 +1,8 @@
+replay stream 0: slot 0 AR 31 D1R 1 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+replay stream 1: slot 1 AR 31 D1R 6 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+replay stream 2: slot 2 AR 31 D1R 22 DL 31 D2R 0 RR 31 KRS 0 OCT 0 FNS 200
+replay stream 3: slot 3 noise (SSCTL 1, VOFF 1, LPOFF 1, IMXL 15)
+cap_start: counter word fd32 at dc20 (n 717), next fd33 fd34 fd35, c0 deed, head n 718
+capture replay c0 deed first 719 samples 45376 head n 718 t_head_us 0208326
+replay capture: c0 deed head n 718 t_head_us 0208326 samples 45376 first 719 errors 0 marks 4
+replay sync: n 45967 mdec 2b5e t_sync_us 1234363

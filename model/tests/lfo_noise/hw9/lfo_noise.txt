@@ -1,0 +1,16 @@
+ramfile 040000 const.bin
+ramfile 020000 ramp.bin
+slotregs ln_0 0 0 0204 0000 0000 1000 001f 041f 0000 501f 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_0 1 21 0204 0000 0000 1000 001f 041f 0000 501f 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_0 2 42 0204 0000 0000 1000 001f 041f 0000 501f 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_0 3 63 0204 0000 0000 1000 001f 041f 0000 501f 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdf0 at 9080 (n 527), next fdf1 fdf2 fdf3, c0 928f, head n 547
+capture ln_0 c0 928f first 548 samples 13568 head n 547 t_head_us 2004247
+ln_0: 13568 samples, errors 0
+slotregs ln_1 0 5 0202 0000 0000 1000 001f 041f 0000 53e0 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_1 1 26 0202 0000 0000 1000 001f 041f 0000 53e0 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_1 2 47 0202 0000 0000 1000 001f 041f 0000 53e0 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs ln_1 3 60 0202 0000 0000 1000 001f 041f 0000 53e0 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdd4 at 3700 (n 555), next fdd5 fdd6 fdd7, c0 392b, head n 582
+capture ln_1 c0 392b first 583 samples 13568 head n 582 t_head_us 2522650
+ln_1: 13568 samples, errors 0

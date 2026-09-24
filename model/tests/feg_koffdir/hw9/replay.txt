@@ -1,0 +1,2 @@
+# tools/replay_fit tests/feg_koffdir/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec ff3d lfsr 0a0df K 0 par 0

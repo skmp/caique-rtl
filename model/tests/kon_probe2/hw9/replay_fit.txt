@@ -1,0 +1,7 @@
+replay_fit tests/kon_probe2/hw9: 45376 samples, first 572, c0 2ea2, key-on sample 226 (MDEC_CT 2b84), fit window 226..43956, sync MDEC_CT 7ba1
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(2b84) = 1c548 fits all 43729 noise samples; f(sync 7ba1 - 1) = 17f04 (45028 samples on)
+replay_fit tests/kon_probe2/hw9: mdec 7ba1 lfsr 17f04 K 0 par 0 -> tests/kon_probe2/hw9/replay.txt

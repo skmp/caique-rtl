@@ -1,0 +1,4 @@
+slot 1: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:6 d3:7 d6:7 d9:4 d12:5 d15:2 d18:0 d21:0 d24:0 d27:0 d30:0 d33:0
+slot 1: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:0 d3:2 d6:1 d9:6 d12:5 d15:5 d18:7 d21:8 d24:8 d27:8 d30:8 d33:8
+slot 62: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:7 d3:8 d6:8 d9:8 d12:8 d15:8 d18:8 d21:8 d24:7 d27:5 d30:3 d33:5
+slot 62: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:0 d3:0 d6:0 d9:0 d12:0 d15:0 d18:0 d21:0 d24:1 d27:0 d30:4 d33:4

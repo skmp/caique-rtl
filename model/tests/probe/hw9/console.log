@@ -1,0 +1,55 @@
+hwrun: 14:32:26 lock taken by pid 233203 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/hw9/probe.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at ac45dfe0
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+VER/MVOL 2800 = 00000010  RBPL 2804 = 00000000  ARMRST 2C00 = 00000001
+TIMA: 0 ticks in 100002 us = 0 Hz (reg 00000000)
+10000 G2 register reads: 23709 us
+10000 G2 RAM reads: 23780 us
+before keyon: EG 00007fff CA 00000000 MIXS0 00000000/00000000
+t+  0: EG 00007fff CA 00000000 MIXS0 h 00000000 l 00000000  (12 us)
+t+  1: EG 0000c000 CA 00000000 MIXS0 h 00003f80 l 00000000  (11 us)
+t+  2: EG 0000c000 CA 00000015 MIXS0 h 00003f80 l 00000000  (11 us)
+t+  3: EG 0000c000 CA 00000001 MIXS0 h 00003f80 l 00000000  (11 us)
+t+  4: EG 0000c000 CA 00000018 MIXS0 h 00003f80 l 00000000  (11 us)
+t+  5: EG 0000c000 CA 0000001c MIXS0 h 00003f80 l 00000000  (11 us)
+t+  6: EG 0000c000 CA 0000001a MIXS0 h 00003f80 l 00000000  (11 us)
+t+  7: EG 0000c000 CA 0000000f MIXS0 h 00003f80 l 00000000  (12 us)
+t+  8: EG 0000c000 CA 00000000 MIXS0 h 00003f80 l 00000000  (11 us)
+t+  9: EG 0000c000 CA 0000001a MIXS0 h 00003f80 l 00000000  (12 us)
+t+ 10: EG 0000c000 CA 00000010 MIXS0 h 00003f80 l 00000000  (11 us)
+t+ 11: EG 0000c000 CA 00000017 MIXS0 h 00003f80 l 00000000  (11 us)
+MIXS0 read histogram (h<<4|l): 3f800 x4000
+ring 8K words histogram: 8000 x8192
+TEMP[0..3] h/l: 8000/00 8000/00 8000/00 8000/00
+TEMP[64..67] h/l: 8000/00 8000/00 8000/00 8000/00
+EFREG[0..1]: 00008000 00000000
+MIXS0 h/l now: 00003f80 00000000  EG 0000c000
+after keyoff: EG 0000ffff CA 00000000 MIXS0 00000000
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 128, dma_cntr = 128
+vid_set_mode: 640x480 VGA with 1 framebuffers.

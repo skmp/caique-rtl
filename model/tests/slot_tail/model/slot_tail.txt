@@ -3,19 +3,19 @@ tail_a stream 0: slot 0 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 
 tail_a stream 1: slot 1 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 24 TL 0 VOFF 1 LPOFF 0 Q 4 FLV 1b00 1b00 1b00 1b00 1b00 FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 1
 tail_a stream 2: slot 2 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 31 TL 0 VOFF 1 LPOFF 1 Q 4 FLV 1b00 1b00 1b00 1b00 1b00 FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 2
 tail_a stream 3: slot 3 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 0 TL 0 VOFF 1 LPOFF 1 Q 4 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 3
-cap_start: counter word fd4a at e160 (n 693), next fd4b fd4c fd4d, c0 e415, head n 720
+cap_start: counter word fd54 at c480 (n 683), next fd55 fd56 fd57, c0 c72b, head n 696
 tail_a: 13568 samples, errors 0, 4 marks
 tail_b stream 0: slot 0 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 31 TL 0 VOFF 0 LPOFF 0 Q 4 FLV 1b00 1b00 1b00 1b00 1b00 FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 0
 tail_b stream 1: slot 1 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 31 TL 0 VOFF 0 LPOFF 1 Q 4 FLV 1b00 1b00 1b00 1b00 1b00 FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 1
 tail_b stream 2: slot 2 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 31 TL 0 VOFF 1 LPOFF 0 Q 0 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 2
 tail_b stream 3: slot 3 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 000 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 0 TL 0 VOFF 1 LPOFF 1 Q 4 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 3
-cap_start: counter word fd8c at 9700 (n 627), next fd8d fd8e fd8f, c0 9973, head n 657
+cap_start: counter word fda6 at 6b80 (n 601), next fda7 fda8 fda9, c0 6dd9, head n 620
 tail_b: 13568 samples, errors 0, 4 marks
 tail_c stream 0: slot 0 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 0 AR 31 D1R 0 DL 0 D2R 0 RR 0 TL 0 VOFF 1 LPOFF 0 Q 4 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 IMXL 15 ISEL 0
 tail_c stream 1: slot 1 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 0 AR 31 D1R 0 DL 0 D2R 0 RR 31 TL 0 VOFF 1 LPOFF 0 Q 4 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 IMXL 15 ISEL 1
 tail_c stream 2: slot 2 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 0 AR 31 D1R 0 DL 0 D2R 0 RR 24 TL 0 VOFF 1 LPOFF 0 Q 4 FLV 1800 1c00 1800 1a00 1c00 FAR 24 FD1R 26 FD2R 28 FRR 22 IMXL 15 ISEL 2
 tail_c stream 3: slot 3 SA 20000 LSA 0 LEA 8192 LPCTL 1 OCT 0 FNS 200 KRS 15 AR 31 D1R 0 DL 0 D2R 0 RR 0 TL 0 VOFF 1 LPOFF 1 Q 4 FLV 1ffe 1ffe 1ffe 1ffe 1ffe FAR 0 FD1R 0 FD2R 0 FRR 0 IMXL 15 ISEL 3
-cap_start: counter word fdae at 4cc0 (n 593), next fdaf fdb0 fdb1, c0 4f11, head n 595
-tail_c: MIXS readback after the IMXL 0 write: 2 -4 0 -183344
-tail_c: MIXS readback at the end: 0 -4 0 59392
+cap_start: counter word fdeb at 12c0 (n 532), next fdec fded fdee, c0 14d4, head n 546
+tail_c: MIXS readback after the IMXL 0 write: 6 -8 -4 76576
+tail_c: MIXS readback at the end: 0 -8 -4 59392
 tail_c: 14464 samples, errors 0, 8 marks

@@ -1,0 +1,4 @@
+cap_start: counter word fd8c at 8a20 (n 627), next fd8d fd8e fd8f, c0 8c93, head n 653
+captured 91264 samples x 4 streams, counter errors 0 (first at 0), events: 1@900 2@88909
+stream 0: first non-zero at 907, phase 0, 88445 samples checked to 89351, 0 mismatches
+stream 1: first non-zero at 907, phase 0, 88445 samples checked to 89351, 0 mismatches

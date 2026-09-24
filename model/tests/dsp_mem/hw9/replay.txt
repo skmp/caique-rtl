@@ -1,0 +1,2 @@
+# tools/replay_fit tests/dsp_mem/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec 708b lfsr 0a539 K 0 par 0

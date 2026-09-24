@@ -45,3 +45,4 @@ eg_sched2      OK     8 runs anchored by a CPU MIXS write: SA effect on the anch
 kon_defer      OK     KYONB read when the KYONEX is processed: slot 1 window ~0..21 us, slot 62 ~0..40 us (boundary latch + per-frame read); model: a 0..1-sample window
 kon_probe/2/first OK  every key sequence accepted on console and model (after-off + key-off at any delay, one-write KYONB|KYONEX, KYONEX via another slot; key-on after off without key-off ignored); first-key-on oddities traced to the deferred KYONB read
 dsp_wslot      OK     13 checks identical: MWT posted with its own memory slot (even MWT + odd MRD both complete, 15+15 dense), read latency unchanged
+dsp_coll       OK     18 runs identical (coll_check): DSP MWT in a playing channel's slot dropped, MRD returns the word holding its sample CA+1; ADPCM word rule; ch 0-6 = next sample; key-on fetch on the CA-0 sample

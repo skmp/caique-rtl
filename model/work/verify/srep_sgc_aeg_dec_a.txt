@@ -1,0 +1,6 @@
+stream_replay tests/sgc_aeg/hw9 dec_a: 68992 samples, c0 4087, K 1225, compared up to sample 66228 (key-off mark - 400)
+  stream 0 (slot 0, bus 0, r00 0201 r18 0000 r1c 0000 r28 0020): onset 457, key-on boundary -1: 65775/65775 FULL
+  stream 1 (slot 1, bus 1, r00 0201 r18 0000 r1c 0000 r28 0020): onset 457, key-on boundary -1: 65775/65775 FULL
+  stream 2 (slot 2, bus 2, r00 0201 r18 0000 r1c 0000 r28 0020): onset 457, key-on boundary -1: 65775/65775 FULL
+  stream 3 (slot 3, bus 3, r00 0201 r18 0000 r1c 0000 r28 0020): onset 457, key-on boundary -1: 65775/65775 FULL
+stream_replay dec_a: all streams FULL

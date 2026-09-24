@@ -1,0 +1,7 @@
+replay_fit tests/filt_imp/hw9: 45376 samples, first 574, c0 2efb, key-on sample 227 (MDEC_CT 2bda), fit window 227..43956, sync MDEC_CT 7bf8
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(2bda) = 1c53b fits all 43728 noise samples; f(sync 7bf8 - 1) = 1eb18 (45027 samples on)
+replay_fit tests/filt_imp/hw9: mdec 7bf8 lfsr 1eb18 K 0 par 0 -> tests/filt_imp/hw9/replay.txt

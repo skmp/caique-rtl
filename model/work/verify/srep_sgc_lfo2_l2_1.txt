@@ -1,0 +1,6 @@
+stream_replay tests/sgc_lfo2/hw9 l2_1: 18688 samples, c0 78ad, K 1225, compared up to sample 17272 (key-off mark - 400)
+  stream 0 (slot 0, bus 0, r00 0203 r18 0000 r1c 0000 r28 0044): onset 0, key-on boundary +1: 0/17272, first mismatch at 0 (+0): hw 2 model 0 (3 tied candidates)
+  stream 1 (slot 1, bus 1, r00 0203 r18 0000 r1c 0000 r28 0044): onset 0, key-on boundary +1: 0/17272, first mismatch at 0 (+0): hw 2 model 0 (3 tied candidates)
+  stream 2 (slot 2, bus 2, r00 0203 r18 0000 r1c 0000 r28 0044): onset 227, key-on boundary -1: 9/17049, first mismatch at 232 (+5): hw 6220 model 6218
+  stream 3 (slot 3, bus 3, r00 0203 r18 0000 r1c 0000 r28 0044): onset 227, key-on boundary -1: 9/17049, first mismatch at 232 (+5): hw 6220 model 6218
+stream_replay l2_1: MISMATCH

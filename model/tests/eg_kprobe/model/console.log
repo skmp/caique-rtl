@@ -1,8 +1,8 @@
-probe p0: c0 edb6 head n 728 t_head_us 0122741 mdec_head eade samples 67392 errors 0 marks 4 action none (baseline)
-probe p1: c0 d0ca head n 704 t_head_us 1776167 mdec_head ce0a samples 67392 errors 0 marks 4 action none (repeatability)
-probe p2: c0 b345 head n 679 t_head_us 3433032 mdec_head b09e samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
-probe p3: c0 9580 head n 654 t_head_us 5091357 mdec_head 92f2 samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
-probe p4: c0 782d head n 629 t_head_us 6747091 mdec_head 75b8 samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
-probe p5: c0 5a6d head n 604 t_head_us 8405307 mdec_head 5811 samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
-probe p6: c0 3b7f head n 578 t_head_us 10070335 mdec_head 393d samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
-probe p7: c0 18c3 head n 549 t_head_us 11757381 mdec_head 169e samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed
+probe p0: c0 deef head n 717 t_head_us 0208257 mdec_head dc22 samples 67392 errors 0 marks 4 action none (baseline)
+probe p1: c0 b347 head n 679 t_head_us 1946915 mdec_head b0a0 samples 67392 errors 0 marks 4 action none (repeatability)
+probe p2: c0 8713 head n 642 t_head_us 3688731 mdec_head 8491 samples 67392 errors 0 marks 4 action RBP/RBL 0x2804 written 0x0000 (RBL 0 RBP 0) then back to the capture ring
+probe p3: c0 5aac head n 605 t_head_us 5431729 mdec_head 584f samples 67392 errors 0 marks 4 action TIMA/TIMB/TIMC each written 0x0000, 0x0700, 0x00FF, 0x0000
+probe p4: c0 2ec3 head n 567 t_head_us 7171858 mdec_head 2c8c samples 67392 errors 0 marks 4 action 0x2800 written 0x000F then 0x0000 (MVOL only)
+probe p5: c0 0279 head n 530 t_head_us 8914188 mdec_head 0067 samples 67392 errors 0 marks 4 action ARM7 released from reset for 5 ms (vectors 0x00..0x3C = b .), then held again
+probe p6: c0 d50e head n 708 t_head_us 10667952 mdec_head d24a samples 67392 errors 0 marks 4 action 128-step NOP DSP program loaded, run 10 ms, unloaded
+probe p7: c0 a308 head n 665 t_head_us 12443439 mdec_head a06f samples 67392 errors 0 marks 4 action every channel register of 64 slots written 0xFFFF (with KYONEX), then quiet sequence and zeroed

@@ -1,0 +1,2 @@
+# tools/replay_fit tests/feg_koffatt/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec c9c4 lfsr 067db K 0 par 0

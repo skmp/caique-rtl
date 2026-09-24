@@ -4,11 +4,18 @@
 #include <dc/g2bus.h>
 #include "../cases/aica_io.h"
 
-#define OUTDIR "/pc" MODEL_ROOT "/tests/" CASE "/hw/"
+#ifndef HWDIR
+#define HWDIR "hw"
+#endif
+#define OUTDIR "/pc" MODEL_ROOT "/tests/" CASE "/" HWDIR "/"
 static int output_error;
 const char *io_platform = "hw";
 
 uint32_t io_r(uint32_t off) { return g2_read_32(0xA0700000u + off); }
+void io_wn(int n, const uint32_t *off, const uint32_t *v) {
+    g2_fifo_wait();
+    for (int i = 0; i < n; i++) g2_write_32(0xA0700000u + off[i], v[i]);
+}
 void io_w(uint32_t off, uint32_t v) {
     g2_fifo_wait();
     g2_write_32(0xA0700000u + off, v);
@@ -34,9 +41,12 @@ int io_write_file(const char *name, const void *data, uint32_t bytes) {
     return 0;
 }
 void io_print(const char *s) { printf("%s", s); }
+void io_replay_point(uint32_t sync_mdec) { (void)sync_mdec; }
+uint32_t io_sh4_irq(void) { return ((*(volatile uint32_t *)0xA05F6904) >> 1) & 1; }   /* SB_ISTEXT bit 1: the AICA */   /* the console is what the models replay */
 
 int main(int argc, char **argv) {
     (void)argc; (void)argv;
+    replay_preamble();
     int rc = test_main();
     return rc ? rc : output_error;
 }

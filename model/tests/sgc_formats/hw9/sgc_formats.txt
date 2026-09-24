@@ -1,0 +1,23 @@
+ramfile 020000 data.bin
+fm_0 stream 0: PCMS 1 SSCTL 0 FNS 000
+slotregs fm_0 0 0 0282 0000 0000 1000 001f 3c1f 0000 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_0 stream 1: PCMS 1 SSCTL 0 FNS 17b
+slotregs fm_0 1 1 0282 0000 0000 1000 001f 3c1f 017b 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_0 stream 2: PCMS 2 SSCTL 0 FNS 000
+slotregs fm_0 2 2 0302 0000 0000 1000 001f 3c1f 0000 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_0 stream 3: PCMS 2 SSCTL 0 FNS 17b
+slotregs fm_0 3 3 0302 0000 0000 1000 001f 3c1f 017b 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd4f at b800 (n 688), next fd50 fd51 fd52, c0 bab0, head n 692
+capture fm_0 c0 bab0 first 693 samples 13376 head n 1109 t_head_us 2003486
+fm_0: 13376 samples, errors 0
+fm_1 stream 0: PCMS 3 SSCTL 0 FNS 000
+slotregs fm_1 0 0 0382 0000 0000 1000 001f 3c1f 0000 0000 00f0 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_1 stream 1: PCMS 3 SSCTL 0 FNS 17b
+slotregs fm_1 1 1 0382 0000 0000 1000 001f 3c1f 017b 0000 00f1 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_1 stream 2: PCMS 0 SSCTL 1 FNS 000
+slotregs fm_1 2 2 0602 0000 0000 1000 001f 3c1f 0000 0000 00f2 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+fm_1 stream 3: PCMS 0 SSCTL 1 FNS 17b
+slotregs fm_1 3 3 0602 0000 0000 1000 001f 3c1f 017b 0000 00f3 0000 0060 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fda3 at 5fa0 (n 604), next fda4 fda5 fda6, c0 61fc, head n 616
+capture fm_1 c0 61fc first 617 samples 13568 head n 616 t_head_us 2504070
+fm_1: 13568 samples, errors 0

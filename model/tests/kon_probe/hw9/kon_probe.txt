@@ -1,0 +1,20 @@
+S1 W 200: EG at 8 ms 5fff; S1 W 200: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S1 W 1500: EG at 8 ms 5fff; S1 W 1500: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S1 W 3000: EG at 8 ms 5fff; S1 W 3000: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S1 W 6000: EG at 8 ms 5fff; S1 W 6000: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S1 W 12000: EG at 8 ms 5fff; S1 W 12000: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S1 W 20000: EG at 8 ms 5fff; S1 W 20000: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S2 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S2b KYONB then KYONEX via slot 5: EG after the key-on +0 7fff +100us 2000 +500us 2048 +2ms 2158 -> STARTED
+S3: EG at 3 ms 2208; S3 key-off while decaying: EG after the key-on +0 6318 +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S4 key-on after off, no key-off: EG after the key-on +0 5fff +100us 5fff +500us 5fff +2ms 5fff -> ignored
+S5 two key-offs: EG after the key-on +0 7fff +100us 2000 +500us 2048 +2ms 2158 -> STARTED
+S6 one-write key-off: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 200 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 1500 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 3000 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 6000 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 12000 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S7 W 20000 one-write key-on: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S8 plain key-on from a long release: EG after the key-on +0 7fff +100us 2008 +500us 2050 +2ms 2158 -> STARTED
+S9 key-on twice 200 us apart: EG after the key-on +0 2018 +100us 2028 +500us 2070 +2ms 2180 -> STARTED

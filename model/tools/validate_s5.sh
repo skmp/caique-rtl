@@ -10,18 +10,21 @@
 #                                                  ("P<n> <bus> <LOST|KEPT|OTHER>" of the rules table) are identical
 # Prints every tool's summary line and one PASS/FAIL line; exit 0 iff everything is FULL / consistent.  If the console
 # rebooted, refit K with eg_phase on a new eg_lock att_slow capture and pass it.
+# CAIQUE_MODEL=cycle runs the same gate on the cycle model (the tools' _cycle builds, run_cycle.sh, tests/mixs_write/cycle).
 set -u
+SUF=""; MD=model; RUN=./run_model.sh; SRC=sample-model
+if [ "${CAIQUE_MODEL:-sample}" = cycle ]; then SUF=_cycle; MD=cycle; RUN=./run_cycle.sh; SRC=cycle-model; fi
 K=${1:-6491}
 M=$(cd "$(dirname "$0")/.." && pwd)
 cd "$M" || exit 2
-make -C tools eg_model eg_replay tail_cmp mixsw_check >/dev/null || { echo "build failed"; exit 2; }
-echo "model: $(md5sum src/aica_model.cpp | cut -c1-12) $(md5sum src/aica_model.h | cut -c1-12)  K $K"
+make -C tools eg_model$SUF eg_replay$SUF tail_cmp$SUF mixsw_check >/dev/null || { echo "build failed"; exit 2; }
+echo "model: $SRC $(md5sum $SRC/aica_model.cpp | cut -c1-12) $(md5sum $SRC/aica_model.h | cut -c1-12)  K $K"
 rc=0
-out=$(build/tools/eg_model) || rc=1
+out=$(build/tools/eg_model$SUF) || rc=1
 echo "$out" | grep -v FULL | grep -v '^GROUPS\|^TOTAL' | sed 's/^/  /'
 echo "$out" | grep '^GROUPS\|^TOTAL' | sed 's/^/eg_model  /'
 for r in koff_d2 koff_d2b koff_d1 koff_att kon_rel; do
-  out=$(build/tools/eg_replay -K "$K" -case tests/aeg_koff/hw/aeg_koff.txt $r) || rc=1
+  out=$(build/tools/eg_replay$SUF -K "$K" -case tests/aeg_koff/hw/aeg_koff.txt $r) || rc=1
   echo "$out" | grep 'FAIL\|prefix' | sed 's/^/  /'
   echo "$out" | grep '^TOTAL' | sed 's/^/eg_replay /'
 done
@@ -30,10 +33,10 @@ echo "$out" | grep 'first mismatch' | cut -c1-200 | sed 's/^/  /'
 echo "$out" | grep '^RESULT\|^TOTAL' | sed 's/^/tail_cmp  /'
 # mixs_write: the model's own run, then the writer-rule verdicts on both platforms
 mrc=0
-./run_model.sh mixs_write >/dev/null 2>&1 || { echo "  run_model.sh mixs_write failed"; mrc=1; }
+$RUN mixs_write >/dev/null 2>&1 || { echo "  $RUN mixs_write failed"; mrc=1; }
 verdicts() { grep -E '^P[0-9]+b? +[0-9]+ +(LOST|KEPT|OTHER)' | awk '{print $1, $2, $3}'; }
 hw=$(build/tools/mixsw_check tests/mixs_write/hw) || mrc=1
-md=$(build/tools/mixsw_check tests/mixs_write/model) || mrc=1
+md=$(build/tools/mixsw_check tests/mixs_write/$MD) || mrc=1
 hg_hw=$(echo "$hw" | grep '^  H_G ' | grep -c consistent); hg_md=$(echo "$md" | grep '^  H_G ' | grep -c consistent)
 nrow=$(echo "$hw" | verdicts | wc -l)
 if [ "$hg_hw" -ne 1 ]; then echo "  mixsw_check hw: H_G not consistent:"; echo "$hw" | grep '^  H_[A-Z0-9] ' | sed 's/^/    /'; mrc=1; fi

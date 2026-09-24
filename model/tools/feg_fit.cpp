@@ -1,5 +1,5 @@
 // feg_fit.cpp -- fit the filter envelope (FEG) model to the per-sample values recovered by feg_track.
-// Model (src/aica_model.cpp feg_clock): envelope clock every 2 samples, global counter eg_cnt, increments from the
+// Model (sample-model/aica_model.cpp feg_clock): envelope clock every 2 samples, global counter eg_cnt, increments from the
 // AEG tables at the effective rate R (eff_rate, KRS as for the AEG); key-on loads FLV0 at an envelope clock and the
 // FEG first moves on the next clock; key-off switches to release at a clock and moves on that same clock.
 // Unknown per batch: the clock parity relative to the onset (p), eg_cnt at the key-on clock (c0 mod 2^14) and the

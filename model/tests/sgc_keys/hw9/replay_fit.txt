@@ -1,0 +1,7 @@
+replay_fit tests/sgc_keys/hw9: 45376 samples, first 562, c0 2586, key-on sample 227 (MDEC_CT 2271), fit window 227..43956, sync MDEC_CT 728f
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 10923, envelope clock on ODD MDEC_CT
+  LFSR: f(2271) = 11f29 fits all 43728 noise samples; f(sync 728f - 1) = 0734c (45027 samples on)
+replay_fit tests/sgc_keys/hw9: mdec 728f lfsr 0734c K 10923 par 1 -> tests/sgc_keys/hw9/replay.txt

@@ -16,8 +16,7 @@ struct sub {
 
 int test_main(void) {
     out_open("dsp_mem3.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     for (int k = 0; k < 64; k++) dsp_madrs(k, 0);
     for (int s = 0; s < 128; s++) dsp_coef(s, 2048);
     static const struct sub subs[] = {

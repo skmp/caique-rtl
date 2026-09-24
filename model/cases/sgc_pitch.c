@@ -13,6 +13,7 @@ int test_main(void) {
     for (int i = 0; i < 4096 + 64; i++) { x = x * 1103515245u + 12345u; smp[i] = (int16_t)(x >> 16); }
     for (int i = 0; i < 64; i++) smp[4096 + i] = smp[i]; /* loop continuation: s1 past the end = the loop start */
     out_bin("sample.bin", smp, sizeof smp);
+    LOG("ramfile 020000 sample.bin\n");
     static const struct { int oct, fns; } pv[] = {
         {0, 0}, {0, 0x200}, {0, 0x001}, {0, 0x3FF}, {0, 0x155}, {1, 0}, {1, 0x2AB}, {2, 0x0FF},
         {7, 0x3FF}, {15, 0}, {15, 0x200}, {14, 0x3FF}, {12, 0x123}, {8, 0x3FF}, {9, 0x001}, {3, 0x1FF}};
@@ -25,6 +26,9 @@ int test_main(void) {
             c.ISEL = k; c.VOFF = 1; c.OCT = pv[base + k].oct; c.FNS = pv[base + k].fns;
             slot_write(k, &c);
             LOG("pi_%d stream %d: OCT %d FNS %03x\n", base / NS, k, pv[base + k].oct, pv[base + k].fns);
+            char nm[32];
+            snprintf(nm, sizeof nm, "pi_%d", base / NS);
+            slot_log(nm, k, k, &c);
         }
         static const int mixs[NS] = {0, 1, 2, 3};
         if (cap_start(NS, mixs, capbuf, MAXV)) { OUT("cap_start failed\n"); return 1; }

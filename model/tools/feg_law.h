@@ -1,4 +1,4 @@
-// feg_law.h -- the FEG law (NOTES "Filter envelope (FEG)", src/aica_model.cpp feg_clock) as a standalone simulator
+// feg_law.h -- the FEG law (NOTES "Filter envelope (FEG)", sample-model/aica_model.cpp feg_clock) as a standalone simulator
 // with the key-off mechanisms compared in work/verify/s5/S3alt.md.  Envelope clock on even MDEC_CT, eg_cnt = K - MDEC_CT/2,
 // R < 48 rows one step behind.  Shared by tools/koffdir_check.cpp, tools/koffatt_check.cpp and the scratch
 // work/verify/s5/s3alt.cpp (existing captures; build it with -I tools).

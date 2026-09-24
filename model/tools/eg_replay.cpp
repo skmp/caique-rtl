@@ -32,7 +32,7 @@
 // stream the matched prefix / total, the number of mismatching samples and the first mismatch (sample, MDEC_CT parity,
 // hw / model, model a / state / CA); a TOTAL line.  -v dumps 12 samples from every stream's first mismatch.
 // Exit 0 iff every stream is FULL.
-// Build: make -C tools eg_replay (-> build/tools/eg_replay; links src/aica_model.cpp).  Run from caique-rtl/model.
+// Build: make -C tools eg_replay (-> build/tools/eg_replay; links sample-model/aica_model.cpp).  Run from caique-rtl/model.
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -41,7 +41,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #include "filt_capture.h"
 using namespace caique;
 
@@ -273,7 +273,7 @@ int main(int argc, char **argv) {
     load_ram(m);
     for (int k = 0; k < c.ns; k++) write_slot(m, c.st[k]);
     for (int i = 0; i < 16; i++) m.step();
-    m.MDEC_CT = mdec(c, 0);
+    m.MDEC_CT = (mdec(c, 0) + 1) & 0xFFFF;   /* the step of a sample has MDEC_CT = capture + 1 (the DSP captures it one sample later) */
 
     std::vector<Cyc> cycs;
     int kind = 0;

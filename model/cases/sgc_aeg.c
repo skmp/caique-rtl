@@ -30,6 +30,7 @@ static void do_run(const run_t *r) {
         c.ISEL = k;
         c.AR = r->AR[k]; c.D1R = r->D1R[k]; c.DL = r->DL[k]; c.D2R = r->D2R[k]; c.RR = r->RR[k];
         slot_write(k, &c);
+        slot_log(r->name, k, k, &c);
     }
     static const int mixs[NS] = {0, 1, 2, 3};
     if (cap_start(NS, mixs, capbuf, MAXV)) { OUT("%s: cap_start failed\n", r->name); return; }
@@ -64,6 +65,12 @@ static void do_run(const run_t *r) {
 
 int test_main(void) {
     out_open("sgc_aeg.txt");
+    {   /* the constant block every run plays (tools/stream_replay) */
+        static uint32_t cst[16];
+        for (int i = 0; i < 16; i++) cst[i] = 0x7FFF7FFF;
+        out_bin("const.bin", cst, sizeof cst);
+        LOG("ramfile 010000 const.bin\n");
+    }
     static const run_t runs[] = {
         {"att_31_28", {31, 30, 29, 28}, {0}, {0}, {0}, {31, 31, 31, 31}, 400, 50},
         {"att_27_24", {27, 26, 25, 24}, {0}, {0}, {0}, {31, 31, 31, 31}, 800, 50},

@@ -1,0 +1,30 @@
+koff_d2 stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 26 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 24 RR 28 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 28 RR 0 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2 stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fddd at 1780 (n 546), next fdde fddf fde0, c0 19a2, head n 552
+koff_d2: 43328 samples, errors 0, 64 marks
+koff_d2b stream 0: slot 0 AR 31 D1R 31 DL 2 D2R 30 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 1: slot 1 AR 31 D1R 31 DL 2 D2R 26 RR 30 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 2: slot 2 AR 31 D1R 31 DL 2 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d2b stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fdcb at 4060 (n 564), next fdcc fdcd fdce, c0 4294, head n 588
+koff_d2b: 42176 samples, errors 0, 64 marks
+koff_d1 stream 0: slot 0 AR 31 D1R 26 DL 31 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d1 stream 1: slot 1 AR 31 D1R 24 DL 31 D2R 0 RR 28 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d1 stream 2: slot 2 AR 31 D1R 28 DL 31 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_d1 stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd8c at 7300 (n 627), next fd8d fd8e fd8f, c0 7573, head n 632
+koff_d1: 43648 samples, errors 0, 64 marks
+koff_att stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 28 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 1: slot 1 AR 26 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 2: slot 2 AR 28 D1R 0 DL 0 D2R 0 RR 26 KRS 15 OCT 0 FNS 000 ramp 0 role test
+koff_att stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd6e at 9f60 (n 657), next fd6f fd70 fd71, c0 a1f1, head n 671
+koff_att: 41024 samples, errors 0, 64 marks
+kon_rel stream 0: slot 0 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 0 role test
+kon_rel stream 1: slot 1 AR 24 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 1 role test
+kon_rel stream 2: slot 2 AR 31 D1R 0 DL 0 D2R 0 RR 24 KRS 15 OCT 0 FNS 000 ramp 1 role test
+kon_rel stream 3: slot 3 AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1 OCT 0 FNS 000 ramp 0 role witness
+cap_start: counter word fd40 at d640 (n 703), next fd41 fd42 fd43, c0 d8ff, head n 722
+kon_rel: 53952 samples, errors 0, 64 marks

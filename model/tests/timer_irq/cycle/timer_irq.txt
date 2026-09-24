@@ -1,0 +1,257 @@
+R initial: 2890=0000 2894=0000 2898=0000 289c=0000 28a0=0400 28a4=0000 28a8=0000 28ac=0000 28b0=0000 28b4=0000 28b8=0400 28bc=0000
+R 2890 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 2894 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 2898 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 289c w 07ff r 07ff w ffff r 07ff w 0000 r 0000 w 5555 r 0555
+R 28a0 w 07ff r 0420 w ffff r 0420 w 0000 r 0420 w 5555 r 0420
+R 28a4 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 28a8 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 28ac w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 28b0 w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+R 28b4 w 07ff r 07ff w ffff r 07ff w 0000 r 0000 w 5555 r 0555
+R 28b8 w 07ff r 0420 w ffff r 0420 w 0000 r 0420 w 5555 r 0420
+R 28bc w 07ff r 0000 w ffff r 0000 w 0000 r 0000 w 5555 r 0000
+C MCIRE 7ff: before MCIPD 0400 SCIPD 0400, after MCIPD 0000 SCIPD 0400
+C SCIRE 7ff: before MCIPD 0400 SCIPD 0400, after MCIPD 0400 SCIPD 0000
+C MCIRE 7ff: before MCIPD 0400 SCIPD 0400, after MCIPD 0000 SCIPD 0400
+C SCIRE 7ff: before MCIPD 0400 SCIPD 0400, after MCIPD 0400 SCIPD 0000
+C write MCIPD 7ff: MCIPD 0020 SCIPD 0400
+C write SCIPD 7ff: MCIPD 0000 SCIPD 0020
+L all off: line 0
+L MCIEB bit  0: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0020 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  1: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0020 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  2: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0020 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  3: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0020 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  4: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0020 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  5: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0420 line 1; after MCIRE 7ff: line 0
+L MCIEB bit  6: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0420 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  7: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0420 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  8: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0420 line 0; after MCIRE 7ff: line 0
+L MCIEB bit  9: MCIPD 0000 line 0; after MCIPD write 20: MCIPD 0420 line 0; after MCIRE 7ff: line 0
+L MCIEB bit 10: MCIPD 0000 line 1; after MCIPD write 20: MCIPD 0420 line 1; after MCIRE 7ff: line 0
+S sample interval (us from the previous edge seen / the last poll gap): 23/2/3 21/2/3 24/3/3 23/3/3 21/3/3 23/2/3 24/3/3 23/3/3 21/3/3 23/2/3 24/3/3 20/2/3 24/3/3 23/2/3 24/3/3 20/2/3 24/3/3 23/2/3 24/3/3 20/2/3 24/3/3 23/2/3 21/3/3 23/2/3 24/3/3 23/2/3 21/3/3 23/2/3 24/3/3 21/3/3 23/3/3 23/2/3 24/3/3 21/3/3 23/3/3 23/2/3 24/3/3 21/3/3 23/3/3 23/2/3 21/2/3 24/3/3 23/3/3 23/2/3 21/2/3 24/3/3 23/3/3 21/3/3
+T A P 0 S ff: first 21 second 5805 same-P rewrite 8 (us; 1 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 0 S ff: first 23 second 5803 same-P rewrite 18 (us; 1 samples nominal) gaps 2 2 2 max 3 3 3
+T A P 0 S ff: first 26 second 5806 same-P rewrite 5 (us; 1 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 0 S fe: first 44 second 5806 same-P rewrite 32 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 0 S fe: first 46 second 5806 same-P rewrite 26 (us; 2 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 0 S fe: first 44 second 5803 same-P rewrite 31 (us; 2 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 0 S f0: first 351 second 5803 same-P rewrite 366 (us; 16 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 0 S f0: first 349 second 5806 same-P rewrite 362 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 0 S f0: first 351 second 5803 same-P rewrite 362 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 0 S c0: first 1453 second 5803 same-P rewrite 1446 (us; 64 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 0 S c0: first 1435 second 5806 same-P rewrite 1451 (us; 64 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 0 S c0: first 1446 second 5805 same-P rewrite 1435 (us; 64 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 0 S 00: first 5803 second 5804 same-P rewrite 5798 (us; 256 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 0 S 00: first 5790 second 5804 same-P rewrite 5790 (us; 256 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 0 S 00: first 5804 second 5803 same-P rewrite 5796 (us; 256 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 1 S ff: first 34 second 11609 same-P rewrite 29 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 1 S ff: first 31 second 11612 same-P rewrite 21 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 1 S ff: first 44 second 11609 same-P rewrite 8 (us; 2 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 1 S fe: first 65 second 11609 same-P rewrite 78 (us; 4 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S fe: first 68 second 11611 same-P rewrite 68 (us; 4 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 1 S fe: first 62 second 11612 same-P rewrite 68 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 1 S f0: first 720 second 11609 same-P rewrite 704 (us; 32 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S f0: first 718 second 11609 same-P rewrite 710 (us; 32 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S f0: first 689 second 11612 same-P rewrite 715 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 1 S c0: first 2897 second 11609 same-P rewrite 2886 (us; 128 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S c0: first 2879 second 11609 same-P rewrite 2886 (us; 128 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S c0: first 2891 second 11609 same-P rewrite 2891 (us; 128 samples nominal) gaps 2 2 2 max 3 3 3
+T A P 1 S 00: first 11591 second 11609 same-P rewrite 11598 (us; 512 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 1 S 00: first 11596 second 11609 same-P rewrite 11601 (us; 512 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 1 S 00: first 11593 second 11609 same-P rewrite 11583 (us; 512 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 2 S ff: first 70 second 23221 same-P rewrite 71 (us; 4 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 2 S ff: first 7 second 23221 same-P rewrite 20 (us; 4 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 2 S ff: first 58 second 23218 same-P rewrite 60 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 2 S fe: first 104 second 23218 same-P rewrite 111 (us; 8 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 2 S fe: first 138 second 23221 same-P rewrite 167 (us; 8 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 2 S fe: first 96 second 23218 same-P rewrite 137 (us; 8 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 2 S f0: first 1399 second 23221 same-P rewrite 1381 (us; 64 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 2 S f0: first 1446 second 23218 same-P rewrite 1422 (us; 64 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 2 S f0: first 1456 second 23218 same-P rewrite 1422 (us; 64 samples nominal) gaps 2 2 2 max 3 3 3
+T A P 2 S c0: first 5744 second 23220 same-P rewrite 5735 (us; 256 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 2 S c0: first 5783 second 23220 same-P rewrite 5801 (us; 256 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 2 S c0: first 5787 second 23221 same-P rewrite 5806 (us; 256 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 2 S 00: first 23190 second 23220 same-P rewrite 23153 (us; 1024 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 2 S 00: first 23184 second 23221 same-P rewrite 23184 (us; 1024 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 2 S 00: first 23148 second 23221 same-P rewrite 23156 (us; 1024 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S ff: first 148 second 46441 same-P rewrite 94 (us; 8 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 3 S ff: first 119 second 46439 same-P rewrite 120 (us; 8 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S ff: first 130 second 46439 same-P rewrite 107 (us; 8 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 3 S fe: first 278 second 46439 same-P rewrite 349 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 3 S fe: first 325 second 46438 same-P rewrite 309 (us; 16 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 3 S fe: first 299 second 46441 same-P rewrite 273 (us; 16 samples nominal) gaps 2 2 3 max 3 3 3
+T A P 3 S f0: first 2842 second 46441 same-P rewrite 2849 (us; 128 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 3 S f0: first 2826 second 46439 same-P rewrite 2875 (us; 128 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 3 S f0: first 2878 second 46442 same-P rewrite 2884 (us; 128 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S c0: first 11536 second 46438 same-P rewrite 11554 (us; 512 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 3 S c0: first 11604 second 46439 same-P rewrite 11576 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S c0: first 11546 second 46439 same-P rewrite 11607 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S 00: first 46418 second 46441 same-P rewrite 46418 (us; 2048 samples nominal) gaps 3 3 2 max 3 3 3
+T A P 3 S 00: first 46402 second 46442 same-P rewrite 46382 (us; 2048 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 3 S 00: first 46360 second 46441 same-P rewrite 46415 (us; 2048 samples nominal) gaps 2 2 2 max 3 3 3
+T A P 5 S ff: first 276 second 185759 same-P rewrite 679 (us; 32 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 5 S ff: first 699 second 185760 same-P rewrite 666 (us; 32 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 5 S ff: first 650 second 185759 same-P rewrite 679 (us; 32 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 5 S fe: first 1359 second 185760 same-P rewrite 1388 (us; 64 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 5 S fe: first 1378 second 185760 same-P rewrite 1373 (us; 64 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 5 S fe: first 1396 second 185760 same-P rewrite 1404 (us; 64 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 5 S f0: first 11583 second 185760 same-P rewrite 11596 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 5 S f0: first 11528 second 185760 same-P rewrite 11578 (us; 512 samples nominal) gaps 3 3 3 max 3 3 3
+T A P 5 S f0: first 11586 second 185759 same-P rewrite 11583 (us; 512 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 5 S c0: first 46353 second 185759 same-P rewrite 46431 (us; 2048 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 5 S c0: first 46404 second 185760 same-P rewrite 46423 (us; 2048 samples nominal) gaps 2 3 3 max 3 3 3
+T A P 5 S c0: first 46415 second 185759 same-P rewrite 46366 (us; 2048 samples nominal) gaps 3 2 3 max 3 3 3
+T A P 5 S 00: first 185733 second 185760 same-P rewrite 185686 (us; 8192 samples nominal) gaps 2 3 2 max 3 3 3
+T A P 5 S 00: first 185716 second 185759 same-P rewrite 185741 (us; 8192 samples nominal) gaps 3 2 2 max 3 3 3
+T A P 5 S 00: first 185747 second 185760 same-P rewrite 185747 (us; 8192 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 0 S ff: first 26 second 5803 same-P rewrite 23 (us; 1 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 0 S ff: first 24 second 5806 same-P rewrite 24 (us; 1 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 0 S ff: first 20 second 5806 same-P rewrite 5 (us; 1 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 0 S fe: first 31 second 5806 same-P rewrite 33 (us; 2 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 0 S fe: first 47 second 5806 same-P rewrite 41 (us; 2 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 0 S fe: first 37 second 5803 same-P rewrite 39 (us; 2 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 0 S f0: first 357 second 5805 same-P rewrite 356 (us; 16 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 0 S f0: first 359 second 5806 same-P rewrite 367 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 0 S f0: first 346 second 5803 same-P rewrite 361 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 0 S c0: first 1438 second 5806 same-P rewrite 1433 (us; 64 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 0 S c0: first 1453 second 5806 same-P rewrite 1440 (us; 64 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 0 S c0: first 1453 second 5806 same-P rewrite 1453 (us; 64 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 0 S 00: first 5809 second 5805 same-P rewrite 5808 (us; 256 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 0 S 00: first 5785 second 5806 same-P rewrite 5793 (us; 256 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 0 S 00: first 5792 second 5806 same-P rewrite 5800 (us; 256 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 1 S ff: first 24 second 11611 same-P rewrite 16 (us; 2 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 1 S ff: first 15 second 11609 same-P rewrite 39 (us; 2 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 1 S ff: first 15 second 11609 same-P rewrite 23 (us; 2 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 1 S fe: first 81 second 11609 same-P rewrite 62 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 1 S fe: first 65 second 11609 same-P rewrite 83 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 1 S fe: first 67 second 11612 same-P rewrite 59 (us; 4 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 1 S f0: first 692 second 11612 same-P rewrite 697 (us; 32 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 1 S f0: first 723 second 11609 same-P rewrite 695 (us; 32 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 1 S f0: first 686 second 11612 same-P rewrite 715 (us; 32 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 1 S c0: first 2891 second 11612 same-P rewrite 2893 (us; 128 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 1 S c0: first 2866 second 11609 same-P rewrite 2897 (us; 128 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 1 S c0: first 2906 second 11609 same-P rewrite 2878 (us; 128 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 1 S 00: first 11588 second 11609 same-P rewrite 11580 (us; 512 samples nominal) gaps 2 2 2 max 3 3 3
+T B P 1 S 00: first 11609 second 11609 same-P rewrite 11591 (us; 512 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 1 S 00: first 11593 second 11612 same-P rewrite 11596 (us; 512 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 2 S ff: first 26 second 23221 same-P rewrite 10 (us; 4 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 2 S ff: first 78 second 23221 same-P rewrite 70 (us; 4 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 2 S ff: first 42 second 23221 same-P rewrite 16 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 2 S fe: first 101 second 23221 same-P rewrite 169 (us; 8 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 2 S fe: first 125 second 23218 same-P rewrite 130 (us; 8 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 2 S fe: first 182 second 23220 same-P rewrite 114 (us; 8 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 2 S f0: first 1415 second 23218 same-P rewrite 1368 (us; 64 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 2 S f0: first 1409 second 23221 same-P rewrite 1456 (us; 64 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 2 S f0: first 1423 second 23220 same-P rewrite 1412 (us; 64 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 2 S c0: first 5805 second 23221 same-P rewrite 5772 (us; 256 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 2 S c0: first 5753 second 23218 same-P rewrite 5806 (us; 256 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 2 S c0: first 5769 second 23221 same-P rewrite 5796 (us; 256 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 2 S 00: first 23179 second 23220 same-P rewrite 23195 (us; 1024 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 2 S 00: first 23145 second 23220 same-P rewrite 23156 (us; 1024 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 2 S 00: first 23179 second 23218 same-P rewrite 23208 (us; 1024 samples nominal) gaps 3 3 3 max 3 3 3
+T B P 3 S ff: first 96 second 46441 same-P rewrite 171 (us; 8 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 3 S ff: first 138 second 46441 same-P rewrite 107 (us; 8 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 3 S ff: first 132 second 46439 same-P rewrite 115 (us; 8 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 3 S fe: first 333 second 46438 same-P rewrite 330 (us; 16 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 3 S fe: first 322 second 46442 same-P rewrite 299 (us; 16 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 3 S fe: first 325 second 46439 same-P rewrite 344 (us; 16 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 3 S f0: first 2834 second 46438 same-P rewrite 2881 (us; 128 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 3 S f0: first 2878 second 46438 same-P rewrite 2865 (us; 128 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 3 S f0: first 2855 second 46441 same-P rewrite 2875 (us; 128 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 3 S c0: first 11568 second 46441 same-P rewrite 11525 (us; 512 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 3 S c0: first 11537 second 46441 same-P rewrite 11531 (us; 512 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 3 S c0: first 11547 second 46441 same-P rewrite 11557 (us; 512 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 3 S 00: first 46389 second 46441 same-P rewrite 46431 (us; 2048 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 3 S 00: first 46428 second 46441 same-P rewrite 46360 (us; 2048 samples nominal) gaps 3 3 2 max 3 3 3
+T B P 3 S 00: first 46418 second 46441 same-P rewrite 46347 (us; 2048 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 5 S ff: first 143 second 185760 same-P rewrite 683 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 5 S ff: first 710 second 185760 same-P rewrite 687 (us; 32 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S ff: first 704 second 185760 same-P rewrite 689 (us; 32 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S fe: first 1380 second 185760 same-P rewrite 1371 (us; 64 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S fe: first 1430 second 185759 same-P rewrite 1443 (us; 64 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 5 S fe: first 1378 second 185759 same-P rewrite 1438 (us; 64 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 5 S f0: first 11552 second 185759 same-P rewrite 11591 (us; 512 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 5 S f0: first 11546 second 185760 same-P rewrite 11552 (us; 512 samples nominal) gaps 2 3 2 max 3 3 3
+T B P 5 S f0: first 11523 second 185760 same-P rewrite 11544 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S c0: first 46386 second 185762 same-P rewrite 46384 (us; 2048 samples nominal) gaps 2 2 3 max 3 3 3
+T B P 5 S c0: first 46400 second 185759 same-P rewrite 46420 (us; 2048 samples nominal) gaps 3 2 2 max 3 3 3
+T B P 5 S c0: first 46363 second 185760 same-P rewrite 46350 (us; 2048 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S 00: first 185746 second 185760 same-P rewrite 185689 (us; 8192 samples nominal) gaps 2 3 3 max 3 3 3
+T B P 5 S 00: first 185700 second 185759 same-P rewrite 185679 (us; 8192 samples nominal) gaps 3 2 3 max 3 3 3
+T B P 5 S 00: first 185700 second 185759 same-P rewrite 185695 (us; 8192 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 0 S ff: first 21 second 5806 same-P rewrite 11 (us; 1 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S ff: first 23 second 5806 same-P rewrite 11 (us; 1 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S ff: first 21 second 5805 same-P rewrite 21 (us; 1 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 0 S fe: first 28 second 5804 same-P rewrite 37 (us; 2 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 0 S fe: first 44 second 5806 same-P rewrite 29 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S fe: first 39 second 5806 same-P rewrite 29 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S f0: first 351 second 5806 same-P rewrite 362 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S f0: first 358 second 5806 same-P rewrite 356 (us; 16 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 0 S f0: first 348 second 5806 same-P rewrite 361 (us; 16 samples nominal) gaps 2 2 2 max 3 3 3
+T C P 0 S c0: first 1443 second 5803 same-P rewrite 1440 (us; 64 samples nominal) gaps 2 2 2 max 3 3 3
+T C P 0 S c0: first 1441 second 5806 same-P rewrite 1435 (us; 64 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 0 S c0: first 1443 second 5806 same-P rewrite 1440 (us; 64 samples nominal) gaps 2 2 2 max 3 3 3
+T C P 0 S 00: first 5798 second 5806 same-P rewrite 5795 (us; 256 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 0 S 00: first 5798 second 5806 same-P rewrite 5801 (us; 256 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 0 S 00: first 5801 second 5805 same-P rewrite 5803 (us; 256 samples nominal) gaps 3 2 2 max 3 3 3
+T C P 1 S ff: first 42 second 11609 same-P rewrite 37 (us; 2 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 1 S ff: first 26 second 11609 same-P rewrite 8 (us; 2 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 1 S ff: first 44 second 11612 same-P rewrite 41 (us; 2 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 1 S fe: first 73 second 11612 same-P rewrite 81 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 1 S fe: first 75 second 11609 same-P rewrite 80 (us; 4 samples nominal) gaps 2 2 2 max 3 3 3
+T C P 1 S fe: first 91 second 11612 same-P rewrite 62 (us; 4 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 1 S f0: first 684 second 11611 same-P rewrite 697 (us; 32 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 1 S f0: first 699 second 11609 same-P rewrite 702 (us; 32 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 1 S f0: first 699 second 11612 same-P rewrite 715 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 1 S c0: first 2873 second 11612 same-P rewrite 2865 (us; 128 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 1 S c0: first 2881 second 11609 same-P rewrite 2894 (us; 128 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 1 S c0: first 2883 second 11609 same-P rewrite 2865 (us; 128 samples nominal) gaps 2 2 2 max 3 3 3
+T C P 1 S 00: first 11614 second 11609 same-P rewrite 11573 (us; 512 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 1 S 00: first 11614 second 11609 same-P rewrite 11581 (us; 512 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 1 S 00: first 11572 second 11609 same-P rewrite 11570 (us; 512 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 2 S ff: first 31 second 23221 same-P rewrite 37 (us; 4 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 2 S ff: first 13 second 23218 same-P rewrite 32 (us; 4 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 2 S ff: first 85 second 23221 same-P rewrite 10 (us; 4 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 2 S fe: first 148 second 23221 same-P rewrite 112 (us; 8 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 2 S fe: first 143 second 23221 same-P rewrite 164 (us; 8 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 2 S fe: first 156 second 23218 same-P rewrite 138 (us; 8 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 2 S f0: first 1432 second 23218 same-P rewrite 1435 (us; 64 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 2 S f0: first 1414 second 23221 same-P rewrite 1385 (us; 64 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 2 S f0: first 1402 second 23220 same-P rewrite 1438 (us; 64 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 2 S c0: first 5782 second 23218 same-P rewrite 5746 (us; 256 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 2 S c0: first 5806 second 23218 same-P rewrite 5780 (us; 256 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 2 S c0: first 5806 second 23220 same-P rewrite 5790 (us; 256 samples nominal) gaps 3 2 2 max 3 3 3
+T C P 2 S 00: first 23213 second 23218 same-P rewrite 23194 (us; 1024 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 2 S 00: first 23151 second 23220 same-P rewrite 23181 (us; 1024 samples nominal) gaps 3 2 2 max 3 3 3
+T C P 2 S 00: first 23205 second 23221 same-P rewrite 23137 (us; 1024 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 3 S ff: first 169 second 46439 same-P rewrite 135 (us; 8 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 3 S ff: first 89 second 46441 same-P rewrite 158 (us; 8 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 3 S ff: first 161 second 46442 same-P rewrite 91 (us; 8 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 3 S fe: first 307 second 46439 same-P rewrite 273 (us; 16 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 3 S fe: first 286 second 46441 same-P rewrite 320 (us; 16 samples nominal) gaps 2 2 3 max 3 3 3
+T C P 3 S fe: first 351 second 46441 same-P rewrite 309 (us; 16 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 3 S f0: first 2896 second 46439 same-P rewrite 2899 (us; 128 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 3 S f0: first 2875 second 46439 same-P rewrite 2868 (us; 128 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 3 S f0: first 2845 second 46438 same-P rewrite 2849 (us; 128 samples nominal) gaps 3 2 2 max 3 3 3
+T C P 3 S c0: first 11531 second 46439 same-P rewrite 11593 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 3 S c0: first 11562 second 46439 same-P rewrite 11542 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 3 S c0: first 11570 second 46438 same-P rewrite 11565 (us; 512 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 3 S 00: first 46415 second 46439 same-P rewrite 46434 (us; 2048 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 3 S 00: first 46352 second 46442 same-P rewrite 46348 (us; 2048 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 3 S 00: first 46353 second 46441 same-P rewrite 46356 (us; 2048 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 5 S ff: first 327 second 185760 same-P rewrite 691 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 5 S ff: first 655 second 185760 same-P rewrite 696 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 5 S ff: first 658 second 185760 same-P rewrite 702 (us; 32 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 5 S fe: first 1397 second 185759 same-P rewrite 1409 (us; 64 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 5 S fe: first 1430 second 185760 same-P rewrite 1389 (us; 64 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 5 S fe: first 1419 second 185760 same-P rewrite 1391 (us; 64 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 5 S f0: first 11565 second 185760 same-P rewrite 11568 (us; 512 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 5 S f0: first 11518 second 185759 same-P rewrite 11534 (us; 512 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 5 S f0: first 11541 second 185760 same-P rewrite 11531 (us; 512 samples nominal) gaps 3 3 2 max 3 3 3
+T C P 5 S c0: first 46363 second 185760 same-P rewrite 46355 (us; 2048 samples nominal) gaps 2 3 3 max 3 3 3
+T C P 5 S c0: first 46384 second 185760 same-P rewrite 46426 (us; 2048 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 5 S c0: first 46428 second 185760 same-P rewrite 46356 (us; 2048 samples nominal) gaps 3 3 3 max 3 3 3
+T C P 5 S 00: first 185723 second 185759 same-P rewrite 185692 (us; 8192 samples nominal) gaps 3 2 3 max 3 3 3
+T C P 5 S 00: first 185676 second 185760 same-P rewrite 185751 (us; 8192 samples nominal) gaps 2 3 2 max 3 3 3
+T C P 5 S 00: first 185695 second 185760 same-P rewrite 185742 (us; 8192 samples nominal) gaps 3 3 3 max 3 3 3

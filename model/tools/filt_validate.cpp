@@ -1,6 +1,6 @@
 // Independent validation of the coarse damping SVF, using full captures and known inputs.
 // Build: make -C tools filt_validate filt_validate_model (-> build/tools/; the _model variant is compiled with
-// -DVERIFY_MODEL and src/aica_model.cpp and also checks the real AicaModel output)
+// -DVERIFY_MODEL and sample-model/aica_model.cpp and also checks the real AicaModel output)
 #include <cstdio>
 #include <cstdint>
 #include <cstdlib>
@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <stdexcept>
 #ifdef VERIFY_MODEL
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #endif
 using I=int64_t;
 #include "filt_capture.h"
@@ -41,12 +41,12 @@ static Result check(const Capture&c,int stream,int F,int Q,const std::vector<int
 #ifdef VERIFY_MODEL
  if(best.matched==best.total) {
   caique::AicaModel m;
-  m.write(0x28,64|Q);m.write(0x20,240);
-  auto &s=m.slot[0];s.enabled=true;s.AEG.off=true;s.update_rate=0;s.FEG.v=F;
+  m.write(0x28,64|Q);m.write(0x20,240);m.write(0x18,0x4000);   /* OCT -8 + the phase reset below: the slot never advances */
+  auto &s=m.slot[0];s.enabled=true;s.AEG.off=true;s.FEG.v=F;
   s.lpf_low=-I(c.v[(onset-1)*c.ns+stream])/2;s.lpf_band=best.band;
   for(int n=onset;n<(int)c.n;n++){
    int ix=n-onset+input_on;if(wrap)ix&=65535;
-   s.s0=s.s1=ix>=0&&ix<(int)in.size()?in[ix]:0;
+   s.s0=s.s1=ix>=0&&ix<(int)in.size()?in[ix]:0;s.step=0;
    m.step();
    if(m.MIXS[0]!=c.v[n*c.ns+stream]){
     fprintf(stderr,"PRODUCTION mismatch F=%04x Q=%d n=%d model=%d hardware=%d\n",F,Q,n,m.MIXS[0],c.v[n*c.ns+stream]);

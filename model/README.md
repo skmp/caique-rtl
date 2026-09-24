@@ -10,22 +10,27 @@ segment's step), the stop = off + CA 0 at a = 0x3C0, the CPU's MIXS readback ban
 registers (359 informative witness-pinned rewrites, 0 latched) are measured (session 6).
 Findings, with the test behind each one: **[NOTES.md](NOTES.md)**. Handover / how to verify the current claims:
 **[HANDOVER.md](HANDOVER.md)**. What is NOT nailed down (sub-sample effects, empirical rules, unmeasured areas, harness artefacts): **[LIMITATIONS.md](LIMITATIONS.md)**. Current model-vs-console status:
-**[tests/SUMMARY.txt](tests/SUMMARY.txt)**. Current C++ reproduction commands are in HANDOVER.md.
+**[tests/SUMMARY.txt](tests/SUMMARY.txt)**. Current C++ reproduction commands are in HANDOVER.md. How caique integrates
+the ARM7DI (wren7-rtl), and the combined tests that live here: **[../INTEGRATION.md](../INTEGRATION.md)**.
 
 ## Layout
 
 | path | what |
 |---|---|
-| `src/aica_model.{h,cpp}` | the model: register interface (`write`/`read`), wave RAM, `step()` = one 44.1 kHz sample. Integer only. |
+| `sample-model/aica_model.{h,cpp}` | the sample model: register interface (`write`/`read`), wave RAM, `step()` = one 44.1 kHz sample. Integer only. Every validator links it. |
+| `cycle-model/` | the clocked model (`clock()` = one 22.5792 MHz MCLK, the frame plan of rtl/v1, the SH4 / ARM bus ports); the reference of rtl/v1's co-simulation; `io_cycle.cpp` the harness (`./run_cycle.sh CASE` -> `tests/<case>/cycle/`) |
 | `src/dsp_asm.h` | DSP instruction encode/decode (shared by model and console tests) |
 | `src/dsp_float.h` | DSP 16-bit memory float PACK/UNPACK (verified exhaustively) |
-| `cases/*.c` | test cases (53), written once against `cases/aica_io.h`; each builds for the console and for the model |
-| `cases/aica_io.h` | portable AICA access API + helpers (slot config, DSP program buffer, text/binary output) |
+| `cases/*.c` | test cases (73), written once against `cases/aica_io.h`; each builds for the console and both models |
+| `cases/common/replay.c` | the replay preamble every platform's main runs before a case (MDEC_CT, K, envelope clock parity, noise LFSR) |
+| `cases/flog.h` | the DSP frame logger: where an SH4 write lands, to one frame |
+| `cases/aica_io.h` | portable AICA access API + helpers (slot config and `slot_log`, DSP program buffer, `aica_reset` / `dsp_reset`, text/binary output) |
 | `cases/cap.h` | sample-exact capture of up to 4 MIXS buses through a DSP program + wave RAM ring |
-| `hw/` | console back-end (`io_kos.c`, KOS build; `make -C hw CASE` -> `build/hw/CASE.elf`) |
+| `hw/` | console back-end (`io_kos.c`, KOS build; `make -C hw [HWDIR=name] CASE` -> `build/hw/<HWDIR>/CASE.elf`; `./run_hw.sh` also fits the run's `replay.txt`) |
 | `host/` | model back-end (`io_model.cpp`: G2 access cost 2.4 us per access, sample stepping; `make -C host CASE` -> `build/host/CASE`) |
 | `tests/<case>/hw/` | console results (text, captures `*.hdr`/`*.bin`); `tests/aeg_koff/hw_run1/` keeps that case's first console run |
-| `tests/<case>/model/` | the model's results for the same case |
+| `tests/<case>/hw9/` | the session-9 console run of every case (`HWDIR=hw9 ./run_hw.sh`): with the known start state and the replay preamble (`replay.txt`) |
+| `tests/<case>/model/`, `cycle/` | the sample model's and the cycle model's results for the same case (`REPLAY_FROM=hw9` applies that console run's replay parameters) |
 | `tools/` | analysis and comparison, C++ (`make -C tools` -> `build/tools/`); the Python scripts are legacy |
 | `work/` | scratch (derived data for searches, tracked FEG values `work/eg/*.u`, session reports `work/verify/`; scratch programs build to `build/work/`) |
 | `build/` | every executable and object file (git-ignored): `hw/`, `host/`, `tools/`, `work/` |
@@ -57,7 +62,7 @@ Console runs take a few seconds each (dcload-ip); only one program can use the c
 - `tools/filt_step.cpp`: C++ capture exporter, byte-identical to the historical datasets.
 - `tools/filt_rule.cpp`: exact integer state-set search; form 5 models the discovered coarse damping.
 - `tools/filt_validate.cpp`: autonomous arithmetic validation against all filter captures; compile with
-  `-DVERIFY_MODEL` and `src/aica_model.cpp` to also check the actual model's MIXS output.
+  `-DVERIFY_MODEL` and `sample-model/aica_model.cpp` to also check the actual model's MIXS output.
 - `tools/filt_compare.cpp`: compare full hardware/model runs with impulse alignment; reports inherited-state differences.
 - `tools/filt_edges.cpp`: independent analysis of the fresh endpoint impulses and bypass timing reference.
 - `tools/filt_need.cpp`: forced rounding and contradictory-operand diagnostics for older hypotheses.

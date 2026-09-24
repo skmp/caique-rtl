@@ -1,4 +1,4 @@
-slot 1: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:8 d3:6 d6:7 d9:3 d12:2 d15:1 d18:1 d21:0 d24:0 d27:0 d30:0 d33:0
-slot 1: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:0 d3:2 d6:2 d9:5 d12:6 d15:7 d18:8 d21:8 d24:8 d27:8 d30:8 d33:8
-slot 62: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:8 d3:5 d6:4 d9:6 d12:2 d15:2 d18:1 d21:0 d24:0 d27:0 d30:0 d33:0
-slot 62: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:0 d3:2 d6:4 d9:4 d12:3 d15:5 d18:6 d21:8 d24:8 d27:8 d30:8 d33:8
+slot 1: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:8 d3:6 d6:5 d9:4 d12:3 d15:4 d18:1 d21:0 d24:0 d27:0 d30:0 d33:0
+slot 1: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:1 d3:1 d6:2 d9:3 d12:5 d15:7 d18:6 d21:8 d24:8 d27:8 d30:8 d33:8
+slot 62: KYONEX then KYONB 1 after d us -> keyed on (of 8): d0:6 d3:6 d6:6 d9:4 d12:5 d15:0 d18:1 d21:0 d24:0 d27:0 d30:0 d33:0
+slot 62: KYONB 1, KYONEX, KYONB 0 after d us -> keyed on (of 8): d0:2 d3:1 d6:4 d9:4 d12:8 d15:6 d18:7 d21:8 d24:8 d27:8 d30:8 d33:8

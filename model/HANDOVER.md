@@ -1,6 +1,6 @@
 # caique AICA model — session 5 handover (2026-09-23, night) + session 6 addendum
 
-**Known gaps and caveats: [LIMITATIONS.md](LIMITATIONS.md).**  **Scope: verify the session-5 results, then the session-6 addendum (claims U1-U3 at the end).**  Session 4 is commit
+**Latest: the Session 9 addendum (X1-X13: the clocked model and the per-frame schedule, known start state, replay parameters, timers, sample-exact stream replays); the current work list is [../TODO.md](../TODO.md).**  **Known gaps and caveats: [LIMITATIONS.md](LIMITATIONS.md).**  **Scope: verify the session-5 results, then the session-6 addendum (claims U1-U3 at the end).**  Session 4 is commit
 `ba720b9` (its handover: `git show ba720b9:model/HANDOVER.md`); session 5 is commit `5207a9f`; session 6 is uncommitted
 (`git diff HEAD` plus the untracked files: cases ca_stop / eg_latch / eg_latch2 / eg_latch3 / feg_koffpass / mixs_rd,
 tools koffpass_check / latch_check, tests/<case>/, work/koffpass, work/latch, work/verify/s6).  Session 5 ran on the **same console boot as
@@ -60,7 +60,7 @@ re-running our tools.
 ## Setup (inside the private copy)
 
 ```sh
-make -C tools -j8        # every tools/*.cpp -> build/tools/ (eg_model, eg_replay, tail_cmp, feg_validate, filt_*_model link src/aica_model.cpp)
+make -C tools -j8        # every tools/*.cpp -> build/tools/ (eg_model, eg_replay, tail_cmp, feg_validate, filt_*_model link sample-model/aica_model.cpp)
 make -C host -j8         # 53 case binaries -> build/host/ (47 + the session-6 six)
 mkdir -p build/work      # scratch programs (work/**/*.cpp) build here, e.g.:
 g++ -O2 -std=c++17 -fopenmp -o build/work/s1_indep work/verify/s5/s1_indep.cpp
@@ -210,7 +210,7 @@ known second signal at RAM 0.
   clock) in tail_a; tail_b stream 0 (VOFF 0) `-16 / 0` half-waves through 5000 with the stop at 4889 and off at 4905;
   tail_c stops at 7115 (R 63), 8411 (R 49 row 5, 768 clocks) and 11541 (120 clocks after the RR rewrite's clock 11302,
   the rewrite itself on 11300 where the fetch already read the new SA).
-- Controls (`g++ -O2 -std=c++17 -D<macro> -o build/work/tail_cmp_x tools/tail_cmp.cpp src/aica_model.cpp`, then the
+- Controls (`g++ -O2 -std=c++17 -D<macro> -o build/work/tail_cmp_x tools/tail_cmp.cpp sample-model/aica_model.cpp`, then the
   three runs; `work/model5/control_*.txt`, taken before the T9 fix so tail_c stream 0 also fails at 12198 in each):
   `-DCAIQUE_STOP_A=0x3BF` 3/4 4/4 2/4 (tail_a s1 6569: stop one clock early), `=0x3C1` 4/4 3/4 1/4, `=0x400` (the old
   rule) 3/4 2/4 1/4, `-DCAIQUE_STOP_LAG=0` 1/4 3/4 1/4, `=2` 1/4 3/4 1/4, `-DCAIQUE_MUTE=1` (mute from off) 4/4 3/4
@@ -477,9 +477,174 @@ key event one step before its effect sample.
 Console cases added: eg_sched, eg_sched2, kon_defer, kon_probe, kon_probe2, kon_first, dsp_wslot (all under tests/, with
 model runs).  Group H (still open): what offsets K during a boot; the phase of the CPU/DMA memory slot in the frame.
 
+## Session 8 addendum — rtl/v1 (2026-09-24; uncommitted)
+
+Scope: the clock-accurate RTL of the model at 22.5792 MHz, and the two model changes it needed.  Architecture, port
+contracts, co-simulation contract and approximations: [../rtl/v1/README.md](../rtl/v1/README.md).  Integration with the
+ARM7DI (wren7-rtl): [../INTEGRATION.md](../INTEGRATION.md).  Model changes: W0 (step order) and W6 (collisions); one
+new console case (dsp_coll, W6).
+
+### W0 — the model's step runs in the hardware's order (NOTES "Model step order")
+Fetch/output of sample n, stop commit, MIXS bank write, key events + envelope pass for sample n + 1, then the DSP of
+sample n on the previous sample's MIXS bank.  `work/verify/s8/bitcheck_s8.txt`: eg_model 97/97, eg_replay 5 x 4/4,
+tail_cmp 12/12, feg_validate 9/9, filt_validate_model 265/265, filt_overflow 15/15 + 12/12, validate_s5 PASS, all 61
+cases exit 0 (`work/verify/s8/run_model_all_s8.log`).  274 of the 563 files of `work/model_outputs_2026-09-23e.sha256`
+change (48 capture-based cases, streams moved by the new order); the 30 of 582 shared hw/model files that are identical
+to the console are the same before and after.  New baseline `work/model_outputs_2026-09-24.sha256` (582 files: the 563
+plus dsp_coll's 19), reproduced exactly by a second full run.  Refutation: a validator below its count, or a case whose
+output no longer reproduces the baseline.
+
+### W1 — every model case co-simulates bit-exact (rtl/v1 tb/cosim.cpp)
+`rtl/v1/tb/gate_all.sh` → `build/rtl_v1/gate_all.txt`: all 60 cases in model/cases report "0 mismatches, outputs 0/N"
+(16.4 M samples, 62.2 M compared reads, 16.4 M compared output samples, 8.6 G clocks; no stepping warning).  Every CPU
+read of every case's access trace and every output sample are compared, with the accesses replayed frozen at ph 0
+(slot side) and ph 64 (DSP side) of the RTL's sample boundary.  Refutation: any line without "0 mismatches, outputs 0/".
+
+### W2 — the ARM7DI port reproduces wren7's measured bus model cycle for cycle (rtl/v1 tb/arb_tb.cpp)
+`make -C rtl/v1 arb` → 12 seeds, "0 mismatches" each; a 40-seed sweep of 20000 accesses each (`arb_tb 20000 101..140`)
+also 0.  arb_tb links wren7-rtl/model/src/dc_arm_map.cpp unchanged (`DcWaits::dreamcast()`) and drives random DSP
+programs, keyed PCM channels, SH4 wave RAM traffic and random ARM streams.  Refutation: any TIMING or DATA line.
+Controls: an arbiter without the fixed pair fails seeds 1-6 with 51-98 mismatches.  One without the TEMP / EFREG port
+rule fails them with 53-83.  The slot-0 bug of W4 showed up here first, as missing channel-0 slots.
+
+### W3 — DSP step 0 at ph 64 follows from wren7's measurements
+wren7 measured channel K's wave RAM slot at DSP step 2K − 14 (tests/hw/sgc) and step 0 at 40 MCLK after the sample
+edge (tests/hw/dspport).  In rtl/v1 slot K claims the step of its stage B frame, so step 0 is at ph 64 and the edge at
+ph 24.  The co-simulation only needs the DSP one sample behind the slots: the earlier build with the DSP at ph 8
+passed the same DSP cases.  The ph-64 placement comes from wren7's measurements, and W2 checks it.
+
+### W4 — power-up: slot 0's first stage A had no state read
+The state RAM read for frame 0 is issued in frame 63, which never ran after power-up, so slot 0 started from a
+zeroed state and never keyed on.  Fixed (`aica_sgc` substitutes STA_INIT while `a_valid` is 0).  With the fix, the
+earlier co-sim mismatches are all gone: sgc_loop 829, aeg_dl0 2372, sgc_keys 3 and probe 3.
+
+### W5 — wren7's ARM7DI runs every console job suite on rtl/v1, cycle-identical to wren7's bus model (rtl/v1 tb/armjob_tb.cpp)
+`rtl/v1/tb/armjob_all.sh` → `build/rtl_v1/armjob_all.txt`: 19 suites, 3424 jobs, 0 differ, 0 wait mismatches of
+143.6 M memory cycles (`Arm7DI::bus_cycle` drives the RTL's ARM port; a shadow `DcArmBus` checks every cycle and
+stands in for the v2 interrupt controller).  Per kernel against the console (`build/rtl_v1/armjob_console`, from
+wren7-rtl/model): the same as wren7's model.  Refutation: any "DIFF" line or wait mismatch.
+Found on the way, and fixed:
+- **ADPCM fetch rule** (both sides): the channel holds one 16-bit word; a sample fetches when the position enters
+  another word or the look-ahead nibble lies in the next one; none at OCT 3-7.  It gives the console's shares
+  exactly (5/16, 3/8, 1/2, 1/2, 1, 0) and its per-kernel costs within 0.04, where wren7's spread rates missed by
+  up to 0.33.  wren7 `DcArmBus::adpcm_fetch` now uses it (sgc 176/176, sgcadp 36/36 at 0.1; wren7 NOTES).
+- **MIXS bank overlap** (RTL bug from W3's move of the DSP to ph 64): slots 0-6 wrote the bank the previous DSP
+  sample still read in its steps 112-127.  MIXS writes now go through a 7-frame queue (a sweep's writes fill
+  exactly one DSP sample window), and the CPU's MIXS port uses the DSP's bank, so a CPU read at any phase sees
+  whole values, as the console's collide2 readout shows.  W1 re-run after it: 60/60 bit-exact.
+- Still open (measured by wren7, not in caique's model or RTL): a DSP access on a channel's step loses (write
+  dropped, read returns the channel's word; collide2 24/32, the 8 misses exactly these), and the shared read latch
+  (an ARM read replaces an even-step MRD's result).
+
+### W6 — channel / DSP collisions match the console sample by sample (tests/dsp_coll)
+Console case `cases/dsp_coll.c` (18 runs; the DSP logs every sample what an MRD at the channel's step 2K - 14 returned,
+the channel's output, and whether an MWT there was written).  `build/tools/coll_check` → `0 of 18 runs differ`: every
+logged word of the console's log equals the model's at the aligning shift (1572-1583 samples per run), after these model
+changes (NOTES "Channel / DSP collisions"): a DSP MWT in a playing channel's slot is dropped; an MRD there returns the
+16-bit word holding the channel's sample CA + 1; channels 0-6 collide with their next-sample fetch (`coll_preview`);
+ADPCM fetches by the 16-bit-word rule; the first fetch after a key-on is in the sample that outputs CA 0
+(`decode_initial` moved there from `key_on`).  Every other case's model output is unchanged by these (61 cases
+compared against the pre-change model); `tools/validate_s5.sh` PASS.  rtl/v1 implements the same: co-sim of dsp_coll
+0 mismatches, and wren7's collide2 readouts 32/32 on the RTL (`armjob_tb -w`, `hw_suite check collide2 DIR`).  The
+RTL's ADPCM path now steps up to 8 nibbles per sample (OCT +2; it was 2), decoded 3 per clock.
+Refutation: any coll_check difference, or a changed output of another case.
+The model outputs, the new baseline and the step reordering (W0) belong in the same commit: the outputs in git
+(9c11413) are those of `work/model_outputs_2026-09-23e.sha256`; the working tree's outputs are those of
+`work/model_outputs_2026-09-24.sha256`.
+
+## Session 9 addendum — the cycle model and the per-frame schedule (2026-09-24; uncommitted)
+
+Scope: TODO.md item 1 (`../TODO.md`, the session's work list).  The model is clocked (`cycle-model/`), the sample model
+moved to `sample-model/`, rtl/v1's SGC is pipelined to the console's per-frame schedule, and four console cases
+measure that schedule event by event (sub_frame, sub_sched, sub_env, oneshot).  Findings and method: NOTES "Cycle model
+and the per-frame schedule".  V4 (envelope in frame k of the previous sample) is refined by X3.
+
+### X1 — the clocked model equals the sample model at the sample boundary (`cycle-model/replay_all.sh`)
+Every case's access trace from the sample model replayed into the cycle model at the boundary: 65/65 identical in every
+output sample; 60/65 in every read.  The 5 read differences are the pipeline: logged ring words one sample apart
+(sub_frame 976, sub_sched 677, sub_env 1224) and the EG monitor of slot 62 read at the boundary before its envelope
+pass (frames 0-4 of the next sample: kon_defer 38, kon_probe2 15).  Refutation: an output difference.
+
+### X2 — register stages per frame (tests/sub_frame, `build/tools/sub_check`)
+0x00-0x1C in frame k (T 2), 0x28 in frame k + 4 (T 34), 0x20 in frame k + 7 (T 58): 12800 events, 11333 determinate,
+11333 agree.  The previous plan (all rows in frame k) fails 143.  Even and odd slots have the same thresholds (no
+two-engine phase split).  Refutation: any failing determinate event.
+
+### X3 — the envelope pass of slot k runs in frame k + 5 (tests/sub_env, sub_sched exp 1, `build/tools/sched_check`)
+An RR rewrite acts in the current sample's pass iff its X0 is before frame k + 5 + 2 clocks: sub_env 2864/2864,
+sub_sched exp 1 1459/1459.  The pass uses the envelope clock of the slot's own sample (recorded at its key stage).
+
+### X4 — KYONB is read per slot at its frame, KYONEX at the boundary (tests/sub_sched exp 0)
+1369 determinate, 1366 agree.  Open: 3 key-ons with the KYONEX a few clocks from the boundary came a sample late.
+
+### X5 — the CPU's MIXS writes and reads go to the bank the DSP reads (tests/sub_sched exp 2 / 3)
+1259 and 1279 determinate events, 0 fail, on a bus with no writer and on one a slot sends to.
+
+### X6 — the one-shot end stops only the fetch (tests/oneshot; sgc_loop mon_1)
+CA reads LEA for one sample, then 0; LP is set; the envelope keeps its state and level and keeps stepping, so a
+KYONEX with KYONB 1 changes nothing and a key-on waits for a key-off; the slot is "off" only when the level reaches
+0x3C0 (stop armed by `!off`).  Console = both models in every CA sequence of oneshot's 12 windows; the console's
+sgc_loop mon_1 (captured in session 2) shows the same end and now matches (21 -> 18 differing lines, the rest poll
+timing).  EG differences left in oneshot: slow-rate steps at the boot's K / phase (TODO 3) and the attack-end display
+(TODO 5.2).  Model: `stream_step` (one-shot branch, `ca_clr`), `aeg_clock` (stop arming); RTL: the same in
+`aica_sgc` stage A and the envelope pass.
+
+### X7 — rtl/v1 co-simulates the cycle model clock for clock (`rtl/v1/tb/gate_cycle.sh`)
+65/65 cases: every ack clock, read and output sample identical (72/73 after X9-X12, adpcm_hi the exception: TODO 6.1).  With random 0..2047 ns delays on every access: seed 1 65 / 65; seed 2 64 / 65 (sgc_formats' trace run failed: its model binary was rebuilt during the run); seed 3 (the cases with the item-2 reset and the replay preamble, the RTL with the replay load port) 67 / 68 -- adpcm_hi differs, ADPCM above OCT +2 being outside the RTL's stepping limits (`warn_step`; TODO 6).
+The SGC is now stage A (frame k) / B (k + 1) / level (k + 4) / envelope pass (k + 5) / send (k + 7) with register
+copies for the later stages; see `rtl/v1/README.md`.  `make lint` clean.
+
+### X8 — regression
+Both models: `tools/validate_s5.sh` PASS (eg_model 97/97, eg_replay 5 x 4/4, tail_cmp 12/12, mixs_write identical),
+feg_validate 9/9, filt_validate_model 265/265, filt_overflow_model 15/15 + 12/12.  All 65 cases exit 0 on the sample
+model (`work/verify/run_model_all_s9.log`); new baseline `work/model_outputs_2026-09-24b.sha256` (1546 files: the
+582 of `work/model_outputs_2026-09-24.sha256`, of which only sgc_loop's mon_1, mon_2 and sgc_loop.txt changed (X6),
+plus the new cases').
+
+Console cases added: sub_frame, sub_sched, sub_env, oneshot (with `cases/flog.h`, the DSP frame logger, and
+`io_wn` burst writes in `cases/aica_io.h`).
+
+### X9 -- known start state (TODO 2) and replay parameters (TODO 3)
+Every case starts with `aica_reset` (NOTES "Known start state and replay parameters"); every platform's main runs the
+replay preamble (`cases/common/replay.c`) and `run_hw.sh` fits its capture (`tools/replay_fit`: MDEC_CT, K, the envelope
+clock parity, the LFSR) into `replay.txt`, which the models (`CAIQUE_REPLAY`, `run_model.sh` / `run_cycle.sh` with
+`REPLAY_FROM`) and rtl/v1 (`ld` port, the trace's 'P' record) apply at the sync point.  **hw9** = the console session
+of 2026-09-24 afternoon: every case re-run into `tests/<case>/hw9/` (the older `hw/` evidence untouched); all 66 fit
+uniquely.  tests/replay_check: the console's LFSR free-runs 64 steps a sample through resets, and both models given
+the console's parameters measure them back.  Refutation: a replay_fit with no unique fit, or `replay_fit -same` failing.
+
+### X10 -- 0x2804 bit 15 moves MDEC_CT against the envelope counter (NOT investigated: TODO 7.1)
+hw9: K 0 / even parity up to tests/probe's preamble, K 10923 / odd after; tests/k_jump: every write with bit 15 set moves
+it, nothing else does.
+
+### X11 -- timers and interrupt registers (TODO 4)
+NOTES "Timers and interrupts": separate SCIPD / MCIPD, bit 5 the only CPU-settable bit, the line MCIEB & MCIPD, bit 10
+per sample, timers ticking at the edge on one free-running prescaler locked to MDEC_CT (tim_phase), count wrapping
+without reload.  Both models and rtl/v1; `tools/timer_irq_check` passes on the console's and both models' logs;
+co-simulation clean on the six cases that read them.  Open: pending bit 9's source; the ARM's FIQ (TODO 4.3).
+
+### X12 -- sample-exact stream replays of the console (TODO 5; `tools/stream_replay`)
+From each case's slot images and the run's replay parameters: sgc_aeg 44/44 streams (to the key-off window), sgc_pitch
+16/16, sgc_formats 8/8 (noise with the preamble's LFSR), sgc_lfo 24/24, sgc_lfo2 run 0 4/4, lfo_noise 8/8 (the LFO
+streams with their (state, counter) at the key-on fitted: exactly one fits each).  Model fixes this needed (models and
+rtl/v1, co-simulation clean): a noise slot outputs noise whether it plays or not; the PLFO triangle's peak (126, not
+128 -> -128); the ALFO noise byte two LFSR steps after the slot's own step, the PLFO's 67 steps back XOR 0x80 (why 67:
+TODO 7.2); the LFO counter free-running per slot, never reloaded by a write, LFORE holding only the state.
+Refutation: a stream_replay MISMATCH on these captures.
+
+### X13 -- ADPCM above 4 nibbles a sample (TODO 6.1, open)
+Exact up to 4 (tests/adpcm_pitch); above, the console decodes what one fetched word a sample allows; OCT 3..6 hold the
+key-on value; an odd SA starts on the other nibble.  NOTES "ADPCM above 4 nibbles per sample".  Not modelled.
+
+Console cases added later in session 9: replay_check, k_jump, timer_irq, timer_phase, irq_bit9, lfo_noise, adpcm_hi,
+adpcm_pitch; tools: replay_fit (+ kfit_core.h), stream_replay, timer_check, timer_irq_check.  Tools added: `tools/sub_check.cpp`, `tools/sched_check.cpp` (cycle
+model only), the `<tool>_cycle` builds, `run_cycle.sh`, `cycle-model/replay_all.sh`, `rtl/v1/tb/cosim_cycle.cpp`,
+`tb/gate_cycle.sh`.
+
 ## Reference: key paths
 
-- Model: `src/aica_model.cpp` -- `step()` (key events, clock, every slot's bus write, stop commit; no register latch),
+- Cycle model (session 9): `cycle-model/aica_model.cpp` -- `sgc_clock` (the frame schedule), `stage_a` / `stream_step`, `stage_key`, `stage_eg`, `stage_level`, `stage_send`, `publish_mixs`; harness `cycle-model/io_cycle.cpp`.
+- Model: `sample-model/aica_model.cpp` -- `step()` (key events, clock, every slot's bus write, stop commit; no register latch),
   `aeg_clock` (key-off rules, R 63 transition, stop arming; registers live), `feg_clock` (`feg_prev`, `feg_prev_dir`, `feg_prev_passed`),
   `slot_stop` (fetch stop + off + CA 0, session 6), `slot_output` (no mute), `eg_increment`, `key_on`, `key_off`,
   `lpf_step`, `read()` (MIXS = current-parity bank); macros at the top.

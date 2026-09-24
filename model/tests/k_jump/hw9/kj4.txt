@@ -1,0 +1,2 @@
+# tools/replay_fit tests/k_jump/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec e1b6 lfsr 0c5d9 K 9791 par 0

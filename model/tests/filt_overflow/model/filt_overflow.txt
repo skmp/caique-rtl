@@ -1,10 +1,10 @@
-cap_start: counter word fd38 at e280 (n 711), next fd39 fd3a fd3b, c0 e547, head n 721
+cap_start: counter word fd3f at d3c0 (n 704), next fd40 fd41 fd42, c0 d680, head n 709
 fo_0 length=16 samples=2816 errors=0
-cap_start: counter word fd5f at ba00 (n 672), next fd60 fd61 fd62, c0 bca0, head n 691
+cap_start: counter word fd82 at 9ca0 (n 637), next fd83 fd84 fd85, c0 9f1d, head n 666
 fo_1 length=128 samples=2944 errors=0
-cap_start: counter word fd88 at 9120 (n 631), next fd89 fd8a fd8b, c0 9397, head n 657
+cap_start: counter word fd9a at 6500 (n 613), next fd9b fd9c fd9d, c0 6765, head n 616
 fo_2 length=1024 samples=3840 errors=0
-cap_start: counter word fdaf at 64e0 (n 592), next fdb0 fdb1 fdb2, c0 6730, head n 617
+cap_start: counter word fde0 at 2a40 (n 543), next fde1 fde2 fde3, c0 2c5f, head n 566
 fo_3 length=8192 samples=11008 errors=0
-cap_start: counter word fdee at 1ce0 (n 529), next fdef fdf0 fdf1, c0 1ef1, head n 554
+cap_start: counter word fd34 at d2c0 (n 715), next fd35 fd36 fd37, c0 d58b, head n 716
 fo_4 length=30000 samples=32832 errors=0

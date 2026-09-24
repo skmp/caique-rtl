@@ -1,0 +1,2 @@
+cap_start: counter word fdca at 3b80 (n 565), next fdcb fdcc fdcd, c0 3db5, head n 583
+fp: 3584 samples, errors 0

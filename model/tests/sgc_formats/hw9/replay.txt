@@ -1,0 +1,2 @@
+# tools/replay_fit tests/sgc_formats/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec f4b2 lfsr 0c79f K 1225 par 1

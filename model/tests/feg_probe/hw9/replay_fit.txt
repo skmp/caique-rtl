@@ -1,0 +1,7 @@
+replay_fit tests/feg_probe/hw9: 45376 samples, first 566, c0 2836, key-on sample 226 (MDEC_CT 251e), fit window 226..43956, sync MDEC_CT 753b
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(251e) = 1e5ff fits all 43729 noise samples; f(sync 753b - 1) = 13896 (45028 samples on)
+replay_fit tests/feg_probe/hw9: mdec 753b lfsr 13896 K 0 par 0 -> tests/feg_probe/hw9/replay.txt

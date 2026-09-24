@@ -117,11 +117,8 @@ static inline int cap_start(int nstreams, const int *mixs, int32_t *buf, uint32_
     memset(&CAP, 0, sizeof CAP);
     CAP.ns = nstreams;
     for (int k = 0; k < nstreams; k++) CAP.mixs[k] = mixs[k];
-    prog_reset(); prog_load();
-    ram_fill(CAP_RBP_BYTE, 0, 0x20000);
-    dsp_ring(CAP_RBP_BYTE >> 11, 3);
+    dsp_reset(CAP_RBP_BYTE, 3);   /* known DSP state: every step a NOP, the ring and every buffer cleared (TODO 2.1) */
     for (int r = 0; r < 9; r++) dsp_madrs(r, (uint16_t)(r * CAP_REGION));
-    for (int i = 0; i < 128; i++) { aw(R_TEMP(i, 0), 0); aw(R_TEMP(i, 1), 0); }
     aw(R_MEMS(30, 1), 0x0001);
     aw(R_MEMS(31, 1), 0x8000);
     prog_reset();
@@ -186,6 +183,10 @@ static inline uint32_t cap_stop(void) {
  * <name>.bin: int32 data[nsamples][ns] (MIXS values) */
 static inline int cap_save(const char *name, uint32_t nsamples) {
     static uint32_t hdr[16 + 2 * CAP_MAXEV];
+    /* the ring alignment and SH4 time of this capture, for the replay tools (tools/stream_replay) */
+    LOG("capture %s c0 %04lx first %lu samples %lu head n %lu t_head_us %lu%06lu\n", name, (unsigned long)CAP.c0,
+        (unsigned long)CAP.n_first, (unsigned long)nsamples, (unsigned long)CAP.n_head,
+        (unsigned long)(CAP.t_head / 1000000u), (unsigned long)(CAP.t_head % 1000000u));
     uint32_t h = 0;
     hdr[h++] = 0x31504143; hdr[h++] = CAP.ns; hdr[h++] = nsamples; hdr[h++] = CAP.n_first; hdr[h++] = CAP.errors;
     hdr[h++] = CAP.first_err_n; hdr[h++] = CAP.nev;

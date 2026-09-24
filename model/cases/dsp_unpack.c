@@ -9,8 +9,7 @@ static uint32_t res[65536];
 
 int test_main(void) {
     out_open("dsp_unpack.txt");
-    aica_quiet();
-    dsp_ring(RBP_BYTE >> 11, 0);
+    aica_reset(RBP_BYTE, 0);
     prog_reset();
     for (int j = 0; j < 30; j++) {
         dsp_madrs(j, 0x10 + j);

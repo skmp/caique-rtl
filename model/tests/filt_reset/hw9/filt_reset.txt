@@ -1,0 +1,2 @@
+cap_start: counter word fd0f at f420 (n 752), next fd10 fd11 fd12, c0 f710, head n 763
+fr: 13632 samples, errors 0

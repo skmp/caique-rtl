@@ -1,2 +1,2 @@
-cap_start: counter word fd28 at eae0 (n 727), next fd29 fd2a fd2b, c0 edb7, head n 728
-dl0: 20416 samples, counter errors 0, 85062 EG monitor reads, 1193 changes
+cap_start: counter word fd50 at dc40 (n 687), next fd51 fd52 fd53, c0 deef, head n 716
+dl0: 20416 samples, counter errors 0, 85062 EG monitor reads, 1194 changes

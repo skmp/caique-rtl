@@ -1,4 +1,4 @@
-cap_start: counter word fd3c at eac0 (n 707), next fd3d fd3e fd3f, c0 ed83, head n 729
+cap_start: counter word fd44 at dc00 (n 699), next fd45 fd46 fd47, c0 debb, head n 716
 captured 91456 samples x 4 streams, counter errors 0 (first at 0), events: 1@895 2@89097
-stream 0: first non-zero at 898, phase 0, 88442 samples checked to 89339, 0 mismatches
-stream 1: first non-zero at 898, phase 0, 88442 samples checked to 89339, 0 mismatches
+stream 0: first non-zero at 899, phase 0, 88442 samples checked to 89340, 0 mismatches
+stream 1: first non-zero at 899, phase 0, 88442 samples checked to 89340, 0 mismatches

@@ -11,9 +11,9 @@ DIR=${1:?dir}; K=${2:?K}
 M=$(cd "$(dirname "$0")/../.." && pwd)
 cd "$M" || exit 2
 BIN=build/work/tail_cmp
-if [ ! -x $BIN ] || [ work/tail/tail_cmp.cpp -nt $BIN ] || [ src/aica_model.cpp -nt $BIN ]; then
+if [ ! -x $BIN ] || [ work/tail/tail_cmp.cpp -nt $BIN ] || [ sample-model/aica_model.cpp -nt $BIN ]; then
   mkdir -p build/work
-  g++ -O2 -std=c++17 -o $BIN work/tail/tail_cmp.cpp src/aica_model.cpp || exit 2
+  g++ -O2 -std=c++17 -o $BIN work/tail/tail_cmp.cpp sample-model/aica_model.cpp || exit 2
 fi
 mapfile -t C0 < <(grep -o 'c0 [0-9a-f]\{4\}' "$DIR/slot_tail.txt" | awk '{print $2}')
 [ ${#C0[@]} -eq 3 ] || { echo "expected 3 cap_start lines in $DIR/slot_tail.txt, found ${#C0[@]}"; exit 2; }

@@ -1,0 +1,34 @@
+hwrun: 14:23:17 lock taken by pid 223750 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/hw9/cap_selftest.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at acc61b20
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+captured 91264 samples x 4 streams, counter errors 0 (first at 0), events: 1@900 2@88909
+stream 0: first non-zero at 907, phase 0, 88445 samples checked to 89351, 0 mismatches
+stream 1: first non-zero at 907, phase 0, 88445 samples checked to 89351, 0 mismatches
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 225, dma_cntr = 224
+vid_set_mode: 640x480 VGA with 1 framebuffers.

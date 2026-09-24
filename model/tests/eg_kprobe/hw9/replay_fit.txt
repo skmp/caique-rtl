@@ -1,0 +1,7 @@
+replay_fit tests/eg_kprobe/hw9: 45376 samples, first 629, c0 6b79, key-on sample 226 (MDEC_CT 6822), fit window 226..43956, sync MDEC_CT b83f
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(6822) = 06445 fits all 43729 noise samples; f(sync b83f - 1) = 07b50 (45028 samples on)
+replay_fit tests/eg_kprobe/hw9: mdec b83f lfsr 07b50 K 0 par 0 -> tests/eg_kprobe/hw9/replay.txt

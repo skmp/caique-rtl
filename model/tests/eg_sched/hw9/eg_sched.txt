@@ -1,0 +1,536 @@
+f_0_32 stream 0: slot 0 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_0_32 stream 1: slot 32 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_0_32 stream 2: slot 1 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_0_32 stream 3: slot 62 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_0_32 run: kind f A 0 B 32 wl 1 wh 62 cycles 24
+cap_start: counter word fd32 at d600 (n 717), next fd33 fd34 fd35, c0 d8cd, head n 722
+f_0_32 cyc 0 ev 0 order 0 base 1 t_us 3217
+f_0_32 cyc 0 ev 1 order 1 base 0 t_us 10546
+f_0_32 cyc 0 ev 2 order 0 base 1 t_us 18964
+f_0_32 cyc 0 ev 3 order 1 base 0 t_us 26443
+f_0_32 cyc 1 ev 0 order 0 base 1 t_us 2673
+f_0_32 cyc 1 ev 1 order 1 base 0 t_us 11418
+f_0_32 cyc 1 ev 2 order 0 base 1 t_us 20126
+f_0_32 cyc 1 ev 3 order 1 base 0 t_us 27353
+f_0_32 cyc 2 ev 0 order 0 base 1 t_us 2901
+f_0_32 cyc 2 ev 1 order 1 base 0 t_us 10685
+f_0_32 cyc 2 ev 2 order 0 base 1 t_us 18896
+f_0_32 cyc 2 ev 3 order 1 base 0 t_us 27618
+f_0_32 cyc 3 ev 0 order 0 base 1 t_us 3210
+f_0_32 cyc 3 ev 1 order 1 base 0 t_us 11637
+f_0_32 cyc 3 ev 2 order 0 base 1 t_us 18865
+f_0_32 cyc 3 ev 3 order 1 base 0 t_us 26458
+f_0_32 cyc 4 ev 0 order 0 base 1 t_us 2753
+f_0_32 cyc 4 ev 1 order 1 base 0 t_us 11553
+f_0_32 cyc 4 ev 2 order 0 base 1 t_us 18734
+f_0_32 cyc 4 ev 3 order 1 base 0 t_us 27494
+f_0_32 cyc 5 ev 0 order 0 base 1 t_us 2924
+f_0_32 cyc 5 ev 1 order 1 base 0 t_us 11686
+f_0_32 cyc 5 ev 2 order 0 base 1 t_us 19092
+f_0_32 cyc 5 ev 3 order 1 base 0 t_us 26224
+f_0_32 cyc 6 ev 0 order 0 base 1 t_us 3382
+f_0_32 cyc 6 ev 1 order 1 base 0 t_us 11552
+f_0_32 cyc 6 ev 2 order 0 base 1 t_us 18812
+f_0_32 cyc 6 ev 3 order 1 base 0 t_us 26616
+f_0_32 cyc 7 ev 0 order 0 base 1 t_us 3981
+f_0_32 cyc 7 ev 1 order 1 base 0 t_us 11312
+f_0_32 cyc 7 ev 2 order 0 base 1 t_us 18557
+f_0_32 cyc 7 ev 3 order 1 base 0 t_us 27454
+f_0_32 cyc 8 ev 0 order 0 base 1 t_us 3071
+f_0_32 cyc 8 ev 1 order 1 base 0 t_us 11563
+f_0_32 cyc 8 ev 2 order 0 base 1 t_us 18955
+f_0_32 cyc 8 ev 3 order 1 base 0 t_us 26377
+f_0_32 cyc 9 ev 0 order 0 base 1 t_us 2774
+f_0_32 cyc 9 ev 1 order 1 base 0 t_us 11501
+f_0_32 cyc 9 ev 2 order 0 base 1 t_us 19168
+f_0_32 cyc 9 ev 3 order 1 base 0 t_us 27461
+f_0_32 cyc 10 ev 0 order 0 base 1 t_us 2904
+f_0_32 cyc 10 ev 1 order 1 base 0 t_us 11599
+f_0_32 cyc 10 ev 2 order 0 base 1 t_us 19090
+f_0_32 cyc 10 ev 3 order 1 base 0 t_us 27587
+f_0_32 cyc 11 ev 0 order 0 base 1 t_us 3012
+f_0_32 cyc 11 ev 1 order 1 base 0 t_us 11602
+f_0_32 cyc 11 ev 2 order 0 base 1 t_us 18870
+f_0_32 cyc 11 ev 3 order 1 base 0 t_us 27565
+f_0_32 cyc 12 ev 0 order 0 base 1 t_us 2910
+f_0_32 cyc 12 ev 1 order 1 base 0 t_us 10359
+f_0_32 cyc 12 ev 2 order 0 base 1 t_us 19222
+f_0_32 cyc 12 ev 3 order 1 base 0 t_us 27594
+f_0_32 cyc 13 ev 0 order 0 base 1 t_us 2920
+f_0_32 cyc 13 ev 1 order 1 base 0 t_us 10180
+f_0_32 cyc 13 ev 2 order 0 base 1 t_us 18885
+f_0_32 cyc 13 ev 3 order 1 base 0 t_us 27567
+f_0_32 cyc 14 ev 0 order 0 base 1 t_us 2931
+f_0_32 cyc 14 ev 1 order 1 base 0 t_us 10214
+f_0_32 cyc 14 ev 2 order 0 base 1 t_us 18869
+f_0_32 cyc 14 ev 3 order 1 base 0 t_us 26253
+f_0_32 cyc 15 ev 0 order 0 base 1 t_us 3256
+f_0_32 cyc 15 ev 1 order 1 base 0 t_us 11544
+f_0_32 cyc 15 ev 2 order 0 base 1 t_us 18810
+f_0_32 cyc 15 ev 3 order 1 base 0 t_us 27531
+f_0_32 cyc 16 ev 0 order 0 base 1 t_us 2886
+f_0_32 cyc 16 ev 1 order 1 base 0 t_us 10492
+f_0_32 cyc 16 ev 2 order 0 base 1 t_us 19317
+f_0_32 cyc 16 ev 3 order 1 base 0 t_us 26133
+f_0_32 cyc 17 ev 0 order 0 base 1 t_us 2953
+f_0_32 cyc 17 ev 1 order 1 base 0 t_us 11558
+f_0_32 cyc 17 ev 2 order 0 base 1 t_us 18795
+f_0_32 cyc 17 ev 3 order 1 base 0 t_us 26545
+f_0_32 cyc 18 ev 0 order 0 base 1 t_us 4061
+f_0_32 cyc 18 ev 1 order 1 base 0 t_us 10232
+f_0_32 cyc 18 ev 2 order 0 base 1 t_us 18649
+f_0_32 cyc 18 ev 3 order 1 base 0 t_us 26173
+f_0_32 cyc 19 ev 0 order 0 base 1 t_us 2746
+f_0_32 cyc 19 ev 1 order 1 base 0 t_us 11231
+f_0_32 cyc 19 ev 2 order 0 base 1 t_us 18475
+f_0_32 cyc 19 ev 3 order 1 base 0 t_us 27201
+f_0_32 cyc 20 ev 0 order 0 base 1 t_us 2966
+f_0_32 cyc 20 ev 1 order 1 base 0 t_us 10187
+f_0_32 cyc 20 ev 2 order 0 base 1 t_us 18862
+f_0_32 cyc 20 ev 3 order 1 base 0 t_us 26220
+f_0_32 cyc 21 ev 0 order 0 base 1 t_us 4351
+f_0_32 cyc 21 ev 1 order 1 base 0 t_us 11560
+f_0_32 cyc 21 ev 2 order 0 base 1 t_us 18921
+f_0_32 cyc 21 ev 3 order 1 base 0 t_us 27526
+f_0_32 cyc 22 ev 0 order 0 base 1 t_us 2905
+f_0_32 cyc 22 ev 1 order 1 base 0 t_us 10605
+f_0_32 cyc 22 ev 2 order 0 base 1 t_us 19373
+f_0_32 cyc 22 ev 3 order 1 base 0 t_us 27583
+f_0_32 cyc 23 ev 0 order 0 base 1 t_us 3523
+f_0_32 cyc 23 ev 1 order 1 base 0 t_us 10236
+f_0_32 cyc 23 ev 2 order 0 base 1 t_us 18870
+f_0_32 cyc 23 ev 3 order 1 base 0 t_us 26501
+f_0_32: 35712 samples, errors 0, 64 marks
+f_8_40 stream 0: slot 8 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_8_40 stream 1: slot 40 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_8_40 stream 2: slot 2 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_8_40 stream 3: slot 61 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_8_40 run: kind f A 8 B 40 wl 2 wh 61 cycles 24
+cap_start: counter word fde3 at 2360 (n 540), next fde4 fde5 fde6, c0 257c, head n 563
+f_8_40 cyc 0 ev 0 order 0 base 1 t_us 2821
+f_8_40 cyc 0 ev 1 order 1 base 0 t_us 11530
+f_8_40 cyc 0 ev 2 order 0 base 1 t_us 18753
+f_8_40 cyc 0 ev 3 order 1 base 0 t_us 26447
+f_8_40 cyc 1 ev 0 order 0 base 1 t_us 2661
+f_8_40 cyc 1 ev 1 order 1 base 0 t_us 10489
+f_8_40 cyc 1 ev 2 order 0 base 1 t_us 18662
+f_8_40 cyc 1 ev 3 order 1 base 0 t_us 27330
+f_8_40 cyc 2 ev 0 order 0 base 1 t_us 2914
+f_8_40 cyc 2 ev 1 order 1 base 0 t_us 10359
+f_8_40 cyc 2 ev 2 order 0 base 1 t_us 18898
+f_8_40 cyc 2 ev 3 order 1 base 0 t_us 26132
+f_8_40 cyc 3 ev 0 order 0 base 1 t_us 3215
+f_8_40 cyc 3 ev 1 order 1 base 0 t_us 10338
+f_8_40 cyc 3 ev 2 order 0 base 1 t_us 18795
+f_8_40 cyc 3 ev 3 order 1 base 0 t_us 27500
+f_8_40 cyc 4 ev 0 order 0 base 1 t_us 2914
+f_8_40 cyc 4 ev 1 order 1 base 0 t_us 10273
+f_8_40 cyc 4 ev 2 order 0 base 1 t_us 19305
+f_8_40 cyc 4 ev 3 order 1 base 0 t_us 26170
+f_8_40 cyc 5 ev 0 order 0 base 1 t_us 2833
+f_8_40 cyc 5 ev 1 order 1 base 0 t_us 11541
+f_8_40 cyc 5 ev 2 order 0 base 1 t_us 18805
+f_8_40 cyc 5 ev 3 order 1 base 0 t_us 27531
+f_8_40 cyc 6 ev 0 order 0 base 1 t_us 2932
+f_8_40 cyc 6 ev 1 order 1 base 0 t_us 11608
+f_8_40 cyc 6 ev 2 order 0 base 1 t_us 18883
+f_8_40 cyc 6 ev 3 order 1 base 0 t_us 26256
+f_8_40 cyc 7 ev 0 order 0 base 1 t_us 3369
+f_8_40 cyc 7 ev 1 order 1 base 0 t_us 11535
+f_8_40 cyc 7 ev 2 order 0 base 1 t_us 18825
+f_8_40 cyc 7 ev 3 order 1 base 0 t_us 27572
+f_8_40 cyc 8 ev 0 order 0 base 1 t_us 2909
+f_8_40 cyc 8 ev 1 order 1 base 0 t_us 11640
+f_8_40 cyc 8 ev 2 order 0 base 1 t_us 18874
+f_8_40 cyc 8 ev 3 order 1 base 0 t_us 27638
+f_8_40 cyc 9 ev 0 order 0 base 1 t_us 3003
+f_8_40 cyc 9 ev 1 order 1 base 0 t_us 11625
+f_8_40 cyc 9 ev 2 order 0 base 1 t_us 19384
+f_8_40 cyc 9 ev 3 order 1 base 0 t_us 27671
+f_8_40 cyc 10 ev 0 order 0 base 1 t_us 3055
+f_8_40 cyc 10 ev 1 order 1 base 0 t_us 10401
+f_8_40 cyc 10 ev 2 order 0 base 1 t_us 19212
+f_8_40 cyc 10 ev 3 order 1 base 0 t_us 26448
+f_8_40 cyc 11 ev 0 order 0 base 1 t_us 2770
+f_8_40 cyc 11 ev 1 order 1 base 0 t_us 10429
+f_8_40 cyc 11 ev 2 order 0 base 1 t_us 18744
+f_8_40 cyc 11 ev 3 order 1 base 0 t_us 27451
+f_8_40 cyc 12 ev 0 order 0 base 1 t_us 2949
+f_8_40 cyc 12 ev 1 order 1 base 0 t_us 10777
+f_8_40 cyc 12 ev 2 order 0 base 1 t_us 18881
+f_8_40 cyc 12 ev 3 order 1 base 0 t_us 26379
+f_8_40 cyc 13 ev 0 order 0 base 1 t_us 2858
+f_8_40 cyc 13 ev 1 order 1 base 0 t_us 11564
+f_8_40 cyc 13 ev 2 order 0 base 1 t_us 18850
+f_8_40 cyc 13 ev 3 order 1 base 0 t_us 26550
+f_8_40 cyc 14 ev 0 order 0 base 1 t_us 3106
+f_8_40 cyc 14 ev 1 order 1 base 0 t_us 11292
+f_8_40 cyc 14 ev 2 order 0 base 1 t_us 19155
+f_8_40 cyc 14 ev 3 order 1 base 0 t_us 27292
+f_8_40 cyc 15 ev 0 order 0 base 1 t_us 2898
+f_8_40 cyc 15 ev 1 order 1 base 0 t_us 11638
+f_8_40 cyc 15 ev 2 order 0 base 1 t_us 19437
+f_8_40 cyc 15 ev 3 order 1 base 0 t_us 26164
+f_8_40 cyc 16 ev 0 order 0 base 1 t_us 2833
+f_8_40 cyc 16 ev 1 order 1 base 0 t_us 11568
+f_8_40 cyc 16 ev 2 order 0 base 1 t_us 19285
+f_8_40 cyc 16 ev 3 order 1 base 0 t_us 26047
+f_8_40 cyc 17 ev 0 order 0 base 1 t_us 2777
+f_8_40 cyc 17 ev 1 order 1 base 0 t_us 11497
+f_8_40 cyc 17 ev 2 order 0 base 1 t_us 18731
+f_8_40 cyc 17 ev 3 order 1 base 0 t_us 27419
+f_8_40 cyc 18 ev 0 order 0 base 1 t_us 3275
+f_8_40 cyc 18 ev 1 order 1 base 0 t_us 10388
+f_8_40 cyc 18 ev 2 order 0 base 1 t_us 18897
+f_8_40 cyc 18 ev 3 order 1 base 0 t_us 26142
+f_8_40 cyc 19 ev 0 order 0 base 1 t_us 2925
+f_8_40 cyc 19 ev 1 order 1 base 0 t_us 11521
+f_8_40 cyc 19 ev 2 order 0 base 1 t_us 18844
+f_8_40 cyc 19 ev 3 order 1 base 0 t_us 27516
+f_8_40 cyc 20 ev 0 order 0 base 1 t_us 2924
+f_8_40 cyc 20 ev 1 order 1 base 0 t_us 11632
+f_8_40 cyc 20 ev 2 order 0 base 1 t_us 18959
+f_8_40 cyc 20 ev 3 order 1 base 0 t_us 26575
+f_8_40 cyc 21 ev 0 order 0 base 1 t_us 2906
+f_8_40 cyc 21 ev 1 order 1 base 0 t_us 10303
+f_8_40 cyc 21 ev 2 order 0 base 1 t_us 18620
+f_8_40 cyc 21 ev 3 order 1 base 0 t_us 26359
+f_8_40 cyc 22 ev 0 order 0 base 1 t_us 2570
+f_8_40 cyc 22 ev 1 order 1 base 0 t_us 11439
+f_8_40 cyc 22 ev 2 order 0 base 1 t_us 18585
+f_8_40 cyc 22 ev 3 order 1 base 0 t_us 27271
+f_8_40 cyc 23 ev 0 order 0 base 1 t_us 2924
+f_8_40 cyc 23 ev 1 order 1 base 0 t_us 11629
+f_8_40 cyc 23 ev 2 order 0 base 1 t_us 18871
+f_8_40 cyc 23 ev 3 order 1 base 0 t_us 26351
+f_8_40: 35584 samples, errors 0, 64 marks
+f_16_48 stream 0: slot 16 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_16_48 stream 1: slot 48 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_16_48 stream 2: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_16_48 stream 3: slot 60 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_16_48 run: kind f A 16 B 48 wl 3 wh 60 cycles 24
+cap_start: counter word fd8a at 7120 (n 629), next fd8b fd8c fd8d, c0 7395, head n 630
+f_16_48 cyc 0 ev 0 order 0 base 1 t_us 3158
+f_16_48 cyc 0 ev 1 order 1 base 0 t_us 11508
+f_16_48 cyc 0 ev 2 order 0 base 1 t_us 19291
+f_16_48 cyc 0 ev 3 order 1 base 0 t_us 27473
+f_16_48 cyc 1 ev 0 order 0 base 1 t_us 2917
+f_16_48 cyc 1 ev 1 order 1 base 0 t_us 11645
+f_16_48 cyc 1 ev 2 order 0 base 1 t_us 18889
+f_16_48 cyc 1 ev 3 order 1 base 0 t_us 27610
+f_16_48 cyc 2 ev 0 order 0 base 1 t_us 2902
+f_16_48 cyc 2 ev 1 order 1 base 0 t_us 10298
+f_16_48 cyc 2 ev 2 order 0 base 1 t_us 19478
+f_16_48 cyc 2 ev 3 order 1 base 0 t_us 26726
+f_16_48 cyc 3 ev 0 order 0 base 1 t_us 2499
+f_16_48 cyc 3 ev 1 order 1 base 0 t_us 11226
+f_16_48 cyc 3 ev 2 order 0 base 1 t_us 18474
+f_16_48 cyc 3 ev 3 order 1 base 0 t_us 27193
+f_16_48 cyc 4 ev 0 order 0 base 1 t_us 2909
+f_16_48 cyc 4 ev 1 order 1 base 0 t_us 11616
+f_16_48 cyc 4 ev 2 order 0 base 1 t_us 19248
+f_16_48 cyc 4 ev 3 order 1 base 0 t_us 26477
+f_16_48 cyc 5 ev 0 order 0 base 1 t_us 2772
+f_16_48 cyc 5 ev 1 order 1 base 0 t_us 10110
+f_16_48 cyc 5 ev 2 order 0 base 1 t_us 18709
+f_16_48 cyc 5 ev 3 order 1 base 0 t_us 27439
+f_16_48 cyc 6 ev 0 order 0 base 1 t_us 3275
+f_16_48 cyc 6 ev 1 order 1 base 0 t_us 11636
+f_16_48 cyc 6 ev 2 order 0 base 1 t_us 18901
+f_16_48 cyc 6 ev 3 order 1 base 0 t_us 26278
+f_16_48 cyc 7 ev 0 order 0 base 1 t_us 3340
+f_16_48 cyc 7 ev 1 order 1 base 0 t_us 10597
+f_16_48 cyc 7 ev 2 order 0 base 1 t_us 18962
+f_16_48 cyc 7 ev 3 order 1 base 0 t_us 26607
+f_16_48 cyc 8 ev 0 order 0 base 1 t_us 2581
+f_16_48 cyc 8 ev 1 order 1 base 0 t_us 11257
+f_16_48 cyc 8 ev 2 order 0 base 1 t_us 19078
+f_16_48 cyc 8 ev 3 order 1 base 0 t_us 27260
+f_16_48 cyc 9 ev 0 order 0 base 1 t_us 3348
+f_16_48 cyc 9 ev 1 order 1 base 0 t_us 10176
+f_16_48 cyc 9 ev 2 order 0 base 1 t_us 18846
+f_16_48 cyc 9 ev 3 order 1 base 0 t_us 27631
+f_16_48 cyc 10 ev 0 order 0 base 1 t_us 2926
+f_16_48 cyc 10 ev 1 order 1 base 0 t_us 11622
+f_16_48 cyc 10 ev 2 order 0 base 1 t_us 18872
+f_16_48 cyc 10 ev 3 order 1 base 0 t_us 27646
+f_16_48 cyc 11 ev 0 order 0 base 1 t_us 3045
+f_16_48 cyc 11 ev 1 order 1 base 0 t_us 10672
+f_16_48 cyc 11 ev 2 order 0 base 1 t_us 18907
+f_16_48 cyc 11 ev 3 order 1 base 0 t_us 27665
+f_16_48 cyc 12 ev 0 order 0 base 1 t_us 3249
+f_16_48 cyc 12 ev 1 order 1 base 0 t_us 10652
+f_16_48 cyc 12 ev 2 order 0 base 1 t_us 18855
+f_16_48 cyc 12 ev 3 order 1 base 0 t_us 26496
+f_16_48 cyc 13 ev 0 order 0 base 1 t_us 3054
+f_16_48 cyc 13 ev 1 order 1 base 0 t_us 10235
+f_16_48 cyc 13 ev 2 order 0 base 1 t_us 20128
+f_16_48 cyc 13 ev 3 order 1 base 0 t_us 26304
+f_16_48 cyc 14 ev 0 order 0 base 1 t_us 2642
+f_16_48 cyc 14 ev 1 order 1 base 0 t_us 11351
+f_16_48 cyc 14 ev 2 order 0 base 1 t_us 18607
+f_16_48 cyc 14 ev 3 order 1 base 0 t_us 27355
+f_16_48 cyc 15 ev 0 order 0 base 1 t_us 2952
+f_16_48 cyc 15 ev 1 order 1 base 0 t_us 11630
+f_16_48 cyc 15 ev 2 order 0 base 1 t_us 20345
+f_16_48 cyc 15 ev 3 order 1 base 0 t_us 26702
+f_16_48 cyc 16 ev 0 order 0 base 1 t_us 2520
+f_16_48 cyc 16 ev 1 order 1 base 0 t_us 11218
+f_16_48 cyc 16 ev 2 order 0 base 1 t_us 19956
+f_16_48 cyc 16 ev 3 order 1 base 0 t_us 27260
+f_16_48 cyc 17 ev 0 order 0 base 1 t_us 2894
+f_16_48 cyc 17 ev 1 order 1 base 0 t_us 10765
+f_16_48 cyc 17 ev 2 order 0 base 1 t_us 18887
+f_16_48 cyc 17 ev 3 order 1 base 0 t_us 26258
+f_16_48 cyc 18 ev 0 order 0 base 1 t_us 2842
+f_16_48 cyc 18 ev 1 order 1 base 0 t_us 11566
+f_16_48 cyc 18 ev 2 order 0 base 1 t_us 18824
+f_16_48 cyc 18 ev 3 order 1 base 0 t_us 27490
+f_16_48 cyc 19 ev 0 order 0 base 1 t_us 2926
+f_16_48 cyc 19 ev 1 order 1 base 0 t_us 11646
+f_16_48 cyc 19 ev 2 order 0 base 1 t_us 18850
+f_16_48 cyc 19 ev 3 order 1 base 0 t_us 26688
+f_16_48 cyc 20 ev 0 order 0 base 1 t_us 4000
+f_16_48 cyc 20 ev 1 order 1 base 0 t_us 11246
+f_16_48 cyc 20 ev 2 order 0 base 1 t_us 18649
+f_16_48 cyc 20 ev 3 order 1 base 0 t_us 27197
+f_16_48 cyc 21 ev 0 order 0 base 1 t_us 2843
+f_16_48 cyc 21 ev 1 order 1 base 0 t_us 10155
+f_16_48 cyc 21 ev 2 order 0 base 1 t_us 18809
+f_16_48 cyc 21 ev 3 order 1 base 0 t_us 27518
+f_16_48 cyc 22 ev 0 order 0 base 1 t_us 2861
+f_16_48 cyc 22 ev 1 order 1 base 0 t_us 10084
+f_16_48 cyc 22 ev 2 order 0 base 1 t_us 18891
+f_16_48 cyc 22 ev 3 order 1 base 0 t_us 26090
+f_16_48 cyc 23 ev 0 order 0 base 1 t_us 3009
+f_16_48 cyc 23 ev 1 order 1 base 0 t_us 10241
+f_16_48 cyc 23 ev 2 order 0 base 1 t_us 18729
+f_16_48 cyc 23 ev 3 order 1 base 0 t_us 27438
+f_16_48: 35776 samples, errors 0, 64 marks
+f_24_56 stream 0: slot 24 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_24_56 stream 1: slot 56 role test AR 31 D1R 0 DL 0 D2R 0 RR 0 KRS 15 VOFF 1
+f_24_56 stream 2: slot 4 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_24_56 stream 3: slot 63 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+f_24_56 run: kind f A 24 B 56 wl 4 wh 63 cycles 24
+cap_start: counter word fd4d at bde0 (n 690), next fd4e fd4f fd50, c0 c092, head n 697
+f_24_56 cyc 0 ev 0 order 0 base 1 t_us 3255
+f_24_56 cyc 0 ev 1 order 1 base 0 t_us 11522
+f_24_56 cyc 0 ev 2 order 0 base 1 t_us 18769
+f_24_56 cyc 0 ev 3 order 1 base 0 t_us 27469
+f_24_56 cyc 1 ev 0 order 0 base 1 t_us 3198
+f_24_56 cyc 1 ev 1 order 1 base 0 t_us 11557
+f_24_56 cyc 1 ev 2 order 0 base 1 t_us 18814
+f_24_56 cyc 1 ev 3 order 1 base 0 t_us 26617
+f_24_56 cyc 2 ev 0 order 0 base 1 t_us 2558
+f_24_56 cyc 2 ev 1 order 1 base 0 t_us 11279
+f_24_56 cyc 2 ev 2 order 0 base 1 t_us 19947
+f_24_56 cyc 2 ev 3 order 1 base 0 t_us 27205
+f_24_56 cyc 3 ev 0 order 0 base 1 t_us 2915
+f_24_56 cyc 3 ev 1 order 1 base 0 t_us 11600
+f_24_56 cyc 3 ev 2 order 0 base 1 t_us 19353
+f_24_56 cyc 3 ev 3 order 1 base 0 t_us 27592
+f_24_56 cyc 4 ev 0 order 0 base 1 t_us 2926
+f_24_56 cyc 4 ev 1 order 1 base 0 t_us 10150
+f_24_56 cyc 4 ev 2 order 0 base 1 t_us 18876
+f_24_56 cyc 4 ev 3 order 1 base 0 t_us 26294
+f_24_56 cyc 5 ev 0 order 0 base 1 t_us 2815
+f_24_56 cyc 5 ev 1 order 1 base 0 t_us 11545
+f_24_56 cyc 5 ev 2 order 0 base 1 t_us 18876
+f_24_56 cyc 5 ev 3 order 1 base 0 t_us 27515
+f_24_56 cyc 6 ev 0 order 0 base 1 t_us 3237
+f_24_56 cyc 6 ev 1 order 1 base 0 t_us 10162
+f_24_56 cyc 6 ev 2 order 0 base 1 t_us 18941
+f_24_56 cyc 6 ev 3 order 1 base 0 t_us 26718
+f_24_56 cyc 7 ev 0 order 0 base 1 t_us 2533
+f_24_56 cyc 7 ev 1 order 1 base 0 t_us 11253
+f_24_56 cyc 7 ev 2 order 0 base 1 t_us 18743
+f_24_56 cyc 7 ev 3 order 1 base 0 t_us 27195
+f_24_56 cyc 8 ev 0 order 0 base 1 t_us 3060
+f_24_56 cyc 8 ev 1 order 1 base 0 t_us 11641
+f_24_56 cyc 8 ev 2 order 0 base 1 t_us 19022
+f_24_56 cyc 8 ev 3 order 1 base 0 t_us 27567
+f_24_56 cyc 9 ev 0 order 0 base 1 t_us 2968
+f_24_56 cyc 9 ev 1 order 1 base 0 t_us 11632
+f_24_56 cyc 9 ev 2 order 0 base 1 t_us 18882
+f_24_56 cyc 9 ev 3 order 1 base 0 t_us 26656
+f_24_56 cyc 10 ev 0 order 0 base 1 t_us 2574
+f_24_56 cyc 10 ev 1 order 1 base 0 t_us 10182
+f_24_56 cyc 10 ev 2 order 0 base 1 t_us 20012
+f_24_56 cyc 10 ev 3 order 1 base 0 t_us 27258
+f_24_56 cyc 11 ev 0 order 0 base 1 t_us 2011
+f_24_56 cyc 11 ev 1 order 1 base 0 t_us 10451
+f_24_56 cyc 11 ev 2 order 0 base 1 t_us 19158
+f_24_56 cyc 11 ev 3 order 1 base 0 t_us 27564
+f_24_56 cyc 12 ev 0 order 0 base 1 t_us 2974
+f_24_56 cyc 12 ev 1 order 1 base 0 t_us 10378
+f_24_56 cyc 12 ev 2 order 0 base 1 t_us 18916
+f_24_56 cyc 12 ev 3 order 1 base 0 t_us 26499
+f_24_56 cyc 13 ev 0 order 0 base 1 t_us 2711
+f_24_56 cyc 13 ev 1 order 1 base 0 t_us 11448
+f_24_56 cyc 13 ev 2 order 0 base 1 t_us 19240
+f_24_56 cyc 13 ev 3 order 1 base 0 t_us 27414
+f_24_56 cyc 14 ev 0 order 0 base 1 t_us 3150
+f_24_56 cyc 14 ev 1 order 1 base 0 t_us 11623
+f_24_56 cyc 14 ev 2 order 0 base 1 t_us 18901
+f_24_56 cyc 14 ev 3 order 1 base 0 t_us 27578
+f_24_56 cyc 15 ev 0 order 0 base 1 t_us 2932
+f_24_56 cyc 15 ev 1 order 1 base 0 t_us 10379
+f_24_56 cyc 15 ev 2 order 0 base 1 t_us 19406
+f_24_56 cyc 15 ev 3 order 1 base 0 t_us 26381
+f_24_56 cyc 16 ev 0 order 0 base 1 t_us 2828
+f_24_56 cyc 16 ev 1 order 1 base 0 t_us 11537
+f_24_56 cyc 16 ev 2 order 0 base 1 t_us 19039
+f_24_56 cyc 16 ev 3 order 1 base 0 t_us 26599
+f_24_56 cyc 17 ev 0 order 0 base 1 t_us 3978
+f_24_56 cyc 17 ev 1 order 1 base 0 t_us 11300
+f_24_56 cyc 17 ev 2 order 0 base 1 t_us 19972
+f_24_56 cyc 17 ev 3 order 1 base 0 t_us 27200
+f_24_56 cyc 18 ev 0 order 0 base 1 t_us 2913
+f_24_56 cyc 18 ev 1 order 1 base 0 t_us 11619
+f_24_56 cyc 18 ev 2 order 0 base 1 t_us 18896
+f_24_56 cyc 18 ev 3 order 1 base 0 t_us 26147
+f_24_56 cyc 19 ev 0 order 0 base 1 t_us 3124
+f_24_56 cyc 19 ev 1 order 1 base 0 t_us 11560
+f_24_56 cyc 19 ev 2 order 0 base 1 t_us 18833
+f_24_56 cyc 19 ev 3 order 1 base 0 t_us 26582
+f_24_56 cyc 20 ev 0 order 0 base 1 t_us 2568
+f_24_56 cyc 20 ev 1 order 1 base 0 t_us 10203
+f_24_56 cyc 20 ev 2 order 0 base 1 t_us 18843
+f_24_56 cyc 20 ev 3 order 1 base 0 t_us 26265
+f_24_56 cyc 21 ev 0 order 0 base 1 t_us 2518
+f_24_56 cyc 21 ev 1 order 1 base 0 t_us 11204
+f_24_56 cyc 21 ev 2 order 0 base 1 t_us 18481
+f_24_56 cyc 21 ev 3 order 1 base 0 t_us 27419
+f_24_56 cyc 22 ev 0 order 0 base 1 t_us 3020
+f_24_56 cyc 22 ev 1 order 1 base 0 t_us 10204
+f_24_56 cyc 22 ev 2 order 0 base 1 t_us 19035
+f_24_56 cyc 22 ev 3 order 1 base 0 t_us 27521
+f_24_56 cyc 23 ev 0 order 0 base 1 t_us 2916
+f_24_56 cyc 23 ev 1 order 1 base 0 t_us 10646
+f_24_56 cyc 23 ev 2 order 0 base 1 t_us 18860
+f_24_56 cyc 23 ev 3 order 1 base 0 t_us 26269
+f_24_56: 35712 samples, errors 0, 64 marks
+e_0_32 stream 0: slot 0 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_0_32 stream 1: slot 32 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_0_32 stream 2: slot 1 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_0_32 stream 3: slot 62 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_0_32 run: kind e A 0 B 32 wl 1 wh 62 cycles 24
+cap_start: counter word fdee at 0ba0 (n 529), next fdef fdf0 fdf1, c0 0db1, head n 541
+e_0_32 cyc 0 ev 0 order 0 base 0 t_us 13238
+e_0_32 cyc 1 ev 0 order 1 base 0 t_us 13082
+e_0_32 cyc 2 ev 0 order 0 base 0 t_us 13064
+e_0_32 cyc 3 ev 0 order 1 base 0 t_us 13113
+e_0_32 cyc 4 ev 0 order 0 base 0 t_us 13080
+e_0_32 cyc 5 ev 0 order 1 base 0 t_us 13367
+e_0_32 cyc 6 ev 0 order 0 base 0 t_us 13081
+e_0_32 cyc 7 ev 0 order 1 base 0 t_us 13061
+e_0_32 cyc 8 ev 0 order 0 base 0 t_us 12052
+e_0_32 cyc 9 ev 0 order 1 base 0 t_us 13096
+e_0_32 cyc 10 ev 0 order 0 base 0 t_us 12086
+e_0_32 cyc 11 ev 0 order 1 base 0 t_us 13534
+e_0_32 cyc 12 ev 0 order 0 base 0 t_us 13269
+e_0_32 cyc 13 ev 0 order 1 base 0 t_us 13084
+e_0_32 cyc 14 ev 0 order 0 base 0 t_us 13102
+e_0_32 cyc 15 ev 0 order 1 base 0 t_us 13279
+e_0_32 cyc 16 ev 0 order 0 base 0 t_us 13416
+e_0_32 cyc 17 ev 0 order 1 base 0 t_us 13118
+e_0_32 cyc 18 ev 0 order 0 base 0 t_us 13075
+e_0_32 cyc 19 ev 0 order 1 base 0 t_us 13116
+e_0_32 cyc 20 ev 0 order 0 base 0 t_us 13105
+e_0_32 cyc 21 ev 0 order 1 base 0 t_us 13380
+e_0_32 cyc 22 ev 0 order 0 base 0 t_us 13096
+e_0_32 cyc 23 ev 0 order 1 base 0 t_us 13276
+e_0_32: 26944 samples, errors 0, 24 marks
+e_8_40 stream 0: slot 8 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_8_40 stream 1: slot 40 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_8_40 stream 2: slot 2 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_8_40 stream 3: slot 61 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_8_40 run: kind e A 8 B 40 wl 2 wh 61 cycles 24
+cap_start: counter word fd80 at 7d60 (n 639), next fd81 fd82 fd83, c0 7fdf, head n 641
+e_8_40 cyc 0 ev 0 order 0 base 0 t_us 14388
+e_8_40 cyc 1 ev 0 order 1 base 0 t_us 13098
+e_8_40 cyc 2 ev 0 order 0 base 0 t_us 13078
+e_8_40 cyc 3 ev 0 order 1 base 0 t_us 13068
+e_8_40 cyc 4 ev 0 order 0 base 0 t_us 13064
+e_8_40 cyc 5 ev 0 order 1 base 0 t_us 12124
+e_8_40 cyc 6 ev 0 order 0 base 0 t_us 13065
+e_8_40 cyc 7 ev 0 order 1 base 0 t_us 13111
+e_8_40 cyc 8 ev 0 order 0 base 0 t_us 13098
+e_8_40 cyc 9 ev 0 order 1 base 0 t_us 13181
+e_8_40 cyc 10 ev 0 order 0 base 0 t_us 13113
+e_8_40 cyc 11 ev 0 order 1 base 0 t_us 13153
+e_8_40 cyc 12 ev 0 order 0 base 0 t_us 12164
+e_8_40 cyc 13 ev 0 order 1 base 0 t_us 13090
+e_8_40 cyc 14 ev 0 order 0 base 0 t_us 13059
+e_8_40 cyc 15 ev 0 order 1 base 0 t_us 13092
+e_8_40 cyc 16 ev 0 order 0 base 0 t_us 13115
+e_8_40 cyc 17 ev 0 order 1 base 0 t_us 13293
+e_8_40 cyc 18 ev 0 order 0 base 0 t_us 12005
+e_8_40 cyc 19 ev 0 order 1 base 0 t_us 13104
+e_8_40 cyc 20 ev 0 order 0 base 0 t_us 13074
+e_8_40 cyc 21 ev 0 order 1 base 0 t_us 13094
+e_8_40 cyc 22 ev 0 order 0 base 0 t_us 13077
+e_8_40 cyc 23 ev 0 order 1 base 0 t_us 13295
+e_8_40: 26944 samples, errors 0, 24 marks
+e_16_48 stream 0: slot 16 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_16_48 stream 1: slot 48 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_16_48 stream 2: slot 3 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_16_48 stream 3: slot 60 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_16_48 run: kind e A 16 B 48 wl 3 wh 60 cycles 24
+cap_start: counter word fd21 at ef00 (n 734), next fd22 fd23 fd24, c0 f1de, head n 741
+e_16_48 cyc 0 ev 0 order 0 base 0 t_us 13091
+e_16_48 cyc 1 ev 0 order 1 base 0 t_us 13432
+e_16_48 cyc 2 ev 0 order 0 base 0 t_us 13079
+e_16_48 cyc 3 ev 0 order 1 base 0 t_us 13197
+e_16_48 cyc 4 ev 0 order 0 base 0 t_us 12090
+e_16_48 cyc 5 ev 0 order 1 base 0 t_us 13485
+e_16_48 cyc 6 ev 0 order 0 base 0 t_us 12733
+e_16_48 cyc 7 ev 0 order 1 base 0 t_us 13473
+e_16_48 cyc 8 ev 0 order 0 base 0 t_us 13087
+e_16_48 cyc 9 ev 0 order 1 base 0 t_us 13089
+e_16_48 cyc 10 ev 0 order 0 base 0 t_us 13104
+e_16_48 cyc 11 ev 0 order 1 base 0 t_us 13129
+e_16_48 cyc 12 ev 0 order 0 base 0 t_us 13120
+e_16_48 cyc 13 ev 0 order 1 base 0 t_us 13213
+e_16_48 cyc 14 ev 0 order 0 base 0 t_us 13324
+e_16_48 cyc 15 ev 0 order 1 base 0 t_us 13356
+e_16_48 cyc 16 ev 0 order 0 base 0 t_us 13237
+e_16_48 cyc 17 ev 0 order 1 base 0 t_us 13086
+e_16_48 cyc 18 ev 0 order 0 base 0 t_us 13119
+e_16_48 cyc 19 ev 0 order 1 base 0 t_us 13104
+e_16_48 cyc 20 ev 0 order 0 base 0 t_us 13104
+e_16_48 cyc 21 ev 0 order 1 base 0 t_us 13459
+e_16_48 cyc 22 ev 0 order 0 base 0 t_us 13477
+e_16_48 cyc 23 ev 0 order 1 base 0 t_us 12159
+e_16_48: 26880 samples, errors 0, 24 marks
+e_24_56 stream 0: slot 24 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_24_56 stream 1: slot 56 role test AR 31 D1R 24 DL 4 D2R 0 RR 0 KRS 15 VOFF 0
+e_24_56 stream 2: slot 4 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_24_56 stream 3: slot 63 role witness AR 31 D1R 31 DL 31 D2R 31 RR 31 KRS 1
+e_24_56 run: kind e A 24 B 56 wl 4 wh 63 cycles 24
+cap_start: counter word fdb0 at 61e0 (n 591), next fdb1 fdb2 fdb3, c0 642f, head n 616
+e_24_56 cyc 0 ev 0 order 0 base 0 t_us 12976
+e_24_56 cyc 1 ev 0 order 1 base 0 t_us 13399
+e_24_56 cyc 2 ev 0 order 0 base 0 t_us 13105
+e_24_56 cyc 3 ev 0 order 1 base 0 t_us 13116
+e_24_56 cyc 4 ev 0 order 0 base 0 t_us 13096
+e_24_56 cyc 5 ev 0 order 1 base 0 t_us 13094
+e_24_56 cyc 6 ev 0 order 0 base 0 t_us 12130
+e_24_56 cyc 7 ev 0 order 1 base 0 t_us 13140
+e_24_56 cyc 8 ev 0 order 0 base 0 t_us 13094
+e_24_56 cyc 9 ev 0 order 1 base 0 t_us 13138
+e_24_56 cyc 10 ev 0 order 0 base 0 t_us 12068
+e_24_56 cyc 11 ev 0 order 1 base 0 t_us 13070
+e_24_56 cyc 12 ev 0 order 0 base 0 t_us 13106
+e_24_56 cyc 13 ev 0 order 1 base 0 t_us 13103
+e_24_56 cyc 14 ev 0 order 0 base 0 t_us 13283
+e_24_56 cyc 15 ev 0 order 1 base 0 t_us 13096
+e_24_56 cyc 16 ev 0 order 0 base 0 t_us 13079
+e_24_56 cyc 17 ev 0 order 1 base 0 t_us 13089
+e_24_56 cyc 18 ev 0 order 0 base 0 t_us 13497
+e_24_56 cyc 19 ev 0 order 1 base 0 t_us 13105
+e_24_56 cyc 20 ev 0 order 0 base 0 t_us 13391
+e_24_56 cyc 21 ev 0 order 1 base 0 t_us 13086
+e_24_56 cyc 22 ev 0 order 0 base 0 t_us 12023
+e_24_56 cyc 23 ev 0 order 1 base 0 t_us 13107
+e_24_56: 26944 samples, errors 0, 24 marks

@@ -1,0 +1,6 @@
+stream_replay tests/sgc_lfo/hw9 lf_3: 264960 samples, c0 f2e0, K 1225, compared up to sample 264960
+  stream 0 (slot 0, bus 0, r00 0204 r18 0000 r1c c007 r28 0020): onset 227, key-on boundary -1: 88/264737, first mismatch at 311 (+84): hw 511984 model 520176
+  stream 1 (slot 1, bus 1, r00 0204 r18 0000 r1c b007 r28 0020): onset 227, key-on boundary -1: 126/264737, first mismatch at 349 (+122): hw 511984 model 520176
+  stream 2 (slot 2, bus 2, r00 0204 r18 0000 r1c a007 r28 0020): onset 227, key-on boundary -1: 434/264737, first mismatch at 657 (+430): hw 511984 model 520176
+  stream 3 (slot 3, bus 3, r00 0204 r18 0000 r1c 9007 r28 0020): onset 227, key-on boundary -1: 720/264737, first mismatch at 943 (+716): hw 511984 model 520176
+stream_replay lf_3: MISMATCH

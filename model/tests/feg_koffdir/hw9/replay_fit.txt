@@ -1,0 +1,7 @@
+replay_fit tests/feg_koffdir/hw9: 45376 samples, first 691, c0 b2b5, key-on sample 227 (MDEC_CT af1f), fit window 227..43956, sync MDEC_CT ff3d
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 0, envelope clock on even MDEC_CT
+  LFSR: f(af1f) = 18f7e fits all 43728 noise samples; f(sync ff3d - 1) = 0a0df (45027 samples on)
+replay_fit tests/feg_koffdir/hw9: mdec ff3d lfsr 0a0df K 0 par 0 -> tests/feg_koffdir/hw9/replay.txt

@@ -15,6 +15,9 @@ int test_main(void) {
     for (int i = 0; i < 4096; i++) { x = x * 1103515245u + 12345u; noise[i] = (int16_t)((int32_t)((x >> 16) & 0x1FFF) - 0x1000); }
     for (int i = 0; i < 64; i++) noise[4096 + i] = noise[i];
     static const struct { int oct, fns; } pv[4] = {{0, 0x3F0}, {2, 0x100}, {13, 0x200}, {0, 0x050}};
+    out_bin("ramp.bin", ramp, sizeof ramp);
+    out_bin("noise.bin", noise, sizeof noise);
+    LOG("ramfile 020000 ramp.bin\nramfile 030000 noise.bin\n");   /* tools/stream_replay */
     for (int r = 0; r < 2; r++) {
         aica_quiet();
         ram_write(0x20000, ramp, sizeof ramp);
@@ -34,6 +37,9 @@ int test_main(void) {
             }
             c.ISEL = k; c.VOFF = 1;
             slot_write(k, &c);
+            char nm[32];
+            snprintf(nm, sizeof nm, "l2_%d", r);
+            slot_log(nm, k, k, &c);
         }
         static const int mixs[NS] = {0, 1, 2, 3};
         if (cap_start(NS, mixs, capbuf, MAXV)) { OUT("cap_start failed\n"); return 1; }

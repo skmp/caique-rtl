@@ -1,0 +1,7 @@
+replay_fit tests/sub_frame/hw9: 45376 samples, first 544, c0 0fa2, key-on sample 226 (MDEC_CT 0ca0), fit window 226..43957, sync MDEC_CT 5cbc
+  stream 0 (D1R 1, R 3): 1 K fit
+  stream 1 (D1R 6, R 13): 8 K fit
+  stream 2 (D1R 22, R 45): 2048 K fit
+  K = 10923, envelope clock on ODD MDEC_CT
+  LFSR: f(0ca0) = 1fa5e fits all 43730 noise samples; f(sync 5cbc - 1) = 14801 (45029 samples on)
+replay_fit tests/sub_frame/hw9: mdec 5cbc lfsr 14801 K 10923 par 1 -> tests/sub_frame/hw9/replay.txt

@@ -5,13 +5,13 @@
 // log line), eg_K = 6491 (the console boot of tests/feg_track and tests/eg_lock), the key-on lands on the onset
 // sample, and the key-off sample is searched between the mark and mark + 400 samples (the marks are head estimates).
 // Expected: TOTAL full=9/9 samples=77862/77862.
-// Build: make -C tools feg_validate (-> build/tools/feg_validate; links src/aica_model.cpp)
+// Build: make -C tools feg_validate (-> build/tools/feg_validate; links sample-model/aica_model.cpp)
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <string>
 #include <vector>
-#include "../src/aica_model.h"
+#include "aica_model.h"   /* -I../sample-model or -I../cycle-model (tools/Makefile) */
 #include "filt_capture.h"
 
 struct Cfg { int flv[5], rate[4], krs, oct, fns; };
@@ -65,19 +65,19 @@ int main() {
             m.write(0x40, (c.rate[0] << 8) | c.rate[1]);
             m.write(0x44, (c.rate[2] << 8) | c.rate[3]);
             for (int i = 0; i < 16; i++) m.step();
-            m.MDEC_CT = (md_on + 1) & 0xFFFF;
+            m.MDEC_CT = (md_on + 2) & 0xFFFF;   /* the step of a sample has MDEC_CT = capture + 1 */
             m.write(0x00, (1 << 9) | 0x4000 | 0x8000); m.step();   /* KYONB + KYONEX: boundary sample, then the onset */
             auto run = [&](int koff, int *bad) -> int {   /* samples from the onset that agree with u; -1 = all */
                 for (int n = 0; n < (int)u.size(); n++) {
                     if (n + 1 == koff) m.write(0x00, (1 << 9) | 0x8000);   /* KYONB 0 + KYONEX: key-off on sample koff */
                     m.step();
-                    if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { *bad = n; return n; }
+                    if (u[n] >= 0 && u[n] != (m.slot[0].FEG.vo >> 1)) { *bad = n; return n; }
                 }
                 return (int)u.size();
             };
             int lo = m2 - 256, hi = m2 + 400, bad = -1, best = -1, bestko = -1;   /* the mark is a head estimate */
             // run to lo - 1, snapshot, then try every key-off sample
-            for (int n = 0; n < lo - 1; n++) { m.step(); if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { bad = n; break; } }
+            for (int n = 0; n < lo - 1; n++) { m.step(); if (u[n] >= 0 && u[n] != (m.slot[0].FEG.vo >> 1)) { bad = n; break; } }
             if (bad < 0) {
                 snap_take(*snap, m);
                 for (int ko = lo; ko <= hi; ko++) {
@@ -88,7 +88,7 @@ int main() {
                     for (int n = lo - 1; n < (int)u.size(); n++) {
                         if (n + 1 == ko) m.write(0x00, (1 << 9) | 0x8000);
                         m.step();
-                        if (u[n] >= 0 && u[n] != (m.slot[0].FEG.v >> 1)) { b2 = n; break; }
+                        if (u[n] >= 0 && u[n] != (m.slot[0].FEG.vo >> 1)) { b2 = n; break; }
                         got = n + 1;
                     }
                     if (got > best) { best = got; bestko = ko; bad = b2; }

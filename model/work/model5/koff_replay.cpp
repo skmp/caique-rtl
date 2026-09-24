@@ -6,12 +6,12 @@
 // the runs used here (all releases finished, the witness off), except a held RR 0 release (koff_d2 slot 2), whose
 // key-on during release loads 0x280 either way.  Template: tools/eg_model.cpp.
 //   koff_replay <capture prefix> <c0 hex> <run koff_att|koff_d2|koff_d2b> <E_A> <E_B> [N=1200]
-// Build: g++ -O2 -std=c++17 -o build/work/koff_replay work/model5/koff_replay.cpp src/aica_model.cpp   (from model/)
+// Build: g++ -O2 -std=c++17 -o build/work/koff_replay work/model5/koff_replay.cpp sample-model/aica_model.cpp   (from model/)
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <string>
-#include "../../src/aica_model.h"
+#include "../../sample-model/aica_model.h"
 #include "../../tools/filt_capture.h"
 using namespace caique;
 

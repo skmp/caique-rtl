@@ -1,0 +1,42 @@
+hwrun: 15:16:07 lock taken by pid 249517 for /home/skmp/projects/dreamster/caique-rtl/model/build/hw/hw9/sgc_aeg.elf
+Executing at <0xac010000>
+Sending execute command (0xac010000, console=1, cdfsredir=0)...executing
+
+--
+KallistiOS v2.1.0
+  Git revision: a02b86e8
+  Tue Mar  3 18:50:08 EET 2026
+  skmp@flora.localdomain:/opt/toolchains/dc/kos
+  sh-elf-gcc (GCC) 13.2.0
+thd: pre-emption enabled, HZ=100
+maple: active drivers:
+    Dreameye (Camera): Camera
+    Sound Input Peripheral: Microphone
+    PuruPuru (Vibration) Pack: JumpPack
+    VMU Driver: Clock, LCD, MemoryCard
+    Mouse Driver: Mouse
+    Keyboard Driver: Keyboard
+    Controller Driver: Controller
+    Lightgun: LightGun
+  DMA Buffer at acee8240
+vid_set_mode: 640x480 VGA with 1 framebuffers.
+dc-load console support enabled
+maple: attached devices:
+  A0: Dreamcast Controller           (01000000: Controller)
+
+att_31_28: 20288 samples, counter errors 0, 41034 EG monitor reads, 1079 changes
+att_27_24: 38080 samples, counter errors 0, 75698 EG monitor reads, 2016 changes
+att_22_16: 91008 samples, counter errors 0, 180841 EG monitor reads, 5063 changes
+att_14_08: 267392 samples, counter errors 0, 531395 EG monitor reads, 15090 changes
+att_06_01: 487936 samples, counter errors 0, 969830 EG monitor reads, 27196 changes
+dec_a: 68992 samples, counter errors 0, 137402 EG monitor reads, 3799 changes
+dec_b: 267392 samples, counter errors 0, 531465 EG monitor reads, 14891 changes
+dec_dl: 113088 samples, counter errors 0, 225430 EG monitor reads, 6340 changes
+dec2: 135104 samples, counter errors 0, 272773 EG monitor reads, 140 changes
+rel_a: 71168 samples, counter errors 0, 143348 EG monitor reads, 292 changes
+rel_b: 357824 samples, counter errors 0, 722099 EG monitor reads, 2404 changes
+
+arch: exit return code 0
+arch: shutting down kernel
+maple: final stats -- device count = 23, vbl_cntr = 2881, dma_cntr = 2879
+vid_set_mode: 640x480 VGA with 1 framebuffers.

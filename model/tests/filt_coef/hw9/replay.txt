@@ -1,0 +1,2 @@
+# tools/replay_fit tests/filt_coef/hw9: sync sample MDEC_CT, the LFSR at the sample boundary after it, the envelope constant
+mdec c51d lfsr 0f148 K 0 par 0

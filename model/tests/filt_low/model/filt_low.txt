@@ -2,35 +2,35 @@ fl_0 stream 0: F 0000 Q 4 lpoff 0
 fl_0 stream 1: F 0200 Q 4 lpoff 0
 fl_0 stream 2: F 0400 Q 4 lpoff 0
 fl_0 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fd31 at e940 (n 718), next fd32 fd33 fd34, c0 ec0e, head n 728
+cap_start: counter word fd39 at da80 (n 710), next fd3a fd3b fd3c, c0 dd46, head n 715
 fl_0: 176640 samples, errors 0
 fl_1 stream 0: F 0600 Q 4 lpoff 0
 fl_1 stream 1: F 0800 Q 4 lpoff 0
 fl_1 stream 2: F 0a00 Q 4 lpoff 0
 fl_1 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fdd9 at 2100 (n 550), next fdda fddb fddc, c0 2326, head n 557
+cap_start: counter word fdfc at 03a0 (n 515), next fdfd fdfe fdff, c0 05a3, head n 532
 fl_1: 88448 samples, errors 0
 fl_2 stream 0: F 0c00 Q 4 lpoff 0
 fl_2 stream 1: F 0e00 Q 4 lpoff 0
 fl_2 stream 2: F 1000 Q 4 lpoff 0
 fl_2 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fd77 at b0e0 (n 648), next fd78 fd79 fd7a, c0 b368, head n 679
+cap_start: counter word fd88 at 84c0 (n 631), next fd89 fd8a fd8b, c0 8737, head n 645
 fl_2: 44352 samples, errors 0
 fl_3 stream 0: F 1200 Q 4 lpoff 0
 fl_3 stream 1: F 1400 Q 4 lpoff 0
 fl_3 stream 2: F 1600 Q 4 lpoff 0
 fl_3 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fd2f at eca0 (n 720), next fd30 fd31 fd32, c0 ef70, head n 736
+cap_start: counter word fd65 at b200 (n 666), next fd66 fd67 fd68, c0 b49a, head n 687
 fl_3: 44352 samples, errors 0
 fl_4 stream 0: F 01fe Q 4 lpoff 0
 fl_4 stream 1: F 0955 Q 4 lpoff 0
 fl_4 stream 2: F 13fe Q 4 lpoff 0
 fl_4 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fddf at 2920 (n 544), next fde0 fde1 fde2, c0 2b40, head n 565
+cap_start: counter word fd2c at df00 (n 723), next fd2d fd2e fd2f, c0 e1d3, head n 726
 fl_4: 176640 samples, errors 0
 fl_5 stream 0: F 0a00 Q 0 lpoff 0
 fl_5 stream 1: F 0a00 Q 31 lpoff 0
 fl_5 stream 2: F 0400 Q 31 lpoff 0
 fl_5 stream 3: F 0000 Q 0 lpoff 1
-cap_start: counter word fda4 at 60a0 (n 603), next fda5 fda6 fda7, c0 62fb, head n 613
+cap_start: counter word fdfa at 0820 (n 517), next fdfb fdfc fdfd, c0 0a25, head n 537
 fl_5: 176640 samples, errors 0

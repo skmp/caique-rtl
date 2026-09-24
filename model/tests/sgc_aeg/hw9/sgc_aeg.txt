@@ -1,0 +1,78 @@
+ramfile 010000 const.bin
+slotregs att_31_28 0 0 0201 0000 0000 0020 001f 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_31_28 1 1 0201 0000 0000 0020 001e 3c1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_31_28 2 2 0201 0000 0000 0020 001d 3c1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_31_28 3 3 0201 0000 0000 0020 001c 3c1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fe7c at 0000 (n 387), next fe7d fe7e fe7f, c0 0183, head n 532
+att_31_28: 20288 samples, counter errors 0, 41034 EG monitor reads, 1079 changes
+capture att_31_28 c0 0183 first 533 samples 20288 head n 1525 t_head_us 2002628
+slotregs att_27_24 0 0 0201 0000 0000 0020 001b 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_27_24 1 1 0201 0000 0000 0020 001a 3c1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_27_24 2 2 0201 0000 0000 0020 0019 3c1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_27_24 3 3 0201 0000 0000 0020 0018 3c1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd92 at 8a40 (n 621), next fd93 fd94 fd95, c0 8cad, head n 652
+att_27_24: 38080 samples, counter errors 0, 75698 EG monitor reads, 2016 changes
+capture att_27_24 c0 8cad first 653 samples 38080 head n 652 t_head_us 2657409
+slotregs att_22_16 0 0 0201 0000 0000 0020 0016 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_22_16 1 1 0201 0000 0000 0020 0014 3c1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_22_16 2 2 0201 0000 0000 0020 0012 3c1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_22_16 3 3 0201 0000 0000 0020 0010 3c1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd57 at c920 (n 680), next fd58 fd59 fd5a, c0 cbc8, head n 707
+att_22_16: 91008 samples, counter errors 0, 180841 EG monitor reads, 5063 changes
+capture att_22_16 c0 cbc8 first 708 samples 91008 head n 707 t_head_us 3778079
+slotregs att_14_08 0 0 0201 0000 0000 0020 000e 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_14_08 1 1 0201 0000 0000 0020 000c 3c1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_14_08 2 2 0201 0000 0000 0020 000a 3c1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_14_08 3 3 0201 0000 0000 0020 0008 3c1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fde6 at 2560 (n 537), next fde7 fde8 fde9, c0 2779, head n 564
+att_14_08: 267392 samples, counter errors 0, 531395 EG monitor reads, 15090 changes
+capture att_14_08 c0 2779 first 565 samples 267392 head n 564 t_head_us 6216017
+slotregs att_06_01 0 0 0201 0000 0000 0020 0006 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_06_01 1 1 0201 0000 0000 0020 0004 3c1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_06_01 2 2 0201 0000 0000 0020 0002 3c1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs att_06_01 3 3 0201 0000 0000 0020 0001 3c1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd79 at 8b40 (n 646), next fd7a fd7b fd7c, c0 8dc6, head n 653
+att_06_01: 487936 samples, counter errors 0, 969830 EG monitor reads, 27196 changes
+capture att_06_01 c0 8dc6 first 654 samples 487936 head n 653 t_head_us 13054705
+slotregs dec_a 0 0 0201 0000 0000 0020 07df 3d1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_a 1 1 0201 0000 0000 0020 071f 3d1f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_a 2 2 0201 0000 0000 0020 061f 3d1f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_a 3 3 0201 0000 0000 0020 051f 3d1f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdb8 at 3e40 (n 583), next fdb9 fdba fdbb, c0 4087, head n 586
+dec_a: 68992 samples, counter errors 0, 137402 EG monitor reads, 3799 changes
+capture dec_a c0 4087 first 587 samples 68992 head n 586 t_head_us 25388883
+slotregs dec_b 0 0 0201 0000 0000 0020 041f 3c9f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_b 1 1 0201 0000 0000 0020 031f 3c9f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_b 2 2 0201 0000 0000 0020 021f 3c9f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_b 3 3 0201 0000 0000 0020 011f 3c9f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd14 at f5e0 (n 747), next fd15 fd16 fd17, c0 f8cb, head n 750
+dec_b: 267392 samples, counter errors 0, 531465 EG monitor reads, 14891 changes
+capture dec_b c0 f8cb first 751 samples 267392 head n 750 t_head_us 27295256
+slotregs dec_dl 0 0 0201 0000 0000 0020 061f 3c3f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_dl 1 1 0201 0000 0000 0020 061f 3dff 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_dl 2 2 0201 0000 0000 0020 061f 3fdf 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec_dl 3 3 0201 0000 0000 0020 061f 3fff 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fdb4 at 5ae0 (n 587), next fdb5 fdb6 fdb7, c0 5d2b, head n 610
+dec_dl: 113088 samples, counter errors 0, 225430 EG monitor reads, 6340 changes
+capture dec_dl c0 5d2b first 611 samples 113088 head n 610 t_head_us 34139927
+slotregs dec2 0 0 0201 0000 0000 0020 e7df 3c5f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec2 1 1 0201 0000 0000 0020 c7df 3c5f 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec2 2 2 0201 0000 0000 0020 a7df 3c5f 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs dec2 3 3 0201 0000 0000 0020 87df 3c5f 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fda8 at 5600 (n 599), next fda9 fdaa fdab, c0 5857, head n 606
+dec2: 135104 samples, counter errors 0, 272773 EG monitor reads, 140 changes
+capture dec2 c0 5857 first 607 samples 135104 head n 606 t_head_us 37139907
+slotregs rel_a 0 0 0201 0000 0000 0020 001f 3c1f 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_a 1 1 0201 0000 0000 0020 001f 3c1c 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_a 2 2 0201 0000 0000 0020 001f 3c18 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_a 3 3 0201 0000 0000 0020 001f 3c14 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fde9 at 03e0 (n 534), next fdea fdeb fdec, c0 05f6, head n 535
+rel_a: 71168 samples, counter errors 0, 143348 EG monitor reads, 292 changes
+capture rel_a c0 05f6 first 536 samples 71168 head n 535 t_head_us 40587386
+slotregs rel_b 0 0 0201 0000 0000 0020 001f 3c10 0000 0000 00f0 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_b 1 1 0201 0000 0000 0020 001f 3c0c 0000 0000 00f1 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_b 2 2 0201 0000 0000 0020 001f 3c08 0000 0000 00f2 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+slotregs rel_b 3 3 0201 0000 0000 0020 001f 3c04 0000 0000 00f3 0000 0020 1ff8 1ff8 1ff8 1ff8 1ff8 1f1f 1f1f
+cap_start: counter word fd64 at bb20 (n 667), next fd65 fd66 fd67, c0 bdbb, head n 695
+rel_b: 357824 samples, counter errors 0, 722099 EG monitor reads, 2404 changes
+capture rel_b c0 bdbb first 696 samples 357824 head n 695 t_head_us 42496552

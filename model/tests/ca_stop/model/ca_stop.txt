@@ -1,36 +1,38 @@
 S1: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT 0 LPCTL 1 LEA 4096
-S1 t       0 us: EG 7fff (st 3 a 1fff) CA 0000
-S1 t      40 us: EG 0280 (st 0 a 280) CA 0000
-S1 t     450 us: EG 2000 (st 1 a 000) CA 0012
-S1 t    5450 us: EG 2370 (st 1 a 370) CA 00ee
-S1 t    5845 us: EG 23b8 (st 1 a 3b8) CA 0100
-S1 t    5870 us: EG 23b8 (st 1 a 3b8) CA 0101
-S1 t    5890 us: EG 23b8 (st 1 a 3b8) CA 0000
-S1 t    5895 us: EG 5fff (st 2 a 1fff) CA 0000
-S1 t   10895 us: EG 5fff (st 2 a 1fff) CA 0000
-S1 t   15895 us: EG 5fff (st 2 a 1fff) CA 0000
-S1 t   20895 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t       1 us: EG 7fff (st 3 a 1fff) CA 0000
+S1 t      16 us: EG 0280 (st 0 a 280) CA 0000
+S1 t     426 us: EG 2000 (st 1 a 000) CA 0011
+S1 t    5426 us: EG 2370 (st 1 a 370) CA 00ed
+S1 t    5841 us: EG 23b8 (st 1 a 3b8) CA 0100
+S1 t    5866 us: EG 43c0 (st 2 a 3c0) CA 0101
+S1 t    5886 us: EG 43c0 (st 2 a 3c0) CA 0000
+S1 t   10886 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   15886 us: EG 5fff (st 2 a 1fff) CA 0000
+S1 t   20886 us: EG 5fff (st 2 a 1fff) CA 0000
 S1 end: EG 5fff CA 0000
 S2: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT -1 LPCTL 1 LEA 4096
 S2 t       0 us: EG 7fff (st 3 a 1fff) CA 0000
-S2 t      40 us: EG 0280 (st 0 a 280) CA 0000
-S2 t     425 us: EG 2000 (st 1 a 000) CA 0008
-S2 t    5425 us: EG 2370 (st 1 a 370) CA 0076
-S2 t    5840 us: EG 23b8 (st 1 a 3b8) CA 0080
-S2 t    5865 us: EG 5fff (st 2 a 1fff) CA 0000
-S2 t   10865 us: EG 5fff (st 2 a 1fff) CA 0000
-S2 t   15865 us: EG 5fff (st 2 a 1fff) CA 0000
-S2 t   20865 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t      10 us: EG 0280 (st 0 a 280) CA 0000
+S2 t     395 us: EG 2000 (st 1 a 000) CA 0008
+S2 t    5395 us: EG 2370 (st 1 a 370) CA 0076
+S2 t    5790 us: EG 23b8 (st 1 a 3b8) CA 007f
+S2 t    5835 us: EG 43c0 (st 2 a 3c0) CA 0080
+S2 t    5855 us: EG 43c0 (st 2 a 3c0) CA 0000
+S2 t   10855 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   15855 us: EG 5fff (st 2 a 1fff) CA 0000
+S2 t   20855 us: EG 5fff (st 2 a 1fff) CA 0000
 S2 end: EG 5fff CA 0000
 S3: AR 31 D1R 31 DL 30 D2R 10 RR 31 OCT 0 LPCTL 0 LEA 4096
 S3 t       0 us: EG 7fff (st 3 a 1fff) CA 0000
-S3 t      40 us: EG 0280 (st 0 a 280) CA 0000
-S3 t     425 us: EG 2000 (st 1 a 000) CA 0011
-S3 t    5425 us: EG 2370 (st 1 a 370) CA 00ed
-S3 t    5845 us: EG 23b8 (st 1 a 3b8) CA 0100
-S3 t    5865 us: EG 23b8 (st 1 a 3b8) CA 0000
-S3 t    5870 us: EG 5fff (st 2 a 1fff) CA 0000
-S3 t   10870 us: EG 5fff (st 2 a 1fff) CA 0000
-S3 t   15870 us: EG 5fff (st 2 a 1fff) CA 0000
-S3 t   20870 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t       5 us: EG 0280 (st 0 a 280) CA 0000
+S3 t     390 us: EG 2000 (st 1 a 000) CA 0010
+S3 t    5390 us: EG 2370 (st 1 a 370) CA 00ec
+S3 t    5785 us: EG 23b8 (st 1 a 3b8) CA 00fe
+S3 t    5805 us: EG 23b8 (st 1 a 3b8) CA 00ff
+S3 t    5830 us: EG 43c0 (st 2 a 3c0) CA 0100
+S3 t    5850 us: EG 43c0 (st 2 a 3c0) CA 0000
+S3 t   10850 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   15850 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   20850 us: EG 5fff (st 2 a 1fff) CA 0000
+S3 t   25850 us: EG 5fff (st 2 a 1fff) CA 0000
 S3 end: EG 5fff CA 0000

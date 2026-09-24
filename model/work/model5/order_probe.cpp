@@ -1,6 +1,6 @@
 // order_probe: in the model, at which step does (a) a MIXS3 CPU write, (b) an SA-hi toggle on a VOFF-1 slot, (c) a KYONEX
 // key-on of a witness show up in the MIXS values the DSP sees (the capture)?  All three written between the same two steps.
-#include "../../src/aica_model.h"
+#include "../../sample-model/aica_model.h"
 #include <cstdio>
 using namespace caique;
 int main() {

@@ -2,11 +2,11 @@ l2_0 stream 0: square PLFOS 7 OCT 0 FNS 3f0
 l2_0 stream 1: square PLFOS 7 OCT 2 FNS 100
 l2_0 stream 2: square PLFOS 7 OCT 13 FNS 200
 l2_0 stream 3: square PLFOS 7 OCT 0 FNS 050
-cap_start: counter word fd3e at e940 (n 705), next fd3f fd40 fd41, c0 ec01, head n 728
+cap_start: counter word fd46 at da80 (n 697), next fd47 fd48 fd49, c0 dd39, head n 715
 l2_0: 31232 samples, errors 0
 l2_1 stream 0: FEG FAR 24 FD1R 26 FD2R 20 FRR 28 Q 4
 l2_1 stream 1: FEG FAR 22 FD1R 24 FD2R 20 FRR 28 Q 4
 l2_1 stream 2: FEG FAR 20 FD1R 22 FD2R 20 FRR 28 Q 4
 l2_1 stream 3: FEG FAR 18 FD1R 20 FD2R 20 FRR 28 Q 4
-cap_start: counter word fdbf at 5860 (n 576), next fdc0 fdc1 fdc2, c0 5aa0, head n 605
+cap_start: counter word fdc2 at 3ae0 (n 573), next fdc3 fdc4 fdc5, c0 3d1d, head n 580
 l2_1: 18880 samples, errors 0
